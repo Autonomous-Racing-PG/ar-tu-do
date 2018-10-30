@@ -1,0 +1,4 @@
+<launch>
+    <node name="listener" pkg="auto_race_pg" type="listener" output="screen"/>
+    <node name="talker" pkg="auto_race_pg" type="talker" output="screen"/>
+</launch>
