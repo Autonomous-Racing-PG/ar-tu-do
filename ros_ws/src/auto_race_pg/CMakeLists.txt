@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(auto_race_pg)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++1y)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -200,7 +200,7 @@ add_dependencies(listener auto_race_pg_generate_messages_cpp)
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_auto_race_pg.cpp)
+catkin_add_gtest(${PROJECT_NAME}-test test/test_auto_race_pg.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
