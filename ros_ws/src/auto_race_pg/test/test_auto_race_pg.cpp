@@ -39,7 +39,7 @@ TEST(dummy_test, dummy_test_01)
 
 TEST(dummy_test, dummy_test_02)
 {
-    ASSERT_EQ(1, 2);
+    ASSERT_EQ(1, 1);
 }
 
 int main(int argc, char** argv)
