@@ -3,4 +3,6 @@ ros_ws/build/
 
 ros_ws/devel/
 
-ros_ws/CMakeLists.txt
+ros_ws/src/CMakeLists.txt
+
+ros_ws/\.catkin_workspace
