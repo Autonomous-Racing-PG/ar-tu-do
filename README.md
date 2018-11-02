@@ -43,7 +43,18 @@ Before you first use it, you need to install it like this:
 
 These instructions will help you contribute code to the project
 
+<<<<<<< HEAD
 ### Format C++ and Python code
+=======
+### Git Hooks
+
+To install the repos git hooks run
+```sh
+scripts/hooks/_install.sh
+```
+
+### Format c++ code
+>>>>>>> Added pre-commit git hook for clang-format
 
 ```
 ./scripts/format/format-src.sh
