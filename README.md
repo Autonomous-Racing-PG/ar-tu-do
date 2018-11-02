@@ -31,15 +31,27 @@ source devel/setup.zsh
 roslaunch dev.launch
 ```
 
+### Python setup
+
+This project uses `autopep8` for automatic code formatting.
+Before you first use it, you need to install it like this:
+
+    sudo apt-get install pip
+    pip install --upgrade autopep8
+
 ## Contributing
 
 These instructions will help you contribute code to the project
 
-### Format c++ code
+### Format C++ and Python code
 
 ```
-./scripts/clang-format/format-src.sh
+./scripts/format/format-src.sh
 ```
+
+The python code is formatted with [autopep8](https://github.com/hhatto/autopep8).
+It is currently configured with the aggressive flags.
+Thus, you need to review the changes it made.
 
 ## Authors
 
