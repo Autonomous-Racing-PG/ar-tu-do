@@ -18,7 +18,7 @@
   </include>
 
   
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find racer_description)/urdf/racer.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
 
   <node name="racer_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
    args="-urdf -param robot_description -model racer" />
