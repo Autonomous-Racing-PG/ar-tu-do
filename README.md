@@ -45,6 +45,13 @@ Before you first use it, you need to install it like this:
 
 These instructions will help you contribute code to the project
 
+### Git Hooks
+
+To install the repos git hooks run
+```sh
+scripts/hooks/_install.sh
+```
+
 ### Format C++ and Python code
 
 ```
