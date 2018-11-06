@@ -9,6 +9,7 @@
   <xacro:include filename="$(find racer_description)/urdf/macros.xacro" />
   <xacro:property name="cameraSize" value="0.05"/>
   <xacro:property name="cameraMass" value="0.1"/>
+  <xacro:property name="cameraIner" value="(${cameraMass}/12 * (2*(${cameraSize}**2)))"/>
 
 
   <!--  body  -->
@@ -195,7 +196,7 @@
       <mass value="${cameraMass}" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <box_inertia m="${cameraMass}" x="${cameraSize}" y="${cameraSize}" z="${cameraSize}" />
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1" />
     </inertial>
   </link>
 
