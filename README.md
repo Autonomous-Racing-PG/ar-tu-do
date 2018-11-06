@@ -2,6 +2,8 @@
 
 Autonomous Racing - Project Group - TU Dortmund
 
+[![Build Status](https://travis-ci.com/Autonomous-Racing-PG/ros.package.svg?branch=master)](https://travis-ci.com/Autonomous-Racing-PG/ros.package)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running
