@@ -15,7 +15,6 @@ class RemoteControl
 
     int             linear_, angular_;
     double          l_scale_, a_scale_;
-
     ros::Publisher  ros_out;
     ros::Subscriber joy_in;
     ros::Subscriber ros_in;
@@ -59,8 +58,6 @@ int main(int argc, char** argv)
 {
     ros::init(argc, argv, "remove_control");
     RemoteControl remove_control;
-
-    std::cout << "remove main started" << std::endl;
 
     ros::spin();
 }

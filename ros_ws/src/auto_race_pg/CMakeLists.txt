@@ -131,9 +131,9 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener auto_race_pg_generate_messages_cpp)
 
 # remote controll node 
-add_executable(remote_controll src/remote_controll.cpp)
-target_link_libraries(remote_controll ${catkin_LIBRARIES})
-add_dependencies(remote_controll auto_race_pg_generate_messages_cpp)
+add_executable(remote_control src/remote_control.cpp)
+target_link_libraries(remote_control ${catkin_LIBRARIES})
+add_dependencies(remote_control auto_race_pg_generate_messages_cpp)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
