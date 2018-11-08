@@ -1,5 +1,3 @@
 <launch>
-    <node name="listener" pkg="auto_race_pg" type="listener" output="screen"/>
-    <node name="talker" pkg="auto_race_pg" type="talker" output="screen"/>
     <node name="remote_control" pkg="auto_race_pg" type="remote_control" output="screen"/>
 </launch>

@@ -1,15 +1,33 @@
-#include <geometry_msgs/Twist.h>
 #include <ros/ros.h>
+
+#include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
+#include <termios.h>
+#include <signal.h>
+
+#define KEYCODE_A 97; 
+#define KEYCODE_S 115; 
+#define KEYCODE_D 100; 
+#define KEYCODE_W 119; 
+
+#define KEYCODE_A 97; 
+#define KEYCODE_A 97; 
+#define KEYCODE_A 97; 
+#define KEYCODE_A 97; 
 
 class RemoteControl
 {
     public:
     RemoteControl();
+    void keyLoop();
 
     private:
     void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
     void testCallback(const geometry_msgs::Twist::ConstPtr& twist);
+
+    int getch();
+
+    void adjustCar(int angle, int speed);
 
     ros::NodeHandle nh_;
 
@@ -41,6 +59,18 @@ RemoteControl::RemoteControl()
                                             &RemoteControl::testCallback, this);
 }
 
+void RemoteControl::keyLoop() {
+    std::cout << "listening to keyboard" << std::endl;
+    std::cout << "=====================" << std::endl;
+    while (ros::ok())
+    {
+        int c = getch();   // call your non-blocking input function
+        std::cout << c << std::endl;
+
+        adjustCar(0, 0);
+    }
+}
+
 void RemoteControl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
     geometry_msgs::Twist twist;
@@ -54,10 +84,37 @@ void RemoteControl::testCallback(const geometry_msgs::Twist::ConstPtr& twist)
 
 }
 
+int RemoteControl::getch()
+{
+  static struct termios oldt, newt;
+  tcgetattr( STDIN_FILENO, &oldt);           // save old settings
+  newt = oldt;
+  newt.c_lflag &= ~(ICANON);                 // disable buffering      
+  tcsetattr( STDIN_FILENO, TCSANOW, &newt);  // apply new settings
+
+  int c = getchar();  // read character (non-blocking)
+
+  tcsetattr( STDIN_FILENO, TCSANOW, &oldt);  // restore old settings
+  return c;
+}
+
+void RemoteControl::adjustCar(int angle, int speed) {
+
+}
+
+void quit(int sig)
+{
+    ros::shutdown();
+    exit(0);
+}
+
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "remove_control");
     RemoteControl remove_control;
 
-    ros::spin();
+    signal(SIGINT, quit);
+    remove_control.keyLoop();
+
+    return 0;
 }
