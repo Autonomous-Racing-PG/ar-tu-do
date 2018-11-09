@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 
 #include <geometry_msgs/Twist.h>
+#include <std_msgs/Float64.h>
 #include <sensor_msgs/Joy.h>
 #include <termios.h>
 #include <signal.h>
@@ -11,6 +12,7 @@
 #define KEYCODE_A 97
 #define KEYCODE_S 115
 #define KEYCODE_D 100
+#define KEYCODE_SPACE 32
 
 class RemoteControl
 {
@@ -23,20 +25,28 @@ class RemoteControl
 
     int getch();
 
-    void adjustCar(float speed, float angle);
+    void adjustSpeed(double speed);
+    void adjustAngle(double angle);
 
     ros::NodeHandle nh_;
+
+    double speed;
+    double angle;
 
     int             linear_, angular_;
     double          l_scale_, a_scale_;
 
-    ros::Publisher  out_ros;
+    ros::Publisher  out_speed;
+    ros::Publisher  out_angle;
+
     ros::Subscriber in_joy;
 };
 
 RemoteControl::RemoteControl()
     : linear_(1)
     , angular_(0)
+    , speed(0)
+    , angle(0)
 {
 
     nh_.param("axis_linear", linear_, linear_);
@@ -44,7 +54,8 @@ RemoteControl::RemoteControl()
     nh_.param("scale_angular", a_scale_, a_scale_);
     nh_.param("scale_linear", l_scale_, l_scale_);
 
-    out_ros = nh_.advertise< geometry_msgs::Twist >(CONTROL_TOPIC, 1);
+    out_speed = nh_.advertise< std_msgs::Float64 >("/commands/motor/speed", 1);
+    out_angle = nh_.advertise< std_msgs::Float64 >("/commands/servo/position", 1);
 
     in_joy =
         nh_.subscribe< sensor_msgs::Joy >("joy", 10, &RemoteControl::joyCallback, this);
@@ -56,37 +67,36 @@ void RemoteControl::keyLoop() {
     while (ros::ok())
     {
 	int c = getch();
-        std::cout << c << std::endl;
-        adjustCar(0, 0);
-	
-	float speed = 0;
-	float angle = 0;
-
 	switch(c) {
 		case KEYCODE_W:
-			speed++;
+			speed += 100;
 			break;
 		case KEYCODE_S:
-			speed--;
+			speed -= 100;
 			break;
 		case KEYCODE_A:
-			angle--;
+			angle -= 0.1;
 			break;
 		case KEYCODE_D:
-			angle++;
+			angle += 0.1;
+			break;
+		case KEYCODE_SPACE:
+			speed = 0;
 			break;
 		default:
 			break;
 	}
-	adjustCar(speed, angle);
+        adjustSpeed(speed);
+        adjustAngle(angle);
     }
 }
 
 void RemoteControl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
-    float speed = joy->axes[ linear_ ];
-    float angle = joy->axes[ angular_ ];
-    adjustCar(speed, angle);
+    double speed = joy->axes[ linear_ ];
+    double angle = joy->axes[ angular_ ];
+    adjustSpeed(speed);
+    adjustAngle(angle);
 }
 
 int RemoteControl::getch()
@@ -103,12 +113,16 @@ int RemoteControl::getch()
   return c;
 }
 
-void RemoteControl::adjustCar(float speed, float angle) {
-    std::cout << speed << "  " << angle << std::endl;
-    geometry_msgs::Twist twist;
-    twist.angular.z = a_scale_ * angle;
-    twist.linear.x = l_scale_ * speed;
-    out_ros.publish(twist);
+void RemoteControl::adjustSpeed(double speed) {
+    std_msgs::Float64 msg;
+    msg.data = speed * 5000;
+    out_speed.publish(msg);
+}
+
+void RemoteControl::adjustAngle(double angle) {
+    std_msgs::Float64 msg;
+    msg.data = (angle * -0.8 +1) / 2;
+    out_angle.publish(msg);
 }
 
 void quit(int sig)
