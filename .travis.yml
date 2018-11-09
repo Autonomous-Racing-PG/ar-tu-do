@@ -62,4 +62,5 @@ script:
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
+  - chmod 755 ./scripts/travis/doxygen/generate-doxygen-doc.sh
   - ./scripts/travis/doxygen/generate-doxygen-doc.sh
