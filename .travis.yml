@@ -62,4 +62,4 @@ script:
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
-  - ./scripts/travis/doxygen/try-generate-doxygen-doc.sh
+  - ./scripts/travis/doxygen/generate-doxygen-doc.sh
