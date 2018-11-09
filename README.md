@@ -43,7 +43,7 @@ Before you first use it, you need to install it like this:
 
 ## Contributing
 
-These instructions will help you contribute code to the project
+These instructions will help you contribute code to the project.
 
 ### Git Hooks
 
@@ -68,7 +68,7 @@ Thus, you need to review the changes it made.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT and GPLv3 dual licensed - see the [MIT.LICENSE](MIT.LICENSE) and [GPLv3.LICENSE](GPLv3.LICENSE) file for details
 
 ## Acknowledgments
 
