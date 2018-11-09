@@ -6,7 +6,12 @@
 #include <termios.h>
 #include <signal.h>
 
-#define CONTROL_TOPIC "cmd_vel"
+
+#define MAX_SPEED 5000
+#define MAX_ANGLE 0.8
+
+#define TOPIC_SPEED "/commands/motor/speed"
+#define TOPIC_ANGLE "/commands/servo/position"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97
@@ -29,6 +34,8 @@ class RemoteControl
     void adjustAngle(double angle);
 
     ros::NodeHandle nh_;
+
+    std::string input;
 
     double speed;
     double angle;
@@ -54,16 +61,16 @@ RemoteControl::RemoteControl()
     nh_.param("scale_angular", a_scale_, a_scale_);
     nh_.param("scale_linear", l_scale_, l_scale_);
 
-    out_speed = nh_.advertise< std_msgs::Float64 >("/commands/motor/speed", 1);
-    out_angle = nh_.advertise< std_msgs::Float64 >("/commands/servo/position", 1);
+    out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
+    out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
 
     in_joy =
         nh_.subscribe< sensor_msgs::Joy >("joy", 10, &RemoteControl::joyCallback, this);
 }
 
 void RemoteControl::keyLoop() {
-    std::cout << "listening to keyboard and controller" << std::endl;
-    std::cout << "====================================" << std::endl;
+    std::cout << "listening to keyboard" << std::endl;
+    std::cout << "=====================" << std::endl;
     while (ros::ok())
     {
 	int c = getch();
@@ -115,13 +122,13 @@ int RemoteControl::getch()
 
 void RemoteControl::adjustSpeed(double speed) {
     std_msgs::Float64 msg;
-    msg.data = speed * 5000;
+    msg.data = speed * MAX_SPEED;
     out_speed.publish(msg);
 }
 
 void RemoteControl::adjustAngle(double angle) {
     std_msgs::Float64 msg;
-    msg.data = (angle * -0.8 +1) / 2;
+    msg.data = (angle * -MAX_ANGLE +1) / 2;
     out_angle.publish(msg);
 }
 
