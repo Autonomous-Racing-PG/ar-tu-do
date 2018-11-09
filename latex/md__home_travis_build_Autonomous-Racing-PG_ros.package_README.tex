@@ -1,0 +1,97 @@
+D\+O\+X-\/\+T\+E\+S\+T! T\+E\+ST 2018-\/11-\/16 13\+:34\+:10
+
+Autonomous Racing -\/ Project Group -\/ TU Dortmund
+
+\href{https://travis-ci.com/Autonomous-Racing-PG/ros.package}{\tt }
+
+\subsection*{Getting Started}
+
+These instructions will get you a copy of the project up and running
+
+\subsubsection*{Move to R\+OS Workspace}
+
+
+\begin{DoxyCode}
+1 cd ros\_ws
+\end{DoxyCode}
+
+
+\subsubsection*{Build R\+OS packages}
+
+
+\begin{DoxyCode}
+1 catkin\_make
+\end{DoxyCode}
+
+
+\subsubsection*{Run tests}
+
+
+\begin{DoxyCode}
+1 catkin\_make run\_tests
+\end{DoxyCode}
+
+
+\subsubsection*{Run nodes}
+
+
+\begin{DoxyCode}
+1 source devel/setup.zsh
+2 roslaunch dev.launch
+\end{DoxyCode}
+
+
+\subsubsection*{Python setup}
+
+This project uses {\ttfamily autopep8} for automatic code formatting. Before you first use it, you need to install it like this\+: \begin{DoxyVerb}sudo apt-get install pip
+pip install --upgrade autopep8
+\end{DoxyVerb}
+
+
+\subsection*{Contributing}
+
+These instructions will help you contribute code to the project.
+
+\subsubsection*{Git Hooks}
+
+To install the repos git hooks run 
+\begin{DoxyCode}
+1 scripts/hooks/\_install.sh
+\end{DoxyCode}
+
+
+\subsubsection*{Format C++ and Python code}
+
+
+\begin{DoxyCode}
+1 ./scripts/format/format-src.sh
+\end{DoxyCode}
+
+
+The python code is formatted with \href{https://github.com/hhatto/autopep8}{\tt autopep8}. It is currently configured with the aggressive flags. Thus, you need to review the changes it made.
+
+\subsection*{Documentation}
+
+
+\begin{DoxyItemize}
+\item For general information and documentation checkout the \href{https://github.com/Autonomous-Racing-PG/ros.package/wiki}{\tt wiki page}.
+\item For source code documentation checkout the auto-\/generated \href{https://autonomous-racing-pg.github.io/ros.package/html/index.html}{\tt Doxygen documentation}.
+\end{DoxyItemize}
+
+\subsection*{Authors}
+
+
+\begin{DoxyItemize}
+\item T\+O\+DO
+\end{DoxyItemize}
+
+\subsection*{License}
+
+This project is licensed under the M\+IT and G\+P\+Lv3 dual licensed -\/ see the \href{MIT.LICENSE}{\tt M\+I\+T.\+L\+I\+C\+E\+N\+SE} and \href{GPLv3.LICENSE}{\tt G\+P\+Lv3.\+L\+I\+C\+E\+N\+SE} file for details
+
+\subsection*{Acknowledgments}
+
+
+\begin{DoxyItemize}
+\item TU Dortmund 
+\end{DoxyItemize}
