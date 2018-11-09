@@ -108,6 +108,10 @@ int RemoteControl::getch()
 
 void RemoteControl::adjustCar(float speed, float angle) {
     std::cout << speed << "  " << angle << std::endl;
+    geometry_msgs::Twist twist;
+    twist.angular.z = a_scale_ * angle;
+    twist.linear.x = l_scale_ * speed;
+    out_ros.publish(twist);
 }
 
 void quit(int sig)
