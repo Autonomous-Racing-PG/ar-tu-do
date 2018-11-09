@@ -5,7 +5,7 @@
 #include <termios.h>
 #include <signal.h>
 
-#define CONTROL_TOPIC "turtle1/cmd_vel"
+#define CONTROL_TOPIC "cmd_vel"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97
