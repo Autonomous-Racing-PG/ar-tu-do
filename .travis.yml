@@ -2,6 +2,20 @@
 sudo: true
 dist: xenial
 
+
+branches:
+  except:
+    - gh-pages
+
+addons:
+  apt:
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
+
 cache:
     apt: true
     ccache: true
@@ -18,6 +32,9 @@ matrix:
 env:
   global:
     - SRC_PATH=$(pwd)
+    - GH_REPO_NAME: ros.package
+    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
+    - GH_REPO_REF: github.com/Autonomous-Racing-PG/ros.package.git
 
 before_install:
   - cd ros_ws
@@ -42,3 +59,7 @@ script:
   - source /opt/ros/${ROS_DISTRO}/setup.bash
   - catkin_make 
   - catkin_make run_tests && catkin_test_results
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - ./scripts/travis/doxygen/generate-doxygen-doc.sh
