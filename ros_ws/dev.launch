@@ -7,6 +7,15 @@
       pkg="auto_race_pg"
       type="remote_control"
       name="remote_control"
+      output="log" >
+    </node>
+
+    <!-- car control node -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="car_control"
+      name="car_control"
       output="screen" >
     </node>
 
