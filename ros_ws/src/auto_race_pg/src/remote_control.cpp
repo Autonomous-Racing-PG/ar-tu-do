@@ -1,6 +1,5 @@
 #include <ros/ros.h>
 
-#include <geometry_msgs/Twist.h>
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/Joy.h>
 #include <termios.h>
@@ -10,8 +9,8 @@
 #define MAX_SPEED 5000
 #define MAX_ANGLE 0.8
 
-#define TOPIC_SPEED "/commands/motor/speed"
-#define TOPIC_ANGLE "/commands/servo/position"
+#define TOPIC_SPEED "/set/speed"
+#define TOPIC_ANGLE "/set/position"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97
@@ -143,12 +142,12 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "remove_control");
     RemoteControl remote_control;
 
-    //std::cout << "listining to keyboard and controller" << std::endl;
-    //std::cout << "====================================" << std::endl;
+    std::cout << "listining to keyboard and controller" << std::endl;
+    std::cout << "====================================" << std::endl;
 
-    //signal(SIGINT, quit);
-    //remote_control.keyLoop();
-    //return 0;
+    signal(SIGINT, quit);
+    remote_control.keyLoop();
+    return 0;
 
-    ros::spin();
+    //ros::spin();
 }

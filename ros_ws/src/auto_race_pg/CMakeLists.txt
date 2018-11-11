@@ -130,7 +130,12 @@ include_directories(
 # target_link_libraries(listener ${catkin_LIBRARIES})
 # add_dependencies(listener auto_race_pg_generate_messages_cpp)
 
-# remote controll node 
+# car control node 
+add_executable(car_control src/car_control.cpp)
+target_link_libraries(car_control ${catkin_LIBRARIES})
+add_dependencies(car_control auto_race_pg_generate_messages_cpp)
+
+# remote control node 
 add_executable(remote_control src/remote_control.cpp)
 target_link_libraries(remote_control ${catkin_LIBRARIES})
 add_dependencies(remote_control auto_race_pg_generate_messages_cpp)
