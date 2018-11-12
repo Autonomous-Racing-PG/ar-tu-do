@@ -1,6 +1,4 @@
 <launch>
-    <!-- <node name="remote_control" pkg="auto_race_pg" type="remote_control" output="screen"/> -->
-
     <!-- remove control node -->
     <node
       respawn="true"
