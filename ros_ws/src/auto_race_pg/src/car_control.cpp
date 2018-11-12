@@ -36,7 +36,7 @@ class CarControl
 };
 
 CarControl::CarControl()
-    : run(false)
+    : run(true)
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
