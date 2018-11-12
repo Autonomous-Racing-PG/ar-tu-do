@@ -1,6 +1,4 @@
 <launch>
-    <!-- <node name="remote_control" pkg="auto_race_pg" type="remote_control" output="screen"/> -->
-
     <!-- remove control node -->
     <node
       respawn="true"
@@ -16,15 +14,6 @@
       pkg="auto_race_pg"
       type="car_control"
       name="car_control"
-      output="screen" >
-    </node>
-
-    <!-- remote keyboard -->
-    <node
-      respawn="true"
-      pkg="auto_race_pg"
-      type="remote_keyboard"
-      name="remote_keyboard"
       output="screen" >
     </node>
 
