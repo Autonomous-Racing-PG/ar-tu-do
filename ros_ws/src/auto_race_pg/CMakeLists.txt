@@ -135,11 +135,6 @@ add_executable(car_control src/car_control.cpp)
 target_link_libraries(car_control ${catkin_LIBRARIES})
 add_dependencies(car_control auto_race_pg_generate_messages_cpp)
 
-# remote keyboard node 
-add_executable(remote_keyboard src/remote_keyboard.cpp)
-target_link_libraries(remote_keyboard ${catkin_LIBRARIES})
-add_dependencies(remote_keyboard auto_race_pg_generate_messages_cpp)
-
 # remote joy node 
 add_executable(remote_joy src/remote_joy.cpp)
 target_link_libraries(remote_joy ${catkin_LIBRARIES})
