@@ -19,6 +19,24 @@
       output="screen" >
     </node>
 
+    <!-- remote keyboard -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="remote_keyboard"
+      name="remote_keyboard"
+      output="screen" >
+    </node>
+
+    <!-- remote joy -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="remote_joy"
+      name="remote_joy"
+      output="log" >
+    </node>
+
     <!-- joy node -->
     <node
       respawn="true"

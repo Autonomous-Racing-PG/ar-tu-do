@@ -1,13 +1,9 @@
 #include <ros/ros.h>
 
 #include <std_msgs/Float64.h>
-#include <sensor_msgs/Joy.h>
 #include <termios.h>
 #include <signal.h>
 
-
-#define MAX_SPEED 5000
-#define MAX_ANGLE 0.8
 
 #define TOPIC_SPEED "/set/speed"
 #define TOPIC_ANGLE "/set/position"
@@ -18,15 +14,13 @@
 #define KEYCODE_D 100
 #define KEYCODE_SPACE 32
 
-class RemoteControl
+class RemoteKeyboard
 {
     public:
-    RemoteControl();
+    RemoteKeyboard();
     void keyLoop();
 
     private:
-    void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
-
     int getch();
 
     void adjustSpeed(double speed);
@@ -36,40 +30,23 @@ class RemoteControl
 
     std::string input;
 
-    double speed;
-    double angle;
-
-    int             linear_, angular_;
-    double          l_scale_, a_scale_;
-
     ros::Publisher  out_speed;
     ros::Publisher  out_angle;
-
-    ros::Subscriber in_joy;
 };
 
-RemoteControl::RemoteControl()
-    : linear_(1)
-    , angular_(0)
-    , speed(0)
-    , angle(0)
+RemoteKeyboard::RemoteKeyboard()
 {
-
-    nh_.param("axis_linear", linear_, linear_);
-    nh_.param("axis_angular", angular_, angular_);
-    nh_.param("scale_angular", a_scale_, a_scale_);
-    nh_.param("scale_linear", l_scale_, l_scale_);
-
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
-
-    in_joy =
-        nh_.subscribe< sensor_msgs::Joy >("joy", 10, &RemoteControl::joyCallback, this);
 }
 
-void RemoteControl::keyLoop() {
+void RemoteKeyboard::keyLoop() {
     std::cout << "listening to keyboard" << std::endl;
     std::cout << "=====================" << std::endl;
+
+    double speed = 0;
+    double angle = 0;
+
     while (ros::ok())
     {
 	int c = getch();
@@ -97,15 +74,8 @@ void RemoteControl::keyLoop() {
     }
 }
 
-void RemoteControl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
-{
-    double speed = joy->axes[ linear_ ];
-    double angle = joy->axes[ angular_ ];
-    adjustSpeed(speed);
-    adjustAngle(angle);
-}
 
-int RemoteControl::getch()
+int RemoteKeyboard::getch()
 {
   static struct termios oldt, newt;
   tcgetattr( STDIN_FILENO, &oldt);           // save old settings
@@ -119,15 +89,15 @@ int RemoteControl::getch()
   return c;
 }
 
-void RemoteControl::adjustSpeed(double speed) {
+void RemoteKeyboard::adjustSpeed(double speed) {
     std_msgs::Float64 msg;
-    msg.data = speed * MAX_SPEED;
+    msg.data = speed;
     out_speed.publish(msg);
 }
 
-void RemoteControl::adjustAngle(double angle) {
+void RemoteKeyboard::adjustAngle(double angle) {
     std_msgs::Float64 msg;
-    msg.data = (angle * -MAX_ANGLE +1) / 2;
+    msg.data = (angle + 1) / 2;
     out_angle.publish(msg);
 }
 
@@ -139,15 +109,13 @@ void quit(int sig)
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "remove_control");
-    RemoteControl remote_control;
+    ros::init(argc, argv, "RemoteKeyboard");
+    RemoteKeyboard remote_keyboard;
 
-    std::cout << "listining to keyboard and controller" << std::endl;
-    std::cout << "====================================" << std::endl;
+    std::cout << "listining to keyboard" << std::endl;
+    std::cout << "=====================" << std::endl;
 
     signal(SIGINT, quit);
-    remote_control.keyLoop();
+    remote_keyboard.keyLoop();
     return 0;
-
-    //ros::spin();
 }
