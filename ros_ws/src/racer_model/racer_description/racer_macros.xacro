@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot name="racer_macros" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <!-- Inertias -->
+  <macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${m*r*r/2}" /> 
+  </macro>
+
+  <macro name="box_inertia" params="m l b h">
+    <inertia  ixx="${m*(b*b+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(l*l+h*h)/12}" iyz = "0"
+              izz="${m*(l*l+b*b)/12}" /> 
+  </macro>
+
+  <!-- Wheels -->
+  <property name="wheel_radius" value="0.05" /> 
+  <property name="wheel_height" value="0.045" />
+  <property name="wheel_mass" value="2.5" />
+  
+  <property name="base_x_origin_to_wheel_origin" value="0.16" />
+  <property name="base_y_origin_to_wheel_origin" value="0.095" />
+  <property name="base_z_origin_to_wheel_origin" value="0" />
+  
+  <xacro:macro name="wheel" params="fb lr parent translateX translateY flipY OffsetY">
+    <link name="${lr}_wheel_${fb}">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <origin xyz="0 ${OffsetY} 0" />
+        <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+      </inertial>
+
+      <collision>
+        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/2} 0 0 " />
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/180} 0  0 " /> 
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+      </visual>      
+    </link>
+
+    <gazebo reference="${lr}_wheel_${fb}">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+    <joint name="${lr}_wheel_${fb}_hinge" type="continuous">
+      <parent link="${parent}"/>
+      <child link="${lr}_wheel_${fb}"/>
+      <origin xyz="${translateX * base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" /> 
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <limit effort="100" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
