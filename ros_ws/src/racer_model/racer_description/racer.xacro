@@ -22,19 +22,19 @@
        
     <inertial>
       <mass value="${bodyMass}"/>
-      <origin xyz="0 0 ${wheel_height}/2" rpy=" 0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
       <box_inertia  m="${bodyMass}" l="${bodySizeL}" b="${bodySizeB}" h="${bodySizeH}" />
     </inertial>
 
     <collision name='collision'>
-      <origin xyz="0 0 ${wheel_height}/2" rpy=" 0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
       <geometry>
         <box size="${bodySizeL} ${bodySizeB} ${bodySizeH}"/>
       </geometry>
     </collision>
 
     <visual name='chassis_visual'>
-      <origin xyz="0 0 ${wheel_height}/2" rpy=" 0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
       <geometry>
         <box size="${bodySizeL} ${bodySizeB} ${bodySizeH}"/>
       </geometry>
@@ -55,19 +55,19 @@
   <link name="camera">
     <inertial>
       <mass value="${cameraMass}" />
-      <origin xyz="0 0 ${wheel_height}/2" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <box_inertia m="${cameraMass}" l="${cameraSize}" b="${cameraSize}" h="${cameraSize}" />
     </inertial>
 
     <collision>
-      <origin xyz="0 0 ${wheel_height}/2" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
         <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 ${wheel_height}/2" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
         <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
       </geometry>
@@ -89,19 +89,19 @@
   <link name="hokuyo">
     <inertial>
       <mass value="${hokuyoMass}" />
-      <origin xyz="0 0 ${wheel_height}/2" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <box_inertia  m="${hokuyoMass}" l="${hokuyoSize}" b="${hokuyoSize}" h="${hokuyoSize}" />
     </inertial>
 
     <collision>
-      <origin xyz="0 0 ${wheel_height}/2" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
     	  <box size="${hokuyoSize} ${hokuyoSize} ${hokuyoSize}"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 ${wheel_height}/2" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://racer_model/racer_description/meshes/hokuyo.dae"/>
       </geometry>
