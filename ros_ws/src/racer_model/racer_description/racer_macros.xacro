@@ -32,7 +32,7 @@
       </inertial>
 
       <collision>
-        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/2} 0 0 " />
+        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/180} 0 0 " />
         <geometry>
           <cylinder length="${wheel_height}" radius="${wheel_radius}" />
         </geometry>
