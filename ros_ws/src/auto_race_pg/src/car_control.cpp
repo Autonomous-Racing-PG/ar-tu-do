@@ -1,8 +1,10 @@
 #include <ros/ros.h>
 
+#include <time.h>
+
 #include <std_msgs/Float64.h>
-#include "std_msgs/String.h"
-#include "std_msgs/Empty.h"
+#include <std_msgs/String.h>
+#include <std_msgs/Int64.h>
 
 #define TOPIC_FOCBOX_SPEED "/commands/motor/speed"
 #define TOPIC_FOCBOX_ANGLE "/commands/servo/position"
@@ -11,9 +13,10 @@
 #define TOPIC_ANGLE "/set/angle"
 
 #define TOPIC_STATUS_MODE "/status/mode"
-#define TOPIC_STATUS_DEAD_MANS_SWITCH "/status/deadmansswitch"
+#define TOPIC_STATUS_DMS "/status/dms"
 
-#define TIMER_DURATION 250 // ms
+#define TIMER_DURATION 150 // ms
+#define DMS_MAX 200 // ms
 
 #define MAX_SPEED 5000
 #define MAX_ANGLE 0.8
@@ -29,11 +32,11 @@ class CarControl
 
     ros::Subscriber  in_speed;
     ros::Subscriber  in_angle;
-    ros::Subscriber  in_dead_mans_switch;
+    ros::Subscriber  in_dms;
 
     void speed_callback(const std_msgs::Float64::ConstPtr &speed);
     void angle_callback(const std_msgs::Float64::ConstPtr &angle);
-    void dms_callback(const std_msgs::Empty::ConstPtr &empty);
+    void dms_callback(const std_msgs::Int64::ConstPtr &timestamp);
 
     ros::Publisher  out_speed;
     ros::Publisher  out_angle;
@@ -47,8 +50,7 @@ class CarControl
     bool run;
 };
 
-bool dms = true;
-int dead_countdown;
+long dms = 0;
 
 CarControl::CarControl()
 : run(true)
@@ -57,8 +59,8 @@ CarControl::CarControl()
     nh_.subscribe < std_msgs::Float64 > (TOPIC_SPEED, 1, & CarControl::speed_callback, this);
     in_angle =
     nh_.subscribe < std_msgs::Float64 > (TOPIC_ANGLE, 1, & CarControl::angle_callback, this);
-    in_dead_mans_switch =
-    nh_.subscribe < std_msgs::Empty > (TOPIC_STATUS_DEAD_MANS_SWITCH, 1, & CarControl::dms_callback, this);
+    in_dms =
+    nh_.subscribe < std_msgs::Int64 > (TOPIC_STATUS_DMS, 1, & CarControl::dms_callback, this);
 
     out_speed = nh_.advertise < std_msgs::Float64 > (TOPIC_FOCBOX_SPEED, 1);
     out_angle = nh_.advertise < std_msgs::Float64 > (TOPIC_FOCBOX_ANGLE, 1);
@@ -74,8 +76,8 @@ void CarControl::angle_callback(const std_msgs::Float64::ConstPtr & angle) {
     adjustAngle(angle -> data);
 }
 
-void CarControl::dms_callback(const std_msgs::Empty::ConstPtr & e) {
-    dms = true;
+void CarControl::dms_callback(const std_msgs::Int64::ConstPtr & timestamp) {
+    dms = timestamp -> data;
 }
 
 void CarControl::adjustSpeed(double speed) {
@@ -108,10 +110,11 @@ void CarControl::adjustAngle(double angle) {
 }
 
 void dms_timer_callback(const ros::TimerEvent &event) {
-    if(!dms) {
+    long now = (long) (ros::Time::now().toSec() * 1000);
+    long time = now - dms;
+    if(time > DMS_MAX) {
         std::cout << "fail-save active" << std::endl;
     } else {
-        dms = false;
     }
 }
 
@@ -121,7 +124,7 @@ int main(int argc, char ** argv)
     ros::init(argc, argv, "car_control");
     CarControl car_control;
     ros::NodeHandle nh;
-    //ros::Timer timer = nh.createTimer(ros::Duration(TIMER_DURATION / 1000.0), dms_timer_callback); 
+    ros::Timer timer = nh.createTimer(ros::Duration(TIMER_DURATION / 1000.0), dms_timer_callback); 
 
     ros::spin();
     return 0;

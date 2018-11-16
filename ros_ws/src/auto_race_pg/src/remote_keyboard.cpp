@@ -1,18 +1,18 @@
 #include <ros/ros.h>
 
 #include <std_msgs/Float64.h>
-#include <std_msgs/Empty.h>
+#include <std_msgs/Int64.h>
 
 #include <termios.h>
 #include <signal.h>
-#include <ctime>
+#include <time.h>
 
 #define MODE "keyboard"
 
 #define TOPIC_SPEED "/set/speed"
 #define TOPIC_ANGLE "/set/position"
 
-#define TOPIC_STATUS_DEAD_MANS_SWITCH "/status/deadmansswitch"
+#define TOPIC_STATUS_DMS "/status/dms"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97
@@ -38,14 +38,14 @@ class RemoteKeyboard
 
     ros::Publisher  out_speed;
     ros::Publisher  out_angle;
-    ros::Publisher  out_dead_mans_switch;
+    ros::Publisher  out_dms;
 };
 
 RemoteKeyboard::RemoteKeyboard()
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
-    out_dead_mans_switch = nh_.advertise< std_msgs::Empty >(TOPIC_STATUS_DEAD_MANS_SWITCH, 1);
+    out_dms = nh_.advertise< std_msgs::Int64 >(TOPIC_STATUS_DMS, 1);
 }
 
 void RemoteKeyboard::keyLoop() {
@@ -58,6 +58,7 @@ void RemoteKeyboard::keyLoop() {
     while (ros::ok())
     {
 	int c = getch();
+        bool adjust = true;
 	switch(c) {
 		case KEYCODE_W:
 			speed += 1;
@@ -72,13 +73,21 @@ void RemoteKeyboard::keyLoop() {
 			angle += 1;
 			break;
 		case KEYCODE_SPACE:
-                        out_dead_mans_switch.publish(std_msgs::Empty());
+                        {
+                            std_msgs::Int64 msg;
+                            msg.data = (long) (ros::Time::now().toSec() * 1000);
+                            out_dms.publish(msg);
+                            adjust = false;
+                        }
 			break;
 		default:
 			break;
 	}
-        adjustSpeed(speed);
-        adjustAngle(angle);
+
+        if(adjust) {
+            adjustSpeed(speed);
+            adjustAngle(angle);
+        }
     }
 }
 
