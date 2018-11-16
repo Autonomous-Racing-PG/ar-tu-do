@@ -31,7 +31,7 @@ env:
   global:
     - SRC_PATH=$(pwd)
     - GH_REPO_NAME: ros.package
-    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
+    - DOXYFILE: $TRAVIS_BUILD_DIR/docs/master/Doxyfile
     - GH_REPO_REF: github.com/Autonomous-Racing-PG/ros.package.git
 
 before_install:

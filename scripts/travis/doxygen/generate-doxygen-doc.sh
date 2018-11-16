@@ -19,8 +19,11 @@ fi
 ###################### REWRITE ##########################
 
 # Create a clean working directory for this script.
-mkdir docs_repo
-cd docs_repo
+mkdir docs
+cd docs
+git clone https://github.com/Autonomous-Racing-PG/ros.package.git master
+mkdir doxy
+cd doxy
 
 # Get the current gh-pages branch
 git clone -b gh-pages https://git@$GH_REPO_REF
