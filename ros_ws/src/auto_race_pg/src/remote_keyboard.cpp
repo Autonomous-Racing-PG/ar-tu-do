@@ -5,7 +5,7 @@
 
 #include <termios.h>
 #include <signal.h>
-
+#include <ctime>
 
 #define MODE "keyboard"
 
@@ -60,19 +60,19 @@ void RemoteKeyboard::keyLoop() {
 	int c = getch();
 	switch(c) {
 		case KEYCODE_W:
-			speed += 100;
+			speed += 1;
 			break;
 		case KEYCODE_S:
-			speed -= 100;
+			speed -= 1;
 			break;
 		case KEYCODE_A:
-			angle -= 0.1;
+			angle -= 1;
 			break;
 		case KEYCODE_D:
-			angle += 0.1;
+			angle += 1;
 			break;
 		case KEYCODE_SPACE:
-			out_dead_mans_switch.publish(std_msgs::Empty());
+                        out_dead_mans_switch.publish(std_msgs::Empty());
 			break;
 		default:
 			break;

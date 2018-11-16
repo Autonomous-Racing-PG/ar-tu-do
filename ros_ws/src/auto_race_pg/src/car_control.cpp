@@ -13,7 +13,7 @@
 #define TOPIC_STATUS_MODE "/status/mode"
 #define TOPIC_STATUS_DEAD_MANS_SWITCH "/status/deadmansswitch"
 
-#define TIMER_DURATION 0.4 // seconds
+#define TIMER_DURATION 250 // ms
 
 #define MAX_SPEED 5000
 #define MAX_ANGLE 0.8
@@ -47,6 +47,7 @@ class CarControl
     bool run;
 };
 
+bool dms = true;
 int dead_countdown;
 
 CarControl::CarControl()
@@ -74,7 +75,7 @@ void CarControl::angle_callback(const std_msgs::Float64::ConstPtr & angle) {
 }
 
 void CarControl::dms_callback(const std_msgs::Empty::ConstPtr & e) {
-    dead_countdown = 0;
+    dms = true;
 }
 
 void CarControl::adjustSpeed(double speed) {
@@ -107,9 +108,10 @@ void CarControl::adjustAngle(double angle) {
 }
 
 void dms_timer_callback(const ros::TimerEvent &event) {
-    dead_countdown = dead_countdown + (TIMER_DURATION * 500);
-    if(dead_countdown > TIMER_DURATION * 1000) {
+    if(!dms) {
         std::cout << "fail-save active" << std::endl;
+    } else {
+        dms = false;
     }
 }
 
@@ -119,7 +121,7 @@ int main(int argc, char ** argv)
     ros::init(argc, argv, "car_control");
     CarControl car_control;
     ros::NodeHandle nh;
-    ros::Timer timer = nh.createTimer(ros::Duration(TIMER_DURATION / 2), dms_timer_callback); 
+    //ros::Timer timer = nh.createTimer(ros::Duration(TIMER_DURATION / 1000.0), dms_timer_callback); 
 
     ros::spin();
     return 0;
