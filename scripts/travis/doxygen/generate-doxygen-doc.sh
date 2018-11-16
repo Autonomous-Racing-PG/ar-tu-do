@@ -4,12 +4,17 @@ cd $TRAVIS_BUILD_DIR
 ###################### REWRITE ##########################
 
 # check for pull-requests
-[ "${TRAVIS_PULL_REQUEST}" = "false" ] || \
-	skip "Not running Doxygen for pull-requests."
+if ! [[ "${TRAVIS_PULL_REQUEST}" = "false" ]]; then
+    echo 'Not running Doxygen for pull-requests.'
+    exit 0
+fi
 
 # check for branch name
-[ "${TRAVIS_BRANCH}" = "master" ] || \
-	skip "Running Doxygen only for updates on 'master' branch (current: ${TRAVIS_BRANCH})."
+if ! [[ "${TRAVIS_BRANCH}" = "master" ]]; then
+    echo "Running Doxygen only for updates on 'master' branch (current: ${TRAVIS_BRANCH})."
+    exit 0
+fi
+
 
 ###################### REWRITE ##########################
 
