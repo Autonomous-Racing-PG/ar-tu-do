@@ -1,0 +1,116 @@
+<?xml version='1.0'?>
+
+<robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find racer_model)/racer_description/racer_plugins.gazebo" />
+  <xacro:include filename="$(find racer_model)/racer_description/racer_macros.xacro" />
+
+  <xacro:property name="cameraSize" value="0.05"/>
+  <xacro:property name="cameraMass" value="0.1"/>
+
+  <xacro:property name="hokuyoSize" value="0.1"/>
+  <xacro:property name="hokuyoMass" value="0.1"/>
+  
+  <xacro:property name="bodySizeL" value="0.49"/>
+  <xacro:property name="bodySizeB" value="0.18"/>
+  <xacro:property name="bodySizeH" value="0.1"/>
+  <xacro:property name="bodyMass" value="3.5"/>
+
+  <!--  Body  -->
+  <link name='chassis'>           
+    <inertial>
+      <mass value="${bodyMass}"/>
+      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
+      <box_inertia  m="${bodyMass}" l="${bodySizeL}" b="${bodySizeB}" h="${bodySizeH}" />
+    </inertial>
+
+    <collision name='collision'>
+      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
+      <geometry>
+        <box size="${bodySizeL} ${bodySizeB} ${bodySizeH}"/>
+      </geometry>
+    </collision>
+
+    <visual name='chassis_visual'>
+      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
+      <geometry>
+        <box size="${bodySizeL} ${bodySizeB} ${bodySizeH}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference="chassis">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <!--  Wheels  -->
+  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" flipY="90" OffsetY="0.02" />
+  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" flipY="90" OffsetY="0.02" />
+  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" flipY="90" OffsetY="-0.02" />
+  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" flipY="90" OffsetY="-0.02" />
+
+  <!-- Camera -->
+  <link name="camera">
+    <inertial>
+      <mass value="${cameraMass}" />
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <box_inertia m="${cameraMass}" l="${cameraSize}" b="${cameraSize}" h="${cameraSize}" />
+    </inertial>
+
+    <collision>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference="camera">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz=".21 0 0.075" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="camera"/>
+  </joint>
+
+  <!-- Hokuyo Laser -->
+  <link name="hokuyo">
+    <inertial>
+      <mass value="${hokuyoMass}" />
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <box_inertia  m="${hokuyoMass}" l="${hokuyoSize}" b="${hokuyoSize}" h="${hokuyoSize}" />
+    </inertial>
+
+    <collision>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <geometry>
+    	  <box size="${hokuyoSize} ${hokuyoSize} ${hokuyoSize}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://racer_model/racer_description/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz=".21 0 .135" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="hokuyo"/>
+  </joint>
+
+</robot>
