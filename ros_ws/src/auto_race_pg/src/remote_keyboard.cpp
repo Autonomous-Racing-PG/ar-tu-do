@@ -3,8 +3,8 @@
 #include <std_msgs/Float64.h>
 #include <std_msgs/Int64.h>
 
-#include <termios.h>
 #include <signal.h>
+#include <termios.h>
 #include <time.h>
 
 #define MODE "keyboard"
@@ -36,19 +36,20 @@ class RemoteKeyboard
 
     std::string input;
 
-    ros::Publisher  out_speed;
-    ros::Publisher  out_angle;
-    ros::Publisher  out_dms;
+    ros::Publisher out_speed;
+    ros::Publisher out_angle;
+    ros::Publisher out_dms;
 };
 
 RemoteKeyboard::RemoteKeyboard()
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
-    out_dms = nh_.advertise< std_msgs::Int64 >(TOPIC_STATUS_DMS, 1);
+    out_dms   = nh_.advertise< std_msgs::Int64 >(TOPIC_STATUS_DMS, 1);
 }
 
-void RemoteKeyboard::keyLoop() {
+void RemoteKeyboard::keyLoop()
+{
     std::cout << "listening to keyboard" << std::endl;
     std::cout << "=====================" << std::endl;
 
@@ -57,62 +58,65 @@ void RemoteKeyboard::keyLoop() {
 
     while (ros::ok())
     {
-	int c = getch();
+        int  c      = getch();
         bool adjust = true;
-	switch(c) {
-		case KEYCODE_W:
-			speed += 1;
-			break;
-		case KEYCODE_S:
-			speed -= 1;
-			break;
-		case KEYCODE_A:
-			angle -= 1;
-			break;
-		case KEYCODE_D:
-			angle += 1;
-			break;
-		case KEYCODE_SPACE:
-                        {
-                            std_msgs::Int64 msg;
-                            msg.data = (long) (ros::Time::now().toSec() * 1000);
-                            out_dms.publish(msg);
-                            adjust = false;
-                        }
-			break;
-		default:
-			break;
-	}
+        switch (c)
+        {
+            case KEYCODE_W:
+                speed += 1;
+                break;
+            case KEYCODE_S:
+                speed -= 1;
+                break;
+            case KEYCODE_A:
+                angle -= 1;
+                break;
+            case KEYCODE_D:
+                angle += 1;
+                break;
+            case KEYCODE_SPACE:
+            {
+                std_msgs::Int64 msg;
+                msg.data = (long)(ros::Time::now().toSec() * 1000);
+                out_dms.publish(msg);
+                adjust = false;
+            }
+            break;
+            default:
+                break;
+        }
 
-        if(adjust) {
+        if (adjust)
+        {
             adjustSpeed(speed);
             adjustAngle(angle);
         }
     }
 }
 
-
 int RemoteKeyboard::getch()
 {
-  static struct termios oldt, newt;
-  tcgetattr( STDIN_FILENO, &oldt);           // save old settings
-  newt = oldt;
-  newt.c_lflag &= ~(ICANON);                 // disable buffering      
-  tcsetattr( STDIN_FILENO, TCSANOW, &newt);  // apply new settings
+    static struct termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt); // save old settings
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON);               // disable buffering
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt); // apply new settings
 
-  int c = getchar();  // read character (non-blocking)
+    int c = getchar(); // read character (non-blocking)
 
-  tcsetattr( STDIN_FILENO, TCSANOW, &oldt);  // restore old settings
-  return c;
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt); // restore old settings
+    return c;
 }
 
-void RemoteKeyboard::adjustSpeed(double speed) {
+void RemoteKeyboard::adjustSpeed(double speed)
+{
     std_msgs::Float64 msg;
     msg.data = speed;
     out_speed.publish(msg);
 }
 
-void RemoteKeyboard::adjustAngle(double angle) {
+void RemoteKeyboard::adjustAngle(double angle)
+{
     std_msgs::Float64 msg;
     msg.data = (angle + 1) / 2;
     out_angle.publish(msg);
