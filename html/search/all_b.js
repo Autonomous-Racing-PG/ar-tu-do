@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../feature__tests_8c.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;feature_tests.c'],['../feature__tests_8cxx.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;feature_tests.cxx'],['../listener_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;listener.cpp'],['../talker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;talker.cpp'],['../test__auto__race__pg_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;test_auto_race_pg.cpp']]],
-  ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
-  ['mode',['mode',['../namespacegenerate__cached__setup.html#a10081e5abedae9bd46dd91202096e789',1,'generate_cached_setup']]]
+  ['keycode_5fa',['KEYCODE_A',['../remote__keyboard_8cpp.html#a35ba55030dedad2411239e6330435742',1,'remote_keyboard.cpp']]],
+  ['keycode_5fd',['KEYCODE_D',['../remote__keyboard_8cpp.html#af0c998786dcada98bf809fea0b157603',1,'remote_keyboard.cpp']]],
+  ['keycode_5fs',['KEYCODE_S',['../remote__keyboard_8cpp.html#a9be3d5563fec0f900d20668973b5806c',1,'remote_keyboard.cpp']]],
+  ['keycode_5fspace',['KEYCODE_SPACE',['../remote__keyboard_8cpp.html#a49115085a0fac000fb82c9d86c4c34d3',1,'remote_keyboard.cpp']]],
+  ['keycode_5fw',['KEYCODE_W',['../remote__keyboard_8cpp.html#a6a44fd7e61a3f73fffecd1ec5973f819',1,'remote_keyboard.cpp']]],
+  ['keyloop',['keyLoop',['../class_remote_joy.html#aeb64e457c9661691877f98a7768473f7',1,'RemoteJoy::keyLoop()'],['../class_remote_keyboard.html#a6e577da2cf6247e3cdbabd582784ba3c',1,'RemoteKeyboard::keyLoop()']]]
 ];

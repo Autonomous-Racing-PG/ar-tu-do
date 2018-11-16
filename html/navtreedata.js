@@ -1,7 +1,11 @@
 var NAVTREE =
 [
   [ "Autonomous Racing", "index.html", [
-    [ "Autonomous Racing Project Group", "index.html", null ],
+    [ "Autonomous Racing Project Group", "index.html", [
+      [ "Installation", "index.html#install_sec", [
+        [ "Step 1: Opening the box", "index.html#step1", null ]
+      ] ]
+    ] ],
     [ "Project Title", "md__home_travis_build_Autonomous-Racing-PG_ros.package_README.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
@@ -9,6 +13,14 @@ var NAVTREE =
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
       ] ]
     ] ],
     [ "Files", null, [

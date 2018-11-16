@@ -1,0 +1,188 @@
+\hypertarget{car__control_8cpp}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/ros\+\_\+ws/src/auto\+\_\+race\+\_\+pg/src/car\+\_\+control.cpp File Reference}
+\label{car__control_8cpp}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/ros\+\_\+ws/src/auto\+\_\+race\+\_\+pg/src/car\+\_\+control.\+cpp@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/ros\+\_\+ws/src/auto\+\_\+race\+\_\+pg/src/car\+\_\+control.\+cpp}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+Float64.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+String.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+Int64.\+h$>$}\\*
+Include dependency graph for car\+\_\+control.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{car__control_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_car_control}{Car\+Control}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{car__control_8cpp_a6977f30ada15874c2885ecd86dab7bd1}{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}~\char`\"{}/commands/motor/speed\char`\"{}
+\item 
+\#define \hyperlink{car__control_8cpp_a06bf2e121cdcd87f3e73500ff616ccf2}{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}~\char`\"{}/commands/servo/position\char`\"{}
+\item 
+\#define \hyperlink{car__control_8cpp_a8c6b7fe5ad62f0dd9be385ca98ca1c9a}{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}~\char`\"{}/set/speed\char`\"{}
+\item 
+\#define \hyperlink{car__control_8cpp_ae85d82183138111cc259bc2920f54e9f}{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}~\char`\"{}/set/angle\char`\"{}
+\item 
+\#define \hyperlink{car__control_8cpp_a46426b600028e153cbd8e0abcc8d9fd7}{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE}~\char`\"{}/status/mode\char`\"{}
+\item 
+\#define \hyperlink{car__control_8cpp_a3aa592e83cd05128dadc314fec1b146c}{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS}~\char`\"{}/status/\hyperlink{car__control_8cpp_ae4b25d71b82a8bc98ea3b5bb62c409f3}{dms}\char`\"{}
+\item 
+\#define \hyperlink{car__control_8cpp_a789e36199e4879ad371d9296095f9f84}{T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON}~150
+\item 
+\#define \hyperlink{car__control_8cpp_a2dc2e47d414992e51aecb352d12f7181}{D\+M\+S\+\_\+\+M\+AX}~200
+\item 
+\#define \hyperlink{car__control_8cpp_ac2cd96d53dd3ba6407db6766c3d92b26}{M\+A\+X\+\_\+\+S\+P\+E\+ED}~5000
+\item 
+\#define \hyperlink{car__control_8cpp_af3c82099d63a2d91d68bd62d954059c7}{M\+A\+X\+\_\+\+A\+N\+G\+LE}~0.\+8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{car__control_8cpp_ad58ce7bfd8b125e02622b612d02985b7}{dms\+\_\+timer\+\_\+callback} (const ros\+::\+Timer\+Event \&event)
+\item 
+int \hyperlink{car__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{car__control_8cpp_ae4b25d71b82a8bc98ea3b5bb62c409f3}{dms} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!D\+M\+S\+\_\+\+M\+AX@{D\+M\+S\+\_\+\+M\+AX}}
+\index{D\+M\+S\+\_\+\+M\+AX@{D\+M\+S\+\_\+\+M\+AX}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{D\+M\+S\+\_\+\+M\+AX}{DMS_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+M\+S\+\_\+\+M\+AX~200}\hypertarget{car__control_8cpp_a2dc2e47d414992e51aecb352d12f7181}{}\label{car__control_8cpp_a2dc2e47d414992e51aecb352d12f7181}
+
+
+Definition at line 19 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!M\+A\+X\+\_\+\+A\+N\+G\+LE@{M\+A\+X\+\_\+\+A\+N\+G\+LE}}
+\index{M\+A\+X\+\_\+\+A\+N\+G\+LE@{M\+A\+X\+\_\+\+A\+N\+G\+LE}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+A\+N\+G\+LE}{MAX_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+A\+N\+G\+LE~0.\+8}\hypertarget{car__control_8cpp_af3c82099d63a2d91d68bd62d954059c7}{}\label{car__control_8cpp_af3c82099d63a2d91d68bd62d954059c7}
+
+
+Definition at line 22 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!M\+A\+X\+\_\+\+S\+P\+E\+ED@{M\+A\+X\+\_\+\+S\+P\+E\+ED}}
+\index{M\+A\+X\+\_\+\+S\+P\+E\+ED@{M\+A\+X\+\_\+\+S\+P\+E\+ED}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+P\+E\+ED}{MAX_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+S\+P\+E\+ED~5000}\hypertarget{car__control_8cpp_ac2cd96d53dd3ba6407db6766c3d92b26}{}\label{car__control_8cpp_ac2cd96d53dd3ba6407db6766c3d92b26}
+
+
+Definition at line 21 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON@{T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON}}
+\index{T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON@{T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON}{TIMER_DURATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+R\+\_\+\+D\+U\+R\+A\+T\+I\+ON~150}\hypertarget{car__control_8cpp_a789e36199e4879ad371d9296095f9f84}{}\label{car__control_8cpp_a789e36199e4879ad371d9296095f9f84}
+
+
+Definition at line 18 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}}
+\index{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}{TOPIC_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE~\char`\"{}/set/angle\char`\"{}}\hypertarget{car__control_8cpp_ae85d82183138111cc259bc2920f54e9f}{}\label{car__control_8cpp_ae85d82183138111cc259bc2920f54e9f}
+
+
+Definition at line 13 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}}
+\index{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}{TOPIC_FOCBOX_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE~\char`\"{}/commands/servo/position\char`\"{}}\hypertarget{car__control_8cpp_a06bf2e121cdcd87f3e73500ff616ccf2}{}\label{car__control_8cpp_a06bf2e121cdcd87f3e73500ff616ccf2}
+
+
+Definition at line 10 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}}
+\index{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}{TOPIC_FOCBOX_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED~\char`\"{}/commands/motor/speed\char`\"{}}\hypertarget{car__control_8cpp_a6977f30ada15874c2885ecd86dab7bd1}{}\label{car__control_8cpp_a6977f30ada15874c2885ecd86dab7bd1}
+
+
+Definition at line 9 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}}
+\index{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}{TOPIC_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED~\char`\"{}/set/speed\char`\"{}}\hypertarget{car__control_8cpp_a8c6b7fe5ad62f0dd9be385ca98ca1c9a}{}\label{car__control_8cpp_a8c6b7fe5ad62f0dd9be385ca98ca1c9a}
+
+
+Definition at line 12 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS@{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS}}
+\index{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS@{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS}{TOPIC_STATUS_DMS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+MS~\char`\"{}/status/{\bf dms}\char`\"{}}\hypertarget{car__control_8cpp_a3aa592e83cd05128dadc314fec1b146c}{}\label{car__control_8cpp_a3aa592e83cd05128dadc314fec1b146c}
+
+
+Definition at line 16 of file car\+\_\+control.\+cpp.
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE@{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE}}
+\index{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE@{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE}{TOPIC_STATUS_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+DE~\char`\"{}/status/mode\char`\"{}}\hypertarget{car__control_8cpp_a46426b600028e153cbd8e0abcc8d9fd7}{}\label{car__control_8cpp_a46426b600028e153cbd8e0abcc8d9fd7}
+
+
+Definition at line 15 of file car\+\_\+control.\+cpp.
+
+
+
+\subsection{Function Documentation}
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!dms\+\_\+timer\+\_\+callback@{dms\+\_\+timer\+\_\+callback}}
+\index{dms\+\_\+timer\+\_\+callback@{dms\+\_\+timer\+\_\+callback}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{dms\+\_\+timer\+\_\+callback(const ros\+::\+Timer\+Event \&event)}{dms_timer_callback(const ros::TimerEvent &event)}}]{\setlength{\rightskip}{0pt plus 5cm}void dms\+\_\+timer\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const ros\+::\+Timer\+Event \&}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{car__control_8cpp_ad58ce7bfd8b125e02622b612d02985b7}{}\label{car__control_8cpp_ad58ce7bfd8b125e02622b612d02985b7}
+
+
+Definition at line 112 of file car\+\_\+control.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{car__control_8cpp_ad58ce7bfd8b125e02622b612d02985b7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!main@{main}}
+\index{main@{main}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{car__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{car__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Definition at line 122 of file car\+\_\+control.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{car__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\index{car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}!dms@{dms}}
+\index{dms@{dms}!car\+\_\+control.\+cpp@{car\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{dms}{dms}}]{\setlength{\rightskip}{0pt plus 5cm}long dms = 0}\hypertarget{car__control_8cpp_ae4b25d71b82a8bc98ea3b5bb62c409f3}{}\label{car__control_8cpp_ae4b25d71b82a8bc98ea3b5bb62c409f3}
+
+
+Definition at line 53 of file car\+\_\+control.\+cpp.
+
