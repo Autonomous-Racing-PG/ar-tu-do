@@ -17,7 +17,7 @@
   <!-- Wheels -->
   <property name="wheel_radius" value="0.05" /> 
   <property name="wheel_height" value="0.045" />
-  <property name="wheel_mass" value="2.5" />
+  <property name="wheel_mass" value="0.2" />
   
   <property name="base_x_origin_to_wheel_origin" value="0.16" />
   <property name="base_y_origin_to_wheel_origin" value="0.095" />
@@ -27,7 +27,7 @@
     <link name="${lr}_wheel_${fb}">
       <inertial>
         <mass value="${wheel_mass}" />
-        <origin xyz="0 ${OffsetY} 0" />
+        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/180} 0  0 "/>
         <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
       </inertial>
 
