@@ -26,8 +26,6 @@ matrix:
   include:
   - name: "ROS kinetic"
     env: ROS_DISTRO=kinetic
-  - name: "ROS lunar"
-    env: ROS_DISTRO=lunar
 
 env:
   global:
