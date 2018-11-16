@@ -25,13 +25,9 @@ Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.pac
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/_run_tests_auto_race_pg_gtest_auto_race_pg-test.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/auto_race_pg-test.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/auto_race_pg-test.dir/test
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/car_control.dir
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/car_control.dir/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/clean_test_results_auto_race_pg.dir
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/remote_joy.dir
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/remote_joy.dir/src
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/remote_keyboard.dir
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/remote_keyboard.dir/src
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/listener.dir
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/listener.dir/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/roscpp_generate_messages_cpp.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/roscpp_generate_messages_eus.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/roscpp_generate_messages_lisp.dir
@@ -50,6 +46,8 @@ Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.pac
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/std_msgs_generate_messages_lisp.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/std_msgs_generate_messages_py.dir
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/talker.dir
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/CMakeFiles/talker.dir/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin/catkin_generated
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin/catkin_generated/version
@@ -89,6 +87,13 @@ Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.pac
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/gtest/gtest/CMakeFiles/gtest.dir/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/gtest/gtest/CMakeFiles/gtest_main.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/gtest/gtest/CMakeFiles/gtest_main.dir/src
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/installspace
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/stamps
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/stamps/racer_model
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/CMakeFiles
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/CMakeFiles/_catkin_empty_exported_target.dir
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/test_results
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/test_results/auto_race_pg
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel
@@ -98,10 +103,17 @@ Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.pac
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/share
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/share/auto_race_pg
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/share/auto_race_pg/cmake
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/share/racer_model
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/share/racer_model/cmake
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/test
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/racer_model
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/racer_model/launch
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/racer_model/racer_description
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/racer_model/racer_description/meshes
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/racer_model/racer_world
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/scripts
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/scripts/format
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/scripts/hooks
@@ -131,16 +143,14 @@ Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/C
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.c...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.cxx...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.cxx...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.develspace.context.pc.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.develspace.context.pc.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.installspace.context.pc.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.installspace.context.pc.py...
 Reading /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/_setup_util.py...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/_setup_util.py...
-Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/car_control.cpp...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/car_control.cpp...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/listener.cpp...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/listener.cpp...
-Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_joy.cpp...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_joy.cpp...
-Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_keyboard.cpp...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_keyboard.cpp...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/talker.cpp...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/talker.cpp...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/test/test_auto_race_pg.cpp...
@@ -200,7 +210,9 @@ Generating file sources...
 Parsing code for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc/mainpage.dox...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/README.md...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/catkin_generated/pkg.develspace.context.pc.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.develspace.context.pc.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/catkin_generated/pkg.installspace.context.pc.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.installspace.context.pc.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin_generated/generate_cached_setup.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin_generated/installspace/_setup_util.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/_setup_util.py...
@@ -208,20 +220,17 @@ Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/3.12.4/CompilerIdC/CMakeCCompilerId.c...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/3.12.4/CompilerIdCXX/CMakeCXXCompilerId.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.c...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.p/home/travis/build/Autonomous-Racing-PG/ros.package/README.md:5: warning: Unexpected html tag <img> found within <a href=...> context
-/home/travis/build/Autonomous-Racing-PG/ros.package/README.md:74: warning: unable to resolve reference to `LICENSE.md' for \ref command
-ackage/ros_ws/build/CMakeFiles/feature_tests.cxx...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/car_control.cpp...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.cxx...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/listener.cpp...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_joy.cpp...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_keyboard.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/talker.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/test/test_auto_race_pg.cpp...
 Generating file documentation...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc/mainpage.dox...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/README.md...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/catkin_generated/pkg.develspace.context.pc.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.develspace.context.pc.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/auto_race_pg/catkin_generated/pkg.installspace.context.pc.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/racer_model/catkin_generated/pkg.installspace.context.pc.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin_generated/generate_cached_setup.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/catkin_generated/installspace/_setup_util.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/devel/_setup_util.py...
@@ -230,26 +239,16 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/3.12.4/CompilerIdCXX/CMakeCXXCompilerId.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.c...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/build/CMakeFiles/feature_tests.cxx...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/car_control.cpp...
-Generating caller graph for function dms_timer_callback
-Generating call graph for function main
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/listener.cpp...
-Generating caller graph for function chatterCallback
+Generating caller graph for function /home/travis/build/Autonomous-Racing-PG/ros.package/README.md:5: warning: Unexpected html tag <img> found within <a href=...> context
+chatterCallback
 Generating call graph for function main
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_joy.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/remote_keyboard.cpp...
-Generating call graph for function main
-Generating caller graph for function quit
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/src/talker.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/ros_ws/src/auto_race_pg/test/test_auto_race_pg.cpp...
 Generating page documentation...
 Generating docs for page md__home_travis_build_Autonomous-Racing-PG_ros.package_README...
 Generating group documentation...
 Generating class documentation...
-Generating docs for compound CarControl...
-Generating docs for compound RemoteJoy...
-Generating docs for compound RemoteKeyboard...
-Generating caller graph for function RemoteKeyboard::keyLoop
 Generating namespace index...
 Generating docs for namespace _setup_util
 Generating caller graph for function _setup_util.assignment
@@ -282,82 +281,50 @@ writing tag file...
 Combining RTF output...
 Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/61
-Running dot for graph 2/61
-Running dot for graph 3/61
-Running dot for graph 4/61
-Running dot for graph 5/61
-Running dot for graph 6/61
-Running dot for graph 7/61
-Running dot for graph 8/61
-Running dot for graph 9/61
-Running dot for graph 10/61
-Running dot for graph 11/61
-Running dot for graph 12/61
-Running dot for graph 13/61
-Running dot for graph 14/61
-Running dot for graph 15/61
-Running dot for graph 16/61
-Running dot for graph 17/61
-Running dot for graph 18/61
-Running dot for graph 19/61
-Running dot for graph 20/61
-Running dot for graph 21/61
-Running dot for graph 22/61
-Running dot for graph 23/61
-Running dot for graph 24/61
-Running dot for graph 25/61
-Running dot for graph 26/61
-Running dot for graph 27/61
-Running dot for graph 28/61
-Running dot for graph 29/61
-Running dot for graph 30/61
-Running dot for graph 31/61
-Running dot for graph 32/61
-Running dot for graph 33/61
-Running dot for graph 34/61
-Running dot for graph 35/61
-Running dot for graph 36/61
-Running dot for graph 37/61
-Running dot for graph 38/61
-Running dot for graph 39/61
-Running dot for graph 40/61
-Running dot for graph 41/61
-Running dot for graph 42/61
-Running dot for graph 43/61
-Running dot for graph 44/61
-Running dot for graph 45/61
-Running dot for graph 46/61
-Running dot for graph 47/61
-Running dot for graph 48/61
-Running dot for graph 49/61
-Running dot for graph 50/61
-Running dot for graph 51/61
-Running dot for graph 52/61
-Running dot for graph 53/61
-Running dot for graph 54/61
-Running dot for graph 55/61
-Running dot for graph 56/61
-Running dot for graph 57/61
-Running dot for graph 58/61
-Running dot for graph 59/61
-Running dot for graph 60/61
-Running dot for graph 61/61
-Patching output file 1/16
-Patching output file 2/16
-Patching output file 3/16
-Patching output file 4/16
-Patching output file 5/16
-Patching output file 6/16
-Patching output file 7/16
-Patching output file 8/16
-Patching output file 9/16
-Patching output file 10/16
-Patching output file 11/16
-Patching output file 12/16
-Patching output file 13/16
-Patching output file 14/16
-Patching output file 15/16
-Patching output file 16/16
-lookup cache used 180/65536 hits=555 misses=180
+Running dot for graph 1/37
+Running dot for graph 2/37
+Running dot for graph 3/37
+Running dot for graph 4/37
+Running dot for graph 5/37
+Running dot for graph 6/37
+Running dot for graph 7/37
+Running dot for graph 8/37
+Running dot for graph 9/37
+Running dot for graph 10/37
+Running dot for graph 11/37
+Running dot for graph 12/37
+Running dot for graph 13/37
+Running dot for graph 14/37
+Running dot for graph 15/37
+Running dot for graph 16/37
+Running dot for graph 17/37
+Running dot for graph 18/37
+Running dot for graph 19/37
+Running dot for graph 20/37
+Running dot for graph 21/37
+Running dot for graph 22/37
+Running dot for graph 23/37
+Running dot for graph 24/37
+Running dot for graph 25/37
+Running dot for graph 26/37
+Running dot for graph 27/37
+Running dot for graph 28/37
+Running dot for graph 29/37
+Running dot for graph 30/37
+Running dot for graph 31/37
+Running dot for graph 32/37
+Running dot for graph 33/37
+Running dot for graph 34/37
+Running dot for graph 35/37
+Running dot for graph 36/37
+Running dot for graph 37/37
+Patching output file 1/8
+Patching output file 2/8
+Patching output file 3/8
+Patching output file 4/8
+Patching output file 5/8
+Patching output file 6/8
+Patching output file 7/8
+Patching output file 8/8
+lookup cache used 93/65536 hits=199 misses=93
 finished...
