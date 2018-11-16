@@ -140,6 +140,11 @@ add_executable(remote_joy src/remote_joy.cpp)
 target_link_libraries(remote_joy ${catkin_LIBRARIES})
 add_dependencies(remote_joy auto_race_pg_generate_messages_cpp)
 
+# remote keyboard node 
+add_executable(remote_keyboard src/remote_keyboard.cpp)
+target_link_libraries(remote_keyboard ${catkin_LIBRARIES})
+add_dependencies(remote_keyboard auto_race_pg_generate_messages_cpp)
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/auto_race_pg.cpp

@@ -3,11 +3,13 @@
 # include <std_msgs/Float64.h>
 # include <sensor_msgs/Joy.h>
 
+# define MODE "joy"
+
 # define JOY_ANGLE_ANGULAR 0
 # define JOY_ANGLE_LINEAR 1
 
 # define TOPIC_SPEED "/set/speed"
-# define TOPIC_ANGLE "/set/position"
+# define TOPIC_ANGLE "/set/angle"
 
 
 class RemoteJoy

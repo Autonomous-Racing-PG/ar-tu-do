@@ -1,13 +1,4 @@
 <launch>
-    <!-- remove control node -->
-    <node
-      respawn="true"
-      pkg="auto_race_pg"
-      type="remote_control"
-      name="remote_control"
-      output="log" >
-    </node>
-
     <!-- car control node -->
     <node
       respawn="true"
@@ -31,10 +22,19 @@
       respawn="true"
       pkg="joy"
       type="joy_node"
-      name="turtle_joy"
+      name="joy_node"
       output="log" >
       <param name="dev" type="string" value="/dev/input/js2" />
       <param name="deadzone" value="0.12" />
+    </node>
+
+    <!-- remote keyboard -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="remote_keyboard"
+      name="remote_keyboard"
+      output="log" >
     </node>
 
 </launch>
