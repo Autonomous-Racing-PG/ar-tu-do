@@ -90,7 +90,7 @@ void CarControl::adjustSpeed(double speed)
     }
     else
     {
-        std::cout << "speed: " << speed << std::endl;
+        //std::cout << "speed: " << speed << std::endl;
         std_msgs::Float64 msg;
         msg.data = speed * MAX_SPEED;
         out_speed.publish(msg);
@@ -110,9 +110,11 @@ void CarControl::adjustAngle(double angle)
     }
     else
     {
-        std::cout << "angle: " << angle << std::endl;
+        std::cout << "in:  " << angle << std::endl;
         std_msgs::Float64 msg;
         msg.data = (-angle * MAX_ANGLE + 1) / 2;
+
+        std::cout << "out: " << angle << std::endl;
         out_angle.publish(msg);
     }
 }
