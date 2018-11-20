@@ -18,8 +18,8 @@
 #define TIMER_DURATION 150 // ms
 #define DMS_MAX 200        // ms
 
-#define MAX_SPEED 2000
-#define MIN_SPEED 1000
+#define MAX_SPEED 4000
+#define MIN_SPEED 500
 #define MAX_ANGLE 0.8
 
 class CarControl
