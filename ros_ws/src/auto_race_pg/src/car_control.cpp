@@ -18,7 +18,7 @@
 #define TIMER_DURATION 150 // ms
 #define DMS_MAX 200        // ms
 
-#define MAX_SPEED 4000
+#define MAX_SPEED 15000
 #define MIN_SPEED 500
 #define MAX_ANGLE 0.8
 
