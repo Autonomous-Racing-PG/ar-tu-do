@@ -1,38 +1,9 @@
-#include <ros/ros.h>
+#include "remote_joy.h"
 
-#include <sensor_msgs/Joy.h>
-#include <std_msgs/Float64.h>
-
-#define MODE "joy"
-
-#define JOY_ANGLE_ANGULAR 0
-#define JOY_ANGLE_LINEAR 1
-
-#define TOPIC_SPEED "/set/speed"
-#define TOPIC_ANGLE "/set/angle"
-
-class RemoteJoy
-{
-    public:
-    RemoteJoy();
-    void keyLoop();
-
-    private:
-    void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
-
-    void publishAngle(double angle);
-    void publishSpeed(double speed);
-
-    ros::NodeHandle nh_;
-
-    std::string input;
-
-    ros::Publisher out_speed;
-    ros::Publisher out_angle;
-
-    ros::Subscriber in_joy;
-};
-
+/**
+ * @brief Construct a new Remote Joy:: Remote Joy object
+ * 
+ */
 RemoteJoy::RemoteJoy()
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
@@ -42,6 +13,13 @@ RemoteJoy::RemoteJoy()
                                                &RemoteJoy::joyCallback, this);
 }
 
+/**
+ * @brief Callback function that gets called each time a connected gamepad get
+ * an input
+ *
+ * @param joy The data structure that contains informations about the state of
+ * each avaliable key on the gamepad
+ */
 void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
     double angle = joy->axes[ JOY_ANGLE_ANGULAR ];
@@ -50,6 +28,11 @@ void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
     publishAngle(angle);
 }
 
+/**
+ * @brief Converts the given angle to the right range and publishes it
+ *
+ * @param angle The angle provided by the gamepad input
+ */
 void RemoteJoy::publishAngle(double angle)
 {
     std_msgs::Float64 msg;
@@ -57,12 +40,29 @@ void RemoteJoy::publishAngle(double angle)
     out_angle.publish(msg);
 }
 
+/**
+ * @brief Converts the given speed to the right range and publishes it
+ *
+ * @param speed The speed provided by the gamepad input
+ */
 void RemoteJoy::publishSpeed(double speed)
 {
     std_msgs::Float64 msg;
     msg.data = speed;
     out_speed.publish(msg);
 }
+
+/**
+ * @brief 
+ * 
+ * @param is_pressed 
+ */
+// void RemoteJoy::publishDeadManSwitch(bool is_pressed)
+// {
+//     std_msgs::Int64 msg;
+//     msg.data = (long)(ros::Time::now().toSec() * 1000);
+//     out_dms.publish(msg);
+// }
 
 int main(int argc, char** argv)
 {
