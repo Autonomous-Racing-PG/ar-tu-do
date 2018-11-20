@@ -20,8 +20,8 @@ class RemoteJoy
     private:
     void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
 
-    void adjustAngle(double angle);
-    void adjustSpeed(double speed);
+    void publishAngle(double angle);
+    void publishSpeed(double speed);
 
     ros::NodeHandle nh_;
 
@@ -46,18 +46,18 @@ void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
     double angle = joy->axes[ JOY_ANGLE_ANGULAR ];
     double speed = joy->axes[ JOY_ANGLE_LINEAR ];
-    adjustSpeed(speed);
-    adjustAngle(angle);
+    publishSpeed(speed);
+    publishAngle(angle);
 }
 
-void RemoteJoy::adjustAngle(double angle)
+void RemoteJoy::publishAngle(double angle)
 {
     std_msgs::Float64 msg;
     msg.data = (angle + 1) / 2;
     out_angle.publish(msg);
 }
 
-void RemoteJoy::adjustSpeed(double speed)
+void RemoteJoy::publishSpeed(double speed)
 {
     std_msgs::Float64 msg;
     msg.data = speed;
