@@ -20,6 +20,12 @@
 #define KEYCODE_D 100
 #define KEYCODE_SPACE 32
 
+#define DELTA_SPEED_UP 0.2
+#define DELTA_SPEED_DOWN 0.1
+
+#define DELTA_ANGLE_UP 0.2
+#define DELTA_ANGLE_DOWN 0.1
+
 class RemoteKeyboard
 {
     public:
@@ -39,9 +45,14 @@ class RemoteKeyboard
     ros::Publisher out_speed;
     ros::Publisher out_angle;
     ros::Publisher out_dms;
+
+    double speed;
+    double angle;
 };
 
 RemoteKeyboard::RemoteKeyboard()
+    : speed(0)
+    , angle(0)
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
@@ -53,44 +64,75 @@ void RemoteKeyboard::keyLoop()
     std::cout << "listening to keyboard" << std::endl;
     std::cout << "=====================" << std::endl;
 
-    double speed = 0;
-    double angle = 0;
-
     while (ros::ok())
     {
-        int  c      = getch();
-        bool adjust = true;
-        switch (c)
+        int  c           = getch();
+        bool changeSpeed = false;
+        bool changeAngle = false;
+
+        if (c == KEYCODE_W)
         {
-            case KEYCODE_W:
-                speed += 1;
-                break;
-            case KEYCODE_S:
-                speed -= 1;
-                break;
-            case KEYCODE_A:
-                angle -= 1;
-                break;
-            case KEYCODE_D:
-                angle += 1;
-                break;
-            case KEYCODE_SPACE:
-            {
-                std_msgs::Int64 msg;
-                msg.data = (long)(ros::Time::now().toSec() * 1000);
-                out_dms.publish(msg);
-                adjust = false;
-            }
-            break;
-            default:
-                break;
+            speed       = speed + DELTA_SPEED_UP;
+            changeSpeed = true;
         }
 
-        if (adjust)
+        if (c == KEYCODE_S)
         {
-            adjustSpeed(speed);
-            adjustAngle(angle);
+            speed       = speed - DELTA_SPEED_UP;
+            changeSpeed = true;
         }
+
+        speed = std::max(std::min(speed, 1.0), -1.0);
+
+        if (!changeSpeed)
+        {
+            if (std::abs(speed) > DELTA_SPEED_DOWN)
+            {
+                speed = copysign(DELTA_SPEED_DOWN, -speed);
+            }
+            else
+            {
+                speed = 0;
+            }
+        }
+
+        if (c == KEYCODE_A)
+        {
+            angle       = angle - DELTA_ANGLE_UP;
+            changeAngle = true;
+        }
+
+        if (c == KEYCODE_D)
+        {
+            angle       = angle + DELTA_ANGLE_UP;
+            changeAngle = true;
+        }
+
+        angle = std::max(std::min(angle, 1.0), -1.0);
+
+        if (!changeAngle)
+        {
+            if (std::abs(angle) > DELTA_ANGLE_DOWN)
+            {
+                angle = copysign(DELTA_ANGLE_DOWN, -angle);
+            }
+            else
+            {
+                angle = 0;
+            }
+        }
+
+        if (c == KEYCODE_SPACE)
+        {
+
+            std_msgs::Int64 msg;
+            msg.data = (long)(ros::Time::now().toSec() * 1000);
+            out_dms.publish(msg);
+        }
+
+        // after
+        adjustSpeed(speed);
+        adjustAngle(angle);
     }
 }
 

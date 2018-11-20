@@ -18,7 +18,7 @@
 #define TIMER_DURATION 150 // ms
 #define DMS_MAX 200        // ms
 
-#define MAX_SPEED 5000
+#define MAX_SPEED 2000
 #define MAX_ANGLE 0.8
 
 class CarControl
@@ -123,7 +123,7 @@ void dms_timer_callback(const ros::TimerEvent& event)
     long time = now - dms;
     if (time > DMS_MAX)
     {
-        std::cout << "fail-save active" << std::endl;
+        // std::cout << "fail-save active" << std::endl;
     }
     else
     {
