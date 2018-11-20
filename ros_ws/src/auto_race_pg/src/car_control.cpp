@@ -19,6 +19,7 @@
 #define DMS_MAX 200        // ms
 
 #define MAX_SPEED 2000
+#define MIN_SPEED 1000
 #define MAX_ANGLE 0.8
 
 class CarControl
@@ -93,7 +94,8 @@ void CarControl::adjustSpeed(double speed)
         // std::cout << "speed: " << speed << std::endl;
         std_msgs::Float64 msg;
         msg.data = speed * MAX_SPEED;
-        out_speed.publish(msg);
+        if(msg.data > MIN_SPEED)
+            out_speed.publish(msg);
     }
 }
 
