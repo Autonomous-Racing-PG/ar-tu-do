@@ -110,11 +110,8 @@ void CarControl::adjustAngle(double angle)
     }
     else
     {
-        std::cout << "in:  " << angle << std::endl;
         std_msgs::Float64 msg;
-        msg.data = (-angle * MAX_ANGLE + 1) / 2;
-
-        std::cout << "out: " << msg.data << std::endl;
+        msg.data = angle * (1 - 2 * MAX_ANGLE) + MAX_ANGLE;
         out_angle.publish(msg);
     }
 }
