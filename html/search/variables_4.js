@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['features',['features',['../feature__tests_8c.html#a1582568e32f689337602a16bf8a5bff0',1,'features():&#160;feature_tests.c'],['../feature__tests_8cxx.html#a1582568e32f689337602a16bf8a5bff0',1,'features():&#160;feature_tests.cxx']]],
-  ['file',['file',['../namespace__setup__util.html#aea63a1b32cc79bc3d872ab7cb30dd07e',1,'_setup_util']]]
+  ['e',['e',['../namespace__setup__util.html#acdce690b925de33d6249bbbfa1109d61',1,'_setup_util']]],
+  ['env_5fvar_5fsubfolders',['ENV_VAR_SUBFOLDERS',['../namespace__setup__util.html#aa31804f1be8660156ce9394b33c68dc4',1,'_setup_util']]],
+  ['environ',['environ',['../namespace__setup__util.html#a9a935bdd9ee1aa0327161025bb18c136',1,'_setup_util']]]
 ];
