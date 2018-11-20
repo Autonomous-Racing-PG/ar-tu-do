@@ -1,8 +1,16 @@
 <?xml version="1.0"?>
 <robot>
 
-  <!-- Differential Drive -->
+  <!-- Gazebo plugins -->
   <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/racer</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!-- Differential Drive -->
+  <!--gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
@@ -17,7 +25,7 @@
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
     </plugin>
-  </gazebo>
+  </gazebo-->
 
   <!-- Camera -->
   <gazebo reference="camera">
