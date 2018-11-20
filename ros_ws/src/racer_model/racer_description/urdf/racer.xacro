@@ -2,8 +2,8 @@
 
 <robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find racer_model)/racer_description/racer_plugins.gazebo" />
-  <xacro:include filename="$(find racer_model)/racer_description/racer_macros.xacro" />
+  <xacro:include filename="$(find racer_model)/racer_description/urdf/racer_plugins.gazebo" />
+  <xacro:include filename="$(find racer_model)/racer_description/urdf/racer_macros.xacro" />
 
   <xacro:property name="cameraSize" value="0.05"/>
   <xacro:property name="cameraMass" value="0.1"/>
@@ -44,10 +44,14 @@
   </gazebo>
 
   <!--  Wheels  -->
-  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" flipY="90" OffsetY="0.02" />
-  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" flipY="90" OffsetY="0.02" />
-  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" flipY="90" OffsetY="-0.02" />
-  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" flipY="90" OffsetY="-0.02" />
+  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" flip="90" OffsetY="0.035" />
+  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" flip="90" OffsetY="0.035" />
+  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" flip="90" OffsetY="-0.035" />
+  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" flip="90" OffsetY="-0.035" />
+
+  <!-- Steering -->
+  <steering_hinge  lr="left" parent="chassis" translateY="1" OffsetY="0.01" />  
+  <steering_hinge  lr="right" parent="chassis" translateY="-1" OffsetY="-0.01" />  
 
   <!-- Camera -->
   <link name="camera">
