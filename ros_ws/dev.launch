@@ -14,7 +14,7 @@
       pkg="auto_race_pg"
       type="remote_joy"
       name="remote_joy"
-      output="screen" >
+      output="log" >
     </node>
 
     <!-- joy node -->
