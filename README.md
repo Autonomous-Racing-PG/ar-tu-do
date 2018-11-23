@@ -62,6 +62,11 @@ The python code is formatted with [autopep8](https://github.com/hhatto/autopep8)
 It is currently configured with the aggressive flags.
 Thus, you need to review the changes it made.
 
+## Documentation
+
+* For general information and documentation checkout the [wiki page](https://github.com/Autonomous-Racing-PG/ros.package/wiki).
+* For source code documentation checkout the auto-generated [Doxygen documentation](https://autonomous-racing-pg.github.io/ros.package/html/index.html).
+
 ## Authors
 
 * TODO
