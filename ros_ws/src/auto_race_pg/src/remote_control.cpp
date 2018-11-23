@@ -1,10 +1,9 @@
 #include <ros/ros.h>
 
-#include <std_msgs/Float64.h>
 #include <sensor_msgs/Joy.h>
-#include <termios.h>
 #include <signal.h>
-
+#include <std_msgs/Float64.h>
+#include <termios.h>
 
 #define MAX_SPEED 5000
 #define MAX_ANGLE 0.8
@@ -39,11 +38,11 @@ class RemoteControl
     double speed;
     double angle;
 
-    int             linear_, angular_;
-    double          l_scale_, a_scale_;
+    int    linear_, angular_;
+    double l_scale_, a_scale_;
 
-    ros::Publisher  out_speed;
-    ros::Publisher  out_angle;
+    ros::Publisher out_speed;
+    ros::Publisher out_angle;
 
     ros::Subscriber in_joy;
 };
@@ -64,34 +63,37 @@ RemoteControl::RemoteControl()
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
 
     in_joy =
-        nh_.subscribe< sensor_msgs::Joy >("joy", 10, &RemoteControl::joyCallback, this);
+        nh_.subscribe< sensor_msgs::Joy >("joy", 10,
+                                          &RemoteControl::joyCallback, this);
 }
 
-void RemoteControl::keyLoop() {
+void RemoteControl::keyLoop()
+{
     std::cout << "listening to keyboard" << std::endl;
     std::cout << "=====================" << std::endl;
     while (ros::ok())
     {
-	int c = getch();
-	switch(c) {
-		case KEYCODE_W:
-			speed += 100;
-			break;
-		case KEYCODE_S:
-			speed -= 100;
-			break;
-		case KEYCODE_A:
-			angle -= 0.1;
-			break;
-		case KEYCODE_D:
-			angle += 0.1;
-			break;
-		case KEYCODE_SPACE:
-			speed = 0;
-			break;
-		default:
-			break;
-	}
+        int c = getch();
+        switch (c)
+        {
+            case KEYCODE_W:
+                speed += 100;
+                break;
+            case KEYCODE_S:
+                speed -= 100;
+                break;
+            case KEYCODE_A:
+                angle -= 0.1;
+                break;
+            case KEYCODE_D:
+                angle += 0.1;
+                break;
+            case KEYCODE_SPACE:
+                speed = 0;
+                break;
+            default:
+                break;
+        }
         adjustSpeed(speed);
         adjustAngle(angle);
     }
@@ -107,27 +109,29 @@ void RemoteControl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 
 int RemoteControl::getch()
 {
-  static struct termios oldt, newt;
-  tcgetattr( STDIN_FILENO, &oldt);           // save old settings
-  newt = oldt;
-  newt.c_lflag &= ~(ICANON);                 // disable buffering      
-  tcsetattr( STDIN_FILENO, TCSANOW, &newt);  // apply new settings
+    static struct termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt); // save old settings
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON);               // disable buffering
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt); // apply new settings
 
-  int c = getchar();  // read character (non-blocking)
+    int c = getchar(); // read character (non-blocking)
 
-  tcsetattr( STDIN_FILENO, TCSANOW, &oldt);  // restore old settings
-  return c;
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt); // restore old settings
+    return c;
 }
 
-void RemoteControl::adjustSpeed(double speed) {
+void RemoteControl::adjustSpeed(double speed)
+{
     std_msgs::Float64 msg;
     msg.data = speed * MAX_SPEED;
     out_speed.publish(msg);
 }
 
-void RemoteControl::adjustAngle(double angle) {
+void RemoteControl::adjustAngle(double angle)
+{
     std_msgs::Float64 msg;
-    msg.data = (angle * -MAX_ANGLE +1) / 2;
+    msg.data = (angle * -MAX_ANGLE + 1) / 2;
     out_angle.publish(msg);
 }
 
@@ -149,5 +153,5 @@ int main(int argc, char** argv)
     remote_control.keyLoop();
     return 0;
 
-    //ros::spin();
+    // ros::spin();
 }
