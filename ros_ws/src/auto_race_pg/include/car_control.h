@@ -15,15 +15,9 @@
 #define TOPIC_SPEED "/set/speed"
 #define TOPIC_ANGLE "/set/angle"
 
-#define TOPIC_STATUS_MODE "/status/mode"
-#define TOPIC_STATUS_DMS "/status/dms"
-
-#define TIMER_DURATION 150 // ms
-#define DMS_MAX 200        // ms
-
 #define MAX_SPEED 15000
 #define MIN_SPEED 500
-#define MAX_ANGLE 0.8
+#define MAX_ANGLE 0.9
 
 class CarControl
 {
@@ -39,20 +33,17 @@ class CarControl
 
     void speed_callback(const std_msgs::Float64::ConstPtr& speed);
     void angle_callback(const std_msgs::Float64::ConstPtr& angle);
-    void dms_callback(const std_msgs::Int64::ConstPtr& timestamp);
 
     ros::Publisher out_speed;
     ros::Publisher out_angle;
-    ros::Publisher out_mode;
-
-    void setMode(std::string mode);
 
     void adjustSpeed(double speed);
     void adjustAngle(double angle);
 
+    double speed;
+    double angle;
+
     bool run;
 };
-
-long dms = 0;
 
 #endif // CAR_CONTROL_H

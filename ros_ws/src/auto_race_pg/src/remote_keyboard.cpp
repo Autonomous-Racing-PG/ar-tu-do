@@ -6,7 +6,6 @@ RemoteKeyboard::RemoteKeyboard()
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
-    out_dms   = nh_.advertise< std_msgs::Int64 >(TOPIC_STATUS_DMS, 1);
 }
 
 void RemoteKeyboard::keyLoop()

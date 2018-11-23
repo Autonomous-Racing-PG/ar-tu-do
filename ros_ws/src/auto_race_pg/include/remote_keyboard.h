@@ -10,12 +10,8 @@
 #include <termios.h>
 #include <time.h>
 
-#define MODE "keyboard"
-
 #define TOPIC_SPEED "/set/speed"
-#define TOPIC_ANGLE "/set/position"
-
-#define TOPIC_STATUS_DMS "/status/dms"
+#define TOPIC_ANGLE "/set/angle"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97

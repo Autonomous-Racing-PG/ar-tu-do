@@ -2,7 +2,7 @@
 
 /**
  * @brief Construct a new Remote Joy:: Remote Joy object
- * 
+ *
  */
 RemoteJoy::RemoteJoy()
 {
@@ -22,8 +22,10 @@ RemoteJoy::RemoteJoy()
  */
 void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
-    double angle = joy->axes[ JOY_ANGLE_ANGULAR ];
-    double speed = joy->axes[ JOY_ANGLE_LINEAR ];
+    double angle = joy->axes[ JOY_ANGLE_ANGULAR ] * (-1);
+    double speed = (joy->axes[ 5 ] - 1) * (-0.5);
+    bool   dms   = joy->buttons[ 0 ] == 1;
+    std::cout << dms << std::endl;
     publishSpeed(speed);
     publishAngle(angle);
 }
@@ -36,7 +38,7 @@ void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 void RemoteJoy::publishAngle(double angle)
 {
     std_msgs::Float64 msg;
-    msg.data = (angle + 1) / 2;
+    msg.data = angle;
     out_angle.publish(msg);
 }
 
@@ -53,9 +55,9 @@ void RemoteJoy::publishSpeed(double speed)
 }
 
 /**
- * @brief 
- * 
- * @param is_pressed 
+ * @brief
+ *
+ * @param is_pressed
  */
 // void RemoteJoy::publishDeadManSwitch(bool is_pressed)
 // {

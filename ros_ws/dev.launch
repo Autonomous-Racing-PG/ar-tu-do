@@ -14,7 +14,7 @@
       pkg="auto_race_pg"
       type="remote_joy"
       name="remote_joy"
-      output="log" >
+      output="screen" >
     </node>
 
     <!-- joy node -->
@@ -24,8 +24,9 @@
       type="joy_node"
       name="joy_node"
       output="log" >
-      <param name="dev" type="string" value="/dev/input/js2" />
+      <param name="dev" type="string" value="/dev/input/js0" />
       <param name="deadzone" value="0.12" />
+      <param name="autorepeat_rate" value = "100" />
     </node>
 
     <!-- remote keyboard -->
