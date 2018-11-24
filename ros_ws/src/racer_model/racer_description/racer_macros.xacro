@@ -23,32 +23,28 @@
   <property name="base_y_origin_to_wheel_origin" value="0.095" />
   <property name="base_z_origin_to_wheel_origin" value="0" />
   
-  <xacro:macro name="wheel" params="fb lr parent translateX translateY flipY OffsetY">
+  <xacro:macro name="wheel" params="fb lr parent translateX translateY left OffsetY">
     <link name="${lr}_wheel_${fb}">
       <inertial>
         <mass value="${wheel_mass}" />
-        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/180} 0  0 "/>
+        <origin xyz="0 ${OffsetY} 0" rpy="${90*pi/180} 0 0"/>
         <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
       </inertial>
 
       <collision>
-        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/180} 0 0 " />
+        <origin xyz="0 ${OffsetY} 0" rpy="${90*pi/180} 0 0 " />
         <geometry>
           <cylinder length="${wheel_height}" radius="${wheel_radius}" />
         </geometry>
       </collision>
 
-      <visual>
-        <origin xyz="0 ${OffsetY} 0" rpy="${flipY*pi/180} 0  0 " /> 
-        <geometry>
-          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
-        </geometry>
-      </visual>      
+      <visual name="visual">
+          <origin xyz="0 ${OffsetY} 0" rpy="0 0 ${left*pi}" />
+          <geometry>
+            <mesh filename="package://racer_model/racer_description/meshes/wheel.dae"/>
+          </geometry>
+      </visual>
     </link>
-
-    <gazebo reference="${lr}_wheel_${fb}">
-      <material>Gazebo/Black</material>
-    </gazebo>
 
     <joint name="${lr}_wheel_${fb}_hinge" type="continuous">
       <parent link="${parent}"/>

@@ -31,23 +31,19 @@
       </geometry>
     </collision>
 
-    <visual name='chassis_visual'>
-      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="${bodySizeL} ${bodySizeB} ${bodySizeH}"/>
+        <mesh filename="package://racer_model/racer_description/meshes/car.dae"/>
       </geometry>
     </visual>
   </link>
 
-  <gazebo reference="chassis">
-    <material>Gazebo/Green</material>
-  </gazebo>
-
   <!--  Wheels  -->
-  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" flipY="90" OffsetY="0.02" />
-  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" flipY="90" OffsetY="0.02" />
-  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" flipY="90" OffsetY="-0.02" />
-  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" flipY="90" OffsetY="-0.02" />
+  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" left="1" OffsetY="0.02" />
+  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" left="1" OffsetY="0.02" />
+  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" left="0" OffsetY="-0.02" />
+  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" left="0" OffsetY="-0.02" />
 
   <!-- Camera -->
   <link name="camera">
