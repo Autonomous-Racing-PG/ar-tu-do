@@ -21,7 +21,6 @@
 
   <!-- Camera -->
   <gazebo reference="camera">
-    <material>Gazebo/Green</material>
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
       <camera name="head">
