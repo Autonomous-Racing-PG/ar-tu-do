@@ -6,11 +6,11 @@
   <rosparam file="$(find racer_model)/racer_control/config/racer_config.yaml" command="load"/>
 
   <!-- load the controllers -->
-  <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
         output="screen" ns="/racer" args="left_wheel_back_velocity_controller right_wheel_back_velocity_controller
                                             left_wheel_front_velocity_controller right_wheel_front_velocity_controller
                                             left_steering_hinge_position_controller right_steering_hinge_position_controller
-                                            joint_state_controller"/>
+                                            joint_state_controller --timeout 5000"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
