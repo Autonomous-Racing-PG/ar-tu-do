@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
+  <!-- verbose logging -->
+  <arg name="verbose" value="true"/>
+
   <arg name="world" default="empty"/> 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -22,6 +25,6 @@
   <node name="racer_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
    args="-urdf -param robot_description -model racer" />
    
-  <include file="$(find racer_model)/racer_control/launch/racer_control.launch" ns="/"/>  
+  <include file="$(find racer_model)/racer_control/launch/racer_control.launch"/>  
 
 </launch>
