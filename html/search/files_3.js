@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['generate_5fcached_5fsetup_2epy',['generate_cached_setup.py',['../generate__cached__setup_8py.html',1,'']]]
+  ['talker_2ecpp',['talker.cpp',['../talker_8cpp.html',1,'']]],
+  ['test_5fauto_5frace_5fpg_2ecpp',['test_auto_race_pg.cpp',['../test__auto__race__pg_8cpp.html',1,'']]]
 ];
