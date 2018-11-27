@@ -3,7 +3,7 @@
 import rospy
 import math
 from sensor_msgs.msg import LaserScan
-from race.msg import pid_input
+from auto_race_pg.msg import pid_input
 import numpy as np
 #import matplotlib.pyplot as plt
 

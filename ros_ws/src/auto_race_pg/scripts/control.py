@@ -2,8 +2,8 @@
 
 import rospy
 
-from race.msg import drive_param
-from race.msg import pid_input
+from auto_race_pg.msg import drive_param
+from auto_race_pg.msg import pid_input
 import math
 import numpy as np
 
