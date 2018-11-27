@@ -20,7 +20,7 @@
               izz="${2*m*(r*r)/3}" /> 
   </macro>
 
-  <!-- Wheels -->
+  
   <property name="wheel_radius" value="0.05" /> 
   <property name="wheel_height" value="0.045" />
   <property name="wheel_mass" value="0.2" />
@@ -28,9 +28,13 @@
   <property name="base_x_origin_to_wheel_origin" value="0.16" />
   <property name="base_y_origin_to_wheel_origin" value="0.095" />
   <property name="base_z_origin_to_wheel_origin" value="0" />
+  <property name="base_x_sphere_origin_to_wheel_origin" value="0.001" />
+  <property name="base_y_sphere_origin_to_wheel_origin" value="0.001" />
+  <property name="base_z_sphere_origin_to_wheel_origin" value="0" />
   
-  <xacro:macro name="wheel" params="fb lr parent translateX translateY flip OffsetY">
-    <link name="${lr}_wheel_${fb}">
+  <!-- Wheels Front-->
+  <xacro:macro name="wheel_front" params="lr parent translateX translateY flip OffsetY">
+    <link name="${lr}_wheel_front">
       <inertial>
         <mass value="${wheel_mass}" />
         <origin xyz="0 0 0" rpy="${flip*pi/180} 0 0"/>
@@ -38,39 +42,88 @@
       </inertial>
 
       <collision>
-        <origin xyz="0 0 0" rpy="${flip*pi/180} 0 0 " />
+        <origin xyz="0 ${OffsetY} 0" rpy="${flip*pi/180} 0 0 " />
         <geometry>
           <cylinder length="${wheel_height}" radius="${wheel_radius}" />
         </geometry>
       </collision>
 
       <visual>
-        <origin xyz="0 0 0" rpy="${flip*pi/180} 0  0 " /> 
+        <origin xyz="0 ${OffsetY} 0" rpy="${flip*pi/180} 0  0 " /> 
         <geometry>
           <cylinder length="${wheel_height}" radius="${wheel_radius}" />
         </geometry>
       </visual>      
     </link>
 
-    <gazebo reference="${lr}_wheel_${fb}">
+    <gazebo reference="${lr}_wheel_front">
       <material>Gazebo/Black</material>
     </gazebo>
 
-    <joint name="${lr}_wheel_${fb}_hinge" type="continuous">
+    <joint name="${lr}_front_wheel_joint" type="continuous">
       <parent link="${parent}"/>
-      <child link="${lr}_wheel_${fb}"/>
-      <origin xyz="${translateX * base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin + OffsetY} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" /> 
+      <child link="${lr}_wheel_front"/>
+      <origin xyz="${translateX * base_x_sphere_origin_to_wheel_origin} ${translateY * base_y_sphere_origin_to_wheel_origin} ${base_z_sphere_origin_to_wheel_origin}" rpy="0 0 0" /> 
       <axis xyz="0 1 0" rpy="0 0 0" />
       <limit effort="10" velocity="100"/>
       <joint_properties damping="0.0" friction="0.0"/>
     </joint>
 
-    <transmission name="${lr}_wheel_${fb}_transmission" type="SimpleTransmission">
+    <transmission name="${lr}_wheel_front_transmission" type="SimpleTransmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${lr}_wheel_${fb}_hinge">
+      <joint name="${lr}_front_wheel_joint">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
-      <actuator name="${lr}_wheel_${fb}_motor">
+      <actuator name="${lr}_wheel_front_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <!-- Wheels Back-->
+  <xacro:macro name="wheel_back" params="lr parent translateX translateY flip OffsetY">
+    <link name="${lr}_wheel_back">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <origin xyz="0 0 0" rpy="${flip*pi/180} 0 0"/>
+        <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+      </inertial>
+
+      <collision>
+        <origin xyz="0 ${OffsetY} 0" rpy="${flip*pi/180} 0 0 " />
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 ${OffsetY} 0" rpy="${flip*pi/180} 0  0 " /> 
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+      </visual>      
+    </link>
+
+    <gazebo reference="${lr}_wheel_back">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+    <joint name="${lr}_back_wheel_joint" type="continuous">
+      <parent link="${parent}"/>
+      <child link="${lr}_wheel_back"/>
+      <origin xyz="${translateX * base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" /> 
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <limit effort="10" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <transmission name="${lr}_wheel_back_transmission" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${lr}_back_wheel_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${lr}_wheel_back_motor">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
@@ -78,11 +131,11 @@
   </xacro:macro>
 
   <!-- Steering -->
-  <property name="steering_radius" value="0.025" /> 
+  <property name="steering_radius" value="0.015" /> 
   <property name="steering_mass" value="0.07" />
 
   <xacro:macro name="steering_hinge" params="lr parent translateY OffsetY">
-    <link name="${lr}_steering">
+    <link name="${lr}_steering_hinge">
       <inertial>
         <mass value="${steering_mass}" />
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -97,21 +150,21 @@
       </visual>  
     </link>
 
-    <gazebo reference="${lr}_steering">
+    <gazebo reference="${lr}_steering_hinge">
       <material>Gazebo/Grey</material>
     </gazebo>
 
-    <joint name="${lr}_steering_hinge" type="revolute">
-      <origin xyz="${base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin + OffsetY} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" />
+    <joint name="${lr}_steering_hinge_joint" type="revolute">
+      <origin xyz="${base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin + OffsetY} ${ base_z_origin_to_wheel_origin}" rpy="0 0 0" />
       <parent link="${parent}" />
-      <child link="${lr}_steering" />
-      <axis xyz="0 1 0" />
-      <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
+      <child link="${lr}_steering_hinge" />
+      <axis xyz="0 0 1" />
+      <limit lower="-1.0" upper="1.0" effort="10" velocity="10" />
     </joint>
 
     <transmission name="${lr}_steering_hinge_transmission" type="SimpleTransmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${lr}_steering_hinge">
+      <joint name="${lr}_steering_hinge_joint">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${lr}_steering_hinge_motor">

@@ -16,6 +16,8 @@
   <xacro:property name="bodySizeH" value="0.1"/>
   <xacro:property name="bodyMass" value="3.5"/>
 
+  <link name="base_link" />
+
   <!--  Body  -->
   <link name='chassis'>           
     <inertial>
@@ -43,15 +45,21 @@
     <material>Gazebo/Green</material>
   </gazebo>
 
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis" />
+  </joint>
+
   <!--  Wheels  -->
-  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" flip="90" OffsetY="0.035" />
-  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" flip="90" OffsetY="0.035" />
-  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" flip="90" OffsetY="-0.035" />
-  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" flip="90" OffsetY="-0.035" />
+  <wheel_front lr="left" parent="left_steering_hinge" translateX="1" translateY="1" flip="90" OffsetY="0.02" />
+  <wheel_front lr="right" parent="right_steering_hinge" translateX="1" translateY="-1" flip="90" OffsetY="-0.02" />
+  <wheel_back lr="left" parent="chassis" translateX="-1" translateY="1" flip="90" OffsetY="0.03" />
+  <wheel_back lr="right" parent="chassis" translateX="-1" translateY="-1" flip="90" OffsetY="-0.03" />
 
   <!-- Steering -->
-  <steering_hinge  lr="left" parent="chassis" translateY="1" OffsetY="0.01" />  
-  <steering_hinge  lr="right" parent="chassis" translateY="-1" OffsetY="-0.01" />  
+  <steering_hinge  lr="left" parent="chassis" translateY="1" OffsetY="0.03" />  
+  <steering_hinge  lr="right" parent="chassis" translateY="-1" OffsetY="-0.03" />  
 
   <!-- Camera -->
   <link name="camera">
@@ -88,7 +96,7 @@
   </joint>
 
   <!-- Hokuyo Laser -->
-  <link name="hokuyo">
+  <!-- <link name="hokuyo">
     <inertial>
       <mass value="${hokuyoMass}" />
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
@@ -115,6 +123,6 @@
     <origin xyz=".21 0 .135" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="hokuyo"/>
-  </joint>
+  </joint> -->
 
 </robot>
