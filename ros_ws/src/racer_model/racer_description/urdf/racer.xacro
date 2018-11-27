@@ -2,8 +2,8 @@
 
 <robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find racer_model)/racer_description/urdf/racer_plugins.gazebo" />
-  <xacro:include filename="$(find racer_model)/racer_description/urdf/racer_macros.xacro" />
+  <xacro:include filename="$(find racer_description)/urdf/racer_plugins.gazebo" />
+  <xacro:include filename="$(find racer_description)/urdf/racer_macros.xacro" />
 
   <xacro:property name="cameraSizeL" value="0.03"/>
   <xacro:property name="cameraSizeB" value="0.03"/>
@@ -36,7 +36,7 @@
     <visual>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-         <mesh filename="package://racer_model/racer_description/meshes/car.dae"/>
+         <mesh filename="package://racer_description/meshes/car.dae"/>
       </geometry>
     </visual>
   </link>
@@ -69,7 +69,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-         <mesh filename="package://racer_model/racer_description/meshes/ZED.dae"/>
+         <mesh filename="package://racer_description/meshes/ZED.dae"/>
       </geometry>
     </visual>
   </link>s
@@ -99,7 +99,7 @@
     <visual>
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://racer_model/racer_description/meshes/hokuyo.dae"/>
+        <mesh filename="package://racer_description/meshes/hokuyo.dae"/>
       </geometry>
     </visual>
   </link>

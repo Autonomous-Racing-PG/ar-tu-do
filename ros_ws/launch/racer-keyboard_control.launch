@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find racer_world)/launch/racer_gazebo.launch"/>
+
+  <node pkg="auto_race_pg" name="control_node" type="keyboard.py" output="screen"/>
+</launch>

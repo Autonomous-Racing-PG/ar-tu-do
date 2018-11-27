@@ -47,7 +47,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${left*pi}" /> 
         <geometry>
-          <mesh filename="package://racer_model/racer_description/meshes/wheel.dae"/>
+          <mesh filename="package://racer_description/meshes/wheel.dae"/>
         </geometry>
       </visual>      
     </link>

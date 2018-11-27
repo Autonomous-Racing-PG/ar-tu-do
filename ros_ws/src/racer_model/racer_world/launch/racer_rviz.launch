@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_model)/racer_description/urdf/racer.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -13,6 +13,6 @@
 
   <!-- Show in Rviz   -->
   <!--node name="rviz" pkg="rviz" type="rviz"/-->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_model)/racer_world/launch/myrobot.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
 
 </launch>

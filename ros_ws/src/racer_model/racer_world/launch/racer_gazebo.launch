@@ -12,7 +12,7 @@
   <arg name="debug" default="false"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find racer_model)/racer_world/worlds/racer_empty.world"/>
+    <arg name="world_name" value="$(find racer_world)/worlds/racer_empty.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -20,11 +20,11 @@
     <arg name="debug" value="$(arg debug)"/>
   </include>
   
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_model)/racer_description/urdf/racer.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
 
   <node name="racer_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
    args="-urdf -param robot_description -model racer" />
    
-  <include file="$(find racer_model)/racer_control/launch/racer_control.launch"/>  
+  <include file="$(find racer_control)/launch/racer_control.launch"/>
 
 </launch>
