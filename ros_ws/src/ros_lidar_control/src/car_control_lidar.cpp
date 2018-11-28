@@ -82,7 +82,8 @@ void CarControlLidar::lidar_callback(const sensor_msgs::LaserScan::ConstPtr& lid
 	std::cout << "left_ranges: " << left_ranges << std::endl 
 	<< "right_ranges: " << right_ranges << std::endl;
 
-
+	float kp = 14;
+	float kd = 0.09;
 
 }
 
