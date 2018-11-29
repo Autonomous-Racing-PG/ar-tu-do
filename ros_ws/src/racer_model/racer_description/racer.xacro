@@ -5,7 +5,6 @@
   <xacro:include filename="$(find racer_model)/racer_description/racer_plugins.gazebo" />
   <xacro:include filename="$(find racer_model)/racer_description/racer_macros.xacro" />
 
-  <xacro:property name="cameraSize" value="0.05"/>
   <xacro:property name="cameraMass" value="0.1"/>
 
   <xacro:property name="hokuyoSize" value="0.1"/>
@@ -31,51 +30,42 @@
       </geometry>
     </collision>
 
-    <visual name='chassis_visual'>
-      <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="${bodySizeL} ${bodySizeB} ${bodySizeH}"/>
+        <mesh filename="package://racer_model/racer_description/meshes/car.dae"/>
       </geometry>
     </visual>
   </link>
 
-  <gazebo reference="chassis">
-    <material>Gazebo/Green</material>
-  </gazebo>
-
   <!--  Wheels  -->
-  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" flipY="90" OffsetY="0.02" />
-  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" flipY="90" OffsetY="0.02" />
-  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" flipY="90" OffsetY="-0.02" />
-  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" flipY="90" OffsetY="-0.02" />
+  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" left="1" OffsetY="0.02" />
+  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" left="1" OffsetY="0.02" />
+  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" left="0" OffsetY="-0.02" />
+  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" left="0" OffsetY="-0.02" />
 
   <!-- Camera -->
   <link name="camera">
     <inertial>
       <mass value="${cameraMass}" />
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
-      <box_inertia m="${cameraMass}" l="${cameraSize}" b="${cameraSize}" h="${cameraSize}" />
+      <box_inertia m="${cameraMass}" l="0.03" b="0.03" h="0.17" />
     </inertial>
 
     <collision>
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
-        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+        <box size="0.03 0.17 0.03"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+        <mesh filename="package://racer_model/racer_description/meshes/ZED.dae"/>
       </geometry>
     </visual>
   </link>
-
-  <gazebo reference="camera">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz=".21 0 0.075" rpy="0 0 0"/>
