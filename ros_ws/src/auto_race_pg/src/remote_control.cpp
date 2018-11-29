@@ -48,9 +48,9 @@ class RemoteControl
 };
 
 RemoteControl::RemoteControl()
-    : linear_(1)
-    , angular_(0)
-    , speed(0)
+    : linear_{1}
+    , angular_{0}
+    , speed{0}
     , angle(0)
 {
 

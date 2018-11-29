@@ -1,8 +1,8 @@
 #include "remote_keyboard.h"
 
 RemoteKeyboard::RemoteKeyboard()
-    : speed(0)
-    , angle(0)
+    : speed{0}
+    , angle{0}
 {
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
@@ -24,12 +24,12 @@ void RemoteKeyboard::keyLoop()
 
         if (c == KEYCODE_S)
         {
-            speed       =-=1;
+            speed       -=1;
         }
 
         if (c == KEYCODE_A)
         {
-            angle       = +=1;
+            angle       +=1;
         }
 
         if (c == KEYCODE_D)

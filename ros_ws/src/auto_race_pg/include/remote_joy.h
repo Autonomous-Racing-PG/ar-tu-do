@@ -1,5 +1,4 @@
-#ifndef REMOTE_JOY_H
-#define REMOTE_JOY_H
+#pragma once
 
 #include <ros/ros.h>
 
@@ -36,5 +35,3 @@ class RemoteJoy
 
     ros::Subscriber in_joy;
 };
-
-#endif

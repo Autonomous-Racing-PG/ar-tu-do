@@ -1,5 +1,4 @@
-#ifndef REMOTE_KEYBOARD_H
-#define REMOTE_KEYBOARD_H
+#pragma once
 
 #include <ros/ros.h>
 
@@ -42,5 +41,3 @@ class RemoteKeyboard
     double speed;
     double angle;
 };
-
-#endif

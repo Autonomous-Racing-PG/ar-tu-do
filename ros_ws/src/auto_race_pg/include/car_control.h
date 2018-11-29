@@ -1,5 +1,4 @@
-#ifndef CAR_CONTROL_H
-#define CAR_CONTROL_H
+#pragma once
 
 #include <ros/ros.h>
 
@@ -45,5 +44,3 @@ class CarControl
 
     bool run;
 };
-
-#endif // CAR_CONTROL_H
