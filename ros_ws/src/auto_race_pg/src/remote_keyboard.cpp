@@ -16,64 +16,29 @@ void RemoteKeyboard::keyLoop()
     while (ros::ok())
     {
         int  c           = getch();
-        bool changeSpeed = false;
-        bool changeAngle = false;
 
         if (c == KEYCODE_W)
         {
-            speed       = speed + DELTA_SPEED_UP;
-            changeSpeed = true;
+            speed       += 1;
         }
 
         if (c == KEYCODE_S)
         {
-            speed       = speed - DELTA_SPEED_UP;
-            changeSpeed = true;
-        }
-
-        speed = std::max(std::min(speed, 1.0), -1.0);
-
-        if (!changeSpeed)
-        {
-            if (std::abs(speed) > DELTA_SPEED_DOWN)
-            {
-                speed = copysign(DELTA_SPEED_DOWN, -speed);
-            }
-            else
-            {
-                speed = 0;
-            }
+            speed       =-=1;
         }
 
         if (c == KEYCODE_A)
         {
-            angle       = angle - DELTA_ANGLE_UP;
-            changeAngle = true;
+            angle       = +=1;
         }
 
         if (c == KEYCODE_D)
         {
-            angle       = angle + DELTA_ANGLE_UP;
-            changeAngle = true;
-        }
-
-        angle = std::max(std::min(angle, 1.0), -1.0);
-
-        if (!changeAngle)
-        {
-            if (std::abs(angle) > DELTA_ANGLE_DOWN)
-            {
-                angle = copysign(DELTA_ANGLE_DOWN, -angle);
-            }
-            else
-            {
-                angle = 0;
-            }
+            angle       -=1;
         }
 
         if (c == KEYCODE_SPACE)
         {
-
             std_msgs::Int64 msg;
             msg.data = (long)(ros::Time::now().toSec() * 1000);
             out_dms.publish(msg);

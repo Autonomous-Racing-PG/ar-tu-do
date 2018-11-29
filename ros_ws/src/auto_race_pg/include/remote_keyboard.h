@@ -19,12 +19,6 @@
 #define KEYCODE_D 100
 #define KEYCODE_SPACE 32
 
-#define DELTA_SPEED_UP 0.2
-#define DELTA_SPEED_DOWN 0.1
-
-#define DELTA_ANGLE_UP 0.2
-#define DELTA_ANGLE_DOWN 0.1
-
 class RemoteKeyboard
 {
     public:
