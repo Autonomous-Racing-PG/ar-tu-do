@@ -6,3 +6,5 @@ ros_ws/devel/
 ros_ws/src/CMakeLists.txt
 
 ros_ws/\.catkin_workspace
+
+.vscode/
