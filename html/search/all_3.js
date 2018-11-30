@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['main',['main',['../listener_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;listener.cpp'],['../talker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;talker.cpp'],['../test__auto__race__pg_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;test_auto_race_pg.cpp']]],
-  ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]]
+  ['keycode_5fa',['KEYCODE_A',['../remote__keyboard_8h.html#a35ba55030dedad2411239e6330435742',1,'KEYCODE_A():&#160;remote_keyboard.h'],['../remote__control_8cpp.html#a35ba55030dedad2411239e6330435742',1,'KEYCODE_A():&#160;remote_control.cpp']]],
+  ['keycode_5fd',['KEYCODE_D',['../remote__keyboard_8h.html#af0c998786dcada98bf809fea0b157603',1,'KEYCODE_D():&#160;remote_keyboard.h'],['../remote__control_8cpp.html#af0c998786dcada98bf809fea0b157603',1,'KEYCODE_D():&#160;remote_control.cpp']]],
+  ['keycode_5fs',['KEYCODE_S',['../remote__keyboard_8h.html#a9be3d5563fec0f900d20668973b5806c',1,'KEYCODE_S():&#160;remote_keyboard.h'],['../remote__control_8cpp.html#a9be3d5563fec0f900d20668973b5806c',1,'KEYCODE_S():&#160;remote_control.cpp']]],
+  ['keycode_5fspace',['KEYCODE_SPACE',['../remote__keyboard_8h.html#a49115085a0fac000fb82c9d86c4c34d3',1,'KEYCODE_SPACE():&#160;remote_keyboard.h'],['../remote__control_8cpp.html#a49115085a0fac000fb82c9d86c4c34d3',1,'KEYCODE_SPACE():&#160;remote_control.cpp']]],
+  ['keycode_5fw',['KEYCODE_W',['../remote__keyboard_8h.html#a6a44fd7e61a3f73fffecd1ec5973f819',1,'KEYCODE_W():&#160;remote_keyboard.h'],['../remote__control_8cpp.html#a6a44fd7e61a3f73fffecd1ec5973f819',1,'KEYCODE_W():&#160;remote_control.cpp']]],
+  ['keyloop',['keyLoop',['../class_remote_joy.html#aeb64e457c9661691877f98a7768473f7',1,'RemoteJoy::keyLoop()'],['../class_remote_keyboard.html#a6e577da2cf6247e3cdbabd582784ba3c',1,'RemoteKeyboard::keyLoop()'],['../class_remote_control.html#afedba778e285038ada1cbcd9cb793502',1,'RemoteControl::keyLoop()']]]
 ];
