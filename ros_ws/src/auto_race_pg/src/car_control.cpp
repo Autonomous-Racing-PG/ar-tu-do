@@ -1,9 +1,9 @@
 #include "car_control.h"
 
 CarControl::CarControl()
-    : run{false}
-    , speed{0}
-    , angle{0}
+    : run{ false }
+    , speed{ 0 }
+    , angle{ 0 }
 {
     in_speed =
         nh_.subscribe< std_msgs::Float64 >(TOPIC_SPEED, 1,
