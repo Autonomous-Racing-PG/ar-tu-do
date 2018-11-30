@@ -11,6 +11,8 @@
 #define TOPIC_FOCBOX_SPEED "/commands/motor/speed"
 #define TOPIC_FOCBOX_ANGLE "/commands/servo/position"
 
+#define TOPIC_CMD "/cc/cmd"
+
 #define TOPIC_SPEED "/set/speed"
 #define TOPIC_ANGLE "/set/angle"
 
@@ -28,10 +30,11 @@ class CarControl
 
     ros::Subscriber in_speed;
     ros::Subscriber in_angle;
-    ros::Subscriber in_dms;
+    ros::Subscriber in_cmd;
 
     void speed_callback(const std_msgs::Float64::ConstPtr& speed);
     void angle_callback(const std_msgs::Float64::ConstPtr& angle);
+    void cmd_callback(const std_msgs::String::ConstPtr& cmd);
 
     ros::Publisher out_speed;
     ros::Publisher out_angle;

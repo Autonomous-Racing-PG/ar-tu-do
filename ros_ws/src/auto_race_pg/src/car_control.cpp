@@ -11,6 +11,9 @@ CarControl::CarControl()
     in_angle =
         nh_.subscribe< std_msgs::Float64 >(TOPIC_ANGLE, 1,
                                            &CarControl::angle_callback, this);
+    in_cmd =
+        nh_.subscribe< std_msgs::String >(TOPIC_CMD, 1,
+                                           &CarControl::cmd_callback, this);
 
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
@@ -24,6 +27,18 @@ void CarControl::speed_callback(const std_msgs::Float64::ConstPtr& speed)
 void CarControl::angle_callback(const std_msgs::Float64::ConstPtr& angle)
 {
     adjustAngle(angle->data);
+}
+void CarControl::cmd_callback(const std_msgs::String::ConstPtr& cmd)
+{
+    std::string str = cmd->data;
+    if(str.compare("stop") == 0) {
+        run = false;
+        adjustSpeed(0);
+        adjustAngle(0);
+    }
+    if(str.compare("go") == 0) {
+        run = true;
+    }
 }
 
 void CarControl::adjustSpeed(double raw)
