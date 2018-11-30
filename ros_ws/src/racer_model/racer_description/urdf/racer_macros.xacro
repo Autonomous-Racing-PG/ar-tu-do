@@ -26,26 +26,29 @@
   <property name="wheel_mass" value="0.2" />
   
   <property name="base_x_origin_to_wheel_origin" value="0.16" />
-  <property name="base_y_origin_to_wheel_origin" value="0.095" />
+  <property name="base_y_origin_to_wheel_origin" value="0.1055" />
   <property name="base_z_origin_to_wheel_origin" value="0" />
+  <property name="base_x_sphere_origin_to_wheel_origin" value="0.000" />
+  <property name="base_y_sphere_origin_to_wheel_origin" value="0.001" />
+  <property name="base_z_sphere_origin_to_wheel_origin" value="0" />
   
-  <xacro:macro name="wheel" params="fb lr parent translateX translateY left OffsetY">
+  <xacro:macro name="wheel" params="fb lr parent translateX translateY left OffsetJointX OffsetJointY OffsetJointZ OffsetY">
     <link name="${lr}_wheel_${fb}">
       <inertial>
         <mass value="${wheel_mass}" />
-        <origin xyz="0 0 0" rpy="${90*pi/180} 0 0"/>
+        <origin xyz="0 ${OffsetY} 0" rpy="${90*pi/180} 0 0"/>
         <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
       </inertial>
 
       <collision>
-        <origin xyz="0 0 0" rpy="${90*pi/180} 0 0 " />
+        <origin xyz="0 ${OffsetY} 0" rpy="${90*pi/180} 0 0 " />
         <geometry>
           <cylinder length="${wheel_height}" radius="${wheel_radius}" />
         </geometry>
       </collision>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 ${left*pi}" /> 
+        <origin xyz="0 ${OffsetY} 0" rpy="0 0 ${left*pi}" /> 
         <geometry>
           <mesh filename="package://racer_description/meshes/wheel.dae"/>
         </geometry>
@@ -55,7 +58,7 @@
     <joint name="${lr}_wheel_${fb}_hinge" type="continuous">
       <parent link="${parent}"/>
       <child link="${lr}_wheel_${fb}"/>
-      <origin xyz="${translateX * base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin + OffsetY} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" /> 
+      <origin xyz="${translateX * OffsetJointX} ${translateY * OffsetJointY} ${OffsetJointZ}" rpy="0 0 0" /> 
       <axis xyz="0 1 0" rpy="0 0 0" />
       <limit effort="10" velocity="100"/>
       <joint_properties damping="0.0" friction="0.0"/>
@@ -74,7 +77,7 @@
   </xacro:macro>
 
   <!-- Steering -->
-  <property name="steering_radius" value="0.025" /> 
+  <property name="steering_radius" value="0.01" /> 
   <property name="steering_mass" value="0.07" />
 
   <xacro:macro name="steering_hinge" params="lr parent translateY OffsetY">
@@ -98,10 +101,10 @@
     </gazebo>
 
     <joint name="${lr}_steering_hinge" type="revolute">
-      <origin xyz="${base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin + OffsetY} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" />
+      <origin xyz="${base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" />
       <parent link="${parent}" />
       <child link="${lr}_steering" />
-      <axis xyz="0 1 0" />
+      <axis xyz="0 0 1" />
       <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
     </joint>
 

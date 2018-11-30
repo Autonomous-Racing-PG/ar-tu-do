@@ -9,11 +9,11 @@ racer:
   left_wheel_back_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: left_wheel_back_hinge
-    pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    pid: {p: 0.5, i: 0.0, d: 0.0, i_clamp: 0.0}
   right_wheel_back_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: right_wheel_back_hinge
-    pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    pid: {p: 0.5, i: 0.0, d: 0.0, i_clamp: 0.0}
   left_wheel_front_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: left_wheel_front_hinge
@@ -28,9 +28,9 @@ racer:
   left_steering_hinge_position_controller:
     joint: left_steering_hinge
     type: effort_controllers/JointPositionController
-    pid: {p: 1.0, i: 0.0, d: 0.5}
+    pid: {p: 1.0, i: 0.0, d: 0.1}
   right_steering_hinge_position_controller:
     joint: right_steering_hinge
     type: effort_controllers/JointPositionController
-    pid: {p: 1.0, i: 0.0, d: 0.5}
+    pid: {p: 1.0, i: 0.0, d: 0.1}
 

@@ -18,6 +18,14 @@
   <xacro:property name="bodySizeH" value="0.1"/>
   <xacro:property name="bodyMass" value="3.5"/>
 
+  <link name="base_link" />
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis" />
+  </joint>
+
   <!--  Body  -->
   <link name='chassis'>           
     <inertial>
@@ -42,10 +50,21 @@
   </link>
 
   <!--  Wheels  -->
-  <wheel  fb="front" lr="left" parent="chassis" translateX="1" translateY="1" left="1" OffsetY="0.035" />
-  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" left="1" OffsetY="0.035" />
-  <wheel  fb="front" lr="right" parent="chassis" translateX="1" translateY="-1" left="0" OffsetY="-0.035" />
-  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" left="0" OffsetY="-0.035" />
+  <wheel fb="front" lr="left" parent="left_steering" translateX="1" translateY="1" left="1" 
+  OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}"  OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" 
+  OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="0.02" />
+
+  <wheel  fb="front" lr="right" parent="right_steering" translateX="1" translateY="-1" left="0" 
+  OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}"  OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" 
+  OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="-0.02" />
+
+  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" left="1" 
+  OffsetJointX= "${base_x_origin_to_wheel_origin}"  OffsetJointY= "${base_y_origin_to_wheel_origin}" 
+  OffsetJointZ= "${base_z_origin_to_wheel_origin}" OffsetY="0.021" />
+
+  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" left="0" 
+  OffsetJointX= "${base_x_origin_to_wheel_origin}"  OffsetJointY= "${base_y_origin_to_wheel_origin}" 
+  OffsetJointZ= "${base_z_origin_to_wheel_origin}" OffsetY="-0.021" />
 
   <!-- Steering -->
   <steering_hinge  lr="left" parent="chassis" translateY="1" OffsetY="0.01" />  
