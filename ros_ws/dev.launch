@@ -1,4 +1,41 @@
 <launch>
-    <node name="listener" pkg="auto_race_pg" type="listener" output="screen"/>
-    <node name="talker" pkg="auto_race_pg" type="talker" output="screen"/>
+    <!-- car control node -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="car_control"
+      name="car_control"
+      output="screen" >
+    </node>
+
+    <!-- remote joy -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="remote_joy"
+      name="remote_joy"
+      output="log" >
+    </node>
+
+    <!-- joy node -->
+    <node
+      respawn="true"
+      pkg="joy"
+      type="joy_node"
+      name="joy_node"
+      output="log" >
+      <param name="dev" type="string" value="/dev/input/js0" />
+      <param name="deadzone" value="0.12" />
+      <param name="autorepeat_rate" value = "100" />
+    </node>
+
+    <!-- remote keyboard -->
+    <node
+      respawn="true"
+      pkg="auto_race_pg"
+      type="remote_keyboard"
+      name="remote_keyboard"
+      output="log" >
+    </node>
+
 </launch>

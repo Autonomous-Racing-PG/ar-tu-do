@@ -103,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES auto_race_pg
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -116,19 +116,34 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 # talker node
-add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES})
-add_dependencies(talker auto_race_pg_generate_messages_cpp)
+# add_executable(talker src/talker.cpp)
+# target_link_libraries(talker ${catkin_LIBRARIES})
+# add_dependencies(talker auto_race_pg_generate_messages_cpp)
 
 # listener node
-add_executable(listener src/listener.cpp)
-target_link_libraries(listener ${catkin_LIBRARIES})
-add_dependencies(listener auto_race_pg_generate_messages_cpp)
+# add_executable(listener src/listener.cpp)
+# target_link_libraries(listener ${catkin_LIBRARIES})
+# add_dependencies(listener auto_race_pg_generate_messages_cpp)
+
+# car control node 
+add_executable(car_control src/car_control.cpp)
+target_link_libraries(car_control ${catkin_LIBRARIES})
+add_dependencies(car_control auto_race_pg_generate_messages_cpp)
+
+# remote joy node 
+add_executable(remote_joy src/remote_joy.cpp)
+target_link_libraries(remote_joy ${catkin_LIBRARIES})
+add_dependencies(remote_joy auto_race_pg_generate_messages_cpp)
+
+# remote keyboard node 
+add_executable(remote_keyboard src/remote_keyboard.cpp)
+target_link_libraries(remote_keyboard ${catkin_LIBRARIES})
+add_dependencies(remote_keyboard auto_race_pg_generate_messages_cpp)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
