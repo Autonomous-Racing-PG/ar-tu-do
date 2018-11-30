@@ -7,6 +7,4 @@ ros_ws/src/CMakeLists.txt
 
 ros_ws/\.catkin_workspace
 
-racer_ws/build/
-racer_ws/devel/
-racer_ws/src/CMakeLists.txt
+.vscode/
