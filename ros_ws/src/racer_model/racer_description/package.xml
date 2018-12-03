@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>racer_model</name>
+  <name>racer_description</name>
   <version>0.0.0</version>
-  <description>The racer_model package</description>
+  <description>The racer_description package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="niklas@todo.todo">niklas</maintainer>
+  <maintainer email="stefan@todo.todo">stefan</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/racer_model</url> -->
+  <!-- <url type="website">http://wiki.ros.org/racer_description</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->

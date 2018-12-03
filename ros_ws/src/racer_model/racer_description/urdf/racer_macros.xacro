@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<robot name="racer_macros" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <!-- Inertias -->
+  <macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${m*r*r/2}" /> 
+  </macro>
+
+  <macro name="box_inertia" params="m l b h">
+    <inertia  ixx="${m*(b*b+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(l*l+h*h)/12}" iyz = "0"
+              izz="${m*(l*l+b*b)/12}" /> 
+  </macro>
+
+  <macro name="sphere_inertia" params="m r">
+    <inertia  ixx="${2*m*(r*r)/3}" ixy = "0" ixz = "0"
+              iyy="${2*m*(r*r)/3}" iyz = "0"
+              izz="${2*m*(r*r)/3}" /> 
+  </macro>
+
+  <!-- Wheels -->
+  <property name="wheel_radius" value="0.05" /> 
+  <property name="wheel_height" value="0.045" />
+  <property name="wheel_mass" value="0.2" />
+  
+  <property name="base_x_origin_to_wheel_origin" value="0.16" />
+  <property name="base_y_origin_to_wheel_origin" value="0.1055" />
+  <property name="base_z_origin_to_wheel_origin" value="0" />
+  <property name="base_x_sphere_origin_to_wheel_origin" value="0.000" />
+  <property name="base_y_sphere_origin_to_wheel_origin" value="0.001" />
+  <property name="base_z_sphere_origin_to_wheel_origin" value="0" />
+  
+  <xacro:macro name="wheel" params="fb lr parent translateX translateY left OffsetJointX OffsetJointY OffsetJointZ OffsetY">
+    <link name="${lr}_wheel_${fb}">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <origin xyz="0 ${OffsetY} 0" rpy="${90*pi/180} 0 0"/>
+        <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+      </inertial>
+
+      <collision>
+        <origin xyz="0 ${OffsetY} 0" rpy="${90*pi/180} 0 0 " />
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 ${OffsetY} 0" rpy="0 0 ${left*pi}" /> 
+        <geometry>
+          <mesh filename="package://racer_description/meshes/wheel.dae"/>
+        </geometry>
+      </visual>      
+    </link>
+
+    <joint name="${lr}_wheel_${fb}_hinge" type="continuous">
+      <parent link="${parent}"/>
+      <child link="${lr}_wheel_${fb}"/>
+      <origin xyz="${translateX * OffsetJointX} ${translateY * OffsetJointY} ${OffsetJointZ}" rpy="0 0 0" /> 
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <limit effort="10" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <transmission name="${lr}_wheel_${fb}_transmission" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${lr}_wheel_${fb}_hinge">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${lr}_wheel_${fb}_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <!-- Steering -->
+  <property name="steering_radius" value="0.01" /> 
+  <property name="steering_mass" value="0.07" />
+
+  <xacro:macro name="steering_hinge" params="lr parent translateY OffsetY">
+    <link name="${lr}_steering">
+      <inertial>
+        <mass value="${steering_mass}" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <sphere_inertia  m="${steering_mass}" r="${steering_radius}" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" /> 
+        <geometry>
+          <sphere radius="${steering_radius}"/>
+        </geometry> 
+      </visual>  
+    </link>
+
+    <gazebo reference="${lr}_steering">
+      <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <joint name="${lr}_steering_hinge" type="revolute">
+      <origin xyz="${base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="${lr}_steering" />
+      <axis xyz="0 0 1" />
+      <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
+    </joint>
+
+    <transmission name="${lr}_steering_hinge_transmission" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${lr}_steering_hinge">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${lr}_steering_hinge_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+</robot>

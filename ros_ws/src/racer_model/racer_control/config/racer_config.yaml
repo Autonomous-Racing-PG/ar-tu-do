@@ -1,0 +1,36 @@
+racer:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  
+
+  # Velocity Controllers ---------------------------------------
+  left_wheel_back_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: left_wheel_back_hinge
+    pid: {p: 0.5, i: 0.0, d: 0.0, i_clamp: 0.0}
+  right_wheel_back_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: right_wheel_back_hinge
+    pid: {p: 0.5, i: 0.0, d: 0.0, i_clamp: 0.0}
+  left_wheel_front_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: left_wheel_front_hinge
+    pid: {p: 0.5, i: 0.0, d: 0.0, i_clamp: 0.0}
+  right_wheel_front_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: right_wheel_front_hinge
+    pid: {p: 0.5, i: 0.0, d: 0.0, i_clamp: 0.0}
+
+
+  # Position Controllers ---------------------------------------
+  left_steering_hinge_position_controller:
+    joint: left_steering_hinge
+    type: effort_controllers/JointPositionController
+    pid: {p: 1.0, i: 0.0, d: 0.1}
+  right_steering_hinge_position_controller:
+    joint: right_steering_hinge
+    type: effort_controllers/JointPositionController
+    pid: {p: 1.0, i: 0.0, d: 0.1}
+
