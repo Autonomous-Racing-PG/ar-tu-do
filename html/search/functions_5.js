@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['test',['TEST',['../test__auto__race__pg_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9',1,'TEST(dummy_test, dummy_test_01):&#160;test_auto_race_pg.cpp'],['../test__auto__race__pg_8cpp.html#a6accdba7cce21b4fbadc9847942eccee',1,'TEST(dummy_test, dummy_test_02):&#160;test_auto_race_pg.cpp']]]
+  ['remotecontrol',['RemoteControl',['../class_remote_control.html#ab044b23a3d09877df6d905949881da4a',1,'RemoteControl']]],
+  ['remotejoy',['RemoteJoy',['../class_remote_joy.html#a88e2a07703d570a4b406c0a900c9493d',1,'RemoteJoy']]],
+  ['remotekeyboard',['RemoteKeyboard',['../class_remote_keyboard.html#a95692cfc61f486ad020c47d49c1aca27',1,'RemoteKeyboard']]]
 ];
