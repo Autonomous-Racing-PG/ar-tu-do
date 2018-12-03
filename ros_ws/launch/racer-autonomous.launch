@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  <include file="$(find racer_world)/launch/racer_gazebo.launch"/>
-
-  <node pkg="auto_race_pg" name="control_node" type="control.py" output="screen"/>
-  <node pkg="auto_race_pg" name="levine_demo_node" type="levineDemo.py"/>
-</launch>
