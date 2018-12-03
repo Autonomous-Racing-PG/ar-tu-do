@@ -5,52 +5,36 @@ CarControl::CarControl()
     , speed{ 0 }
     , angle{ 0 }
 {
-    in_speed =
-        nh_.subscribe< std_msgs::Float64 >(TOPIC_SPEED, 1,
-                                           &CarControl::speed_callback, this);
-    in_angle =
-        nh_.subscribe< std_msgs::Float64 >(TOPIC_ANGLE, 1,
-                                           &CarControl::angle_callback, this);
+    in_drive_param = nh_.subscribe< auto_race_pg::drive_param >(
+        TOPIC_DRIVE_PARAM, 1, &CarControl::drive_param_callback, this);
 
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
 }
 
-void CarControl::speed_callback(const std_msgs::Float64::ConstPtr& speed)
+void CarControl::drive_param_callback(
+    const auto_race_pg::drive_param::ConstPtr& param)
 {
-    adjustSpeed(speed->data);
+    adjustDriveParam(param->velocity, param->angle);
 }
 
-void CarControl::angle_callback(const std_msgs::Float64::ConstPtr& angle)
+void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
 {
-    adjustAngle(angle->data);
-}
-
-void CarControl::adjustSpeed(double raw)
-{
-    speed = raw * MAX_SPEED;
+    speed = raw_speed * MAX_SPEED;
     if (speed < MIN_SPEED)
     {
         speed = 0;
     }
+    angle = (raw_angle * MAX_ANGLE + 1) / 2;
     std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
     if (run)
     {
-        std_msgs::Float64 msg;
-        msg.data = speed;
-        out_speed.publish(msg);
-    }
-}
-
-void CarControl::adjustAngle(double raw)
-{
-    angle = (raw * MAX_ANGLE + 1) / 2;
-    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
-    if (run)
-    {
-        std_msgs::Float64 msg;
-        msg.data = angle;
-        out_angle.publish(msg);
+        std_msgs::Float64 msg_speed;
+        msg_speed.data = speed;
+        out_speed.publish(msg_speed);
+        std_msgs::Float64 msg_angle;
+        msg_angle.data = angle;
+        out_angle.publish(msg_angle);
     }
 }
 

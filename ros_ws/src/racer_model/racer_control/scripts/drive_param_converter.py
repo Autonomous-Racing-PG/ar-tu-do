@@ -6,6 +6,7 @@ from auto_race_pg.msg import drive_param
 
 flag_move = 0
 
+
 def set_throttle_steer(data):
     """
     This method get's called when new drive_parameters are published.
@@ -19,13 +20,19 @@ def set_throttle_steer(data):
 
     global flag_move
 
-    pub_vel_left_rear_wheel = rospy.Publisher('/racer/left_wheel_back_velocity_controller/command', Float64, queue_size=1)
-    pub_vel_right_rear_wheel = rospy.Publisher('/racer/right_wheel_back_velocity_controller/command', Float64, queue_size=1)
-    pub_vel_left_front_wheel = rospy.Publisher('/racer/left_wheel_front_velocity_controller/command', Float64, queue_size=1)
-    pub_vel_right_front_wheel = rospy.Publisher('/racer/right_wheel_front_velocity_controller/command', Float64, queue_size=1)
+    pub_vel_left_rear_wheel = rospy.Publisher(
+        '/racer/left_wheel_back_velocity_controller/command', Float64, queue_size=1)
+    pub_vel_right_rear_wheel = rospy.Publisher(
+        '/racer/right_wheel_back_velocity_controller/command', Float64, queue_size=1)
+    pub_vel_left_front_wheel = rospy.Publisher(
+        '/racer/left_wheel_front_velocity_controller/command', Float64, queue_size=1)
+    pub_vel_right_front_wheel = rospy.Publisher(
+        '/racer/right_wheel_front_velocity_controller/command', Float64, queue_size=1)
 
-    pub_pos_left_steering_hinge = rospy.Publisher('/racer/left_steering_hinge_position_controller/command', Float64, queue_size=1)
-    pub_pos_right_steering_hinge = rospy.Publisher('/racer/right_steering_hinge_position_controller/command', Float64, queue_size=1)
+    pub_pos_left_steering_hinge = rospy.Publisher(
+        '/racer/left_steering_hinge_position_controller/command', Float64, queue_size=1)
+    pub_pos_right_steering_hinge = rospy.Publisher(
+        '/racer/right_steering_hinge_position_controller/command', Float64, queue_size=1)
 
     throttle = data.velocity/0.1
     steer = data.angle
@@ -37,17 +44,18 @@ def set_throttle_steer(data):
     pub_pos_left_steering_hinge.publish(steer)
     pub_pos_right_steering_hinge.publish(steer)
 
+
 def drive_param_converter():
 
     rospy.init_node('drive_param_converter', anonymous=True)
 
-    rospy.Subscriber("drive_parameters", drive_param, set_throttle_steer)
+    rospy.Subscriber("/set/drive_param", drive_param, set_throttle_steer)
 
     rospy.spin()
+
 
 if __name__ == '__main__':
     try:
         drive_param_converter()
     except rospy.ROSInterruptException:
         pass
-

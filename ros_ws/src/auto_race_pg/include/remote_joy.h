@@ -2,8 +2,8 @@
 
 #include <ros/ros.h>
 
+#include <auto_race_pg/drive_param.h>
 #include <sensor_msgs/Joy.h>
-#include <std_msgs/Float64.h>
 
 #define MAX_REVERSE_SPEED 0.1
 
@@ -11,8 +11,7 @@
 #define JOY_ANGLE_LINEAR 1
 #define JOY_R2 2
 
-#define TOPIC_SPEED "/set/speed"
-#define TOPIC_ANGLE "/set/angle"
+#define TOPIC_DRIVE_PARAM "/set/drive_param"
 
 class RemoteJoy
 {
@@ -23,15 +22,13 @@ class RemoteJoy
     private:
     void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
 
-    void publishAngle(double angle);
-    void publishSpeed(double speed);
+    void publishDriveParam(double speed, double angle);
 
     ros::NodeHandle nh_;
 
     std::string input;
 
-    ros::Publisher out_speed;
-    ros::Publisher out_angle;
+    ros::Publisher out_drive_param;
 
     ros::Subscriber in_joy;
 };

@@ -6,8 +6,8 @@
  */
 RemoteJoy::RemoteJoy()
 {
-    out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
-    out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
+    out_drive_param =
+        nh_.advertise< auto_race_pg::drive_param >(TOPIC_DRIVE_PARAM, 1);
 
     in_joy = nh_.subscribe< sensor_msgs::Joy >("joy", 10,
                                                &RemoteJoy::joyCallback, this);
@@ -26,32 +26,21 @@ void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
     double speed = (joy->axes[ 5 ] - 1) * (-0.5);
     bool   dms   = joy->buttons[ 0 ] == 1;
     std::cout << dms << std::endl;
-    publishSpeed(speed);
-    publishAngle(angle);
+    publishDriveParam(speed, angle);
 }
 
 /**
- * @brief Converts the given angle to the right range and publishes it
- *
- * @param angle The angle provided by the gamepad input
- */
-void RemoteJoy::publishAngle(double angle)
-{
-    std_msgs::Float64 msg;
-    msg.data = angle;
-    out_angle.publish(msg);
-}
-
-/**
- * @brief Converts the given speed to the right range and publishes it
+ * @brief Converts the given speed and angle to the right range and publishes it
  *
  * @param speed The speed provided by the gamepad input
+ * @param angle The angle provided by the gamepad input
  */
-void RemoteJoy::publishSpeed(double speed)
+void RemoteJoy::publishDriveParam(double speed, double angle)
 {
-    std_msgs::Float64 msg;
-    msg.data = speed;
-    out_speed.publish(msg);
+    auto_race_pg::drive_param msg;
+    msg.velocity = speed;
+    msg.angle    = angle;
+    out_drive_param.publish(msg);
 }
 
 /**

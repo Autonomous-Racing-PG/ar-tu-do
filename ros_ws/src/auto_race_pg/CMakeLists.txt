@@ -121,16 +121,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# talker node
-# add_executable(talker src/talker.cpp)
-# target_link_libraries(talker ${catkin_LIBRARIES})
-# add_dependencies(talker auto_race_pg_generate_messages_cpp)
-
-# listener node
-# add_executable(listener src/listener.cpp)
-# target_link_libraries(listener ${catkin_LIBRARIES})
-# add_dependencies(listener auto_race_pg_generate_messages_cpp)
-
 # car control node 
 add_executable(car_control src/car_control.cpp)
 target_link_libraries(car_control ${catkin_LIBRARIES})

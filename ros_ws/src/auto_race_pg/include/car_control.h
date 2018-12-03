@@ -4,15 +4,13 @@
 
 #include <time.h>
 
+#include <auto_race_pg/drive_param.h>
 #include <std_msgs/Float64.h>
-#include <std_msgs/Int64.h>
-#include <std_msgs/String.h>
 
 #define TOPIC_FOCBOX_SPEED "/commands/motor/speed"
 #define TOPIC_FOCBOX_ANGLE "/commands/servo/position"
 
-#define TOPIC_SPEED "/set/speed"
-#define TOPIC_ANGLE "/set/angle"
+#define TOPIC_DRIVE_PARAM "/set/drive_param"
 
 #define MAX_SPEED 15000
 #define MIN_SPEED 500
@@ -26,18 +24,15 @@ class CarControl
     private:
     ros::NodeHandle nh_;
 
-    ros::Subscriber in_speed;
-    ros::Subscriber in_angle;
+    ros::Subscriber in_drive_param;
     ros::Subscriber in_dms;
 
-    void speed_callback(const std_msgs::Float64::ConstPtr& speed);
-    void angle_callback(const std_msgs::Float64::ConstPtr& angle);
+    void drive_param_callback(const auto_race_pg::drive_param::ConstPtr& param);
 
     ros::Publisher out_speed;
     ros::Publisher out_angle;
 
-    void adjustSpeed(double speed);
-    void adjustAngle(double angle);
+    void adjustDriveParam(double speed, double angle);
 
     double speed;
     double angle;

@@ -4,8 +4,8 @@ RemoteKeyboard::RemoteKeyboard()
     : speed{ 0 }
     , angle{ 0 }
 {
-    out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_SPEED, 1);
-    out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_ANGLE, 1);
+    out_drive_param =
+        nh_.advertise< auto_race_pg::drive_param >(TOPIC_DRIVE_PARAM, 1);
 }
 
 void RemoteKeyboard::keyLoop()
@@ -45,8 +45,7 @@ void RemoteKeyboard::keyLoop()
         }
 
         // after
-        adjustSpeed(speed);
-        adjustAngle(angle);
+        adjustDriveParam(speed, angle);
     }
 }
 
@@ -64,18 +63,12 @@ int RemoteKeyboard::getch()
     return c;
 }
 
-void RemoteKeyboard::adjustSpeed(double speed)
+void RemoteKeyboard::adjustDriveParam(double speed, double angle)
 {
-    std_msgs::Float64 msg;
-    msg.data = speed;
-    out_speed.publish(msg);
-}
-
-void RemoteKeyboard::adjustAngle(double angle)
-{
-    std_msgs::Float64 msg;
-    msg.data = (angle + 1) / 2;
-    out_angle.publish(msg);
+    auto_race_pg::drive_param msg;
+    msg.velocity = speed;
+    msg.angle    = (angle + 1) / 2;
+    out_drive_param.publish(msg);
 }
 
 void quit(int sig)

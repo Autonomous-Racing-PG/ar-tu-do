@@ -2,15 +2,14 @@
 
 #include <ros/ros.h>
 
-#include <std_msgs/Float64.h>
+#include <auto_race_pg/drive_param.h>
 #include <std_msgs/Int64.h>
 
 #include <signal.h>
 #include <termios.h>
 #include <time.h>
 
-#define TOPIC_SPEED "/set/speed"
-#define TOPIC_ANGLE "/set/angle"
+#define TOPIC_DRIVE_PARAM "/set/drive_param"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97
@@ -27,15 +26,13 @@ class RemoteKeyboard
     private:
     int getch();
 
-    void adjustSpeed(double speed);
-    void adjustAngle(double angle);
+    void adjustDriveParam(double speed, double angle);
 
     ros::NodeHandle nh_;
 
     std::string input;
 
-    ros::Publisher out_speed;
-    ros::Publisher out_angle;
+    ros::Publisher out_drive_param;
     ros::Publisher out_dms;
 
     double speed;
