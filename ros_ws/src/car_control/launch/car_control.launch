@@ -7,7 +7,7 @@ Launches all necessary nodes that listen for drive_parameters and translate them
     <!-- car control node -->
     <node
       respawn="true"
-      pkg="auto_race_pg"
+      pkg="car_control"
       type="car_control"
       name="car_control"
       output="screen" >

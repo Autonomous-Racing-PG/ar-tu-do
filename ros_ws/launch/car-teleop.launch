@@ -1,4 +1,4 @@
 <launch>
-    <include file="$(find auto_race_pg)/launch/car_control.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch"/>
     <include file="$(find teleoperation)/launch/remote_control.launch"/>
 </launch>
