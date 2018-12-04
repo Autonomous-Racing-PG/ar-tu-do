@@ -2,7 +2,7 @@
 
 #include <ros/ros.h>
 
-#include <auto_race_pg/drive_param.h>
+#include <drive_msgs/drive_param.h>
 #include <std_msgs/Int64.h>
 
 #include <signal.h>

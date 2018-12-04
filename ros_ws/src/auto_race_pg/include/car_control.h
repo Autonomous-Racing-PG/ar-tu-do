@@ -4,7 +4,7 @@
 
 #include <time.h>
 
-#include <auto_race_pg/drive_param.h>
+#include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
 
 #define TOPIC_FOCBOX_SPEED "/commands/motor/speed"
@@ -27,7 +27,7 @@ class CarControl
     ros::Subscriber in_drive_param;
     ros::Subscriber in_dms;
 
-    void drive_param_callback(const auto_race_pg::drive_param::ConstPtr& param);
+    void drive_param_callback(const drive_msgs::drive_param::ConstPtr& param);
 
     ros::Publisher out_speed;
     ros::Publisher out_angle;

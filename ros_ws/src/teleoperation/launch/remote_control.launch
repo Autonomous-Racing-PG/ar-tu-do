@@ -1,17 +1,13 @@
+<?xml version="1.0"?>
 <launch>
-    <!-- car control node -->
-    <node
-      respawn="true"
-      pkg="auto_race_pg"
-      type="car_control"
-      name="car_control"
-      output="screen" >
-    </node>
+<!-- 
+Launches all necessary nodes that let the user control the car with the keyboard and/or gamepad.
+-->
 
     <!-- remote joy -->
     <node
       respawn="true"
-      pkg="auto_race_pg"
+      pkg="teleoperation"
       type="remote_joy"
       name="remote_joy"
       output="log" >
@@ -24,6 +20,7 @@
       type="joy_node"
       name="joy_node"
       output="log" >
+
       <param name="dev" type="string" value="/dev/input/js0" />
       <param name="deadzone" value="0.12" />
       <param name="autorepeat_rate" value = "100" />
@@ -32,10 +29,9 @@
     <!-- remote keyboard -->
     <node
       respawn="true"
-      pkg="auto_race_pg"
+      pkg="teleoperation"
       type="remote_keyboard"
       name="remote_keyboard"
       output="log" >
     </node>
-
 </launch>

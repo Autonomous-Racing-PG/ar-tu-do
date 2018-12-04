@@ -7,7 +7,7 @@
 RemoteJoy::RemoteJoy()
 {
     out_drive_param =
-        nh_.advertise< auto_race_pg::drive_param >(TOPIC_DRIVE_PARAM, 1);
+        nh_.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAM, 1);
 
     in_joy = nh_.subscribe< sensor_msgs::Joy >("joy", 10,
                                                &RemoteJoy::joyCallback, this);
@@ -37,23 +37,12 @@ void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
  */
 void RemoteJoy::publishDriveParam(double speed, double angle)
 {
-    auto_race_pg::drive_param msg;
+    drive_msgs::drive_param msg;
     msg.velocity = speed;
     msg.angle    = angle;
     out_drive_param.publish(msg);
 }
 
-/**
- * @brief
- *
- * @param is_pressed
- */
-// void RemoteJoy::publishDeadManSwitch(bool is_pressed)
-// {
-//     std_msgs::Int64 msg;
-//     msg.data = (long)(ros::Time::now().toSec() * 1000);
-//     out_dms.publish(msg);
-// }
 
 int main(int argc, char** argv)
 {

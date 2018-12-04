@@ -5,7 +5,7 @@ RemoteKeyboard::RemoteKeyboard()
     , angle{ 0 }
 {
     out_drive_param =
-        nh_.advertise< auto_race_pg::drive_param >(TOPIC_DRIVE_PARAM, 1);
+        nh_.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAM, 1);
 }
 
 void RemoteKeyboard::keyLoop()
@@ -65,7 +65,7 @@ int RemoteKeyboard::getch()
 
 void RemoteKeyboard::adjustDriveParam(double speed, double angle)
 {
-    auto_race_pg::drive_param msg;
+    drive_msgs::drive_param msg;
     msg.velocity = speed;
     msg.angle    = (angle + 1) / 2;
     out_drive_param.publish(msg);

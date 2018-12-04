@@ -2,7 +2,7 @@
 
 #include <ros/ros.h>
 
-#include <auto_race_pg/drive_param.h>
+#include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
 
 #define MAX_REVERSE_SPEED 0.1

@@ -2,7 +2,7 @@
 import rospy
 from std_msgs.msg import Float32
 from std_msgs.msg import Float64
-from auto_race_pg.msg import drive_param
+from drive_msgs.msg import drive_param
 
 flag_move = 0
 

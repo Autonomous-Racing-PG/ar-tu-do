@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(auto_race_pg)
+project(teleoperation)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++1y)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  drive_msgs  
+  drive_msgs
   roscpp
   rospy
   std_msgs
@@ -50,8 +50,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
-#   Message1.srv
-#   Message2.srv
+#   Message1.msg
+#   Message2.msg
 # )
 
 ## Generate services in the 'srv' folder
@@ -71,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   drive_msgs#   std_msgs
 # )
 
 ################################################
@@ -105,8 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES auto_race_pg
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  LIBRARIES teleoperation
+#  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -121,15 +121,19 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# car control node 
-add_executable(car_control src/car_control.cpp)
-target_link_libraries(car_control ${catkin_LIBRARIES})
-add_dependencies(car_control auto_race_pg_generate_messages_cpp)
+# remote joy node 
+add_executable(remote_joy src/remote_joy.cpp)
+target_link_libraries(remote_joy ${catkin_LIBRARIES})
+add_dependencies(remote_joy teleoperation_generate_messages_cpp)
 
+# remote keyboard node 
+add_executable(remote_keyboard src/remote_keyboard.cpp)
+target_link_libraries(remote_keyboard ${catkin_LIBRARIES})
+add_dependencies(remote_keyboard teleoperation_generate_messages_cpp)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/auto_race_pg.cpp
+#   src/${PROJECT_NAME}/teleoperation.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -140,7 +144,7 @@ add_dependencies(car_control auto_race_pg_generate_messages_cpp)
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/auto_race_pg_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/teleoperation_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -197,7 +201,7 @@ add_dependencies(car_control auto_race_pg_generate_messages_cpp)
 #############
 
 ## Add gtest based cpp test target and link libraries
-catkin_add_gtest(${PROJECT_NAME}-test test/test_auto_race_pg.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_teleoperation.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

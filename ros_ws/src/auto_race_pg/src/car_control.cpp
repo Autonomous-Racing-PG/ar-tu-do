@@ -5,7 +5,7 @@ CarControl::CarControl()
     , speed{ 0 }
     , angle{ 0 }
 {
-    in_drive_param = nh_.subscribe< auto_race_pg::drive_param >(
+    in_drive_param = nh_.subscribe< drive_msgs::drive_param >(
         TOPIC_DRIVE_PARAM, 1, &CarControl::drive_param_callback, this);
 
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
@@ -13,7 +13,7 @@ CarControl::CarControl()
 }
 
 void CarControl::drive_param_callback(
-    const auto_race_pg::drive_param::ConstPtr& param)
+    const drive_msgs::drive_param::ConstPtr& param)
 {
     adjustDriveParam(param->velocity, param->angle);
 }
