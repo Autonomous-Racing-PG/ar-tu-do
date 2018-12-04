@@ -104,9 +104,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES car_control
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs drive_msgs
 #  DEPENDS system_lib
 )
 
@@ -124,7 +124,7 @@ include_directories(
 # car control node 
 add_executable(car_control src/car_control.cpp)
 target_link_libraries(car_control ${catkin_LIBRARIES})
-add_dependencies(car_control car_control_generate_messages_cpp)
+add_dependencies(car_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
 ## Declare a C++ library
