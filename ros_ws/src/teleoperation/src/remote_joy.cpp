@@ -2,51 +2,51 @@
 
 /**
  * @brief Construct a new Remote Joy:: Remote Joy object
- *
  */
 RemoteJoy::RemoteJoy()
 {
-    out_drive_param =
-        nh_.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAM, 1);
+    this->driveParametersPublisher =
+        this->nodeHandle.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAMETERS, 1);
 
-    in_joy = nh_.subscribe< sensor_msgs::Joy >("joy", 10,
-                                               &RemoteJoy::joyCallback, this);
+    this->joystickSubscriber = this->nodeHandle.subscribe< sensor_msgs::Joy >("joy", 10, &RemoteJoy::joystickCallback, this);
 }
 
 /**
- * @brief Callback function that gets called each time a connected gamepad get
+ * @brief Callback function that is called each time a connected gamepad gets
  * an input
  *
- * @param joy The data structure that contains informations about the state of
- * each avaliable key on the gamepad
+ * @param joystick The data structure that contains information about the state of
+ * the buttons and axes on the gamepad
  */
-void RemoteJoy::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
+void RemoteJoy::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
-    double angle = joy->axes[ JOY_ANGLE_ANGULAR ] * (-1);
-    double speed = (joy->axes[ 5 ] - 1) * (-0.5);
-    bool   dms   = joy->buttons[ 0 ] == 1;
-    std::cout << dms << std::endl;
-    publishDriveParam(speed, angle);
+    double steeringAngle = -joystick->axes[ JOYSTICK_AXIS_STEERING ];
+    double velocity = (joystick->axes[ JOYSTICK_AXIS_THROTTLE ] - 1) * -0.5;
+    bool deadMansSwitch = joystick->buttons[ JOYSTICK_BUTTON_DEADMANSSWITCH ] == 1;
+    // TODO use deadMansSwitch
+
+    publishDriveParameters(velocity, steeringAngle);
 }
 
 /**
- * @brief Converts the given speed and angle to the right range and publishes it
+ * @brief Publishes speed and angle values
  *
- * @param speed The speed provided by the gamepad input
- * @param angle The angle provided by the gamepad input
+ * @param throttle The throttle provided by the gamepad input
+ * @param steeringAngle The steering angle provided by the gamepad input
  */
-void RemoteJoy::publishDriveParam(double speed, double angle)
+void RemoteJoy::publishDriveParameters(double velocity, double steeringAngle)
 {
-    drive_msgs::drive_param msg;
-    msg.velocity = speed;
-    msg.angle    = angle;
-    out_drive_param.publish(msg);
+    drive_msgs::drive_param driveParameters;
+    driveParameters.velocity = velocity;
+    driveParameters.angle = steeringAngle;
+
+    this->driveParametersPublisher.publish(driveParameters);
 }
 
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "remove_joy");
+    ros::init(argc, argv, "remote_joy");
     RemoteJoy remote_joy;
 
     ros::spin();
