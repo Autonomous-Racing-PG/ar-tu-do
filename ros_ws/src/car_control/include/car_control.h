@@ -3,6 +3,7 @@
 #include <ros/ros.h>
 
 #include <time.h>
+#include <algorithm>
 
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
@@ -16,26 +17,23 @@
 #define MIN_SPEED 500
 #define MAX_ANGLE 0.9
 
-class CarControl
+class CarController
 {
     public:
-    CarControl();
+    CarController();
 
     private:
-    ros::NodeHandle nh_;
+    ros::NodeHandle nodeHandle;
 
-    ros::Subscriber in_drive_param;
-    ros::Subscriber in_dms;
+    ros::Subscriber driveParametersSubscriber;
+    ros::Subscriber deadMansSwitchSubscriber;
 
-    void drive_param_callback(const drive_msgs::drive_param::ConstPtr& param);
+    void driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
 
-    ros::Publisher out_speed;
-    ros::Publisher out_angle;
+    ros::Publisher speedPublisher;
+    ros::Publisher anglePublisher;
 
-    void adjustDriveParam(double speed, double angle);
-
-    double speed;
-    double angle;
+    void publishDriveParameters(double rawSpeed, double rawAngle);
 
     bool run;
 };
