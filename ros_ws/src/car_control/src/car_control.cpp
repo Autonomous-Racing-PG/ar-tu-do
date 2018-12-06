@@ -5,10 +5,8 @@ CarControl::CarControl()
     , speed{ 0 }
     , angle{ 0 }
 {
-<<<<<<< master:ros_ws/src/car_control/src/car_control.cpp
     in_drive_param = nh_.subscribe< drive_msgs::drive_param >(
         TOPIC_DRIVE_PARAM, 1, &CarControl::drive_param_callback, this);
-=======
     in_speed =
         nh_.subscribe< std_msgs::Float64 >(TOPIC_SPEED, 1,
                                            &CarControl::speed_callback, this);
@@ -18,7 +16,6 @@ CarControl::CarControl()
     in_cmd =
         nh_.subscribe< std_msgs::String >(TOPIC_CMD, 1,
                                            &CarControl::cmd_callback, this);
->>>>>>> emergencstop:ros_ws/src/auto_race_pg/src/car_control.cpp
 
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
@@ -32,9 +29,7 @@ void CarControl::drive_param_callback(
 
 void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
 {
-<<<<<<< master:ros_ws/src/car_control/src/car_control.cpp
     speed = raw_speed * MAX_SPEED;
-=======
     adjustAngle(angle->data);
 }
 void CarControl::cmd_callback(const std_msgs::String::ConstPtr& cmd)
@@ -53,30 +48,18 @@ void CarControl::cmd_callback(const std_msgs::String::ConstPtr& cmd)
 void CarControl::adjustSpeed(double raw)
 {
     speed = raw * MAX_SPEED;
->>>>>>> emergencstop:ros_ws/src/auto_race_pg/src/car_control.cpp
     if (speed < MIN_SPEED)
     {
         speed = 0;
     }
-<<<<<<< master:ros_ws/src/car_control/src/car_control.cpp
     angle = (raw_angle * MAX_ANGLE + 1) / 2;
-    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
     if (run)
     {
+    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
         std_msgs::Float64 msg_speed;
         msg_speed.data = speed;
         out_speed.publish(msg_speed);
-        std_msgs::Float64 msg_angle;
-        msg_angle.data = angle;
-        out_angle.publish(msg_angle);
-=======
-    if (run)
-    {
-    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
-        std_msgs::Float64 msg;
-        msg.data = speed;
-        out_speed.publish(msg);
-    }
+	}
 }
 
 void CarControl::adjustAngle(double raw)
@@ -88,7 +71,6 @@ void CarControl::adjustAngle(double raw)
         std_msgs::Float64 msg;
         msg.data = angle;
         out_angle.publish(msg);
->>>>>>> minor change:ros_ws/src/auto_race_pg/src/car_control.cpp
     }
 }
 
