@@ -1,77 +1,83 @@
 #include "remote_keyboard.h"
 
 RemoteKeyboard::RemoteKeyboard()
-    : speed{ 0 }
-    , angle{ 0 }
 {
-    out_drive_param =
-        nh_.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAM, 1);
+    this->driveParametersPublisher =
+        this->nodeHandle.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
-void RemoteKeyboard::keyLoop()
+void RemoteKeyboard::keyboardLoop()
 {
-    std::cout << "listening to keyboard" << std::endl;
-    std::cout << "=====================" << std::endl;
+    std::cout << "Listening to keyboard..." << std::endl;
+    std::cout << "========================" << std::endl;
 
+    double velocity = 0;
+    double angle = 0;
     while (ros::ok())
     {
-        int c = getch();
+        int key = this->getKeyboardCharacter();
 
-        if (c == KEYCODE_W)
+        if (key == KEYCODE_W)
         {
-            speed += 1;
+            velocity += 1;
         }
 
-        if (c == KEYCODE_S)
+        if (key == KEYCODE_S)
         {
-            speed -= 1;
+            velocity -= 1;
         }
 
-        if (c == KEYCODE_A)
+        if (key == KEYCODE_A)
         {
             angle += 1;
         }
 
-        if (c == KEYCODE_D)
+        if (key == KEYCODE_D)
         {
             angle -= 1;
         }
 
-        if (c == KEYCODE_SPACE)
+        // TODO Implement Dead Man's Switch
+        /*if (key == KEYCODE_SPACE)
         {
-            std_msgs::Int64 msg;
-            msg.data = (long)(ros::Time::now().toSec() * 1000);
-            out_dms.publish(msg);
-        }
+            std_msgs::Int64 deadMansSwitchMessage;
+            deadMansSwitchMessage.data = (long)(ros::Time::now().toSec() * 1000);
+            this->deadMansSwitchPublisher.publish(deadMansSwitchMessage);
+        } */
 
-        // after
-        adjustDriveParam(speed, angle);
+        publishDriveParameters(velocity, angle);
     }
 }
 
-int RemoteKeyboard::getch()
+int RemoteKeyboard::getKeyboardCharacter()
 {
-    static struct termios oldt, newt;
-    tcgetattr(STDIN_FILENO, &oldt); // save old settings
-    newt = oldt;
-    newt.c_lflag &= ~(ICANON);               // disable buffering
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt); // apply new settings
+    static struct termios oldTerminal, newTerminal;
+    // back up current terminal settings
+    tcgetattr(STDIN_FILENO, &oldTerminal);
+    newTerminal = oldTerminal;
+    // disable buffering
+    newTerminal.c_lflag &= ~ICANON;
+    // apply new settings
+    tcsetattr(STDIN_FILENO, TCSANOW, &newTerminal); 
 
-    int c = getchar(); // read character (non-blocking)
+    // read character (non-blocking)
+    int character = getchar();
 
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldt); // restore old settings
-    return c;
+    // restore old settings
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldTerminal);
+
+    return character;
 }
 
-void RemoteKeyboard::adjustDriveParam(double speed, double angle)
+void RemoteKeyboard::publishDriveParameters(double velocity, double angle)
 {
-    drive_msgs::drive_param msg;
-    msg.velocity = speed;
-    msg.angle    = (angle + 1) / 2;
-    out_drive_param.publish(msg);
+    drive_msgs::drive_param driveParameters;
+    driveParameters.velocity = velocity;
+    driveParameters.angle = (angle + 1) / 2;
+    this->driveParametersPublisher.publish(driveParameters);
 }
 
-void quit(int sig)
+void quitSignalHandler(int signal)
 {
     ros::shutdown();
     exit(0);
@@ -79,13 +85,10 @@ void quit(int sig)
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "RemoteKeyboard");
-    RemoteKeyboard remote_keyboard;
+    ros::init(argc, argv, "remote_keyboard_controller");
+    RemoteKeyboard remoteKeyboard;
 
-    std::cout << "listining to keyboard" << std::endl;
-    std::cout << "=====================" << std::endl;
-
-    signal(SIGINT, quit);
-    remote_keyboard.keyLoop();
+    signal(SIGINT, quitSignalHandler);
+    remoteKeyboard.keyboardLoop();
     return 0;
 }

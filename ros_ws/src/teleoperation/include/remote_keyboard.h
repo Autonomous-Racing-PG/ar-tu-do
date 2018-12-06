@@ -9,7 +9,7 @@
 #include <termios.h>
 #include <time.h>
 
-#define TOPIC_DRIVE_PARAM "/set/drive_param"
+#define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
 
 #define KEYCODE_W 119
 #define KEYCODE_A 97
@@ -21,20 +21,15 @@ class RemoteKeyboard
 {
     public:
     RemoteKeyboard();
-    void keyLoop();
+    void keyboardLoop();
 
     private:
-    int getch();
+    ros::NodeHandle nodeHandle;
 
-    void adjustDriveParam(double speed, double angle);
+    ros::Publisher driveParametersPublisher;
+    ros::Publisher deadMansSwitchPublisher;
 
-    ros::NodeHandle nh_;
+    int getKeyboardCharacter();
 
-    std::string input;
-
-    ros::Publisher out_drive_param;
-    ros::Publisher out_dms;
-
-    double speed;
-    double angle;
+    void publishDriveParameters(double speed, double angle);
 };

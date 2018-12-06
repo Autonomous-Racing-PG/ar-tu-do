@@ -46,8 +46,8 @@ void RemoteJoy::publishDriveParameters(double velocity, double steeringAngle)
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "remote_joy");
-    RemoteJoy remote_joy;
+    ros::init(argc, argv, "remote_joystick_controller");
+    RemoteJoy remoteJoy;
 
     ros::spin();
 }
