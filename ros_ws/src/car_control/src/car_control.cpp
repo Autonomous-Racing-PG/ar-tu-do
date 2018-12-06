@@ -1,7 +1,7 @@
 #include "car_control.h"
 
 CarControl::CarControl()
-    : run{ false }
+    : run{ true }
     , speed{ 0 }
     , angle{ 0 }
 {
