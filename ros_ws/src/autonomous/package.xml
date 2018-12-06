@@ -2,13 +2,14 @@
 <package format="2">
   <name>autonomous</name>
   <version>0.0.0</version>
-  <description>This package contains all code related to autonomous operation of the car.</description>
+  <description>The "autonomous" package contains all code related to autonomous operation of the car.</description>
 
   <!-- Maintainer -->
-  <maintainer email="stefan@todo.todo">stefan</maintainer>
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
 
   <!-- License -->
-  <license>MIT, GPLv3</license>
+  <license>MIT</license>
+  <license>GPLv3</license>
 
   <!-- Dependencies -->
   <buildtool_depend>catkin</buildtool_depend>
