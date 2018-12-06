@@ -7,8 +7,8 @@ CarControl::CarControl()
 {
     in_drive_param = nh_.subscribe< drive_msgs::drive_param >(
         TOPIC_DRIVE_PARAM, 1, &CarControl::drive_param_callback, this);
-    in_cmd = nh_.subscribe< std_msgs::String >(TOPIC_CMD, 1,
-                                               &CarControl::cmd_callback, this);
+    in_cmd = nh_.subscribe< std_msgs::String >(TOPIC_COMMAND, 1,
+                                               &CarControl::command_callback, this);
 
     out_speed = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
     out_angle = nh_.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
@@ -40,7 +40,7 @@ void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
     }
 }
 
-void CarControl::cmd_callback(const std_msgs::String::ConstPtr& cmd)
+void CarControl::command_callback(const std_msgs::String::ConstPtr& cmd)
 {
     std::string str = cmd->data;
     if (str.compare("stop") == 0)
