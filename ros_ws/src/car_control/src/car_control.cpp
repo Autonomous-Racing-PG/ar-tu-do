@@ -40,15 +40,15 @@ void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
     }
 }
 
-void CarControl::command_callback(const std_msgs::String::ConstPtr& cmd)
+void CarControl::command_callback(const std_msgs::String::ConstPtr& command)
 {
-    std::string str = cmd->data;
-    if (str.compare("stop") == 0)
+    std::string command_str = command->data;
+    if (command_str.compare("stop") == 0)
     {
         run = false;
         adjustDriveParam(0, 0);
     }
-    if (str.compare("go") == 0)
+    if (command_str.compare("go") == 0)
     {
         run = true;
     }
