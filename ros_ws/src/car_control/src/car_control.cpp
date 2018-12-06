@@ -28,7 +28,6 @@ void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
         speed = 0;
     }
     angle = (raw_angle * MAX_ANGLE + 1) / 2;
-    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
     if (run)
     {
         std_msgs::Float64 msg_speed;
@@ -37,7 +36,10 @@ void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
         std_msgs::Float64 msg;
         msg.data = angle;
         out_angle.publish(msg);
-    }
+    } else {
+		std::cout << "not running - ";
+	}
+    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
 }
 
 void CarControl::command_callback(const std_msgs::String::ConstPtr& command)
