@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+    <world name="racetrack">
+        <include>
+            <uri>model://sun</uri>
+        </include>
+        
+        <model name="track">
+            <pose>0 0 0.01  0 0 0</pose>
+            <static>true</static>
+            <link name="track">
+                <visual name="visual">
+                <geometry>
+                    <mesh><uri>model://track.dae</uri></mesh>
+                </geometry>
+                </visual>
+                <collision name="collision">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>100 100</size>
+                        </plane>
+                    </geometry>
+                    <surface>
+                        <friction>
+                            <ode>
+                                <mu>100</mu>
+                                <mu2>50</mu2>
+                            </ode>
+                        </friction>
+                    </surface>
+                </collision>
+            </link>
+            <link name="walls">
+                <collision name="collision">
+                    <geometry>
+                        <mesh><uri>model://walls.dae</uri></mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                            <ode>
+                                <mu>100</mu>
+                                <mu2>50</mu2>
+                            </ode>
+                        </friction>
+                    </surface>
+                </collision>
+            </link>
+        </model>
+    </world>
+</sdf>
