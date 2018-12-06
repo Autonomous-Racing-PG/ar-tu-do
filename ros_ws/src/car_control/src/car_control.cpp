@@ -58,6 +58,7 @@ void CarControl::adjustSpeed(double raw)
     {
         speed = 0;
     }
+<<<<<<< master:ros_ws/src/car_control/src/car_control.cpp
     angle = (raw_angle * MAX_ANGLE + 1) / 2;
     std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
     if (run)
@@ -68,6 +69,26 @@ void CarControl::adjustSpeed(double raw)
         std_msgs::Float64 msg_angle;
         msg_angle.data = angle;
         out_angle.publish(msg_angle);
+=======
+    if (run)
+    {
+    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
+        std_msgs::Float64 msg;
+        msg.data = speed;
+        out_speed.publish(msg);
+    }
+}
+
+void CarControl::adjustAngle(double raw)
+{
+    angle = (raw * MAX_ANGLE + 1) / 2;
+    if (run)
+    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
+    {
+        std_msgs::Float64 msg;
+        msg.data = angle;
+        out_angle.publish(msg);
+>>>>>>> minor change:ros_ws/src/auto_race_pg/src/car_control.cpp
     }
 }
 
