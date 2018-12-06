@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Autonomous Racing: /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/auto_race_pg/include/remote_keyboard.h File Reference</title>
+<title>Autonomous Racing: /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/remote_keyboard.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('remote__keyboard_8h.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;ros/ros.h&gt;</code><br />
-<code>#include &lt;std_msgs/Float64.h&gt;</code><br />
+<code>#include &lt;drive_msgs/drive_param.h&gt;</code><br />
 <code>#include &lt;std_msgs/Int64.h&gt;</code><br />
 <code>#include &lt;signal.h&gt;</code><br />
 <code>#include &lt;termios.h&gt;</code><br />
@@ -123,16 +123,16 @@ $(document).ready(function(){initNavTree('remote__keyboard_8h.html','');});
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for remote_keyboard.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="remote__keyboard_8h__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2auto__race__pg_2include_2remote__keyboard_8h" alt=""/></div>
-<map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2auto__race__pg_2include_2remote__keyboard_8h" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2auto__race__pg_2include_2remote__keyboard_8h">
+<div class="center"><img src="remote__keyboard_8h__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2teleoperation_2include_2remote__keyboard_8h" alt=""/></div>
+<map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2teleoperation_2include_2remote__keyboard_8h" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2teleoperation_2include_2remote__keyboard_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="remote__keyboard_8h__dep__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2auto__race__pg_2include_2remote__keyboard_8hdep" alt=""/></div>
-<map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2auto__race__pg_2include_2remote__keyboard_8hdep" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2auto__race__pg_2include_2remote__keyboard_8hdep">
-<area shape="rect" id="node2" href="remote__keyboard_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/auto_race_pg\l/src/remote_keyboard.cpp" alt="" coords="10,139,183,224"/>
+<div class="center"><img src="remote__keyboard_8h__dep__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2teleoperation_2include_2remote__keyboard_8hdep" alt=""/></div>
+<map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2teleoperation_2include_2remote__keyboard_8hdep" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2teleoperation_2include_2remote__keyboard_8hdep">
+<area shape="rect" id="node2" href="remote__keyboard_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/teleoperation\l/src/remote_keyboard.cpp" alt="" coords="10,139,183,224"/>
 </map>
 </div>
 </div>
@@ -145,10 +145,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a8c6b7fe5ad62f0dd9be385ca98ca1c9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="remote__keyboard_8h.html#a8c6b7fe5ad62f0dd9be385ca98ca1c9a">TOPIC_SPEED</a>&#160;&#160;&#160;&quot;/set/speed&quot;</td></tr>
-<tr class="separator:a8c6b7fe5ad62f0dd9be385ca98ca1c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae85d82183138111cc259bc2920f54e9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="remote__keyboard_8h.html#ae85d82183138111cc259bc2920f54e9f">TOPIC_ANGLE</a>&#160;&#160;&#160;&quot;/set/angle&quot;</td></tr>
-<tr class="separator:ae85d82183138111cc259bc2920f54e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cad0c0e78519f724d3769a56a6c6412"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="remote__keyboard_8h.html#a0cad0c0e78519f724d3769a56a6c6412">TOPIC_DRIVE_PARAM</a>&#160;&#160;&#160;&quot;/set/drive_param&quot;</td></tr>
+<tr class="separator:a0cad0c0e78519f724d3769a56a6c6412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a44fd7e61a3f73fffecd1ec5973f819"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="remote__keyboard_8h.html#a6a44fd7e61a3f73fffecd1ec5973f819">KEYCODE_W</a>&#160;&#160;&#160;119</td></tr>
 <tr class="separator:a6a44fd7e61a3f73fffecd1ec5973f819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35ba55030dedad2411239e6330435742"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="remote__keyboard_8h.html#a35ba55030dedad2411239e6330435742">KEYCODE_A</a>&#160;&#160;&#160;97</td></tr>
@@ -171,7 +169,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00016">16</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
+<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00015">15</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
 
 </div>
 </div>
@@ -185,7 +183,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00018">18</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
+<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00017">17</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
 
 </div>
 </div>
@@ -199,7 +197,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00017">17</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
+<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00016">16</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +211,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00019">19</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
+<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00018">18</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
 
 </div>
 </div>
@@ -227,30 +225,16 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00015">15</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
+<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00014">14</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae85d82183138111cc259bc2920f54e9f"></a>
+<a class="anchor" id="a0cad0c0e78519f724d3769a56a6c6412"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOPIC_ANGLE&#160;&#160;&#160;&quot;/set/angle&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="remote__keyboard_8h_source.html#l00013">13</a> of file <a class="el" href="remote__keyboard_8h_source.html">remote_keyboard.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8c6b7fe5ad62f0dd9be385ca98ca1c9a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TOPIC_SPEED&#160;&#160;&#160;&quot;/set/speed&quot;</td>
+          <td class="memname">#define TOPIC_DRIVE_PARAM&#160;&#160;&#160;&quot;/set/drive_param&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -264,7 +248,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c1346cf4828efdd0d2baf0d391d01b77.html">master</a></li><li class="navelem"><a class="el" href="dir_42e62708e74a9749a2aab797cd8af43b.html">ros_ws</a></li><li class="navelem"><a class="el" href="dir_e6b6c919899e96597b50b37fd7e3dee9.html">src</a></li><li class="navelem"><a class="el" href="dir_001e568220abd6b419c48b748e32ba91.html">auto_race_pg</a></li><li class="navelem"><a class="el" href="dir_1aedb4827f0df395b5f15e17b1a0c5b9.html">include</a></li><li class="navelem"><a class="el" href="remote__keyboard_8h.html">remote_keyboard.h</a></li>
+    <li class="navelem"><a class="el" href="dir_c1346cf4828efdd0d2baf0d391d01b77.html">master</a></li><li class="navelem"><a class="el" href="dir_42e62708e74a9749a2aab797cd8af43b.html">ros_ws</a></li><li class="navelem"><a class="el" href="dir_e6b6c919899e96597b50b37fd7e3dee9.html">src</a></li><li class="navelem"><a class="el" href="dir_d5df034bcaadfbfdc88ec3a181201c36.html">teleoperation</a></li><li class="navelem"><a class="el" href="dir_29e216d33e0b3a3920737cf8b0784043.html">include</a></li><li class="navelem"><a class="el" href="remote__keyboard_8h.html">remote_keyboard.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>

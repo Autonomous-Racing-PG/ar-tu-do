@@ -1,7 +1,7 @@
-\hypertarget{remote__keyboard_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/auto\+\_\+race\+\_\+pg/include/remote\+\_\+keyboard.h File Reference}
-\label{remote__keyboard_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/auto\+\_\+race\+\_\+pg/include/remote\+\_\+keyboard.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/auto\+\_\+race\+\_\+pg/include/remote\+\_\+keyboard.\+h}}
+\hypertarget{remote__keyboard_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/teleoperation/include/remote\+\_\+keyboard.h File Reference}
+\label{remote__keyboard_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/include/remote\+\_\+keyboard.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/include/remote\+\_\+keyboard.\+h}}
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
-{\ttfamily \#include $<$std\+\_\+msgs/\+Float64.\+h$>$}\\*
+{\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+Int64.\+h$>$}\\*
 {\ttfamily \#include $<$signal.\+h$>$}\\*
 {\ttfamily \#include $<$termios.\+h$>$}\\*
@@ -30,9 +30,7 @@ class \hyperlink{class_remote_keyboard}{Remote\+Keyboard}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{remote__keyboard_8h_a8c6b7fe5ad62f0dd9be385ca98ca1c9a}{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}~\char`\"{}/set/speed\char`\"{}
-\item 
-\#define \hyperlink{remote__keyboard_8h_ae85d82183138111cc259bc2920f54e9f}{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}~\char`\"{}/set/angle\char`\"{}
+\#define \hyperlink{remote__keyboard_8h_a0cad0c0e78519f724d3769a56a6c6412}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}~\char`\"{}/set/drive\+\_\+param\char`\"{}
 \item 
 \#define \hyperlink{remote__keyboard_8h_a6a44fd7e61a3f73fffecd1ec5973f819}{K\+E\+Y\+C\+O\+D\+E\+\_\+W}~119
 \item 
@@ -52,46 +50,39 @@ class \hyperlink{class_remote_keyboard}{Remote\+Keyboard}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+C\+O\+D\+E\+\_\+A}{KEYCODE_A}}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+C\+O\+D\+E\+\_\+A~97}\hypertarget{remote__keyboard_8h_a35ba55030dedad2411239e6330435742}{}\label{remote__keyboard_8h_a35ba55030dedad2411239e6330435742}
 
 
-Definition at line 16 of file remote\+\_\+keyboard.\+h.
+Definition at line 15 of file remote\+\_\+keyboard.\+h.
 
 \index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!K\+E\+Y\+C\+O\+D\+E\+\_\+D@{K\+E\+Y\+C\+O\+D\+E\+\_\+D}}
 \index{K\+E\+Y\+C\+O\+D\+E\+\_\+D@{K\+E\+Y\+C\+O\+D\+E\+\_\+D}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+C\+O\+D\+E\+\_\+D}{KEYCODE_D}}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+C\+O\+D\+E\+\_\+D~100}\hypertarget{remote__keyboard_8h_af0c998786dcada98bf809fea0b157603}{}\label{remote__keyboard_8h_af0c998786dcada98bf809fea0b157603}
 
 
-Definition at line 18 of file remote\+\_\+keyboard.\+h.
+Definition at line 17 of file remote\+\_\+keyboard.\+h.
 
 \index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!K\+E\+Y\+C\+O\+D\+E\+\_\+S@{K\+E\+Y\+C\+O\+D\+E\+\_\+S}}
 \index{K\+E\+Y\+C\+O\+D\+E\+\_\+S@{K\+E\+Y\+C\+O\+D\+E\+\_\+S}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+C\+O\+D\+E\+\_\+S}{KEYCODE_S}}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+C\+O\+D\+E\+\_\+S~115}\hypertarget{remote__keyboard_8h_a9be3d5563fec0f900d20668973b5806c}{}\label{remote__keyboard_8h_a9be3d5563fec0f900d20668973b5806c}
 
 
-Definition at line 17 of file remote\+\_\+keyboard.\+h.
+Definition at line 16 of file remote\+\_\+keyboard.\+h.
 
 \index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!K\+E\+Y\+C\+O\+D\+E\+\_\+\+S\+P\+A\+CE@{K\+E\+Y\+C\+O\+D\+E\+\_\+\+S\+P\+A\+CE}}
 \index{K\+E\+Y\+C\+O\+D\+E\+\_\+\+S\+P\+A\+CE@{K\+E\+Y\+C\+O\+D\+E\+\_\+\+S\+P\+A\+CE}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+C\+O\+D\+E\+\_\+\+S\+P\+A\+CE}{KEYCODE_SPACE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+C\+O\+D\+E\+\_\+\+S\+P\+A\+CE~32}\hypertarget{remote__keyboard_8h_a49115085a0fac000fb82c9d86c4c34d3}{}\label{remote__keyboard_8h_a49115085a0fac000fb82c9d86c4c34d3}
 
 
-Definition at line 19 of file remote\+\_\+keyboard.\+h.
+Definition at line 18 of file remote\+\_\+keyboard.\+h.
 
 \index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!K\+E\+Y\+C\+O\+D\+E\+\_\+W@{K\+E\+Y\+C\+O\+D\+E\+\_\+W}}
 \index{K\+E\+Y\+C\+O\+D\+E\+\_\+W@{K\+E\+Y\+C\+O\+D\+E\+\_\+W}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+C\+O\+D\+E\+\_\+W}{KEYCODE_W}}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+C\+O\+D\+E\+\_\+W~119}\hypertarget{remote__keyboard_8h_a6a44fd7e61a3f73fffecd1ec5973f819}{}\label{remote__keyboard_8h_a6a44fd7e61a3f73fffecd1ec5973f819}
 
 
-Definition at line 15 of file remote\+\_\+keyboard.\+h.
+Definition at line 14 of file remote\+\_\+keyboard.\+h.
 
-\index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}}
-\index{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE}{TOPIC_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+A\+N\+G\+LE~\char`\"{}/set/angle\char`\"{}}\hypertarget{remote__keyboard_8h_ae85d82183138111cc259bc2920f54e9f}{}\label{remote__keyboard_8h_ae85d82183138111cc259bc2920f54e9f}
-
-
-Definition at line 13 of file remote\+\_\+keyboard.\+h.
-
-\index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}}
-\index{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED}{TOPIC_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+S\+P\+E\+ED~\char`\"{}/set/speed\char`\"{}}\hypertarget{remote__keyboard_8h_a8c6b7fe5ad62f0dd9be385ca98ca1c9a}{}\label{remote__keyboard_8h_a8c6b7fe5ad62f0dd9be385ca98ca1c9a}
+\index{remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}}
+\index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}!remote\+\_\+keyboard.\+h@{remote\+\_\+keyboard.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}{TOPIC_DRIVE_PARAM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM~\char`\"{}/set/drive\+\_\+param\char`\"{}}\hypertarget{remote__keyboard_8h_a0cad0c0e78519f724d3769a56a6c6412}{}\label{remote__keyboard_8h_a0cad0c0e78519f724d3769a56a6c6412}
 
 
 Definition at line 12 of file remote\+\_\+keyboard.\+h.
