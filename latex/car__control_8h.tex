@@ -4,6 +4,7 @@
 {\ttfamily \#include $<$time.\+h$>$}\\*
 {\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+Float64.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+String.\+h$>$}\\*
 Include dependency graph for car\+\_\+control.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -34,6 +35,8 @@ class \hyperlink{class_car_control}{Car\+Control}
 \item 
 \#define \hyperlink{car__control_8h_a0cad0c0e78519f724d3769a56a6c6412}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}~\char`\"{}/set/drive\+\_\+param\char`\"{}
 \item 
+\#define \hyperlink{car__control_8h_a23bd7eb4fbfb73461cd96b6fb393c9f5}{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}~\char`\"{}/command\char`\"{}
+\item 
 \#define \hyperlink{car__control_8h_ac2cd96d53dd3ba6407db6766c3d92b26}{M\+A\+X\+\_\+\+S\+P\+E\+ED}~15000
 \item 
 \#define \hyperlink{car__control_8h_ad5f5efaa5cb771bd06da4bfe6046809e}{M\+I\+N\+\_\+\+S\+P\+E\+ED}~500
@@ -48,40 +51,47 @@ class \hyperlink{class_car_control}{Car\+Control}
 \subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+A\+N\+G\+LE}{MAX_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+A\+N\+G\+LE~0.\+9}\hypertarget{car__control_8h_af3c82099d63a2d91d68bd62d954059c7}{}\label{car__control_8h_af3c82099d63a2d91d68bd62d954059c7}
 
 
-Definition at line 17 of file car\+\_\+control.\+h.
+Definition at line 19 of file car\+\_\+control.\+h.
 
 \index{car\+\_\+control.\+h@{car\+\_\+control.\+h}!M\+A\+X\+\_\+\+S\+P\+E\+ED@{M\+A\+X\+\_\+\+S\+P\+E\+ED}}
 \index{M\+A\+X\+\_\+\+S\+P\+E\+ED@{M\+A\+X\+\_\+\+S\+P\+E\+ED}!car\+\_\+control.\+h@{car\+\_\+control.\+h}}
 \subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+P\+E\+ED}{MAX_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+S\+P\+E\+ED~15000}\hypertarget{car__control_8h_ac2cd96d53dd3ba6407db6766c3d92b26}{}\label{car__control_8h_ac2cd96d53dd3ba6407db6766c3d92b26}
 
 
-Definition at line 15 of file car\+\_\+control.\+h.
+Definition at line 17 of file car\+\_\+control.\+h.
 
 \index{car\+\_\+control.\+h@{car\+\_\+control.\+h}!M\+I\+N\+\_\+\+S\+P\+E\+ED@{M\+I\+N\+\_\+\+S\+P\+E\+ED}}
 \index{M\+I\+N\+\_\+\+S\+P\+E\+ED@{M\+I\+N\+\_\+\+S\+P\+E\+ED}!car\+\_\+control.\+h@{car\+\_\+control.\+h}}
 \subsubsection[{\texorpdfstring{M\+I\+N\+\_\+\+S\+P\+E\+ED}{MIN_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N\+\_\+\+S\+P\+E\+ED~500}\hypertarget{car__control_8h_ad5f5efaa5cb771bd06da4bfe6046809e}{}\label{car__control_8h_ad5f5efaa5cb771bd06da4bfe6046809e}
 
 
-Definition at line 16 of file car\+\_\+control.\+h.
+Definition at line 18 of file car\+\_\+control.\+h.
+
+\index{car\+\_\+control.\+h@{car\+\_\+control.\+h}!T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND@{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND@{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}!car\+\_\+control.\+h@{car\+\_\+control.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}{TOPIC_COMMAND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND~\char`\"{}/command\char`\"{}}\hypertarget{car__control_8h_a23bd7eb4fbfb73461cd96b6fb393c9f5}{}\label{car__control_8h_a23bd7eb4fbfb73461cd96b6fb393c9f5}
+
+
+Definition at line 15 of file car\+\_\+control.\+h.
 
 \index{car\+\_\+control.\+h@{car\+\_\+control.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}!car\+\_\+control.\+h@{car\+\_\+control.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}{TOPIC_DRIVE_PARAM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM~\char`\"{}/set/drive\+\_\+param\char`\"{}}\hypertarget{car__control_8h_a0cad0c0e78519f724d3769a56a6c6412}{}\label{car__control_8h_a0cad0c0e78519f724d3769a56a6c6412}
 
 
-Definition at line 13 of file car\+\_\+control.\+h.
+Definition at line 14 of file car\+\_\+control.\+h.
 
 \index{car\+\_\+control.\+h@{car\+\_\+control.\+h}!T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}}
 \index{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}!car\+\_\+control.\+h@{car\+\_\+control.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE}{TOPIC_FOCBOX_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+A\+N\+G\+LE~\char`\"{}/commands/servo/position\char`\"{}}\hypertarget{car__control_8h_a06bf2e121cdcd87f3e73500ff616ccf2}{}\label{car__control_8h_a06bf2e121cdcd87f3e73500ff616ccf2}
 
 
-Definition at line 11 of file car\+\_\+control.\+h.
+Definition at line 12 of file car\+\_\+control.\+h.
 
 \index{car\+\_\+control.\+h@{car\+\_\+control.\+h}!T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}}
 \index{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED@{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}!car\+\_\+control.\+h@{car\+\_\+control.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED}{TOPIC_FOCBOX_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+F\+O\+C\+B\+O\+X\+\_\+\+S\+P\+E\+ED~\char`\"{}/commands/motor/speed\char`\"{}}\hypertarget{car__control_8h_a6977f30ada15874c2885ecd86dab7bd1}{}\label{car__control_8h_a6977f30ada15874c2885ecd86dab7bd1}
 
 
-Definition at line 10 of file car\+\_\+control.\+h.
+Definition at line 11 of file car\+\_\+control.\+h.
 

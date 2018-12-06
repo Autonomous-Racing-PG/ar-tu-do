@@ -267,5 +267,5 @@ Patching output file 27/30
 Patching output file 28/30
 Patching output file 29/30
 Patching output file 30/30
-lookup cache used 83/65536 hits=332 misses=83
+lookup cache used 86/65536 hits=355 misses=86
 finished...
