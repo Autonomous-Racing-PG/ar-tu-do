@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+<!-- 
+Launches all necessary nodes that let the user control the car with the keyboard and/or gamepad.
+-->
+
+    <!-- remote joy -->
+    <node
+      respawn="true"
+      pkg="teleoperation"
+      type="remote_joy"
+      name="remote_joy"
+      output="log" >
+    </node>
+
+    <!-- joy node -->
+    <node
+      respawn="true"
+      pkg="joy"
+      type="joy_node"
+      name="joy_node"
+      output="log" >
+
+      <param name="dev" type="string" value="/dev/input/js0" />
+      <param name="deadzone" value="0.12" />
+      <param name="autorepeat_rate" value = "100" />
+    </node>
+
+    <!-- remote keyboard -->
+    <node
+      respawn="true"
+      pkg="teleoperation"
+      type="remote_keyboard"
+      name="remote_keyboard"
+      output="log" >
+    </node>
+</launch>

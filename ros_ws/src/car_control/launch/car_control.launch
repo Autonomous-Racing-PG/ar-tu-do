@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+<!-- 
+Launches all necessary nodes that listen for drive_parameters and translate them to the car
+-->
+
+    <!-- car control node -->
+    <node
+      respawn="true"
+      pkg="car_control"
+      type="car_control"
+      name="car_control"
+      output="screen" >
+    </node>
+</launch>
