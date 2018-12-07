@@ -23,10 +23,6 @@ void CarControl::drive_param_callback(
 void CarControl::adjustDriveParam(double raw_speed, double raw_angle)
 {
     speed = raw_speed * MAX_SPEED;
-    if (speed < MIN_SPEED)
-    {
-        speed = 0;
-    }
     angle = (raw_angle * MAX_ANGLE + 1) / 2;
     if (run)
     {
