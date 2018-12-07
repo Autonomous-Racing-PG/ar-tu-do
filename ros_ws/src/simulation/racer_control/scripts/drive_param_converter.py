@@ -34,7 +34,7 @@ def set_throttle_steer(data):
     pub_pos_right_steering_hinge = rospy.Publisher(
         '/racer/right_steering_hinge_position_controller/command', Float64, queue_size=1)
 
-    throttle = data.velocity/0.1
+    throttle = data.velocity / 0.1
     steer = data.angle
 
     pub_vel_left_rear_wheel.publish(throttle)
