@@ -37,13 +37,6 @@ void RemoteKeyboard::keyLoop()
             angle -= 1;
         }
 
-        if (c == KEYCODE_SPACE)
-        {
-            std_msgs::Int64 msg;
-            msg.data = (long)(ros::Time::now().toSec() * 1000);
-            out_dms.publish(msg);
-        }
-
         // after
         adjustDriveParam(speed, angle);
     }
