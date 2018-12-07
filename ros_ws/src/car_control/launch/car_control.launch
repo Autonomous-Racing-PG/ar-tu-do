@@ -13,13 +13,13 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       output="screen" >
     </node>
 	
-	<!-- car control node -->
+	<!-- dms controller node -->
     <node
       respawn="true"
       pkg="car_control"
       type="dms_controller"
       name="dms_controller"
-      output="screen" >
+      output="log" >
     </node>
 	
 </launch>

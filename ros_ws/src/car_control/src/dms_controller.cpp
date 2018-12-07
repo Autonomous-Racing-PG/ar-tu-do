@@ -13,7 +13,7 @@ void DMSController::keyLoop()
 
         if (c == KEYCODE_SPACE)
         {
-			std::cout << "pressing" << std::endl;
+			std::cout << "pressing: " << c << std::endl;
         } else {
 			std::cout << "not pressing" << std::endl;
 		}
