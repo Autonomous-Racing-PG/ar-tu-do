@@ -17,10 +17,10 @@ class RemoteJoy
     RemoteJoy();
 
     private:
-    ros::NodeHandle nodeHandle;
-    ros::Publisher driveParametersPublisher;
-    ros::Subscriber joystickSubscriber;
+    ros::NodeHandle node_handle;
+    ros::Publisher  drive_parameter_publisher;
+    ros::Subscriber joystick_subscriber;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
-    void publishDriveParameters(double velocity, double steeringAngle);
+    void publishDriveParameters(double velocity, double steering_angle);
 };

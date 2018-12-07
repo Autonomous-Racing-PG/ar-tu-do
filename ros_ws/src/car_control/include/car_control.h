@@ -2,8 +2,8 @@
 
 #include <ros/ros.h>
 
-#include <time.h>
 #include <algorithm>
+#include <time.h>
 
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
@@ -25,20 +25,20 @@ class CarController
     CarController();
 
     private:
-    ros::NodeHandle nodeHandle;
+    ros::NodeHandle node_handle;
 
-    ros::Subscriber driveParametersSubscriber;
-    ros::Subscriber deadMansSwitchSubscriber;
-    ros::Subscriber commandSubscriber;
-    
-    void driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
+    ros::Subscriber drive_parameters_subscriber;
+    ros::Subscriber command_subscriber;
 
-    void command_callback(const std_msgs::String::ConstPtr& cmd);
+    ros::Publisher speed_pulisher;
+    ros::Publisher angle_publisher;
 
-    ros::Publisher speedPublisher;
-    ros::Publisher anglePublisher;
+    bool enabled;
 
-    void publishDriveParameters(double rawSpeed, double rawAngle);
+    void driveParametersCallback(
+        const drive_msgs::drive_param::ConstPtr& parameters);
 
-    bool run;
+    void commandCallback(const std_msgs::String::ConstPtr& command_message);
+
+    void publishDriveParameters(double raw_speed, double raw_angle);
 };

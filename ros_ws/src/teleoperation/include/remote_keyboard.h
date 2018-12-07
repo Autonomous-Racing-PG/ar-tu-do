@@ -24,10 +24,9 @@ class RemoteKeyboard
     void keyboardLoop();
 
     private:
-    ros::NodeHandle nodeHandle;
+    ros::NodeHandle node_handle;
 
-    ros::Publisher driveParametersPublisher;
-    ros::Publisher deadMansSwitchPublisher;
+    ros::Publisher drive_parameters_publisher;
 
     int getKeyboardCharacter();
 

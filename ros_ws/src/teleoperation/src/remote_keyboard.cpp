@@ -2,8 +2,9 @@
 
 RemoteKeyboard::RemoteKeyboard()
 {
-    this->driveParametersPublisher =
-        this->nodeHandle.advertise< drive_msgs::drive_param >(TOPIC_DRIVE_PARAMETERS, 1);
+    this->drive_parameters_publisher =
+        this->node_handle.advertise< drive_msgs::drive_param >(
+            TOPIC_DRIVE_PARAMETERS, 1);
 }
 
 void RemoteKeyboard::keyboardLoop()
@@ -12,7 +13,7 @@ void RemoteKeyboard::keyboardLoop()
     std::cout << "========================" << std::endl;
 
     double velocity = 0;
-    double angle = 0;
+    double angle    = 0;
     while (ros::ok())
     {
         int key = this->getKeyboardCharacter();
@@ -37,44 +38,36 @@ void RemoteKeyboard::keyboardLoop()
             angle -= 1;
         }
 
-        // TODO Implement Dead Man's Switch
-        /*if (key == KEYCODE_SPACE)
-        {
-            std_msgs::Int64 deadMansSwitchMessage;
-            deadMansSwitchMessage.data = (long)(ros::Time::now().toSec() * 1000);
-            this->deadMansSwitchPublisher.publish(deadMansSwitchMessage);
-        } */
-
-        publishDriveParameters(velocity, angle);
+        this->publishDriveParameters(velocity, angle);
     }
 }
 
 int RemoteKeyboard::getKeyboardCharacter()
 {
-    static struct termios oldTerminal, newTerminal;
+    static struct termios old_terminal, new_terminal;
     // back up current terminal settings
-    tcgetattr(STDIN_FILENO, &oldTerminal);
-    newTerminal = oldTerminal;
+    tcgetattr(STDIN_FILENO, &old_terminal);
+    new_terminal = old_terminal;
     // disable buffering
-    newTerminal.c_lflag &= ~ICANON;
+    new_terminal.c_lflag &= ~ICANON;
     // apply new settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &newTerminal); 
+    tcsetattr(STDIN_FILENO, TCSANOW, &new_terminal);
 
     // read character (non-blocking)
     int character = getchar();
 
     // restore old settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldTerminal);
+    tcsetattr(STDIN_FILENO, TCSANOW, &old_terminal);
 
     return character;
 }
 
 void RemoteKeyboard::publishDriveParameters(double velocity, double angle)
 {
-    drive_msgs::drive_param driveParameters;
-    driveParameters.velocity = velocity;
-    driveParameters.angle = (angle + 1) / 2;
-    this->driveParametersPublisher.publish(driveParameters);
+    drive_msgs::drive_param drive_parameters;
+    drive_parameters.velocity = velocity;
+    drive_parameters.angle    = (angle + 1) / 2;
+    this->drive_parameters_publisher.publish(drive_parameters);
 }
 
 void quitSignalHandler(int signal)
@@ -86,9 +79,9 @@ void quitSignalHandler(int signal)
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "remote_keyboard_controller");
-    RemoteKeyboard remoteKeyboard;
+    RemoteKeyboard remote_keyboard;
 
     signal(SIGINT, quitSignalHandler);
-    remoteKeyboard.keyboardLoop();
+    remote_keyboard.keyboardLoop();
     return 0;
 }

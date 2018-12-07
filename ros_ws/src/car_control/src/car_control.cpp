@@ -1,15 +1,19 @@
 #include "car_control.h"
 
 CarController::CarController()
-    : run{ true }
+    : enabled{ true }
 {
-    this->driveParametersSubscriber = this->nodeHandle.subscribe< drive_msgs::drive_param >(
-        TOPIC_DRIVE_PARAM, 1, &CarController::driveParametersCallback, this);    
-    this->commandSubscriber = this->nodeHandle.subscribe< std_msgs::String >(TOPIC_COMMAND, 1,
-                                               &CarController::command_callback, this);
+    this->drive_parameters_subscriber =
+        this->node_handle.subscribe< drive_msgs::drive_param >(
+            TOPIC_DRIVE_PARAM, 1, &CarController::driveParametersCallback,
+            this);
+    this->command_subscriber = this->node_handle.subscribe< std_msgs::String >(
+        TOPIC_COMMAND, 1, &CarController::commandCallback, this);
 
-    this->speedPublisher = this->nodeHandle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
-    this->anglePublisher = this->nodeHandle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
+    this->speed_pulisher =
+        this->node_handle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
+    this->angle_publisher =
+        this->node_handle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
 }
 
 void CarController::driveParametersCallback(
@@ -18,36 +22,39 @@ void CarController::driveParametersCallback(
     this->publishDriveParameters(parameters->velocity, parameters->angle);
 }
 
-void CarController::publishDriveParameters(double rawSpeed, double rawAngle)
+void CarController::publishDriveParameters(double raw_speed, double raw_angle)
 {
-    double speed = std::max(0.0, rawSpeed * MAX_SPEED);
-    double angle = (rawAngle * MAX_ANGLE + 1) / 2;
+    double speed = std::max(0.0, raw_speed * MAX_SPEED);
+    double angle = (raw_angle * MAX_ANGLE + 1) / 2;
 
-    if (this->run)
+    if (this->enabled)
     {
-        std_msgs::Float64 speedMessage;
-        speedMessage.data = speed;
-        this->speedPublisher.publish(speedMessage);
-        std_msgs::Float64 angleMessage;
-        angleMessage.data = angle;
-        this->anglePublisher.publish(angleMessage);
-    } else {
-		std::cout << "not running - ";
-	}
+        std_msgs::Float64 speed_message;
+        speed_message.data = speed;
+        this->speed_pulisher.publish(speed_message);
+        std_msgs::Float64 angle_message;
+        angle_message.data = angle;
+        this->angle_publisher.publish(angle_message);
+    }
+    else
+    {
+        std::cout << "not running - ";
+    }
     std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
 }
 
-void CarController::command_callback(const std_msgs::String::ConstPtr& command)
+void CarController::commandCallback(
+    const std_msgs::String::ConstPtr& command_message)
 {
-    std::string command_str = command->data;
+    std::string command_str = command_message->data;
     if (command_str.compare("stop") == 0)
     {
-        this->run = false;
+        this->enabled = false;
         this->publishDriveParameters(0, 0);
     }
     if (command_str.compare("go") == 0)
     {
-        this->run = true;
+        this->enabled = true;
     }
 }
 
