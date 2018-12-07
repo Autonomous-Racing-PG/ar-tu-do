@@ -11,11 +11,13 @@
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
 
-#define KEYCODE_W 119
-#define KEYCODE_A 97
-#define KEYCODE_S 115
-#define KEYCODE_D 100
-#define KEYCODE_SPACE 32
+enum class Keycode : int {
+    A = 119,
+    W = 97,
+    S = 115,
+    D = 100,
+    SPACE = 32
+};
 
 class KeyboardController
 {

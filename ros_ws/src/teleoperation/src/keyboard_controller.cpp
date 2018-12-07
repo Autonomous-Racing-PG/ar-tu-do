@@ -16,26 +16,21 @@ void KeyboardController::keyboardLoop()
     double angle    = 0;
     while (ros::ok())
     {
-        int key = this->getKeyboardCharacter();
+        auto key = static_cast<Keycode>(this->getKeyboardCharacter());
 
-        if (key == KEYCODE_W)
-        {
-            velocity += 1;
-        }
-
-        if (key == KEYCODE_S)
-        {
-            velocity -= 1;
-        }
-
-        if (key == KEYCODE_A)
-        {
-            angle += 1;
-        }
-
-        if (key == KEYCODE_D)
-        {
-            angle -= 1;
+        switch (key) {
+            case Keycode::W:
+                velocity += 1;
+                break;
+            case Keycode::S:
+                velocity -= 1;
+                break;
+            case Keycode::A:
+                angle += 1;
+                break;
+            case Keycode::D:
+                angle -1;
+                break;
         }
 
         this->publishDriveParameters(velocity, angle);
@@ -83,5 +78,5 @@ int main(int argc, char** argv)
 
     signal(SIGINT, quitSignalHandler);
     keyboard_controller.keyboardLoop();
-    return 0;
+    return EXIT_SUCCESS;
 }

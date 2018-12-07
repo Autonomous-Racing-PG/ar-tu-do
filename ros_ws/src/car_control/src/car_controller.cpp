@@ -63,5 +63,5 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "car_controller");
     CarController carController;
     ros::spin();
-    return 0;
+    return EXIT_SUCCESS;
 }

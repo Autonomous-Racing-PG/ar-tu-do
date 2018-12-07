@@ -50,4 +50,6 @@ int main(int argc, char** argv)
     JoystickController joystick_controller;
 
     ros::spin();
+
+    return EXIT_SUCCESS;
 }
