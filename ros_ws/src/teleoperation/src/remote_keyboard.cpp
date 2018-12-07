@@ -24,7 +24,7 @@ void RemoteKeyboard::keyLoop()
 
         if (c == KEYCODE_S)
         {
-            speed = -1;
+            speed = 1;
         }
 
         if (c == KEYCODE_A)
