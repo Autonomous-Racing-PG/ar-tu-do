@@ -34,10 +34,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# Declare car control node executable
-add_executable(car_control src/car_control.cpp)
-target_link_libraries(car_control ${catkin_LIBRARIES})
-add_dependencies(car_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# Declare car controller node executable
+add_executable(car_controller src/car_controller.cpp)
+target_link_libraries(car_controller ${catkin_LIBRARIES})
+add_dependencies(car_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
 #############

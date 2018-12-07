@@ -34,12 +34,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# Declare remote joy node executable
-add_executable(remote_joy src/remote_joy.cpp)
-target_link_libraries(remote_joy ${catkin_LIBRARIES})
-add_dependencies(remote_joy ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# Declare joystick controller node executable
+add_executable(joystick_controller src/joystick_controller.cpp)
+target_link_libraries(joystick_controller ${catkin_LIBRARIES})
+add_dependencies(joystick_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 # Declare remote keyboard node executable
-add_executable(remote_keyboard src/remote_keyboard.cpp)
-target_link_libraries(remote_keyboard ${catkin_LIBRARIES})
-add_dependencies(remote_keyboard ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(keyboard_controller src/keyboard_controller.cpp)
+target_link_libraries(keyboard_controller ${catkin_LIBRARIES})
+add_dependencies(keyboard_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

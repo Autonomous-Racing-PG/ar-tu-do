@@ -1,13 +1,13 @@
-#include "remote_keyboard.h"
+#include "keyboard_controller.h"
 
-RemoteKeyboard::RemoteKeyboard()
+KeyboardController::KeyboardController()
 {
     this->drive_parameters_publisher =
         this->node_handle.advertise< drive_msgs::drive_param >(
             TOPIC_DRIVE_PARAMETERS, 1);
 }
 
-void RemoteKeyboard::keyboardLoop()
+void KeyboardController::keyboardLoop()
 {
     std::cout << "Listening to keyboard..." << std::endl;
     std::cout << "========================" << std::endl;
@@ -42,7 +42,7 @@ void RemoteKeyboard::keyboardLoop()
     }
 }
 
-int RemoteKeyboard::getKeyboardCharacter()
+int KeyboardController::getKeyboardCharacter()
 {
     static struct termios old_terminal, new_terminal;
     // back up current terminal settings
@@ -62,7 +62,7 @@ int RemoteKeyboard::getKeyboardCharacter()
     return character;
 }
 
-void RemoteKeyboard::publishDriveParameters(double velocity, double angle)
+void KeyboardController::publishDriveParameters(double velocity, double angle)
 {
     drive_msgs::drive_param drive_parameters;
     drive_parameters.velocity = velocity;
@@ -78,10 +78,10 @@ void quitSignalHandler(int signal)
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "remote_keyboard_controller");
-    RemoteKeyboard remote_keyboard;
+    ros::init(argc, argv, "keyboard_controller");
+    KeyboardController keyboard_controller;
 
     signal(SIGINT, quitSignalHandler);
-    remote_keyboard.keyboardLoop();
+    keyboard_controller.keyboardLoop();
     return 0;
 }

@@ -8,8 +8,8 @@ Launches all necessary nodes that let the user control the car with the keyboard
     <node
       respawn="true"
       pkg="teleoperation"
-      type="remote_joy"
-      name="remote_joy"
+      type="joystick_controller"
+      name="joystick_controller"
       output="log" >
     </node>
 
@@ -30,8 +30,8 @@ Launches all necessary nodes that let the user control the car with the keyboard
     <node
       respawn="true"
       pkg="teleoperation"
-      type="remote_keyboard"
-      name="remote_keyboard"
+      type="keyboard_controller"
+      name="keyboard_controller"
       output="log" >
     </node>
 </launch>

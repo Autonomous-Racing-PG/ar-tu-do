@@ -11,10 +11,10 @@
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
 
-class RemoteJoy
+class JoystickController
 {
     public:
-    RemoteJoy();
+    JoystickController();
 
     private:
     ros::NodeHandle node_handle;

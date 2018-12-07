@@ -17,10 +17,10 @@
 #define KEYCODE_D 100
 #define KEYCODE_SPACE 32
 
-class RemoteKeyboard
+class KeyboardController
 {
     public:
-    RemoteKeyboard();
+    KeyboardController();
     void keyboardLoop();
 
     private:

@@ -8,8 +8,8 @@ Launches all necessary nodes that listen for drive_parameters and translate them
     <node
       respawn="true"
       pkg="car_control"
-      type="car_control"
-      name="car_control"
+      type="car_controller"
+      name="car_controller"
       output="screen" >
     </node>
 </launch>
