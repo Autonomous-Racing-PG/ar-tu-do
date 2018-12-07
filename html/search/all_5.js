@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['keycode_5fa',['KEYCODE_A',['../remote__keyboard_8h.html#a35ba55030dedad2411239e6330435742',1,'remote_keyboard.h']]],
-  ['keycode_5fd',['KEYCODE_D',['../remote__keyboard_8h.html#af0c998786dcada98bf809fea0b157603',1,'remote_keyboard.h']]],
-  ['keycode_5fs',['KEYCODE_S',['../remote__keyboard_8h.html#a9be3d5563fec0f900d20668973b5806c',1,'remote_keyboard.h']]],
-  ['keycode_5fspace',['KEYCODE_SPACE',['../remote__keyboard_8h.html#a49115085a0fac000fb82c9d86c4c34d3',1,'remote_keyboard.h']]],
-  ['keycode_5fw',['KEYCODE_W',['../remote__keyboard_8h.html#a6a44fd7e61a3f73fffecd1ec5973f819',1,'remote_keyboard.h']]],
-  ['keyloop',['keyLoop',['../class_remote_joy.html#aeb64e457c9661691877f98a7768473f7',1,'RemoteJoy::keyLoop()'],['../class_remote_keyboard.html#a6e577da2cf6247e3cdbabd582784ba3c',1,'RemoteKeyboard::keyLoop()']]]
+  ['keyboard_5fcontroller_2ecpp',['keyboard_controller.cpp',['../keyboard__controller_8cpp.html',1,'']]],
+  ['keyboard_5fcontroller_2eh',['keyboard_controller.h',['../keyboard__controller_8h.html',1,'']]],
+  ['keyboardcontroller',['KeyboardController',['../class_keyboard_controller.html',1,'KeyboardController'],['../class_keyboard_controller.html#abb80b5bae04a1c3cf904924cbacb235c',1,'KeyboardController::KeyboardController()']]],
+  ['keyboardloop',['keyboardLoop',['../class_keyboard_controller.html#a91b211edc8281a742374875ffc1eb70f',1,'KeyboardController']]],
+  ['keycode',['Keycode',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07',1,'keyboard_controller.h']]]
 ];

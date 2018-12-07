@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "CarControl", "class_car_control.html", "class_car_control" ],
-    [ "RemoteJoy", "class_remote_joy.html", "class_remote_joy" ],
-    [ "RemoteKeyboard", "class_remote_keyboard.html", "class_remote_keyboard" ]
+    [ "CarController", "class_car_controller.html", "class_car_controller" ],
+    [ "JoystickController", "class_joystick_controller.html", "class_joystick_controller" ],
+    [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ]
 ];

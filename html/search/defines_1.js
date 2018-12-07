@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['keycode_5fa',['KEYCODE_A',['../remote__keyboard_8h.html#a35ba55030dedad2411239e6330435742',1,'remote_keyboard.h']]],
-  ['keycode_5fd',['KEYCODE_D',['../remote__keyboard_8h.html#af0c998786dcada98bf809fea0b157603',1,'remote_keyboard.h']]],
-  ['keycode_5fs',['KEYCODE_S',['../remote__keyboard_8h.html#a9be3d5563fec0f900d20668973b5806c',1,'remote_keyboard.h']]],
-  ['keycode_5fspace',['KEYCODE_SPACE',['../remote__keyboard_8h.html#a49115085a0fac000fb82c9d86c4c34d3',1,'remote_keyboard.h']]],
-  ['keycode_5fw',['KEYCODE_W',['../remote__keyboard_8h.html#a6a44fd7e61a3f73fffecd1ec5973f819',1,'remote_keyboard.h']]]
+  ['max_5fangle',['MAX_ANGLE',['../car__controller_8h.html#af3c82099d63a2d91d68bd62d954059c7',1,'car_controller.h']]],
+  ['max_5fspeed',['MAX_SPEED',['../car__controller_8h.html#ac2cd96d53dd3ba6407db6766c3d92b26',1,'car_controller.h']]],
+  ['min_5fspeed',['MIN_SPEED',['../car__controller_8h.html#ad5f5efaa5cb771bd06da4bfe6046809e',1,'car_controller.h']]]
 ];

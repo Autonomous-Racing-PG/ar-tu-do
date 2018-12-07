@@ -1,0 +1,81 @@
+\hypertarget{keyboard__controller_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/teleoperation/include/keyboard\+\_\+controller.h File Reference}
+\label{keyboard__controller_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/include/keyboard\+\_\+controller.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/include/keyboard\+\_\+controller.\+h}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+Int64.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$termios.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+Include dependency graph for keyboard\+\_\+controller.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{keyboard__controller_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{keyboard__controller_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_keyboard_controller}{Keyboard\+Controller}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{keyboard__controller_8h_a61d823592e4b3aafddd2ff2b52d5d5d7}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}~\char`\"{}/set/drive\+\_\+param\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07}{Keycode} \+: int \{ \\*
+\hyperlink{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29}{Keycode\+::A} = 119, 
+\hyperlink{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276}{Keycode\+::W} = 97, 
+\hyperlink{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e}{Keycode\+::S} = 115, 
+\hyperlink{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5}{Keycode\+::D} = 100, 
+\\*
+\hyperlink{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57}{Keycode\+::\+S\+P\+A\+CE} = 32
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
+\index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS~\char`\"{}/set/drive\+\_\+param\char`\"{}}\hypertarget{keyboard__controller_8h_a61d823592e4b3aafddd2ff2b52d5d5d7}{}\label{keyboard__controller_8h_a61d823592e4b3aafddd2ff2b52d5d5d7}
+
+
+Definition at line 12 of file keyboard\+\_\+controller.\+h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!Keycode@{Keycode}}
+\index{Keycode@{Keycode}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
+\subsubsection[{\texorpdfstring{Keycode}{Keycode}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Keycode} \+: int\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07}{}\label{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A@{A}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!A@{A}}\item[{\em 
+A\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29}{}\label{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29}
+}]\index{W@{W}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!W@{W}}\item[{\em 
+W\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276}{}\label{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276}
+}]\index{S@{S}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!S@{S}}\item[{\em 
+S\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e}{}\label{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e}
+}]\index{D@{D}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!D@{D}}\item[{\em 
+D\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5}{}\label{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5}
+}]\index{S\+P\+A\+CE@{S\+P\+A\+CE}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}\index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!S\+P\+A\+CE@{S\+P\+A\+CE}}\item[{\em 
+S\+P\+A\+CE\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57}{}\label{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 14 of file keyboard\+\_\+controller.\+h.
+

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['carcontrol',['CarControl',['../class_car_control.html#a233b5d77ce5d0594a1d9e438cc8eb04e',1,'CarControl']]]
+  ['carcontroller',['CarController',['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController']]]
 ];

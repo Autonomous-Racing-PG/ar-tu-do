@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['car_5fcontrol_2ecpp',['car_control.cpp',['../car__control_8cpp.html',1,'']]],
-  ['car_5fcontrol_2eh',['car_control.h',['../car__control_8h.html',1,'']]]
+  ['car_5fcontroller_2ecpp',['car_controller.cpp',['../car__controller_8cpp.html',1,'']]],
+  ['car_5fcontroller_2eh',['car_controller.h',['../car__controller_8h.html',1,'']]]
 ];
