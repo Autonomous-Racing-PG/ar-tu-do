@@ -29,12 +29,12 @@ void RemoteKeyboard::keyLoop()
 
         if (c == KEYCODE_A)
         {
-            angle = 1;
+            angle = -1;
         }
 
         if (c == KEYCODE_D)
         {
-            angle = -1;
+            angle = 1;
         }
 
         // after
