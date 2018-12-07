@@ -12,4 +12,14 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       name="car_control"
       output="screen" >
     </node>
+	
+	<!-- car control node -->
+    <node
+      respawn="true"
+      pkg="car_control"
+      type="dms_controller"
+      name="dms_controller"
+      output="screen" >
+    </node>
+	
 </launch>
