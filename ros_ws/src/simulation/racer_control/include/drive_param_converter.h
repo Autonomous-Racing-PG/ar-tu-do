@@ -1,21 +1,9 @@
 #pragma once
-#include <string>
-#include <cmath>
+
 #include <ros/ros.h>
 
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
-
-
-/**
- * @brief 
- * 
- */
-struct Angles
-{
-    double angle1;
-    double angle2;
-};
 
 /**
  * @brief 
@@ -41,6 +29,15 @@ class DriveParamConverter
     /**
      * @brief 
      * 
+     */
+    struct Angles
+    {
+        double angle1;
+        double angle2;
+    };
+    /**
+     * @brief 
+     * 
      * @param angle Angle of the center of the front axis.
      * @return Angles One Ackermann angle for each front wheel
      */
@@ -49,7 +46,7 @@ class DriveParamConverter
      * @brief 
      * 
      */
-    ros::NodeHandle node_handle;
+    ros::NodeHandle m_node_handle;
     /**
      * @brief 
      * 
@@ -90,13 +87,11 @@ class DriveParamConverter
      * @brief 
      * 
      */
-    double m_length;
+    const double m_length;
 
     /**
      * @brief 
      * 
      */
-    double m_width;
-
-    std::string m_TOPIC_DRIVE_PARAMETERS;
+    const double m_width;
 };
