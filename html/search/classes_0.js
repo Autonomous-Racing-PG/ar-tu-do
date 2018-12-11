@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['carcontroller',['CarController',['../class_car_controller.html',1,'']]]
+  ['angles',['Angles',['../struct_angles.html',1,'']]]
 ];
