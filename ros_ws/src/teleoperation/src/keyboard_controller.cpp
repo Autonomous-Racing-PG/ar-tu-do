@@ -35,9 +35,9 @@ void KeyboardController::checkKeyboard()
 				struct timeval time_struct;
 				gettimeofday(&time_struct, NULL);
 				long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
-				std_msgs::Int64 dms_msg;
-				dms_msg.data = timestamp;
-				this->dms_publisher.publish(dms_msg);
+				std_msgs::Int64 dms_message;
+				dms_message.data = timestamp;
+				this->dms_publisher.publish(dms_message);
                 break;
         }
 
