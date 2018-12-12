@@ -94,6 +94,7 @@ int main(int argc, char** argv)
 	
     std::cout << "Listening to keyboard..." << std::endl;
     std::cout << "========================" << std::endl;
+	signal(SIGINT, quitSignalHandler);
 	ros::Rate loop_rate(CHECK_RATE);
 	while (ros::ok())
 	{
