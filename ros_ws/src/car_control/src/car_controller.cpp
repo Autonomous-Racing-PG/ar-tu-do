@@ -56,6 +56,7 @@ void CarController::commandCallback(
     {
         this->enabled = true;
     }
+	std::cout << "command input: " << command_str << std::endl;
 }
 
 int main(int argc, char** argv)
