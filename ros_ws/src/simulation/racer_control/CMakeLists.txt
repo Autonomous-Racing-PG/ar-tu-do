@@ -4,6 +4,7 @@ project(racer_control)
 ## Compile as C++11, supported in ROS Kinetic and newer
 set (CMAKE_CXX_STANDARD 11)
 
+
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
   drive_msgs
