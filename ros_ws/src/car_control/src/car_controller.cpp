@@ -36,11 +36,7 @@ void CarController::publishDriveParameters(double raw_speed, double raw_angle)
         angle_message.data = angle;
         this->angle_publisher.publish(angle_message);
     }
-    else
-    {
-        std::cout << "not running - ";
-    }
-    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
+    std::cout << "running: " << this->enabled << " | speed: " << speed << " | angle: " << angle << std::endl;
 }
 
 void CarController::commandCallback(
