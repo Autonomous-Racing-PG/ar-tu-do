@@ -5,11 +5,13 @@
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Int64.h>
 
-#include <signal.h>
 #include <termios.h>
-#include <time.h>
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
+#define TOPIC_COMMAND "/command"
+#define TOPIC_DMS "/set/dms"
+
+#define CHECK_RATE 10 // in Hz
 
 enum class Keycode : int {
     A = 119,
@@ -21,16 +23,14 @@ enum class Keycode : int {
 
 class KeyboardController
 {
-    public:
+    public:	
     KeyboardController();
-    void keyboardLoop();
+    void checkKeyboard();
 
     private:
     ros::NodeHandle node_handle;
-
     ros::Publisher drive_parameters_publisher;
-
+    ros::Publisher dms_publisher;
     int getKeyboardCharacter();
-
     void publishDriveParameters(double speed, double angle);
 };
