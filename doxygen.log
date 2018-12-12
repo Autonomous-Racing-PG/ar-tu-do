@@ -59,6 +59,8 @@ Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ro
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/include/drive_param_converter.h...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/drive_param_converter.cpp...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/drive_param_converter.cpp...
+Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/main.cpp...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/main.cpp...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/keyboard_controller.h...
@@ -126,6 +128,7 @@ Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/test/test_car_control.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/include/drive_param_converter.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/drive_param_converter.cpp...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/main.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/keyboard_controller.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/joystick_controller.cpp...
@@ -138,18 +141,18 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/test/test_car_control.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/include/drive_param_converter.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/drive_param_converter.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/racer_control/src/main.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.pa/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/README.md:5: warning: Unexpected html tag <img> found within <a href=...> context
+ckage/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/keyboard_controller.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/joystick_controller.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/keyboard_controller.cpp...
-Generating call graph for fu/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/README.md:5: warning: Unexpected html tag <img> found within <a href=...> context
-nction main
+Generating call graph for function main
 Generating caller graph for function quitSignalHandler
 Generating page documentation...
 Generating docs for page md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_README...
 Generating group documentation...
 Generating class documentation...
-Generating docs for compound Angles...
 Generating docs for compound CarController...
 Generating docs for compound DriveParamConverter...
 Generating call graph for function DriveParamConverter::DriveParamConverter
@@ -188,132 +191,137 @@ writing tag file...
 Combining RTF output...
 Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/85
-Running dot for graph 2/85
-Running dot for graph 3/85
-Running dot for graph 4/85
-Running dot for graph 5/85
-Running dot for graph 6/85
-Running dot for graph 7/85
-Running dot for graph 8/85
-Running dot for graph 9/85
-Running dot for graph 10/85
-Running dot for graph 11/85
-Running dot for graph 12/85
-Running dot for graph 13/85
-Running dot for graph 14/85
-Running dot for graph 15/85
-Running dot for graph 16/85
-Running dot for graph 17/85
-Running dot for graph 18/85
-Running dot for graph 19/85
-Running dot for graph 20/85
-Running dot for graph 21/85
-Running dot for graph 22/85
-Running dot for graph 23/85
-Running dot for graph 24/85
-Running dot for graph 25/85
-Running dot for graph 26/85
-Running dot for graph 27/85
-Running dot for graph 28/85
-Running dot for graph 29/85
-Running dot for graph 30/85
-Running dot for graph 31/85
-Running dot for graph 32/85
-Running dot for graph 33/85
-Running dot for graph 34/85
-Running dot for graph 35/85
-Running dot for graph 36/85
-Running dot for graph 37/85
-Running dot for graph 38/85
-Running dot for graph 39/85
-Running dot for graph 40/85
-Running dot for graph 41/85
-Running dot for graph 42/85
-Running dot for graph 43/85
-Running dot for graph 44/85
-Running dot for graph 45/85
-Running dot for graph 46/85
-Running dot for graph 47/85
-Running dot for graph 48/85
-Running dot for graph 49/85
-Running dot for graph 50/85
-Running dot for graph 51/85
-Running dot for graph 52/85
-Running dot for graph 53/85
-Running dot for graph 54/85
-Running dot for graph 55/85
-Running dot for graph 56/85
-Running dot for graph 57/85
-Running dot for graph 58/85
-Running dot for graph 59/85
-Running dot for graph 60/85
-Running dot for graph 61/85
-Running dot for graph 62/85
-Running dot for graph 63/85
-Running dot for graph 64/85
-Running dot for graph 65/85
-Running dot for graph 66/85
-Running dot for graph 67/85
-Running dot for graph 68/85
-Running dot for graph 69/85
-Running dot for graph 70/85
-Running dot for graph 71/85
-Running dot for graph 72/85
-Running dot for graph 73/85
-Running dot for graph 74/85
-Running dot for graph 75/85
-Running dot for graph 76/85
-Running dot for graph 77/85
-Running dot for graph 78/85
-Running dot for graph 79/85
-Running dot for graph 80/85
-Running dot for graph 81/85
-Running dot for graph 82/85
-Running dot for graph 83/85
-Running dot for graph 84/85
-Running dot for graph 85/85
-Patching output file 1/42
-Patching output file 2/42
-Patching output file 3/42
-Patching output file 4/42
-Patching output file 5/42
-Patching output file 6/42
-Patching output file 7/42
-Patching output file 8/42
-Patching output file 9/42
-Patching output file 10/42
-Patching output file 11/42
-Patching output file 12/42
-Patching output file 13/42
-Patching output file 14/42
-Patching output file 15/42
-Patching output file 16/42
-Patching output file 17/42
-Patching output file 18/42
-Patching output file 19/42
-Patching output file 20/42
-Patching output file 21/42
-Patching output file 22/42
-Patching output file 23/42
-Patching output file 24/42
-Patching output file 25/42
-Patching output file 26/42
-Patching output file 27/42
-Patching output file 28/42
-Patching output file 29/42
-Patching output file 30/42
-Patching output file 31/42
-Patching output file 32/42
-Patching output file 33/42
-Patching output file 34/42
-Patching output file 35/42
-Patching output file 36/42
-Patching output file 37/42
-Patching output file 38/42
-Patching output file 39/42
-Patching output file 40/42
-Patching output file 41/42
-Patching output file 42/42
-lookup cache used 94/65536 hits=414 misses=95
+Running dot for graph 1/88
+Running dot for graph 2/88
+Running dot for graph 3/88
+Running dot for graph 4/88
+Running dot for graph 5/88
+Running dot for graph 6/88
+Running dot for graph 7/88
+Running dot for graph 8/88
+Running dot for graph 9/88
+Running dot for graph 10/88
+Running dot for graph 11/88
+Running dot for graph 12/88
+Running dot for graph 13/88
+Running dot for graph 14/88
+Running dot for graph 15/88
+Running dot for graph 16/88
+Running dot for graph 17/88
+Running dot for graph 18/88
+Running dot for graph 19/88
+Running dot for graph 20/88
+Running dot for graph 21/88
+Running dot for graph 22/88
+Running dot for graph 23/88
+Running dot for graph 24/88
+Running dot for graph 25/88
+Running dot for graph 26/88
+Running dot for graph 27/88
+Running dot for graph 28/88
+Running dot for graph 29/88
+Running dot for graph 30/88
+Running dot for graph 31/88
+Running dot for graph 32/88
+Running dot for graph 33/88
+Running dot for graph 34/88
+Running dot for graph 35/88
+Running dot for graph 36/88
+Running dot for graph 37/88
+Running dot for graph 38/88
+Running dot for graph 39/88
+Running dot for graph 40/88
+Running dot for graph 41/88
+Running dot for graph 42/88
+Running dot for graph 43/88
+Running dot for graph 44/88
+Running dot for graph 45/88
+Running dot for graph 46/88
+Running dot for graph 47/88
+Running dot for graph 48/88
+Running dot for graph 49/88
+Running dot for graph 50/88
+Running dot for graph 51/88
+Running dot for graph 52/88
+Running dot for graph 53/88
+Running dot for graph 54/88
+Running dot for graph 55/88
+Running dot for graph 56/88
+Running dot for graph 57/88
+Running dot for graph 58/88
+Running dot for graph 59/88
+Running dot for graph 60/88
+Running dot for graph 61/88
+Running dot for graph 62/88
+Running dot for graph 63/88
+Running dot for graph 64/88
+Running dot for graph 65/88
+Running dot for graph 66/88
+Running dot for graph 67/88
+Running dot for graph 68/88
+Running dot for graph 69/88
+Running dot for graph 70/88
+Running dot for graph 71/88
+Running dot for graph 72/88
+Running dot for graph 73/88
+Running dot for graph 74/88
+Running dot for graph 75/88
+Running dot for graph 76/88
+Running dot for graph 77/88
+Running dot for graph 78/88
+Running dot for graph 79/88
+Running dot for graph 80/88
+Running dot for graph 81/88
+Running dot for graph 82/88
+Running dot for graph 83/88
+Running dot for graph 84/88
+Running dot for graph 85/88
+Running dot for graph 86/88
+Running dot for graph 87/88
+Running dot for graph 88/88
+Patching output file 1/44
+Patching output file 2/44
+Patching output file 3/44
+Patching output file 4/44
+Patching output file 5/44
+Patching output file 6/44
+Patching output file 7/44
+Patching output file 8/44
+Patching output file 9/44
+Patching output file 10/44
+Patching output file 11/44
+Patching output file 12/44
+Patching output file 13/44
+Patching output file 14/44
+Patching output file 15/44
+Patching output file 16/44
+Patching output file 17/44
+Patching output file 18/44
+Patching output file 19/44
+Patching output file 20/44
+Patching output file 21/44
+Patching output file 22/44
+Patching output file 23/44
+Patching output file 24/44
+Patching output file 25/44
+Patching output file 26/44
+Patching output file 27/44
+Patching output file 28/44
+Patching output file 29/44
+Patching output file 30/44
+Patching output file 31/44
+Patching output file 32/44
+Patching output file 33/44
+Patching output file 34/44
+Patching output file 35/44
+Patching output file 36/44
+Patching output file 37/44
+Patching output file 38/44
+Patching output file 39/44
+Patching output file 40/44
+Patching output file 41/44
+Patching output file 42/44
+Patching output file 43/44
+Patching output file 44/44
+lookup cache used 92/65536 hits=390 misses=93
 finished...

@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('class_drive_param_converter.html','');
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_drive_param_converter-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -115,20 +116,25 @@ $(document).ready(function(){initNavTree('class_drive_param_converter.html','');
 </div><!--header-->
 <div class="contents">
 
+<p>Class to convert Drive Parameter Messages into single messages.  
+ <a href="class_drive_param_converter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="drive__param__converter_8h_source.html">drive_param_converter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6e00a5ff69b667c7a65dab5b59a1ccb7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_param_converter.html#a6e00a5ff69b667c7a65dab5b59a1ccb7">DriveParamConverter</a> ()</td></tr>
-<tr class="memdesc:a6e00a5ff69b667c7a65dab5b59a1ccb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Drive Pram Converter object.  <a href="#a6e00a5ff69b667c7a65dab5b59a1ccb7">More...</a><br /></td></tr>
+<tr class="memdesc:a6e00a5ff69b667c7a65dab5b59a1ccb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor creates subscriber and publisher.  <a href="#a6e00a5ff69b667c7a65dab5b59a1ccb7">More...</a><br /></td></tr>
 <tr class="separator:a6e00a5ff69b667c7a65dab5b59a1ccb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa101cfe15a7358f7816f9d6a14fd4261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_param_converter.html#aa101cfe15a7358f7816f9d6a14fd4261">convertDriveParametersCallback</a> (const drive_msgs::drive_param::ConstPtr &amp;parameters)</td></tr>
-<tr class="memdesc:aa101cfe15a7358f7816f9d6a14fd4261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Drive Param Converter::convert Drive Parameters Callback object.  <a href="#aa101cfe15a7358f7816f9d6a14fd4261">More...</a><br /></td></tr>
+<tr class="memdesc:aa101cfe15a7358f7816f9d6a14fd4261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for ROS Subscriber.  <a href="#aa101cfe15a7358f7816f9d6a14fd4261">More...</a><br /></td></tr>
 <tr class="separator:aa101cfe15a7358f7816f9d6a14fd4261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="drive__param__converter_8h_source.html#l00024">24</a> of file <a class="el" href="drive__param__converter_8h_source.html">drive_param_converter.h</a>.</p>
+<div class="textblock"><p>Class to convert Drive Parameter Messages into single messages. </p>
+<p>Class to convert Drive Parameter Messages (steering angle and velocity) into single messages for each wheel velocity and for front wheel steering angles based on Ackermann equations. </p>
+
+<p>Definition at line <a class="el" href="drive__param__converter_8h_source.html#l00015">15</a> of file <a class="el" href="drive__param__converter_8h_source.html">drive_param_converter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6e00a5ff69b667c7a65dab5b59a1ccb7"></a>
 <div class="memitem">
@@ -143,17 +149,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new Drive Pram Converter object. </p>
-<p>Construct a new Drive Param Converter:: Drive Param Converter object. </p>
+<p>Constructor creates subscriber and publisher. </p>
 
-<p>Definition at line <a class="el" href="drive__param__converter_8cpp_source.html#l00007">7</a> of file <a class="el" href="drive__param__converter_8cpp_source.html">drive_param_converter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__param__converter_8cpp_source.html#l00020">20</a> of file <a class="el" href="drive__param__converter_8cpp_source.html">drive_param_converter.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_drive_param_converter_a6e00a5ff69b667c7a65dab5b59a1ccb7_cgraph.png" border="0" usemap="#class_drive_param_converter_a6e00a5ff69b667c7a65dab5b59a1ccb7_cgraph" alt=""/></div>
 <map name="class_drive_param_converter_a6e00a5ff69b667c7a65dab5b59a1ccb7_cgraph" id="class_drive_param_converter_a6e00a5ff69b667c7a65dab5b59a1ccb7_cgraph">
-<area shape="rect" id="node2" href="class_drive_param_converter.html#aa101cfe15a7358f7816f9d6a14fd4261" title="Construct a new Drive Param Converter::convert Drive Parameters Callback object. " alt="" coords="209,5,432,47"/>
+<area shape="rect" id="node2" href="class_drive_param_converter.html#aa101cfe15a7358f7816f9d6a14fd4261" title="Callback for ROS Subscriber. " alt="" coords="209,5,432,47"/>
 </map>
 </div>
 </p>
@@ -175,22 +180,22 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new Drive Param Converter::convert Drive Parameters Callback object. </p>
+<p>Callback for ROS Subscriber. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parameters</td><td></td></tr>
+    <tr><td class="paramname">parameters</td><td>contains steering angle for center of front axis and vehicle velocity </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="drive__param__converter_8cpp_source.html#l00024">24</a> of file <a class="el" href="drive__param__converter_8cpp_source.html">drive_param_converter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__param__converter_8cpp_source.html#l00052">52</a> of file <a class="el" href="drive__param__converter_8cpp_source.html">drive_param_converter.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_drive_param_converter_aa101cfe15a7358f7816f9d6a14fd4261_icgraph.png" border="0" usemap="#class_drive_param_converter_aa101cfe15a7358f7816f9d6a14fd4261_icgraph" alt=""/></div>
 <map name="class_drive_param_converter_aa101cfe15a7358f7816f9d6a14fd4261_icgraph" id="class_drive_param_converter_aa101cfe15a7358f7816f9d6a14fd4261_icgraph">
-<area shape="rect" id="node2" href="class_drive_param_converter.html#a6e00a5ff69b667c7a65dab5b59a1ccb7" title="Construct a new Drive Pram Converter object. " alt="" coords="276,5,432,47"/>
+<area shape="rect" id="node2" href="class_drive_param_converter.html#a6e00a5ff69b667c7a65dab5b59a1ccb7" title="Constructor creates subscriber and publisher. " alt="" coords="276,5,432,47"/>
 </map>
 </div>
 </p>
