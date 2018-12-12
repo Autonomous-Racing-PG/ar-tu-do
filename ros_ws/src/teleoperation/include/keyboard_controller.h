@@ -6,6 +6,7 @@
 #include <std_msgs/Int64.h>
 
 #include <termios.h>
+#include <signal.h>
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
 #define TOPIC_COMMAND "/command"
