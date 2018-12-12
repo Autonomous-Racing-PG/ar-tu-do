@@ -29,7 +29,7 @@ void KeyboardController::keyboardLoop()
                 angle += 1;
                 break;
             case Keycode::D:
-                angle -1;
+                angle -= 1;
                 break;
         }
 

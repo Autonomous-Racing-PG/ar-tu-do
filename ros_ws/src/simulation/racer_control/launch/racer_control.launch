@@ -37,7 +37,7 @@
   <!-- drive_parameters converter -->
   <node 
     pkg="racer_control" 
-    type="drive_param_converter.py" 
+    type="drive_param_converter" 
     name="drive_param_converter" 
     output="screen">
   </node>
