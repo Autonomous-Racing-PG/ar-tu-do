@@ -10,7 +10,7 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       pkg="car_control"
       type="car_controller"
       name="car_controller"
-      output="log" >
+      output="screen" >
     </node>
 
     <!-- dms control node -->

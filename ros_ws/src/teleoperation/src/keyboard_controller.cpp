@@ -18,18 +18,23 @@ void KeyboardController::checkKeyboard()
     {
         auto key = static_cast<Keycode>(this->getKeyboardCharacter());
 
+		bool changedDriveParameters = false;
         switch (key) {
             case Keycode::W:
                 velocity += 1;
+				changedDriveParameters = true;
                 break;
             case Keycode::S:
                 velocity -= 1;
+				changedDriveParameters = true;
                 break;
             case Keycode::A:
                 angle += 1;
+				changedDriveParameters = true;
                 break;
             case Keycode::D:
                 angle -= 1;
+				changedDriveParameters = true;
                 break;
             case Keycode::SPACE:
 				struct timeval time_struct;
@@ -38,11 +43,12 @@ void KeyboardController::checkKeyboard()
 				std_msgs::Int64 dms_message;
 				dms_message.data = timestamp;
 				this->dms_publisher.publish(dms_message);
-                break;
+				break;
         }
-
-		
-        this->publishDriveParameters(velocity, angle);
+		if(changedDriveParameters)
+		{
+			this->publishDriveParameters(velocity, angle);
+		}
     }
 }
 
