@@ -18,7 +18,7 @@ class JoystickController
 
     private:
     ros::NodeHandle node_handle;
-    ros::Publisher  drive_parameter_publisher;
+    ros::Publisher drive_parameter_publisher;
     ros::Subscriber joystick_subscriber;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);

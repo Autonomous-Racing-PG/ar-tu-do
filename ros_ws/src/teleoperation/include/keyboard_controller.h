@@ -11,7 +11,8 @@
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
 
-enum class Keycode : int {
+enum class Keycode : int
+{
     A = 119,
     W = 97,
     S = 115,

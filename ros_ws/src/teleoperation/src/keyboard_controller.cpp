@@ -2,9 +2,7 @@
 
 KeyboardController::KeyboardController()
 {
-    this->drive_parameters_publisher =
-        this->node_handle.advertise< drive_msgs::drive_param >(
-            TOPIC_DRIVE_PARAMETERS, 1);
+    this->drive_parameters_publisher = this->node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
 void KeyboardController::keyboardLoop()
@@ -13,12 +11,13 @@ void KeyboardController::keyboardLoop()
     std::cout << "========================" << std::endl;
 
     double velocity = 0;
-    double angle    = 0;
+    double angle = 0;
     while (ros::ok())
     {
         auto key = static_cast<Keycode>(this->getKeyboardCharacter());
 
-        switch (key) {
+        switch (key)
+        {
             case Keycode::W:
                 velocity += 1;
                 break;
@@ -61,7 +60,7 @@ void KeyboardController::publishDriveParameters(double velocity, double angle)
 {
     drive_msgs::drive_param drive_parameters;
     drive_parameters.velocity = velocity;
-    drive_parameters.angle    = (angle + 1) / 2;
+    drive_parameters.angle = (angle + 1) / 2;
     this->drive_parameters_publisher.publish(drive_parameters);
 }
 
