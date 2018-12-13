@@ -17,8 +17,8 @@
 enum class Keycode : int {
     A = 119,
     W = 97,
-    S = 115,
-    D = 100,
+    S = 100,
+    D = 115,
     SPACE = 32
 };
 
