@@ -12,7 +12,7 @@
                 <visual name="visual">
                 <geometry>
                     <!-- Relative path defined in package.xml -->
-                    <mesh><uri>model://meshes/track_decorated.dae</uri></mesh>
+                    <mesh><uri>model://track_decorated.dae</uri></mesh>
                 </geometry>
                 </visual>
                 <collision name="collision">
@@ -36,7 +36,7 @@
                 <collision name="collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
-                        <mesh><uri>model://meshes/walls.dae</uri></mesh>
+                        <mesh><uri>model://walls.dae</uri></mesh>
                     </geometry>
                     <surface>
                         <friction>
@@ -52,7 +52,7 @@
                 <collision name="collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
-                        <mesh><uri>model://meshes/decoration_colliders.dae</uri></mesh>
+                        <mesh><uri>model://decoration_colliders.dae</uri></mesh>
                     </geometry>
                     <surface>
                         <friction>

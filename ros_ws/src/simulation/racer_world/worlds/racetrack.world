@@ -12,7 +12,7 @@
                 <visual name="visual">
                 <geometry>
                     <!-- Relative path defined in package.xml -->
-                    <mesh><uri>model://meshes/track.dae</uri></mesh>
+                    <mesh><uri>model://track.dae</uri></mesh>
                 </geometry>
                 </visual>
                 <collision name="collision">
@@ -36,7 +36,7 @@
                 <collision name="collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
-                        <mesh><uri>model://meshes/walls.dae</uri></mesh>
+                        <mesh><uri>model://walls.dae</uri></mesh>
                     </geometry>
                     <surface>
                         <friction>

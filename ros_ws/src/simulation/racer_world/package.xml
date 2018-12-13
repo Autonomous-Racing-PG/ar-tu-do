@@ -18,7 +18,7 @@
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Enables gazebo to find the .dae files with relative path "model://meshes/" -->
-    <gazebo_ros gazebo_model_path="${prefix}/" />
+    <!-- Enables gazebo to find the .dae files with relative path "model://" -->
+    <gazebo_ros gazebo_model_path="${prefix}/meshes/" />
   </export>
 </package>
