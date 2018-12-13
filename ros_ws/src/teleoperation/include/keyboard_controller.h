@@ -5,8 +5,8 @@
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Int64.h>
 
-#include <termios.h>
 #include <signal.h>
+#include <termios.h>
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
 #define TOPIC_COMMAND "/command"
@@ -25,14 +25,14 @@ enum class Keycode : int
 
 class KeyboardController
 {
-    public:	
+    public:
     KeyboardController();
     void checkKeyboard();
 
     private:
     ros::NodeHandle node_handle;
-    ros::Publisher drive_parameters_publisher;
-    ros::Publisher dms_publisher;
-    int getKeyboardCharacter();
+    ros::Publisher  drive_parameters_publisher;
+    ros::Publisher  dms_publisher;
+    int             getKeyboardCharacter();
     void publishDriveParameters(double speed, double angle);
 };

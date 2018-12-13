@@ -1,18 +1,17 @@
 #include "drive_param_converter.h"
 #include <cmath>
 
-
 /**
  * @brief Distance between front and rear axis
  *
  */
-constexpr double AXIS_DISTANCE{32.5};
+constexpr double AXIS_DISTANCE{ 32.5 };
 
 /**
  * @brief Distance between center of rear wheels
  *
  */
-constexpr double REAR_WHEEL_DISTANCE{23.3};
+constexpr double REAR_WHEEL_DISTANCE{ 23.3 };
 
 /**
  * @brief Constructor creates subscriber and publisher
@@ -47,7 +46,8 @@ DriveParamConverter::DriveParamConverter()
 /**
  * @brief Callback for ROS Subscriber
  *
- * @param parameters contains steering angle for center of front axis and vehicle velocity
+ * @param parameters contains steering angle for center of front axis and
+ * vehicle velocity
  */
 void DriveParamConverter::convertDriveParametersCallback(
     const drive_msgs::drive_param::ConstPtr& parameters)
@@ -74,17 +74,20 @@ void DriveParamConverter::convertDriveParametersCallback(
 }
 
 /**
- * @brief Calculates the angles of the front wheels based on the angle of the center of the front axis with ackerman equation/trigonometry
+ * @brief Calculates the angles of the front wheels based on the angle of the
+ * center of the front axis with ackerman equation/trigonometry
  *
  * @param angle Angle of the center of the front axis
  * @return Angles One Ackermann angle for each front wheel
  */
-DriveParamConverter::AckermannSteeringAngles DriveParamConverter::calculateSteeringAngles(
-    const double& angle)
+DriveParamConverter::AckermannSteeringAngles DriveParamConverter::
+    calculateSteeringAngles(const double& angle)
 {
     AckermannSteeringAngles angles;
-    double radius = tan(angle + M_PI / 2) * AXIS_DISTANCE;
-    angles.left_wheel_angle = -atan(AXIS_DISTANCE / (radius + REAR_WHEEL_DISTANCE / 2)); // left wheel
-    angles.right_wheel_angle = -atan(AXIS_DISTANCE / (radius - REAR_WHEEL_DISTANCE / 2)); // right wheel
+    double                  radius = tan(angle + M_PI / 2) * AXIS_DISTANCE;
+    angles.left_wheel_angle =
+        -atan(AXIS_DISTANCE / (radius + REAR_WHEEL_DISTANCE / 2)); // left wheel
+    angles.right_wheel_angle = -atan(
+        AXIS_DISTANCE / (radius - REAR_WHEEL_DISTANCE / 2)); // right wheel
     return angles;
 }

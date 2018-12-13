@@ -36,7 +36,8 @@ void CarController::publishDriveParameters(double raw_speed, double raw_angle)
         angle_message.data = angle;
         this->angle_publisher.publish(angle_message);
     }
-    std::cout << "running: " << this->enabled << " | speed: " << speed << " | angle: " << angle << std::endl;
+    std::cout << "running: " << this->enabled << " | speed: " << speed
+              << " | angle: " << angle << std::endl;
 }
 
 void CarController::commandCallback(
@@ -52,7 +53,7 @@ void CarController::commandCallback(
     {
         this->enabled = true;
     }
-	std::cout << "command input: " << command_str << std::endl;
+    std::cout << "command input: " << command_str << std::endl;
 }
 
 int main(int argc, char** argv)

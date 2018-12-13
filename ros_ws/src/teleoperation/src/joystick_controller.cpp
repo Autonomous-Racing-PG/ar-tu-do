@@ -21,7 +21,8 @@ JoystickController::JoystickController()
  * of
  * the buttons and axes on the gamepad
  */
-void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
+void JoystickController::joystickCallback(
+    const sensor_msgs::Joy::ConstPtr& joystick)
 {
     double steering_angle = -joystick->axes[ JOYSTICK_AXIS_STEERING ];
     double velocity = (joystick->axes[ JOYSTICK_AXIS_THROTTLE ] - 1) * -0.5;
@@ -35,7 +36,8 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
  * @param throttle The throttle provided by the gamepad input
  * @param steering_angle The steering angle provided by the gamepad input
  */
-void JoystickController::publishDriveParameters(double velocity, double steering_angle)
+void JoystickController::publishDriveParameters(double velocity,
+                                                double steering_angle)
 {
     drive_msgs::drive_param drive_parameters;
     drive_parameters.velocity = velocity;
