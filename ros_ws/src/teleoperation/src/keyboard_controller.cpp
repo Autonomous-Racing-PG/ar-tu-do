@@ -29,11 +29,11 @@ void KeyboardController::checkKeyboard()
 				changedDriveParameters = true;
                 break;
             case Keycode::A:
-                angle += 1;
+                angle -= 1;
 				changedDriveParameters = true;
                 break;
             case Keycode::D:
-                angle -= 1;
+                angle += 1;
 				changedDriveParameters = true;
                 break;
             case Keycode::SPACE:
