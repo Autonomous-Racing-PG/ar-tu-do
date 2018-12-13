@@ -1,7 +1,7 @@
 #include "car_controller.h"
 
 CarController::CarController()
-    : enabled{ true }
+    : enabled{ false }
 {
     this->drive_parameters_subscriber =
         this->node_handle.subscribe< drive_msgs::drive_param >(
