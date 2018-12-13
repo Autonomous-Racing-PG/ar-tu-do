@@ -14,11 +14,12 @@
 
 #define CHECK_RATE 10 // in Hz
 
-enum class Keycode : int {
-    A = 119,
-    W = 97,
-    S = 100,
-    D = 115,
+enum class Keycode : int
+{
+    W     = 119,
+    A     = 97,
+    S     = 115,
+    D     = 100,
     SPACE = 32
 };
 
