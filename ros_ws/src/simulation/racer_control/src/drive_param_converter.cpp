@@ -65,31 +65,18 @@ void DriveParamConverter::convertDriveParametersCallback(const drive_msgs::drive
 }
 
 /**
-<<<<<<< HEAD
- * @brief Calculates the angles of the front wheels based on the angle of the
- * center of the front axis with ackerman equation/trigonometry
-=======
+
  * @brief Calculates the angles of the front wheels based on the angle of the center of the front axis with ackerman
  * equation/trigonometry
->>>>>>> sami-dms
  *
  * @param angle Angle of the center of the front axis
  * @return Angles One Ackermann angle for each front wheel
  */
-<<<<<<< HEAD
 DriveParamConverter::AckermannSteeringAngles DriveParamConverter::calculateSteeringAngles(const double& angle)
 {
     AckermannSteeringAngles angles;
     double radius = tan(angle + M_PI / 2) * AXIS_DISTANCE;
     angles.left_wheel_angle = -atan(AXIS_DISTANCE / (radius + REAR_WHEEL_DISTANCE / 2));  // left wheel
     angles.right_wheel_angle = -atan(AXIS_DISTANCE / (radius - REAR_WHEEL_DISTANCE / 2)); // right wheel
-=======
-DriveParamConverter::AckermannSteeringAngles DriveParamConverter::calculateSteeringAngles(const double& angle)
-{
-    AckermannSteeringAngles angles;
-    double radius = tan(angle + M_PI / 2) * AXIS_DISTANCE;
-    angles.left_wheel_angle = -atan(AXIS_DISTANCE / (radius + REAR_WHEEL_DISTANCE / 2));  // left wheel
-    angles.right_wheel_angle = -atan(AXIS_DISTANCE / (radius - REAR_WHEEL_DISTANCE / 2)); // right wheel
->>>>>>> sami-dms
     return angles;
 }
