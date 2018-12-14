@@ -2,7 +2,7 @@
 
 /**
  * @brief Starts drive parameter converter for gazebo simulation
- * 
+ *
  * @param argc number of input arguments
  * @param argv input arguments
  * @return int exit code
