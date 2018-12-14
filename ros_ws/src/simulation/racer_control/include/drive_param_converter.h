@@ -7,7 +7,7 @@
 
 /**
  * @brief Class to convert Drive Parameter Messages into single messages
- * 
+ *
  * Class to convert Drive Parameter Messages (steering angle and velocity)
  * into single messages for each wheel velocity and for front wheel steering angles
  * based on Ackermann equations.
@@ -26,8 +26,7 @@ class DriveParamConverter
      *
      * @param parameters contains steering angle for center of front axis and vehicle velocity
      */
-    void convertDriveParametersCallback(
-        const drive_msgs::drive_param::ConstPtr& parameters);
+    void convertDriveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
 
     private:
     /**
@@ -41,7 +40,8 @@ class DriveParamConverter
     };
 
     /**
-     * @brief Calculates the angles of the front wheels based on the angle of the center of the front axis with Ackermann equation/trigonometry 
+     * @brief Calculates the angles of the front wheels based on the angle of the center of the front axis with
+     * Ackermann equation/trigonometry
      *
      * @param angle Angle of the center of the front axis
      * @return Angles One Ackermann angle for each front wheel
