@@ -1,5 +1,13 @@
 <launch>
+    <!-- Dummy parameters -->
+    <param name="speed_to_erpm_gain" value="1"/>
+    <param name="speed_to_erpm_offset" value="1"/>
+    <param name="steering_angle_to_servo_gain" value="1"/>
+    <param name="steering_angle_to_servo_offset" value="1"/>
+    <param name="wheelbase" value="1"/>
+
     <include file="$(find car_control)/launch/car_control.launch"/>
     <include file="$(find teleoperation)/launch/remote_control.launch"/>
     <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
+    <include file="$(find vesc_ackermann)/launch/vesc_to_odom_node.launch"/>
 </launch>
