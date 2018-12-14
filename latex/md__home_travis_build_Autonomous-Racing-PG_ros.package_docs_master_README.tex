@@ -22,6 +22,22 @@ These instructions will get you a copy of the project up and running
 \end{DoxyCode}
 
 
+\subsubsection*{Run routines}
+
+
+\begin{DoxyCode}
+1 source devel/setup.bash (or setup.zsh)
+\end{DoxyCode}
+
+
+Now several routines can be started by executing the launch-\/files inside the {\bfseries launch/} directory. E.\+g.
+
+
+\begin{DoxyCode}
+1 roslaunch launch/gazebo\_car-teleop.launch
+\end{DoxyCode}
+
+
 \subsubsection*{Run tests}
 
 
@@ -30,57 +46,12 @@ These instructions will get you a copy of the project up and running
 \end{DoxyCode}
 
 
-\subsubsection*{Run nodes}
-
-
-\begin{DoxyCode}
-1 source devel/setup.zsh
-2 roslaunch dev.launch
-\end{DoxyCode}
-
-
-\subsubsection*{Python setup}
-
-This project uses {\ttfamily autopep8} for automatic code formatting. Before you first use it, you need to install it like this\+: \begin{DoxyVerb}sudo apt-get install pip
-pip install --upgrade autopep8
-\end{DoxyVerb}
-
-
-\subsection*{Contributing}
-
-These instructions will help you contribute code to the project.
-
-\subsubsection*{Git Hooks}
-
-To install the repos git hooks run 
-\begin{DoxyCode}
-1 scripts/hooks/\_install.sh
-\end{DoxyCode}
-
-
-\subsubsection*{Format C++ and Python code}
-
-
-\begin{DoxyCode}
-1 ./scripts/format/format-src.sh
-\end{DoxyCode}
-
-
-The python code is formatted with \href{https://github.com/hhatto/autopep8}{\tt autopep8}. It is currently configured with the aggressive flags. Thus, you need to review the changes it made.
-
 \subsection*{Documentation}
 
 
 \begin{DoxyItemize}
 \item For general information and documentation checkout the \href{https://github.com/Autonomous-Racing-PG/ros.package/wiki}{\tt wiki page}.
 \item For source code documentation checkout the auto-\/generated \href{https://autonomous-racing-pg.github.io/ros.package/html/index.html}{\tt Doxygen documentation}.
-\end{DoxyItemize}
-
-\subsection*{Authors}
-
-
-\begin{DoxyItemize}
-\item T\+O\+DO
 \end{DoxyItemize}
 
 \subsection*{License}
