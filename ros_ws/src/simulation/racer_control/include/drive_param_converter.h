@@ -28,8 +28,7 @@ class DriveParamConverter
      * @param parameters contains steering angle for center of front axis and
      * vehicle velocity
      */
-    void convertDriveParametersCallback(
-        const drive_msgs::drive_param::ConstPtr& parameters);
+    void convertDriveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
 
     private:
     /**

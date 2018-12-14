@@ -16,10 +16,10 @@
 
 enum class Keycode : int
 {
-    W     = 119,
-    A     = 97,
-    S     = 115,
-    D     = 100,
+    A = 119,
+    W = 97,
+    S = 100,
+    D = 115,
     SPACE = 32
 };
 
@@ -31,8 +31,8 @@ class KeyboardController
 
     private:
     ros::NodeHandle node_handle;
-    ros::Publisher  drive_parameters_publisher;
-    ros::Publisher  dms_publisher;
-    int             getKeyboardCharacter();
+    ros::Publisher drive_parameters_publisher;
+    ros::Publisher dms_publisher;
+    int getKeyboardCharacter();
     void publishDriveParameters(double speed, double angle);
 };

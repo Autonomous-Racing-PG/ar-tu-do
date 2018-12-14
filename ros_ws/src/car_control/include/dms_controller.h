@@ -18,10 +18,10 @@ class DMSController
     void checkDMS();
 
     private:
-    long            last_dms_message_received;
-    bool            running;
+    long last_dms_message_received;
+    bool running;
     ros::NodeHandle node_handle;
     ros::Subscriber dms_subscriber;
-    ros::Publisher  command_pulisher;
+    ros::Publisher command_pulisher;
     void dmsCallback(const std_msgs::Int64::ConstPtr& dms_message);
 };

@@ -22,5 +22,4 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       output="screen" >
     </node>
 	
-	
 </launch>
