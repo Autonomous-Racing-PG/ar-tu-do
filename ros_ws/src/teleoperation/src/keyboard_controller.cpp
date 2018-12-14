@@ -30,6 +30,9 @@ void KeyboardController::keyboardLoop()
             case Keycode::D:
                 angle -= 1;
                 break;
+            // Ignore other Keys
+            default:
+                break;
         }
 
         this->publishDriveParameters(velocity, angle);
@@ -64,7 +67,7 @@ void KeyboardController::publishDriveParameters(double velocity, double angle)
     this->drive_parameters_publisher.publish(drive_parameters);
 }
 
-void quitSignalHandler(int signal)
+void quitSignalHandler(int)
 {
     ros::shutdown();
     exit(0);
