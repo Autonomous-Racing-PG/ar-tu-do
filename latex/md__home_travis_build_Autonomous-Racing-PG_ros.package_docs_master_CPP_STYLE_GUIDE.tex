@@ -1,0 +1,702 @@
+Version 2018-\/12-\/14-\/12-\/15-\/00 ~\newline
+ this document is W\+O\+R\+K-\/\+I\+N-\/\+P\+R\+O\+G\+E\+SS 
+
+
+
+
+\begin{DoxyItemize}
+\item \href{#terminology}{\tt Terminology}
+\item \href{#autoformatting}{\tt Autoformatting}
+\item \href{#naming}{\tt Naming}
+\begin{DoxyItemize}
+\item \href{#packages}{\tt Packages}
+\item \href{#topics--services}{\tt Topics / Services}
+\item \href{#files}{\tt Files}
+\begin{DoxyItemize}
+\item \href{#classes}{\tt Classes}
+\item \href{#function}{\tt Function}
+\end{DoxyItemize}
+\item \href{#variables}{\tt Variables}
+\begin{DoxyItemize}
+\item \href{#member-variables}{\tt Member variables}
+\item \href{#constants}{\tt Constants}
+\item \href{#global-variables}{\tt Global variables}
+\end{DoxyItemize}
+\item \href{#namespaces}{\tt Namespaces}
+\end{DoxyItemize}
+\item \href{#license-statements}{\tt License statements}
+\item \href{#formatting}{\tt Formatting}
+\begin{DoxyItemize}
+\item \href{#line-length}{\tt Line length}
+\end{DoxyItemize}
+\item \href{#include-guard}{\tt Include guard}
+\item \href{#documentation}{\tt Documentation}
+\item \href{#comments}{\tt Comments}
+\item \href{#text-output}{\tt Text output}
+\item \href{#macros}{\tt Macros}
+\item \href{#preprocessor-directives}{\tt Preprocessor directives}
+\item \href{#output-arguments}{\tt Output arguments}
+\item \href{#namespaces-1}{\tt Namespaces}
+\item \href{#inheritance}{\tt Inheritance}
+\begin{DoxyItemize}
+\item \href{#multiple-inheritance}{\tt Multiple inheritance}
+\end{DoxyItemize}
+\item \href{#exceptions}{\tt Exceptions}
+\item \href{#enumerations}{\tt Enumerations}
+\item \href{#globals}{\tt Globals}
+\item \href{#static-class-variables}{\tt Static class variables}
+\item \href{#magic-numbers}{\tt Magic Numbers}
+\item \href{#assertions}{\tt Assertions}
+\item \href{#deprecation}{\tt Deprecation}
+\item \href{#zero-cost-abstraction}{\tt Zero cost abstraction}
+\end{DoxyItemize}
+
+This document is loosely based on the \href{http://wiki.ros.org/CppStyleGuide}{\tt R\+OS C++ Style Guide} and defines a style guide to be followed in writing C++ code in the Autonomous-\/\+Racing-\/\+PG. This guide S\+H\+O\+U\+LD be followed as close as possible but M\+U\+ST N\+OT be seen as holy book that has to be followed without any question.
+
+In case this document does not describe something, try to finde a reasonable solution. In case of discussion\+: \href{https://www.youtube.com/watch?v=rph_1DODXDU}{\tt Be excellent to each other}.
+
+\section*{Terminology}
+
+This document uses the following shortcuts\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries Camel\+Cased}\+: A name is {\itshape Camel\+Cased} if it starts with an uppercase letter, each words starts with an uppercase letter and no special character (e.\+g. underscore) are between the words e.\+g. My\+Name\+Is\+Ted.
+\item {\bfseries camel\+Cased}\+: A name is {\itshape camel\+Cased} if it starts with a lowercase letter, each words starts with an uppercase letter and no special character (e.\+g. underscore) are between the words e.\+g. my\+Name\+Is\+Ted.
+\item {\bfseries snake\+\_\+cased}\+: A name is {\itshape snake\+\_\+cased} if all letters are in lowercase and an underscore is used as a special character between each word e.\+g. my\+\_\+name\+\_\+is\+\_\+ted.
+\item {\bfseries S\+N\+A\+K\+E\+\_\+\+C\+A\+S\+ED}\+: A name is {\itshape S\+N\+A\+K\+E\+\_\+\+C\+A\+S\+ED} if all letters are in uppercase and an underscore is used as a special character between each word M\+Y\+\_\+\+N\+A\+M\+E\+\_\+\+I\+S\+\_\+\+T\+ED.
+\end{DoxyItemize}
+
+The words {\bfseries S\+H\+O\+U\+LD}, {\bfseries S\+H\+O\+U\+LD N\+OT}, {\bfseries M\+U\+ST}, {\bfseries M\+U\+ST N\+OT} and {\bfseries M\+AY} are used with the semantic described by \href{https://www.ietf.org/rfc/rfc2119.txt}{\tt R\+FC 2119}.
+
+\section*{Autoformatting}
+
+It is heavily recommended to use the {\ttfamily clang-\/format} tool with the provided {\ttfamily .clang-\/format}. See the \href{https://github.com/Autonomous-Racing-PG/ros.package/wiki/Formatting-Cpp-and-Python-code}{\tt wiki} for more information.
+
+\section*{Naming}
+
+Names S\+H\+O\+U\+LD make it easy for readers to understand your code.
+
+Readers S\+H\+O\+U\+LD need to make as few assumptions and guesses about your code as possible.
+
+Avoid abbreviations and acronyms. Acronyms M\+AY be used if they can be understood without domain knowledge. Abbreviations M\+AY be used if their scope is very small.
+
+\subsection*{Packages}
+
+A R\+OS package name S\+H\+O\+U\+LD be {\itshape snaked\+\_\+cased}.
+
+\subsection*{Topics / Services}
+
+A R\+OS topic and service name S\+H\+O\+U\+LD be {\itshape snaked\+\_\+cased}.
+
+\subsection*{Files}
+
+All filenames S\+H\+O\+U\+LD be {\itshape snake\+\_\+cased}.
+
+All C++ source files S\+H\+O\+U\+LD have the extension {\ttfamily .cpp}.
+
+All C++ header files S\+H\+O\+U\+LD have the extension {\ttfamily .h} and S\+H\+O\+U\+LD be place in the {\ttfamily include} directory of the R\+OS Packages {\ttfamily src} directory.
+
+If a file mainly contains definition or implementation of a class, the file S\+H\+O\+U\+LD be named {\itshape snake\+\_\+cased} after the class name e.\+g. {\ttfamily class My\+Own\+Class} results to the filename {\ttfamily my\+\_\+own\+\_\+class.\+h/.cpp}
+
+A filename S\+H\+O\+U\+LD be descriptive.
+
+You M\+AY split the implementation on a by-\/function basis e.\+g. \begin{quote}
+include/my/example.\+h \end{quote}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 #pragma once
+3 namespace my \{
+4     class Example \{
+5         public:
+6         int myFunction();
+7         int doStuff();
+8     \};
+9 \}
+\end{DoxyCode}
+ \begin{quote}
+src/my/example\+\_\+my\+\_\+function.\+cpp \end{quote}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 #pragma once
+3 namespace my \{
+4     int Example::myFunction() \{
+5         return 0;
+6     \}
+7 \}
+\end{DoxyCode}
+ \begin{quote}
+src/my/example\+\_\+do\+\_\+stuff.\+cpp \end{quote}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 #pragma once
+3 namespace my \{
+4     int Example::doStuff() \{
+5         return 1;
+6     \}
+7 \}
+\end{DoxyCode}
+
+
+\subsubsection*{Classes}
+
+A class name S\+H\+O\+U\+LD be {\itshape Camel\+Cased} e.\+g. {\ttfamily class My\+Vector}. Short acronyms M\+AY be in all capitals e.\+g. {\ttfamily My\+M\+PC} (see \href{https://en.wikipedia.org/wiki/Model_predictive_control}{\tt M\+PC}) or {\ttfamily My\+R\+O\+S\+Node}.
+
+A class name S\+H\+O\+U\+LD N\+OT be composed of more then three words.
+
+\subsubsection*{Function}
+
+A function name S\+H\+O\+U\+LD be {\itshape camel\+Cased}. Arguments S\+H\+O\+U\+LD be {\itshape snake\+\_\+cased}. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 int8\_t myFunction(std::vector<int8\_t>& my\_argument, const char* my\_argument\_2 = nullptr);
+\end{DoxyCode}
+
+
+As functions usually do something, their name S\+H\+O\+U\+LD describe clearly what they do.
+
+\subsection*{Variables}
+
+A variable name S\+H\+O\+U\+LD be {\itshape snake\+\_\+cased} and S\+H\+O\+U\+LD N\+OT be cryptic, but try not to make them unnecessary long.
+
+Counter variables M\+AY only use a single character variable like {\ttfamily i}, {\ttfamily j} or {\ttfamily k}. Iterator variable S\+H\+O\+U\+LD have {\ttfamily it} in its name. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 std::vector<std::array<uint8\_t, 2>>::iterator position\_it;
+\end{DoxyCode}
+ 
+\begin{DoxyCode}
+1 \{C++\}
+2 for (size\_t i = 0; i < 100; i++)
+3 \{
+4     ROS\_DEBUG("%d", i);
+5 \}
+\end{DoxyCode}
+
+
+\subsubsection*{Member variables}
+
+All member variable names S\+H\+O\+U\+LD be {\itshape snake\+\_\+cased} with {\ttfamily m\+\_\+} as prefix. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 class MyClass
+3 \{
+4     private:
+5     int64\_t m\_element\_counter;
+6     MyClass* m\_parent;
+7 \};
+\end{DoxyCode}
+
+
+The prefix M\+AY be omitted if a member variable is {\ttfamily public}. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 struct MyClass
+3 \{
+4     int64\_t element\_counter;
+5     MyClass* parent;
+6 \};
+\end{DoxyCode}
+ 
+\begin{DoxyCode}
+1 \{C++\}
+2 class MyClass
+3 \{
+4     public:
+5     int64\_t element\_counter;
+6     MyClass* parent;
+7 \};
+\end{DoxyCode}
+
+
+\subsubsection*{Constants}
+
+All Constants names S\+H\+O\+U\+LD be {\itshape S\+N\+A\+K\+E\+\_\+\+C\+A\+S\+ED}.
+
+Try to use {\ttfamily constexpr}, {\ttfamily enum} and {\ttfamily enum class} before resorting to {\ttfamily \#define} or {\ttfamily const}. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 #define MY\_MACRO\_CONST 10                   // Bad as this macro may already defined somewhere else
+3 const unsigned MY\_CONST\_CONST = 10;         // Better as one would get a compile time error if it was
+       defined somewhere else!
+4 constexpr unsigned MY\_CONSTEXPR\_CONST = 10; // Good as the compile tries to initialize the variable on
+       compile time if possible.
+\end{DoxyCode}
+
+
+See \href{https://smartbear.de/blog/develop/using-constexpr-to-improve-security-performance-an/?l=ua}{\tt Using constexpr to Improve Security, Performance and Encapsulation in C++} for more information on why {\ttfamily constexpr} is awesome.
+
+\subsubsection*{Global variables}
+
+Global variables S\+H\+O\+U\+LD N\+OT be used. See \href{#globals}{\tt this}.
+
+Global variables names S\+H\+O\+U\+LD be {\itshape snake\+\_\+cased} with {\ttfamily g\+\_\+}as prefix. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // Reason why this global variable is really necessary
+3 my::own::Database g\_database;
+\end{DoxyCode}
+
+
+\subsection*{Namespaces}
+
+A Namespace M\+U\+ST be {\itshape snake\+\_\+cased}.
+
+Try to avoid long names.
+
+\section*{License statements}
+
+Each source and header file M\+AY contain a license and copyright statement.
+
+\section*{Formatting}
+
+Any {\ttfamily C++} code S\+H\+O\+U\+LD be formatted using the provided {\ttfamily .clang-\/format} file.
+
+In rare cases where formatting is not wished for, you S\+H\+O\+U\+LD use {\ttfamily // clang-\/format off} to disable clang-\/format. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // clang-format off
+3 int g\_magic\_numbers[] = \{
+4     1,2,3,
+5     4,5,6,
+6     7,8,9,
+7       0
+8 \};
+9 // clang-format on
+\end{DoxyCode}
+ See \href{https://clang.llvm.org/docs/ClangFormatStyleOptions.html#disabling-formatting-on-a-piece-of-code}{\tt disabling-\/formatting-\/on-\/a-\/piece-\/of-\/code} for more information.
+
+\subsection*{Line length}
+
+A line of code S\+H\+O\+U\+LD N\+OT have more then 120 characters.
+
+\section*{Include guard}
+
+You S\+H\+O\+U\+LD N\+OT use {\ttfamily \#ifndef} based include guards, as they are cumbersome and prone for errors. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 #ifndef MY\_HEADER\_FILE\_H
+4 #define MY\_HEADER\_FILE\_H
+5 /* CODE */
+6 #endif
+\end{DoxyCode}
+ Instead you S\+H\+O\+U\+LD use {\ttfamily \#pragma once}. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 #pragma once
+4 /* CODE */
+\end{DoxyCode}
+
+
+\section*{Documentation}
+
+Documentation explains the high-\/level structure of the code. It also provides information on how to use the project to those who didn\textquotesingle{}t read the code.
+
+Code S\+H\+O\+U\+LD be documented in a \href{http://www.doxygen.nl/manual/docblocks.html}{\tt doxygen} compatible fashion.
+
+Method and class summaries S\+H\+O\+U\+LD be omitted if they do not provide more information than the name\+:
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 /**
+4  *  Returns the size of the list
+5  */
+6 int List::getSize()
+7 \{
+8     return this->m\_size;
+9 \}
+\end{DoxyCode}
+
+
+Conversely, classes and methods S\+H\+O\+U\+LD be named so that it is obvious what they do\+:
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 /**
+4  *   Publishes the Ackermann driving parameters
+5  *   @param a: The steering angle
+6  *   @param s: The speed
+7  */
+8 void send(double a, double s)
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 void publishAckermannDrivingParameters(double steering\_angle, double speed)
+\end{DoxyCode}
+
+
+\section*{Comments}
+
+Comments S\+H\+O\+U\+LD explain why something is done, not what is being done. They S\+H\+O\+U\+LD explain counter-\/intuitive semantics, assumptions, invariants and workarounds. However, code that needs explanatory comments can often be avoided by good naming.
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 // Increase height by 0.01
+4 height += 0.01;
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // BETTER
+3 // Adjust height to prevent self-collisions
+4 height += 0.01;
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 height += NO\_SELF\_COLLISION\_MARGIN;
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 // Vector to store length information
+4 std::vector<int8\_t> vec;
+5 
+6 // ...
+7 
+8 // Subtract 1 of each element of the int8\_t vector *vec*
+9 for (auto& element : vec) \{
+10     element -= 1;
+11 \}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 std::vector<int8\_t> lengths;
+4 
+5 // ...
+6 
+7 /**
+8  *   As the vector *lengths* contains length information
+9  *   and the API for the external lib *my\_crappy\_lib*
+10  *   expects not a vector of length information but
+11  *   a vector of the last valid index, we have to 
+12  *   offset the elements in the vector by -1
+13  */
+14 for (auto& item\_length : lengths) \{
+15     item\_length -= 1;
+16 \}
+\end{DoxyCode}
+
+
+Comments S\+H\+O\+U\+LD not be used to structure the code. Instead of separating a long function with comments, it S\+H\+O\+U\+LD be split into multiple shorter functions.
+
+\section*{Text output}
+
+You S\+H\+O\+U\+LD N\+OT use {\ttfamily printf} or {\ttfamily std\+::cout}, instead use \href{http://wiki.ros.org/rosconsole}{\tt rosconsole} as it supports\+:
+
+
+\begin{DoxyItemize}
+\item Colored output
+\item Verbosity levels
+\item Automatically publishing the output to the R\+OS topic {\ttfamily /rosout}
+\item logging to disk
+\end{DoxyItemize}
+
+\section*{Macros}
+
+You S\+H\+O\+U\+LD N\+OT use macros. Use {\ttfamily constexpr} or {\ttfamily inline} functions if possible, as macros are neither typed nor scoped and prone for errors. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 #define SQUARE(x) x*x
+4 #define DO\_WORK(x) x -= 5;
+5 // NOT BAD (but also not GOOD)
+6 #define SQUARE(x) ((x)*(x))
+7 #define DO\_WORK(x) do\{x -= 5;\}while(false);
+\end{DoxyCode}
+ 
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 template<typename T>
+4 inline constexpr T SQUARE(T x)
+5 \{
+6     return x * x;
+7 \}
+8 template<typename T>
+9 inline void DO\_WORK(T& x)
+10 \{
+11     x -= 5;
+12 \}
+\end{DoxyCode}
+
+
+\section*{Preprocessor directives}
+
+You S\+H\+O\+U\+LD N\+OT use preprocessor directives, as they are prone for errors. Use {\ttfamily template} and {\ttfamily inline} function as subtitution if possible.
+
+\section*{Output arguments}
+
+You S\+H\+O\+U\+LD N\+OT use output arguments, as they obfuscate side effects.
+
+\section*{Namespaces}
+
+Usage of namespaces is highly encouraged.
+
+The source files M\+AY be organized by namespace e.\+g. the file {\ttfamily my\+\_\+class.\+cpp} with the implementation of {\ttfamily my\+::own\+::\+My\+Class} M\+AY be put in the directory {\ttfamily src/my/own/}.
+
+The usage of nested namespace (e.\+g. {\ttfamily namespace A\+::\+B\+::\+C\+::\+D\+::\+E\+::\+F\+::\+G\+::\+H\+::J \{\}}) is encouraged.
+
+You S\+H\+O\+U\+LD N\+OT use a using-\/directive in a header file. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 #include <vector>
+4 namespace A
+5 \{
+6     using namespace std;
+7     vector<int> myFunction();
+8 \}
+\end{DoxyCode}
+
+
+\section*{Inheritance}
+
+You M\+U\+ST declare an overridden virtual function as virtual A\+ND overridden to clarify whether or not a given function is virtual (and overridden). 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 class Base \{
+4     public:
+5     virtual foo();
+6     virtual ~Base();
+7 \};
+8 class A : public Base \{
+9     public:
+10     foo() \{
+11         // Do Stuff
+12     \}
+13     ~A() = default;
+14 \};
+\end{DoxyCode}
+ 
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 class Base \{
+4     public:
+5     virtual foo() = 0;
+6     virtual ~Base() = 0;
+7 \};
+8 class A : public Base \{
+9     public:
+10     virtual foo() override \{
+11         // Do Stuff
+12     \}
+13     virtual ~A() override = default;
+14 \};
+\end{DoxyCode}
+ See \href{https://en.cppreference.com/w/cpp/language/override}{\tt override} and \href{https://en.cppreference.com/w/cpp/language/virtual}{\tt virtual} for more information.
+
+If a class is used to define a common interface for several possible implementations, virtual member functions S\+H\+O\+U\+LD be used, as type casting otherwise could lead to hard to debug errors.
+
+It is encouraged to use pure virtual classes as a common interface.
+
+It is encouraged to use {\ttfamily virtual} only with moderation.
+
+A {\ttfamily virtual} class S\+H\+O\+U\+LD have a {\ttfamily virtual} destructor.
+
+\subsection*{Multiple inheritance}
+
+It is encouraged to use multiple inheritance only with moderation. Try to avoid it if possible.
+
+\section*{Exceptions}
+
+Exceptions S\+H\+O\+U\+LD be preferred over the usage of error codes. If you are using error codes, it is highly encouraged to use an {\ttfamily enum} or {\ttfamily enum class} as return type.
+
+You S\+H\+O\+U\+LD document what kind of exception a given function might throw. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 /**
+3  * @throws IOException Description why and when an IOException is thrown
+4  * @throws MyException Description why and when a MyException is thrown
+5  */
+6 void myFunction() \{
+7     /* DO STUFF */
+8 \}
+\end{DoxyCode}
+
+
+You M\+U\+ST N\+OT throw an exception from a destructor.
+
+You M\+U\+ST N\+OT throw an exception from a callback function.
+
+If your code can be interrupted by an exception, you M\+U\+ST make sure such an exception does not lead to an undefined or otherwise broken state e.\+g. forgetting to free a {\ttfamily mutex}. This M\+AY be accomplished by things like a \href{https://en.cppreference.com/w/cpp/thread/lock_guard}{\tt lock\+\_\+guard}.
+
+\section*{Enumerations}
+
+To prevent conflicts between enums, they S\+H\+O\+U\+LD be either namespaced, classed or declared as a {\ttfamily enum class}. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 namespace namespaced\_enum \{
+3     enum OptCode \{
+4         A,
+5         B,
+6         C
+7     \};
+8 \}
+9 class classed\_enum \{
+10     public:
+11     enum OptCode \{
+12         A,
+13         B,
+14         C
+15     \};
+16 \}
+17 enum class OptCode \{
+18     A,
+19     B,
+20     C
+21 \};
+\end{DoxyCode}
+
+
+\section*{Globals}
+
+You S\+H\+O\+U\+LD N\+OT use global variables and functions, as they create a hidden (global) state and are prone for threading and link time errors. (\href{http://wiki.c2.com/?GlobalVariablesAreBad}{\tt some more reasons})
+
+\section*{Static class variables}
+
+You S\+H\+O\+U\+LD N\+OT use {\ttfamily static} class member variables, as they create a hidden (global) state and are prone for threading errors.
+
+\section*{Magic Numbers}
+
+You S\+H\+O\+U\+LD N\+OT use magic numbers in the source code. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 int main() \{
+4     auto response\_code = doSomething();
+5     if (response\_code == 400) \{
+6         return 1;
+7     \}
+8     return 0;
+9 \}
+\end{DoxyCode}
+ 
+\begin{DoxyCode}
+1 \{C++\}
+2 // GOOD
+3 int main() \{
+4     auto response\_code = doSomething();
+5     if (response\_code == HTTP\_STATUS\_CODE::BadRequest) \{
+6         return EXIT\_FAILURE;
+7     \}
+8     return EXIT\_SUCCESS;
+9 \}
+\end{DoxyCode}
+
+
+If a number has a special meaning, usage of an {\ttfamily constexpr}, {\ttfamily enum}/{\ttfamily enum class} to address it is strongly recommended.
+
+You S\+H\+O\+U\+LD N\+OT replace a magic number with a magic constant. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 int main() \{
+4     auto response\_code = doSomething();
+5     if (response\_code == OTHER\_NUMBERS::FOUR\_HUNDRED) \{
+6         return NUMBER::ONE;
+7     \}
+8     return NUMBER::ZERO;
+9 \}
+\end{DoxyCode}
+  \section*{Assertions}
+
+The usage of assertions to check invariants and assumptions is highly encouraged.
+
+You S\+H\+O\+U\+LD use the R\+OS assertions ({\ttfamily R\+O\+S\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T(cond)},{\ttfamily R\+O\+S\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+A\+S\+S\+E\+R\+T(cond)},{\ttfamily R\+O\+S\+\_\+\+A\+S\+S\+E\+R\+T(cond)},{\ttfamily R\+O\+S\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+M\+SG(cond, \char`\"{}format string\char`\"{}, ...)},{\ttfamily R\+O\+S\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+M\+D(cond, function())}) provided in {\ttfamily ros/assert.\+h}. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 int64\_t divide(int64\_t a, int64\_t b) \{    
+3     ROS\_ASSERT(b != 0);
+4     ROS\_ASSERT\_MSG(b != 0, "Division by zero");
+5     ROS\_ASSERT\_CMD(b != 0, callRufus());
+6     return a / b;
+7 \}
+\end{DoxyCode}
+ See \href{http://docs.ros.org/electric/api/rosconsole/html/assert_8h.html}{\tt http\+://docs.\+ros.\+org} for more information.
+
+You S\+H\+O\+U\+LD N\+OT do work in an assertion. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 int64\_t sum(int64\_t a, int64\_t b) \{
+4     ROS\_ASSERT\_MSG((a + b) = 0, "If you divide the number %d by %d you get %d", a, b, divide(a,b));
+5     return a + b;
+6 \}
+\end{DoxyCode}
+  \section*{Deprecation}
+
+You S\+H\+O\+U\+LD use the \href{https://en.cppreference.com/w/cpp/language/attributes/deprecated}{\tt deprecated attribute} to declare a {\ttfamily struct}, {\ttfamily class}, {\ttfamily enum}, {\ttfamily function} or other elements as deprecated. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 namespace [[deprecated]] my\_namespace \{
+3     class MyClass;
+4 \}
+\end{DoxyCode}
+
+
+You S\+H\+O\+U\+LD use {\ttfamily \#pragma G\+CC warning \char`\"{}\+M\+S\+G\char`\"{}} or {\ttfamily \#pragma G\+CC error \char`\"{}\+M\+S\+G\char`\"{}} do deprecate whole files. E.\+g. 
+\begin{DoxyCode}
+1 \{C++\}
+2 #pragma GCC warning "Files was moved to another location"
+3 #include <new/location/filename.h>
+\end{DoxyCode}
+ or 
+\begin{DoxyCode}
+1 \{C++\}
+2 #pragma GCC error "Class MyClass was removed in Version 2.0"
+3 // Here was once a class called MyClass
+\end{DoxyCode}
+
+
+\section*{Zero cost abstraction}
+
+Zero cost abstractions like {\ttfamily std\+::array} S\+H\+O\+U\+LD always be prefered, as they add optional bound-\/checking and iterators. 
+\begin{DoxyCode}
+1 \{C++\}
+2 // BAD
+3 int64\_t arr[3] = \{1,2,3\};
+4 // BETTER
+5 auto arr = std::array<int64\_t, 3>(\{1,2,3\});
+6 // OR
+7 std::array<int64\_t, 3> arr = \{1,2,3\};
+8 // GOOD (but experimental)
+9 auto arr = std::experimental::make\_array(1,2,3);
+10 // See: https://en.cppreference.com/w/cpp/experimental/make\_array
+\end{DoxyCode}
+ 
