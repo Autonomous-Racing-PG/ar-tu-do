@@ -1,9 +1,16 @@
 #pragma once
 
+// Ignore some warnings from external headers
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+
 #include <ros/ros.h>
 
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
+
+// Re-Enable the disabled warnings
+#pragma GCC diagnostic pop
 
 /**
  * @brief Class to convert Drive Parameter Messages into single messages

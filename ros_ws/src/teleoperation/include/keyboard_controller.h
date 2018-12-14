@@ -1,5 +1,9 @@
 #pragma once
 
+// Ignore some warnings from external headers
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+
 #include <SDL2/SDL.h>
 #include <algorithm>
 #include <array>
@@ -8,6 +12,10 @@
 #include <ros/ros.h>
 #include <signal.h>
 #include <stdexcept>
+
+// Re-Enable the disabled warnings
+#pragma GCC diagnostic pop
+
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
 

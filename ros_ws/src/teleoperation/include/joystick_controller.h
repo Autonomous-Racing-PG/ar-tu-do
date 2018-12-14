@@ -1,9 +1,17 @@
 #pragma once
 
+// Ignore some warnings from external headers
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+
 #include <ros/ros.h>
 
 #include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
+
+// Re-Enable the disabled warnings
+#pragma GCC diagnostic pop
+
 
 #define JOYSTICK_AXIS_STEERING 0
 #define JOYSTICK_AXIS_THROTTLE 5

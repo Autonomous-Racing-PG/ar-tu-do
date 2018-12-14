@@ -1,5 +1,9 @@
 #pragma once
 
+// Ignore some warnings from external headers
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+
 #include <ros/ros.h>
 
 #include <algorithm>
@@ -8,6 +12,9 @@
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
+
+// Re-Enable the disabled warnings
+#pragma GCC diagnostic pop
 
 #define TOPIC_FOCBOX_SPEED "/commands/motor/speed"
 #define TOPIC_FOCBOX_ANGLE "/commands/servo/position"
