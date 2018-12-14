@@ -4,11 +4,10 @@ DMSController::DMSController()
     : last_dms_message_received{ 0 }
     , running{ false }
 {
-    this->dms_subscriber = this->node_handle.subscribe< std_msgs::Int64 >(
-        TOPIC_DMS, 1, &DMSController::dmsCallback, this);
+    this->dms_subscriber =
+        this->node_handle.subscribe<std_msgs::Int64>(TOPIC_DMS, 1, &DMSController::dmsCallback, this);
 
-    this->command_pulisher =
-        this->node_handle.advertise< std_msgs::String >(TOPIC_COMMAND, 1);
+    this->command_pulisher = this->node_handle.advertise<std_msgs::String>(TOPIC_COMMAND, 1);
 }
 
 void DMSController::checkDMS()
