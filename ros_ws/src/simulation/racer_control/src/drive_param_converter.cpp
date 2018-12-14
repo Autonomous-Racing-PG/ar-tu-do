@@ -43,7 +43,7 @@ DriveParamConverter::DriveParamConverter()
 void DriveParamConverter::convertDriveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
     std_msgs::Float64 throttle;
-    throttle.data = parameters->velocity / 0.1;
+    throttle.data = static_cast<double>(parameters->velocity) / 0.1;
 
     this->m_left_rear_wheel_velocity_publisher.publish(throttle);
     this->m_right_rear_wheel_velocity_publisher.publish(throttle);
