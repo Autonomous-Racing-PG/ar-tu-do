@@ -19,7 +19,7 @@ KeyboardController::KeyboardController()
 
 KeyboardController::~KeyboardController()
 {
-    SDL_FreeSurface(this->m_window);
+    SDL_DestroyWindow(this->m_window);
     SDL_Quit();
 }
 
@@ -29,9 +29,7 @@ void KeyboardController::createWindow()
     {
         throw std::runtime_error("Could not initialize SDL");
     }
-    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-    SDL_WM_SetCaption("Keyboard teleoperation - Use WASD keys", NULL);
-    this->m_window = SDL_SetVideoMode(500, 150, 0, 0);
+    this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 500, 150, SDL_WINDOW_RESIZABLE);
 }
 
 void KeyboardController::pollKeyboardEvents()

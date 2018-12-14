@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <drive_msgs/drive_param.h>
 #include <ros/ros.h>
 #include <signal.h>
@@ -65,7 +65,7 @@ class KeyboardController
 
     ros::Publisher m_drive_parameters_publisher;
 
-    SDL_Surface* m_window;
+    SDL_Window* m_window;
 
     bool m_key_pressed_state[4] = { 0, 0, 0, 0 };
 

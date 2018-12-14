@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(teleoperation)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+set (CMAKE_CXX_STANDARD 11)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
@@ -10,8 +10,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
 )
-find_package(SDL REQUIRED)
-set(LIBS ${SDL_LIBRARY})
+find_package(SDL2 REQUIRED)
+string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
+set(LIBS ${SDL2_LIBRARIES})
 
 ## Errors and Warnings
 set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp -Wdouble-promotion -Wformat -Wnonnull -Wmain -Wswitch-bool -Winvalid-memory-model -Wunknown-pragmas -Warray-bounds -Wfloat-equal -Wlogical-op -Wpacked ")
@@ -37,7 +38,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-  ${SDL_INCLUDE_DIR}
+  ${SDL2_INCLUDE_DIR}
 )
 
 # Declare joystick controller node executable
