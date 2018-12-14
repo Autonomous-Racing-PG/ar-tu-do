@@ -14,6 +14,8 @@ CarController::CarController()
         this->node_handle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_SPEED, 1);
     this->angle_publisher =
         this->node_handle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_ANGLE, 1);
+    this->break_publisher =
+        this->node_handle.advertise< std_msgs::Float64 >(TOPIC_FOCBOX_BREAK, 1);
 }
 
 void CarController::driveParametersCallback(
@@ -48,6 +50,10 @@ void CarController::commandCallback(
     {
         this->enabled = false;
         this->publishDriveParameters(0, 0);
+        // break
+        std_msgs::Float64 break_message;
+        break_message.data = 0;
+        this->break_publisher.publish(break_message);
     }
     if (command_str.compare("go") == 0)
     {
