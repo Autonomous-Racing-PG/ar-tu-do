@@ -35,8 +35,7 @@ class CarController
 
     bool enabled;
 
-    void driveParametersCallback(
-        const drive_msgs::drive_param::ConstPtr& parameters);
+    void driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
 
     void commandCallback(const std_msgs::String::ConstPtr& command_message);
 
