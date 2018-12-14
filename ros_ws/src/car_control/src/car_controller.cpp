@@ -1,7 +1,7 @@
 #include "car_controller.h"
 
 CarController::CarController()
-    : enabled{ true }
+    : enabled{ false }
 {
     this->drive_parameters_subscriber =
         this->node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1,
@@ -32,11 +32,7 @@ void CarController::publishDriveParameters(double raw_speed, double raw_angle)
         angle_message.data = angle;
         this->angle_publisher.publish(angle_message);
     }
-    else
-    {
-        std::cout << "not running - ";
-    }
-    std::cout << "speed: " << speed << " | angle: " << angle << std::endl;
+    std::cout << "running: " << this->enabled << " | speed: " << speed << " | angle: " << angle << std::endl;
 }
 
 void CarController::commandCallback(const std_msgs::String::ConstPtr& command_message)
@@ -51,6 +47,7 @@ void CarController::commandCallback(const std_msgs::String::ConstPtr& command_me
     {
         this->enabled = true;
     }
+    std::cout << "command input: " << command_str << std::endl;
 }
 
 int main(int argc, char** argv)
