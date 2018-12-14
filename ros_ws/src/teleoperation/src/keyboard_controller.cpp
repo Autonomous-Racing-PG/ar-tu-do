@@ -1,8 +1,9 @@
 #include "keyboard_controller.h"
+using std::abs;
 
 double clamp(double value, double lower, double upper)
 {
-    return min(upper, max(value, lower));
+    return std::min(upper, std::max(value, lower));
 }
 
 double map(double value, double in_lower, double in_upper, double out_lower, double out_upper)
@@ -29,7 +30,8 @@ void KeyboardController::createWindow()
     {
         throw std::runtime_error("Could not initialize SDL");
     }
-    this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 500, 150, SDL_WINDOW_RESIZABLE);
+    this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED,
+                                      SDL_WINDOWPOS_UNDEFINED, 500, 150, SDL_WINDOW_RESIZABLE);
 }
 
 void KeyboardController::pollKeyboardEvents()
@@ -39,9 +41,9 @@ void KeyboardController::pollKeyboardEvents()
     {
         if (event.type == SDL_KEYUP || event.type == SDL_KEYDOWN)
         {
-            for (int i = 0; i < KEY_COUNT; i++)
+            for (size_t i = 0; i < KEY_COUNT; i++)
             {
-                if ((uint16_t)event.key.keysym.sym == (int)KEY_CODES[i])
+                if ((int)event.key.keysym.sym == (int)KEY_CODES[i])
                 {
                     this->m_key_pressed_state[i] = event.type == SDL_KEYDOWN;
                 }
@@ -50,7 +52,6 @@ void KeyboardController::pollKeyboardEvents()
         else if (event.type == SDL_QUIT)
         {
             ros::shutdown();
-            exit(EXIT_SUCCESS);
         }
     }
 }
@@ -73,14 +74,14 @@ void KeyboardController::keyboardLoop()
 
 void KeyboardController::updateDriveParameters(double delta_time)
 {
-    double steer = this->m_key_pressed_state[(int)KeyIndex::STEER_LEFT]
+    double steer = this->m_key_pressed_state[(size_t)KeyIndex::STEER_LEFT]
         ? +1
-        : (this->m_key_pressed_state[(int)KeyIndex::STEER_RIGHT] ? -1 : 0);
-    double throttle = this->m_key_pressed_state[(int)KeyIndex::ACCELERATE]
+        : (this->m_key_pressed_state[(size_t)KeyIndex::STEER_RIGHT] ? -1 : 0);
+    double throttle = this->m_key_pressed_state[(size_t)KeyIndex::ACCELERATE]
         ? +1
-        : (this->m_key_pressed_state[(int)KeyIndex::DECELERATE] ? -1 : 0);
+        : (this->m_key_pressed_state[(size_t)KeyIndex::DECELERATE] ? -1 : 0);
 
-    double steer_limit = map(fabs(this->m_velocity), 0, MAX_VELOCITY, 1, FAST_STEER_LIMIT);
+    double steer_limit = map(abs(this->m_velocity), 0, MAX_VELOCITY, 1, FAST_STEER_LIMIT);
     double angle_update = steer * delta_time * STEERING_SPEED;
     this->m_angle = clamp(this->m_angle + angle_update, -MAX_STEERING * steer_limit, +MAX_STEERING * steer_limit);
     double velocity_update = throttle * delta_time * (this->m_velocity * throttle > 0 ? ACCELERATION : BRAKING);
@@ -88,9 +89,9 @@ void KeyboardController::updateDriveParameters(double delta_time)
 
     if (steer == 0 && this->m_angle != 0)
     {
-        double sign = this->m_angle > 0 ? 1 : -1;
+        double sign = copysign(1.0, this->m_angle);
         this->m_angle -= STEERING_GRAVITY * delta_time * sign;
-        if (fabs(this->m_angle) < STEERING_GRAVITY * delta_time)
+        if (abs(this->m_angle) < STEERING_GRAVITY * delta_time)
         {
             this->m_angle = 0;
         }
@@ -98,9 +99,9 @@ void KeyboardController::updateDriveParameters(double delta_time)
 
     if (throttle == 0 && this->m_velocity != 0)
     {
-        double sign = this->m_velocity > 0 ? 1 : -1;
+        double sign = copysign(1.0, this->m_velocity);
         this->m_velocity -= THROTTLE_GRAVITY * delta_time * sign;
-        if (fabs(this->m_velocity) < THROTTLE_GRAVITY * delta_time)
+        if (abs(this->m_velocity) < THROTTLE_GRAVITY * delta_time)
         {
             this->m_velocity = 0;
         }

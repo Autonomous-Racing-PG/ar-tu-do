@@ -1,14 +1,14 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <algorithm>
+#include <array>
 #include <drive_msgs/drive_param.h>
 #include <ros/ros.h>
 #include <signal.h>
+#include <stdexcept>
 
 #define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
-
-using std::min;
-using std::max;
 
 enum class Keycode : int
 {
@@ -27,7 +27,7 @@ enum class KeyIndex : int
     STEER_RIGHT = 3
 };
 
-constexpr Keycode KEY_CODES[] = { Keycode::W, Keycode::A, Keycode::S, Keycode::D };
+constexpr std::array<Keycode, 4> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D };
 
 constexpr int KEY_COUNT = 4;
 
@@ -57,6 +57,8 @@ class KeyboardController
 {
     public:
     KeyboardController();
+    KeyboardController(KeyboardController&&) = default;
+    KeyboardController(const KeyboardController&) = default;
     ~KeyboardController();
     void keyboardLoop();
 
@@ -67,7 +69,7 @@ class KeyboardController
 
     SDL_Window* m_window;
 
-    bool m_key_pressed_state[4] = { 0, 0, 0, 0 };
+    std::array<bool, 4> m_key_pressed_state = { { false, false, false, false } };
 
     double m_velocity = 0;
     double m_angle = 0;
