@@ -1,9 +1,3 @@
-
-Version 2018-12-14-12-15-00
-<br/>
-this document is WORK-IN-PROGESS
-<hr/>
-
 <!-- MarkdownTOC -->
 
 - [Terminology](#terminology)
