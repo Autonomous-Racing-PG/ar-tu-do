@@ -12,6 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+## Errors and Warnings
+set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wextra -Wchar-subscripts -Wchkp -Wdouble-promotion -Wformat -Wnonnull -Wmain -Wswitch-bool -Winvalid-memory-model -Wunknown-pragmas -Warray-bounds -Wfloat-equal -Wlogical-op -Wpacked ")
+# -Wpedantic cant be used because of ROS
 
 ###################################
 ## catkin specific configuration ##
@@ -22,7 +25,6 @@ catkin_package(
   INCLUDE_DIRS include
   CATKIN_DEPENDS roscpp rospy std_msgs drive_msgs
 )
-
 
 ###########
 ## Build ##
