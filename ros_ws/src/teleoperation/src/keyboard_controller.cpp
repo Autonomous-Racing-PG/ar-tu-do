@@ -18,31 +18,43 @@ void KeyboardController::checkKeyboard()
         switch (key)
         {
             case Keycode::W:
+			{
                 velocity += 1;
                 changedDriveParameters = true;
+			}
                 break;
             case Keycode::S:
+			{
                 velocity -= 1;
                 changedDriveParameters = true;
+			}
                 break;
             case Keycode::A:
+			{
                 angle += 1;
                 changedDriveParameters = true;
+			}
                 break;
             case Keycode::D:
+			{
                 angle -= 1;
                 changedDriveParameters = true;
+			}
                 break;
             case Keycode::SPACE:
+			{
                 struct timeval time_struct;
                 gettimeofday(&time_struct, NULL);
                 long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
                 std_msgs::Int64 dms_message;
                 dms_message.data = timestamp;
                 this->dms_publisher.publish(dms_message);
+			}
                 break;
             // Ignore other Keys
             default:
+			{
+			}
                 break;
         }
         if (changedDriveParameters)
