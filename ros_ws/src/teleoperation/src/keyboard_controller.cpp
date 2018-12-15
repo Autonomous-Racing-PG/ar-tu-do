@@ -41,6 +41,9 @@ void KeyboardController::checkKeyboard()
                 dms_message.data = timestamp;
                 this->dms_publisher.publish(dms_message);
                 break;
+            // Ignore other Keys
+            default:
+                break;
         }
         if (changedDriveParameters)
         {
@@ -77,7 +80,7 @@ void KeyboardController::publishDriveParameters(double velocity, double angle)
     this->drive_parameters_publisher.publish(drive_parameters);
 }
 
-void quitSignalHandler(int signal)
+void quitSignalHandler(int)
 {
     ros::shutdown();
     exit(0);
