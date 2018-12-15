@@ -29,7 +29,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 {
     // button value is 0 if not pressed and 1 if pressed
     int dms_button_value = joystick->buttons[JOYSTICK_BUTTON_DEADMANSSWITCH];
-    ROS_ASSERT_MSG(dms_button_value != 0 || dms_button_value != 1, "Button value should be eather 0 or 1");
+    ROS_ASSERT_MSG(dms_button_value != 0 && dms_button_value != 1, "Button value should be eather 0 or 1");
 
     // if button is pressed (and joystick is actually connected), send dead_mans_switch message
     if (dms_button_value == 1 && this->m_joystick_connected)
@@ -44,8 +44,8 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     }
 
     // compute and publish angle and velocity
-    double steering_angle = joystick->axes[JOYSTICK_AXIS_STEERING] * -1.0;
-    double velocity = (joystick->axes[JOYSTICK_AXIS_THROTTLE] - 1) * -0.5;
+    double steering_angle = joystick->axes[JOYSTICK_AXIS_STEERING] * -1.0f;
+    double velocity = (joystick->axes[JOYSTICK_AXIS_THROTTLE] - 1) * -0.5f;
 
     this->publishDriveParameters(velocity, steering_angle);
 }
@@ -65,7 +65,7 @@ void JoystickController::publishDriveParameters(double velocity, double steering
     this->m_drive_parameter_publisher.publish(drive_parameters);
 }
 
-void JoystickController::joystickConnectionCallback(const ros::TimerEvent& event)
+void JoystickController::joystickConnectionCallback(const ros::TimerEvent&)
 {
     // check if joystick is connected and assign result to m_joystick_connected
     std::string joystick_path = "/dev/input/js0";
