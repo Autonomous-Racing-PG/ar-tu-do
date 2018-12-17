@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   drive_msgs
   roscpp
   std_msgs
+  roslib
 )
 find_package(SDL2 REQUIRED)
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)

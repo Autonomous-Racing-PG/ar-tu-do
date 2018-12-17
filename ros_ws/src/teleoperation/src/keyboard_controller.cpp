@@ -26,12 +26,20 @@ KeyboardController::~KeyboardController()
 
 void KeyboardController::createWindow()
 {
+    std::string icon_filename = ros::package::getPath("teleoperation") + std::string("/wasd.bmp");
+    
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         throw std::runtime_error("Could not initialize SDL");
     }
     this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED,
                                       SDL_WINDOWPOS_UNDEFINED, 500, 150, SDL_WINDOW_RESIZABLE);
+
+    SDL_Surface* icon = SDL_LoadBMP(icon_filename.c_str());
+    if (icon != NULL) {
+        SDL_SetWindowIcon(this->m_window, icon);
+        SDL_FreeSurface(icon);
+    }
 }
 
 void KeyboardController::pollKeyboardEvents()
