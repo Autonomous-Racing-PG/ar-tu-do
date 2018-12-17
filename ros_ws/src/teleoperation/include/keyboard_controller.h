@@ -61,7 +61,6 @@ class KeyboardController
     KeyboardController(KeyboardController&&) = default;
     KeyboardController(const KeyboardController&) = default;
     ~KeyboardController();
-    void keyboardLoop();
 
     private:
     ros::NodeHandle m_node_handle;
@@ -75,6 +74,8 @@ class KeyboardController
     double m_velocity = 0;
     double m_angle = 0;
 
+    ros::Timer m_timer;
+
     void pollWindowEvents();
 
     void updateDriveParameters(double delta_time);
@@ -82,4 +83,5 @@ class KeyboardController
     void publishDriveParameters();
 
     void createWindow();
+    void timerCallback(const ros::TimerEvent& event);
 };

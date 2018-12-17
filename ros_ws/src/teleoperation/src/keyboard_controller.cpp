@@ -16,6 +16,8 @@ KeyboardController::KeyboardController()
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
     this->createWindow();
+
+    this->m_timer = this->m_node_handle.createTimer(ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY), &KeyboardController::timerCallback, this);
 }
 
 KeyboardController::~KeyboardController()
@@ -71,20 +73,13 @@ void KeyboardController::pollWindowEvents()
     }
 }
 
-void KeyboardController::keyboardLoop()
+void KeyboardController::timerCallback(const ros::TimerEvent& event)
 {
-    ros::Rate timer(PARAMETER_UPDATE_FREQUENCY);
-    double delta_time = timer.expectedCycleTime().toSec();
+    double delta_time = (event.current_real - event.last_real).toSec();
 
-    while (ros::ok())
-    {
-        this->pollWindowEvents();
-        this->updateDriveParameters(delta_time);
-        this->publishDriveParameters();
-
-        ros::spinOnce();
-        timer.sleep();
-    }
+    this->pollWindowEvents();
+    this->updateDriveParameters(delta_time);
+    this->publishDriveParameters();
 }
 
 void KeyboardController::updateDriveParameters(double delta_time)
@@ -143,6 +138,7 @@ int main(int argc, char** argv)
     KeyboardController keyboard_controller;
 
     signal(SIGINT, quitSignalHandler);
-    keyboard_controller.keyboardLoop();
+    ros::spin();
+
     return EXIT_SUCCESS;
 }
