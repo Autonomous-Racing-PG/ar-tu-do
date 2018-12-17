@@ -4,7 +4,7 @@
 Launches all necessary nodes that let the user control the car with the keyboard and/or gamepad.
 -->
 
-    <!-- remote joy -->
+    <!-- joystick_controller -->
     <node
       respawn="true"
       pkg="teleoperation"
@@ -26,7 +26,7 @@ Launches all necessary nodes that let the user control the car with the keyboard
       <param name="autorepeat_rate" value = "100" />
     </node>
 
-    <!-- remote keyboard -->
+    <!-- keyboard_controller -->
     <node
       respawn="true"
       pkg="teleoperation"

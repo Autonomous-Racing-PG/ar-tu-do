@@ -11,12 +11,12 @@
 
 #define TOPIC_FOCBOX_SPEED "/commands/motor/speed"
 #define TOPIC_FOCBOX_ANGLE "/commands/servo/position"
+#define TOPIC_FOCBOX_BREAK "commands/motor/brake"
 
 #define TOPIC_DRIVE_PARAM "/set/drive_param"
 #define TOPIC_COMMAND "/command"
 
 #define MAX_SPEED 15000
-#define MIN_SPEED 500
 #define MAX_ANGLE 0.9
 
 class CarController
@@ -32,11 +32,11 @@ class CarController
 
     ros::Publisher speed_pulisher;
     ros::Publisher angle_publisher;
+    ros::Publisher break_publisher;
 
     bool enabled;
 
-    void driveParametersCallback(
-        const drive_msgs::drive_param::ConstPtr& parameters);
+    void driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
 
     void commandCallback(const std_msgs::String::ConstPtr& command_message);
 
