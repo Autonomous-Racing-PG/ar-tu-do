@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <stdexcept>
 
-#define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
 
 enum class Keycode : int
 {

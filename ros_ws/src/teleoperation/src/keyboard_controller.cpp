@@ -11,13 +11,18 @@ double map(double value, double in_lower, double in_upper, double out_lower, dou
     return out_lower + (out_upper - out_lower) * (value - in_lower) / (in_upper - in_lower);
 }
 
+/**
+ * Class constructor that sets up a publisher for the drive parameters topic, creates a window and starts a timer for
+ * the main loop
+ * */
 KeyboardController::KeyboardController()
 {
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
     this->createWindow();
 
-    this->m_timer = this->m_node_handle.createTimer(ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY), &KeyboardController::timerCallback, this);
+    auto tick_duration = ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY);
+    this->m_timer = this->m_node_handle.createTimer(tick_duration, &KeyboardController::timerCallback, this);
 }
 
 KeyboardController::~KeyboardController()
@@ -73,6 +78,10 @@ void KeyboardController::pollWindowEvents()
     }
 }
 
+/**
+ * This method is called at each tick of the timer. It updates the keyboard state and the drive parameters and publishes
+ * them to the ROS topic.
+ * */
 void KeyboardController::timerCallback(const ros::TimerEvent& event)
 {
     double delta_time = (event.current_real - event.last_real).toSec();
@@ -82,6 +91,11 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
     this->publishDriveParameters();
 }
 
+/**
+ *  This updates the drive parameters based on which keys are currently pressed and how much time passed since the last
+ * update.
+ *  If no keys are pressed, the steering angle and target velocity will move back to their default values over time.
+ */
 void KeyboardController::updateDriveParameters(double delta_time)
 {
     double steer = this->m_key_pressed_state[(size_t)KeyIndex::STEER_LEFT]
