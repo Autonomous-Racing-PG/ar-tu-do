@@ -4,6 +4,11 @@
         <include>
             <uri>model://sun</uri>
         </include>
+        <gui>
+            <camera name="my_camera">
+                <pose>-3.2 7.8 31 0 1.5707963 1.5707963</pose>
+            </camera>
+        </gui>    
         
         <model name="track">
             <pose>0 0 0.01  0 0 0</pose>
