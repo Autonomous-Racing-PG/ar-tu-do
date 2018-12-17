@@ -140,19 +140,10 @@ void KeyboardController::publishDriveParameters()
     this->m_drive_parameters_publisher.publish(drive_parameters);
 }
 
-void quitSignalHandler(int)
-{
-    ros::shutdown();
-    exit(EXIT_SUCCESS);
-}
-
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "keyboard_controller");
     KeyboardController keyboard_controller;
-
-    signal(SIGINT, quitSignalHandler);
     ros::spin();
-
     return EXIT_SUCCESS;
 }
