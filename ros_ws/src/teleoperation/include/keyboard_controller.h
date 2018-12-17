@@ -4,8 +4,8 @@
 #include <algorithm>
 #include <array>
 #include <drive_msgs/drive_param.h>
-#include <ros/ros.h>
 #include <ros/package.h>
+#include <ros/ros.h>
 #include <signal.h>
 #include <stdexcept>
 
@@ -75,7 +75,7 @@ class KeyboardController
     double m_velocity = 0;
     double m_angle = 0;
 
-    void pollKeyboardEvents();
+    void pollWindowEvents();
 
     void updateDriveParameters(double delta_time);
 

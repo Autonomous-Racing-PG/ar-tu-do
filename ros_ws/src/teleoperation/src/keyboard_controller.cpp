@@ -27,22 +27,23 @@ KeyboardController::~KeyboardController()
 void KeyboardController::createWindow()
 {
     std::string icon_filename = ros::package::getPath("teleoperation") + std::string("/wasd.bmp");
-    
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         throw std::runtime_error("Could not initialize SDL");
     }
     this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED,
-                                      SDL_WINDOWPOS_UNDEFINED, 500, 150, SDL_WINDOW_RESIZABLE);
+                                      SDL_WINDOWPOS_UNDEFINED, 450, 100, SDL_WINDOW_RESIZABLE);
 
     SDL_Surface* icon = SDL_LoadBMP(icon_filename.c_str());
-    if (icon != NULL) {
+    if (icon != NULL)
+    {
         SDL_SetWindowIcon(this->m_window, icon);
         SDL_FreeSurface(icon);
     }
 }
 
-void KeyboardController::pollKeyboardEvents()
+void KeyboardController::pollWindowEvents()
 {
     SDL_Event event;
     while (SDL_PollEvent(&event))
@@ -61,6 +62,12 @@ void KeyboardController::pollKeyboardEvents()
         {
             ros::shutdown();
         }
+        else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_EXPOSED)
+        {
+            SDL_Surface* surface = SDL_GetWindowSurface(this->m_window);
+            SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 110, 199, 46));
+            SDL_UpdateWindowSurface(this->m_window);
+        }
     }
 }
 
@@ -71,7 +78,7 @@ void KeyboardController::keyboardLoop()
 
     while (ros::ok())
     {
-        this->pollKeyboardEvents();
+        this->pollWindowEvents();
         this->updateDriveParameters(delta_time);
         this->publishDriveParameters();
 
