@@ -38,10 +38,6 @@
         <vertices id="ID9_019-mesh-vertices">
           <input semantic="POSITION" source="#ID9_019-mesh-positions"/>
         </vertices>
-        <lines count="44">
-          <input semantic="VERTEX" source="#ID9_019-mesh-vertices" offset="0"/>
-          <p>2105 2103 2105 1901 2113 1963 2115 2113 2105 2114 2114 1901 2118 1995 2118 2125 2119 1996 2122 2119 2122 1995 2123 1996 2123 2124 2125 2124 2129 2130 2130 1980 2137 2138 2028 2139 2044 2124 2046 2125 2070 2119 3073 2978 3058 2977 3058 3076 3076 2977 3079 3078 3079 3007 3418 3190 3419 3191 3418 3419 3428 3427 3427 3207 3428 3206 3436 3220 3437 3436 3220 3221 3218 3219 3439 3218 3439 3440 3440 3221 3443 3125 3788 3835 3788 3836 3843 3739</p>
-        </lines>
         <triangles count="5491">
           <input semantic="VERTEX" source="#ID9_019-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#ID9_019-mesh-normals" offset="1"/>
