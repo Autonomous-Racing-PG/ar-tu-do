@@ -23,6 +23,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 {
     double steering_angle = static_cast<double>(-joystick->axes[JOYSTICK_AXIS_STEERING]);
     double velocity = static_cast<double>(joystick->axes[JOYSTICK_AXIS_THROTTLE] - 1) * -0.5;
+    velocity -= static_cast<double>(joystick->axes[JOYSTICK_AXIS_REVERSE] - 1) * -0.5;
 
     this->publishDriveParameters(velocity, steering_angle);
 }

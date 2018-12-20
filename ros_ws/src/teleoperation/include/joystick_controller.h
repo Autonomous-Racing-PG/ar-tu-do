@@ -5,11 +5,12 @@
 #include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
 
-#define JOYSTICK_AXIS_STEERING 0
-#define JOYSTICK_AXIS_THROTTLE 5
-#define JOYSTICK_BUTTON_DEADMANSSWITCH 0
+constexpr int JOYSTICK_AXIS_STEERING = 0;
+constexpr int  JOYSTICK_AXIS_THROTTLE = 5;
+constexpr int  JOYSTICK_AXIS_REVERSE = 2;
+constexpr int  JOYSTICK_BUTTON_DEADMANSSWITCH = 0;
 
-#define TOPIC_DRIVE_PARAMETERS "/set/drive_param"
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
 
 class JoystickController
 {
