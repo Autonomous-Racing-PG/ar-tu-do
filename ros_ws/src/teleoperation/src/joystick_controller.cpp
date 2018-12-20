@@ -5,10 +5,14 @@
  */
 JoystickController::JoystickController()
 {
-    this->m_drive_parameter_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    this->m_drive_parameter_publisher =
+        this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 
     this->m_joystick_subscriber =
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
+
+    ros::NodeHandle private_node_handle("~");
+    private_node_handle.getParam(INVERT_STEERING_PARAMETER, this->m_invert_steering);
 }
 
 /**
@@ -21,7 +25,12 @@ JoystickController::JoystickController()
  */
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
-    double steering_angle = static_cast<double>(-joystick->axes[JOYSTICK_AXIS_STEERING]);
+    double steering_angle = static_cast<double>(joystick->axes[JOYSTICK_AXIS_STEERING]);
+    if (this->m_invert_steering)
+    {
+        steering_angle *= -1;
+    }
+
     double velocity = static_cast<double>(joystick->axes[JOYSTICK_AXIS_THROTTLE] - 1) * -0.5;
     velocity -= static_cast<double>(joystick->axes[JOYSTICK_AXIS_REVERSE] - 1) * -0.5;
 

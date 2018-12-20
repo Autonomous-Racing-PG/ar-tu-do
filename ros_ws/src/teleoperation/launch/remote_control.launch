@@ -11,6 +11,7 @@ Launches all necessary nodes that let the user control the car with the keyboard
       type="joystick_controller"
       name="joystick_controller"
       output="log" >
+      <param name="invert_steering" type="bool" value ="true" />
     </node>
 
     <!-- joy node -->
