@@ -17,6 +17,10 @@ double map(double value, double in_lower, double in_upper, double out_lower, dou
  * */
 KeyboardController::KeyboardController()
 {
+    ROS_ASSERT_MSG(KEY_CODES.size() == KEY_COUNT, "KEY_CODES needs to have KEY_COUNT many elements.");
+    ROS_ASSERT_MSG(this->m_key_pressed_state.size() == KEY_COUNT,
+                   "m_key_pressed_state needs to have KEY_COUNT many elements.");
+
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
     this->createWindow();

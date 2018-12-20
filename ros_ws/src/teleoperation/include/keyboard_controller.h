@@ -28,9 +28,9 @@ enum class KeyIndex : int
     STEER_RIGHT = 3
 };
 
-constexpr std::array<Keycode, 4> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D };
-
 constexpr int KEY_COUNT = 4;
+
+constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D };
 
 constexpr double PARAMETER_UPDATE_FREQUENCY = 90;
 
@@ -46,7 +46,7 @@ constexpr double MAX_STEERING = 0.7;
 // MAX_STEERING is multiplied by this when travelling at MAX_VELOCITY, by 1.0 when resting and by an interpolated value
 // otherwise
 constexpr double FAST_STEER_LIMIT = 0.6;
-// The velocity clamped so that its absolute value is not greater than this
+// The velocity is clamped so that its absolute value is not greater than this
 constexpr double MAX_VELOCITY = 8;
 
 // When no steering key is pressed, the steering value will change towards 0 at this rate, in units per second
@@ -69,7 +69,7 @@ class KeyboardController
 
     SDL_Window* m_window;
 
-    std::array<bool, 4> m_key_pressed_state = { { false, false, false, false } };
+    std::array<bool, KEY_COUNT> m_key_pressed_state = { { false, false, false, false } };
 
     double m_velocity = 0;
     double m_angle = 0;
