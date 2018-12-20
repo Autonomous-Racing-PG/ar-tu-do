@@ -1,84 +1,153 @@
 #include "keyboard_controller.h"
+using std::abs;
 
-KeyboardController::KeyboardController()
+double clamp(double value, double lower, double upper)
 {
-    this->drive_parameters_publisher = this->node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    return std::min(upper, std::max(value, lower));
 }
 
-void KeyboardController::keyboardLoop()
+double map(double value, double in_lower, double in_upper, double out_lower, double out_upper)
 {
-    std::cout << "Listening to keyboard..." << std::endl;
-    std::cout << "========================" << std::endl;
+    return out_lower + (out_upper - out_lower) * (value - in_lower) / (in_upper - in_lower);
+}
 
-    double velocity = 0;
-    double angle = 0;
-    while (ros::ok())
+/**
+ * Class constructor that sets up a publisher for the drive parameters topic, creates a window and starts a timer for
+ * the main loop
+ * */
+KeyboardController::KeyboardController()
+{
+    ROS_ASSERT_MSG(KEY_CODES.size() == KEY_COUNT, "KEY_CODES needs to have KEY_COUNT many elements.");
+    ROS_ASSERT_MSG(this->m_key_pressed_state.size() == KEY_COUNT,
+                   "m_key_pressed_state needs to have KEY_COUNT many elements.");
+
+    this->m_drive_parameters_publisher =
+        this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    this->createWindow();
+
+    auto tick_duration = ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY);
+    this->m_timer = this->m_node_handle.createTimer(tick_duration, &KeyboardController::timerCallback, this);
+}
+
+KeyboardController::~KeyboardController()
+{
+    SDL_DestroyWindow(this->m_window);
+    SDL_Quit();
+}
+
+void KeyboardController::createWindow()
+{
+    std::string icon_filename = ros::package::getPath("teleoperation") + std::string("/wasd.bmp");
+
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        auto key = static_cast<Keycode>(this->getKeyboardCharacter());
+        throw std::runtime_error("Could not initialize SDL");
+    }
+    this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED,
+                                      SDL_WINDOWPOS_UNDEFINED, 450, 100, SDL_WINDOW_RESIZABLE);
 
-        switch (key)
-        {
-            case Keycode::W:
-                velocity += 1;
-                break;
-            case Keycode::S:
-                velocity -= 1;
-                break;
-            case Keycode::A:
-                angle += 1;
-                break;
-            case Keycode::D:
-                angle -= 1;
-                break;
-            // Ignore other Keys
-            default:
-                break;
-        }
-
-        this->publishDriveParameters(velocity, angle);
+    SDL_Surface* icon = SDL_LoadBMP(icon_filename.c_str());
+    if (icon != NULL)
+    {
+        SDL_SetWindowIcon(this->m_window, icon);
+        SDL_FreeSurface(icon);
     }
 }
 
-int KeyboardController::getKeyboardCharacter()
+void KeyboardController::pollWindowEvents()
 {
-    static struct termios old_terminal, new_terminal;
-    // back up current terminal settings
-    tcgetattr(STDIN_FILENO, &old_terminal);
-    new_terminal = old_terminal;
-    // disable buffering
-    new_terminal.c_lflag &= ~ICANON;
-    // apply new settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &new_terminal);
-
-    // read character (non-blocking)
-    int character = getchar();
-
-    // restore old settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &old_terminal);
-
-    return character;
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {
+        if (event.type == SDL_KEYUP || event.type == SDL_KEYDOWN)
+        {
+            for (size_t i = 0; i < KEY_COUNT; i++)
+            {
+                if ((int)event.key.keysym.sym == (int)KEY_CODES[i])
+                {
+                    this->m_key_pressed_state[i] = event.type == SDL_KEYDOWN;
+                }
+            }
+        }
+        else if (event.type == SDL_QUIT)
+        {
+            ros::shutdown();
+        }
+        else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_EXPOSED)
+        {
+            SDL_Surface* surface = SDL_GetWindowSurface(this->m_window);
+            SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 110, 199, 46));
+            SDL_UpdateWindowSurface(this->m_window);
+        }
+    }
 }
 
-void KeyboardController::publishDriveParameters(double velocity, double angle)
+/**
+ * This method is called at each tick of the timer. It updates the keyboard state and the drive parameters and publishes
+ * them to the ROS topic.
+ * */
+void KeyboardController::timerCallback(const ros::TimerEvent& event)
+{
+    double delta_time = (event.current_real - event.last_real).toSec();
+
+    this->pollWindowEvents();
+    this->updateDriveParameters(delta_time);
+    this->publishDriveParameters();
+}
+
+/**
+ *  This updates the drive parameters based on which keys are currently pressed and how much time passed since the last
+ * update.
+ *  If no keys are pressed, the steering angle and target velocity will move back to their default values over time.
+ */
+void KeyboardController::updateDriveParameters(double delta_time)
+{
+    double steer = this->m_key_pressed_state[(size_t)KeyIndex::STEER_LEFT]
+        ? +1
+        : (this->m_key_pressed_state[(size_t)KeyIndex::STEER_RIGHT] ? -1 : 0);
+    double throttle = this->m_key_pressed_state[(size_t)KeyIndex::ACCELERATE]
+        ? +1
+        : (this->m_key_pressed_state[(size_t)KeyIndex::DECELERATE] ? -1 : 0);
+
+    double steer_limit = map(abs(this->m_velocity), 0, MAX_VELOCITY, 1, FAST_STEER_LIMIT);
+    double angle_update = steer * delta_time * STEERING_SPEED;
+    this->m_angle = clamp(this->m_angle + angle_update, -MAX_STEERING * steer_limit, +MAX_STEERING * steer_limit);
+    double velocity_update = throttle * delta_time * (this->m_velocity * throttle > 0 ? ACCELERATION : BRAKING);
+    this->m_velocity = clamp(this->m_velocity + velocity_update, -MAX_VELOCITY, +MAX_VELOCITY);
+
+    if (steer == 0 && this->m_angle != 0)
+    {
+        double sign = copysign(1.0, this->m_angle);
+        this->m_angle -= STEERING_GRAVITY * delta_time * sign;
+        if (abs(this->m_angle) < STEERING_GRAVITY * delta_time)
+        {
+            this->m_angle = 0;
+        }
+    }
+
+    if (throttle == 0 && this->m_velocity != 0)
+    {
+        double sign = copysign(1.0, this->m_velocity);
+        this->m_velocity -= THROTTLE_GRAVITY * delta_time * sign;
+        if (abs(this->m_velocity) < THROTTLE_GRAVITY * delta_time)
+        {
+            this->m_velocity = 0;
+        }
+    }
+}
+
+void KeyboardController::publishDriveParameters()
 {
     drive_msgs::drive_param drive_parameters;
-    drive_parameters.velocity = velocity;
-    drive_parameters.angle = (angle + 1) / 2;
-    this->drive_parameters_publisher.publish(drive_parameters);
-}
-
-void quitSignalHandler(int)
-{
-    ros::shutdown();
-    exit(0);
+    drive_parameters.velocity = this->m_velocity;
+    drive_parameters.angle = this->m_angle;
+    this->m_drive_parameters_publisher.publish(drive_parameters);
 }
 
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "keyboard_controller");
     KeyboardController keyboard_controller;
-
-    signal(SIGINT, quitSignalHandler);
-    keyboard_controller.keyboardLoop();
+    ros::spin();
     return EXIT_SUCCESS;
 }
