@@ -5,10 +5,10 @@
  */
 JoystickController::JoystickController()
 {
-    this->drive_parameter_publisher = this->node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    this->m_drive_parameter_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 
-    this->joystick_subscriber =
-        this->node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
+    this->m_joystick_subscriber =
+        this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
 }
 
 /**
@@ -40,7 +40,7 @@ void JoystickController::publishDriveParameters(double velocity, double steering
     drive_parameters.velocity = velocity;
     drive_parameters.angle = steering_angle;
 
-    this->drive_parameter_publisher.publish(drive_parameters);
+    this->m_drive_parameter_publisher.publish(drive_parameters);
 }
 
 int main(int argc, char** argv)
