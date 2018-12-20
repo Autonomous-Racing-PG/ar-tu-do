@@ -43,6 +43,7 @@ before_install:
   - sudo apt-get install clang
   - sudo apt-get install clang-format
   - sudo apt-get install python-wstool
+  - sudo apt-get install libsdl2-dev
   - source /opt/ros/${ROS_DISTRO}/setup.bash
   - sudo rosdep init
   - rosdep update
