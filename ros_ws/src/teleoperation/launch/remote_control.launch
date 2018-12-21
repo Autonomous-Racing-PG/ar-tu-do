@@ -4,6 +4,8 @@
 Launches all necessary nodes that let the user control the car with the keyboard and/or gamepad.
 -->
 
+  <arg name="invert_steering" default="true"/>
+
     <!-- remote joy -->
     <node
       respawn="true"
@@ -11,7 +13,7 @@ Launches all necessary nodes that let the user control the car with the keyboard
       type="joystick_controller"
       name="joystick_controller"
       output="log" >
-      <param name="invert_steering" type="bool" value ="true" />
+      <param name="invert_steering" type="bool" value ="$(arg invert_steering)" />
     </node>
 
     <!-- joy node -->
