@@ -1,4 +1,5 @@
 <launch>
     <include file="$(find racer_world)/launch/racer_gazebo.launch"/>
     <include file="$(find teleoperation)/launch/remote_control.launch"/>
+    <include file="$(find racer_sensors)/launch/racer_sensors.launch"/>
 </launch>

@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+
+<launch>
+    <node 
+        name = "racer_sensors"
+        pkg = "racer_sensors"
+        type = "racer_sensors"
+        output = "screen">
+    </node>
+</launch>
