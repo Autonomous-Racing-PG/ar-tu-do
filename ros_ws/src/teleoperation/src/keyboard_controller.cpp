@@ -102,6 +102,10 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
  */
 void KeyboardController::updateDriveParameters(double delta_time)
 {
+// Disable warnings about equality comparisons for floats.
+// Equality comparisons are ok here because the variables are assigned the exact values that we compare them against.
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-equal"
     double steer = this->m_key_pressed_state[(size_t)KeyIndex::STEER_LEFT]
         ? +1
         : (this->m_key_pressed_state[(size_t)KeyIndex::STEER_RIGHT] ? -1 : 0);
@@ -134,6 +138,7 @@ void KeyboardController::updateDriveParameters(double delta_time)
             this->m_velocity = 0;
         }
     }
+#pragma GCC diagnostic pop
 }
 
 void KeyboardController::publishDriveParameters()
