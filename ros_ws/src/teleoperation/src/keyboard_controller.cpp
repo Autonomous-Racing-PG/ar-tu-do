@@ -1,4 +1,5 @@
 #include "keyboard_controller.h"
+#include <std_msgs/Int64.h>
 using std::abs;
 
 double clamp(double value, double lower, double upper)
@@ -23,6 +24,7 @@ KeyboardController::KeyboardController()
 
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DEAD_MANS_SWITCH, 1);
     this->createWindow();
 
     auto tick_duration = ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY);
@@ -93,6 +95,23 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
     this->pollWindowEvents();
     this->updateDriveParameters(delta_time);
     this->publishDriveParameters();
+    this->updateDeadMansSwitch();
+}
+
+/**
+ *  Checks if the Dead Man's Switch key is pressed and publish the Dead Man's Switch message
+ */
+void KeyboardController::updateDeadMansSwitch() {
+    if (this->m_key_pressed_state[(size_t)KeyIndex::DEAD_MANS_SWITCH])
+    {
+        struct timeval time_struct;
+        gettimeofday(&time_struct, NULL);
+        long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
+        std_msgs::Int64 dead_mans_switch_message;
+        dead_mans_switch_message.data = timestamp;
+
+        this->m_dead_mans_switch_publisher.publish(dead_mans_switch_message);
+    }
 }
 
 /**

@@ -10,6 +10,7 @@
 #include <stdexcept>
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
+constexpr const char* TOPIC_DEAD_MANS_SWITCH = "set/dms";
 
 enum class Keycode : int
 {
@@ -25,12 +26,13 @@ enum class KeyIndex : int
     ACCELERATE = 0,
     DECELERATE = 2,
     STEER_LEFT = 1,
-    STEER_RIGHT = 3
+    STEER_RIGHT = 3,
+    DEAD_MANS_SWITCH = 4
 };
 
-constexpr int KEY_COUNT = 4;
+constexpr int KEY_COUNT = 5;
 
-constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D };
+constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D, Keycode::SPACE };
 
 constexpr double PARAMETER_UPDATE_FREQUENCY = 90;
 
@@ -62,6 +64,7 @@ class KeyboardController
     ros::NodeHandle m_node_handle;
 
     ros::Publisher m_drive_parameters_publisher;
+    ros::Publisher m_dead_mans_switch_publisher;
 
     SDL_Window* m_window;
 
@@ -77,6 +80,8 @@ class KeyboardController
     void updateDriveParameters(double delta_time);
 
     void publishDriveParameters();
+
+    void updateDeadMansSwitch();
 
     void createWindow();
     void timerCallback(const ros::TimerEvent& event);
