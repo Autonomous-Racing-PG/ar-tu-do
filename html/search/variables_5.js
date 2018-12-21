@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['parameter_5fupdate_5ffrequency',['PARAMETER_UPDATE_FREQUENCY',['../keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c',1,'keyboard_controller.h']]]
+  ['key_5fcodes',['KEY_CODES',['../keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc',1,'keyboard_controller.h']]],
+  ['key_5fcount',['KEY_COUNT',['../keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5',1,'keyboard_controller.h']]]
 ];

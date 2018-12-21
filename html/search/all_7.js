@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['main',['main',['../car__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;car_controller.cpp'],['../test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;test_car_control.cpp'],['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../joystick__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;joystick_controller.cpp'],['../keyboard__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;keyboard_controller.cpp']]],
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
-  ['map',['map',['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'keyboard_controller.cpp']]],
-  ['max_5fangle',['MAX_ANGLE',['../car__controller_8h.html#af3c82099d63a2d91d68bd62d954059c7',1,'car_controller.h']]],
-  ['max_5fspeed',['MAX_SPEED',['../car__controller_8h.html#ac2cd96d53dd3ba6407db6766c3d92b26',1,'car_controller.h']]],
-  ['max_5fsteering',['MAX_STEERING',['../keyboard__controller_8h.html#a36f500c76f61cabb7c795184cd60ca6a',1,'keyboard_controller.h']]],
-  ['max_5fvelocity',['MAX_VELOCITY',['../keyboard__controller_8h.html#ac6e249561351dbd719b13a7b683becb8',1,'keyboard_controller.h']]],
-  ['min_5fspeed',['MIN_SPEED',['../car__controller_8h.html#ad5f5efaa5cb771bd06da4bfe6046809e',1,'car_controller.h']]]
+  ['key_5fcodes',['KEY_CODES',['../keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc',1,'keyboard_controller.h']]],
+  ['key_5fcount',['KEY_COUNT',['../keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5',1,'keyboard_controller.h']]],
+  ['keyboard_5fcontroller_2ecpp',['keyboard_controller.cpp',['../keyboard__controller_8cpp.html',1,'']]],
+  ['keyboard_5fcontroller_2eh',['keyboard_controller.h',['../keyboard__controller_8h.html',1,'']]],
+  ['keyboardcontroller',['KeyboardController',['../class_keyboard_controller.html',1,'KeyboardController'],['../class_keyboard_controller.html#abb80b5bae04a1c3cf904924cbacb235c',1,'KeyboardController::KeyboardController()'],['../class_keyboard_controller.html#a102c3356ac118b886b6b5fb7a33245c1',1,'KeyboardController::KeyboardController(KeyboardController &amp;&amp;)=default'],['../class_keyboard_controller.html#a0ea88596f23dbdfa81c80c8c72713957',1,'KeyboardController::KeyboardController(const KeyboardController &amp;)=default']]],
+  ['keycode',['Keycode',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07',1,'keyboard_controller.h']]],
+  ['keyindex',['KeyIndex',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bb',1,'keyboard_controller.h']]]
 ];

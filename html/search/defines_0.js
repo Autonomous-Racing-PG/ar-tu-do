@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['joystick_5faxis_5fsteering',['JOYSTICK_AXIS_STEERING',['../joystick__controller_8h.html#ab97c6d3c3cff1a7baddc178ddebbe4e0',1,'joystick_controller.h']]],
-  ['joystick_5faxis_5fthrottle',['JOYSTICK_AXIS_THROTTLE',['../joystick__controller_8h.html#a0312189c150a6ad879bd82c6533474e0',1,'joystick_controller.h']]],
-  ['joystick_5fbutton_5fdeadmansswitch',['JOYSTICK_BUTTON_DEADMANSSWITCH',['../joystick__controller_8h.html#ab66b778c00452e6128e9f6787687edf0',1,'joystick_controller.h']]]
+  ['max_5fangle',['MAX_ANGLE',['../car__controller_8h.html#af3c82099d63a2d91d68bd62d954059c7',1,'car_controller.h']]],
+  ['max_5fspeed',['MAX_SPEED',['../car__controller_8h.html#ac2cd96d53dd3ba6407db6766c3d92b26',1,'car_controller.h']]],
+  ['min_5fspeed',['MIN_SPEED',['../car__controller_8h.html#ad5f5efaa5cb771bd06da4bfe6046809e',1,'car_controller.h']]]
 ];
