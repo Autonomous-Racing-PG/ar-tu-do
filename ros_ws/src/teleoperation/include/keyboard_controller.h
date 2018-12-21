@@ -41,13 +41,9 @@ constexpr double ACCELERATION = 3;
 // How fast the velocity changes when decelerating, in units per second
 constexpr double BRAKING = 8;
 
-// The steering angle is clamped so that its absolute value is not greater than this
-constexpr double MAX_STEERING = 0.7;
-// MAX_STEERING is multiplied by this when travelling at MAX_VELOCITY, by 1.0 when resting and by an interpolated value
-// otherwise
+// MAX_STEERING is multiplied by this when travelling at maximum velocity, by 1.0 when resting and by an interpolated
+// value otherwise
 constexpr double FAST_STEER_LIMIT = 0.6;
-// The velocity is clamped so that its absolute value is not greater than this
-constexpr double MAX_VELOCITY = 8;
 
 // When no steering key is pressed, the steering value will change towards 0 at this rate, in units per second
 constexpr double STEERING_GRAVITY = 2;

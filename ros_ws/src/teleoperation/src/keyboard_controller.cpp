@@ -109,11 +109,11 @@ void KeyboardController::updateDriveParameters(double delta_time)
         ? +1
         : (this->m_key_pressed_state[(size_t)KeyIndex::DECELERATE] ? -1 : 0);
 
-    double steer_limit = map(abs(this->m_velocity), 0, MAX_VELOCITY, 1, FAST_STEER_LIMIT);
+    double steer_limit = map(abs(this->m_velocity), 0, 1, 1, FAST_STEER_LIMIT);
     double angle_update = steer * delta_time * STEERING_SPEED;
-    this->m_angle = clamp(this->m_angle + angle_update, -MAX_STEERING * steer_limit, +MAX_STEERING * steer_limit);
+    this->m_angle = clamp(this->m_angle + angle_update, -steer_limit, +steer_limit);
     double velocity_update = throttle * delta_time * (this->m_velocity * throttle > 0 ? ACCELERATION : BRAKING);
-    this->m_velocity = clamp(this->m_velocity + velocity_update, -MAX_VELOCITY, +MAX_VELOCITY);
+    this->m_velocity = clamp(this->m_velocity + velocity_update, -1, +1);
 
     if (steer == 0 && this->m_angle != 0)
     {
