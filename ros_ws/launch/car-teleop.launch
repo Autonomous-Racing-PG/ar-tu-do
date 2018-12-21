@@ -1,4 +1,5 @@
 <launch>
     <include file="$(find car_control)/launch/car_control.launch"/>
     <include file="$(find teleoperation)/launch/remote_control.launch"/>
+    <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
 </launch>

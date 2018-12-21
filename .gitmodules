@@ -1,0 +1,3 @@
+[submodule "ros_ws/src/external_packages/vesc"]
+	path = ros_ws/src/external_packages/vesc
+	url = https://github.com/mit-racecar/vesc.git
