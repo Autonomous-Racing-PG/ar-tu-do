@@ -38,6 +38,8 @@ include_directories(
 )
 
 # Declare car controller node executable
-add_executable(racer_sensors src/racer_odometry.cpp)
+add_executable(racer_sensors
+  src/racer_odometry.cpp
+  src/main_racer_odometry.cpp)
 target_link_libraries(racer_sensors ${catkin_LIBRARIES})
 add_dependencies(racer_sensors ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
