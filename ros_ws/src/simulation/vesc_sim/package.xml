@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vesc_sim</name>
+  <version>0.0.0</version>
+  <description>The "vesc_sim" package emulate the vesc controller (focbox) and relays the drive commands to the simulated Gazebo car.</description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>drive_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>nav_msgs</depend>
+  <depend>vesc_msgs</depend>
+</package>

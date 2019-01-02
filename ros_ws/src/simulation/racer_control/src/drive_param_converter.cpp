@@ -5,13 +5,13 @@
  * @brief Distance between front and rear axis
  *
  */
-constexpr double AXIS_DISTANCE{ 32.5 };
+constexpr double AXIS_DISTANCE { 32.5 };
 
 /**
  * @brief Distance between center of rear wheels
  *
  */
-constexpr double REAR_WHEEL_DISTANCE{ 23.3 };
+constexpr double REAR_WHEEL_DISTANCE { 23.3 };
 
 /**
  * @brief Constructor creates subscriber and publisher
