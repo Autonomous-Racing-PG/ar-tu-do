@@ -10,6 +10,7 @@
 #include <stdexcept>
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
+constexpr const char* TOPIC_DEAD_MANS_SWITCH = "set/dms";
 
 enum class Keycode : int
 {
@@ -25,12 +26,13 @@ enum class KeyIndex : int
     ACCELERATE = 0,
     DECELERATE = 2,
     STEER_LEFT = 1,
-    STEER_RIGHT = 3
+    STEER_RIGHT = 3,
+    DEAD_MANS_SWITCH = 4
 };
 
-constexpr int KEY_COUNT = 4;
+constexpr int KEY_COUNT = 5;
 
-constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D };
+constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D, Keycode::SPACE };
 
 constexpr double PARAMETER_UPDATE_FREQUENCY = 90;
 
@@ -41,13 +43,9 @@ constexpr double ACCELERATION = 3;
 // How fast the velocity changes when decelerating, in units per second
 constexpr double BRAKING = 8;
 
-// The steering angle is clamped so that its absolute value is not greater than this
-constexpr double MAX_STEERING = 0.7;
-// MAX_STEERING is multiplied by this when travelling at MAX_VELOCITY, by 1.0 when resting and by an interpolated value
-// otherwise
+// MAX_STEERING is multiplied by this when travelling at maximum velocity, by 1.0 when resting and by an interpolated
+// value otherwise
 constexpr double FAST_STEER_LIMIT = 0.6;
-// The velocity is clamped so that its absolute value is not greater than this
-constexpr double MAX_VELOCITY = 8;
 
 // When no steering key is pressed, the steering value will change towards 0 at this rate, in units per second
 constexpr double STEERING_GRAVITY = 2;
@@ -66,6 +64,7 @@ class KeyboardController
     ros::NodeHandle m_node_handle;
 
     ros::Publisher m_drive_parameters_publisher;
+    ros::Publisher m_dead_mans_switch_publisher;
 
     SDL_Window* m_window;
 
@@ -81,6 +80,8 @@ class KeyboardController
     void updateDriveParameters(double delta_time);
 
     void publishDriveParameters();
+
+    void updateDeadMansSwitch();
 
     void createWindow();
     void timerCallback(const ros::TimerEvent& event);
