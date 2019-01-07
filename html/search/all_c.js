@@ -4,6 +4,7 @@ var searchData=
   ['test_5fcar_5fcontrol_2ecpp',['test_car_control.cpp',['../test__car__control_8cpp.html',1,'']]],
   ['throttle_5fgravity',['THROTTLE_GRAVITY',['../keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b',1,'keyboard_controller.h']]],
   ['topic_5fcommand',['TOPIC_COMMAND',['../car__controller_8h.html#a23bd7eb4fbfb73461cd96b6fb393c9f5',1,'car_controller.h']]],
+  ['topic_5fdead_5fmans_5fswitch',['TOPIC_DEAD_MANS_SWITCH',['../keyboard__controller_8h.html#aabd38024f2f1a3ffba466bdd55e1142c',1,'keyboard_controller.h']]],
   ['topic_5fdrive_5fparam',['TOPIC_DRIVE_PARAM',['../car__controller_8h.html#a0cad0c0e78519f724d3769a56a6c6412',1,'car_controller.h']]],
   ['topic_5fdrive_5fparameters',['TOPIC_DRIVE_PARAMETERS',['../joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839',1,'TOPIC_DRIVE_PARAMETERS():&#160;joystick_controller.h'],['../keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839',1,'TOPIC_DRIVE_PARAMETERS():&#160;keyboard_controller.h']]],
   ['topic_5ffocbox_5fangle',['TOPIC_FOCBOX_ANGLE',['../car__controller_8h.html#a06bf2e121cdcd87f3e73500ff616ccf2',1,'car_controller.h']]],

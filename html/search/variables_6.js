@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_5fsteering',['MAX_STEERING',['../keyboard__controller_8h.html#a36f500c76f61cabb7c795184cd60ca6a',1,'keyboard_controller.h']]],
-  ['max_5fvelocity',['MAX_VELOCITY',['../keyboard__controller_8h.html#ac6e249561351dbd719b13a7b683becb8',1,'keyboard_controller.h']]]
+  ['parameter_5fupdate_5ffrequency',['PARAMETER_UPDATE_FREQUENCY',['../keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c',1,'keyboard_controller.h']]]
 ];
