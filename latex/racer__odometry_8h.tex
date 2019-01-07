@@ -1,0 +1,75 @@
+\hypertarget{racer__odometry_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/simulation/racer\+\_\+sensors/include/racer\+\_\+odometry.h File Reference}
+\label{racer__odometry_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/racer\+\_\+sensors/include/racer\+\_\+odometry.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/racer\+\_\+sensors/include/racer\+\_\+odometry.\+h}}
+{\ttfamily \#include $<$boost/bind.\+hpp$>$}\\*
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$gazebo\+\_\+msgs/\+Link\+States.\+h$>$}\\*
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Pose.\+h$>$}\\*
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Twist.\+h$>$}\\*
+{\ttfamily \#include $<$nav\+\_\+msgs/\+Odometry.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+Header.\+h$>$}\\*
+Include dependency graph for racer\+\_\+odometry.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{racer__odometry_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{racer__odometry_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_racer_odometry}{Racer\+Odometry}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr const char $\ast$ \hyperlink{racer__odometry_8h_ad70f6076cb4e4124ae8fa06c48ae3a0d}{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM} = \char`\"{}/gazebo/link\+\_\+states\char`\"{}
+\begin{DoxyCompactList}\small\item\em Rostopic to which Gazebo publishes information about the models of the simulation. \end{DoxyCompactList}\item 
+constexpr const char $\ast$ \hyperlink{racer__odometry_8h_a6c9ecfa132563b542937a5bb3bf7e339}{T\+O\+P\+I\+C\+\_\+\+O\+D\+OM} = \char`\"{}/odom\char`\"{}
+\begin{DoxyCompactList}\small\item\em Rostopic to which the odometry data should be published to. \end{DoxyCompactList}\item 
+constexpr const char $\ast$ \hyperlink{racer__odometry_8h_abf8e9eeb52529303d088dcd282722e40}{B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME} = \char`\"{}racer\+::base\+\_\+link\char`\"{}
+\begin{DoxyCompactList}\small\item\em Name of the link of the simulated car chassis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{racer\+\_\+odometry.\+h@{racer\+\_\+odometry.\+h}!B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME@{B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME}}
+\index{B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME@{B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME}!racer\+\_\+odometry.\+h@{racer\+\_\+odometry.\+h}}
+\subsubsection[{\texorpdfstring{B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME}{BASE_LINK_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ B\+A\+S\+E\+\_\+\+L\+I\+N\+K\+\_\+\+N\+A\+ME = \char`\"{}racer\+::base\+\_\+link\char`\"{}}\hypertarget{racer__odometry_8h_abf8e9eeb52529303d088dcd282722e40}{}\label{racer__odometry_8h_abf8e9eeb52529303d088dcd282722e40}
+
+
+Name of the link of the simulated car chassis. 
+
+
+
+Definition at line 28 of file racer\+\_\+odometry.\+h.
+
+\index{racer\+\_\+odometry.\+h@{racer\+\_\+odometry.\+h}!T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM}}
+\index{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM}!racer\+\_\+odometry.\+h@{racer\+\_\+odometry.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM}{TOPIC_GAZEBO_ODOM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+O\+D\+OM = \char`\"{}/gazebo/link\+\_\+states\char`\"{}}\hypertarget{racer__odometry_8h_ad70f6076cb4e4124ae8fa06c48ae3a0d}{}\label{racer__odometry_8h_ad70f6076cb4e4124ae8fa06c48ae3a0d}
+
+
+Rostopic to which Gazebo publishes information about the models of the simulation. 
+
+
+
+Definition at line 16 of file racer\+\_\+odometry.\+h.
+
+\index{racer\+\_\+odometry.\+h@{racer\+\_\+odometry.\+h}!T\+O\+P\+I\+C\+\_\+\+O\+D\+OM@{T\+O\+P\+I\+C\+\_\+\+O\+D\+OM}}
+\index{T\+O\+P\+I\+C\+\_\+\+O\+D\+OM@{T\+O\+P\+I\+C\+\_\+\+O\+D\+OM}!racer\+\_\+odometry.\+h@{racer\+\_\+odometry.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+O\+D\+OM}{TOPIC_ODOM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+O\+D\+OM = \char`\"{}/odom\char`\"{}}\hypertarget{racer__odometry_8h_a6c9ecfa132563b542937a5bb3bf7e339}{}\label{racer__odometry_8h_a6c9ecfa132563b542937a5bb3bf7e339}
+
+
+Rostopic to which the odometry data should be published to. 
+
+
+
+Definition at line 22 of file racer\+\_\+odometry.\+h.
+
