@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['racerodometry',['RacerOdometry',['../class_racer_odometry.html',1,'']]]
+  ['keyboardcontroller',['KeyboardController',['../class_keyboard_controller.html',1,'']]]
 ];

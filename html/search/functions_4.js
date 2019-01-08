@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../car__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;car_controller.cpp'],['../test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;test_car_control.cpp'],['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../main__racer__odometry_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main_racer_odometry.cpp'],['../joystick__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;joystick_controller.cpp'],['../keyboard__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;keyboard_controller.cpp']]],
-  ['map',['map',['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'keyboard_controller.cpp']]]
+  ['followleftwall',['followLeftWall',['../wall__following_8cpp.html#a01de44ed21e8629b57761c47a4416286',1,'wall_following.cpp']]],
+  ['followrightwall',['followRightWall',['../wall__following_8cpp.html#ad70c743964e8cd3b8e832617630598c4',1,'wall_following.cpp']]]
 ];

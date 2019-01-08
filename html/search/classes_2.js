@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joystickcontroller',['JoystickController',['../class_joystick_controller.html',1,'']]]
+  ['driveparamconverter',['DriveParamConverter',['../class_drive_param_converter.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['racerodometry',['RacerOdometry',['../class_racer_odometry.html#ad32a33d1823c159b3da80363e157725f',1,'RacerOdometry']]]
+  ['getrange',['getRange',['../wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03',1,'wall_following.cpp']]]
 ];

@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['joystick_5faxis_5freverse',['JOYSTICK_AXIS_REVERSE',['../joystick__controller_8h.html#ab824c9b8327489e8e8841d911385f08a',1,'joystick_controller.h']]],
-  ['joystick_5faxis_5fsteering',['JOYSTICK_AXIS_STEERING',['../joystick__controller_8h.html#a09ac939952d738c52e2012d2b9084c29',1,'joystick_controller.h']]],
-  ['joystick_5faxis_5fthrottle',['JOYSTICK_AXIS_THROTTLE',['../joystick__controller_8h.html#a4a1f30f2162bb35da976d5c76e6826ed',1,'joystick_controller.h']]],
-  ['joystick_5fbutton_5fdeadmansswitch',['JOYSTICK_BUTTON_DEADMANSSWITCH',['../joystick__controller_8h.html#a43bd0c7ab3c80b971c22e697f482f482',1,'joystick_controller.h']]],
-  ['joystick_5fbutton_5ftoggle_5finvert_5fsteering',['JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING',['../joystick__controller_8h.html#a7bb08742344a2055c3decbb041e1422f',1,'joystick_controller.h']]],
-  ['joystick_5fcontroller_2ecpp',['joystick_controller.cpp',['../joystick__controller_8cpp.html',1,'']]],
-  ['joystick_5fcontroller_2eh',['joystick_controller.h',['../joystick__controller_8h.html',1,'']]],
-  ['joystickcontroller',['JoystickController',['../class_joystick_controller.html',1,'JoystickController'],['../class_joystick_controller.html#aa7ba7d1b336933c7431ac8796b43c898',1,'JoystickController::JoystickController()']]]
+  ['g_5fleft_5fcorrected_5fangle',['g_left_corrected_angle',['../wall__following_8cpp.html#a36537fd5bf6018395f28b81095d981a6',1,'wall_following.cpp']]],
+  ['g_5fleft_5ferror',['g_left_error',['../wall__following_8cpp.html#a0d0c2729c739cd6797bd789a44972bb6',1,'wall_following.cpp']]],
+  ['g_5fleft_5fprev_5ferror',['g_left_prev_error',['../wall__following_8cpp.html#a1740c80d72737406d06347427bc3c7fa',1,'wall_following.cpp']]],
+  ['g_5fright_5fcorrected_5fangle',['g_right_corrected_angle',['../wall__following_8cpp.html#ab8c91c7aadf122da2950e1fac7cb90f6',1,'wall_following.cpp']]],
+  ['g_5fright_5ferror',['g_right_error',['../wall__following_8cpp.html#a683d675f1b3fc556b7c35b7985ced4c0',1,'wall_following.cpp']]],
+  ['g_5fright_5fprev_5ferror',['g_right_prev_error',['../wall__following_8cpp.html#a1157cbdfa811b34707061492037b544c',1,'wall_following.cpp']]],
+  ['getrange',['getRange',['../wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03',1,'wall_following.cpp']]]
 ];
