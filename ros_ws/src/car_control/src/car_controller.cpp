@@ -2,7 +2,7 @@
 #include "car_config.h"
 
 CarController::CarController()
-    : enabled{ true }
+    : enabled { true }
 {
     this->drive_parameters_subscriber =
         this->node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1,

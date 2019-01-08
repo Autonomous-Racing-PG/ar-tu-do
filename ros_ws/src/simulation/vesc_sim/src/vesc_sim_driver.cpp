@@ -1,5 +1,5 @@
-#include "car_config.h"
 #include "vesc_sim_driver.h"
+#include "car_config.h"
 
 VESCSimDriver::VESCSimDriver()
 {
@@ -35,9 +35,10 @@ VESCSimDriver::VESCSimDriver()
 void VESCSimDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr& motor_speed)
 {
     std_msgs::Float64 throttle;
-    throttle.data = (motor_speed->data  - car_config::SPEED_TO_ERPM_OFFSET) * car_config::ERPM_TO_RAD_PER_SEC / car_config::TRANSMISSION;
+    throttle.data = (motor_speed->data - car_config::SPEED_TO_ERPM_OFFSET) * car_config::ERPM_TO_RAD_PER_SEC /
+        car_config::TRANSMISSION;
 
-    m_simulator.setSpeed(motor_speed->data); //????????????????? /0.1??????
+    m_simulator.setSpeed(motor_speed->data);
 
     this->m_left_rear_wheel_velocity_publisher.publish(throttle);
     this->m_right_rear_wheel_velocity_publisher.publish(throttle);
@@ -63,7 +64,7 @@ void VESCSimDriver::motorBreakCallback(const std_msgs::Float64::ConstPtr& motor_
 
 void VESCSimDriver::servoPositionCallback(const std_msgs::Float64::ConstPtr& servo_position)
 {
-    double angle = (servo_position->data- car_config::STEERING_TO_SERVO_OFFSET) / car_config::STEERING_TO_SERVO_GAIN;
+    double angle = (servo_position->data - car_config::STEERING_TO_SERVO_OFFSET) / car_config::STEERING_TO_SERVO_GAIN;
     AckermannSteeringAngles angles = calculateSteeringAngles(angle);
 
     m_simulator.setServo(servo_position->data);
@@ -82,7 +83,9 @@ VESCSimDriver::AckermannSteeringAngles VESCSimDriver::calculateSteeringAngles(co
 {
     AckermannSteeringAngles angles;
     double radius = tan(angle + M_PI / 2) * car_config::WHEELBASE;
-    angles.left_wheel_angle = -atan(car_config::WHEELBASE / (radius + car_config::REAR_WHEEL_DISTANCE / 2));  // left wheel
-    angles.right_wheel_angle = -atan(car_config::WHEELBASE / (radius - car_config::REAR_WHEEL_DISTANCE / 2)); // right wheel
+    angles.left_wheel_angle =
+        -atan(car_config::WHEELBASE / (radius + car_config::REAR_WHEEL_DISTANCE / 2)); // left wheel
+    angles.right_wheel_angle =
+        -atan(car_config::WHEELBASE / (radius - car_config::REAR_WHEEL_DISTANCE / 2)); // right wheel
     return angles;
 }

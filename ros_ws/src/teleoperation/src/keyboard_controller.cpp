@@ -32,11 +32,11 @@ void KeyboardController::keyboardLoop()
                 break;
         }
 
-        //clipping like joystick
-        velocity = velocity>1?1:velocity;
-        velocity = velocity<-1?-1:velocity;
-        angle = angle>1?1:angle;
-        angle = angle<-1?-1:angle;
+        // clipping like joystick
+        velocity = velocity > 1 ? 1 : velocity;
+        velocity = velocity < -1 ? -1 : velocity;
+        angle = angle > 1 ? 1 : angle;
+        angle = angle < -1 ? -1 : angle;
 
         this->publishDriveParameters(velocity, angle);
     }

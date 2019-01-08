@@ -15,7 +15,6 @@
 #define TOPIC_DRIVE_PARAM "/set/drive_param"
 #define TOPIC_COMMAND "/command"
 
-
 class CarController
 {
     public:

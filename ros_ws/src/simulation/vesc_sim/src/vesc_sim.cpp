@@ -45,10 +45,11 @@ void VESCSim::timerCallback(const ros::TimerEvent& event)
 {
 
     // convert to engineering units
-    m_current_speed = (m_state_speed - car_config::SPEED_TO_ERPM_OFFSET) * car_config::ERPM_TO_SPEED /car_config::TRANSMISSION; // m/s
+    m_current_speed = (m_state_speed - car_config::SPEED_TO_ERPM_OFFSET) * car_config::ERPM_TO_SPEED /
+        car_config::TRANSMISSION; // m/s
     m_current_steering_angle =
         (m_servo_data - car_config::STEERING_TO_SERVO_OFFSET) / car_config::STEERING_TO_SERVO_GAIN;
-    m_current_angular_velocity = m_current_speed * tan(m_current_steering_angle) / car_config::WHEELBASE; //rad
+    m_current_angular_velocity = m_current_speed * tan(m_current_steering_angle) / car_config::WHEELBASE; // rad
 
     // calc elapsed time
     ros::Time stamp_now = ros::Time::now();
@@ -60,8 +61,8 @@ void VESCSim::timerCallback(const ros::TimerEvent& event)
     // propigate odometry
     m_x_dot = m_current_speed * cos(m_yaw);
     m_y_dot = m_current_speed * sin(m_yaw);
-    m_x_position += m_x_dot * dt.toSec(); //meter
-    m_y_position += m_y_dot * dt.toSec(); //meter
+    m_x_position += m_x_dot * dt.toSec(); // meter
+    m_y_position += m_y_dot * dt.toSec(); // meter
     m_yaw += m_current_angular_velocity * dt.toSec();
 
     // publish odometry message
