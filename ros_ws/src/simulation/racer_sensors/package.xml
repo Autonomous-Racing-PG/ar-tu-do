@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>racer_sensors</name>
+  <version>0.0.0</version>
+  <description>The "racer_sensors" package provides sensor data from the simulated car.</description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>gazebo_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>std_msgs</depend>
+
+</package>
