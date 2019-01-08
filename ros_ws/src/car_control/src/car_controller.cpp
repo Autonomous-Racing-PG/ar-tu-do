@@ -20,7 +20,7 @@ void CarController::driveParametersCallback(const drive_msgs::drive_param::Const
 
 void CarController::publishDriveParameters(double raw_speed, double raw_angle)
 {
-    double speed = std::max(0.0, raw_speed * MAX_SPEED);
+    double speed = raw_speed * MAX_SPEED;
     double angle = (raw_angle * MAX_ANGLE + 1) / 2;
 
     if (this->enabled)
