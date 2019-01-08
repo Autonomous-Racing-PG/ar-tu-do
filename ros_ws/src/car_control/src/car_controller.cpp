@@ -1,4 +1,5 @@
 #include "car_controller.h"
+#include "car_config.h"
 
 CarController::CarController()
     : enabled{ true }
@@ -20,8 +21,8 @@ void CarController::driveParametersCallback(const drive_msgs::drive_param::Const
 
 void CarController::publishDriveParameters(double raw_speed, double raw_angle)
 {
-    double speed = raw_speed * MAX_SPEED;
-    double angle = (raw_angle * MAX_ANGLE + 1) / 2;
+    double speed = raw_speed * car_config::MAX_RPM_ELECTRICAL;
+    double angle = (raw_angle * car_config::MAX_SERVO_POSITION + car_config::MAX_SERVO_POSITION) / 2;
 
     if (this->enabled)
     {

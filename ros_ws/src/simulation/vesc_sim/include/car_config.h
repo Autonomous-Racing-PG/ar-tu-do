@@ -64,7 +64,7 @@ namespace car_config
      */
     constexpr double MAX_RPM_ELECTRICAL{MAX_RPM_MECHANICAL/MOTOR_POLES};
 
-    constexpr double ERPM_TO_SPEED{WHEEL_PERIMETER*MOTOR_POLES/60};
+    constexpr double ERPM_TO_SPEED{WHEEL_PERIMETER*MOTOR_POLES/60}; // 60 seconds per minute
 
     constexpr double SPEED_TO_ERPM{1/ERPM_TO_SPEED};
 
@@ -81,4 +81,6 @@ namespace car_config
     constexpr double MIN_STEERING_ANGLE{-3.14159265358979323846/6};//-30°
 
     constexpr double TRANSMISSION{20}; // do not know exactly
+
+    constexpr double MAX_SERVO_POSITION{1};
 };
