@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find racer_world)/launch/racer_gazebo.launch"/>
+    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+</launch>
