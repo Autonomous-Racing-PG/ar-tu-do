@@ -79,4 +79,6 @@ namespace car_config
     constexpr double MAX_STEERING_ANGLE{3.14159265358979323846/6};//30°
 
     constexpr double MIN_STEERING_ANGLE{-3.14159265358979323846/6};//-30°
+
+    constexpr double TRANSMISSION{20}; // do not know exactly
 };

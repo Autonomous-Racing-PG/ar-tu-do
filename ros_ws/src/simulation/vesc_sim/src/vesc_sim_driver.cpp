@@ -35,7 +35,7 @@ VESCSimDriver::VESCSimDriver()
 void VESCSimDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr& motor_speed)
 {
     std_msgs::Float64 throttle;
-    throttle.data = motor_speed->data / 0.1;
+    throttle.data = (motor_speed->data  - car_config::SPEED_TO_ERPM_OFFSET) * car_config::ERPM_TO_SPEED / car_config::TRANSMISSION;
 
     m_simulator.setSpeed(motor_speed->data); //????????????????? /0.1??????
 
