@@ -19,6 +19,7 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp
 add_message_files(
   FILES
   drive_param.msg
+  pid_input.msg
 )
 
 ## Generate added messages and services with any dependencies listed here

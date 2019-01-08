@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+<!-- 
+Launches all necessary nodes that let the car drive autonomous.
+-->
+
+    <!-- autonomous_control node -->
+    <node
+      respawn="true"
+      pkg="autonomous"
+      type="autonomous_control"
+      name="autonomous_control"
+      output="log" >
+    </node>
+
+    <!-- wall_following node -->
+    <node
+      respawn="true"
+      pkg="autonomous"
+      type="wall_following"
+      name="wall_following"
+      output="log" >
+    </node>
+
+</launch>
