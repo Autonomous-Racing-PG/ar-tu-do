@@ -19,18 +19,24 @@ void KeyboardController::keyboardLoop()
         switch (key)
         {
             case Keycode::W:
-                velocity += 1;
+                velocity += 0.01;
                 break;
             case Keycode::S:
-                velocity -= 1;
+                velocity -= 0.01;
                 break;
             case Keycode::A:
-                angle += 1;
+                angle += 0.05;
                 break;
             case Keycode::D:
-                angle -= 1;
+                angle -= 0.05;
                 break;
         }
+
+        //clipping like joystick
+        velocity = velocity>1?1:velocity;
+        velocity = velocity<-1?-1:velocity;
+        angle = angle>1?1:angle;
+        angle = angle<-1?-1:angle;
 
         this->publishDriveParameters(velocity, angle);
     }
