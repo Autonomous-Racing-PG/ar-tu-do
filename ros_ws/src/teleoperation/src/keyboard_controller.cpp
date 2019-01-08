@@ -25,10 +25,10 @@ void KeyboardController::keyboardLoop()
                 velocity -= 0.01;
                 break;
             case Keycode::A:
-                angle += 0.05;
+                angle -= 0.05;
                 break;
             case Keycode::D:
-                angle -= 0.05;
+                angle += 0.05;
                 break;
         }
 
