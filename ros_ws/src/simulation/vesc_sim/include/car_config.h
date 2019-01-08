@@ -83,4 +83,6 @@ namespace car_config
     constexpr double TRANSMISSION{20}; // do not know exactly
 
     constexpr double MAX_SERVO_POSITION{1};
+
+    constexpr double ERPM_TO_RAD_PER_SEC{MOTOR_POLES*2*3.14159265358979323846/60}; //60 seconds per minute
 };
