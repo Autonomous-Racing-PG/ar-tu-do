@@ -63,7 +63,8 @@ void VESCSimDriver::motorBreakCallback(const std_msgs::Float64::ConstPtr& motor_
 
 void VESCSimDriver::servoPositionCallback(const std_msgs::Float64::ConstPtr& servo_position)
 {
-    AckermannSteeringAngles angles = calculateSteeringAngles(servo_position->data);
+    double angle = (servo_position->data- car_config::STEERING_TO_SERVO_OFFSET) / car_config::STEERING_TO_SERVO_GAIN;
+    AckermannSteeringAngles angles = calculateSteeringAngles(angle);
 
     m_simulator.setServo(servo_position->data);
 
