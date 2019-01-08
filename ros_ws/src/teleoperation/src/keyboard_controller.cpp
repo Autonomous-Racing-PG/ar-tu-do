@@ -66,7 +66,7 @@ void KeyboardController::publishDriveParameters(double velocity, double angle)
 {
     drive_msgs::drive_param drive_parameters;
     drive_parameters.velocity = velocity;
-    drive_parameters.angle = (angle + 1) / 2;
+    drive_parameters.angle = angle;
     this->drive_parameters_publisher.publish(drive_parameters);
 }
 
