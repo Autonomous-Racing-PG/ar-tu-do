@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  vesc_sim
 )
 
 
@@ -20,7 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Declare things to be passed to dependent projects
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp rospy std_msgs drive_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs drive_msgs vesc_sim
 )
 
 

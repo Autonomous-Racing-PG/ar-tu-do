@@ -18,5 +18,6 @@
   <depend>roscpp</depend>
   <depend>rospy</depend>
   <depend>std_msgs</depend>
+  <depend>vesc_sim</depend>
 
 </package>
