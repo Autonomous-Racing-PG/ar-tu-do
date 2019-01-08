@@ -72,7 +72,7 @@ void VESCSim::timerCallback(const ros::TimerEvent& event)
 
     // Position
     odom->pose.pose.position.x = m_x_position;
-    odom->pose.pose.position.y = m_x_position;
+    odom->pose.pose.position.y = m_y_position;
     odom->pose.pose.orientation.x = 0.0;
     odom->pose.pose.orientation.y = 0.0;
     odom->pose.pose.orientation.z = sin(m_yaw / 2.0);
