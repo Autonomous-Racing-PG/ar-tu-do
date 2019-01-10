@@ -35,11 +35,11 @@
   </node>
 
   <!-- drive_parameters converter -->
-  <node 
+  <!--<node 
     pkg="racer_control" 
     type="drive_param_converter" 
     name="drive_param_converter" 
     output="screen">
-  </node>
+  </node> -->
 
 </launch>

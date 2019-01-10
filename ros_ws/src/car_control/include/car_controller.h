@@ -15,10 +15,6 @@
 #define TOPIC_DRIVE_PARAM "/set/drive_param"
 #define TOPIC_COMMAND "/command"
 
-#define MAX_SPEED 15000
-#define MIN_SPEED 500
-#define MAX_ANGLE 0.9
-
 class CarController
 {
     public:

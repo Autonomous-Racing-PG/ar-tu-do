@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+
+<launch>
+  <!-- drive_parameters converter -->
+  <node 
+    pkg="vesc_sim" 
+    type="vesc_sim_driver" 
+    name="vesc_sim_driver" 
+    output="screen">
+  </node>
+
+</launch>

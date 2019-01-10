@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  vesc_sim
 )
 
 ## Errors and Warnings
@@ -23,7 +24,7 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp
 ## Declare things to be passed to dependent projects
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp rospy std_msgs drive_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs drive_msgs vesc_sim
 )
 
 ###########
