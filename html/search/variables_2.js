@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fast_5fsteer_5flimit',['FAST_STEER_LIMIT',['../keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87',1,'keyboard_controller.h']]]
+  ['car_5fmin_5fradius',['CAR_MIN_RADIUS',['../namespacecar__config.html#a15ef5c54eaa890e38deadf5b4243cfb5',1,'car_config']]]
 ];

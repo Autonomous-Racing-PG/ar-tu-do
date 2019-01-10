@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../drive__param__converter_8cpp.html#aaf8f88f76cbd29862ce315a4df8b84eb',1,'drive_param_converter.cpp']]]
+  ['key_5fcodes',['KEY_CODES',['../keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc',1,'keyboard_controller.h']]],
+  ['key_5fcount',['KEY_COUNT',['../keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5',1,'keyboard_controller.h']]]
 ];

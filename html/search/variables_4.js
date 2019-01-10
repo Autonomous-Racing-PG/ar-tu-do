@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['invert_5fsteering_5fparameter',['INVERT_STEERING_PARAMETER',['../joystick__controller_8h.html#aa6395149ea73bfb3e22082934f7e1c36',1,'joystick_controller.h']]]
+  ['fast_5fsteer_5flimit',['FAST_STEER_LIMIT',['../keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87',1,'keyboard_controller.h']]],
+  ['front_5fwheel_5fdistance',['FRONT_WHEEL_DISTANCE',['../namespacecar__config.html#a80d9d6f97a63ffcaba87b65a9e1e29e4',1,'car_config']]]
 ];

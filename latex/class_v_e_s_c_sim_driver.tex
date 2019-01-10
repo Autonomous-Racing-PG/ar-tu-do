@@ -1,0 +1,202 @@
+\hypertarget{class_v_e_s_c_sim_driver}{}\section{V\+E\+S\+C\+Sim\+Driver Class Reference}
+\label{class_v_e_s_c_sim_driver}\index{V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}}
+
+
+Class to convert Drive Parameter Messages into single messages.  
+
+
+
+
+{\ttfamily \#include $<$vesc\+\_\+sim\+\_\+driver.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_v_e_s_c_sim_driver_a3b2c2842a1d615f61c5edfa9664e41aa}{V\+E\+S\+C\+Sim\+Driver} ()
+\begin{DoxyCompactList}\small\item\em Constructor creates subscriber and publisher. \end{DoxyCompactList}\item 
+void \hyperlink{class_v_e_s_c_sim_driver_aa58a4f3eb424361ea401e3511e5cce99}{motor\+Speed\+Callback} (const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&motor\+\_\+speed)
+\begin{DoxyCompactList}\small\item\em Callback for R\+OS Subscriber. \end{DoxyCompactList}\item 
+void \hyperlink{class_v_e_s_c_sim_driver_ae40a1445ec27ea21923f011b594f6ef3}{servo\+Position\+Callback} (const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&servo\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Callback for R\+OS Subscriber. \end{DoxyCompactList}\item 
+void \hyperlink{class_v_e_s_c_sim_driver_acb0a56fef66759254790949f4f689a29}{motor\+Break\+Callback} (const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&motor\+\_\+break)
+\begin{DoxyCompactList}\small\item\em Callback for R\+OS Subscriber. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to convert Drive Parameter Messages into single messages. 
+
+Class to convert Drive Parameter Messages (steering angle and velocity) into single messages for each wheel velocity and for front wheel steering angles based on Ackermann equations. 
+
+Definition at line 17 of file vesc\+\_\+sim\+\_\+driver.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}!V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}}
+\index{V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}!V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}}
+\subsubsection[{\texorpdfstring{V\+E\+S\+C\+Sim\+Driver()}{VESCSimDriver()}}]{\setlength{\rightskip}{0pt plus 5cm}V\+E\+S\+C\+Sim\+Driver\+::\+V\+E\+S\+C\+Sim\+Driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_v_e_s_c_sim_driver_a3b2c2842a1d615f61c5edfa9664e41aa}{}\label{class_v_e_s_c_sim_driver_a3b2c2842a1d615f61c5edfa9664e41aa}
+
+
+Constructor creates subscriber and publisher. 
+
+
+
+Definition at line 4 of file vesc\+\_\+sim\+\_\+driver.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_a3b2c2842a1d615f61c5edfa9664e41aa_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}!motor\+Break\+Callback@{motor\+Break\+Callback}}
+\index{motor\+Break\+Callback@{motor\+Break\+Callback}!V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}}
+\subsubsection[{\texorpdfstring{motor\+Break\+Callback(const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&motor\+\_\+break)}{motorBreakCallback(const std_msgs::Float64::ConstPtr &motor_break)}}]{\setlength{\rightskip}{0pt plus 5cm}void V\+E\+S\+C\+Sim\+Driver\+::motor\+Break\+Callback (
+\begin{DoxyParamCaption}
+\item[{const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&}]{motor\+\_\+break}
+\end{DoxyParamCaption}
+)}\hypertarget{class_v_e_s_c_sim_driver_acb0a56fef66759254790949f4f689a29}{}\label{class_v_e_s_c_sim_driver_acb0a56fef66759254790949f4f689a29}
+
+
+Callback for R\+OS Subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor\+\_\+break} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file vesc\+\_\+sim\+\_\+driver.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_acb0a56fef66759254790949f4f689a29_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_acb0a56fef66759254790949f4f689a29_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}!motor\+Speed\+Callback@{motor\+Speed\+Callback}}
+\index{motor\+Speed\+Callback@{motor\+Speed\+Callback}!V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}}
+\subsubsection[{\texorpdfstring{motor\+Speed\+Callback(const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&motor\+\_\+speed)}{motorSpeedCallback(const std_msgs::Float64::ConstPtr &motor_speed)}}]{\setlength{\rightskip}{0pt plus 5cm}void V\+E\+S\+C\+Sim\+Driver\+::motor\+Speed\+Callback (
+\begin{DoxyParamCaption}
+\item[{const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&}]{motor\+\_\+speed}
+\end{DoxyParamCaption}
+)}\hypertarget{class_v_e_s_c_sim_driver_aa58a4f3eb424361ea401e3511e5cce99}{}\label{class_v_e_s_c_sim_driver_aa58a4f3eb424361ea401e3511e5cce99}
+
+
+Callback for R\+OS Subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor\+\_\+speed} & contains electrical R\+PM \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file vesc\+\_\+sim\+\_\+driver.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_aa58a4f3eb424361ea401e3511e5cce99_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_aa58a4f3eb424361ea401e3511e5cce99_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}!servo\+Position\+Callback@{servo\+Position\+Callback}}
+\index{servo\+Position\+Callback@{servo\+Position\+Callback}!V\+E\+S\+C\+Sim\+Driver@{V\+E\+S\+C\+Sim\+Driver}}
+\subsubsection[{\texorpdfstring{servo\+Position\+Callback(const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&servo\+\_\+position)}{servoPositionCallback(const std_msgs::Float64::ConstPtr &servo_position)}}]{\setlength{\rightskip}{0pt plus 5cm}void V\+E\+S\+C\+Sim\+Driver\+::servo\+Position\+Callback (
+\begin{DoxyParamCaption}
+\item[{const std\+\_\+msgs\+::\+Float64\+::\+Const\+Ptr \&}]{servo\+\_\+position}
+\end{DoxyParamCaption}
+)}\hypertarget{class_v_e_s_c_sim_driver_ae40a1445ec27ea21923f011b594f6ef3}{}\label{class_v_e_s_c_sim_driver_ae40a1445ec27ea21923f011b594f6ef3}
+
+
+Callback for R\+OS Subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em servo\+\_\+position} & contains angle with value 0 upto 1 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file vesc\+\_\+sim\+\_\+driver.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_ae40a1445ec27ea21923f011b594f6ef3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_v_e_s_c_sim_driver_ae40a1445ec27ea21923f011b594f6ef3_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/vesc\+\_\+sim/include/\hyperlink{vesc__sim__driver_8h}{vesc\+\_\+sim\+\_\+driver.\+h}\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/vesc\+\_\+sim/src/\hyperlink{vesc__sim__driver_8cpp}{vesc\+\_\+sim\+\_\+driver.\+cpp}\end{DoxyCompactItemize}
