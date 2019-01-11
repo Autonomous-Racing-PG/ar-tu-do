@@ -8,6 +8,13 @@ Autonomous Racing - Project Group - TU Dortmund
 
 These instructions will get you a copy of the project up and running
 
+### Clone the Project
+
+```bash
+git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package.git arpg
+cd arpg
+```
+
 ### Move to ROS Workspace
 
 ```
