@@ -45,7 +45,7 @@ catkin_make run_tests
 
 ## License
 
-This project is licensed under the MIT and GPLv3 dual licensed - see the [MIT.LICENSE](MIT.LICENSE) and [GPLv3.LICENSE](GPLv3.LICENSE) file for details
+This project (exluded git submodules) is licensed under the MIT and GPLv3 dual licensed - see the [MIT.LICENSE](MIT.LICENSE) and [GPLv3.LICENSE](GPLv3.LICENSE) file for details
 
 ## Acknowledgments
 
