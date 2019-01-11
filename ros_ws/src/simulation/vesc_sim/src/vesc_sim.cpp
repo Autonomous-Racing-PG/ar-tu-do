@@ -27,7 +27,7 @@ void VESCSimulator::start()
 {
     if (!m_started)
     {
-        m_timer = m_node_handle.createTimer(ros::Duration(1.0 / m_frequency), &VESCSim::timerCallback, this);
+        m_timer = m_node_handle.createTimer(ros::Duration(1.0 / m_frequency), &VESCSimulator::timerCallback, this);
         m_started = true;
     }
 }

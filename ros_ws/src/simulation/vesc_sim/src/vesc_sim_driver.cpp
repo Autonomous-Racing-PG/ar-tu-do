@@ -13,7 +13,7 @@ VESCSimulationDriver::VESCSimulationDriver()
 
     this->m_motor_brake_subscriber =
         this->m_node_handle.subscribe<std_msgs::Float64>(car_config::COMMAND_BRAKE, 1,
-                                                         &VESCSimulationDriver::motorBreakCallback, this);
+                                                         &VESCSimulationDriver::motorBrakeCallback, this);
 
     this->m_left_rear_wheel_velocity_publisher =
         this->m_node_handle.advertise<std_msgs::Float64>(car_config::simulation::WHEEL_LEFT_BACK_VELOCITY, 10);
@@ -35,9 +35,9 @@ VESCSimulationDriver::VESCSimulationDriver()
 void VESCSimulationDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr& throttle_message)
 {
     std_msgs::Float64 throttle;
-    throttle.data = motor_speed->data * car_config::ERPM_TO_RAD_PER_SEC / car_config::TRANSMISSION;
+    throttle.data = throttle_message->data * car_config::ERPM_TO_RAD_PER_SEC / car_config::TRANSMISSION;
 
-    m_VESC_simulator.setSpeed(motor_speed->data);
+    m_VESC_simulator.setSpeed(throttle_message->data);
 
     this->m_left_rear_wheel_velocity_publisher.publish(throttle);
     this->m_right_rear_wheel_velocity_publisher.publish(throttle);
