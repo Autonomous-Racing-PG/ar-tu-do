@@ -17,31 +17,31 @@ cd arpg
 
 ### Move to ROS Workspace
 
-```
+```bash
 cd ros_ws
 ```
 
 ### Build ROS packages
 
-```
+```bash
 catkin_make
 ```
 
 ### Run routines
 
-```
+```bash
 source devel/setup.bash (or setup.zsh)
 ```
 
 Now several routines can be started by executing the launch-files inside the **launch/** directory. E.g.
 
-```
+```bash
 roslaunch launch/gazebo_car-teleop.launch
 ```
 
 ### Run tests
 
-```
+```bash
 catkin_make run_tests
 ```
 
