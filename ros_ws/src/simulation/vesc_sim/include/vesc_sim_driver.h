@@ -14,21 +14,21 @@
  * into single messages for each wheel velocity and for front wheel steering angles
  * based on Ackermann equations.
  */
-class VESCSimDriver
+class VESCSimulationDriver
 {
     public:
     /**
-     * @brief Constructor creates subscriber and publisher
+     * @brief Constructor that creates subscribers and publishers
      *
      */
-    VESCSimDriver();
+    VESCSimulationDriver();
 
     /**
      * @brief Callback for ROS Subscriber
      *
      * @param motor_speed contains electrical RPM
      */
-    void motorSpeedCallback(const std_msgs::Float64::ConstPtr& motor_speed);
+    void motorSpeedCallback(const std_msgs::Float64::ConstPtr& throttle_message);
 
     /**
      * @brief Callback for ROS Subscriber
@@ -39,10 +39,10 @@ class VESCSimDriver
 
     /**
      * @brief Callback for ROS Subscriber
-     * 
-     * @param motor_break 
+     *
+     * @param motor_break
      */
-    void motorBreakCallback(const std_msgs::Float64::ConstPtr& motor_break);
+    void motorBrakeCallback(const std_msgs::Float64::ConstPtr& motor_brake);
 
     private:
     /**
@@ -86,7 +86,7 @@ class VESCSimDriver
      * @brief ROS Subscriber for break messages
      * TOPIC: "/commands/motor/break"
      */
-    ros::Subscriber m_motor_break_subscriber;
+    ros::Subscriber m_motor_brake_subscriber;
 
     /**
      * @brief ROS Publischer for the velocity of left rear wheel
@@ -123,5 +123,5 @@ class VESCSimDriver
      */
     ros::Publisher m_right_steering_position_publisher;
 
-    VESCSim m_simulator;
+    VESCSimulator m_VESC_simulator;
 };

@@ -10,7 +10,7 @@
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "drive_param_converter");
-    VESCSimDriver vesc_sim_driver;
+    VESCSimulationDriver vesc_sim_driver;
 
     ros::spin();
 

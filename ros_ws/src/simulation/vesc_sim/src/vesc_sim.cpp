@@ -2,7 +2,7 @@
 #include "car_config.h"
 #include <nav_msgs/Odometry.h>
 
-VESCSim::VESCSim()
+VESCSimulator::VESCSimulator()
 {
     m_yaw = 0;
     m_servo_data = 0.5;
@@ -23,7 +23,7 @@ VESCSim::VESCSim()
     this->m_odometry_publisher = this->m_node_handle.advertise<nav_msgs::Odometry>("odom", 10);
 }
 
-void VESCSim::start()
+void VESCSimulator::start()
 {
     if (!m_started)
     {
@@ -32,7 +32,7 @@ void VESCSim::start()
     }
 }
 
-void VESCSim::stop()
+void VESCSimulator::stop()
 {
     if (m_started)
     {
@@ -41,12 +41,11 @@ void VESCSim::stop()
     }
 }
 
-void VESCSim::timerCallback(const ros::TimerEvent& event)
+void VESCSimulator::timerCallback(const ros::TimerEvent& event)
 {
 
     // convert to engineering units
-    m_current_speed = (m_state_speed - car_config::SPEED_TO_ERPM_OFFSET) * car_config::ERPM_TO_SPEED /
-        car_config::TRANSMISSION; // m/s
+    m_current_speed = m_state_speed * car_config::ERPM_TO_SPEED / car_config::TRANSMISSION; // m/s
     m_current_steering_angle =
         (m_servo_data - car_config::STEERING_TO_SERVO_OFFSET) / car_config::STEERING_TO_SERVO_GAIN;
     m_current_angular_velocity = m_current_speed * tan(m_current_steering_angle) / car_config::WHEELBASE; // rad
@@ -56,9 +55,7 @@ void VESCSim::timerCallback(const ros::TimerEvent& event)
     ros::Duration dt = stamp_now - m_last_stamp;
     m_last_stamp = stamp_now;
 
-    /** @todo could probably do better propigating odometry, e.g. trapezoidal integration */
-
-    // propigate odometry
+    // propagate odometry
     m_x_dot = m_current_speed * cos(m_yaw);
     m_y_dot = m_current_speed * sin(m_yaw);
     m_x_position += m_x_dot * dt.toSec(); // meter

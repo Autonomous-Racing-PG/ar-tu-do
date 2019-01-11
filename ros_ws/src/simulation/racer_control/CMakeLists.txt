@@ -7,7 +7,6 @@ set (CMAKE_CXX_STANDARD 11)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
-  drive_msgs
   roscpp
   rospy
   std_msgs
@@ -23,26 +22,5 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp
 
 ## Declare things to be passed to dependent projects
 catkin_package(
-  INCLUDE_DIRS include
-  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs
 )
-
-
-###########
-## Build ##
-###########
-
-## Specify additional locations of header files
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)
-
-# Declare joystick controller node executable
-add_executable(drive_param_converter
-src/main.cpp
-src/drive_param_converter.cpp
-)
-
-target_link_libraries(drive_param_converter ${catkin_LIBRARIES})
-add_dependencies(drive_param_converter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

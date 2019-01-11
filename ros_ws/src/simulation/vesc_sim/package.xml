@@ -2,7 +2,7 @@
 <package format="2">
   <name>vesc_sim</name>
   <version>0.0.0</version>
-  <description>The "vesc_sim" package emulate the vesc controller (focbox) and relays the drive commands to the simulated Gazebo car.</description>
+  <description>The "vesc_sim" package emulates the vesc controller (focbox) and relays the drive commands to the simulated Gazebo car.</description>
 
   <!-- Maintainer -->
   <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>

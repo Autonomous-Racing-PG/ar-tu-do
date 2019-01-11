@@ -33,13 +33,4 @@
 
     <remap from="/joint_states" to="/racer/joint_states" />
   </node>
-
-  <!-- drive_parameters converter -->
-  <!--<node 
-    pkg="racer_control" 
-    type="drive_param_converter" 
-    name="drive_param_converter" 
-    output="screen">
-  </node> -->
-
 </launch>

@@ -26,7 +26,7 @@ class JoystickController
     ros::Subscriber m_joystick_subscriber;
 
     bool m_invert_steering = false;
-    
+
     bool m_toggle_invert_steering_state = false;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
