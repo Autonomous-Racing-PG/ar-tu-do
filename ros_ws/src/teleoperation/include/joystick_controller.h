@@ -11,9 +11,9 @@ constexpr int JOYSTICK_AXIS_REVERSE = 2;
 constexpr int JOYSTICK_BUTTON_DEADMANSSWITCH = 0;
 constexpr int JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING = 2;
 
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
-
 constexpr const char* INVERT_STEERING_PARAMETER = "invert_steering";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
+constexpr const char* TOPIC_DMS = "/set/dms";
 
 class JoystickController
 {
@@ -24,9 +24,10 @@ class JoystickController
     ros::NodeHandle m_node_handle;
     ros::Publisher m_drive_parameter_publisher;
     ros::Subscriber m_joystick_subscriber;
+    ros::Publisher dms_publisher;
 
     bool m_invert_steering = false;
-
+    
     bool m_toggle_invert_steering_state = false;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
