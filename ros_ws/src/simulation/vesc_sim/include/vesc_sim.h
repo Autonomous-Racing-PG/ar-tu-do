@@ -3,22 +3,23 @@
 #include <ros/ros.h>
 #include <string>
 
-class VESCSim
+class VESCSimulator
 {
     public:
-    VESCSim();
-    inline void setServo(const double& data){this->m_servo_data=data;}
-    inline void setSpeed(const double& data){this->m_state_speed=data;}
+    VESCSimulator();
+    inline void setServoAngle(const double& data)
+    {
+        this->m_servo_data = data;
+    }
+    inline void setSpeed(const double& data)
+    {
+        this->m_state_speed = data;
+    }
     void start();
     void stop();
+
     private:
-
-    /**
-     * @brief ROS Handle
-     *
-     */
     ros::NodeHandle m_node_handle;
-
     ros::Publisher m_odometry_publisher;
     ros::Timer m_timer;
     ros::Time m_last_stamp;

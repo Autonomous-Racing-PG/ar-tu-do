@@ -38,7 +38,8 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 
     // Detect if the button was pressed since the last reading
     bool invert_toggle_button = joystick->buttons[JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING] == 1;
-    if (invert_toggle_button && !this->m_toggle_invert_steering_state) {
+    if (invert_toggle_button && !this->m_toggle_invert_steering_state)
+    {
         this->m_invert_steering = !this->m_invert_steering;
     }
     this->m_toggle_invert_steering_state = invert_toggle_button;

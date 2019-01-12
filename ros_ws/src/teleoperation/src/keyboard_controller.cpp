@@ -101,7 +101,8 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
 /**
  *  Checks if the Dead Man's Switch key is pressed and publish the Dead Man's Switch message
  */
-void KeyboardController::updateDeadMansSwitch() {
+void KeyboardController::updateDeadMansSwitch()
+{
     if (this->m_key_pressed_state[(size_t)KeyIndex::DEAD_MANS_SWITCH])
     {
         struct timeval time_struct;
