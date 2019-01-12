@@ -2,7 +2,12 @@
 
 namespace car_config
 {
+    /**
+     * @brief It is not possible to use <cmath> PI definition in constexpr.
+     * That is why it is defined here again.
+     */
     constexpr double PI{ 3.14159265358979323846 };
+
     /**
      * @brief Distance between front and rear axis, wheelbase
      * @unit m
@@ -46,7 +51,7 @@ namespace car_config
     constexpr double TURNING_RADIUS{ 0.605 };
 
     /**
-     * @brief rounds per miunte of motor, divide through transmission to get wheel rpm
+     * @brief revolutions per miunte of motor, divide through transmission to get wheel rpm
      * @unit 1/min
      */
     constexpr double MAX_RPM_MECHANICAL{ 60000 };
@@ -58,25 +63,25 @@ namespace car_config
     constexpr double MOTOR_POLES{ 3 };
 
     /**
-     * @brief vesc calculates in electrical rounds per minute
+     * @brief vesc calculates in electrical revolutions per minute
      * @unit 1/min
      */
     constexpr double MAX_RPM_ELECTRICAL{ MAX_RPM_MECHANICAL / MOTOR_POLES };
 
     /**
-     * @brief conversion gain from electrical rounds per minute to meter per second
+     * @brief conversion gain from electrical revolutions per minute to meter per second
      * @unit m/s * minute
      */
     constexpr double ERPM_TO_SPEED{ WHEEL_PERIMETER * MOTOR_POLES / 60 }; // 60 seconds per minute
 
     /**
-     * @brief conversion gain from meter per second to electrical rounds per minute
+     * @brief conversion gain from meter per second to electrical revolutions per minute
      * @unit s/ (m * minute)
      */
     constexpr double SPEED_TO_ERPM{ 1 / ERPM_TO_SPEED };
 
     /**
-     * @brief conversion gain from mechanical rounds per minute to meter per second
+     * @brief conversion gain from mechanical revolutions per minute to meter per second
      * @unit m/s * minute
      */
     constexpr double RPM_TO_SPEED{ WHEEL_PERIMETER / 60 };
@@ -118,14 +123,14 @@ namespace car_config
     constexpr double MAX_SERVO_POSITION{ 1 };
 
     /**
-     * @brief conversion gain from electrical rounds per minute to radian to seconds
+     * @brief conversion gain from electrical revolutions per minute to radian to seconds
      * @unit radian/s * minute
      */
     constexpr double ERPM_TO_RAD_PER_SEC{ MOTOR_POLES * 2 * PI / 60 }; // 60 seconds per minute
 
     constexpr char COMMAND_POSITION[]{ "/commands/servo/position" };
     constexpr char COMMAND_THROTTLE[]{ "/commands/motor/speed" };
-    constexpr char COMMAND_BRAKE[]{ "/commands/motor/break" };
+    constexpr char COMMAND_BRAKE[]{ "/commands/motor/brke" };
 
     namespace simulation
     {
