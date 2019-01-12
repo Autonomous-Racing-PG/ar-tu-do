@@ -1,14 +1,5 @@
 \hypertarget{car__config_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/simulation/vesc\+\_\+sim/include/car\+\_\+config.h File Reference}
 \label{car__config_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/vesc\+\_\+sim/include/car\+\_\+config.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/vesc\+\_\+sim/include/car\+\_\+config.\+h}}
-{\ttfamily \#include $<$cmath$>$}\\*
-Include dependency graph for car\+\_\+config.\+h\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=219pt]{car__config_8h__incl}
-\end{center}
-\end{figure}
 This graph shows which files directly or indirectly include this file\+:
 \nopagebreak
 \begin{figure}[H]
@@ -21,10 +12,14 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespacecar__config}{car\+\_\+config}
+\item 
+ \hyperlink{namespacecar__config_1_1simulation}{car\+\_\+config\+::simulation}
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+constexpr double \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{car\+\_\+config\+::\+PI} \{ 3.\+14159265358979323846 \}
+\begin{DoxyCompactList}\small\item\em It is not possible to use $<$cmath$>$ PI definition in constexpr. That is why it is defined here again. \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+B\+A\+SE} \{ 0.\+325 \}
 \begin{DoxyCompactList}\small\item\em Distance between front and rear axis, wheelbase  m. \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{car\+\_\+config\+::\+R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} \{ 0.\+233 \}
@@ -35,35 +30,51 @@ constexpr double \hyperlink{namespacecar__config_ace29186cd9605cde6edd0fd9b814df
 \begin{DoxyCompactList}\small\item\em Width of all wheels  m. \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{car\+\_\+config\+::\+F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} \{ 0.\+23 \}
 \begin{DoxyCompactList}\small\item\em Distance between center of front wheels suspension  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} \{ W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER $\ast$ 3.\+14159265358979323846 \}
+constexpr double \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} \{ W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER $\ast$ PI \}
 \begin{DoxyCompactList}\small\item\em Perimeter of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a15ef5c54eaa890e38deadf5b4243cfb5}{car\+\_\+config\+::\+C\+A\+R\+\_\+\+M\+I\+N\+\_\+\+R\+A\+D\+I\+US} \{ 0.\+605 \}
+constexpr double \hyperlink{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{car\+\_\+config\+::\+T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US} \{ 0.\+605 \}
 \begin{DoxyCompactList}\small\item\em Minimal turning radius of car  m. \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} \{ 60000 \}
-\begin{DoxyCompactList}\small\item\em 1/min \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em revolutions per miunte of motor, divide through transmission to get wheel rpm  1/min \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{car\+\_\+config\+::\+M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} \{ 3 \}
 \begin{DoxyCompactList}\small\item\em number of electrical motor poles  none \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL} \{ M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL / M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES \}
-\begin{DoxyCompactList}\small\item\em 1/min \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em vesc calculates in electrical revolutions per minute  1/min \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \{ W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER $\ast$ M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from electrical rounds per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em conversion gain from electrical revolutions per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{car\+\_\+config\+::\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM} \{ 1 / E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED \}
-\begin{DoxyCompactList}\small\item\em conversion gain from meter per second to electrical rounds per minute  s/ (m $\ast$ minute) \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a7f7bf8deb89d8360f3c07f9f9a0c7faf}{car\+\_\+config\+::\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+P\+M\+\_\+\+O\+F\+F\+S\+ET} \{ 0 \}
-\item 
+\begin{DoxyCompactList}\small\item\em conversion gain from meter per second to electrical revolutions per minute  s/ (m $\ast$ minute) \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{car\+\_\+config\+::\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \{ W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from mechanical rounds per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em conversion gain from mechanical revolutions per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_abb6ef746663276219b321683dfbb8896}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET} \{ 0.\+5 \}
 \begin{DoxyCompactList}\small\item\em offset of the servo for normal wheel position  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN} \{ -\/3.\+14159265358979323846 / 3 \}
+constexpr double \hyperlink{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN} \{ -\/PI / 3 \}
 \begin{DoxyCompactList}\small\item\em conversion gain from steering angle to servo input  1/radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ 3.\+14159265358979323846 / 6 \}
+constexpr double \hyperlink{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ PI / 6 \}
 \begin{DoxyCompactList}\small\item\em radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{car\+\_\+config\+::\+M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ -\/3.\+14159265358979323846 / 6 \}
+constexpr double \hyperlink{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{car\+\_\+config\+::\+M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ -\/PI / 6 \}
 \begin{DoxyCompactList}\small\item\em radian \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{car\+\_\+config\+::\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON} \{ 20 \}
 \begin{DoxyCompactList}\small\item\em gear transmission inside the differential of the car  none \end{DoxyCompactList}\item 
 constexpr double \hyperlink{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \{ 1 \}
 \begin{DoxyCompactList}\small\item\em none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC} \{ M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES $\ast$ 2 $\ast$ 3.\+14159265358979323846 / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from electrical rounds per minute to radian to seconds  radian/s $\ast$ minute \end{DoxyCompactList}\end{DoxyCompactItemize}
+constexpr double \hyperlink{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC} \{ M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES $\ast$ 2 $\ast$ PI / 60 \}
+\begin{DoxyCompactList}\small\item\em conversion gain from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute \end{DoxyCompactList}\item 
+constexpr char \hyperlink{namespacecar__config_a6008524bf1090f0ab0c994b2f80dcb22}{car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/servo/position\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_afdb192c52a9126c0bedf2ca4a7c99c2a}{car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/motor/speed\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_ab3b957004ca9df19d509c984937723f7}{car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/motor/brake\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_1_1simulation_ad5b5204b67d98be9a93418b41f9c5e1e}{car\+\_\+config\+::simulation\+::\+W\+H\+E\+E\+L\+\_\+\+L\+E\+F\+T\+\_\+\+B\+A\+C\+K\+\_\+\+V\+E\+L\+O\+C\+I\+TY} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/racer/left\+\_\+wheel\+\_\+back\+\_\+velocity\+\_\+controller/command\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_1_1simulation_a13f0760806f194b285a499947ec01ae3}{car\+\_\+config\+::simulation\+::\+W\+H\+E\+E\+L\+\_\+\+L\+E\+F\+T\+\_\+\+F\+R\+O\+N\+T\+\_\+\+V\+E\+L\+O\+C\+I\+TY} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/racer/left\+\_\+wheel\+\_\+front\+\_\+velocity\+\_\+controller/command\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_1_1simulation_a824b4ee5d2b14eb92a017605678ada71}{car\+\_\+config\+::simulation\+::\+W\+H\+E\+E\+L\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+A\+C\+K\+\_\+\+V\+E\+L\+O\+C\+I\+TY} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/racer/right\+\_\+wheel\+\_\+back\+\_\+velocity\+\_\+controller/command\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_1_1simulation_ad0fb8a1c1f51bc790b995c81b07a04ea}{car\+\_\+config\+::simulation\+::\+W\+H\+E\+E\+L\+\_\+\+R\+I\+G\+H\+T\+\_\+\+F\+R\+O\+N\+T\+\_\+\+V\+E\+L\+O\+C\+I\+TY} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/racer/right\+\_\+wheel\+\_\+front\+\_\+velocity\+\_\+controller/command\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_1_1simulation_a0547cf8102d3f1d49eab8cc27c199247}{car\+\_\+config\+::simulation\+::\+L\+E\+F\+T\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/racer/left\+\_\+steering\+\_\+hinge\+\_\+position\+\_\+controller/command\char`\"{} \}
+\item 
+constexpr char \hyperlink{namespacecar__config_1_1simulation_a4f5267acab1b061953937bc84a7a6e28}{car\+\_\+config\+::simulation\+::\+R\+I\+G\+H\+T\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/racer/right\+\_\+steering\+\_\+hinge\+\_\+position\+\_\+controller/command\char`\"{} \}
+\end{DoxyCompactItemize}

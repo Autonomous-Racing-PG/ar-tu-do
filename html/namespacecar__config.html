@@ -108,14 +108,23 @@ $(document).ready(function(){initNavTree('namespacecar__config.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">car_config Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacecar__config_1_1simulation"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config_1_1simulation.html">simulation</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a90cb9957197db8924811c447bc98703a"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> { 3.14159265358979323846 }</td></tr>
+<tr class="memdesc:a90cb9957197db8924811c447bc98703a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is not possible to use &lt;cmath&gt; PI definition in constexpr. That is why it is defined here again.  <a href="#a90cb9957197db8924811c447bc98703a">More...</a><br /></td></tr>
+<tr class="separator:a90cb9957197db8924811c447bc98703a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e9e4925d43a88de91b13bedafabce67"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a4e9e4925d43a88de91b13bedafabce67">WHEELBASE</a> { 0.325 }</td></tr>
 <tr class="memdesc:a4e9e4925d43a88de91b13bedafabce67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between front and rear axis, wheelbase  m.  <a href="#a4e9e4925d43a88de91b13bedafabce67">More...</a><br /></td></tr>
 <tr class="separator:a4e9e4925d43a88de91b13bedafabce67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,42 +140,40 @@ Variables</h2></td></tr>
 <tr class="memitem:a80d9d6f97a63ffcaba87b65a9e1e29e4"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a80d9d6f97a63ffcaba87b65a9e1e29e4">FRONT_WHEEL_DISTANCE</a> { 0.23 }</td></tr>
 <tr class="memdesc:a80d9d6f97a63ffcaba87b65a9e1e29e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between center of front wheels suspension  m.  <a href="#a80d9d6f97a63ffcaba87b65a9e1e29e4">More...</a><br /></td></tr>
 <tr class="separator:a80d9d6f97a63ffcaba87b65a9e1e29e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46fe00906da07d2e030b586a634cd907"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a46fe00906da07d2e030b586a634cd907">WHEEL_PERIMETER</a> { <a class="el" href="namespacecar__config.html#a6f064e331d6d85d46028dfbe75f063dd">WHEEL_DIAMETER</a> * 3.14159265358979323846 }</td></tr>
+<tr class="memitem:a46fe00906da07d2e030b586a634cd907"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a46fe00906da07d2e030b586a634cd907">WHEEL_PERIMETER</a> { <a class="el" href="namespacecar__config.html#a6f064e331d6d85d46028dfbe75f063dd">WHEEL_DIAMETER</a> * <a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> }</td></tr>
 <tr class="memdesc:a46fe00906da07d2e030b586a634cd907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perimeter of all wheels  m.  <a href="#a46fe00906da07d2e030b586a634cd907">More...</a><br /></td></tr>
 <tr class="separator:a46fe00906da07d2e030b586a634cd907"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15ef5c54eaa890e38deadf5b4243cfb5"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a15ef5c54eaa890e38deadf5b4243cfb5">CAR_MIN_RADIUS</a> { 0.605 }</td></tr>
-<tr class="memdesc:a15ef5c54eaa890e38deadf5b4243cfb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimal turning radius of car  m.  <a href="#a15ef5c54eaa890e38deadf5b4243cfb5">More...</a><br /></td></tr>
-<tr class="separator:a15ef5c54eaa890e38deadf5b4243cfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe308ba7ae07f7bd5af7e79a095101a9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9">TURNING_RADIUS</a> { 0.605 }</td></tr>
+<tr class="memdesc:afe308ba7ae07f7bd5af7e79a095101a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimal turning radius of car  m.  <a href="#afe308ba7ae07f7bd5af7e79a095101a9">More...</a><br /></td></tr>
+<tr class="separator:afe308ba7ae07f7bd5af7e79a095101a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad35069a183782259c6280aa219b72ffa"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#ad35069a183782259c6280aa219b72ffa">MAX_RPM_MECHANICAL</a> { 60000 }</td></tr>
-<tr class="memdesc:ad35069a183782259c6280aa219b72ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">1/min  <a href="#ad35069a183782259c6280aa219b72ffa">More...</a><br /></td></tr>
+<tr class="memdesc:ad35069a183782259c6280aa219b72ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">revolutions per miunte of motor, divide through transmission to get wheel rpm  1/min  <a href="#ad35069a183782259c6280aa219b72ffa">More...</a><br /></td></tr>
 <tr class="separator:ad35069a183782259c6280aa219b72ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a611a0f02cf52db1d438a2dd53b642cd5"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> { 3 }</td></tr>
 <tr class="memdesc:a611a0f02cf52db1d438a2dd53b642cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of electrical motor poles  none  <a href="#a611a0f02cf52db1d438a2dd53b642cd5">More...</a><br /></td></tr>
 <tr class="separator:a611a0f02cf52db1d438a2dd53b642cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf4d6a90e2b9c983b0b0d29a584c399b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b">MAX_RPM_ELECTRICAL</a> { <a class="el" href="namespacecar__config.html#ad35069a183782259c6280aa219b72ffa">MAX_RPM_MECHANICAL</a> / <a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> }</td></tr>
-<tr class="memdesc:aaf4d6a90e2b9c983b0b0d29a584c399b"><td class="mdescLeft">&#160;</td><td class="mdescRight">1/min  <a href="#aaf4d6a90e2b9c983b0b0d29a584c399b">More...</a><br /></td></tr>
+<tr class="memdesc:aaf4d6a90e2b9c983b0b0d29a584c399b"><td class="mdescLeft">&#160;</td><td class="mdescRight">vesc calculates in electrical revolutions per minute  1/min  <a href="#aaf4d6a90e2b9c983b0b0d29a584c399b">More...</a><br /></td></tr>
 <tr class="separator:aaf4d6a90e2b9c983b0b0d29a584c399b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af33b95798967e7193927782fd91d36ce"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#af33b95798967e7193927782fd91d36ce">ERPM_TO_SPEED</a> { <a class="el" href="namespacecar__config.html#a46fe00906da07d2e030b586a634cd907">WHEEL_PERIMETER</a> * <a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> / 60 }</td></tr>
-<tr class="memdesc:af33b95798967e7193927782fd91d36ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from electrical rounds per minute to meter per second  m/s * minute  <a href="#af33b95798967e7193927782fd91d36ce">More...</a><br /></td></tr>
+<tr class="memdesc:af33b95798967e7193927782fd91d36ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from electrical revolutions per minute to meter per second  m/s * minute  <a href="#af33b95798967e7193927782fd91d36ce">More...</a><br /></td></tr>
 <tr class="separator:af33b95798967e7193927782fd91d36ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f37aa7e52366aebb006c6e1d3317900"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900">SPEED_TO_ERPM</a> { 1 / <a class="el" href="namespacecar__config.html#af33b95798967e7193927782fd91d36ce">ERPM_TO_SPEED</a> }</td></tr>
-<tr class="memdesc:a0f37aa7e52366aebb006c6e1d3317900"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from meter per second to electrical rounds per minute  s/ (m * minute)  <a href="#a0f37aa7e52366aebb006c6e1d3317900">More...</a><br /></td></tr>
+<tr class="memdesc:a0f37aa7e52366aebb006c6e1d3317900"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from meter per second to electrical revolutions per minute  s/ (m * minute)  <a href="#a0f37aa7e52366aebb006c6e1d3317900">More...</a><br /></td></tr>
 <tr class="separator:a0f37aa7e52366aebb006c6e1d3317900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f7bf8deb89d8360f3c07f9f9a0c7faf"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a7f7bf8deb89d8360f3c07f9f9a0c7faf">SPEED_TO_ERPM_OFFSET</a> { 0 }</td></tr>
-<tr class="separator:a7f7bf8deb89d8360f3c07f9f9a0c7faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee034b6adfd7932f245bc94d869f2bb6"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#aee034b6adfd7932f245bc94d869f2bb6">RPM_TO_SPEED</a> { <a class="el" href="namespacecar__config.html#a46fe00906da07d2e030b586a634cd907">WHEEL_PERIMETER</a> / 60 }</td></tr>
-<tr class="memdesc:aee034b6adfd7932f245bc94d869f2bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from mechanical rounds per minute to meter per second  m/s * minute  <a href="#aee034b6adfd7932f245bc94d869f2bb6">More...</a><br /></td></tr>
+<tr class="memdesc:aee034b6adfd7932f245bc94d869f2bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from mechanical revolutions per minute to meter per second  m/s * minute  <a href="#aee034b6adfd7932f245bc94d869f2bb6">More...</a><br /></td></tr>
 <tr class="separator:aee034b6adfd7932f245bc94d869f2bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb6ef746663276219b321683dfbb8896"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#abb6ef746663276219b321683dfbb8896">STEERING_TO_SERVO_OFFSET</a> { 0.5 }</td></tr>
 <tr class="memdesc:abb6ef746663276219b321683dfbb8896"><td class="mdescLeft">&#160;</td><td class="mdescRight">offset of the servo for normal wheel position  none  <a href="#abb6ef746663276219b321683dfbb8896">More...</a><br /></td></tr>
 <tr class="separator:abb6ef746663276219b321683dfbb8896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8ab85fe7b8ab728f34d15028f114d86"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#aa8ab85fe7b8ab728f34d15028f114d86">STEERING_TO_SERVO_GAIN</a> { -3.14159265358979323846 / 3 }</td></tr>
+<tr class="memitem:aa8ab85fe7b8ab728f34d15028f114d86"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#aa8ab85fe7b8ab728f34d15028f114d86">STEERING_TO_SERVO_GAIN</a> { -<a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 3 }</td></tr>
 <tr class="memdesc:aa8ab85fe7b8ab728f34d15028f114d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from steering angle to servo input  1/radian  <a href="#aa8ab85fe7b8ab728f34d15028f114d86">More...</a><br /></td></tr>
 <tr class="separator:aa8ab85fe7b8ab728f34d15028f114d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a967b325af26effe80fbbc64dc68a36a0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a967b325af26effe80fbbc64dc68a36a0">MAX_STEERING_ANGLE</a> { 3.14159265358979323846 / 6 }</td></tr>
+<tr class="memitem:a967b325af26effe80fbbc64dc68a36a0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a967b325af26effe80fbbc64dc68a36a0">MAX_STEERING_ANGLE</a> { <a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 6 }</td></tr>
 <tr class="memdesc:a967b325af26effe80fbbc64dc68a36a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">radian  <a href="#a967b325af26effe80fbbc64dc68a36a0">More...</a><br /></td></tr>
 <tr class="separator:a967b325af26effe80fbbc64dc68a36a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38229ce5d2e17e0c30b86864fb20d9ce"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a38229ce5d2e17e0c30b86864fb20d9ce">MIN_STEERING_ANGLE</a> { -3.14159265358979323846 / 6 }</td></tr>
+<tr class="memitem:a38229ce5d2e17e0c30b86864fb20d9ce"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a38229ce5d2e17e0c30b86864fb20d9ce">MIN_STEERING_ANGLE</a> { -<a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 6 }</td></tr>
 <tr class="memdesc:a38229ce5d2e17e0c30b86864fb20d9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">radian  <a href="#a38229ce5d2e17e0c30b86864fb20d9ce">More...</a><br /></td></tr>
 <tr class="separator:a38229ce5d2e17e0c30b86864fb20d9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7af97a6c9168673aba8917029cfe44d3"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3">TRANSMISSION</a> { 20 }</td></tr>
@@ -175,24 +182,56 @@ Variables</h2></td></tr>
 <tr class="memitem:af1712762f3ad9f8805ba474d5f3e7274"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#af1712762f3ad9f8805ba474d5f3e7274">MAX_SERVO_POSITION</a> { 1 }</td></tr>
 <tr class="memdesc:af1712762f3ad9f8805ba474d5f3e7274"><td class="mdescLeft">&#160;</td><td class="mdescRight">none  <a href="#af1712762f3ad9f8805ba474d5f3e7274">More...</a><br /></td></tr>
 <tr class="separator:af1712762f3ad9f8805ba474d5f3e7274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a877c4a772a47f4737d9f03fe8a22e106"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a877c4a772a47f4737d9f03fe8a22e106">ERPM_TO_RAD_PER_SEC</a> { <a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> * 2 * 3.14159265358979323846 / 60 }</td></tr>
-<tr class="memdesc:a877c4a772a47f4737d9f03fe8a22e106"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from electrical rounds per minute to radian to seconds  radian/s * minute  <a href="#a877c4a772a47f4737d9f03fe8a22e106">More...</a><br /></td></tr>
+<tr class="memitem:a877c4a772a47f4737d9f03fe8a22e106"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a877c4a772a47f4737d9f03fe8a22e106">ERPM_TO_RAD_PER_SEC</a> { <a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> * 2 * <a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 60 }</td></tr>
+<tr class="memdesc:a877c4a772a47f4737d9f03fe8a22e106"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion gain from electrical revolutions per minute to radian to seconds  radian/s * minute  <a href="#a877c4a772a47f4737d9f03fe8a22e106">More...</a><br /></td></tr>
 <tr class="separator:a877c4a772a47f4737d9f03fe8a22e106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6008524bf1090f0ab0c994b2f80dcb22"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#a6008524bf1090f0ab0c994b2f80dcb22">COMMAND_POSITION</a> [] { &quot;/commands/servo/position&quot; }</td></tr>
+<tr class="separator:a6008524bf1090f0ab0c994b2f80dcb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb192c52a9126c0bedf2ca4a7c99c2a"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#afdb192c52a9126c0bedf2ca4a7c99c2a">COMMAND_THROTTLE</a> [] { &quot;/commands/motor/speed&quot; }</td></tr>
+<tr class="separator:afdb192c52a9126c0bedf2ca4a7c99c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b957004ca9df19d509c984937723f7"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecar__config.html#ab3b957004ca9df19d509c984937723f7">COMMAND_BRAKE</a> [] { &quot;/commands/motor/brake&quot; }</td></tr>
+<tr class="separator:ab3b957004ca9df19d509c984937723f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a15ef5c54eaa890e38deadf5b4243cfb5"></a>
+<a class="anchor" id="ab3b957004ca9df19d509c984937723f7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double car_config::CAR_MIN_RADIUS { 0.605 }</td>
+          <td class="memname">constexpr char car_config::COMMAND_BRAKE[] { &quot;/commands/motor/brake&quot; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Minimal turning radius of car  m. </p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00133">133</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00047">47</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a6008524bf1090f0ab0c994b2f80dcb22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char car_config::COMMAND_POSITION[] { &quot;/commands/servo/position&quot; }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00131">131</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afdb192c52a9126c0bedf2ca4a7c99c2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char car_config::COMMAND_THROTTLE[] { &quot;/commands/motor/speed&quot; }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00132">132</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -201,14 +240,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double car_config::ERPM_TO_RAD_PER_SEC { <a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> * 2 * 3.14159265358979323846 / 60 }</td>
+          <td class="memname">constexpr double car_config::ERPM_TO_RAD_PER_SEC { <a class="el" href="namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5">MOTOR_POLES</a> * 2 * <a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 60 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>conversion gain from electrical rounds per minute to radian to seconds  radian/s * minute </p>
+<p>conversion gain from electrical revolutions per minute to radian to seconds  radian/s * minute </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00131">131</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00129">129</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -222,9 +261,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>conversion gain from electrical rounds per minute to meter per second  m/s * minute </p>
+<p>conversion gain from electrical revolutions per minute to meter per second  m/s * minute </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00071">71</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00075">75</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -240,7 +279,7 @@ Variables</h2></td></tr>
 
 <p>Distance between center of front wheels suspension  m. </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00035">35</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00039">39</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -254,9 +293,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>1/min </p>
+<p>vesc calculates in electrical revolutions per minute  1/min </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00065">65</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00069">69</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -270,9 +309,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>1/min </p>
+<p>revolutions per miunte of motor, divide through transmission to get wheel rpm  1/min </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00053">53</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00057">57</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +327,7 @@ Variables</h2></td></tr>
 
 <p>none </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00125">125</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00123">123</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -297,14 +336,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double car_config::MAX_STEERING_ANGLE { 3.14159265358979323846 / 6 }</td>
+          <td class="memname">constexpr double car_config::MAX_STEERING_ANGLE { <a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 6 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>radian </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00107">107</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00105">105</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -313,14 +352,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double car_config::MIN_STEERING_ANGLE { -3.14159265358979323846 / 6 }</td>
+          <td class="memname">constexpr double car_config::MIN_STEERING_ANGLE { -<a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 6 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>radian </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00113">113</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00111">111</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +375,23 @@ Variables</h2></td></tr>
 
 <p>number of electrical motor poles  none </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00059">59</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00063">63</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90cb9957197db8924811c447bc98703a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double car_config::PI { 3.14159265358979323846 }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It is not possible to use &lt;cmath&gt; PI definition in constexpr. That is why it is defined here again. </p>
+
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00009">9</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +407,7 @@ Variables</h2></td></tr>
 
 <p>Distance between center of rear wheels suspension  m. </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00017">17</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00021">21</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -366,9 +421,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>conversion gain from mechanical rounds per minute to meter per second  m/s * minute </p>
+<p>conversion gain from mechanical revolutions per minute to meter per second  m/s * minute </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00089">89</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00087">87</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -382,25 +437,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>conversion gain from meter per second to electrical rounds per minute  s/ (m * minute) </p>
+<p>conversion gain from meter per second to electrical revolutions per minute  s/ (m * minute) </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00077">77</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7f7bf8deb89d8360f3c07f9f9a0c7faf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double car_config::SPEED_TO_ERPM_OFFSET { 0 }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p></p>
-
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00083">83</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00081">81</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -409,14 +448,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double car_config::STEERING_TO_SERVO_GAIN { -3.14159265358979323846 / 3 }</td>
+          <td class="memname">constexpr double car_config::STEERING_TO_SERVO_GAIN { -<a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> / 3 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>conversion gain from steering angle to servo input  1/radian </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00101">101</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00099">99</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -432,7 +471,7 @@ Variables</h2></td></tr>
 
 <p>offset of the servo for normal wheel position  none </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00095">95</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00093">93</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +487,23 @@ Variables</h2></td></tr>
 
 <p>gear transmission inside the differential of the car  none </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00119">119</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00117">117</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe308ba7ae07f7bd5af7e79a095101a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double car_config::TURNING_RADIUS { 0.605 }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minimal turning radius of car  m. </p>
+
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00051">51</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -464,7 +519,7 @@ Variables</h2></td></tr>
 
 <p>Diameter of all wheels  m. </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00023">23</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00027">27</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -473,14 +528,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double car_config::WHEEL_PERIMETER { <a class="el" href="namespacecar__config.html#a6f064e331d6d85d46028dfbe75f063dd">WHEEL_DIAMETER</a> * 3.14159265358979323846 }</td>
+          <td class="memname">constexpr double car_config::WHEEL_PERIMETER { <a class="el" href="namespacecar__config.html#a6f064e331d6d85d46028dfbe75f063dd">WHEEL_DIAMETER</a> * <a class="el" href="namespacecar__config.html#a90cb9957197db8924811c447bc98703a">PI</a> }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Perimeter of all wheels  m. </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00041">41</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00045">45</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -496,7 +551,7 @@ Variables</h2></td></tr>
 
 <p>Width of all wheels  m. </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00029">29</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00033">33</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>
@@ -512,7 +567,7 @@ Variables</h2></td></tr>
 
 <p>Distance between front and rear axis, wheelbase  m. </p>
 
-<p>Definition at line <a class="el" href="car__config_8h_source.html#l00011">11</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
+<p>Definition at line <a class="el" href="car__config_8h_source.html#l00015">15</a> of file <a class="el" href="car__config_8h_source.html">car_config.h</a>.</p>
 
 </div>
 </div>

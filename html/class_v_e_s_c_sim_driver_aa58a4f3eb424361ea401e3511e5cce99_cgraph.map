@@ -1,5 +1,0 @@
-<map id="VESCSimDriver::motorSpeedCallback" name="VESCSimDriver::motorSpeedCallback">
-<area shape="rect" id="node2" href="$class_v_e_s_c_sim.html#a6f00c4bda1f0aa28ff7bd179edcdadf7" title="VESCSim::setSpeed" alt="" coords="248,31,393,57"/>
-<area shape="rect" id="node3" href="$class_v_e_s_c_sim.html#a8902b3265bc0246c27b54378126056a5" title="VESCSim::start" alt="" coords="441,5,557,32"/>
-<area shape="rect" id="node4" href="$class_v_e_s_c_sim.html#ace0699694b1fbd9d11260de7dc896a39" title="VESCSim::stop" alt="" coords="442,56,557,83"/>
-</map>

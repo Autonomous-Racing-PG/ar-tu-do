@@ -1,5 +1,0 @@
-<map id="VESCSim::setSpeed" name="VESCSim::setSpeed">
-<area shape="rect" id="node2" href="$class_v_e_s_c_sim_driver.html#aa58a4f3eb424361ea401e3511e5cce99" title="Callback for ROS Subscriber. " alt="" coords="199,5,393,47"/>
-<area shape="rect" id="node4" href="$class_v_e_s_c_sim_driver.html#acb0a56fef66759254790949f4f689a29" title="Callback for ROS Subscriber. " alt="" coords="200,71,392,112"/>
-<area shape="rect" id="node3" href="$class_v_e_s_c_sim_driver.html#a3b2c2842a1d615f61c5edfa9664e41aa" title="Constructor creates subscriber and publisher. " alt="" coords="441,46,661,73"/>
-</map>

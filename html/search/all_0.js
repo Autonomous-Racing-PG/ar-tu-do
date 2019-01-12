@@ -5,6 +5,5 @@ var searchData=
   ['acceleration',['ACCELERATION',['../keyboard__controller_8h.html#a7f06f2775e2c7469140a29018ae10261',1,'keyboard_controller.h']]],
   ['autonomous_5fcontrol_2ecpp',['autonomous_control.cpp',['../autonomous__control_8cpp.html',1,'']]],
   ['autonomouscontrol',['AutonomousControl',['../class_autonomous_control.html',1,'AutonomousControl'],['../class_autonomous_control.html#ac8b9e9c63918a3bf086bfefaf502a5fb',1,'AutonomousControl::AutonomousControl()']]],
-  ['axis_5fdistance',['AXIS_DISTANCE',['../drive__param__converter_8cpp.html#ad9c49aeba3089a6743a3650b885b5b18',1,'drive_param_converter.cpp']]],
   ['autonomous_20racing_20project_20group',['Autonomous Racing Project Group',['../index.html',1,'']]]
 ];

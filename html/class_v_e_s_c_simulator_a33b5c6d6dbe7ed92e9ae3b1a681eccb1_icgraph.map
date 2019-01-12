@@ -1,0 +1,4 @@
+<map id="VESCSimulator::setServoAngle" name="VESCSimulator::setServoAngle">
+<area shape="rect" id="node2" href="$class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310" title="Callback for ROS Subscriber. " alt="" coords="260,5,420,47"/>
+<area shape="rect" id="node3" href="$class_v_e_s_c_simulation_driver.html#a49b5e654b892018b9c9eecfb7f06485a" title="Constructor that creates subscribers and publishers. " alt="" coords="468,5,631,47"/>
+</map>
