@@ -130,7 +130,7 @@ namespace car_config
 
     constexpr char COMMAND_POSITION[]{ "/commands/servo/position" };
     constexpr char COMMAND_THROTTLE[]{ "/commands/motor/speed" };
-    constexpr char COMMAND_BRAKE[]{ "/commands/motor/brke" };
+    constexpr char COMMAND_BRAKE[]{ "/commands/motor/brake" };
 
     namespace simulation
     {
