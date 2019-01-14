@@ -8,7 +8,7 @@
 // How often the dead mans switch is checked. in Hz
 constexpr const int DMS_CHECK_RATE = 20;
 
-// How old the last dead mans swtich check can be. in ms
+// How old the last dead mans switch check can be. in ms
 constexpr const int DMS_EXPIRATION = 100;
 
 class DMSController

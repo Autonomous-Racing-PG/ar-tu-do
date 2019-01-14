@@ -7,8 +7,9 @@
  */
 JoystickController::JoystickController()
 {
-    this->m_drive_parameter_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->dms_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DMS, 1);
+    this->m_drive_parameter_publisher =
+        this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    this->m_dms_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DMS, 1);
 
     this->m_joystick_subscriber =
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
@@ -36,7 +37,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
         std_msgs::Int64 dms_message;
         dms_message.data = timestamp;
 
-        this->dms_publisher.publish(dms_message);
+        this->m_dms_publisher.publish(dms_message);
     }
 
     // compute and publish angle and velocity
@@ -47,7 +48,8 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 
     // Detect if the button was pressed since the last reading
     bool invert_toggle_button = joystick->buttons[JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING] == 1;
-    if (invert_toggle_button && !this->m_toggle_invert_steering_state) {
+    if (invert_toggle_button && !this->m_toggle_invert_steering_state)
+    {
         this->m_invert_steering = !this->m_invert_steering;
     }
     this->m_toggle_invert_steering_state = invert_toggle_button;

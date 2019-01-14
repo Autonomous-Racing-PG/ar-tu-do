@@ -24,10 +24,10 @@ class JoystickController
     ros::NodeHandle m_node_handle;
     ros::Publisher m_drive_parameter_publisher;
     ros::Subscriber m_joystick_subscriber;
-    ros::Publisher dms_publisher;
+    ros::Publisher m_dms_publisher;
 
     bool m_invert_steering = false;
-    
+
     bool m_toggle_invert_steering_state = false;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);

@@ -18,19 +18,19 @@ class CarController
     CarController();
 
     private:
-    ros::NodeHandle node_handle;
+    ros::NodeHandle m_node_handle;
 
-    ros::Subscriber drive_parameters_subscriber;
-    ros::Subscriber command_subscriber;
+    ros::Subscriber m_drive_parameters_subscriber;
+    ros::Subscriber m_command_subscriber;
 
-    ros::Publisher speed_pulisher;
-    ros::Publisher angle_publisher;
-    ros::Publisher break_publisher;
+    ros::Publisher m_speed_pulisher;
+    ros::Publisher m_angle_publisher;
+    ros::Publisher m_break_publisher;
 
-    bool enabled;
+    bool m_enabled;
 
     /**
-     * @brief works wihh incomming drive param messages
+     * @brief deals with incomming drive param messages
      *
      * @param parameters
      */
