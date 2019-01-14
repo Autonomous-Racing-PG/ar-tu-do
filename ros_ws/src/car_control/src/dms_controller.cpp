@@ -1,0 +1,69 @@
+#include "dms_controller.h"
+
+#include "car_control.h"
+
+/**
+ * Class constructor that sets up a subscriber that listens for dms messages.
+ * */
+DMSController::DMSController()
+{
+    this->m_dms_subscriber =
+        this->m_node_handle.subscribe<std_msgs::Int64>(TOPIC_DMS, 1, &DMSController::dmsCallback, this);
+
+    this->m_command_pulisher = this->m_node_handle.advertise<std_msgs::String>(TOPIC_COMMAND, 1);
+}
+
+void DMSController::checkDMS()
+{
+    struct timeval time_struct;
+    gettimeofday(&time_struct, NULL);
+    long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
+
+    if (m_running)
+    {
+        // switch is triggered
+
+        if (m_last_dms_message_received + DMS_EXPIRATION < timestamp)
+        {
+            // switch is not triggered anymode
+            m_running = false;
+            std_msgs::String command_message;
+            command_message.data = COMMAND_STOP;
+            this->m_command_pulisher.publish(command_message);
+        }
+    }
+    else
+    {
+        // switch is not triggered
+
+        if (m_last_dms_message_received + DMS_EXPIRATION >= timestamp)
+        {
+
+            // switch is is triggered again
+            m_running = true;
+            std_msgs::String command_message;
+            command_message.data = COMMAND_GO;
+            this->m_command_pulisher.publish(command_message);
+        }
+    }
+}
+
+void DMSController::dmsCallback(const std_msgs::Int64::ConstPtr& dms_message)
+{
+    this->m_last_dms_message_received = dms_message->data;
+}
+
+int main(int argc, char** argv)
+{
+    ros::init(argc, argv, "dms_controller");
+    DMSController dmsController;
+
+    ros::Rate loop_rate(DMS_CHECK_RATE);
+    while (ros::ok())
+    {
+        dmsController.checkDMS();
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
+    return EXIT_SUCCESS;
+}

@@ -42,6 +42,11 @@ add_executable(car_controller src/car_controller.cpp)
 target_link_libraries(car_controller ${catkin_LIBRARIES})
 add_dependencies(car_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+# Declare dms controller node executable
+add_executable(dms_controller src/dms_controller.cpp)
+target_link_libraries(dms_controller ${catkin_LIBRARIES})
+add_dependencies(dms_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 
 #############
 ## Testing ##
