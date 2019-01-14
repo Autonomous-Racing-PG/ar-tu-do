@@ -109,7 +109,8 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <p><a href="https://travis-ci.com/Autonomous-Racing-PG/ros.package"></a></p>
 <h2>Getting Started</h2>
 <p>These instructions will get you a copy of the project up and running</p>
-<h3>Move to ROS Workspace</h3>
+<h3>Clone the Project</h3>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package.git arpg</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd arpg</div></div><!-- fragment --><h3>Move to ROS Workspace</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ros_ws</div></div><!-- fragment --><h3>Build ROS packages</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><h3>Run routines</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash (or setup.zsh)</div></div><!-- fragment --><p>Now several routines can be started by executing the launch-files inside the <b>launch/</b> directory. E.g.</p>
@@ -120,7 +121,7 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <li>For source code documentation checkout the auto-generated <a href="https://autonomous-racing-pg.github.io/ros.package/html/index.html">Doxygen documentation</a>.</li>
 </ul>
 <h2>License</h2>
-<p>This project is licensed under the MIT and GPLv3 dual licensed - see the <a href="MIT.LICENSE">MIT.LICENSE</a> and <a href="GPLv3.LICENSE">GPLv3.LICENSE</a> file for details</p>
+<p>This project (exluded git submodules) is licensed under the MIT and GPLv3 dual licensed - see the <a href="MIT.LICENSE">MIT.LICENSE</a> and <a href="GPLv3.LICENSE">GPLv3.LICENSE</a> file for details</p>
 <h2>Acknowledgments</h2>
 <ul>
 <li>TU Dortmund </li>
