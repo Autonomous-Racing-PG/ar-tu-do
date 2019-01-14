@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['emergencystop',['emergencyStop',['../wall__following_8cpp.html#a7ecd75e069fc3f33433eb587a4d78551',1,'wall_following.cpp']]]
+  ['dmscontroller',['DMSController',['../class_d_m_s_controller.html#acf8a9f7eb6ca02674679d5205253a0f9',1,'DMSController']]]
 ];

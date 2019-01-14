@@ -7,5 +7,6 @@ var joystick__controller_8h =
     [ "JOYSTICK_AXIS_THROTTLE", "joystick__controller_8h.html#a4a1f30f2162bb35da976d5c76e6826ed", null ],
     [ "JOYSTICK_BUTTON_DEADMANSSWITCH", "joystick__controller_8h.html#a43bd0c7ab3c80b971c22e697f482f482", null ],
     [ "JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING", "joystick__controller_8h.html#a7bb08742344a2055c3decbb041e1422f", null ],
+    [ "TOPIC_DMS", "joystick__controller_8h.html#a1e56417499d1048f130bc194015c7bef", null ],
     [ "TOPIC_DRIVE_PARAMETERS", "joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839", null ]
 ];

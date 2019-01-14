@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['test',['TEST',['../test__car__control_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9',1,'TEST(dummy_test, dummy_test_01):&#160;test_car_control.cpp'],['../test__car__control_8cpp.html#a6accdba7cce21b4fbadc9847942eccee',1,'TEST(dummy_test, dummy_test_02):&#160;test_car_control.cpp']]]
+  ['servopositioncallback',['servoPositionCallback',['../class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310',1,'VESCSimulationDriver']]],
+  ['setservoangle',['setServoAngle',['../class_v_e_s_c_simulator.html#a33b5c6d6dbe7ed92e9ae3b1a681eccb1',1,'VESCSimulator']]],
+  ['setspeed',['setSpeed',['../class_v_e_s_c_simulator.html#aaeff43c35fda29fb69663ff2f6b51f42',1,'VESCSimulator']]],
+  ['start',['start',['../class_v_e_s_c_simulator.html#a2e504297f7502495288ff5d3b52996cc',1,'VESCSimulator']]],
+  ['stop',['stop',['../class_v_e_s_c_simulator.html#acedf3f278185433895371203f0f31127',1,'VESCSimulator']]]
 ];

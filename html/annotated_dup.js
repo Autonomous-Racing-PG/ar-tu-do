@@ -3,6 +3,7 @@ var annotated_dup =
     [ "car_config", "namespacecar__config.html", null ],
     [ "AutonomousControl", "class_autonomous_control.html", "class_autonomous_control" ],
     [ "CarController", "class_car_controller.html", "class_car_controller" ],
+    [ "DMSController", "class_d_m_s_controller.html", "class_d_m_s_controller" ],
     [ "JoystickController", "class_joystick_controller.html", "class_joystick_controller" ],
     [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ],
     [ "RacerOdometry", "class_racer_odometry.html", "class_racer_odometry" ],
