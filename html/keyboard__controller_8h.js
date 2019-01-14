@@ -20,6 +20,7 @@ var keyboard__controller_8h =
     [ "FAST_STEER_LIMIT", "keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87", null ],
     [ "KEY_CODES", "keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc", null ],
     [ "KEY_COUNT", "keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5", null ],
+    [ "MAX_THROTTLE", "keyboard__controller_8h.html#a670fdc7f227b3ed454e9e4b01d9bf117", null ],
     [ "PARAMETER_UPDATE_FREQUENCY", "keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c", null ],
     [ "STEERING_GRAVITY", "keyboard__controller_8h.html#a8cfb8f83cd91665c0b18f3e213edf672", null ],
     [ "STEERING_SPEED", "keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5", null ],

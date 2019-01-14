@@ -181,11 +181,11 @@ Variables</h2></td></tr>
 <tr class="separator:a2c20c56647297ef05c4808bbb77b05dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d3197843880cb61cbecb5379db066c"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c">PARAMETER_UPDATE_FREQUENCY</a> = 90</td></tr>
 <tr class="separator:a87d3197843880cb61cbecb5379db066c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9063d7d546c70bfc9b5f9d575b594c5"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5">STEERING_SPEED</a> = 2.5</td></tr>
+<tr class="memitem:ad9063d7d546c70bfc9b5f9d575b594c5"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5">STEERING_SPEED</a> = 6</td></tr>
 <tr class="separator:ad9063d7d546c70bfc9b5f9d575b594c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f06f2775e2c7469140a29018ae10261"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a7f06f2775e2c7469140a29018ae10261">ACCELERATION</a> = 3</td></tr>
+<tr class="memitem:a7f06f2775e2c7469140a29018ae10261"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a7f06f2775e2c7469140a29018ae10261">ACCELERATION</a> = 0.4</td></tr>
 <tr class="separator:a7f06f2775e2c7469140a29018ae10261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d69992cbd260ed0f86a4e5fd735d4e"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ae3d69992cbd260ed0f86a4e5fd735d4e">BRAKING</a> = 8</td></tr>
+<tr class="memitem:ae3d69992cbd260ed0f86a4e5fd735d4e"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ae3d69992cbd260ed0f86a4e5fd735d4e">BRAKING</a> = 2</td></tr>
 <tr class="separator:ae3d69992cbd260ed0f86a4e5fd735d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a615bf3b38c23cb483977c1943449ce87"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87">FAST_STEER_LIMIT</a> = 0.6</td></tr>
 <tr class="separator:a615bf3b38c23cb483977c1943449ce87"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,6 +193,8 @@ Variables</h2></td></tr>
 <tr class="separator:a8cfb8f83cd91665c0b18f3e213edf672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e74cb464c171072d0130141d519a3b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b">THROTTLE_GRAVITY</a> = 3</td></tr>
 <tr class="separator:ac0e74cb464c171072d0130141d519a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670fdc7f227b3ed454e9e4b01d9bf117"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a670fdc7f227b3ed454e9e4b01d9bf117">MAX_THROTTLE</a> = 0.25</td></tr>
+<tr class="separator:a670fdc7f227b3ed454e9e4b01d9bf117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07"></a>
@@ -269,7 +271,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double ACCELERATION = 3</td>
+          <td class="memname">constexpr double ACCELERATION = 0.4</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -283,7 +285,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double BRAKING = 8</td>
+          <td class="memname">constexpr double BRAKING = 2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,6 +336,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a670fdc7f227b3ed454e9e4b01d9bf117"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double MAX_THROTTLE = 0.25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00055">55</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a87d3197843880cb61cbecb5379db066c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -367,7 +383,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double STEERING_SPEED = 2.5</td>
+          <td class="memname">constexpr double STEERING_SPEED = 6</td>
         </tr>
       </table>
 </div><div class="memdoc">
