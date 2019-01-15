@@ -4,7 +4,8 @@
 Launches all necessary nodes that let the user control the car with the keyboard and/or gamepad.
 -->
 
-  <arg name="invert_steering" default="true"/>
+  <!-- valid options are: ps3 , xbox360 -->
+  <arg name="gamepad_type" default="xbox360"/>
 
     <!-- remote joy -->
     <node
@@ -12,8 +13,8 @@ Launches all necessary nodes that let the user control the car with the keyboard
       pkg="teleoperation"
       type="joystick_controller"
       name="joystick_controller"
-      output="log" >
-      <param name="invert_steering" type="bool" value ="$(arg invert_steering)" />
+      output="screen" >
+      <param name="gamepad_type" type="string" value ="$(arg gamepad_type)" />
     </node>
 
     <!-- joy node -->

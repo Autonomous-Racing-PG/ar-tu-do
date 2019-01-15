@@ -1,5 +1,8 @@
 #include "joystick_controller.h"
+#include "joystick_map_xbox360.h"
+#include "joystick_map_ps3.h"
 
+#include <ros/console.h>
 #include <std_msgs/Int64.h>
 
 /**
@@ -14,8 +17,21 @@ JoystickController::JoystickController()
     this->m_joystick_subscriber =
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
 
+
+    // get the provided gamepad type
     ros::NodeHandle private_node_handle("~");
-    private_node_handle.getParam(INVERT_STEERING_PARAMETER, this->m_invert_steering);
+    private_node_handle.getParam(GAMEPAD_TYPE_PARAMETER, this->m_gamepad_type);
+
+    // load joystick map for the provided gamepad type
+    ROS_ASSERT_MSG(m_gamepad_type != "xbox360" || m_gamepad_type != "ps3", "Gamepad type should be xbox360 or ps3");
+    if (m_gamepad_type == "xbox360")
+    {
+        m_joystick_map = new JoystickMapXbox360();
+    }
+    else if (m_gamepad_type == "ps3")
+    {
+        m_joystick_map = new JoystickMapPs3();
+    }
 }
 
 /**
@@ -28,8 +44,7 @@ JoystickController::JoystickController()
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
     // check if dms button is pressed. if yes -> send dms_message
-    int dms_button_value = joystick->buttons[JOYSTICK_BUTTON_DEADMANSSWITCH];
-    if (dms_button_value == 1) // 1 if button is pressed
+    if (m_joystick_map->isDeadMansSwitchPressed(joystick))
     {
         auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
         auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
@@ -40,19 +55,12 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
         this->m_dms_publisher.publish(dead_mans_switch_message);
     }
 
-    // compute and publish angle and velocity
-    double steering_angle = joystick->axes[JOYSTICK_AXIS_STEERING] * -1.0f;
-    double velocity = (joystick->axes[JOYSTICK_AXIS_THROTTLE] - 1) * -0.5f;
+    // compute and publish the provided steering and velocity
+    float acceleration = m_joystick_map->getAcceleration(joystick) * ACCELERATION_SCALING_FACTOR;
+    float deceleration = m_joystick_map->getDeceleration(joystick) * DECELERATION_SCALING_FACTOR;
+    float steering_angle = m_joystick_map->getSteeringAxis(joystick) * STEERING_SCALING_FACTOR;
 
-    this->publishDriveParameters(velocity, steering_angle);
-
-    // Detect if the button was pressed since the last reading
-    bool invert_toggle_button = joystick->buttons[JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING] == 1;
-    if (invert_toggle_button && !this->m_toggle_invert_steering_state)
-    {
-        this->m_invert_steering = !this->m_invert_steering;
-    }
-    this->m_toggle_invert_steering_state = invert_toggle_button;
+    this->publishDriveParameters(acceleration - deceleration, steering_angle);
 }
 
 /**

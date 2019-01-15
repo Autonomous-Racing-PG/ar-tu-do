@@ -5,16 +5,31 @@
 #include <chrono>
 #include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
+#include <string>
 
-constexpr int JOYSTICK_AXIS_STEERING = 0;
-constexpr int JOYSTICK_AXIS_THROTTLE = 5;
-constexpr int JOYSTICK_AXIS_REVERSE = 2;
-constexpr int JOYSTICK_BUTTON_DEADMANSSWITCH = 0;
-constexpr int JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING = 2;
+#include "joystick_map.h"
 
 constexpr const char* INVERT_STEERING_PARAMETER = "invert_steering";
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
 constexpr const char* TOPIC_DMS = "/set/dms";
+
+/**
+ * @brief scales the absolute acceleration provided by the joystick.
+ * Usefull if the car should not drive with 100% speed if acceleration button is fully pressed
+ */
+constexpr float ACCELERATION_SCALING_FACTOR = 0.1f;
+
+/**
+ * @brief scales the absolute deceleration provided by the joystick.
+ * Usefull if the car should not decelerate with 100% speed if deceleration button is fully pressed
+ */
+constexpr float DECELERATION_SCALING_FACTOR = 0.1f;
+
+/**
+ * @brief scales the absolute steering value (between -1 and 1) provided by the joystick.
+ * Usefull if the car should not steer 100% left and right
+ */
+constexpr float STEERING_SCALING_FACTOR = 0.8f;
 
 class JoystickController
 {
@@ -27,9 +42,9 @@ class JoystickController
     ros::Subscriber m_joystick_subscriber;
     ros::Publisher m_dms_publisher;
 
-    bool m_invert_steering = false;
+    std::string m_gamepad_type = "ps3";
 
-    bool m_toggle_invert_steering_state = false;
+    JoystickMap* m_joystick_map;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
     void publishDriveParameters(double velocity, double steering_angle);
