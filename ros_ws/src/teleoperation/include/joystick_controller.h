@@ -12,7 +12,7 @@ constexpr int JOYSTICK_BUTTON_DEADMANSSWITCH = 0;
 constexpr int JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING = 2;
 
 constexpr const char* INVERT_STEERING_PARAMETER = "invert_steering";
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param_joystick";
 constexpr const char* TOPIC_DMS = "/set/dms";
 
 class JoystickController

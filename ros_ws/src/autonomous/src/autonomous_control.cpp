@@ -26,7 +26,7 @@ AutonomousControl::AutonomousControl()
 {
     m_pid_input =
         m_node_handle.subscribe<drive_msgs::pid_input>("/pid_input", 1, &AutonomousControl::pid_callback, this);
-    drive_param_publisher = m_node_handle.advertise<drive_msgs::drive_param>("/set/drive_param", 1);
+    drive_param_publisher = m_node_handle.advertise<drive_msgs::drive_param>("/set/drive_param_wallfollowing", 1);
 }
 
 /**
