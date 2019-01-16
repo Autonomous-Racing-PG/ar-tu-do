@@ -7,7 +7,7 @@ long int getTime() {
     return time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
 }
 
-DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const char* topic, std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)> update_callback, int priority, double timeout)
+DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const char* topic, DriveParameterCallbackFunction update_callback, int priority, double timeout)
 {
     this->m_drive_parameters_subscriber = node_handle->subscribe<drive_msgs::drive_param>(topic, 1, &DriveParametersSource::driveParametersCallback, this);
     this->m_priority = priority;

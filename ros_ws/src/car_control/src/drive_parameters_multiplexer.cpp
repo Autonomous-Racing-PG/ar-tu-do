@@ -10,11 +10,19 @@ DriveParametersMultiplexer::DriveParametersMultiplexer()
     this->m_sources.push_back(new DriveParametersSource(&this->m_node_handle, "/set/drive_param_wallfollowing", callback, 0, 0.1));
 }
 
+DriveParametersMultiplexer::~DriveParametersMultiplexer()
+{
+    for (auto source : this->m_sources) {
+        delete source;
+    }
+}
+
+
 bool DriveParametersMultiplexer::validateSource(DriveParametersSource* source) {
     return this->m_last_updated_source == NULL
         || this->m_last_updated_source == source
         || this->m_last_updated_source->isOutdated()
-        || (this->m_last_updated_source->isIdle() && !source->isIdle())
+        || (!source->isIdle() && this->m_last_updated_source->isIdle())
         || (!source->isIdle() && this->m_last_updated_source->getPriority() < source->getPriority());
 }
 

@@ -15,17 +15,14 @@ class DriveParametersMultiplexer
 {
     public:
     DriveParametersMultiplexer();
+    ~DriveParametersMultiplexer();
 
     private:
     ros::NodeHandle m_node_handle;
 
     std::vector<DriveParametersSource*> m_sources;
-
     DriveParametersSource* m_last_updated_source;
-
     ros::Publisher m_drive_parameters_publisher;
-
-    bool m_enabled;
 
     bool validateSource(DriveParametersSource* source);
     void onUpdate(DriveParametersSource* source, const drive_msgs::drive_param::ConstPtr& message);
