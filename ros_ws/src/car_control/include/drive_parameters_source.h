@@ -3,11 +3,12 @@
 #include <ros/ros.h>
 
 #include <drive_msgs/drive_param.h>
-#include <std_msgs/Float64.h>
 #include <functional>
+#include <std_msgs/Float64.h>
 
 class DriveParametersSource;
-typedef std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)> DriveParameterCallbackFunction;
+typedef std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)>
+    DriveParameterCallbackFunction;
 
 /*
 *  This node subscribes to all publishers drive_param messages and selects one to forward to the car controller
@@ -15,8 +16,9 @@ typedef std::function<void(DriveParametersSource*, const drive_msgs::drive_param
 class DriveParametersSource
 {
     public:
-    DriveParametersSource(ros::NodeHandle* node_handle, const char* topic, DriveParameterCallbackFunction update_callback, int priority, double timeout);
-    
+    DriveParametersSource(ros::NodeHandle* node_handle, const char* topic,
+                          DriveParameterCallbackFunction update_callback, int priority, double timeout);
+
     bool isOutdated();
     bool isIdle();
     int getPriority();
