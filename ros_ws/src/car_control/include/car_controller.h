@@ -25,7 +25,7 @@ class CarController
 
     ros::Publisher m_speed_pulisher;
     ros::Publisher m_angle_publisher;
-    ros::Publisher m_break_publisher;
+    ros::Publisher m_brake_publisher;
 
     bool m_enabled;
 

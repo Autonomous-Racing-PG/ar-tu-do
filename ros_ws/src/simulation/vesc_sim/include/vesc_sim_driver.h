@@ -40,7 +40,7 @@ class VESCSimulationDriver
     /**
      * @brief Callback for ROS Subscriber
      *
-     * @param motor_break
+     * @param motor_brake
      */
     void motorBrakeCallback(const std_msgs::Float64::ConstPtr& motor_brake);
 
@@ -83,8 +83,8 @@ class VESCSimulationDriver
     ros::Subscriber m_motor_speed_subscriber;
 
     /**
-     * @brief ROS Subscriber for break messages
-     * TOPIC: "/commands/motor/break"
+     * @brief ROS Subscriber for brake messages
+     * TOPIC: "/commands/motor/brake"
      */
     ros::Subscriber m_motor_brake_subscriber;
 
