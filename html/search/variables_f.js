@@ -9,8 +9,6 @@ var searchData=
   ['topic_5ffocbox_5fangle',['TOPIC_FOCBOX_ANGLE',['../car__control_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7',1,'car_control.h']]],
   ['topic_5ffocbox_5fbreak',['TOPIC_FOCBOX_BREAK',['../car__control_8h.html#a69a247d3247345f4a20d06e1df825ce2',1,'car_control.h']]],
   ['topic_5ffocbox_5fspeed',['TOPIC_FOCBOX_SPEED',['../car__control_8h.html#a913c683c9209599c259aaebae91b557e',1,'car_control.h']]],
-  ['topic_5fgazebo_5fodom',['TOPIC_GAZEBO_ODOM',['../racer__odometry_8h.html#ad70f6076cb4e4124ae8fa06c48ae3a0d',1,'racer_odometry.h']]],
-  ['topic_5fodom',['TOPIC_ODOM',['../racer__odometry_8h.html#a6c9ecfa132563b542937a5bb3bf7e339',1,'racer_odometry.h']]],
   ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
   ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]
 ];
