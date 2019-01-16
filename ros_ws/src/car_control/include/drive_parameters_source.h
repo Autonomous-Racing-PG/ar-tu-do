@@ -11,7 +11,7 @@ typedef std::function<void(DriveParametersSource*, const drive_msgs::drive_param
     DriveParameterCallbackFunction;
 
 /*
-*  This node subscribes to all publishers drive_param messages and selects one to forward to the car controller
+*  A class that listens on a topic that publishes drive parameters and stores information about that source
 */
 class DriveParametersSource
 {
@@ -19,8 +19,17 @@ class DriveParametersSource
     DriveParametersSource(ros::NodeHandle* node_handle, const char* topic,
                           DriveParameterCallbackFunction update_callback, int priority, double timeout);
 
+    /**
+     * @brief Returns true if no update was received for a certain time, determined by the timeout variable.
+     */
     bool isOutdated();
+
+    /**
+     * @brief Returns true if the last update contained values close to 0 for both steering and throttle.
+     * If no update was received yet, this returns true.
+     */
     bool isIdle();
+    
     int getPriority();
 
     private:

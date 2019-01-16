@@ -14,6 +14,10 @@
 class DriveParametersMultiplexer
 {
     public:
+    /**
+     * @brief Construct a new DriveParametersMultiplexer object and initialize sources for all 
+     * publishers of drive parameters
+     */
     DriveParametersMultiplexer();
     ~DriveParametersMultiplexer();
 
@@ -24,6 +28,16 @@ class DriveParametersMultiplexer
     DriveParametersSource* m_last_updated_source;
     ros::Publisher m_drive_parameters_publisher;
 
+    /**
+     * @brief Determines wheter an updated source will be forwarded to the car controller,
+     * based on which source was previously forwarded, whether they are idle or outdated.
+     */
     bool validateSource(DriveParametersSource* source);
+
+    /**
+     * @brief This function should be called when a source has received a message.
+     * It determines if the message should be forwarded and if it should, it sends the message
+     * to the car controller.
+     */
     void onUpdate(DriveParametersSource* source, const drive_msgs::drive_param::ConstPtr& message);
 };
