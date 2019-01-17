@@ -21,6 +21,11 @@ cd arpg
 cd ros_ws
 ```
 
+### Install missing dependencies
+```bash
+rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}
+```
+
 ### Build ROS packages
 
 ```bash
