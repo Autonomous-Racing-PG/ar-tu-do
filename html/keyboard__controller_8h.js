@@ -17,6 +17,8 @@ var keyboard__controller_8h =
     ] ],
     [ "ACCELERATION", "keyboard__controller_8h.html#a7f06f2775e2c7469140a29018ae10261", null ],
     [ "BRAKING", "keyboard__controller_8h.html#ae3d69992cbd260ed0f86a4e5fd735d4e", null ],
+    [ "COMMAND_GO", "keyboard__controller_8h.html#a3ba962d8165c56ab8545410f4edd510f", null ],
+    [ "COMMAND_STOP", "keyboard__controller_8h.html#a6d4b6e4b84736143609cad22046a82fa", null ],
     [ "FAST_STEER_LIMIT", "keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87", null ],
     [ "KEY_CODES", "keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc", null ],
     [ "KEY_COUNT", "keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5", null ],
@@ -25,6 +27,7 @@ var keyboard__controller_8h =
     [ "STEERING_GRAVITY", "keyboard__controller_8h.html#a8cfb8f83cd91665c0b18f3e213edf672", null ],
     [ "STEERING_SPEED", "keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5", null ],
     [ "THROTTLE_GRAVITY", "keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b", null ],
+    [ "TOPIC_COMMAND", "keyboard__controller_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044", null ],
     [ "TOPIC_DEAD_MANS_SWITCH", "keyboard__controller_8h.html#aabd38024f2f1a3ffba466bdd55e1142c", null ],
     [ "TOPIC_DRIVE_PARAMETERS", "keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839", null ]
 ];

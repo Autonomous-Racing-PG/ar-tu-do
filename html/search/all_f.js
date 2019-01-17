@@ -3,7 +3,7 @@ var searchData=
   ['test',['TEST',['../test__car__control_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9',1,'TEST(dummy_test, dummy_test_01):&#160;test_car_control.cpp'],['../test__car__control_8cpp.html#a6accdba7cce21b4fbadc9847942eccee',1,'TEST(dummy_test, dummy_test_02):&#160;test_car_control.cpp']]],
   ['test_5fcar_5fcontrol_2ecpp',['test_car_control.cpp',['../test__car__control_8cpp.html',1,'']]],
   ['throttle_5fgravity',['THROTTLE_GRAVITY',['../keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b',1,'keyboard_controller.h']]],
-  ['topic_5fcommand',['TOPIC_COMMAND',['../car__control_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'car_control.h']]],
+  ['topic_5fcommand',['TOPIC_COMMAND',['../car__control_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'TOPIC_COMMAND():&#160;car_control.h'],['../keyboard__controller_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'TOPIC_COMMAND():&#160;keyboard_controller.h']]],
   ['topic_5fdead_5fmans_5fswitch',['TOPIC_DEAD_MANS_SWITCH',['../keyboard__controller_8h.html#aabd38024f2f1a3ffba466bdd55e1142c',1,'keyboard_controller.h']]],
   ['topic_5fdms',['TOPIC_DMS',['../car__control_8h.html#a1e56417499d1048f130bc194015c7bef',1,'TOPIC_DMS():&#160;car_control.h'],['../joystick__controller_8h.html#a1e56417499d1048f130bc194015c7bef',1,'TOPIC_DMS():&#160;joystick_controller.h']]],
   ['topic_5fdrive_5fparam',['TOPIC_DRIVE_PARAM',['../car__control_8h.html#ae2bdb9527cf2548c238295d766dcff5a',1,'car_control.h']]],

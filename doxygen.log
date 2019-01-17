@@ -585,5 +585,5 @@ Patching output file 61/64
 Patching output file 62/64
 Patching output file 63/64
 Patching output file 64/64
-lookup cache used 317/65536 hits=1372 misses=320
+lookup cache used 328/65536 hits=1461 misses=331
 finished...
