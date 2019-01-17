@@ -10,8 +10,9 @@
 #include <std_msgs/String.h>
 #include <stdexcept>
 
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param_keyboard";
-constexpr const char* TOPIC_DEAD_MANS_SWITCH = "set/dms";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/keyboard";
+constexpr const char* TOPIC_DEAD_MANS_SWITCH = "/set/dms";
+constexpr const char* TOPIC_COMMAND = "/command";
 
 constexpr const char* COMMAND_STOP = "stop";
 constexpr const char* COMMAND_GO = "go";

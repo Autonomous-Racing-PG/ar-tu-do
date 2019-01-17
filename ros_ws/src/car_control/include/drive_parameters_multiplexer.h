@@ -9,13 +9,13 @@
 #include <vector>
 
 /*
-*  This node subscribes to all publishers drive_param messages and selects one to forward to the car controller
+* This node subscribes to all publishers that send drive_param messages and selects one to forward to the car controller
 */
 class DriveParametersMultiplexer
 {
     public:
     /**
-     * @brief Construct a new DriveParametersMultiplexer object and initialize sources for all 
+     * @brief Construct a new DriveParametersMultiplexer object and initialize sources for all
      * publishers of drive parameters
      */
     DriveParametersMultiplexer();

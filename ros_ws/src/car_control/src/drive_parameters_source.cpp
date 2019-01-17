@@ -25,7 +25,7 @@ DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const
 void DriveParametersSource::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& message)
 {
     this->m_last_update = getTime();
-    this->m_idle = fabs(message->velocity) < 0.01 && fabs(message->angle) < 0.01;
+    this->m_idle = fabs(message->velocity) < IDLE_RANGE && fabs(message->angle) < IDLE_RANGE;
     this->m_updateCallback(this, message);
 }
 

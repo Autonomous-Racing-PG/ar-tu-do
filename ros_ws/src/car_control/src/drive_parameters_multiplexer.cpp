@@ -7,11 +7,11 @@ DriveParametersMultiplexer::DriveParametersMultiplexer()
     auto callback =
         std::bind(&DriveParametersMultiplexer::onUpdate, this, std::placeholders::_1, std::placeholders::_2);
     this->m_sources.push_back(
-        new DriveParametersSource(&this->m_node_handle, "/set/drive_param_keyboard", callback, 1, 0.1));
+        new DriveParametersSource(&this->m_node_handle, "input/drive_param/keyboard", callback, 1, 0.1));
     this->m_sources.push_back(
-        new DriveParametersSource(&this->m_node_handle, "/set/drive_param_joystick", callback, 1, 0.1));
+        new DriveParametersSource(&this->m_node_handle, "input/drive_param/joystick", callback, 1, 0.1));
     this->m_sources.push_back(
-        new DriveParametersSource(&this->m_node_handle, "/set/drive_param_wallfollowing", callback, 0, 0.1));
+        new DriveParametersSource(&this->m_node_handle, "input/drive_param/wallfollowing", callback, 0, 0.1));
 }
 
 DriveParametersMultiplexer::~DriveParametersMultiplexer()
