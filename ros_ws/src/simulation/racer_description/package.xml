@@ -12,6 +12,7 @@
   <license>GPLv3</license>
 
   <!-- Dependencies -->
-  <buildtool_depend>catkin</buildtool_depend>
+  <depend>catkin</depend>
+  <depend>ros_controllers</depend>
 
 </package>
