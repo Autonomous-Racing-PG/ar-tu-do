@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <p>These instructions will get you a copy of the project up and running</p>
 <h3>Clone the Project</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package.git arpg</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd arpg</div></div><!-- fragment --><h3>Move to ROS Workspace</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ros_ws</div></div><!-- fragment --><h3>Build ROS packages</h3>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ros_ws</div></div><!-- fragment --><p>### Install missing dependencies </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}</div></div><!-- fragment --><h3>Build ROS packages</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><h3>Run routines</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash (or setup.zsh)</div></div><!-- fragment --><p>Now several routines can be started by executing the launch-files inside the <b>launch/</b> directory. E.g.</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/gazebo_car-teleop.launch</div></div><!-- fragment --><h3>Run tests</h3>
