@@ -25,6 +25,9 @@ KeyboardController::KeyboardController()
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
     this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DEAD_MANS_SWITCH, 1);
+    this->m_command_subscriber =
+        this->m_node_handle.subscribe<std_msgs::String>(TOPIC_COMMAND, 1, &KeyboardController::commandCallback, this);
+
     this->createWindow();
 
     auto tick_duration = ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY);
@@ -77,11 +80,23 @@ void KeyboardController::pollWindowEvents()
         }
         else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_EXPOSED)
         {
-            SDL_Surface* surface = SDL_GetWindowSurface(this->m_window);
-            SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 110, 199, 46));
-            SDL_UpdateWindowSurface(this->m_window);
+            this->updateWindowColor();
         }
     }
+}
+
+void KeyboardController::updateWindowColor()
+{
+    SDL_Surface* surface = SDL_GetWindowSurface(this->m_window);
+    if (this->m_car_unlocked)
+    {
+        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 110, 199, 46));
+    }
+    else
+    {
+        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));
+    }
+    SDL_UpdateWindowSurface(this->m_window);
 }
 
 /**
@@ -167,6 +182,21 @@ void KeyboardController::publishDriveParameters()
     drive_parameters.velocity = this->m_velocity;
     drive_parameters.angle = this->m_angle;
     this->m_drive_parameters_publisher.publish(drive_parameters);
+}
+
+void KeyboardController::commandCallback(const std_msgs::String::ConstPtr& command_message)
+{
+    std::string command = command_message->data;
+    if (command.compare(COMMAND_STOP) == 0)
+    {
+        this->m_car_unlocked = false;
+        this->updateWindowColor();
+    }
+    else if (command.compare(COMMAND_GO) == 0)
+    {
+        this->m_car_unlocked = true;
+        this->updateWindowColor();
+    }
 }
 
 int main(int argc, char** argv)

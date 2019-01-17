@@ -7,10 +7,15 @@
 #include <ros/package.h>
 #include <ros/ros.h>
 #include <signal.h>
+#include <std_msgs/String.h>
 #include <stdexcept>
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
-constexpr const char* TOPIC_DEAD_MANS_SWITCH = "set/dms";
+constexpr const char* TOPIC_DEAD_MANS_SWITCH = "/set/dms";
+constexpr const char* TOPIC_COMMAND = "/command";
+
+constexpr const char* COMMAND_STOP = "stop";
+constexpr const char* COMMAND_GO = "go";
 
 enum class Keycode : int
 {
@@ -68,6 +73,8 @@ class KeyboardController
     ros::Publisher m_drive_parameters_publisher;
     ros::Publisher m_dead_mans_switch_publisher;
 
+    ros::Subscriber m_command_subscriber;
+
     SDL_Window* m_window;
 
     std::array<bool, KEY_COUNT> m_key_pressed_state = { { false, false, false, false } };
@@ -76,6 +83,8 @@ class KeyboardController
     double m_angle = 0;
 
     ros::Timer m_timer;
+
+    bool m_car_unlocked = false;
 
     void pollWindowEvents();
 
@@ -87,4 +96,6 @@ class KeyboardController
 
     void createWindow();
     void timerCallback(const ros::TimerEvent& event);
+    void commandCallback(const std_msgs::String::ConstPtr& command_message);
+    void updateWindowColor();
 };
