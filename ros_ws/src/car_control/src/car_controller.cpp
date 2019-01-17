@@ -43,8 +43,8 @@ void CarController::commandCallback(const std_msgs::String::ConstPtr& command_me
     std::string command_str = command_message->data;
     if (command_str.compare(COMMAND_STOP) == 0)
     {
-        this->m_enabled = false;
         this->publishDriveParameters(0, 0);
+        this->m_enabled = false;
         // brake
         std_msgs::Float64 brake_message;
         brake_message.data = 0;
