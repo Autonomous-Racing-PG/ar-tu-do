@@ -5,10 +5,10 @@
 #include <drive_msgs/drive_param.h>
 #include <functional>
 #include <std_msgs/Float64.h>
+#include <chrono>
 
 class DriveParametersSource;
-typedef std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)>
-    DriveParameterCallbackFunction;
+using DriveParameterCallbackFunction = std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)>;
 
 constexpr double IDLE_RANGE = 0.01;
 
@@ -25,7 +25,8 @@ class DriveParametersSource
      * @param node_handle A node handle is needed to create a topic subscriber
      * @param topic The name of the drive_param topic to subscribe to
      * @param update_callback Callback function that will be called whenever a message was received
-     * @param priority Priority of the source. Sources with higher priority will be preferred.
+     * @param priority Priority of the source. If multiple sources are not idle, the source with the
+     * highest priority is forwarded.
      * @param timeout Messages will be deferred when they are older than this, in seconds.
      */
     DriveParametersSource(ros::NodeHandle* node_handle, const char* topic,
@@ -42,15 +43,19 @@ class DriveParametersSource
      */
     bool isIdle();
 
+    /**
+     * @brief Returns the priority of the source. If multiple sources are not idle, the source with the
+     * highest priority is forwarded.
+     */
     int getPriority();
 
     private:
     ros::Subscriber m_drive_parameters_subscriber;
 
     int m_priority;
-    long int m_timeout;
     bool m_idle;
-    long int m_last_update;
+    std::chrono::duration<double> m_timeout;
+    std::chrono::steady_clock::time_point m_last_update;
 
     DriveParameterCallbackFunction m_updateCallback;
 

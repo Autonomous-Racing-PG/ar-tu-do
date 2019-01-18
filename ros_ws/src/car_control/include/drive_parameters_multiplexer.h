@@ -19,12 +19,11 @@ class DriveParametersMultiplexer
      * publishers of drive parameters
      */
     DriveParametersMultiplexer();
-    ~DriveParametersMultiplexer();
 
     private:
     ros::NodeHandle m_node_handle;
 
-    std::vector<DriveParametersSource*> m_sources;
+    std::array<std::unique_ptr<DriveParametersSource>, 3> m_sources;
     DriveParametersSource* m_last_updated_source;
     ros::Publisher m_drive_parameters_publisher;
 
