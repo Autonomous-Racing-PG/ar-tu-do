@@ -18,16 +18,16 @@ class JoystickMapPs3 : public JoystickMap
 
     float getAcceleration(const sensor_msgs::Joy::ConstPtr& joystick)
     {
-        return (joystick->axes[5] - 1) * -0.5f;
+        return (joystick->axes[13] - 1) * -0.5f;
     }
 
     float getDeceleration(const sensor_msgs::Joy::ConstPtr& joystick)
     {
-        return (joystick->axes[2] - 1) * -0.5f;
+        return (joystick->axes[12] - 1) * -0.5f;
     }
 
     bool isDeadMansSwitchPressed(const sensor_msgs::Joy::ConstPtr& joystick)
     {
-        return joystick->buttons[0] == 1;
+        return joystick->buttons[14] == 1;
     }
 };
