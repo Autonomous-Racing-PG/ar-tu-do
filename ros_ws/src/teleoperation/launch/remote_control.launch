@@ -4,7 +4,7 @@
 Launches all necessary nodes that let the user control the car with the keyboard and/or gamepad.
 -->
 
-  <!-- valid options are: ps3 , xbox360 -->
+  <!-- valid options are: ps3, xbox360, xboxone -->
   <arg name="gamepad_type" default="xbox360"/>
 
     <!-- remote joy -->

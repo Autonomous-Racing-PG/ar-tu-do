@@ -1,5 +1,6 @@
 #include "joystick_controller.h"
 #include "joystick_map_xbox360.h"
+#include "joystick_map_xboxone.h"
 #include "joystick_map_ps3.h"
 
 #include <ros/console.h>
@@ -31,6 +32,10 @@ JoystickController::JoystickController()
     else if (m_gamepad_type == "ps3")
     {
         m_joystick_map = new JoystickMapPs3();
+    }
+    else if (m_gamepad_type == "xboxone")
+    {
+        m_joystick_map = new JoystickMapXboxone();
     }
 }
 
