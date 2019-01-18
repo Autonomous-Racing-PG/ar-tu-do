@@ -15,15 +15,13 @@ DMSController::DMSController()
 
 void DMSController::checkDMS()
 {
-    struct timeval time_struct;
-    gettimeofday(&time_struct, NULL);
-    long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
+    auto current_time = std::chrono::steady_clock::now();
 
     if (m_running)
     {
         // switch is triggered
 
-        if (m_last_dms_message_received + DMS_EXPIRATION < timestamp)
+        if (m_last_dms_message_received + DMS_EXPIRATION < current_time)
         {
             // switch is not triggered anymode
             m_running = false;
@@ -36,7 +34,7 @@ void DMSController::checkDMS()
     {
         // switch is not triggered
 
-        if (m_last_dms_message_received + DMS_EXPIRATION >= timestamp)
+        if (m_last_dms_message_received + DMS_EXPIRATION >= current_time)
         {
 
             // switch is is triggered again
@@ -50,7 +48,8 @@ void DMSController::checkDMS()
 
 void DMSController::dmsCallback(const std_msgs::Int64::ConstPtr& dms_message)
 {
-    this->m_last_dms_message_received = dms_message->data;
+    std::chrono::milliseconds time_since_epoch(dms_message->data);
+    this->m_last_dms_message_received = std::chrono::time_point<std::chrono::steady_clock>(time_since_epoch);
 }
 
 int main(int argc, char** argv)

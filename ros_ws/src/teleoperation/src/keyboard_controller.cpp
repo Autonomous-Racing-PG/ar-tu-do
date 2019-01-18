@@ -120,11 +120,11 @@ void KeyboardController::updateDeadMansSwitch()
 {
     if (this->m_key_pressed_state[(size_t)KeyIndex::DEAD_MANS_SWITCH])
     {
-        struct timeval time_struct;
-        gettimeofday(&time_struct, NULL);
-        long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
+        auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+        auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+        
         std_msgs::Int64 dead_mans_switch_message;
-        dead_mans_switch_message.data = timestamp;
+        dead_mans_switch_message.data = time_since_epoch.count();
 
         this->m_dead_mans_switch_publisher.publish(dead_mans_switch_message);
     }

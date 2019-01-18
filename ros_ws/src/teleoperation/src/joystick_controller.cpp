@@ -31,13 +31,13 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     int dms_button_value = joystick->buttons[JOYSTICK_BUTTON_DEADMANSSWITCH];
     if (dms_button_value == 1) // 1 if button is pressed
     {
-        struct timeval time_struct;
-        gettimeofday(&time_struct, NULL);
-        long int timestamp = time_struct.tv_sec * 1000 + time_struct.tv_usec / 1000;
-        std_msgs::Int64 dms_message;
-        dms_message.data = timestamp;
+        auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+        auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+        
+        std_msgs::Int64 dead_mans_switch_message;
+        dead_mans_switch_message.data = time_since_epoch.count();
 
-        this->m_dms_publisher.publish(dms_message);
+        this->m_dms_publisher.publish(dead_mans_switch_message);
     }
 
     // compute and publish angle and velocity

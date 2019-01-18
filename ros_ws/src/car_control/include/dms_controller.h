@@ -4,12 +4,13 @@
 
 #include <std_msgs/Int64.h>
 #include <std_msgs/String.h>
+#include <chrono>
 
 // How often the dead mans switch is checked. in Hz
 constexpr const int DMS_CHECK_RATE = 20;
 
-// How old the last dead mans switch check can be. in ms
-constexpr const int DMS_EXPIRATION = 100;
+// How old the last dead mans switch check can be, in seconds
+constexpr auto DMS_EXPIRATION = std::chrono::duration<double>(0.1);
 
 class DMSController
 {
@@ -18,7 +19,7 @@ class DMSController
     void checkDMS();
 
     private:
-    long m_last_dms_message_received = 0;
+    std::chrono::steady_clock::time_point m_last_dms_message_received;
     bool m_running = false;
     ros::NodeHandle m_node_handle;
     ros::Subscriber m_dms_subscriber;
