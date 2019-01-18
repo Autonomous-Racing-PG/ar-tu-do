@@ -13,6 +13,6 @@
 
   <!-- Dependencies -->
   <depend>catkin</depend>
-  <depend>ros_controllers</depend>
+  <depend>effort_controllers</depend>
 
 </package>
