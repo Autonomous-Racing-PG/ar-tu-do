@@ -2,9 +2,9 @@
 
 #include <ros/ros.h>
 
+#include <chrono>
 #include <std_msgs/Int64.h>
 #include <std_msgs/String.h>
-#include <chrono>
 
 // How often the dead mans switch is checked. in Hz
 constexpr const int DMS_CHECK_RATE = 20;

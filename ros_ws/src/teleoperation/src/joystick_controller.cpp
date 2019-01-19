@@ -33,7 +33,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     {
         auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
         auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-        
+
         std_msgs::Int64 dead_mans_switch_message;
         dead_mans_switch_message.data = time_since_epoch.count();
 

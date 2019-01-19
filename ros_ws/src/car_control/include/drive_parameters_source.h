@@ -2,13 +2,14 @@
 
 #include <ros/ros.h>
 
+#include <chrono>
 #include <drive_msgs/drive_param.h>
 #include <functional>
 #include <std_msgs/Float64.h>
-#include <chrono>
 
 class DriveParametersSource;
-using DriveParameterCallbackFunction = std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)>;
+using DriveParameterCallbackFunction =
+    std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)>;
 
 constexpr double IDLE_RANGE = 0.01;
 
