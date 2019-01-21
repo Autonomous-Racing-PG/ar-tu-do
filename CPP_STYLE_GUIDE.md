@@ -11,6 +11,8 @@
     - [Variables](#variables)
         - [Member variables](#member-variables)
         - [Constants](#constants)
+            - [ROS Topics / Services](#ros-topics--services)
+            - [ROS Parameters](#ros-parameters)
         - [Global variables](#global-variables)
     - [Namespaces](#namespaces)
 - [License statements](#license-statements)
@@ -208,6 +210,16 @@ constexpr unsigned MY_CONSTEXPR_CONST = 10; // Good as the compile tries to init
 
 See [Using constexpr to Improve Security, Performance and Encapsulation in C++](https://smartbear.de/blog/develop/using-constexpr-to-improve-security-performance-an/?l=ua)
 for more information on why `constexpr` is awesome.
+
+<a id="ros-topics--services"></a>
+#### ROS Topics / Services
+
+If a ROS topics or services name is stored in a constant, the constant's name SHOULD beginn with *TOPIC_*.
+
+<a id="ros-parameters"></a>
+#### ROS Parameters
+
+If a ROS parameters name is stored in a constant, the constant's name SHOULD beginn with *PARAMETER_*.
 
 <a id="global-variables"></a>
 ### Global variables
