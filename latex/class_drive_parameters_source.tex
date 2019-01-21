@@ -1,0 +1,149 @@
+\hypertarget{class_drive_parameters_source}{}\section{Drive\+Parameters\+Source Class Reference}
+\label{class_drive_parameters_source}\index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
+
+
+{\ttfamily \#include $<$drive\+\_\+parameters\+\_\+source.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_drive_parameters_source_ab6ab4aa02955d8929ee04669faef1be2}{Drive\+Parameters\+Source} (ros\+::\+Node\+Handle $\ast$node\+\_\+handle, const char $\ast$topic, \hyperlink{drive__parameters__source_8h_a87328cd02ddd6c83ff6d4943cf8a93c2}{Drive\+Parameter\+Callback\+Function} update\+\_\+callback, int priority, double timeout)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{class_drive_parameters_source}{Drive\+Parameters\+Source} object, subscribes to the topic and stores the parameters into local variables. \end{DoxyCompactList}\item 
+bool \hyperlink{class_drive_parameters_source_a19ac7507bffaa6167393d24fe5f7f67e}{is\+Outdated} ()
+\begin{DoxyCompactList}\small\item\em Returns true if no update was received for a certain time, determined by the timeout variable. \end{DoxyCompactList}\item 
+bool \hyperlink{class_drive_parameters_source_a716e9da760080cdc8d0e69553932c789}{is\+Idle} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the last update contained values close to 0 for both steering and throttle. If no update was received yet, this returns true. \end{DoxyCompactList}\item 
+int \hyperlink{class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc}{get\+Priority} ()
+\begin{DoxyCompactList}\small\item\em Returns the priority of the source. If multiple sources are not idle, the source with the highest priority is forwarded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file drive\+\_\+parameters\+\_\+source.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
+\index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
+\subsubsection[{\texorpdfstring{Drive\+Parameters\+Source(ros\+::\+Node\+Handle $\ast$node\+\_\+handle, const char $\ast$topic, Drive\+Parameter\+Callback\+Function update\+\_\+callback, int priority, double timeout)}{DriveParametersSource(ros::NodeHandle *node_handle, const char *topic, DriveParameterCallbackFunction update_callback, int priority, double timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}Drive\+Parameters\+Source\+::\+Drive\+Parameters\+Source (
+\begin{DoxyParamCaption}
+\item[{ros\+::\+Node\+Handle $\ast$}]{node\+\_\+handle, }
+\item[{const char $\ast$}]{topic, }
+\item[{{\bf Drive\+Parameter\+Callback\+Function}}]{update\+\_\+callback, }
+\item[{int}]{priority, }
+\item[{double}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{class_drive_parameters_source_ab6ab4aa02955d8929ee04669faef1be2}{}\label{class_drive_parameters_source_ab6ab4aa02955d8929ee04669faef1be2}
+
+
+Construct a new \hyperlink{class_drive_parameters_source}{Drive\+Parameters\+Source} object, subscribes to the topic and stores the parameters into local variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+handle} & A node handle is needed to create a topic subscriber \\
+\hline
+{\em topic} & The name of the drive\+\_\+param topic to subscribe to \\
+\hline
+{\em update\+\_\+callback} & Callback function that will be called whenever a message was received \\
+\hline
+{\em priority} & Priority of the source. If multiple sources are not idle, the source with the highest priority is forwarded. \\
+\hline
+{\em timeout} & Messages will be deferred when they are older than this, in seconds. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 6 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!get\+Priority@{get\+Priority}}
+\index{get\+Priority@{get\+Priority}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
+\subsubsection[{\texorpdfstring{get\+Priority()}{getPriority()}}]{\setlength{\rightskip}{0pt plus 5cm}int Drive\+Parameters\+Source\+::get\+Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc}{}\label{class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc}
+
+
+Returns the priority of the source. If multiple sources are not idle, the source with the highest priority is forwarded. 
+
+
+
+Definition at line 41 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!is\+Idle@{is\+Idle}}
+\index{is\+Idle@{is\+Idle}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
+\subsubsection[{\texorpdfstring{is\+Idle()}{isIdle()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Drive\+Parameters\+Source\+::is\+Idle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_drive_parameters_source_a716e9da760080cdc8d0e69553932c789}{}\label{class_drive_parameters_source_a716e9da760080cdc8d0e69553932c789}
+
+
+Returns true if the last update contained values close to 0 for both steering and throttle. If no update was received yet, this returns true. 
+
+
+
+Definition at line 36 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_drive_parameters_source_a716e9da760080cdc8d0e69553932c789_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!is\+Outdated@{is\+Outdated}}
+\index{is\+Outdated@{is\+Outdated}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
+\subsubsection[{\texorpdfstring{is\+Outdated()}{isOutdated()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Drive\+Parameters\+Source\+::is\+Outdated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_drive_parameters_source_a19ac7507bffaa6167393d24fe5f7f67e}{}\label{class_drive_parameters_source_a19ac7507bffaa6167393d24fe5f7f67e}
+
+
+Returns true if no update was received for a certain time, determined by the timeout variable. 
+
+
+
+Definition at line 27 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_drive_parameters_source_a19ac7507bffaa6167393d24fe5f7f67e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/car\+\_\+control/include/\hyperlink{drive__parameters__source_8h}{drive\+\_\+parameters\+\_\+source.\+h}\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/car\+\_\+control/src/\hyperlink{drive__parameters__source_8cpp}{drive\+\_\+parameters\+\_\+source.\+cpp}\end{DoxyCompactItemize}

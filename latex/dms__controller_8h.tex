@@ -1,6 +1,7 @@
 \hypertarget{dms__controller_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/car\+\_\+control/include/dms\+\_\+controller.h File Reference}
 \label{dms__controller_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/car\+\_\+control/include/dms\+\_\+controller.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/car\+\_\+control/include/dms\+\_\+controller.\+h}}
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+Int64.\+h$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+String.\+h$>$}\\*
 Include dependency graph for dms\+\_\+controller.\+h\+:
@@ -29,7 +30,7 @@ class \hyperlink{class_d_m_s_controller}{D\+M\+S\+Controller}
 \item 
 constexpr const int \hyperlink{dms__controller_8h_a3e56fb2da7c17cff84d7cf17cbfa3498}{D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE} = 20
 \item 
-constexpr const int \hyperlink{dms__controller_8h_a9e30a18b97d742676b3bd98f01350ee9}{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON} = 100
+constexpr auto \hyperlink{dms__controller_8h_a3f79e2414ff15ae0f9b6292549565a49}{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON} = std\+::chrono\+::duration$<$double$>$(0.\+1)
 \end{DoxyCompactItemize}
 
 
@@ -39,12 +40,12 @@ constexpr const int \hyperlink{dms__controller_8h_a9e30a18b97d742676b3bd98f01350
 \subsubsection[{\texorpdfstring{D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE}{DMS_CHECK_RATE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const int D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE = 20}\hypertarget{dms__controller_8h_a3e56fb2da7c17cff84d7cf17cbfa3498}{}\label{dms__controller_8h_a3e56fb2da7c17cff84d7cf17cbfa3498}
 
 
-Definition at line 9 of file dms\+\_\+controller.\+h.
+Definition at line 10 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON@{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}}
 \index{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON@{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}{DMS_EXPIRATION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const int D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON = 100}\hypertarget{dms__controller_8h_a9e30a18b97d742676b3bd98f01350ee9}{}\label{dms__controller_8h_a9e30a18b97d742676b3bd98f01350ee9}
+\subsubsection[{\texorpdfstring{D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}{DMS_EXPIRATION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr auto D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON = std\+::chrono\+::duration$<$double$>$(0.\+1)}\hypertarget{dms__controller_8h_a3f79e2414ff15ae0f9b6292549565a49}{}\label{dms__controller_8h_a3f79e2414ff15ae0f9b6292549565a49}
 
 
-Definition at line 12 of file dms\+\_\+controller.\+h.
+Definition at line 13 of file dms\+\_\+controller.\+h.
 

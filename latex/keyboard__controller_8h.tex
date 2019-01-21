@@ -3,6 +3,7 @@
 {\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\\*
 {\ttfamily \#include $<$algorithm$>$}\\*
 {\ttfamily \#include $<$array$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
 {\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
 {\ttfamily \#include $<$ros/package.\+h$>$}\\*
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
@@ -54,7 +55,7 @@ enum \hyperlink{keyboard__controller_8h_a4f3852c29660b2c7415360633c54e0bb}{Key\+
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}/set/drive\+\_\+param\char`\"{}
+constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}input/drive\+\_\+param/keyboard\char`\"{}
 \item 
 constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH} = \char`\"{}/set/dms\char`\"{}
 \item 
@@ -107,7 +108,7 @@ S\+P\+A\+CE\hypertarget{keyboard__controller_8h_a28fdc629dbeaa30236718d9093e19c0
 \end{Desc}
 
 
-Definition at line 20 of file keyboard\+\_\+controller.\+h.
+Definition at line 21 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!Key\+Index@{Key\+Index}}
 \index{Key\+Index@{Key\+Index}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
@@ -129,7 +130,7 @@ D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH\hypertarget{keyboard__control
 \end{Desc}
 
 
-Definition at line 29 of file keyboard\+\_\+controller.\+h.
+Definition at line 30 of file keyboard\+\_\+controller.\+h.
 
 
 
@@ -139,103 +140,103 @@ Definition at line 29 of file keyboard\+\_\+controller.\+h.
 \subsubsection[{\texorpdfstring{A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+ON}{ACCELERATION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+ON = 0.\+4}\hypertarget{keyboard__controller_8h_a7f06f2775e2c7469140a29018ae10261}{}\label{keyboard__controller_8h_a7f06f2775e2c7469140a29018ae10261}
 
 
-Definition at line 47 of file keyboard\+\_\+controller.\+h.
+Definition at line 48 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!B\+R\+A\+K\+I\+NG@{B\+R\+A\+K\+I\+NG}}
 \index{B\+R\+A\+K\+I\+NG@{B\+R\+A\+K\+I\+NG}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{B\+R\+A\+K\+I\+NG}{BRAKING}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double B\+R\+A\+K\+I\+NG = 2}\hypertarget{keyboard__controller_8h_ae3d69992cbd260ed0f86a4e5fd735d4e}{}\label{keyboard__controller_8h_ae3d69992cbd260ed0f86a4e5fd735d4e}
 
 
-Definition at line 49 of file keyboard\+\_\+controller.\+h.
+Definition at line 50 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!C\+O\+M\+M\+A\+N\+D\+\_\+\+GO@{C\+O\+M\+M\+A\+N\+D\+\_\+\+GO}}
 \index{C\+O\+M\+M\+A\+N\+D\+\_\+\+GO@{C\+O\+M\+M\+A\+N\+D\+\_\+\+GO}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{C\+O\+M\+M\+A\+N\+D\+\_\+\+GO}{COMMAND_GO}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ C\+O\+M\+M\+A\+N\+D\+\_\+\+GO = \char`\"{}go\char`\"{}}\hypertarget{keyboard__controller_8h_a3ba962d8165c56ab8545410f4edd510f}{}\label{keyboard__controller_8h_a3ba962d8165c56ab8545410f4edd510f}
 
 
-Definition at line 18 of file keyboard\+\_\+controller.\+h.
+Definition at line 19 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!C\+O\+M\+M\+A\+N\+D\+\_\+\+S\+T\+OP@{C\+O\+M\+M\+A\+N\+D\+\_\+\+S\+T\+OP}}
 \index{C\+O\+M\+M\+A\+N\+D\+\_\+\+S\+T\+OP@{C\+O\+M\+M\+A\+N\+D\+\_\+\+S\+T\+OP}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{C\+O\+M\+M\+A\+N\+D\+\_\+\+S\+T\+OP}{COMMAND_STOP}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ C\+O\+M\+M\+A\+N\+D\+\_\+\+S\+T\+OP = \char`\"{}stop\char`\"{}}\hypertarget{keyboard__controller_8h_a6d4b6e4b84736143609cad22046a82fa}{}\label{keyboard__controller_8h_a6d4b6e4b84736143609cad22046a82fa}
 
 
-Definition at line 17 of file keyboard\+\_\+controller.\+h.
+Definition at line 18 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!F\+A\+S\+T\+\_\+\+S\+T\+E\+E\+R\+\_\+\+L\+I\+M\+IT@{F\+A\+S\+T\+\_\+\+S\+T\+E\+E\+R\+\_\+\+L\+I\+M\+IT}}
 \index{F\+A\+S\+T\+\_\+\+S\+T\+E\+E\+R\+\_\+\+L\+I\+M\+IT@{F\+A\+S\+T\+\_\+\+S\+T\+E\+E\+R\+\_\+\+L\+I\+M\+IT}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{F\+A\+S\+T\+\_\+\+S\+T\+E\+E\+R\+\_\+\+L\+I\+M\+IT}{FAST_STEER_LIMIT}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double F\+A\+S\+T\+\_\+\+S\+T\+E\+E\+R\+\_\+\+L\+I\+M\+IT = 0.\+6}\hypertarget{keyboard__controller_8h_a615bf3b38c23cb483977c1943449ce87}{}\label{keyboard__controller_8h_a615bf3b38c23cb483977c1943449ce87}
 
 
-Definition at line 53 of file keyboard\+\_\+controller.\+h.
+Definition at line 54 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!K\+E\+Y\+\_\+\+C\+O\+D\+ES@{K\+E\+Y\+\_\+\+C\+O\+D\+ES}}
 \index{K\+E\+Y\+\_\+\+C\+O\+D\+ES@{K\+E\+Y\+\_\+\+C\+O\+D\+ES}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+\_\+\+C\+O\+D\+ES}{KEY_CODES}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr std\+::array$<${\bf Keycode}, {\bf K\+E\+Y\+\_\+\+C\+O\+U\+NT}$>$ K\+E\+Y\+\_\+\+C\+O\+D\+ES = \{ {\bf Keycode\+::W}, {\bf Keycode\+::A}, {\bf Keycode\+::S}, {\bf Keycode\+::D}, {\bf Keycode\+::\+S\+P\+A\+CE} \}}\hypertarget{keyboard__controller_8h_a2c20c56647297ef05c4808bbb77b05dc}{}\label{keyboard__controller_8h_a2c20c56647297ef05c4808bbb77b05dc}
 
 
-Definition at line 40 of file keyboard\+\_\+controller.\+h.
+Definition at line 41 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!K\+E\+Y\+\_\+\+C\+O\+U\+NT@{K\+E\+Y\+\_\+\+C\+O\+U\+NT}}
 \index{K\+E\+Y\+\_\+\+C\+O\+U\+NT@{K\+E\+Y\+\_\+\+C\+O\+U\+NT}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{K\+E\+Y\+\_\+\+C\+O\+U\+NT}{KEY_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int K\+E\+Y\+\_\+\+C\+O\+U\+NT = 5}\hypertarget{keyboard__controller_8h_a19ecc164327668cf4b24f872053a3dd5}{}\label{keyboard__controller_8h_a19ecc164327668cf4b24f872053a3dd5}
 
 
-Definition at line 38 of file keyboard\+\_\+controller.\+h.
+Definition at line 39 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!M\+A\+X\+\_\+\+T\+H\+R\+O\+T\+T\+LE@{M\+A\+X\+\_\+\+T\+H\+R\+O\+T\+T\+LE}}
 \index{M\+A\+X\+\_\+\+T\+H\+R\+O\+T\+T\+LE@{M\+A\+X\+\_\+\+T\+H\+R\+O\+T\+T\+LE}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+T\+H\+R\+O\+T\+T\+LE}{MAX_THROTTLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double M\+A\+X\+\_\+\+T\+H\+R\+O\+T\+T\+LE = 0.\+25}\hypertarget{keyboard__controller_8h_a670fdc7f227b3ed454e9e4b01d9bf117}{}\label{keyboard__controller_8h_a670fdc7f227b3ed454e9e4b01d9bf117}
 
 
-Definition at line 60 of file keyboard\+\_\+controller.\+h.
+Definition at line 61 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}}
 \index{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}{PARAMETER_UPDATE_FREQUENCY}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY = 90}\hypertarget{keyboard__controller_8h_a87d3197843880cb61cbecb5379db066c}{}\label{keyboard__controller_8h_a87d3197843880cb61cbecb5379db066c}
 
 
-Definition at line 42 of file keyboard\+\_\+controller.\+h.
+Definition at line 43 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+G\+R\+A\+V\+I\+TY@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+G\+R\+A\+V\+I\+TY}}
 \index{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+G\+R\+A\+V\+I\+TY@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+G\+R\+A\+V\+I\+TY}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+G\+R\+A\+V\+I\+TY}{STEERING_GRAVITY}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+G\+R\+A\+V\+I\+TY = 2}\hypertarget{keyboard__controller_8h_a8cfb8f83cd91665c0b18f3e213edf672}{}\label{keyboard__controller_8h_a8cfb8f83cd91665c0b18f3e213edf672}
 
 
-Definition at line 56 of file keyboard\+\_\+controller.\+h.
+Definition at line 57 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+P\+E\+ED@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+P\+E\+ED}}
 \index{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+P\+E\+ED@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+P\+E\+ED}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+P\+E\+ED}{STEERING_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+P\+E\+ED = 6}\hypertarget{keyboard__controller_8h_ad9063d7d546c70bfc9b5f9d575b594c5}{}\label{keyboard__controller_8h_ad9063d7d546c70bfc9b5f9d575b594c5}
 
 
-Definition at line 45 of file keyboard\+\_\+controller.\+h.
+Definition at line 46 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+H\+R\+O\+T\+T\+L\+E\+\_\+\+G\+R\+A\+V\+I\+TY@{T\+H\+R\+O\+T\+T\+L\+E\+\_\+\+G\+R\+A\+V\+I\+TY}}
 \index{T\+H\+R\+O\+T\+T\+L\+E\+\_\+\+G\+R\+A\+V\+I\+TY@{T\+H\+R\+O\+T\+T\+L\+E\+\_\+\+G\+R\+A\+V\+I\+TY}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+H\+R\+O\+T\+T\+L\+E\+\_\+\+G\+R\+A\+V\+I\+TY}{THROTTLE_GRAVITY}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double T\+H\+R\+O\+T\+T\+L\+E\+\_\+\+G\+R\+A\+V\+I\+TY = 3}\hypertarget{keyboard__controller_8h_ac0e74cb464c171072d0130141d519a3b}{}\label{keyboard__controller_8h_ac0e74cb464c171072d0130141d519a3b}
 
 
-Definition at line 58 of file keyboard\+\_\+controller.\+h.
+Definition at line 59 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND@{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}}
 \index{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND@{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND}{TOPIC_COMMAND}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+ND = \char`\"{}/command\char`\"{}}\hypertarget{keyboard__controller_8h_a0f7f9cc9b6a6ff34aaf9f7acd8d3d044}{}\label{keyboard__controller_8h_a0f7f9cc9b6a6ff34aaf9f7acd8d3d044}
 
 
-Definition at line 15 of file keyboard\+\_\+controller.\+h.
+Definition at line 16 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH@{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH@{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}{TOPIC_DEAD_MANS_SWITCH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH = \char`\"{}/set/dms\char`\"{}}\hypertarget{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}{}\label{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}
 
 
-Definition at line 14 of file keyboard\+\_\+controller.\+h.
+Definition at line 15 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}/set/drive\+\_\+param\char`\"{}}\hypertarget{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}{}\label{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}input/drive\+\_\+param/keyboard\char`\"{}}\hypertarget{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}{}\label{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}
 
 
-Definition at line 13 of file keyboard\+\_\+controller.\+h.
+Definition at line 14 of file keyboard\+\_\+controller.\+h.
 

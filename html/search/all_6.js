@@ -6,5 +6,6 @@ var searchData=
   ['g_5fright_5fcorrected_5fangle',['g_right_corrected_angle',['../wall__following_8cpp.html#ab8c91c7aadf122da2950e1fac7cb90f6',1,'wall_following.cpp']]],
   ['g_5fright_5ferror',['g_right_error',['../wall__following_8cpp.html#a683d675f1b3fc556b7c35b7985ced4c0',1,'wall_following.cpp']]],
   ['g_5fright_5fprev_5ferror',['g_right_prev_error',['../wall__following_8cpp.html#a1157cbdfa811b34707061492037b544c',1,'wall_following.cpp']]],
+  ['getpriority',['getPriority',['../class_drive_parameters_source.html#a0ca68bb4cf93f5124c60330582ba82dc',1,'DriveParametersSource']]],
   ['getrange',['getRange',['../wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03',1,'wall_following.cpp']]]
 ];

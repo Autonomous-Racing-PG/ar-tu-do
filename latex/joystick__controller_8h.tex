@@ -1,6 +1,7 @@
 \hypertarget{joystick__controller_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/teleoperation/include/joystick\+\_\+controller.h File Reference}
 \label{joystick__controller_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/include/joystick\+\_\+controller.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/include/joystick\+\_\+controller.\+h}}
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
 {\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
 {\ttfamily \#include $<$sensor\+\_\+msgs/\+Joy.\+h$>$}\\*
 Include dependency graph for joystick\+\_\+controller.\+h\+:
@@ -39,7 +40,7 @@ constexpr int \hyperlink{joystick__controller_8h_a7bb08742344a2055c3decbb041e142
 \item 
 constexpr const char $\ast$ \hyperlink{joystick__controller_8h_aa6395149ea73bfb3e22082934f7e1c36}{I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+ER} = \char`\"{}invert\+\_\+steering\char`\"{}
 \item 
-constexpr const char $\ast$ \hyperlink{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}/set/drive\+\_\+param\char`\"{}
+constexpr const char $\ast$ \hyperlink{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}input/drive\+\_\+param/joystick\char`\"{}
 \item 
 constexpr const char $\ast$ \hyperlink{joystick__controller_8h_a1e56417499d1048f130bc194015c7bef}{T\+O\+P\+I\+C\+\_\+\+D\+MS} = \char`\"{}/set/dms\char`\"{}
 \end{DoxyCompactItemize}
@@ -51,54 +52,54 @@ constexpr const char $\ast$ \hyperlink{joystick__controller_8h_a1e56417499d1048f
 \subsubsection[{\texorpdfstring{I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+ER}{INVERT_STEERING_PARAMETER}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+ER = \char`\"{}invert\+\_\+steering\char`\"{}}\hypertarget{joystick__controller_8h_aa6395149ea73bfb3e22082934f7e1c36}{}\label{joystick__controller_8h_aa6395149ea73bfb3e22082934f7e1c36}
 
 
-Definition at line 14 of file joystick\+\_\+controller.\+h.
+Definition at line 15 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+R\+E\+V\+E\+R\+SE@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+R\+E\+V\+E\+R\+SE}}
 \index{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+R\+E\+V\+E\+R\+SE@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+R\+E\+V\+E\+R\+SE}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+R\+E\+V\+E\+R\+SE}{JOYSTICK_AXIS_REVERSE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+R\+E\+V\+E\+R\+SE = 2}\hypertarget{joystick__controller_8h_ab824c9b8327489e8e8841d911385f08a}{}\label{joystick__controller_8h_ab824c9b8327489e8e8841d911385f08a}
 
 
-Definition at line 10 of file joystick\+\_\+controller.\+h.
+Definition at line 11 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+S\+T\+E\+E\+R\+I\+NG@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+S\+T\+E\+E\+R\+I\+NG}}
 \index{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+S\+T\+E\+E\+R\+I\+NG@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+S\+T\+E\+E\+R\+I\+NG}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+S\+T\+E\+E\+R\+I\+NG}{JOYSTICK_AXIS_STEERING}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+S\+T\+E\+E\+R\+I\+NG = 0}\hypertarget{joystick__controller_8h_a09ac939952d738c52e2012d2b9084c29}{}\label{joystick__controller_8h_a09ac939952d738c52e2012d2b9084c29}
 
 
-Definition at line 8 of file joystick\+\_\+controller.\+h.
+Definition at line 9 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+T\+H\+R\+O\+T\+T\+LE@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+T\+H\+R\+O\+T\+T\+LE}}
 \index{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+T\+H\+R\+O\+T\+T\+LE@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+T\+H\+R\+O\+T\+T\+LE}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+T\+H\+R\+O\+T\+T\+LE}{JOYSTICK_AXIS_THROTTLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+A\+X\+I\+S\+\_\+\+T\+H\+R\+O\+T\+T\+LE = 5}\hypertarget{joystick__controller_8h_a4a1f30f2162bb35da976d5c76e6826ed}{}\label{joystick__controller_8h_a4a1f30f2162bb35da976d5c76e6826ed}
 
 
-Definition at line 9 of file joystick\+\_\+controller.\+h.
+Definition at line 10 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+A\+D\+M\+A\+N\+S\+S\+W\+I\+T\+CH@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+A\+D\+M\+A\+N\+S\+S\+W\+I\+T\+CH}}
 \index{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+A\+D\+M\+A\+N\+S\+S\+W\+I\+T\+CH@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+A\+D\+M\+A\+N\+S\+S\+W\+I\+T\+CH}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+A\+D\+M\+A\+N\+S\+S\+W\+I\+T\+CH}{JOYSTICK_BUTTON_DEADMANSSWITCH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+A\+D\+M\+A\+N\+S\+S\+W\+I\+T\+CH = 0}\hypertarget{joystick__controller_8h_a43bd0c7ab3c80b971c22e697f482f482}{}\label{joystick__controller_8h_a43bd0c7ab3c80b971c22e697f482f482}
 
 
-Definition at line 11 of file joystick\+\_\+controller.\+h.
+Definition at line 12 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+NG@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+NG}}
 \index{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+NG@{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+NG}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+NG}{JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+I\+N\+V\+E\+R\+T\+\_\+\+S\+T\+E\+E\+R\+I\+NG = 2}\hypertarget{joystick__controller_8h_a7bb08742344a2055c3decbb041e1422f}{}\label{joystick__controller_8h_a7bb08742344a2055c3decbb041e1422f}
 
 
-Definition at line 12 of file joystick\+\_\+controller.\+h.
+Definition at line 13 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+MS@{T\+O\+P\+I\+C\+\_\+\+D\+MS}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+MS@{T\+O\+P\+I\+C\+\_\+\+D\+MS}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+MS}{TOPIC_DMS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+MS = \char`\"{}/set/dms\char`\"{}}\hypertarget{joystick__controller_8h_a1e56417499d1048f130bc194015c7bef}{}\label{joystick__controller_8h_a1e56417499d1048f130bc194015c7bef}
 
 
-Definition at line 16 of file joystick\+\_\+controller.\+h.
+Definition at line 17 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}/set/drive\+\_\+param\char`\"{}}\hypertarget{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}{}\label{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}input/drive\+\_\+param/joystick\char`\"{}}\hypertarget{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}{}\label{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}
 
 
-Definition at line 15 of file joystick\+\_\+controller.\+h.
+Definition at line 16 of file joystick\+\_\+controller.\+h.
 
