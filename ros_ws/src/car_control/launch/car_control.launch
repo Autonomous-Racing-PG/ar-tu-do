@@ -21,5 +21,15 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       name="dms_controller"
       output="screen" >
     </node>
+
+
+    <!-- Drive Parameters Multiplexer node -->
+    <node
+      respawn="true"
+      pkg="car_control"
+      type="drive_parameters_multiplexer"
+      name="drive_parameters_multiplexer"
+      output="screen" >
+    </node>
 	
 </launch>

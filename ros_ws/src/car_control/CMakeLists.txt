@@ -47,6 +47,11 @@ add_executable(dms_controller src/dms_controller.cpp)
 target_link_libraries(dms_controller ${catkin_LIBRARIES})
 add_dependencies(dms_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+# Declare Drive Parameters Multiplexer node executable
+add_executable(drive_parameters_multiplexer src/drive_parameters_multiplexer.cpp src/drive_parameters_source.cpp)
+target_link_libraries(drive_parameters_multiplexer ${catkin_LIBRARIES})
+add_dependencies(drive_parameters_multiplexer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 
 #############
 ## Testing ##

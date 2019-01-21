@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <algorithm>
 #include <array>
+#include <chrono>
 #include <drive_msgs/drive_param.h>
 #include <ros/package.h>
 #include <ros/ros.h>
@@ -10,7 +11,7 @@
 #include <std_msgs/String.h>
 #include <stdexcept>
 
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/keyboard";
 constexpr const char* TOPIC_DEAD_MANS_SWITCH = "/set/dms";
 constexpr const char* TOPIC_COMMAND = "/command";
 

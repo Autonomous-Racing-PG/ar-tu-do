@@ -2,6 +2,7 @@
 
 #include <ros/ros.h>
 
+#include <chrono>
 #include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
 
@@ -12,7 +13,7 @@ constexpr int JOYSTICK_BUTTON_DEADMANSSWITCH = 0;
 constexpr int JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING = 2;
 
 constexpr const char* INVERT_STEERING_PARAMETER = "invert_steering";
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/set/drive_param";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
 constexpr const char* TOPIC_DMS = "/set/dms";
 
 class JoystickController
