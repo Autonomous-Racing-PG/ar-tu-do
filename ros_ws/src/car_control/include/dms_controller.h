@@ -6,8 +6,8 @@
 #include <std_msgs/Int64.h>
 #include <std_msgs/String.h>
 
-// How often the dead mans switch is checked. in Hz
-constexpr const int DMS_CHECK_RATE = 20;
+constexpr const char* PARAMETER_DMS_CHECK_RATE = "dms_check_rate";
+constexpr const char* PARAMETER_DMS_EXPIRATION = "dms_expiration";
 
 // How old the last dead mans switch check can be, in seconds
 constexpr auto DMS_EXPIRATION = std::chrono::duration<double>(0.1);
@@ -15,6 +15,8 @@ constexpr auto DMS_EXPIRATION = std::chrono::duration<double>(0.1);
 class DMSController
 {
     public:
+    int dms_check_rate; // How often the dead mans switch is checked. in Hz
+    int dms_expiration; // How old the last dead mans switch check can be. in ms
     DMSController();
     void checkDMS();
 
