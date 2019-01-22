@@ -10,7 +10,7 @@ Launches all necessary nodes that let the car drive autonomous.
       pkg="autonomous"
       type="autonomous_control"
       name="autonomous_control"
-      output="log" >
+      output="screen" >
     </node>
 
     <!-- wall_following node -->
@@ -19,7 +19,7 @@ Launches all necessary nodes that let the car drive autonomous.
       pkg="autonomous"
       type="wall_following"
       name="wall_following"
-      output="log" >
+      output="screen" >
     </node>
 
 </launch>
