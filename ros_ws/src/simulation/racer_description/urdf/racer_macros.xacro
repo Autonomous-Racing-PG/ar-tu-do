@@ -21,11 +21,11 @@
   </macro>
 
   <!-- Wheels -->
-  <property name="wheel_radius" value="0.05" /> 
-  <property name="wheel_height" value="0.045" />
+  <property name="wheel_radius" value="0.049" /> 
+  <property name="wheel_height" value="0.042" />
   <property name="wheel_mass" value="0.2" />
   
-  <property name="base_x_origin_to_wheel_origin" value="0.16" />
+  <property name="base_x_origin_to_wheel_origin" value="0.1625" />
   <property name="base_y_origin_to_wheel_origin" value="0.1055" />
   <property name="base_z_origin_to_wheel_origin" value="0" />
   <property name="base_x_sphere_origin_to_wheel_origin" value="0.000" />
