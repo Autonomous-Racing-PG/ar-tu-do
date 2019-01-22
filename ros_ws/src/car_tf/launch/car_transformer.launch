@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+<!-- 
+Launches all necessary nodes that transform various frames
+-->
+
+    <!-- tf_laserscan_to_pointcloud node -->
+    <node
+      respawn="true"
+      pkg="car_tf"
+      type="tf_laserscan_to_pointcloud"
+      name="tf_laserscan_to_pointcloud"
+      output="screen" >
+    </node>
+	
+</launch>
