@@ -1,7 +1,4 @@
 #include "joystick_controller.h"
-#include "joystick_map_xbox360.h"
-#include "joystick_map_xboxone.h"
-#include "joystick_map_ps3.h"
 
 #include <ros/console.h>
 #include <std_msgs/Int64.h>
@@ -26,20 +23,20 @@ JoystickController::JoystickController()
     // load joystick map for the provided gamepad type
     if (m_joystick_type == "xbox360")
     {
-        m_joystick_map = std::make_unique<JoystickMapXbox360>();
+        m_joystick_map = joystick_mapping_xbox360;
     }
     else if (m_joystick_type == "ps3")
     {
-        m_joystick_map = std::make_unique<JoystickMapPs3>();
+        m_joystick_map = joystick_mapping_ps3;
     }
     else if (m_joystick_type == "xboxone")
     {
-        m_joystick_map = std::make_unique<JoystickMapXboxone>();
+        m_joystick_map = joystick_mapping_xboxone;
     }
     else
     {
         ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to xbox360 keybindings");
-        m_joystick_map = std::make_unique<JoystickMapXbox360>();
+        m_joystick_map = joystick_mapping_xbox360;
     }
 }
 
@@ -53,7 +50,7 @@ JoystickController::JoystickController()
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
     // check if dms button is pressed. if yes -> send dms_message
-    if (m_joystick_map->isDeadMansSwitchPressed(joystick))
+    if (joystick->buttons[m_joystick_map.deadMansSwitchButton] == 1)
     {
         auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
         auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
@@ -65,9 +62,14 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     }
 
     // compute and publish the provided steering and velocity
-    float acceleration = m_joystick_map->getAcceleration(joystick) * ACCELERATION_SCALING_FACTOR;
-    float deceleration = m_joystick_map->getDeceleration(joystick) * DECELERATION_SCALING_FACTOR;
-    float steering_angle = m_joystick_map->getSteering(joystick) * STEERING_SCALING_FACTOR;
+    float acceleration = (joystick->axes[m_joystick_map.accelerationAxis] - 1) * -0.5f * ACCELERATION_SCALING_FACTOR;
+    float deceleration = (joystick->axes[m_joystick_map.decelerationAxis] - 1) * -0.5f * DECELERATION_SCALING_FACTOR;
+    float velocity = acceleration - deceleration;
+
+    float steering_angle = joystick->axes[m_joystick_map.steeringAxis] * -1.0f * STEERING_SCALING_FACTOR;
+
+    ROS_ASSERT_MSG(velocity < -1.0f || velocity > 1.0f, "Velocity should be between -1 and 1");
+    ROS_ASSERT_MSG(steering_angle < -1.0f || steering_angle > 1.0f, "Steering angle should be between -1 and 1");
 
     this->publishDriveParameters(acceleration - deceleration, steering_angle);
 }

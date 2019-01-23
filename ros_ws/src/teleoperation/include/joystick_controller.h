@@ -7,7 +7,6 @@
 #include <sensor_msgs/Joy.h>
 #include <string>
 
-#include "joystick_map.h"
 
 constexpr const char* PARAMETER_GAMEPAD_TYPE = "joystick_type";
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
@@ -33,6 +32,18 @@ constexpr float STEERING_SCALING_FACTOR = 0.8f;
 
 class JoystickController
 {
+    struct JoystickMapping
+    {
+        int steeringAxis;
+        int accelerationAxis;
+        int decelerationAxis;
+        int deadMansSwitchButton;
+    };
+
+    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14 };
+    const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0 };
+    const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0 };
+
     public:
     JoystickController();
 
@@ -44,7 +55,7 @@ class JoystickController
 
     std::string m_joystick_type = "";
 
-    std::unique_ptr<JoystickMap> m_joystick_map;
+    JoystickMapping m_joystick_map;
 
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
     void publishDriveParameters(double velocity, double steering_angle);
