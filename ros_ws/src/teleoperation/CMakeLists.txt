@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(teleoperation)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-set (CMAKE_CXX_STANDARD 11)
+add_compile_options(-std=c++1y)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS

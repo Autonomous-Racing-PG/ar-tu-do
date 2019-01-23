@@ -12,16 +12,14 @@ class JoystickMap
     }
 
     public:
-    virtual ~JoystickMap()
-    {
-    }
+    virtual ~JoystickMap() = default;
 
     /**
      * @brief Get value of the steering axis. -1 is maximal left, 1 is maximal right
      *
      * @return float
      */
-    virtual float getSteeringAxis(const sensor_msgs::Joy::ConstPtr& joystick) = 0;
+    virtual float getSteering(const sensor_msgs::Joy::ConstPtr& joystick) = 0;
 
     /**
      * @brief Get value of the acceleration. 0 is no acceleration, 1 is maximal acceleration

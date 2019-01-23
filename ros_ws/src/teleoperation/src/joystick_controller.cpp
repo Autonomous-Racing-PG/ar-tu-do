@@ -21,21 +21,25 @@ JoystickController::JoystickController()
 
     // get the provided gamepad type
     ros::NodeHandle private_node_handle("~");
-    private_node_handle.getParam(GAMEPAD_TYPE_PARAMETER, this->m_gamepad_type);
+    private_node_handle.getParam(PARAMETER_GAMEPAD_TYPE, this->m_joystick_type);
 
     // load joystick map for the provided gamepad type
-    ROS_ASSERT_MSG(m_gamepad_type != "xbox360" || m_gamepad_type != "ps3", "Gamepad type should be xbox360 or ps3");
-    if (m_gamepad_type == "xbox360")
+    if (m_joystick_type == "xbox360")
     {
-        m_joystick_map = new JoystickMapXbox360();
+        m_joystick_map = std::make_unique<JoystickMapXbox360>();
     }
-    else if (m_gamepad_type == "ps3")
+    else if (m_joystick_type == "ps3")
     {
-        m_joystick_map = new JoystickMapPs3();
+        m_joystick_map = std::make_unique<JoystickMapPs3>();
     }
-    else if (m_gamepad_type == "xboxone")
+    else if (m_joystick_type == "xboxone")
     {
-        m_joystick_map = new JoystickMapXboxone();
+        m_joystick_map = std::make_unique<JoystickMapXboxone>();
+    }
+    else
+    {
+        ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to xbox360 keybindings");
+        m_joystick_map = std::make_unique<JoystickMapXbox360>();
     }
 }
 
@@ -63,7 +67,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     // compute and publish the provided steering and velocity
     float acceleration = m_joystick_map->getAcceleration(joystick) * ACCELERATION_SCALING_FACTOR;
     float deceleration = m_joystick_map->getDeceleration(joystick) * DECELERATION_SCALING_FACTOR;
-    float steering_angle = m_joystick_map->getSteeringAxis(joystick) * STEERING_SCALING_FACTOR;
+    float steering_angle = m_joystick_map->getSteering(joystick) * STEERING_SCALING_FACTOR;
 
     this->publishDriveParameters(acceleration - deceleration, steering_angle);
 }
