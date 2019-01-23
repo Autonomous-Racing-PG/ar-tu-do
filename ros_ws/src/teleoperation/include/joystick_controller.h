@@ -7,8 +7,7 @@
 #include <sensor_msgs/Joy.h>
 #include <string>
 
-
-constexpr const char* PARAMETER_GAMEPAD_TYPE = "joystick_type";
+constexpr const char* PARAMETER_JOYSTICK_TYPE = "joystick_type";
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
 constexpr const char* TOPIC_DMS = "/set/dms";
 
@@ -53,10 +52,27 @@ class JoystickController
     ros::Subscriber m_joystick_subscriber;
     ros::Publisher m_dms_publisher;
 
-    std::string m_joystick_type = "";
-
     JoystickMapping m_joystick_map;
 
+    /**
+     * @brief Callback function that is called each time a connected gamepad gets an input. It publishes a dms_message
+     * and drive_parameters.
+     *
+     * @param joystick The data structure that contains information about the state of the buttons and axes on the
+     * gamepad
+     */
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
+
+    /**
+     * @brief Publishes speed and angle values
+     *
+     * @param velocity The velocity provided by the gamepad input
+     * @param steering_angle The steering angle provided by the gamepad input
+     */
     void publishDriveParameters(double velocity, double steering_angle);
+
+    /**
+     * @brief Looks for a provided joystick_type argument and selects the corresponding JoystickMapping
+     */
+    void selectJoystickMapping();
 };

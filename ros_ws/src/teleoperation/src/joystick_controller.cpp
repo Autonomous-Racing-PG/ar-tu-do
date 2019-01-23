@@ -15,38 +15,9 @@ JoystickController::JoystickController()
     this->m_joystick_subscriber =
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
 
-
-    // get the provided gamepad type
-    ros::NodeHandle private_node_handle("~");
-    private_node_handle.getParam(PARAMETER_GAMEPAD_TYPE, this->m_joystick_type);
-
-    // load joystick map for the provided gamepad type
-    if (m_joystick_type == "xbox360")
-    {
-        m_joystick_map = joystick_mapping_xbox360;
-    }
-    else if (m_joystick_type == "ps3")
-    {
-        m_joystick_map = joystick_mapping_ps3;
-    }
-    else if (m_joystick_type == "xboxone")
-    {
-        m_joystick_map = joystick_mapping_xboxone;
-    }
-    else
-    {
-        ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to xbox360 keybindings");
-        m_joystick_map = joystick_mapping_xbox360;
-    }
+    this->selectJoystickMapping();
 }
 
-/**
- * @brief Callback function that is called each time a connected gamepad gets
- * an input. It publishes a dms_message and drive_parameters.
- *
- * @param joystick The data structure that contains information about the state
- * of the buttons and axes on the gamepad
- */
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
     // check if dms button is pressed. if yes -> send dms_message
@@ -74,12 +45,6 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     this->publishDriveParameters(acceleration - deceleration, steering_angle);
 }
 
-/**
- * @brief Publishes speed and angle values
- *
- * @param throttle The throttle provided by the gamepad input
- * @param steering_angle The steering angle provided by the gamepad input
- */
 void JoystickController::publishDriveParameters(double velocity, double steering_angle)
 {
     drive_msgs::drive_param drive_parameters;
@@ -87,6 +52,31 @@ void JoystickController::publishDriveParameters(double velocity, double steering
     drive_parameters.angle = steering_angle;
 
     this->m_drive_parameter_publisher.publish(drive_parameters);
+}
+
+void JoystickController::selectJoystickMapping()
+{
+    std::string joystick_type = "";
+    ros::NodeHandle private_node_handle("~");
+    private_node_handle.getParam(PARAMETER_JOYSTICK_TYPE, joystick_type);
+
+    if (joystick_type == "xbox360")
+    {
+        m_joystick_map = joystick_mapping_xbox360;
+    }
+    else if (joystick_type == "ps3")
+    {
+        m_joystick_map = joystick_mapping_ps3;
+    }
+    else if (joystick_type == "xboxone")
+    {
+        m_joystick_map = joystick_mapping_xboxone;
+    }
+    else
+    {
+        ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to xbox360 keybindings");
+        m_joystick_map = joystick_mapping_xbox360;
+    }
 }
 
 int main(int argc, char** argv)
