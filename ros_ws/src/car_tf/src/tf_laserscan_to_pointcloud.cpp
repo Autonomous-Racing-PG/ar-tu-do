@@ -5,24 +5,24 @@
 class LaserscanTransformer {
      public:
         LaserscanTransformer();
-        void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan);
+        void scanCallback(const sensor_msgs::LaserScan::ConstPtr& laserscan);
      private:
         ros::NodeHandle node;
         laser_geometry::LaserProjection projector;
         tf::TransformListener listener;
-        ros::Publisher point_cloud_publisher;
-        ros::Subscriber scan_subscriber;
+        ros::Publisher pointcloud_publisher;
+        ros::Subscriber laserscan_subscriber;
 };
 
 LaserscanTransformer::LaserscanTransformer(){
-        scan_subscriber = node.subscribe<sensor_msgs::LaserScan> ("/racer/laser/scan", 100, &LaserscanTransformer::scanCallback, this);
-        point_cloud_publisher = node.advertise<sensor_msgs::PointCloud2> ("/cloud", 100, false);
+        laserscan_subscriber = node.subscribe<sensor_msgs::LaserScan> ("/racer/laser/scan", 100, &LaserscanTransformer::scanCallback, this);
+        pointcloud_publisher = node.advertise<sensor_msgs::PointCloud2> ("/racer/laser/tf_pointcloud", 100, false);
 }
 
-void LaserscanTransformer::scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
-    sensor_msgs::PointCloud2 cloud;
-    projector.transformLaserScanToPointCloud("base_link", *scan, cloud, listener);
-    point_cloud_publisher.publish(cloud);
+void LaserscanTransformer::scanCallback(const sensor_msgs::LaserScan::ConstPtr& laserscan){
+    sensor_msgs::PointCloud2 pointcloud;
+    projector.transformLaserScanToPointCloud("base_link", *laserscan, pointcloud, listener);
+    pointcloud_publisher.publish(pointcloud);
 }
 
 int main(int argc, char** argv)
