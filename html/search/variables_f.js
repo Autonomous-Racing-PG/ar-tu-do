@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['throttle_5fgravity',['THROTTLE_GRAVITY',['../keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b',1,'keyboard_controller.h']]],
-  ['topic_5fcommand',['TOPIC_COMMAND',['../car__control_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'TOPIC_COMMAND():&#160;car_control.h'],['../keyboard__controller_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'TOPIC_COMMAND():&#160;keyboard_controller.h']]],
-  ['topic_5fdead_5fmans_5fswitch',['TOPIC_DEAD_MANS_SWITCH',['../keyboard__controller_8h.html#aabd38024f2f1a3ffba466bdd55e1142c',1,'keyboard_controller.h']]],
-  ['topic_5fdms',['TOPIC_DMS',['../car__control_8h.html#a1e56417499d1048f130bc194015c7bef',1,'TOPIC_DMS():&#160;car_control.h'],['../joystick__controller_8h.html#a1e56417499d1048f130bc194015c7bef',1,'TOPIC_DMS():&#160;joystick_controller.h']]],
-  ['topic_5fdrive_5fparam',['TOPIC_DRIVE_PARAM',['../car__control_8h.html#ae2bdb9527cf2548c238295d766dcff5a',1,'car_control.h']]],
-  ['topic_5fdrive_5fparameters',['TOPIC_DRIVE_PARAMETERS',['../joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839',1,'TOPIC_DRIVE_PARAMETERS():&#160;joystick_controller.h'],['../keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839',1,'TOPIC_DRIVE_PARAMETERS():&#160;keyboard_controller.h']]],
-  ['topic_5ffocbox_5fangle',['TOPIC_FOCBOX_ANGLE',['../car__control_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7',1,'car_control.h']]],
-  ['topic_5ffocbox_5fbrake',['TOPIC_FOCBOX_BRAKE',['../car__control_8h.html#a43c2621ae66c8cc9428026d680ed4fcb',1,'car_control.h']]],
-  ['topic_5ffocbox_5fspeed',['TOPIC_FOCBOX_SPEED',['../car__control_8h.html#a913c683c9209599c259aaebae91b557e',1,'car_control.h']]],
-  ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
-  ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]
+  ['wheel_5fdiameter',['WHEEL_DIAMETER',['../namespacecar__config.html#a6f064e331d6d85d46028dfbe75f063dd',1,'car_config']]],
+  ['wheel_5fleft_5fback_5fvelocity',['WHEEL_LEFT_BACK_VELOCITY',['../namespacecar__config_1_1simulation.html#ad5b5204b67d98be9a93418b41f9c5e1e',1,'car_config::simulation']]],
+  ['wheel_5fleft_5ffront_5fvelocity',['WHEEL_LEFT_FRONT_VELOCITY',['../namespacecar__config_1_1simulation.html#a13f0760806f194b285a499947ec01ae3',1,'car_config::simulation']]],
+  ['wheel_5fperimeter',['WHEEL_PERIMETER',['../namespacecar__config.html#a46fe00906da07d2e030b586a634cd907',1,'car_config']]],
+  ['wheel_5fright_5fback_5fvelocity',['WHEEL_RIGHT_BACK_VELOCITY',['../namespacecar__config_1_1simulation.html#a824b4ee5d2b14eb92a017605678ada71',1,'car_config::simulation']]],
+  ['wheel_5fright_5ffront_5fvelocity',['WHEEL_RIGHT_FRONT_VELOCITY',['../namespacecar__config_1_1simulation.html#ad0fb8a1c1f51bc790b995c81b07a04ea',1,'car_config::simulation']]],
+  ['wheel_5fwidth',['WHEEL_WIDTH',['../namespacecar__config.html#ace29186cd9605cde6edd0fd9b814df63',1,'car_config']]],
+  ['wheelbase',['WHEELBASE',['../namespacecar__config.html#a4e9e4925d43a88de91b13bedafabce67',1,'car_config']]]
 ];

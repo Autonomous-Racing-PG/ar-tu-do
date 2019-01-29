@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../namespacecar__config.html#a43e668702c6dc662ff95f80047ee5500',1,'car_config']]],
-  ['right_5fsteering_5fposition',['RIGHT_STEERING_POSITION',['../namespacecar__config_1_1simulation.html#a4f5267acab1b061953937bc84a7a6e28',1,'car_config::simulation']]],
-  ['rpm_5fto_5fspeed',['RPM_TO_SPEED',['../namespacecar__config.html#aee034b6adfd7932f245bc94d869f2bb6',1,'car_config']]]
+  ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],
+  ['steering_5fgravity',['STEERING_GRAVITY',['../keyboard__controller_8h.html#a8cfb8f83cd91665c0b18f3e213edf672',1,'keyboard_controller.h']]],
+  ['steering_5fscaling_5ffactor',['STEERING_SCALING_FACTOR',['../joystick__controller_8h.html#a55c5df50bc18dcffbb973707048fca39',1,'joystick_controller.h']]],
+  ['steering_5fspeed',['STEERING_SPEED',['../keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5',1,'keyboard_controller.h']]],
+  ['steering_5fto_5fservo_5fgain',['STEERING_TO_SERVO_GAIN',['../namespacecar__config.html#aa8ab85fe7b8ab728f34d15028f114d86',1,'car_config']]],
+  ['steering_5fto_5fservo_5foffset',['STEERING_TO_SERVO_OFFSET',['../namespacecar__config.html#abb6ef746663276219b321683dfbb8896',1,'car_config']]]
 ];
