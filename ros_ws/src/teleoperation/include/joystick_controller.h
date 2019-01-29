@@ -5,19 +5,44 @@
 #include <chrono>
 #include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
+#include <string>
 
-constexpr int JOYSTICK_AXIS_STEERING = 0;
-constexpr int JOYSTICK_AXIS_THROTTLE = 5;
-constexpr int JOYSTICK_AXIS_REVERSE = 2;
-constexpr int JOYSTICK_BUTTON_DEADMANSSWITCH = 0;
-constexpr int JOYSTICK_BUTTON_TOGGLE_INVERT_STEERING = 2;
-
-constexpr const char* INVERT_STEERING_PARAMETER = "invert_steering";
+constexpr const char* PARAMETER_JOYSTICK_TYPE = "joystick_type";
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
 constexpr const char* TOPIC_DMS = "/set/dms";
 
+/**
+ * @brief scales the absolute acceleration provided by the joystick.
+ * Useful if the car should not drive with 100% speed if acceleration button is fully pressed
+ */
+constexpr float ACCELERATION_SCALING_FACTOR = 0.1f;
+
+/**
+ * @brief scales the absolute deceleration provided by the joystick.
+ * Useful if the car should not decelerate with 100% speed if deceleration button is fully pressed
+ */
+constexpr float DECELERATION_SCALING_FACTOR = 0.1f;
+
+/**
+ * @brief scales the absolute steering value (between -1 and 1) provided by the joystick.
+ * Useful if the car should not steer 100% left and right
+ */
+constexpr float STEERING_SCALING_FACTOR = 0.8f;
+
 class JoystickController
 {
+    struct JoystickMapping
+    {
+        int steeringAxis;
+        int accelerationAxis;
+        int decelerationAxis;
+        int deadMansSwitchButton;
+    };
+
+    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14 };
+    const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0 };
+    const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0 };
+
     public:
     JoystickController();
 
@@ -27,10 +52,27 @@ class JoystickController
     ros::Subscriber m_joystick_subscriber;
     ros::Publisher m_dms_publisher;
 
-    bool m_invert_steering = false;
+    JoystickMapping m_joystick_map;
 
-    bool m_toggle_invert_steering_state = false;
-
+    /**
+     * @brief Callback function that is called each time a connected gamepad gets an input. It publishes a dms_message
+     * and drive_parameters.
+     *
+     * @param joystick The data structure that contains information about the state of the buttons and axes on the
+     * gamepad
+     */
     void joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick);
+
+    /**
+     * @brief Publishes speed and angle values
+     *
+     * @param velocity The velocity provided by the gamepad input
+     * @param steering_angle The steering angle provided by the gamepad input
+     */
     void publishDriveParameters(double velocity, double steering_angle);
+
+    /**
+     * @brief Looks for a provided joystick_type argument and selects the corresponding JoystickMapping
+     */
+    void selectJoystickMapping();
 };
