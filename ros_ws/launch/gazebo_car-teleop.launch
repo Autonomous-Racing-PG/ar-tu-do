@@ -1,6 +1,30 @@
 <launch>
-    <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch"/>
+
+    <arg name="world" default="racetrack_decorated"/>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="verbose" default="true"/>
+    <arg name="joystick_type" default="xbox360"/>
+
+    <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch">
+        <arg name="world" value="$(arg world)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="verbose" value="$(arg verbose)"/>
+    </include>
+
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
+
     <include file="$(find car_control)/launch/car_control.launch"/>
-    <include file="$(find teleoperation)/launch/remote_control.launch"/>
+
+    <include file="$(find teleoperation)/launch/remote_control.launch">
+        <arg name="joystick_type" value="$(arg joystick_type)"/>
+    </include>
+
 </launch>
