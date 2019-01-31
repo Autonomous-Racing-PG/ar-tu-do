@@ -39,8 +39,8 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 
     float steering_angle = joystick->axes[m_joystick_map.steeringAxis] * -1.0f * STEERING_SCALING_FACTOR;
 
-    ROS_ASSERT_MSG(velocity < -1.0f || velocity > 1.0f, "Velocity should be between -1 and 1");
-    ROS_ASSERT_MSG(steering_angle < -1.0f || steering_angle > 1.0f, "Steering angle should be between -1 and 1");
+    ROS_ASSERT_MSG(velocity >= -1.0f && velocity <= 1.0f, "Velocity should be between -1 and 1");
+    ROS_ASSERT_MSG(steering_angle >= -1.0f && steering_angle <= 1.0f, "Steering angle should be between -1 and 1");
 
     this->publishDriveParameters(acceleration - deceleration, steering_angle);
 }
