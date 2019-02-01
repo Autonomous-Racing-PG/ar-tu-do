@@ -1,5 +1,6 @@
 <map id="/home/travis/build/Autonomous&#45;Racing&#45;PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h" name="/home/travis/build/Autonomous&#45;Racing&#45;PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h">
-<area shape="rect" id="node2" href="$car__controller_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/car_control\l/src/car_controller.cpp" alt="" coords="5,139,179,224"/>
-<area shape="rect" id="node3" href="$vesc__sim_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/simulation/vesc\l_sim/src/vesc_sim.cpp" alt="" coords="203,139,389,224"/>
-<area shape="rect" id="node4" href="$vesc__sim__driver_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/simulation/vesc\l_sim/src/vesc_sim_driver.cpp" alt="" coords="413,139,609,224"/>
+<area shape="rect" id="node2" href="$car__controller_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/car_control\l/src/car_controller.cpp" alt="" coords="5,146,179,231"/>
+<area shape="rect" id="node3" href="$navigation__stack__control__converter_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/navigation_stack\l/msgs_converter/src/navigation\l_stack_control_converter.cpp" alt="" coords="203,139,407,239"/>
+<area shape="rect" id="node4" href="$vesc__sim_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/simulation/vesc\l_sim/src/vesc_sim.cpp" alt="" coords="431,146,617,231"/>
+<area shape="rect" id="node5" href="$vesc__sim__driver_8cpp.html" title="/home/travis/build\l/Autonomous&#45;Racing&#45;PG\l/ros.package/docs/master\l/ros_ws/src/simulation/vesc\l_sim/src/vesc_sim_driver.cpp" alt="" coords="641,146,837,231"/>
 </map>

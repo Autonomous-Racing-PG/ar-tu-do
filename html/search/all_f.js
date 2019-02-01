@@ -1,16 +1,18 @@
 var searchData=
 [
-  ['test',['TEST',['../test__car__control_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9',1,'TEST(dummy_test, dummy_test_01):&#160;test_car_control.cpp'],['../test__car__control_8cpp.html#a6accdba7cce21b4fbadc9847942eccee',1,'TEST(dummy_test, dummy_test_02):&#160;test_car_control.cpp']]],
-  ['test_5fcar_5fcontrol_2ecpp',['test_car_control.cpp',['../test__car__control_8cpp.html',1,'']]],
-  ['throttle_5fgravity',['THROTTLE_GRAVITY',['../keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b',1,'keyboard_controller.h']]],
-  ['topic_5fcommand',['TOPIC_COMMAND',['../car__control_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'TOPIC_COMMAND():&#160;car_control.h'],['../keyboard__controller_8h.html#a0f7f9cc9b6a6ff34aaf9f7acd8d3d044',1,'TOPIC_COMMAND():&#160;keyboard_controller.h']]],
-  ['topic_5fdead_5fmans_5fswitch',['TOPIC_DEAD_MANS_SWITCH',['../keyboard__controller_8h.html#aabd38024f2f1a3ffba466bdd55e1142c',1,'keyboard_controller.h']]],
-  ['topic_5fdms',['TOPIC_DMS',['../car__control_8h.html#a1e56417499d1048f130bc194015c7bef',1,'TOPIC_DMS():&#160;car_control.h'],['../joystick__controller_8h.html#a1e56417499d1048f130bc194015c7bef',1,'TOPIC_DMS():&#160;joystick_controller.h']]],
-  ['topic_5fdrive_5fparam',['TOPIC_DRIVE_PARAM',['../car__control_8h.html#ae2bdb9527cf2548c238295d766dcff5a',1,'car_control.h']]],
-  ['topic_5fdrive_5fparameters',['TOPIC_DRIVE_PARAMETERS',['../joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839',1,'TOPIC_DRIVE_PARAMETERS():&#160;joystick_controller.h'],['../keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839',1,'TOPIC_DRIVE_PARAMETERS():&#160;keyboard_controller.h']]],
-  ['topic_5ffocbox_5fangle',['TOPIC_FOCBOX_ANGLE',['../car__control_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7',1,'car_control.h']]],
-  ['topic_5ffocbox_5fbrake',['TOPIC_FOCBOX_BRAKE',['../car__control_8h.html#a43c2621ae66c8cc9428026d680ed4fcb',1,'car_control.h']]],
-  ['topic_5ffocbox_5fspeed',['TOPIC_FOCBOX_SPEED',['../car__control_8h.html#a913c683c9209599c259aaebae91b557e',1,'car_control.h']]],
-  ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
-  ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]
+  ['s',['S',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e',1,'keyboard_controller.h']]],
+  ['servopositioncallback',['servoPositionCallback',['../class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310',1,'VESCSimulationDriver']]],
+  ['setservoangle',['setServoAngle',['../class_v_e_s_c_simulator.html#a33b5c6d6dbe7ed92e9ae3b1a681eccb1',1,'VESCSimulator']]],
+  ['setspeed',['setSpeed',['../class_v_e_s_c_simulator.html#aaeff43c35fda29fb69663ff2f6b51f42',1,'VESCSimulator']]],
+  ['space',['SPACE',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57',1,'keyboard_controller.h']]],
+  ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],
+  ['start',['start',['../class_v_e_s_c_simulator.html#a2e504297f7502495288ff5d3b52996cc',1,'VESCSimulator']]],
+  ['steer_5fleft',['STEER_LEFT',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbace64911e4c5738134f296b7e7706fd86',1,'keyboard_controller.h']]],
+  ['steer_5fright',['STEER_RIGHT',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bba2f519bbf001708f1709b0b01550e76d9',1,'keyboard_controller.h']]],
+  ['steering_5fgravity',['STEERING_GRAVITY',['../keyboard__controller_8h.html#a8cfb8f83cd91665c0b18f3e213edf672',1,'keyboard_controller.h']]],
+  ['steering_5fscaling_5ffactor',['STEERING_SCALING_FACTOR',['../joystick__controller_8h.html#a55c5df50bc18dcffbb973707048fca39',1,'joystick_controller.h']]],
+  ['steering_5fspeed',['STEERING_SPEED',['../keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5',1,'keyboard_controller.h']]],
+  ['steering_5fto_5fservo_5fgain',['STEERING_TO_SERVO_GAIN',['../namespacecar__config.html#aa8ab85fe7b8ab728f34d15028f114d86',1,'car_config']]],
+  ['steering_5fto_5fservo_5foffset',['STEERING_TO_SERVO_OFFSET',['../namespacecar__config.html#abb6ef746663276219b321683dfbb8896',1,'car_config']]],
+  ['stop',['stop',['../class_v_e_s_c_simulator.html#acedf3f278185433895371203f0f31127',1,'VESCSimulator']]]
 ];

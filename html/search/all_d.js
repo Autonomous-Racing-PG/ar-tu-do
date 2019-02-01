@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../namespacecar__config.html#a43e668702c6dc662ff95f80047ee5500',1,'car_config']]],
-  ['right_5fsteering_5fposition',['RIGHT_STEERING_POSITION',['../namespacecar__config_1_1simulation.html#a4f5267acab1b061953937bc84a7a6e28',1,'car_config::simulation']]],
-  ['rpm_5fto_5fspeed',['RPM_TO_SPEED',['../namespacecar__config.html#aee034b6adfd7932f245bc94d869f2bb6',1,'car_config']]]
+  ['project_20title',['Project Title',['../md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_README.html',1,'']]],
+  ['parameter_5fdms_5fcheck_5frate',['PARAMETER_DMS_CHECK_RATE',['../dms__controller_8h.html#a3b6ebf94ee59ba27ab11c7425a2e8bf0',1,'dms_controller.h']]],
+  ['parameter_5fdms_5fexpiration',['PARAMETER_DMS_EXPIRATION',['../dms__controller_8h.html#a06afb2972e04d22f02daa1e8587b3874',1,'dms_controller.h']]],
+  ['parameter_5fjoystick_5ftype',['PARAMETER_JOYSTICK_TYPE',['../joystick__controller_8h.html#ab1fc9856ff20e19b2de5cec9f118a527',1,'joystick_controller.h']]],
+  ['parameter_5fupdate_5ffrequency',['PARAMETER_UPDATE_FREQUENCY',['../keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c',1,'keyboard_controller.h']]],
+  ['pi',['PI',['../namespacecar__config.html#a90cb9957197db8924811c447bc98703a',1,'car_config']]]
 ];
