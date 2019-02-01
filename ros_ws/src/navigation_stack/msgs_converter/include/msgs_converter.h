@@ -39,6 +39,4 @@ class MSGSConverter
     ros::Publisher m_drive_param_publisher;
 
     void convertCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel_message);
-
-    constexpr VELOCITY_THRESHOLD = 0.001;
 };

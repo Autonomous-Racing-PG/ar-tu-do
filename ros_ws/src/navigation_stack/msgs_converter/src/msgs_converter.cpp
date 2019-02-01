@@ -6,6 +6,8 @@
 
 using namespace Eigen;
 
+constexpr double VELOCITY_THRESHOLD = 0.001;
+constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001;
 
 MSGSConverter::MSGSConverter()
 {
@@ -47,7 +49,15 @@ void MSGSConverter::convertCallback(const geometry_msgs::Twist::ConstPtr& cmd_ve
 
     double servo_data = (angle_rad * car_config::STEERING_TO_SERVO_GAIN) + car_config::STEERING_TO_SERVO_OFFSET;
 
-    servo_data = std::clamp(servo_data, 0, 1);
+    //c++17 servo_data = std::clamp(servo_data,0,1);
+    if (servo_data < 0)
+    {
+        servo_data = 0;
+    }
+    else if (servo_data > 1)
+    {
+        servo_data = 1;
+    }
 
     drive_msgs::drive_param control_message;
     control_message.velocity = erpm_speed / car_config::MAX_RPM_ELECTRICAL; // convert from min-max erpm to (-1)-1
