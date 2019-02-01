@@ -5,12 +5,11 @@
 #include <drive_msgs/drive_param.h>
 #include <geometry_msgs/Twist.h>
 
-
 class MSGSConverter
 {
     public:
     MSGSConverter();
-    
+
     private:
     /**
      * @brief ROS Handle
