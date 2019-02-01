@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(msgs_converter)
+project(navigation_stack_control_converter)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 set (CMAKE_CXX_STANDARD 11)
@@ -42,10 +42,10 @@ include_directories(
 )
 
 # Declare joystick controller node executable
-add_executable(msgs_converter
+add_executable(navigation_stack_control_converter
   src/main.cpp
-  src/msgs_converter.cpp
+  src/navigation_stack_control_converter.cpp
 )
 
-target_link_libraries(msgs_converter ${catkin_LIBRARIES})
-add_dependencies(msgs_converter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(navigation_stack_control_converter ${catkin_LIBRARIES})
+add_dependencies(navigation_stack_control_converter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

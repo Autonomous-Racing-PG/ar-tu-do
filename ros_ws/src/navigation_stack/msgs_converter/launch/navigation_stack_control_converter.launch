@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+
+<launch>
+  <!-- drive_parameters converter -->
+  <node 
+    pkg="navigation_stack_control_converter" 
+    type="navigation_stack_control_converter" 
+    name="navigation_stack_control_converter" 
+    output="screen">
+  </node>
+
+</launch>
