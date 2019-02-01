@@ -2,6 +2,7 @@
 
 #include <ros/ros.h>
 
+#include <algorithm>
 #include <chrono>
 #include <drive_msgs/drive_param.h>
 #include <sensor_msgs/Joy.h>
@@ -10,6 +11,8 @@
 constexpr const char* PARAMETER_JOYSTICK_TYPE = "joystick_type";
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
 constexpr const char* TOPIC_DMS = "/set/dms";
+
+constexpr float EPSILON = 0.001;
 
 /**
  * @brief scales the absolute acceleration provided by the joystick.
@@ -53,6 +56,13 @@ class JoystickController
     ros::Publisher m_dms_publisher;
 
     JoystickMapping m_joystick_map;
+
+    /**
+     * @brief Due to a bug with the joy node, joystick axes return non-zero values when the axis is at zero
+     * until the axis is changed for the first time. Thus, this variable saves whether a zero was ever received.
+     */
+    bool m_acceleration_locked;
+    bool m_deceleration_locked;
 
     /**
      * @brief Callback function that is called each time a connected gamepad gets an input. It publishes a dms_message
