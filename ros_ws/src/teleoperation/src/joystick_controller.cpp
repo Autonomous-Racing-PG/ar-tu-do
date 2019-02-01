@@ -2,6 +2,7 @@
 
 #include <ros/console.h>
 #include <std_msgs/Int64.h>
+using std::abs;
 
 /**
  * @brief Construct a new Remote Joy:: Remote Joy object
@@ -16,6 +17,8 @@ JoystickController::JoystickController()
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
 
     this->selectJoystickMapping();
+    this->m_acceleration_locked = true;
+    this->m_deceleration_locked = true;
 }
 
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
@@ -35,6 +38,30 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     // compute and publish the provided steering and velocity
     float acceleration = (joystick->axes[m_joystick_map.accelerationAxis] - 1) * -0.5f * ACCELERATION_SCALING_FACTOR;
     float deceleration = (joystick->axes[m_joystick_map.decelerationAxis] - 1) * -0.5f * DECELERATION_SCALING_FACTOR;
+
+    if (this->m_acceleration_locked)
+    {
+        if (abs(acceleration) < EPSILON)
+        {
+            this->m_acceleration_locked = false;
+        }
+        else
+        {
+            acceleration = 0;
+        }
+    }
+    if (this->m_deceleration_locked)
+    {
+        if (abs(deceleration) < EPSILON)
+        {
+            this->m_deceleration_locked = false;
+        }
+        else
+        {
+            deceleration = 0;
+        }
+    }
+
     float velocity = acceleration - deceleration;
 
     float steering_angle = joystick->axes[m_joystick_map.steeringAxis] * -1.0f * STEERING_SCALING_FACTOR;
