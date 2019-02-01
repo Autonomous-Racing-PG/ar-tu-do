@@ -15,6 +15,7 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
+      - libeigen3-dev
 
 cache:
     apt: true
