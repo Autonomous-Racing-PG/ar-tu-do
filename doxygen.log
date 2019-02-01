@@ -250,11 +250,11 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim_driver.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/keyboard_controller.h...
-Generating docs for file /home/travis/build/Autonomous/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:210: warning: explicit link request to 'define' could not be resolved
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:272: warning: explicit link request to 'ifndef' could not be resolved
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:281: warning: explicit link request to 'pragma' could not be resolved
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:644: warning: explicit link request to 'pragma' could not be resolved
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:644: warning: explicit link request to 'pragma' could not be resolved
+Generating docs for file /home/travis/build/Autonomous/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:212: warning: explicit link request to 'define' could not be resolved
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:284: warning: explicit link request to 'ifndef' could not be resolved
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:293: warning: explicit link request to 'pragma' could not be resolved
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:656: warning: explicit link request to 'pragma' could not be resolved
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:656: warning: explicit link request to 'pragma' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/README.md:5: warning: Unexpected html tag <img> found within <a href=...> context
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim_driver.h:27: warning: argument 'motor_speed' of command @param is not found in the argument list of VESCSimulationDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr &throttle_message)
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim_driver.h:31: warning: The following parameters of VESCSimulationDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr &throttle_message) are not documented:

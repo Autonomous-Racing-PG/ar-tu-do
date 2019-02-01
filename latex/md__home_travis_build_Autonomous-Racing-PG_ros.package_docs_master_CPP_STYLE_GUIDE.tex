@@ -15,6 +15,10 @@
 \begin{DoxyItemize}
 \item \href{#member-variables}{\tt Member variables}
 \item \href{#constants}{\tt Constants}
+\begin{DoxyItemize}
+\item \href{#ros-topics--services}{\tt R\+OS Topics / Services}
+\item \href{#ros-parameters}{\tt R\+OS Parameters}
+\end{DoxyItemize}
 \item \href{#global-variables}{\tt Global variables}
 \end{DoxyItemize}
 \item \href{#namespaces}{\tt Namespaces}
@@ -229,6 +233,14 @@ Try to use {\ttfamily constexpr}, {\ttfamily enum} and {\ttfamily enum class} be
 
 
 See \href{https://smartbear.de/blog/develop/using-constexpr-to-improve-security-performance-an/?l=ua}{\tt Using constexpr to Improve Security, Performance and Encapsulation in C++} for more information on why {\ttfamily constexpr} is awesome.
+
+\paragraph*{R\+OS Topics / Services}
+
+If a R\+OS topics or services name is stored in a constant, the constant\textquotesingle{}s name S\+H\+O\+U\+LD beginn with {\itshape T\+O\+P\+I\+C\+\_\+}.
+
+\paragraph*{R\+OS Parameters}
+
+If a R\+OS parameters name is stored in a constant, the constant\textquotesingle{}s name S\+H\+O\+U\+LD beginn with {\itshape P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+}.
 
 \subsubsection*{Global variables}
 
