@@ -141,4 +141,7 @@ namespace car_config
         constexpr char LEFT_STEERING_POSITION[]{ "/racer/left_steering_hinge_position_controller/command" };
         constexpr char RIGHT_STEERING_POSITION[]{ "/racer/right_steering_hinge_position_controller/command" };
     };
+
+    constexpr const char TOPIC_DRIVE_PARAM[]{ "/set/drive_param" };
+    constexpr const char CMD_VEL[]{ "cmd_vel" };
 };

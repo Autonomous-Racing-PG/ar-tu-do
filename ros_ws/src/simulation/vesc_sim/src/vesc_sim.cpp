@@ -48,7 +48,7 @@ void VESCSimulator::timerCallback(const ros::TimerEvent& event)
     m_current_speed = m_state_speed * car_config::ERPM_TO_SPEED / car_config::TRANSMISSION; // m/s
     m_current_steering_angle =
         (m_servo_data - car_config::STEERING_TO_SERVO_OFFSET) / car_config::STEERING_TO_SERVO_GAIN;
-    m_current_angular_velocity = m_current_speed * tan(m_current_steering_angle) / car_config::WHEELBASE; // rad
+    m_current_angular_velocity = m_current_speed * tan(m_current_steering_angle) / car_config::WHEELBASE; // rad/s
 
     // calc elapsed time
     ros::Time stamp_now = ros::Time::now();
