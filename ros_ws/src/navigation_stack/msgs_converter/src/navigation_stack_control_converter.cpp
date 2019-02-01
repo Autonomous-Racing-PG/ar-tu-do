@@ -1,4 +1,4 @@
-#include "msgs_converter.h"
+#include "navigation_stack_control_converter.h"
 #include "car_config.h"
 #include <eigen3/Eigen/Dense>
 #include <algorithm>
@@ -9,17 +9,17 @@ using namespace Eigen;
 constexpr double VELOCITY_THRESHOLD = 0.001;
 constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001;
 
-MSGSConverter::MSGSConverter()
+NavigationStackControlConverter::NavigationStackControlConverter()
 {
     this->m_command_velocity_subscriber =
-        this->m_node_handle.subscribe<geometry_msgs::Twist>(car_config::CMD_VEL, 1, &MSGSConverter::convertCallback,
+        this->m_node_handle.subscribe<geometry_msgs::Twist>(car_config::CMD_VEL, 1, &NavigationStackControlConverter::convertCallback,
                                                             this);
 
     this->m_drive_param_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(car_config::TOPIC_DRIVE_PARAM, 10);
 }
 
-void MSGSConverter::convertCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel_message)
+void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel_message)
 {
 
     double velocity_x = cmd_vel_message->linear.x;

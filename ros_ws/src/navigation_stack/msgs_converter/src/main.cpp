@@ -1,4 +1,4 @@
-#include "msgs_converter.h"
+#include "navigation_stack_control_converter.h"
 /**
  * @brief Starts navigatioin stack
  *
@@ -9,7 +9,7 @@
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "navigation_stack");
-    MSGSConverter msgs_converter;
+    NavigationStackControlConverter navigation_stack_control_converter;
 
     ros::spin();
 

@@ -10,14 +10,14 @@
  * The linear and angular velocity has to be transformed to linear velocity and steering angle.
  * TODO: Differential drive?
  */
-class MSGSConverter
+class NavigationStackControlConverter
 {
     public:
     /**
      * @brief Initializes the publisher and subscriber
      * 
      */
-    MSGSConverter();
+    NavigationStackControlConverter();
 
     private:
     /**
