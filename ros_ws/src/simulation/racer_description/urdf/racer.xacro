@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 
-<robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="myrobot" 
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find racer_description)/urdf/racer_plugins.gazebo" />
   <xacro:include filename="$(find racer_description)/urdf/racer_macros.xacro" />
@@ -12,7 +13,7 @@
 
   <xacro:property name="hokuyoSize" value="0.1"/>
   <xacro:property name="hokuyoMass" value="0.1"/>
-  
+
   <xacro:property name="bodySizeL" value="0.49"/>
   <xacro:property name="bodySizeB" value="0.18"/>
   <xacro:property name="bodySizeH" value="0.1"/>
@@ -27,11 +28,11 @@
   </joint>
 
   <!--  Body  -->
-  <link name='chassis'>           
+  <link name='chassis'>
     <inertial>
       <mass value="${bodyMass}"/>
       <origin xyz="0 0 ${wheel_height/2}" rpy=" 0 0 0"/>
-      <box_inertia  m="${bodyMass}" l="${bodySizeL}" b="${bodySizeB}" h="${bodySizeH}" />
+      <box_inertia m="${bodyMass}" l="${bodySizeL}" b="${bodySizeB}" h="${bodySizeH}" />
     </inertial>
 
     <collision name='collision'>
@@ -44,31 +45,23 @@
     <visual>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-         <mesh filename="package://racer_description/meshes/car.dae"/>
+        <mesh filename="package://racer_description/meshes/car.dae"/>
       </geometry>
     </visual>
   </link>
 
   <!--  Wheels  -->
-  <wheel fb="front" lr="left" parent="left_steering" translateX="1" translateY="1" left="1" 
-  OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}"  OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" 
-  OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="0.02" />
+  <wheel fb="front" lr="left" parent="left_steering" translateX="1" translateY="1" left="1" OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}" OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="0.02" />
 
-  <wheel  fb="front" lr="right" parent="right_steering" translateX="1" translateY="-1" left="0" 
-  OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}"  OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" 
-  OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="-0.02" />
+  <wheel fb="front" lr="right" parent="right_steering" translateX="1" translateY="-1" left="0" OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}" OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="-0.02" />
 
-  <wheel  fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" left="1" 
-  OffsetJointX= "${base_x_origin_to_wheel_origin}"  OffsetJointY= "${base_y_origin_to_wheel_origin}" 
-  OffsetJointZ= "${base_z_origin_to_wheel_origin}" OffsetY="0.021" />
+  <wheel fb="back" lr="left" parent="chassis" translateX="-1" translateY="1" left="1" OffsetJointX= "${base_x_origin_to_wheel_origin}" OffsetJointY= "${base_y_origin_to_wheel_origin}" OffsetJointZ= "${base_z_origin_to_wheel_origin}" OffsetY="0.021" />
 
-  <wheel  fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" left="0" 
-  OffsetJointX= "${base_x_origin_to_wheel_origin}"  OffsetJointY= "${base_y_origin_to_wheel_origin}" 
-  OffsetJointZ= "${base_z_origin_to_wheel_origin}" OffsetY="-0.021" />
+  <wheel fb="back" lr="right" parent="chassis" translateX="-1" translateY="-1" left="0" OffsetJointX= "${base_x_origin_to_wheel_origin}" OffsetJointY= "${base_y_origin_to_wheel_origin}" OffsetJointZ= "${base_z_origin_to_wheel_origin}" OffsetY="-0.021" />
 
   <!-- Steering -->
-  <steering_hinge  lr="left" parent="chassis" translateY="1" OffsetY="0.01" />  
-  <steering_hinge  lr="right" parent="chassis" translateY="-1" OffsetY="-0.01" />  
+  <steering_hinge lr="left" parent="chassis" translateY="1" OffsetY="0.01" />
+  <steering_hinge lr="right" parent="chassis" translateY="-1" OffsetY="-0.01" />
 
   <!-- Camera -->
   <link name="camera">
@@ -88,14 +81,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-         <mesh filename="package://racer_description/meshes/ZED.dae"/>
+        <mesh filename="package://racer_description/meshes/ZED.dae"/>
       </geometry>
     </visual>
   </link>s
 
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz=".21 0 0.075" rpy="0 0 0"/>
+    <origin xyz="0.21 0 0.075" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="camera"/>
   </joint>
@@ -105,13 +98,13 @@
     <inertial>
       <mass value="${hokuyoMass}" />
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
-      <box_inertia  m="${hokuyoMass}" l="${hokuyoSize}" b="${hokuyoSize}" h="${hokuyoSize}" />
+      <box_inertia m="${hokuyoMass}" l="${hokuyoSize}" b="${hokuyoSize}" h="${hokuyoSize}" />
     </inertial>
 
     <collision>
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
       <geometry>
-    	  <box size="${hokuyoSize} ${hokuyoSize} ${hokuyoSize}"/>
+        <box size="${hokuyoSize} ${hokuyoSize} ${hokuyoSize}"/>
       </geometry>
     </collision>
 
@@ -125,7 +118,7 @@
 
   <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz=".21 0 .135" rpy="0 0 0"/>
+    <origin xyz="0.21 0 0.135" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="hokuyo"/>
   </joint>
