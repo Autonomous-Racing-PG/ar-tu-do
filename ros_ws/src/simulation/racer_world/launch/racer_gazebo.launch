@@ -8,6 +8,7 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="verbose" default="true"/>
+  <arg name="use_gpu" default="true"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find racer_world)/worlds/$(arg world).world"/>
@@ -19,7 +20,7 @@
     <arg name="verbose" value="$(arg verbose)"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=$(arg use_gpu)"/>
 
   <node name="racer_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model racer" />
 
