@@ -35,7 +35,7 @@ void CarController::publishDriveParameters(double raw_speed, double raw_angle)
         angle_message.data = angle;
         this->m_angle_publisher.publish(angle_message);
     }
-    ROS_DEBUG_STREAM("running: " << this->m_enabled << " | speed: " << speed << " | angle: " << angle << std::endl);
+    ROS_DEBUG_STREAM("running: " << this->m_enabled << " | speed: " << speed << " | angle: " << angle);
 }
 
 void CarController::commandCallback(const std_msgs::String::ConstPtr& command_message)
@@ -54,7 +54,7 @@ void CarController::commandCallback(const std_msgs::String::ConstPtr& command_me
     {
         this->m_enabled = true;
     }
-    ROS_INFO_STREAM("command input: " << command_str << std::endl);
+    ROS_INFO_STREAM("command input: " << command_str);
 }
 
 int main(int argc, char** argv)
