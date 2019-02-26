@@ -220,26 +220,16 @@ void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
 
     float emergency_stop = emergencyStop(lidar);
-    // ROS_INFO_STREAM("emergency stop: " << emergency_stop);
 
     if (emergency_stop == false)
     {
-        // auto right_wall_values = followRightWall(lidar);
-        // auto right_corrected_angle = right_wall_values[0];
-        // auto right_velocity = right_wall_values[1];
-
-        auto left_wall_values = followLeftWall(lidar);
-        auto left_corrected_angle = left_wall_values[0];
-        auto left_velocity = left_wall_values[1];
-
-        // ROS_INFO_STREAM("==========================");
-        // ROS_INFO_STREAM("right corrected angle: " << right_corrected_angle);
-        // ROS_INFO_STREAM("left corrected angle: " << left_corrected_angle);
-        // ROS_INFO_STREAM(std::endl);
+        auto wall_values = m_follow_right_wall ? followRightWall(lidar) : followLeftWall(lidar);
+        auto corrected_angle = wall_values[0];
+        auto velocity = wall_values[1];
 
         drive_msgs::pid_input corr;
-        corr.pid_error = left_corrected_angle;
-        corr.pid_vel = left_velocity;
+        corr.pid_error = corrected_angle;
+        corr.pid_vel = velocity;
         pid_publisher.publish(corr);
     }
     else

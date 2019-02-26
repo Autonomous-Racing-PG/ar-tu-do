@@ -51,6 +51,11 @@ class WallFollowing
      */
     float rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta);
 
+    /**
+     * @brief Follow the right wall if true. Follow the left wall if false.
+     */
+    bool m_follow_right_wall = false;
+
     float m_right_error = 0;
     float m_right_prev_error = 0;
     float m_right_corrected_angle = 0;
