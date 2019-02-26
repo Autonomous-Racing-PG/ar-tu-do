@@ -96,17 +96,17 @@ std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan
     // periodendauer bei kritischer verstärkung = 300ms
     float critic_kp = 800;
     float critic_period = 0.5;
-    float kp = critic_kp*0.6;
-    float ki = 2*kp/500;
-    float kd = kp*0.5/8;
-    float dt = 0.025; //25ms iteration time
+    float kp = critic_kp * 0.6;
+    float ki = 2 * kp / 500;
+    float kd = kp * 0.5 / 8;
+    float dt = 0.025; // 25ms iteration time
 
     // if we want to stay 0.5 meter away from the wall
     // then the error is 0.5-CD
     m_right_error = 0.5 - c_d;
 
-    m_right_integral += (m_right_error*dt);
-    float right_derivative = (m_right_error - m_right_prev_error)/dt;
+    m_right_integral += (m_right_error * dt);
+    float right_derivative = (m_right_error - m_right_prev_error) / dt;
 
     // correction according to the ZIEGLER und NICHOLS
     float correction = kp * m_right_error + ki * (m_right_integral) + kd * right_derivative;
@@ -121,10 +121,10 @@ std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan
     m_right_corrected_angle = -(correction * M_PI) / 180;
 
     // ROS_INFO_STREAM("corrected angle: " << m_right_corrected_angle);
-    
+
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
-    float m_right_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_right_corrected_angle)*WALL_FOLLOWING_MAX_SPEED;
+    float m_right_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_right_corrected_angle) * WALL_FOLLOWING_MAX_SPEED;
 
     if (m_right_velocity > WALL_FOLLOWING_MAX_SPEED)
     {
@@ -137,7 +137,7 @@ std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan
 
     // ROS_INFO_STREAM("atan corrected angle" << std::atan(m_right_corrected_angle));
 
-    return {std::atan(m_right_corrected_angle), m_right_velocity};
+    return { std::atan(m_right_corrected_angle), m_right_velocity };
 }
 
 std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
@@ -172,19 +172,19 @@ std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan:
 
     // values used for PID control, given be ZIEGLER und NICHOLS
     // periodendauer bei kritischer verstärkung = 300ms
-    float critic_kp=200;
-    float critic_period=0.5;
-    float kp = critic_kp*0.6;
-    float ki = 2*kp/500;
-    float kd = kp*0.5/8;
-    float dt = 0.025; //25ms iteration time
+    float critic_kp = 200;
+    float critic_period = 0.5;
+    float kp = critic_kp * 0.6;
+    float ki = 2 * kp / 500;
+    float kd = kp * 0.5 / 8;
+    float dt = 0.025; // 25ms iteration time
 
     // if we want to stay 0.5 meter away from the wall
     // then the error is 0.5-CD
     m_left_error = 0.5 - c_d;
 
-    m_left_integral += (m_left_error*dt);
-    float left_derivative = (m_left_error - m_left_prev_error)/dt;
+    m_left_integral += (m_left_error * dt);
+    float left_derivative = (m_left_error - m_left_prev_error) / dt;
 
     // correction according to the ZIEGLER und NICHOLS
     float correction = kp * m_left_error + ki * (m_left_integral) + kd * left_derivative;
@@ -202,7 +202,7 @@ std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan:
 
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
-    float m_left_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_left_corrected_angle)*WALL_FOLLOWING_MAX_SPEED;
+    float m_left_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_left_corrected_angle) * WALL_FOLLOWING_MAX_SPEED;
 
     if (m_left_velocity > WALL_FOLLOWING_MAX_SPEED)
     {
@@ -213,7 +213,7 @@ std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan:
         m_left_velocity = WALL_FOLLOWING_MIN_SPEED;
     }
 
-    return {std::atan(m_left_corrected_angle), m_left_velocity};
+    return { std::atan(m_left_corrected_angle), m_left_velocity };
 }
 
 void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)

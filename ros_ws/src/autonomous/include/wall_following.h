@@ -18,7 +18,7 @@ class WallFollowing
     private:
     /**
      * @brief Follows the wall by scanning the right side.
-     * 
+     *
      * @param lidar The lidar scan values
      * @return std::array<float, 2> The corrected velocity and angle values
      */
@@ -26,7 +26,7 @@ class WallFollowing
 
     /**
      * @brief Follows the wall by scanning the left side.
-     * 
+     *
      * @param lidar The lidar scan values
      * @return std::array<float, 2> The corrected velocity and angle values
      */
@@ -34,7 +34,7 @@ class WallFollowing
 
     /**
      * @brief Checks if there is a wall to close in front of the car.
-     * 
+     *
      * @param lidar The lidar scan values
      * @return true ...if the car is too close to a wall
      * @return false ...if the car is not too close to a wall
@@ -44,7 +44,7 @@ class WallFollowing
     /**
      * @brief Maps the given degree value to the corresponding array index of the lidar array
      * and returns the range.
-     * 
+     *
      * @param lidar The lidar scan values
      * @param theta Degree value
      * @return float Range at the given degree
