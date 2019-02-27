@@ -1,13 +1,12 @@
 #include "wall_following.h"
 
-constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
-constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1;
-
 WallFollowing::WallFollowing()
 {
     lidar_subscriber =
-        m_node_handle.subscribe<sensor_msgs::LaserScan>("/racer/laser/scan", 1, &WallFollowing::lidarCallback, this);
-    pid_publisher = m_node_handle.advertise<drive_msgs::pid_input>("/pid_input", 1);
+        m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
+    emer_stop_subscriber =
+        m_node_handle.subscribe<std_msgs::Bool>(TOPIC_EMER_STOP, 1, &WallFollowing::emergencyStopCallback, this);
+    pid_publisher = m_node_handle.advertise<drive_msgs::pid_input>(TOPIC_PID_INPUT, 1);
 }
 
 float WallFollowing::rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta)
@@ -33,34 +32,6 @@ float WallFollowing::rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar
     return range;
 }
 
-bool WallFollowing::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
-{
-
-    // used for range averaging
-    float front_range_sum = 0;
-
-    // calculate the average distance in front of the car (6° radius)
-    // used for robustness
-    // (e.g. there is noise and only a single index shows a close range...
-    // ... this is probably not an obstacle)
-    for (int i = 133; i < 139; i++)
-    {
-        front_range_sum += rangeAtDegree(lidar, i);
-        // ROS_INFO_STREAM("front range sum: " << front_range_sum);
-    }
-
-    // return 0 (stop) if the object is too close
-    if ((front_range_sum / 6) < 0.3)
-    {
-        ROS_INFO_STREAM("too close!: " << front_range_sum);
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     // calculations done according to the F1Tenth tutorial
@@ -75,9 +46,6 @@ std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan
     // so the the angle 0° for the algorith starts at angle 45° for the lidar
     float a = rangeAtDegree(lidar, theta);
     float b = rangeAtDegree(lidar, 45);
-
-    // ROS_INFO_STREAM("right a: " << a);
-    // ROS_INFO_STREAM("right b: " << b);
 
     // transform the difference between the angles at a and b into radians
     float swing = (std::abs(theta - 45) * M_PI) / 180;
@@ -111,16 +79,12 @@ std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan
     // correction according to the ZIEGLER und NICHOLS
     float correction = kp * m_right_error + ki * (m_right_integral) + kd * right_derivative;
 
-    // ROS_INFO_STREAM("right correction: " << correction);
-
     m_right_prev_error = m_right_error;
 
     // use correction to increment or decrement steering angle
     // IMPORTANT: for the right wall we have to use the negative value
     // in contrast to the positive value for the left wall]
     m_right_corrected_angle = -(correction * M_PI) / 180;
-
-    // ROS_INFO_STREAM("corrected angle: " << m_right_corrected_angle);
 
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
@@ -134,8 +98,6 @@ std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan
     {
         m_right_velocity = WALL_FOLLOWING_MIN_SPEED;
     }
-
-    // ROS_INFO_STREAM("atan corrected angle" << std::atan(m_right_corrected_angle));
 
     return { std::atan(m_right_corrected_angle), m_right_velocity };
 }
@@ -189,16 +151,12 @@ std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan:
     // correction according to the ZIEGLER und NICHOLS
     float correction = kp * m_left_error + ki * (m_left_integral) + kd * left_derivative;
 
-    // ROS_INFO_STREAM("left correction: " << correction);
-
     m_left_prev_error = m_left_error;
 
     // use correction to increment or decrement steering angle
     // IMPORTANT: for the left wall we have to use the positive value
     // in contrast to the negative value for the right wall
     m_left_corrected_angle = (correction * M_PI) / 180;
-
-    // ROS_INFO_STREAM("corrected angle: " << m_left_corrected_angle);
 
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
@@ -215,13 +173,14 @@ std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan:
 
     return { std::atan(m_left_corrected_angle), m_left_velocity };
 }
+void WallFollowing::emergencyStopCallback(const std_msgs::Bool emer_stop)
+{
+    m_emergency_stop = emer_stop.data;
+}
 
 void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-
-    float emergency_stop = emergencyStop(lidar);
-
-    if (emergency_stop == false)
+    if (m_emergency_stop == false)
     {
         auto wall_values = m_follow_right_wall ? followRightWall(lidar) : followLeftWall(lidar);
         auto corrected_angle = wall_values[0];

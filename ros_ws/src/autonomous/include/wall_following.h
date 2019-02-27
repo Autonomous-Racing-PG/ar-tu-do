@@ -7,8 +7,15 @@
 #include "drive_msgs/pid_input.h"
 #include "sensor_msgs/LaserScan.h"
 #include "std_msgs/Float64.h"
+#include "std_msgs/Bool.h"
 #include <ros/console.h>
 #include <ros/ros.h>
+
+constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
+constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1;
+constexpr const char* TOPIC_PID_INPUT = "/pid_input";
+constexpr const char* TOPIC_LASER_SCAN = "/racer/laser/scan";
+constexpr const char* TOPIC_EMER_STOP = "/std_msgs/Bool";
 
 class WallFollowing
 {
@@ -56,6 +63,8 @@ class WallFollowing
      */
     bool m_follow_right_wall = false;
 
+    bool m_emergency_stop = true;
+
     float m_right_error = 0;
     float m_right_prev_error = 0;
     float m_right_corrected_angle = 0;
@@ -67,11 +76,19 @@ class WallFollowing
     float m_left_integral = 0;
 
     ros::NodeHandle m_node_handle;
+    ros::Subscriber emer_stop_subscriber;
     ros::Subscriber lidar_subscriber;
 
     /**
-     * @brief The callback method for this node. Gets the lidar input and handles the autonomous
-     * controlloling and emergency stop.
+     * @brief The emergency stop callback method for this node. Gets the lidar input and handles the emergency stop.
+     * 
+     * @param emer_stop 
+     */
+    void emergencyStopCallback(const std_msgs::Bool emer_stop);
+
+    /**
+     * @brief The lidar callback method for this node. Gets the lidar input and handles the autonomous
+     * controlloling.
      *
      * @param lidar
      */

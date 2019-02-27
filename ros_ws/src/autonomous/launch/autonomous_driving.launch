@@ -22,4 +22,13 @@ Launches all necessary nodes that let the car drive autonomous.
       output="screen" >
     </node>
 
+    <!-- emergency_stop node -->
+    <node
+      respawn="true"
+      pkg="autonomous"
+      type="emergency_stop"
+      name="emergency_stop"
+      output="screen" >
+    </node>
+
 </launch>
