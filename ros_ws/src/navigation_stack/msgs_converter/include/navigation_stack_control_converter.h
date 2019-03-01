@@ -15,7 +15,7 @@ class NavigationStackControlConverter
     public:
     /**
      * @brief Initializes the publisher and subscriber
-     * 
+     *
      */
     NavigationStackControlConverter();
 
