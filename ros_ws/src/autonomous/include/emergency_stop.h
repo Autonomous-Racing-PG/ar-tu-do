@@ -6,13 +6,10 @@
 #include "drive_msgs/drive_param.h"
 #include "drive_msgs/pid_input.h"
 #include "sensor_msgs/LaserScan.h"
-#include "std_msgs/Float64.h"
 #include "std_msgs/Bool.h"
+#include "std_msgs/Float64.h"
 #include <ros/console.h>
 #include <ros/ros.h>
-
-constexpr const char* TOPIC_LASER_SCAN = "/racer/laser/scan";
-constexpr const char* TOPIC_EMER_STOP = "/std_msgs/Bool";
 
 class EmergencyStop
 {

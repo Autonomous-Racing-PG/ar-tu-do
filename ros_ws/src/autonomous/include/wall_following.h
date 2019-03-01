@@ -6,16 +6,14 @@
 #include "drive_msgs/drive_param.h"
 #include "drive_msgs/pid_input.h"
 #include "sensor_msgs/LaserScan.h"
-#include "std_msgs/Float64.h"
 #include "std_msgs/Bool.h"
+#include "std_msgs/Float64.h"
+#include "topics.h"
 #include <ros/console.h>
 #include <ros/ros.h>
 
 constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
 constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1;
-constexpr const char* TOPIC_PID_INPUT = "/pid_input";
-constexpr const char* TOPIC_LASER_SCAN = "/racer/laser/scan";
-constexpr const char* TOPIC_EMER_STOP = "/std_msgs/Bool";
 
 class WallFollowing
 {
@@ -81,8 +79,8 @@ class WallFollowing
 
     /**
      * @brief The emergency stop callback method for this node. Gets the lidar input and handles the emergency stop.
-     * 
-     * @param emer_stop 
+     *
+     * @param emer_stop
      */
     void emergencyStopCallback(const std_msgs::Bool emer_stop);
 

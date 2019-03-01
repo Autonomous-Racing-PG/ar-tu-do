@@ -1,5 +1,7 @@
 #include "emergency_stop.h"
 
+#include "topics.h"
+
 EmergencyStop::EmergencyStop()
 {
     lidar_subscriber =
