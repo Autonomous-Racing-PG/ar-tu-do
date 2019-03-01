@@ -1,55 +1,15 @@
-#include <array>
-#include <cmath>
-#include <cstdlib>
-#include <iostream>
-
-#include "drive_msgs/drive_param.h"
-#include "drive_msgs/pid_input.h"
-#include "sensor_msgs/LaserScan.h"
-#include "std_msgs/Float64.h"
-#include <ros/console.h>
-#include <ros/ros.h>
-
-float g_right_error = 0;
-float g_right_prev_error = 0;
-float g_right_corrected_angle = 0;
-
-float g_left_error = 0;
-float g_left_prev_error = 0;
-float g_left_corrected_angle = 0;
-
-class WallFollowing
-{
-    public:
-    WallFollowing();
-
-    private:
-    ros::NodeHandle m_node_handle;
-
-    ros::Subscriber lidar_subscriber;
-    void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
-
-    ros::Publisher pid_publisher;
-
-    // void adjustSpeed(double speed);
-};
+#include "wall_following.h"
 
 WallFollowing::WallFollowing()
 {
     lidar_subscriber =
-        m_node_handle.subscribe<sensor_msgs::LaserScan>("/racer/laser/scan", 1, &WallFollowing::lidarCallback, this);
-    pid_publisher = m_node_handle.advertise<drive_msgs::pid_input>("/pid_input", 1);
+        m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
+    emer_stop_subscriber =
+        m_node_handle.subscribe<std_msgs::Bool>(TOPIC_EMER_STOP, 1, &WallFollowing::emergencyStopCallback, this);
+    pid_publisher = m_node_handle.advertise<drive_msgs::pid_input>(TOPIC_PID_INPUT, 1);
 }
 
-/**
- * @brief Using the lidar scans and a given angle theta
- * this method returns the range at the given theta after doing boundary checks.
- *
- * @param lidar
- * @param theta
- * @return float
- */
-float getRange(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta)
+float WallFollowing::rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta)
 {
     // check if calculated index is invalid
     // if so then return the chosen max range (here 4)
@@ -72,50 +32,7 @@ float getRange(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta)
     return range;
 }
 
-/**
- * @brief Checks if there is an unavoidable wall in front of the car using the lidar scans
- * and returns true to inhibit driving if it is the case.
- *
- * @param lidar
- * @return bool
- */
-bool emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
-{
-
-    // used for range averaging
-    float front_range_sum = 0;
-
-    // calculate the average distance in front of the car (6° radius)
-    // used for robustness
-    // (e.g. there is noise and only a single index shows a close range...
-    // ... this is probably not an obstacle)
-    for (int i = 133; i < 139; i++)
-    {
-        front_range_sum += getRange(lidar, i);
-        // ROS_INFO_STREAM("front range sum: " << front_range_sum);
-    }
-
-    // return 0 (stop) if the object is too close
-    if ((front_range_sum / 6) < 0.3)
-    {
-        ROS_INFO_STREAM("too close!: " << front_range_sum);
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-/**
- * @brief Using the lidar scans this method calculates the necesarry angle and velocity
- * for the car to stay parallel to the right wall and then returns them both in that order.
- *
- * @param lidar
- * @return std::array<float, 2>
- */
-
-std::array<float, 2> followRightWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
+std::array<float, 2> WallFollowing::followRightWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     // calculations done according to the F1Tenth tutorial
     // http://f1tenth.org/lab_instructions/t6.pdf
@@ -127,11 +44,8 @@ std::array<float, 2> followRightWall(const sensor_msgs::LaserScan::ConstPtr& lid
     // with b being the distance at angle 0 and a being the distance at angle theta
     // the lidar has a range of 270°, the algorithm use 180°
     // so the the angle 0° for the algorith starts at angle 45° for the lidar
-    float a = getRange(lidar, theta);
-    float b = getRange(lidar, 45);
-
-    ROS_INFO_STREAM("right a: " << a);
-    ROS_INFO_STREAM("right b: " << b);
+    float a = rangeAtDegree(lidar, theta);
+    float b = rangeAtDegree(lidar, 45);
 
     // transform the difference between the angles at a and b into radians
     float swing = (std::abs(theta - 45) * M_PI) / 180;
@@ -146,60 +60,49 @@ std::array<float, 2> followRightWall(const sensor_msgs::LaserScan::ConstPtr& lid
     float a_c = 0.5;
     float c_d = a_b + a_c * std::sin(alpha);
 
-    ROS_INFO_STREAM("right_alpha: " << alpha);
-    ROS_INFO_STREAM("right_a_b: " << a_b);
-    ROS_INFO_STREAM("right_c_d: " << c_d);
-
-    // values used for PID control, given be the F1Tenth tutorial
-    float kp = 14;
-    float kd = 0.09;
+    // values used for PID control, given be ZIEGLER und NICHOLS
+    // periodendauer bei kritischer verstärkung = 300ms
+    float critic_kp = 800;
+    float critic_period = 0.5;
+    float kp = critic_kp * 0.6;
+    float ki = 2 * kp / 500;
+    float kd = kp * 0.5 / 8;
+    float dt = 0.025; // 25ms iteration time
 
     // if we want to stay 0.5 meter away from the wall
     // then the error is 0.5-CD
-    g_right_error = 0.5 - c_d;
+    m_right_error = 0.5 - c_d;
 
-    ROS_INFO_STREAM("right error: " << g_right_error);
+    m_right_integral += (m_right_error * dt);
+    float right_derivative = (m_right_error - m_right_prev_error) / dt;
 
-    // scale error so the car can react fast enough
-    g_right_error = 5 * g_right_error;
+    // correction according to the ZIEGLER und NICHOLS
+    float correction = kp * m_right_error + ki * (m_right_integral) + kd * right_derivative;
 
-    ROS_INFO_STREAM("scaled_right error: " << g_right_error);
-
-    // correction according to the F1Tenth tutorial
-    float correction = kp * g_right_error + kd * (g_right_prev_error - g_right_error);
-
-    // std::cout << "correction:" << correction << std::endl;
-    ROS_INFO_STREAM("right correction: " << correction);
-
-    g_right_prev_error = g_right_error;
+    m_right_prev_error = m_right_error;
 
     // use correction to increment or decrement steering angle
-    g_right_corrected_angle = (correction * M_PI) / 180;
+    // IMPORTANT: for the right wall we have to use the negative value
+    // in contrast to the positive value for the left wall]
+    m_right_corrected_angle = -(correction * M_PI) / 180;
 
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
-    float g_right_velocity = 4 - std::abs(g_right_corrected_angle);
+    float m_right_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_right_corrected_angle) * WALL_FOLLOWING_MAX_SPEED;
 
-    if (g_right_velocity > 4)
+    if (m_right_velocity > WALL_FOLLOWING_MAX_SPEED)
     {
-        g_right_velocity = 4;
+        m_right_velocity = WALL_FOLLOWING_MAX_SPEED;
     }
-    if (g_right_velocity < 0.3)
+    if (m_right_velocity < WALL_FOLLOWING_MIN_SPEED)
     {
-        g_right_velocity = 0.3;
+        m_right_velocity = WALL_FOLLOWING_MIN_SPEED;
     }
 
-    return { g_right_corrected_angle, g_right_velocity };
+    return { std::atan(m_right_corrected_angle), m_right_velocity };
 }
 
-/**
- * @brief Using the lidar scans this method calculates the necesarry angle and velocity
- * for the car to stay parallel to the left wall and then returns them both in that order.
- *
- * @param lidar
- * @return std::array<float, 2>
- */
-std::array<float, 2> followLeftWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
+std::array<float, 2> WallFollowing::followLeftWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     // calculations done according to the F1Tenth tutorial
     // http://f1tenth.org/lab_instructions/t6.pdf
@@ -213,11 +116,8 @@ std::array<float, 2> followLeftWall(const sensor_msgs::LaserScan::ConstPtr& lida
     // with b being the distance at angle 180° and a being the distance at angle theta
     // the lidar has a range of 270°, the algorithm use 180°
     // so the the angle 180° for the algorith starts at angle 225° for the lidar
-    float a = getRange(lidar, theta);
-    float b = getRange(lidar, 225);
-
-    ROS_INFO_STREAM("left a: " << a);
-    ROS_INFO_STREAM("left b: " << b);
+    float a = rangeAtDegree(lidar, theta);
+    float b = rangeAtDegree(lidar, 225);
 
     // transform the difference between the angles at a and b into radians
     float swing = (std::abs(theta - 225) * M_PI) / 180;
@@ -232,83 +132,63 @@ std::array<float, 2> followLeftWall(const sensor_msgs::LaserScan::ConstPtr& lida
     float a_c = 0.5;
     float c_d = a_b + a_c * std::sin(alpha);
 
-    ROS_INFO_STREAM("left_alpha: " << alpha);
-    ROS_INFO_STREAM("left_a_b: " << a_b);
-    ROS_INFO_STREAM("left_c_d: " << c_d);
-
-    // values used for PID control, given be the F1Tenth tutorial
-    float kp = 14;
-    float kd = 0.09;
+    // values used for PID control, given be ZIEGLER und NICHOLS
+    // periodendauer bei kritischer verstärkung = 300ms
+    float critic_kp = 200;
+    float critic_period = 0.5;
+    float kp = critic_kp * 0.6;
+    float ki = 2 * kp / 500;
+    float kd = kp * 0.5 / 8;
+    float dt = 0.025; // 25ms iteration time
 
     // if we want to stay 0.5 meter away from the wall
     // then the error is 0.5-CD
-    g_left_error = 0.5 - c_d;
+    m_left_error = 0.5 - c_d;
 
-    ROS_INFO_STREAM("left error: " << g_left_error);
+    m_left_integral += (m_left_error * dt);
+    float left_derivative = (m_left_error - m_left_prev_error) / dt;
 
-    // scale error so the car can react fast enough
-    g_left_error = 5 * g_left_error;
+    // correction according to the ZIEGLER und NICHOLS
+    float correction = kp * m_left_error + ki * (m_left_integral) + kd * left_derivative;
 
-    ROS_INFO_STREAM("scaled left error: " << g_left_error);
-
-    // correction according to the F1Tenth tutorial
-    float correction = kp * g_left_error + kd * (g_left_prev_error - g_left_error);
-
-    ROS_INFO_STREAM("left correction: " << correction);
-
-    g_left_prev_error = g_left_error;
+    m_left_prev_error = m_left_error;
 
     // use correction to increment or decrement steering angle
-    // IMPORTANT: for the left wall we have to use the negative value
-    // in contrast to the positive value for the right wall
-    g_left_corrected_angle = -(correction * M_PI) / 180;
+    // IMPORTANT: for the left wall we have to use the positive value
+    // in contrast to the negative value for the right wall
+    m_left_corrected_angle = (correction * M_PI) / 180;
 
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
-    float g_left_velocity = 4 - std::abs(g_left_corrected_angle);
+    float m_left_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_left_corrected_angle) * WALL_FOLLOWING_MAX_SPEED;
 
-    if (g_left_velocity > 4)
+    if (m_left_velocity > WALL_FOLLOWING_MAX_SPEED)
     {
-        g_left_velocity = 4;
+        m_left_velocity = WALL_FOLLOWING_MAX_SPEED;
     }
-    if (g_left_velocity < 0.3)
+    if (m_left_velocity < WALL_FOLLOWING_MIN_SPEED)
     {
-        g_left_velocity = 0.3;
+        m_left_velocity = WALL_FOLLOWING_MIN_SPEED;
     }
 
-    return { g_left_corrected_angle, g_left_velocity };
+    return { std::atan(m_left_corrected_angle), m_left_velocity };
+}
+void WallFollowing::emergencyStopCallback(const std_msgs::Bool emer_stop)
+{
+    m_emergency_stop = emer_stop.data;
 }
 
-/**
- * @brief The callback method for this node. Gets the lidar input and handles the autonomous
- * controlloling and emergency stop.
- *
- * @param lidar
- */
 void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-
-    float emergency_stop = emergencyStop(lidar);
-    // ROS_INFO_STREAM("emergency stop: " << emergency_stop);
-
-    if (emergency_stop == false)
+    if (m_emergency_stop == false)
     {
-        auto right_wall_values = followRightWall(lidar);
-        auto right_corrected_angle = right_wall_values[0];
-        auto right_velocity = right_wall_values[1];
-
-        auto left_wall_values = followLeftWall(lidar);
-        auto left_corrected_angle = left_wall_values[0];
-        auto left_velocity = left_wall_values[1];
-
-        ROS_INFO_STREAM("==========================");
-        ROS_INFO_STREAM("right corrected angle: " << right_corrected_angle);
-        ROS_INFO_STREAM("left corrected angle: " << left_corrected_angle);
-        ROS_INFO_STREAM(std::endl);
+        auto wall_values = m_follow_right_wall ? followRightWall(lidar) : followLeftWall(lidar);
+        auto corrected_angle = wall_values[0];
+        auto velocity = wall_values[1];
 
         drive_msgs::pid_input corr;
-        corr.pid_error = left_corrected_angle;
-        corr.pid_vel = left_velocity;
+        corr.pid_error = corrected_angle;
+        corr.pid_vel = velocity;
         pid_publisher.publish(corr);
     }
     else

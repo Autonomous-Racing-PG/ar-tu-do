@@ -21,5 +21,7 @@
     </include>
 
     <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
-
+    <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch"/>
+    <include file="$(find teleoperation)/launch/remote_control.launch"/>
 </launch>
