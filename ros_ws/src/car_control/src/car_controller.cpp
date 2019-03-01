@@ -18,7 +18,25 @@ CarController::CarController()
 
 void CarController::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
-    this->publishDriveParameters(parameters->velocity, parameters->angle);
+    float velocity = parameters->velocity;
+    if (velocity > 1)
+    {
+        velocity = 1;
+    }
+    if (velocity < -1)
+    {
+        velocity = -1;
+    }
+    float angle = parameters->angle;
+    if (angle > 1)
+    {
+        angle = 1;
+    }
+    if (angle < -1)
+    {
+        angle = -1;
+    }
+    this->publishDriveParameters(velocity, angle);
 }
 
 void CarController::publishDriveParameters(double raw_speed, double raw_angle)
