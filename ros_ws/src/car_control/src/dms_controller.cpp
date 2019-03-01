@@ -1,6 +1,7 @@
 #include "dms_controller.h"
 
 #include "car_control.h"
+#include "topics.h"
 
 /**
  * Class constructor that sets up a subscriber that listens for dms messages.
@@ -21,7 +22,6 @@ DMSController::DMSController()
         ROS_WARN_STREAM("dms_check_rate should be bigger than 0 and smaller or equal to 1000. Your value: "
                         << dms_check_rate << ", new value: 20.");
         dms_check_rate = 20;
-        
     }
 
     private_node_handle.getParam(PARAMETER_DMS_EXPIRATION, this->dms_expiration);

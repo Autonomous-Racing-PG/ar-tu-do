@@ -1,4 +1,5 @@
 #include "drive_parameters_multiplexer.h"
+#include "topics.h"
 
 DriveParametersMultiplexer::DriveParametersMultiplexer()
 {
@@ -8,12 +9,12 @@ DriveParametersMultiplexer::DriveParametersMultiplexer()
         std::bind(&DriveParametersMultiplexer::onUpdate, this, std::placeholders::_1, std::placeholders::_2);
 
     this->m_sources = {
-        std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, "input/drive_param/keyboard", callback,
-                                                          1, 0.1)),
-        std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, "input/drive_param/joystick", callback,
-                                                          1, 0.1)),
-        std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, "input/drive_param/wallfollowing",
-                                                          callback, 0, 0.1)),
+        std::move(
+            std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_INPUT_KEYBOARD, callback, 1, 0.1)),
+        std::move(
+            std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_INPUT_JOYSTICK, callback, 1, 0.1)),
+        std::move(
+            std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_INPUT_WALLFOLLOWING, callback, 0, 0.1)),
     };
 }
 
