@@ -1,0 +1,85 @@
+\hypertarget{wall__following_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/autonomous/include/wall\+\_\+following.h File Reference}
+\label{wall__following_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/include/wall\+\_\+following.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/include/wall\+\_\+following.\+h}}
+{\ttfamily \#include $<$array$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}drive\+\_\+msgs/drive\+\_\+param.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}drive\+\_\+msgs/pid\+\_\+input.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+Float64.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+Bool.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$ros/console.\+h$>$}\\*
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+Include dependency graph for wall\+\_\+following.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wall__following_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{wall__following_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_wall_following}{Wall\+Following}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr float \hyperlink{wall__following_8h_a2cd0112685c87c86e13b3e6f92d433b5}{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED} = 0.\+25
+\item 
+constexpr float \hyperlink{wall__following_8h_a7ade9c0d19463c8f0a0427558e6beb03}{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED} = 0.\+1
+\item 
+constexpr const char $\ast$ \hyperlink{wall__following_8h_aeb9e9ce4abd8e37986512b3455bb2174}{T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT} = \char`\"{}/pid\+\_\+input\char`\"{}
+\item 
+constexpr const char $\ast$ \hyperlink{wall__following_8h_a47333d71d0bb2a72869aa7441034798c}{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN} = \char`\"{}/racer/laser/scan\char`\"{}
+\item 
+constexpr const char $\ast$ \hyperlink{wall__following_8h_aae50d7969e7c8997a87eda9ce70df79e}{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP} = \char`\"{}/std\+\_\+msgs/Bool\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{wall\+\_\+following.\+h@{wall\+\_\+following.\+h}!T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP@{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}}
+\index{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP@{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}!wall\+\_\+following.\+h@{wall\+\_\+following.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}{TOPIC_EMER_STOP}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP = \char`\"{}/std\+\_\+msgs/Bool\char`\"{}}\hypertarget{wall__following_8h_aae50d7969e7c8997a87eda9ce70df79e}{}\label{wall__following_8h_aae50d7969e7c8997a87eda9ce70df79e}
+
+
+Definition at line 18 of file wall\+\_\+following.\+h.
+
+\index{wall\+\_\+following.\+h@{wall\+\_\+following.\+h}!T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}}
+\index{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}!wall\+\_\+following.\+h@{wall\+\_\+following.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}{TOPIC_LASER_SCAN}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN = \char`\"{}/racer/laser/scan\char`\"{}}\hypertarget{wall__following_8h_a47333d71d0bb2a72869aa7441034798c}{}\label{wall__following_8h_a47333d71d0bb2a72869aa7441034798c}
+
+
+Definition at line 17 of file wall\+\_\+following.\+h.
+
+\index{wall\+\_\+following.\+h@{wall\+\_\+following.\+h}!T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT@{T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT}}
+\index{T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT@{T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT}!wall\+\_\+following.\+h@{wall\+\_\+following.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT}{TOPIC_PID_INPUT}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+P\+I\+D\+\_\+\+I\+N\+P\+UT = \char`\"{}/pid\+\_\+input\char`\"{}}\hypertarget{wall__following_8h_aeb9e9ce4abd8e37986512b3455bb2174}{}\label{wall__following_8h_aeb9e9ce4abd8e37986512b3455bb2174}
+
+
+Definition at line 16 of file wall\+\_\+following.\+h.
+
+\index{wall\+\_\+following.\+h@{wall\+\_\+following.\+h}!W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED@{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED}}
+\index{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED@{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED}!wall\+\_\+following.\+h@{wall\+\_\+following.\+h}}
+\subsubsection[{\texorpdfstring{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED}{WALL_FOLLOWING_MAX_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED = 0.\+25}\hypertarget{wall__following_8h_a2cd0112685c87c86e13b3e6f92d433b5}{}\label{wall__following_8h_a2cd0112685c87c86e13b3e6f92d433b5}
+
+
+Definition at line 14 of file wall\+\_\+following.\+h.
+
+\index{wall\+\_\+following.\+h@{wall\+\_\+following.\+h}!W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED@{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED}}
+\index{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED@{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED}!wall\+\_\+following.\+h@{wall\+\_\+following.\+h}}
+\subsubsection[{\texorpdfstring{W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED}{WALL_FOLLOWING_MIN_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float W\+A\+L\+L\+\_\+\+F\+O\+L\+L\+O\+W\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+ED = 0.\+1}\hypertarget{wall__following_8h_a7ade9c0d19463c8f0a0427558e6beb03}{}\label{wall__following_8h_a7ade9c0d19463c8f0a0427558e6beb03}
+
+
+Definition at line 15 of file wall\+\_\+following.\+h.
+

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getpriority',['getPriority',['../class_drive_parameters_source.html#a0ca68bb4cf93f5124c60330582ba82dc',1,'DriveParametersSource']]],
-  ['getrange',['getRange',['../wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03',1,'wall_following.cpp']]]
+  ['isidle',['isIdle',['../class_drive_parameters_source.html#a716e9da760080cdc8d0e69553932c789',1,'DriveParametersSource']]],
+  ['isoutdated',['isOutdated',['../class_drive_parameters_source.html#a19ac7507bffaa6167393d24fe5f7f67e',1,'DriveParametersSource']]]
 ];

@@ -1,15 +1,6 @@
 \hypertarget{wall__following_8cpp}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/autonomous/src/wall\+\_\+following.cpp File Reference}
 \label{wall__following_8cpp}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/src/wall\+\_\+following.\+cpp@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/src/wall\+\_\+following.\+cpp}}
-{\ttfamily \#include $<$array$>$}\\*
-{\ttfamily \#include $<$cmath$>$}\\*
-{\ttfamily \#include $<$cstdlib$>$}\\*
-{\ttfamily \#include $<$iostream$>$}\\*
-{\ttfamily \#include \char`\"{}drive\+\_\+msgs/drive\+\_\+param.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}drive\+\_\+msgs/pid\+\_\+input.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+Float64.\+h\char`\"{}}\\*
-{\ttfamily \#include $<$ros/console.\+h$>$}\\*
-{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}wall\+\_\+following.\+h\char`\"{}}\\*
 Include dependency graph for wall\+\_\+following.\+cpp\+:
 \nopagebreak
 \begin{figure}[H]
@@ -18,209 +9,14 @@ Include dependency graph for wall\+\_\+following.\+cpp\+:
 \includegraphics[width=350pt]{wall__following_8cpp__incl}
 \end{center}
 \end{figure}
-\subsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-class \hyperlink{class_wall_following}{Wall\+Following}
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-float \hyperlink{wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03}{get\+Range} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar, float theta)
-\begin{DoxyCompactList}\small\item\em Using the lidar scans and a given angle theta this method returns the range at the given theta after doing boundary checks. \end{DoxyCompactList}\item 
-bool \hyperlink{wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551}{emergency\+Stop} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar)
-\begin{DoxyCompactList}\small\item\em Checks if there is an unavoidable wall in front of the car using the lidar scans and returns true to inhibit driving if it is the case. \end{DoxyCompactList}\item 
-std\+::array$<$ float, 2 $>$ \hyperlink{wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4}{follow\+Right\+Wall} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar)
-\begin{DoxyCompactList}\small\item\em Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the right wall and then returns them both in that order. \end{DoxyCompactList}\item 
-std\+::array$<$ float, 2 $>$ \hyperlink{wall__following_8cpp_a01de44ed21e8629b57761c47a4416286}{follow\+Left\+Wall} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar)
-\begin{DoxyCompactList}\small\item\em Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the left wall and then returns them both in that order. \end{DoxyCompactList}\item 
 int \hyperlink{wall__following_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-float \hyperlink{wall__following_8cpp_a683d675f1b3fc556b7c35b7985ced4c0}{g\+\_\+right\+\_\+error} = 0
-\item 
-float \hyperlink{wall__following_8cpp_a1157cbdfa811b34707061492037b544c}{g\+\_\+right\+\_\+prev\+\_\+error} = 0
-\item 
-float \hyperlink{wall__following_8cpp_ab8c91c7aadf122da2950e1fac7cb90f6}{g\+\_\+right\+\_\+corrected\+\_\+angle} = 0
-\item 
-float \hyperlink{wall__following_8cpp_a0d0c2729c739cd6797bd789a44972bb6}{g\+\_\+left\+\_\+error} = 0
-\item 
-float \hyperlink{wall__following_8cpp_a1740c80d72737406d06347427bc3c7fa}{g\+\_\+left\+\_\+prev\+\_\+error} = 0
-\item 
-float \hyperlink{wall__following_8cpp_a36537fd5bf6018395f28b81095d981a6}{g\+\_\+left\+\_\+corrected\+\_\+angle} = 0
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!emergency\+Stop@{emergency\+Stop}}
-\index{emergency\+Stop@{emergency\+Stop}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{emergency\+Stop(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar)}{emergencyStop(const sensor_msgs::LaserScan::ConstPtr &lidar)}}]{\setlength{\rightskip}{0pt plus 5cm}bool emergency\+Stop (
-\begin{DoxyParamCaption}
-\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{lidar}
-\end{DoxyParamCaption}
-)}\hypertarget{wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551}{}\label{wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551}
-
-
-Checks if there is an unavoidable wall in front of the car using the lidar scans and returns true to inhibit driving if it is the case. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em lidar} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-bool 
-\end{DoxyReturn}
-
-
-Definition at line 82 of file wall\+\_\+following.\+cpp.
-
-
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=260pt]{wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=279pt]{wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_icgraph}
-\end{center}
-\end{figure}
-
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!follow\+Left\+Wall@{follow\+Left\+Wall}}
-\index{follow\+Left\+Wall@{follow\+Left\+Wall}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{follow\+Left\+Wall(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar)}{followLeftWall(const sensor_msgs::LaserScan::ConstPtr &lidar)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::array$<$float, 2$>$ follow\+Left\+Wall (
-\begin{DoxyParamCaption}
-\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{lidar}
-\end{DoxyParamCaption}
-)}\hypertarget{wall__following_8cpp_a01de44ed21e8629b57761c47a4416286}{}\label{wall__following_8cpp_a01de44ed21e8629b57761c47a4416286}
-
-
-Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the left wall and then returns them both in that order. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em lidar} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::array$<$float, 2$>$ 
-\end{DoxyReturn}
-
-
-Definition at line 202 of file wall\+\_\+following.\+cpp.
-
-
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{wall__following_8cpp_a01de44ed21e8629b57761c47a4416286_cgraph}
-\end{center}
-\end{figure}
-
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!follow\+Right\+Wall@{follow\+Right\+Wall}}
-\index{follow\+Right\+Wall@{follow\+Right\+Wall}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{follow\+Right\+Wall(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar)}{followRightWall(const sensor_msgs::LaserScan::ConstPtr &lidar)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::array$<$float, 2$>$ follow\+Right\+Wall (
-\begin{DoxyParamCaption}
-\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{lidar}
-\end{DoxyParamCaption}
-)}\hypertarget{wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4}{}\label{wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4}
-
-
-Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the right wall and then returns them both in that order. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em lidar} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::array$<$float, 2$>$ 
-\end{DoxyReturn}
-
-
-Definition at line 118 of file wall\+\_\+following.\+cpp.
-
-
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=260pt]{wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=279pt]{wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_icgraph}
-\end{center}
-\end{figure}
-
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!get\+Range@{get\+Range}}
-\index{get\+Range@{get\+Range}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{get\+Range(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&lidar, float theta)}{getRange(const sensor_msgs::LaserScan::ConstPtr &lidar, float theta)}}]{\setlength{\rightskip}{0pt plus 5cm}float get\+Range (
-\begin{DoxyParamCaption}
-\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{lidar, }
-\item[{float}]{theta}
-\end{DoxyParamCaption}
-)}\hypertarget{wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03}{}\label{wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03}
-
-
-Using the lidar scans and a given angle theta this method returns the range at the given theta after doing boundary checks. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em lidar} & \\
-\hline
-{\em theta} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-float 
-\end{DoxyReturn}
-
-
-Definition at line 52 of file wall\+\_\+following.\+cpp.
-
-
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03_icgraph}
-\end{center}
-\end{figure}
-
-
 \index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!main@{main}}
 \index{main@{main}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
 \subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
@@ -231,50 +27,5 @@ Here is the caller graph for this function\+:
 )}\hypertarget{wall__following_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{wall__following_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
 
 
-Definition at line 323 of file wall\+\_\+following.\+cpp.
-
-
-
-\subsection{Variable Documentation}
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!g\+\_\+left\+\_\+corrected\+\_\+angle@{g\+\_\+left\+\_\+corrected\+\_\+angle}}
-\index{g\+\_\+left\+\_\+corrected\+\_\+angle@{g\+\_\+left\+\_\+corrected\+\_\+angle}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{g\+\_\+left\+\_\+corrected\+\_\+angle}{g_left_corrected_angle}}]{\setlength{\rightskip}{0pt plus 5cm}float g\+\_\+left\+\_\+corrected\+\_\+angle = 0}\hypertarget{wall__following_8cpp_a36537fd5bf6018395f28b81095d981a6}{}\label{wall__following_8cpp_a36537fd5bf6018395f28b81095d981a6}
-
-
-Definition at line 19 of file wall\+\_\+following.\+cpp.
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!g\+\_\+left\+\_\+error@{g\+\_\+left\+\_\+error}}
-\index{g\+\_\+left\+\_\+error@{g\+\_\+left\+\_\+error}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{g\+\_\+left\+\_\+error}{g_left_error}}]{\setlength{\rightskip}{0pt plus 5cm}float g\+\_\+left\+\_\+error = 0}\hypertarget{wall__following_8cpp_a0d0c2729c739cd6797bd789a44972bb6}{}\label{wall__following_8cpp_a0d0c2729c739cd6797bd789a44972bb6}
-
-
-Definition at line 17 of file wall\+\_\+following.\+cpp.
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!g\+\_\+left\+\_\+prev\+\_\+error@{g\+\_\+left\+\_\+prev\+\_\+error}}
-\index{g\+\_\+left\+\_\+prev\+\_\+error@{g\+\_\+left\+\_\+prev\+\_\+error}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{g\+\_\+left\+\_\+prev\+\_\+error}{g_left_prev_error}}]{\setlength{\rightskip}{0pt plus 5cm}float g\+\_\+left\+\_\+prev\+\_\+error = 0}\hypertarget{wall__following_8cpp_a1740c80d72737406d06347427bc3c7fa}{}\label{wall__following_8cpp_a1740c80d72737406d06347427bc3c7fa}
-
-
-Definition at line 18 of file wall\+\_\+following.\+cpp.
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!g\+\_\+right\+\_\+corrected\+\_\+angle@{g\+\_\+right\+\_\+corrected\+\_\+angle}}
-\index{g\+\_\+right\+\_\+corrected\+\_\+angle@{g\+\_\+right\+\_\+corrected\+\_\+angle}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{g\+\_\+right\+\_\+corrected\+\_\+angle}{g_right_corrected_angle}}]{\setlength{\rightskip}{0pt plus 5cm}float g\+\_\+right\+\_\+corrected\+\_\+angle = 0}\hypertarget{wall__following_8cpp_ab8c91c7aadf122da2950e1fac7cb90f6}{}\label{wall__following_8cpp_ab8c91c7aadf122da2950e1fac7cb90f6}
-
-
-Definition at line 15 of file wall\+\_\+following.\+cpp.
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!g\+\_\+right\+\_\+error@{g\+\_\+right\+\_\+error}}
-\index{g\+\_\+right\+\_\+error@{g\+\_\+right\+\_\+error}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{g\+\_\+right\+\_\+error}{g_right_error}}]{\setlength{\rightskip}{0pt plus 5cm}float g\+\_\+right\+\_\+error = 0}\hypertarget{wall__following_8cpp_a683d675f1b3fc556b7c35b7985ced4c0}{}\label{wall__following_8cpp_a683d675f1b3fc556b7c35b7985ced4c0}
-
-
-Definition at line 13 of file wall\+\_\+following.\+cpp.
-
-\index{wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}!g\+\_\+right\+\_\+prev\+\_\+error@{g\+\_\+right\+\_\+prev\+\_\+error}}
-\index{g\+\_\+right\+\_\+prev\+\_\+error@{g\+\_\+right\+\_\+prev\+\_\+error}!wall\+\_\+following.\+cpp@{wall\+\_\+following.\+cpp}}
-\subsubsection[{\texorpdfstring{g\+\_\+right\+\_\+prev\+\_\+error}{g_right_prev_error}}]{\setlength{\rightskip}{0pt plus 5cm}float g\+\_\+right\+\_\+prev\+\_\+error = 0}\hypertarget{wall__following_8cpp_a1157cbdfa811b34707061492037b544c}{}\label{wall__following_8cpp_a1157cbdfa811b34707061492037b544c}
-
-
-Definition at line 14 of file wall\+\_\+following.\+cpp.
+Definition at line 203 of file wall\+\_\+following.\+cpp.
 

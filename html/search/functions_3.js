@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['emergencystop',['emergencyStop',['../wall__following_8cpp.html#a7ecd75e069fc3f33433eb587a4d78551',1,'wall_following.cpp']]]
+  ['emergencystop',['EmergencyStop',['../class_emergency_stop.html#acd5c3e0c838fe697ebf95452199cca77',1,'EmergencyStop']]]
 ];

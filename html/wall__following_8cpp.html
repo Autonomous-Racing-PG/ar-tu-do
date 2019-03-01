@@ -108,254 +108,29 @@ $(document).ready(function(){initNavTree('wall__following_8cpp.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">wall_following.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;array&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &quot;drive_msgs/drive_param.h&quot;</code><br />
-<code>#include &quot;drive_msgs/pid_input.h&quot;</code><br />
-<code>#include &quot;sensor_msgs/LaserScan.h&quot;</code><br />
-<code>#include &quot;std_msgs/Float64.h&quot;</code><br />
-<code>#include &lt;ros/console.h&gt;</code><br />
-<code>#include &lt;ros/ros.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="wall__following_8h_source.html">wall_following.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for wall_following.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="wall__following_8cpp__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2autonomous_2src_2wall__following_8cpp" alt=""/></div>
 <map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2autonomous_2src_2wall__following_8cpp" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2autonomous_2src_2wall__following_8cpp">
+<area shape="rect" id="node2" href="wall__following_8h.html" title="wall_following.h" alt="" coords="564,139,679,165"/>
 </map>
 </div>
 </div>
 <p><a href="wall__following_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wall_following.html">WallFollowing</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a93aa50f7dc66de9b6d3092ac593bfd03"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03">getRange</a> (const sensor_msgs::LaserScan::ConstPtr &amp;lidar, float theta)</td></tr>
-<tr class="memdesc:a93aa50f7dc66de9b6d3092ac593bfd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using the lidar scans and a given angle theta this method returns the range at the given theta after doing boundary checks.  <a href="#a93aa50f7dc66de9b6d3092ac593bfd03">More...</a><br /></td></tr>
-<tr class="separator:a93aa50f7dc66de9b6d3092ac593bfd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ecd75e069fc3f33433eb587a4d78551"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a7ecd75e069fc3f33433eb587a4d78551">emergencyStop</a> (const sensor_msgs::LaserScan::ConstPtr &amp;lidar)</td></tr>
-<tr class="memdesc:a7ecd75e069fc3f33433eb587a4d78551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is an unavoidable wall in front of the car using the lidar scans and returns true to inhibit driving if it is the case.  <a href="#a7ecd75e069fc3f33433eb587a4d78551">More...</a><br /></td></tr>
-<tr class="separator:a7ecd75e069fc3f33433eb587a4d78551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad70c743964e8cd3b8e832617630598c4"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#ad70c743964e8cd3b8e832617630598c4">followRightWall</a> (const sensor_msgs::LaserScan::ConstPtr &amp;lidar)</td></tr>
-<tr class="memdesc:ad70c743964e8cd3b8e832617630598c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the right wall and then returns them both in that order.  <a href="#ad70c743964e8cd3b8e832617630598c4">More...</a><br /></td></tr>
-<tr class="separator:ad70c743964e8cd3b8e832617630598c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01de44ed21e8629b57761c47a4416286"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a01de44ed21e8629b57761c47a4416286">followLeftWall</a> (const sensor_msgs::LaserScan::ConstPtr &amp;lidar)</td></tr>
-<tr class="memdesc:a01de44ed21e8629b57761c47a4416286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the left wall and then returns them both in that order.  <a href="#a01de44ed21e8629b57761c47a4416286">More...</a><br /></td></tr>
-<tr class="separator:a01de44ed21e8629b57761c47a4416286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a683d675f1b3fc556b7c35b7985ced4c0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a683d675f1b3fc556b7c35b7985ced4c0">g_right_error</a> = 0</td></tr>
-<tr class="separator:a683d675f1b3fc556b7c35b7985ced4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1157cbdfa811b34707061492037b544c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a1157cbdfa811b34707061492037b544c">g_right_prev_error</a> = 0</td></tr>
-<tr class="separator:a1157cbdfa811b34707061492037b544c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8c91c7aadf122da2950e1fac7cb90f6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#ab8c91c7aadf122da2950e1fac7cb90f6">g_right_corrected_angle</a> = 0</td></tr>
-<tr class="separator:ab8c91c7aadf122da2950e1fac7cb90f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d0c2729c739cd6797bd789a44972bb6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a0d0c2729c739cd6797bd789a44972bb6">g_left_error</a> = 0</td></tr>
-<tr class="separator:a0d0c2729c739cd6797bd789a44972bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1740c80d72737406d06347427bc3c7fa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a1740c80d72737406d06347427bc3c7fa">g_left_prev_error</a> = 0</td></tr>
-<tr class="separator:a1740c80d72737406d06347427bc3c7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36537fd5bf6018395f28b81095d981a6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8cpp.html#a36537fd5bf6018395f28b81095d981a6">g_left_corrected_angle</a> = 0</td></tr>
-<tr class="separator:a36537fd5bf6018395f28b81095d981a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a7ecd75e069fc3f33433eb587a4d78551"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool emergencyStop </td>
-          <td>(</td>
-          <td class="paramtype">const sensor_msgs::LaserScan::ConstPtr &amp;&#160;</td>
-          <td class="paramname"><em>lidar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if there is an unavoidable wall in front of the car using the lidar scans and returns true to inhibit driving if it is the case. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lidar</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00082">82</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_cgraph.png" border="0" usemap="#wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_cgraph" alt=""/></div>
-<map name="wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_cgraph" id="wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_cgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03" title="Using the lidar scans and a given angle theta this method returns the range at the given theta after ..." alt="" coords="167,5,245,32"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_icgraph.png" border="0" usemap="#wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_icgraph" alt=""/></div>
-<map name="wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_icgraph" id="wall__following_8cpp_a7ecd75e069fc3f33433eb587a4d78551_icgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#a01de44ed21e8629b57761c47a4416286" title="Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay par..." alt="" coords="167,5,271,32"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a01de44ed21e8629b57761c47a4416286"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::array&lt;float, 2&gt; followLeftWall </td>
-          <td>(</td>
-          <td class="paramtype">const sensor_msgs::LaserScan::ConstPtr &amp;&#160;</td>
-          <td class="paramname"><em>lidar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the left wall and then returns them both in that order. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lidar</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::array&lt;float, 2&gt; </dd></dl>
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00202">202</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="wall__following_8cpp_a01de44ed21e8629b57761c47a4416286_cgraph.png" border="0" usemap="#wall__following_8cpp_a01de44ed21e8629b57761c47a4416286_cgraph" alt=""/></div>
-<map name="wall__following_8cpp_a01de44ed21e8629b57761c47a4416286_cgraph" id="wall__following_8cpp_a01de44ed21e8629b57761c47a4416286_cgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03" title="Using the lidar scans and a given angle theta this method returns the range at the given theta after ..." alt="" coords="319,23,397,49"/>
-<area shape="rect" id="node3" href="wall__following_8cpp.html#a7ecd75e069fc3f33433eb587a4d78551" title="Checks if there is an unavoidable wall in front of the car using the lidar scans and returns true to ..." alt="" coords="157,23,271,49"/>
-<area shape="rect" id="node4" href="wall__following_8cpp.html#ad70c743964e8cd3b8e832617630598c4" title="Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay par..." alt="" coords="157,73,271,100"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad70c743964e8cd3b8e832617630598c4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::array&lt;float, 2&gt; followRightWall </td>
-          <td>(</td>
-          <td class="paramtype">const sensor_msgs::LaserScan::ConstPtr &amp;&#160;</td>
-          <td class="paramname"><em>lidar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay parallel to the right wall and then returns them both in that order. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lidar</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::array&lt;float, 2&gt; </dd></dl>
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00118">118</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_cgraph.png" border="0" usemap="#wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_cgraph" alt=""/></div>
-<map name="wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_cgraph" id="wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_cgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#a93aa50f7dc66de9b6d3092ac593bfd03" title="Using the lidar scans and a given angle theta this method returns the range at the given theta after ..." alt="" coords="167,5,245,32"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_icgraph.png" border="0" usemap="#wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_icgraph" alt=""/></div>
-<map name="wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_icgraph" id="wall__following_8cpp_ad70c743964e8cd3b8e832617630598c4_icgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#a01de44ed21e8629b57761c47a4416286" title="Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay par..." alt="" coords="167,5,271,32"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a93aa50f7dc66de9b6d3092ac593bfd03"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float getRange </td>
-          <td>(</td>
-          <td class="paramtype">const sensor_msgs::LaserScan::ConstPtr &amp;&#160;</td>
-          <td class="paramname"><em>lidar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>theta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Using the lidar scans and a given angle theta this method returns the range at the given theta after doing boundary checks. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lidar</td><td></td></tr>
-    <tr><td class="paramname">theta</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00052">52</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03_icgraph.png" border="0" usemap="#wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03_icgraph" alt=""/></div>
-<map name="wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03_icgraph" id="wall__following_8cpp_a93aa50f7dc66de9b6d3092ac593bfd03_icgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#a7ecd75e069fc3f33433eb587a4d78551" title="Checks if there is an unavoidable wall in front of the car using the lidar scans and returns true to ..." alt="" coords="132,5,245,32"/>
-<area shape="rect" id="node3" href="wall__following_8cpp.html#a01de44ed21e8629b57761c47a4416286" title="Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay par..." alt="" coords="293,56,397,83"/>
-<area shape="rect" id="node4" href="wall__following_8cpp.html#ad70c743964e8cd3b8e832617630598c4" title="Using the lidar scans this method calculates the necesarry angle and velocity for the car to stay par..." alt="" coords="132,107,245,133"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
 <a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <div class="memitem">
 <div class="memproto">
@@ -380,92 +155,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00323">323</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a36537fd5bf6018395f28b81095d981a6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float g_left_corrected_angle = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00019">19</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0d0c2729c739cd6797bd789a44972bb6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float g_left_error = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00017">17</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1740c80d72737406d06347427bc3c7fa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float g_left_prev_error = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00018">18</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab8c91c7aadf122da2950e1fac7cb90f6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float g_right_corrected_angle = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00015">15</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a683d675f1b3fc556b7c35b7985ced4c0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float g_right_error = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00013">13</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1157cbdfa811b34707061492037b544c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float g_right_prev_error = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00014">14</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8cpp_source.html#l00203">203</a> of file <a class="el" href="wall__following_8cpp_source.html">wall_following.cpp</a>.</p>
 
 </div>
 </div>
