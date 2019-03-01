@@ -1,5 +1,8 @@
+#include "topics.h"
+
 #include "keyboard_controller.h"
 #include <std_msgs/Int64.h>
+
 using std::abs;
 
 double clamp(double value, double lower, double upper)
@@ -23,8 +26,8 @@ KeyboardController::KeyboardController()
                    "m_key_pressed_state needs to have KEY_COUNT many elements.");
 
     this->m_drive_parameters_publisher =
-        this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DEAD_MANS_SWITCH, 1);
+        this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_INPUT_KEYBOARD, 1);
+    this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DMS, 1);
     this->m_command_subscriber =
         this->m_node_handle.subscribe<std_msgs::String>(TOPIC_COMMAND, 1, &KeyboardController::commandCallback, this);
 

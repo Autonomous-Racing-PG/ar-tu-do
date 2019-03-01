@@ -9,8 +9,6 @@
 #include <string>
 
 constexpr const char* PARAMETER_JOYSTICK_TYPE = "joystick_type";
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
-constexpr const char* TOPIC_DMS = "/set/dms";
 
 constexpr float EPSILON = 0.001;
 

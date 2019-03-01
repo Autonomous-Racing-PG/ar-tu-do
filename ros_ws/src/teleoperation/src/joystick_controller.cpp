@@ -1,7 +1,9 @@
 #include "joystick_controller.h"
 
+#include "topics.h"
 #include <ros/console.h>
 #include <std_msgs/Int64.h>
+
 using std::abs;
 
 /**
@@ -9,8 +11,7 @@ using std::abs;
  */
 JoystickController::JoystickController()
 {
-    this->m_drive_parameter_publisher =
-        this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
+    this->m_drive_parameter_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_INPUT_JOYSTICK, 1);
     this->m_dms_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DMS, 1);
 
     this->m_joystick_subscriber =
