@@ -25,8 +25,9 @@ KeyboardController::KeyboardController()
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
     this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DEAD_MANS_SWITCH, 1);
-    this->m_command_subscriber =
-        this->m_node_handle.subscribe<std_msgs::String>(TOPIC_COMMAND, 1, &KeyboardController::commandCallback, this);
+    this->m_unlock_motor_subscriber =
+        this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_UNLOCK_MOTOR, 1, &KeyboardController::unlockMotorCallback,
+                                                      this);
 
     this->createWindow();
 
@@ -184,17 +185,11 @@ void KeyboardController::publishDriveParameters()
     this->m_drive_parameters_publisher.publish(drive_parameters);
 }
 
-void KeyboardController::commandCallback(const std_msgs::String::ConstPtr& command_message)
+void KeyboardController::unlockMotorCallback(const std_msgs::Bool::ConstPtr& unlock_motor_message)
 {
-    std::string command = command_message->data;
-    if (command.compare(COMMAND_STOP) == 0)
+    if (this->m_car_unlocked != unlock_motor_message->data)
     {
-        this->m_car_unlocked = false;
-        this->updateWindowColor();
-    }
-    else if (command.compare(COMMAND_GO) == 0)
-    {
-        this->m_car_unlocked = true;
+        this->m_car_unlocked = unlock_motor_message->data;
         this->updateWindowColor();
     }
 }

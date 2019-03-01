@@ -11,8 +11,7 @@ CarController::CarController()
         this->m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1,
                                                                &CarController::driveParametersCallback, this);
     this->m_unlock_motor_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_UNLOCK_MOTOR, 1, &CarController::unlockMotorCallback,
-                                                      this);
+        this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_UNLOCK_MOTOR, 1, &CarController::unlockMotorCallback, this);
 
     this->m_speed_pulisher = this->m_node_handle.advertise<std_msgs::Float64>(TOPIC_FOCBOX_SPEED, 1);
     this->m_angle_publisher = this->m_node_handle.advertise<std_msgs::Float64>(TOPIC_FOCBOX_ANGLE, 1);
