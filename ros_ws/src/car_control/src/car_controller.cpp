@@ -2,6 +2,8 @@
 #include "car_config.h"
 #include "car_control.h"
 
+#include <boost/algorithm/clamp.hpp>
+
 CarController::CarController()
     : m_enabled{ false }
 {
@@ -18,24 +20,8 @@ CarController::CarController()
 
 void CarController::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
-    float velocity = parameters->velocity;
-    if (velocity > 1)
-    {
-        velocity = 1;
-    }
-    if (velocity < -1)
-    {
-        velocity = -1;
-    }
-    float angle = parameters->angle;
-    if (angle > 1)
-    {
-        angle = 1;
-    }
-    if (angle < -1)
-    {
-        angle = -1;
-    }
+    float velocity = boost::algorithm::clamp(parameters->velocity, -1.0f, 1.0f);
+    float angle = boost::algorithm::clamp(parameters->angle, -1.0f, 1.0f);
     this->publishDriveParameters(velocity, angle);
 }
 
