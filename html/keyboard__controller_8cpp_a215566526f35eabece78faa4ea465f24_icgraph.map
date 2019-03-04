@@ -1,3 +1,4 @@
 <map id="clamp" name="clamp">
-<area shape="rect" id="node2" href="$class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d" title="KeyboardController\l::~KeyboardController" alt="" coords="111,5,260,47"/>
+<area shape="rect" id="node2" href="$class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0" title="CarController::CarController" alt="" coords="111,5,295,32"/>
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d" title="KeyboardController\l::~KeyboardController" alt="" coords="128,57,277,98"/>
 </map>
