@@ -44,5 +44,8 @@ class CarController
      */
     void publishDriveParameters(double raw_speed, double raw_angle);
 
+    /**
+     * @brief publishes a brake message that stops the car
+     */
     void stop();
 };

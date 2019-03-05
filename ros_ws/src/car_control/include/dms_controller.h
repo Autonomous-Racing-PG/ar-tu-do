@@ -17,8 +17,15 @@ class DMSController
     void spin();
 
     private:
-    int m_update_frequency;                          // How often the unlock motor message is published, in Hz
-    std::chrono::duration<double> m_expiration_time; // How old the last dead man's switch heartbeat can be, in ms
+    /**
+     * @brief How often the unlock motor message is published, in Hz
+     */
+    int m_update_frequency;
+
+    /**
+     * @brief How old the last dead man's switch heartbeat can be, in ms
+     */
+    std::chrono::duration<double> m_expiration_time;
 
     std::chrono::steady_clock::time_point m_last_heartbeat_received;
 
