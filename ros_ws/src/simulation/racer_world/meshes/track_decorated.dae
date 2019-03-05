@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
     </contributor>
-    <created>2018-12-13T23:19:10</created>
-    <modified>2018-12-13T23:19:10</modified>
+    <created>2019-03-01T10:14:37</created>
+    <modified>2019-03-01T10:14:37</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -20,7 +20,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.945098 0.94902 0.964706 1</color>
@@ -46,7 +46,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.301961 0.560784 0.431373 1</color>
@@ -72,7 +72,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.945098 0.94902 0.964706 1</color>
@@ -98,7 +98,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.266667 0.266667 0.266667 1</color>
@@ -124,7 +124,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.909804 0.333333 0.32549 1</color>
@@ -150,7 +150,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.266667 0.266667 0.266667 1</color>
@@ -176,7 +176,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.945098 0.94902 0.964706 1</color>
@@ -202,7 +202,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">1 1 1 1</color>
@@ -228,7 +228,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <ambient>
-              <color sid="ambient">0.3 0.3 0.3 1</color>
+              <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.960784 0.72549 0.258824 1</color>
@@ -498,7 +498,6 @@
       </mesh>
     </geometry>
   </library_geometries>
-  <library_controllers/>
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="Track" name="Track" type="NODE">
