@@ -70,7 +70,7 @@ namespace car_config
      * @brief Conversion factor from steering angle to servo input
      * @unit 1/radian
      */
-    constexpr double STEERING_TO_SERVO_GAIN = -PI / 3;
+    constexpr double STEERING_TO_SERVO_GAIN = -3 / PI;
 
     constexpr double MAX_STEERING_ANGLE = 30 * DEG_TO_RAD;
 
