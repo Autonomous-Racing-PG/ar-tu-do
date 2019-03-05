@@ -8,8 +8,8 @@ Launches all necessary nodes that transform various frames
     <node
       respawn="true"
       pkg="car_tf"
-      type="tf_laserscan_to_pointcloud"
-      name="tf_laserscan_to_pointcloud"
+      type="laserscan_transformer"
+      name="laserscan_transformer"
       output="screen" >
     </node>
 	
