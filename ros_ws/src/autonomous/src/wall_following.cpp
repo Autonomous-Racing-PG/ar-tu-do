@@ -1,12 +1,13 @@
 #include "wall_following.h"
+#include <boost/algorithm/clamp.hpp>
 
 WallFollowing::WallFollowing()
 {
-    lidar_subscriber =
-        m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
-    emer_stop_subscriber =
-        m_node_handle.subscribe<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1, &WallFollowing::emergencyStopCallback, this);
-    pid_publisher = m_node_handle.advertise<drive_msgs::pid_input>(TOPIC_PID_INPUT, 1);
+    this->m_lidar_subscriber =
+        this->m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
+    this->m_emergency_stop_subscriber =
+        this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1, &WallFollowing::emergencyStopCallback, this);
+    this->m_drive_parameter_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
 float map(float in_lower, float in_upper, float out_lower, float out_upper, float value)
@@ -33,7 +34,7 @@ bool WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lid
     return true;
 }
 
-std::array<float, 2> WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
+void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     float leftRightSign = this->m_follow_right_wall ? -1 : 1;
 
@@ -67,50 +68,35 @@ std::array<float, 2> WallFollowing::followWall(const sensor_msgs::LaserScan::Con
 
     this->m_prev_error = error;
 
-    float correctedAngle = leftRightSign * correction * DEG_TO_RAD;
-
-    // check if speed is too high (car cannot react fast enough)
-    // or too low/negative (because we substract the corrected angle from the max speed)
-    float m_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(correctedAngle) * WALL_FOLLOWING_MAX_SPEED;
-
-
-
-    if (m_velocity > WALL_FOLLOWING_MAX_SPEED)
-    {
-        m_velocity = WALL_FOLLOWING_MAX_SPEED;
-    }
-    if (m_velocity < WALL_FOLLOWING_MIN_SPEED)
-    {
-        m_velocity = WALL_FOLLOWING_MIN_SPEED;
-    }
-
-    return { std::atan(correctedAngle), m_velocity };
+    float steeringAngle = std::atan(leftRightSign * correction * DEG_TO_RAD);
+    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
+    velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
+    
+    this->publishDriveParameters(velocity, steeringAngle);
 }
 
-void WallFollowing::emergencyStopCallback(const std_msgs::Bool emer_stop)
+void WallFollowing::publishDriveParameters(float velocity, float angle)
 {
-    m_emergency_stop = emer_stop.data;
+    drive_msgs::drive_param drive_parameters;
+    drive_parameters.velocity = velocity;
+    drive_parameters.angle = angle;
+    this->m_drive_parameter_publisher.publish(drive_parameters);
+}
+
+void WallFollowing::emergencyStopCallback(const std_msgs::Bool emergency_stop_message)
+{
+    m_emergency_stop = emergency_stop_message.data;
 }
 
 void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     if (m_emergency_stop == false)
     {
-        auto wall_values = this->followWall(lidar);
-        auto corrected_angle = wall_values[0];
-        auto velocity = wall_values[1];
-
-        drive_msgs::pid_input corr;
-        corr.pid_error = corrected_angle;
-        corr.pid_vel = velocity;
-        pid_publisher.publish(corr);
+        this->followWall(lidar);
     }
     else
     {
-        drive_msgs::pid_input emer_stop;
-        emer_stop.pid_vel = 0;
-        emer_stop.pid_error = 0;
-        pid_publisher.publish(emer_stop);
+        this->publishDriveParameters(0, 0);
     }
 }
 

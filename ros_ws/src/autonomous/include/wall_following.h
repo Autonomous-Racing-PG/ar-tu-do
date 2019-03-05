@@ -4,14 +4,13 @@
 #include <iostream>
 
 #include "drive_msgs/drive_param.h"
-#include "drive_msgs/pid_input.h"
 #include "sensor_msgs/LaserScan.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Float64.h"
 #include <ros/console.h>
 #include <ros/ros.h>
 
-constexpr const char* TOPIC_PID_INPUT = "/pid_input";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/std_msgs/Bool";
 
@@ -43,7 +42,7 @@ class WallFollowing
     WallFollowing();
 
     private:
-    std::array<float, 2> followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
 
     /**
      * @brief Checks if there is a wall to close in front of the car.
@@ -64,12 +63,13 @@ class WallFollowing
     float m_integral = 0;
 
     ros::NodeHandle m_node_handle;
-    ros::Subscriber emer_stop_subscriber;
-    ros::Subscriber lidar_subscriber;
+    ros::Subscriber m_emergency_stop_subscriber;
+    ros::Subscriber m_lidar_subscriber;
 
-    void emergencyStopCallback(const std_msgs::Bool emer_stop);
+    void emergencyStopCallback(const std_msgs::Bool emergency_stop_message);
 
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    void publishDriveParameters(float velocity, float angle);
 
-    ros::Publisher pid_publisher;
+    ros::Publisher m_drive_parameter_publisher;
 };
