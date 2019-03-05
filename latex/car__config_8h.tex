@@ -18,48 +18,50 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-constexpr double \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{car\+\_\+config\+::\+PI} \{ 3.\+14159265358979323846 \}
-\begin{DoxyCompactList}\small\item\em It is not possible to use $<$cmath$>$ PI definition in constexpr. That is why it is defined here again. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+B\+A\+SE} \{ 0.\+325 \}
-\begin{DoxyCompactList}\small\item\em Distance between front and rear axis, wheelbase  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{car\+\_\+config\+::\+R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} \{ 0.\+233 \}
-\begin{DoxyCompactList}\small\item\em Distance between center of rear wheels suspension  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} \{ 0.\+098 \}
-\begin{DoxyCompactList}\small\item\em Diameter of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH} \{ 0.\+042 \}
-\begin{DoxyCompactList}\small\item\em Width of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{car\+\_\+config\+::\+F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} \{ 0.\+23 \}
-\begin{DoxyCompactList}\small\item\em Distance between center of front wheels suspension  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} \{ W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER $\ast$ PI \}
-\begin{DoxyCompactList}\small\item\em Perimeter of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{car\+\_\+config\+::\+T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US} \{ 0.\+605 \}
-\begin{DoxyCompactList}\small\item\em Minimal turning radius of car  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} \{ 60000 \}
-\begin{DoxyCompactList}\small\item\em revolutions per miunte of motor, divide through transmission to get wheel rpm  1/min \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{car\+\_\+config\+::\+M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} \{ 3 \}
-\begin{DoxyCompactList}\small\item\em number of electrical motor poles  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL} \{ M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL / M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES \}
-\begin{DoxyCompactList}\small\item\em vesc calculates in electrical revolutions per minute  1/min \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \{ W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER $\ast$ M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from electrical revolutions per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{car\+\_\+config\+::\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM} \{ 1 / E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED \}
-\begin{DoxyCompactList}\small\item\em conversion gain from meter per second to electrical revolutions per minute  s/ (m $\ast$ minute) \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{car\+\_\+config\+::\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \{ W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from mechanical revolutions per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_abb6ef746663276219b321683dfbb8896}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET} \{ 0.\+5 \}
-\begin{DoxyCompactList}\small\item\em offset of the servo for normal wheel position  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN} \{ -\/PI / 3 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from steering angle to servo input  1/radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ PI / 6 \}
-\begin{DoxyCompactList}\small\item\em radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{car\+\_\+config\+::\+M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ -\/PI / 6 \}
-\begin{DoxyCompactList}\small\item\em radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{car\+\_\+config\+::\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON} \{ 20 \}
-\begin{DoxyCompactList}\small\item\em gear transmission inside the differential of the car  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \{ 1 \}
-\begin{DoxyCompactList}\small\item\em none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC} \{ M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES $\ast$ 2 $\ast$ PI / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{car\+\_\+config\+::\+PI} = 3.\+14159265358979323846
+\begin{DoxyCompactList}\small\item\em Since it\textquotesingle{}s not possible to use $<$cmath$>$ in a constexpression, it\textquotesingle{}s defined here again. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a72deaa1a555d694e52fb768ffba1d8cb}{car\+\_\+config\+::\+D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD} = PI / 180
+\item 
+constexpr double \hyperlink{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+B\+A\+SE} = 0.\+325
+\begin{DoxyCompactList}\small\item\em The distance between the front and rear axes. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} = 0.\+098
+\item 
+constexpr double \hyperlink{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH} = 0.\+042
+\item 
+constexpr double \hyperlink{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{car\+\_\+config\+::\+F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} = 0.\+23
+\item 
+constexpr double \hyperlink{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{car\+\_\+config\+::\+R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} = 0.\+233
+\item 
+constexpr double \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} = W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER $\ast$ PI
+\item 
+constexpr double \hyperlink{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{car\+\_\+config\+::\+T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US} = 0.\+605
+\item 
+constexpr double \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} = 60000
+\begin{DoxyCompactList}\small\item\em Maximum revolutions per minute of the motor. Divide by T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON to get the maximum wheel rpm  1/min. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{car\+\_\+config\+::\+M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} = 3
+\begin{DoxyCompactList}\small\item\em Number of electrical motor poles. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL} = M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL / M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES
+\begin{DoxyCompactList}\small\item\em Maximum electrical revolutions per minute for use in the V\+E\+SC  1/min. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} = W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER $\ast$ M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES / 60
+\begin{DoxyCompactList}\small\item\em Conversion factor from electrical revolutions per minute to meters per second  m/s $\ast$ minute = m. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{car\+\_\+config\+::\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM} = 1 / E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED
+\begin{DoxyCompactList}\small\item\em Conversion factor from meters per second to electrical revolutions per minute  s/ (m $\ast$ minute) = 1/m. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{car\+\_\+config\+::\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} = W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER / 60
+\begin{DoxyCompactList}\small\item\em Conversion factor from mechanical revolutions per minute to meters per second  m/s $\ast$ minute = m. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_abb6ef746663276219b321683dfbb8896}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Position of the servo for normal wheel position. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN} = -\/3 / PI
+\begin{DoxyCompactList}\small\item\em Conversion factor from steering angle to servo input  1/radian. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} = 30 $\ast$ D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD
+\item 
+constexpr double \hyperlink{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{car\+\_\+config\+::\+M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} = -\/30 $\ast$ D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD
+\item 
+constexpr double \hyperlink{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{car\+\_\+config\+::\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON} = 20
+\begin{DoxyCompactList}\small\item\em Gear transmission inside the differential of the car. This is an estimate, the exact value is not known. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON} = 1
+\item 
+constexpr double \hyperlink{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC} = M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES $\ast$ 2 $\ast$ PI / 60
+\begin{DoxyCompactList}\small\item\em Conversion factor from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute = radians. \end{DoxyCompactList}\item 
 constexpr char \hyperlink{namespacecar__config_a6008524bf1090f0ab0c994b2f80dcb22}{car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/servo/position\char`\"{} \}
 \item 
 constexpr char \hyperlink{namespacecar__config_afdb192c52a9126c0bedf2ca4a7c99c2a}{car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/motor/speed\char`\"{} \}

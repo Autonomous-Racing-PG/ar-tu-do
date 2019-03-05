@@ -4,6 +4,7 @@ var car__config_8h =
     [ "COMMAND_BRAKE", "car__config_8h.html#ab3b957004ca9df19d509c984937723f7", null ],
     [ "COMMAND_POSITION", "car__config_8h.html#a6008524bf1090f0ab0c994b2f80dcb22", null ],
     [ "COMMAND_THROTTLE", "car__config_8h.html#afdb192c52a9126c0bedf2ca4a7c99c2a", null ],
+    [ "DEG_TO_RAD", "car__config_8h.html#a72deaa1a555d694e52fb768ffba1d8cb", null ],
     [ "ERPM_TO_RAD_PER_SEC", "car__config_8h.html#a877c4a772a47f4737d9f03fe8a22e106", null ],
     [ "ERPM_TO_SPEED", "car__config_8h.html#af33b95798967e7193927782fd91d36ce", null ],
     [ "FRONT_WHEEL_DISTANCE", "car__config_8h.html#a80d9d6f97a63ffcaba87b65a9e1e29e4", null ],

@@ -8,48 +8,50 @@
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-constexpr double \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} \{ 3.\+14159265358979323846 \}
-\begin{DoxyCompactList}\small\item\em It is not possible to use $<$cmath$>$ PI definition in constexpr. That is why it is defined here again. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{W\+H\+E\+E\+L\+B\+A\+SE} \{ 0.\+325 \}
-\begin{DoxyCompactList}\small\item\em Distance between front and rear axis, wheelbase  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} \{ 0.\+233 \}
-\begin{DoxyCompactList}\small\item\em Distance between center of rear wheels suspension  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} \{ 0.\+098 \}
-\begin{DoxyCompactList}\small\item\em Diameter of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH} \{ 0.\+042 \}
-\begin{DoxyCompactList}\small\item\em Width of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} \{ 0.\+23 \}
-\begin{DoxyCompactList}\small\item\em Distance between center of front wheels suspension  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} \{ \hyperlink{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} $\ast$ \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} \}
-\begin{DoxyCompactList}\small\item\em Perimeter of all wheels  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US} \{ 0.\+605 \}
-\begin{DoxyCompactList}\small\item\em Minimal turning radius of car  m. \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} \{ 60000 \}
-\begin{DoxyCompactList}\small\item\em revolutions per miunte of motor, divide through transmission to get wheel rpm  1/min \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} \{ 3 \}
-\begin{DoxyCompactList}\small\item\em number of electrical motor poles  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL} \{ \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} / \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} \}
-\begin{DoxyCompactList}\small\item\em vesc calculates in electrical revolutions per minute  1/min \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \{ \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} $\ast$ \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from electrical revolutions per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM} \{ 1 / \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \}
-\begin{DoxyCompactList}\small\item\em conversion gain from meter per second to electrical revolutions per minute  s/ (m $\ast$ minute) \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \{ \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from mechanical revolutions per minute to meter per second  m/s $\ast$ minute \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_abb6ef746663276219b321683dfbb8896}{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET} \{ 0.\+5 \}
-\begin{DoxyCompactList}\small\item\em offset of the servo for normal wheel position  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN} \{ -\/\hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} / 3 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from steering angle to servo input  1/radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} / 6 \}
-\begin{DoxyCompactList}\small\item\em radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} \{ -\/\hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} / 6 \}
-\begin{DoxyCompactList}\small\item\em radian \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON} \{ 20 \}
-\begin{DoxyCompactList}\small\item\em gear transmission inside the differential of the car  none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \{ 1 \}
-\begin{DoxyCompactList}\small\item\em none \end{DoxyCompactList}\item 
-constexpr double \hyperlink{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC} \{ \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} $\ast$ 2 $\ast$ \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} / 60 \}
-\begin{DoxyCompactList}\small\item\em conversion gain from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} = 3.\+14159265358979323846
+\begin{DoxyCompactList}\small\item\em Since it\textquotesingle{}s not possible to use $<$cmath$>$ in a constexpression, it\textquotesingle{}s defined here again. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a72deaa1a555d694e52fb768ffba1d8cb}{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD} = \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} / 180
+\item 
+constexpr double \hyperlink{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{W\+H\+E\+E\+L\+B\+A\+SE} = 0.\+325
+\begin{DoxyCompactList}\small\item\em The distance between the front and rear axes. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} = 0.\+098
+\item 
+constexpr double \hyperlink{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH} = 0.\+042
+\item 
+constexpr double \hyperlink{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} = 0.\+23
+\item 
+constexpr double \hyperlink{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE} = 0.\+233
+\item 
+constexpr double \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} = \hyperlink{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} $\ast$ \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI}
+\item 
+constexpr double \hyperlink{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US} = 0.\+605
+\item 
+constexpr double \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} = 60000
+\begin{DoxyCompactList}\small\item\em Maximum revolutions per minute of the motor. Divide by T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON to get the maximum wheel rpm  1/min. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} = 3
+\begin{DoxyCompactList}\small\item\em Number of electrical motor poles. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL} = \hyperlink{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} / \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}
+\begin{DoxyCompactList}\small\item\em Maximum electrical revolutions per minute for use in the V\+E\+SC  1/min. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} = \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} $\ast$ \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} / 60
+\begin{DoxyCompactList}\small\item\em Conversion factor from electrical revolutions per minute to meters per second  m/s $\ast$ minute = m. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM} = 1 / \hyperlink{namespacecar__config_af33b95798967e7193927782fd91d36ce}{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}
+\begin{DoxyCompactList}\small\item\em Conversion factor from meters per second to electrical revolutions per minute  s/ (m $\ast$ minute) = 1/m. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} = \hyperlink{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} / 60
+\begin{DoxyCompactList}\small\item\em Conversion factor from mechanical revolutions per minute to meters per second  m/s $\ast$ minute = m. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_abb6ef746663276219b321683dfbb8896}{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Position of the servo for normal wheel position. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN} = -\/3 / \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI}
+\begin{DoxyCompactList}\small\item\em Conversion factor from steering angle to servo input  1/radian. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} = 30 $\ast$ \hyperlink{namespacecar__config_a72deaa1a555d694e52fb768ffba1d8cb}{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}
+\item 
+constexpr double \hyperlink{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE} = -\/30 $\ast$ \hyperlink{namespacecar__config_a72deaa1a555d694e52fb768ffba1d8cb}{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}
+\item 
+constexpr double \hyperlink{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON} = 20
+\begin{DoxyCompactList}\small\item\em Gear transmission inside the differential of the car. This is an estimate, the exact value is not known. \end{DoxyCompactList}\item 
+constexpr double \hyperlink{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON} = 1
+\item 
+constexpr double \hyperlink{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC} = \hyperlink{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} $\ast$ 2 $\ast$ \hyperlink{namespacecar__config_a90cb9957197db8924811c447bc98703a}{PI} / 60
+\begin{DoxyCompactList}\small\item\em Conversion factor from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute = radians. \end{DoxyCompactList}\item 
 constexpr char \hyperlink{namespacecar__config_a6008524bf1090f0ab0c994b2f80dcb22}{C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/servo/position\char`\"{} \}
 \item 
 constexpr char \hyperlink{namespacecar__config_afdb192c52a9126c0bedf2ca4a7c99c2a}{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE} \mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/motor/speed\char`\"{} \}
@@ -68,262 +70,233 @@ constexpr const char \hyperlink{namespacecar__config_aba040863633ec405f179baf953
 \subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+V\+EL}{CMD_VEL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char car\+\_\+config\+::\+C\+M\+D\+\_\+\+V\+EL\mbox{[}$\,$\mbox{]} \{ \char`\"{}cmd\+\_\+vel\char`\"{} \}}\hypertarget{namespacecar__config_aba040863633ec405f179baf953ba002c}{}\label{namespacecar__config_aba040863633ec405f179baf953ba002c}
 
 
-Definition at line 146 of file car\+\_\+config.\+h.
+Definition at line 108 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE@{C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE}}
 \index{C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE@{C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE}!car\+\_\+config@{car\+\_\+config}}
 \subsubsection[{\texorpdfstring{C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE}{COMMAND_BRAKE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr char car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+B\+R\+A\+KE\mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/motor/brake\char`\"{} \}}\hypertarget{namespacecar__config_ab3b957004ca9df19d509c984937723f7}{}\label{namespacecar__config_ab3b957004ca9df19d509c984937723f7}
 
 
-Definition at line 133 of file car\+\_\+config.\+h.
+Definition at line 95 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON}}
 \index{C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON}!car\+\_\+config@{car\+\_\+config}}
 \subsubsection[{\texorpdfstring{C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON}{COMMAND_POSITION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr char car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+S\+I\+T\+I\+ON\mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/servo/position\char`\"{} \}}\hypertarget{namespacecar__config_a6008524bf1090f0ab0c994b2f80dcb22}{}\label{namespacecar__config_a6008524bf1090f0ab0c994b2f80dcb22}
 
 
-Definition at line 131 of file car\+\_\+config.\+h.
+Definition at line 93 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE@{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE}}
 \index{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE@{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE}!car\+\_\+config@{car\+\_\+config}}
 \subsubsection[{\texorpdfstring{C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE}{COMMAND_THROTTLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr char car\+\_\+config\+::\+C\+O\+M\+M\+A\+N\+D\+\_\+\+T\+H\+R\+O\+T\+T\+LE\mbox{[}$\,$\mbox{]} \{ \char`\"{}/commands/motor/speed\char`\"{} \}}\hypertarget{namespacecar__config_afdb192c52a9126c0bedf2ca4a7c99c2a}{}\label{namespacecar__config_afdb192c52a9126c0bedf2ca4a7c99c2a}
 
 
-Definition at line 132 of file car\+\_\+config.\+h.
+Definition at line 94 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD@{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}}
+\index{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD@{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}{DEG_TO_RAD}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD = {\bf PI} / 180}\hypertarget{namespacecar__config_a72deaa1a555d694e52fb768ffba1d8cb}{}\label{namespacecar__config_a72deaa1a555d694e52fb768ffba1d8cb}
+
+
+Definition at line 10 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC@{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC}}
 \index{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC@{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC}{ERPM_TO_RAD_PER_SEC}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC \{ {\bf M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} $\ast$ 2 $\ast$ {\bf PI} / 60 \}}\hypertarget{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{}\label{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}
+\subsubsection[{\texorpdfstring{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC}{ERPM_TO_RAD_PER_SEC}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+R\+A\+D\+\_\+\+P\+E\+R\+\_\+\+S\+EC = {\bf M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} $\ast$ 2 $\ast$ {\bf PI} / 60}\hypertarget{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}{}\label{namespacecar__config_a877c4a772a47f4737d9f03fe8a22e106}
 
 
-conversion gain from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute 
+Conversion factor from electrical revolutions per minute to radian to seconds  radian/s $\ast$ minute = radians. 
 
 
 
-Definition at line 129 of file car\+\_\+config.\+h.
+Definition at line 91 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED@{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}}
 \index{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED@{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}{ERPM_TO_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED \{ {\bf W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} $\ast$ {\bf M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} / 60 \}}\hypertarget{namespacecar__config_af33b95798967e7193927782fd91d36ce}{}\label{namespacecar__config_af33b95798967e7193927782fd91d36ce}
+\subsubsection[{\texorpdfstring{E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}{ERPM_TO_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED = {\bf W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} $\ast$ {\bf M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} / 60}\hypertarget{namespacecar__config_af33b95798967e7193927782fd91d36ce}{}\label{namespacecar__config_af33b95798967e7193927782fd91d36ce}
 
 
-conversion gain from electrical revolutions per minute to meter per second  m/s $\ast$ minute 
+Conversion factor from electrical revolutions per minute to meters per second  m/s $\ast$ minute = m. 
 
 
 
-Definition at line 75 of file car\+\_\+config.\+h.
+Definition at line 50 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE@{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}}
 \index{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE@{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}{FRONT_WHEEL_DISTANCE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE \{ 0.\+23 \}}\hypertarget{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{}\label{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}
-
-
-Distance between center of front wheels suspension  m. 
-
-
-
-Definition at line 39 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL}}
-\index{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL}{MAX_RPM_ELECTRICAL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL \{ {\bf M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} / {\bf M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES} \}}\hypertarget{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{}\label{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}
-
-
-vesc calculates in electrical revolutions per minute  1/min 
-
-
-
-Definition at line 69 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL}}
-\index{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL}{MAX_RPM_MECHANICAL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL \{ 60000 \}}\hypertarget{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{}\label{namespacecar__config_ad35069a183782259c6280aa219b72ffa}
-
-
-revolutions per miunte of motor, divide through transmission to get wheel rpm  1/min 
-
-
-
-Definition at line 57 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON}}
-\index{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON}{MAX_SERVO_POSITION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON \{ 1 \}}\hypertarget{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{}\label{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}
-
-
-none 
-
-
-
-Definition at line 123 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}}
-\index{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}{MAX_STEERING_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE \{ {\bf PI} / 6 \}}\hypertarget{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{}\label{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}
-
-
-radian 
-
-
-
-Definition at line 105 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}}
-\index{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}{MIN_STEERING_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE \{ -\/{\bf PI} / 6 \}}\hypertarget{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{}\label{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}
-
-
-radian 
-
-
-
-Definition at line 111 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES@{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}}
-\index{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES@{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}{MOTOR_POLES}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES \{ 3 \}}\hypertarget{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{}\label{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}
-
-
-number of electrical motor poles  none 
-
-
-
-Definition at line 63 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!PI@{PI}}
-\index{PI@{PI}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{PI}{PI}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+PI \{ 3.\+14159265358979323846 \}}\hypertarget{namespacecar__config_a90cb9957197db8924811c447bc98703a}{}\label{namespacecar__config_a90cb9957197db8924811c447bc98703a}
-
-
-It is not possible to use $<$cmath$>$ PI definition in constexpr. That is why it is defined here again. 
-
-
-
-Definition at line 9 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE@{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}}
-\index{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE@{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}{REAR_WHEEL_DISTANCE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE \{ 0.\+233 \}}\hypertarget{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{}\label{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}
-
-
-Distance between center of rear wheels suspension  m. 
-
+\subsubsection[{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}{FRONT_WHEEL_DISTANCE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+F\+R\+O\+N\+T\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE = 0.\+23}\hypertarget{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}{}\label{namespacecar__config_a80d9d6f97a63ffcaba87b65a9e1e29e4}
 
 
 Definition at line 21 of file car\+\_\+config.\+h.
 
+\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL}}
+\index{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL}{MAX_RPM_ELECTRICAL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+E\+L\+E\+C\+T\+R\+I\+C\+AL = {\bf M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL} / {\bf M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}}\hypertarget{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}{}\label{namespacecar__config_aaf4d6a90e2b9c983b0b0d29a584c399b}
+
+
+Maximum electrical revolutions per minute for use in the V\+E\+SC  1/min. 
+
+
+
+Definition at line 44 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL}}
+\index{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL@{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL}{MAX_RPM_MECHANICAL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+R\+P\+M\+\_\+\+M\+E\+C\+H\+A\+N\+I\+C\+AL = 60000}\hypertarget{namespacecar__config_ad35069a183782259c6280aa219b72ffa}{}\label{namespacecar__config_ad35069a183782259c6280aa219b72ffa}
+
+
+Maximum revolutions per minute of the motor. Divide by T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON to get the maximum wheel rpm  1/min. 
+
+
+
+Definition at line 33 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON}}
+\index{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON@{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON}{MAX_SERVO_POSITION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+E\+R\+V\+O\+\_\+\+P\+O\+S\+I\+T\+I\+ON = 1}\hypertarget{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}{}\label{namespacecar__config_af1712762f3ad9f8805ba474d5f3e7274}
+
+
+Definition at line 85 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}}
+\index{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}{MAX_STEERING_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+A\+X\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE = 30 $\ast$ {\bf D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}}\hypertarget{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}{}\label{namespacecar__config_a967b325af26effe80fbbc64dc68a36a0}
+
+
+Definition at line 75 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}}
+\index{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE@{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE}{MIN_STEERING_ANGLE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+I\+N\+\_\+\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+A\+N\+G\+LE = -\/30 $\ast$ {\bf D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}}\hypertarget{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}{}\label{namespacecar__config_a38229ce5d2e17e0c30b86864fb20d9ce}
+
+
+Definition at line 77 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES@{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}}
+\index{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES@{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES}{MOTOR_POLES}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+M\+O\+T\+O\+R\+\_\+\+P\+O\+L\+ES = 3}\hypertarget{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}{}\label{namespacecar__config_a611a0f02cf52db1d438a2dd53b642cd5}
+
+
+Number of electrical motor poles. 
+
+
+
+Definition at line 38 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!PI@{PI}}
+\index{PI@{PI}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{PI}{PI}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+PI = 3.\+14159265358979323846}\hypertarget{namespacecar__config_a90cb9957197db8924811c447bc98703a}{}\label{namespacecar__config_a90cb9957197db8924811c447bc98703a}
+
+
+Since it\textquotesingle{}s not possible to use $<$cmath$>$ in a constexpression, it\textquotesingle{}s defined here again. 
+
+
+
+Definition at line 8 of file car\+\_\+config.\+h.
+
+\index{car\+\_\+config@{car\+\_\+config}!R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE@{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}}
+\index{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE@{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE}{REAR_WHEEL_DISTANCE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+R\+E\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+D\+I\+S\+T\+A\+N\+CE = 0.\+233}\hypertarget{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}{}\label{namespacecar__config_a43e668702c6dc662ff95f80047ee5500}
+
+
+Definition at line 23 of file car\+\_\+config.\+h.
+
 \index{car\+\_\+config@{car\+\_\+config}!R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED@{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}}
 \index{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED@{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}{RPM_TO_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED \{ {\bf W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} / 60 \}}\hypertarget{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{}\label{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}
+\subsubsection[{\texorpdfstring{R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}{RPM_TO_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED = {\bf W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER} / 60}\hypertarget{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}{}\label{namespacecar__config_aee034b6adfd7932f245bc94d869f2bb6}
 
 
-conversion gain from mechanical revolutions per minute to meter per second  m/s $\ast$ minute 
+Conversion factor from mechanical revolutions per minute to meters per second  m/s $\ast$ minute = m. 
 
 
 
-Definition at line 87 of file car\+\_\+config.\+h.
+Definition at line 62 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM@{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM}}
 \index{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM@{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM}{SPEED_TO_ERPM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM \{ 1 / {\bf E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED} \}}\hypertarget{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{}\label{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}
+\subsubsection[{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM}{SPEED_TO_ERPM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+E\+R\+PM = 1 / {\bf E\+R\+P\+M\+\_\+\+T\+O\+\_\+\+S\+P\+E\+ED}}\hypertarget{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}{}\label{namespacecar__config_a0f37aa7e52366aebb006c6e1d3317900}
 
 
-conversion gain from meter per second to electrical revolutions per minute  s/ (m $\ast$ minute) 
+Conversion factor from meters per second to electrical revolutions per minute  s/ (m $\ast$ minute) = 1/m. 
 
 
 
-Definition at line 81 of file car\+\_\+config.\+h.
+Definition at line 56 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN}}
 \index{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN}{STEERING_TO_SERVO_GAIN}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN \{ -\/{\bf PI} / 3 \}}\hypertarget{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{}\label{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}
+\subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN}{STEERING_TO_SERVO_GAIN}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+G\+A\+IN = -\/3 / {\bf PI}}\hypertarget{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}{}\label{namespacecar__config_aa8ab85fe7b8ab728f34d15028f114d86}
 
 
-conversion gain from steering angle to servo input  1/radian 
+Conversion factor from steering angle to servo input  1/radian. 
 
 
 
-Definition at line 99 of file car\+\_\+config.\+h.
+Definition at line 73 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET}}
 \index{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET}{STEERING_TO_SERVO_OFFSET}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET \{ 0.\+5 \}}\hypertarget{namespacecar__config_abb6ef746663276219b321683dfbb8896}{}\label{namespacecar__config_abb6ef746663276219b321683dfbb8896}
+\subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET}{STEERING_TO_SERVO_OFFSET}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+T\+O\+\_\+\+S\+E\+R\+V\+O\+\_\+\+O\+F\+F\+S\+ET = 0.\+5}\hypertarget{namespacecar__config_abb6ef746663276219b321683dfbb8896}{}\label{namespacecar__config_abb6ef746663276219b321683dfbb8896}
 
 
-offset of the servo for normal wheel position  none 
+Position of the servo for normal wheel position. 
 
 
 
-Definition at line 93 of file car\+\_\+config.\+h.
+Definition at line 67 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}!car\+\_\+config@{car\+\_\+config}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}{TOPIC_DRIVE_PARAM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char car\+\_\+config\+::\+T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM\mbox{[}$\,$\mbox{]} \{ \char`\"{}/set/drive\+\_\+param\char`\"{} \}}\hypertarget{namespacecar__config_a329dea882fb03eb1cec1af42977fa0c6}{}\label{namespacecar__config_a329dea882fb03eb1cec1af42977fa0c6}
 
 
-Definition at line 145 of file car\+\_\+config.\+h.
+Definition at line 107 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON@{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON}}
 \index{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON@{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON}{TRANSMISSION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON \{ 20 \}}\hypertarget{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{}\label{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}
+\subsubsection[{\texorpdfstring{T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON}{TRANSMISSION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON = 20}\hypertarget{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}{}\label{namespacecar__config_a7af97a6c9168673aba8917029cfe44d3}
 
 
-gear transmission inside the differential of the car  none 
+Gear transmission inside the differential of the car. This is an estimate, the exact value is not known. 
 
 
 
-Definition at line 117 of file car\+\_\+config.\+h.
+Definition at line 83 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US@{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US}}
 \index{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US@{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US}{TURNING_RADIUS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US \{ 0.\+605 \}}\hypertarget{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{}\label{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}
-
-
-Minimal turning radius of car  m. 
-
-
-
-Definition at line 51 of file car\+\_\+config.\+h.
-
-\index{car\+\_\+config@{car\+\_\+config}!W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER@{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER}}
-\index{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER@{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER}{WHEEL_DIAMETER}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER \{ 0.\+098 \}}\hypertarget{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{}\label{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}
-
-
-Diameter of all wheels  m. 
-
+\subsubsection[{\texorpdfstring{T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US}{TURNING_RADIUS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+T\+U\+R\+N\+I\+N\+G\+\_\+\+R\+A\+D\+I\+US = 0.\+605}\hypertarget{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}{}\label{namespacecar__config_afe308ba7ae07f7bd5af7e79a095101a9}
 
 
 Definition at line 27 of file car\+\_\+config.\+h.
 
+\index{car\+\_\+config@{car\+\_\+config}!W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER@{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER}}
+\index{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER@{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER}!car\+\_\+config@{car\+\_\+config}}
+\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER}{WHEEL_DIAMETER}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER = 0.\+098}\hypertarget{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}{}\label{namespacecar__config_a6f064e331d6d85d46028dfbe75f063dd}
+
+
+Definition at line 17 of file car\+\_\+config.\+h.
+
 \index{car\+\_\+config@{car\+\_\+config}!W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER@{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER}}
 \index{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER@{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER}{WHEEL_PERIMETER}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER \{ {\bf W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} $\ast$ {\bf PI} \}}\hypertarget{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{}\label{namespacecar__config_a46fe00906da07d2e030b586a634cd907}
+\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER}{WHEEL_PERIMETER}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+P\+E\+R\+I\+M\+E\+T\+ER = {\bf W\+H\+E\+E\+L\+\_\+\+D\+I\+A\+M\+E\+T\+ER} $\ast$ {\bf PI}}\hypertarget{namespacecar__config_a46fe00906da07d2e030b586a634cd907}{}\label{namespacecar__config_a46fe00906da07d2e030b586a634cd907}
 
 
-Perimeter of all wheels  m. 
-
-
-
-Definition at line 45 of file car\+\_\+config.\+h.
+Definition at line 25 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH@{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH}}
 \index{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH@{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH}{WHEEL_WIDTH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH \{ 0.\+042 \}}\hypertarget{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}{}\label{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}
+\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH}{WHEEL_WIDTH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+\_\+\+W\+I\+D\+TH = 0.\+042}\hypertarget{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}{}\label{namespacecar__config_ace29186cd9605cde6edd0fd9b814df63}
 
 
-Width of all wheels  m. 
-
-
-
-Definition at line 33 of file car\+\_\+config.\+h.
+Definition at line 19 of file car\+\_\+config.\+h.
 
 \index{car\+\_\+config@{car\+\_\+config}!W\+H\+E\+E\+L\+B\+A\+SE@{W\+H\+E\+E\+L\+B\+A\+SE}}
 \index{W\+H\+E\+E\+L\+B\+A\+SE@{W\+H\+E\+E\+L\+B\+A\+SE}!car\+\_\+config@{car\+\_\+config}}
-\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+B\+A\+SE}{WHEELBASE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+B\+A\+SE \{ 0.\+325 \}}\hypertarget{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{}\label{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}
+\subsubsection[{\texorpdfstring{W\+H\+E\+E\+L\+B\+A\+SE}{WHEELBASE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double car\+\_\+config\+::\+W\+H\+E\+E\+L\+B\+A\+SE = 0.\+325}\hypertarget{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}{}\label{namespacecar__config_a4e9e4925d43a88de91b13bedafabce67}
 
 
-Distance between front and rear axis, wheelbase  m. 
+The distance between the front and rear axes. 
 
 
 
