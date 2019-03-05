@@ -47,43 +47,33 @@ std::array<float, 2> WallFollowing::followWall(const sensor_msgs::LaserScan::Con
         ROS_INFO_STREAM("Could not sample lidar, using default value");
     }
 
-    // alpha is the orientation of the car with respect to the wall
-    // and a_b is the distance to the wall
-    // a_c is the distance between the current position of the car and the predicted position
-    // we use the car_length as a_c for now PLEASE CHANGE IN THE FUTURE
-    // c_d is the distance to the wall at the predicted position
-    float alpha = std::atan((range1 * std::cos(SAMPLE_WINDOW_SIZE * DEG_TO_RAD) - range2) / (range1 * std::sin(SAMPLE_WINDOW_SIZE * DEG_TO_RAD)));
-    float a_b = range2 * std::cos(alpha);
-    float a_c = 0.5;
-    float c_d = a_b + a_c * std::sin(alpha);
+    // These calculations are based on this document: http://f1tenth.org/lab_instructions/t6.pdf
+
+    float wallAngle = std::atan((range1 * std::cos(SAMPLE_WINDOW_SIZE * DEG_TO_RAD) - range2) / (range1 * std::sin(SAMPLE_WINDOW_SIZE * DEG_TO_RAD)));
+    float currentWallDistance = range2 * std::cos(wallAngle);
+    float predictedWallDistance = currentWallDistance + PREDICTION_DISTANCE * std::sin(wallAngle);
     
-    // values used for PID control, given be ZIEGLER und NICHOLS
-    // periodendauer bei kritischer verstärkung = 300ms
-    float critic_kp = 200;
-    float critic_period = 0.5;
-    float kp = critic_kp * 0.6;
-    float ki = 2 * kp / 500;
-    float kd = kp * 0.5 / 8;
+    float error = TARGET_WALL_DISTANCE - predictedWallDistance;
+
+    float kp = 120;
+    float ki = 0.48;
+    float kd = 7.5;
     float dt = 0.025; // 25ms iteration time
+    
+    this->m_integral += error * dt;
+    float derivative = (error - m_prev_error) / dt;
 
-    // if we want to stay 0.5 meter away from the wall
-    // then the error is 0.5-CD
-    m_error = 0.5 - c_d;
+    float correction = kp * error + ki * this->m_integral + kd * derivative;
 
-    m_integral += (m_error * dt);
-    float left_derivative = (m_error - m_prev_error) / dt;
+    this->m_prev_error = error;
 
-    // correction according to the ZIEGLER und NICHOLS
-    float correction = kp * m_error + ki * (m_integral) + kd * left_derivative;
-
-    m_prev_error = m_error;
-
-    // use correction to increment or decrement steering angle
-    m_corrected_angle = leftRightSign * correction * DEG_TO_RAD;
+    float correctedAngle = leftRightSign * correction * DEG_TO_RAD;
 
     // check if speed is too high (car cannot react fast enough)
     // or too low/negative (because we substract the corrected angle from the max speed)
-    float m_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(m_corrected_angle) * WALL_FOLLOWING_MAX_SPEED;
+    float m_velocity = WALL_FOLLOWING_MAX_SPEED - std::abs(correctedAngle) * WALL_FOLLOWING_MAX_SPEED;
+
+
 
     if (m_velocity > WALL_FOLLOWING_MAX_SPEED)
     {
@@ -94,7 +84,7 @@ std::array<float, 2> WallFollowing::followWall(const sensor_msgs::LaserScan::Con
         m_velocity = WALL_FOLLOWING_MIN_SPEED;
     }
 
-    return { std::atan(m_corrected_angle), m_velocity };
+    return { std::atan(correctedAngle), m_velocity };
 }
 
 void WallFollowing::emergencyStopCallback(const std_msgs::Bool emer_stop)

@@ -30,6 +30,11 @@ constexpr float SAMPLE_WINDOW_SIZE = SAMPLE_ANGLE_2 - SAMPLE_ANGLE_1;
 constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
 constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1;
 
+// The car will aim to reach the target wall distance after travelling this distance
+constexpr float PREDICTION_DISTANCE = 0.5;
+// The desired distance between the wall and the car
+constexpr float TARGET_WALL_DISTANCE = 0.5;
+
 constexpr float DEG_TO_RAD = M_PI / 180.0;
 
 class WallFollowing
@@ -46,18 +51,16 @@ class WallFollowing
     bool emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar);
 
     /**
-     * @brief Maps the given angle to the corresponding index of the lidar array
-     * and returns the range.
+     * @brief Samples the lidar range at the given angle in degree.
+     * If no valid sample was found, the range parameter is not changed and false is returned.
+     * The angle 0 points forward.
      */
     bool getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle, float& range);
 
     bool m_follow_right_wall = true;
-
     bool m_emergency_stop = true;
 
-    float m_error = 0;
     float m_prev_error = 0;
-    float m_corrected_angle = 0;
     float m_integral = 0;
 
     ros::NodeHandle m_node_handle;
