@@ -12,6 +12,12 @@
 constexpr const int MAX_SPEED = 5000;
 constexpr const double MAX_ANGLE = 0.9;
 
+constexpr const char* TOPIC_FOCBOX_SPEED = "/commands/motor/speed";
+constexpr const char* TOPIC_FOCBOX_ANGLE = "/commands/servo/position";
+constexpr const char* TOPIC_FOCBOX_BRAKE = "commands/motor/brake";
+constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
+constexpr const char* TOPIC_UNLOCK_MOTOR = "/commands/unlock_motor";
+
 class CarController
 {
     public:

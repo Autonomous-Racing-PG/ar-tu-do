@@ -9,6 +9,9 @@
 constexpr const char* PARAMETER_DMS_CHECK_RATE = "dms_check_rate";
 constexpr const char* PARAMETER_DMS_EXPIRATION = "dms_expiration";
 
+constexpr const char* TOPIC_DMS_HEARTBEAT = "/input/dms_heartbeat";
+constexpr const char* TOPIC_UNLOCK_MOTOR = "/commands/unlock_motor";
+
 class DMSController
 {
     public:

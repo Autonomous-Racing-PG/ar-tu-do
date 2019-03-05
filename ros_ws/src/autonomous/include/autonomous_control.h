@@ -8,6 +8,8 @@
 #include "std_msgs/Float64.h"
 #include <ros/ros.h>
 
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
+
 class AutonomousControl
 {
     public:

@@ -5,6 +5,9 @@
 #include <drive_msgs/drive_param.h>
 #include <geometry_msgs/Twist.h>
 
+constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
+constexpr const char* CMD_VEL = "cmd_vel";
+
 /**
  * @brief This converter class converts "cmd_vel" messages to "drive_param" messages.
  * The linear and angular velocity has to be transformed to linear velocity and steering angle.

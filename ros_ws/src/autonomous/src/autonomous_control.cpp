@@ -4,7 +4,7 @@ AutonomousControl::AutonomousControl()
 {
     m_pid_input =
         m_node_handle.subscribe<drive_msgs::pid_input>("/pid_input", 1, &AutonomousControl::pid_callback, this);
-    drive_param_publisher = m_node_handle.advertise<drive_msgs::drive_param>("input/drive_param/wallfollowing", 1);
+    drive_param_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
 void AutonomousControl::pid_callback(const drive_msgs::pid_input::ConstPtr& pid_input)
