@@ -12,7 +12,7 @@
 #include <ros/ros.h>
 
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
-constexpr const char* TOPIC_EMER_STOP = "/std_msgs/Bool";
+constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 
 class EmergencyStop
 {

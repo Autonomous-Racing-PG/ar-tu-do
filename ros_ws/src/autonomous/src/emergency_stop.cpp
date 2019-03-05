@@ -4,7 +4,7 @@ EmergencyStop::EmergencyStop()
 {
     lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &EmergencyStop::lidarCallback, this);
-    emer_stop_publisher = m_node_handle.advertise<std_msgs::Bool>(TOPIC_EMER_STOP, 1);
+    emer_stop_publisher = m_node_handle.advertise<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1);
 }
 
 float EmergencyStop::rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta)
@@ -63,7 +63,6 @@ void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 
     if (emergency_stop == false)
     {
-        ROS_INFO_STREAM("Okay, go on");
         std_msgs::Bool emer_stop;
         emer_stop.data = false;
         emer_stop_publisher.publish(emer_stop);
