@@ -1,8 +1,7 @@
 #include "navigation_stack_control_converter.h"
 #include "car_config.h"
-#include <eigen3/Eigen/Dense>
 #include <algorithm>
-
+#include <eigen3/Eigen/Dense>
 
 using namespace Eigen;
 
@@ -12,8 +11,8 @@ constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001;
 NavigationStackControlConverter::NavigationStackControlConverter()
 {
     this->m_command_velocity_subscriber =
-        this->m_node_handle.subscribe<geometry_msgs::Twist>(car_config::CMD_VEL, 1, &NavigationStackControlConverter::convertCallback,
-                                                            this);
+        this->m_node_handle.subscribe<geometry_msgs::Twist>(car_config::CMD_VEL, 1,
+                                                            &NavigationStackControlConverter::convertCallback, this);
 
     this->m_drive_param_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(car_config::TOPIC_DRIVE_PARAM, 10);
@@ -28,7 +27,7 @@ void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist
 
     Vector2d metric_velocity(velocity_x, velocity_y);
 
-    double velocity_result = metric_velocity.norm(); 
+    double velocity_result = metric_velocity.norm();
     double erpm_speed = velocity_result * car_config::TRANSMISSION / car_config::ERPM_TO_SPEED;
     double angle_rad = 0;
 
@@ -49,7 +48,7 @@ void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist
 
     double servo_data = (angle_rad * car_config::STEERING_TO_SERVO_GAIN) + car_config::STEERING_TO_SERVO_OFFSET;
 
-    //c++17 servo_data = std::clamp(servo_data,0,1);
+    // c++17 servo_data = std::clamp(servo_data,0,1);
     if (servo_data < 0)
     {
         servo_data = 0;
