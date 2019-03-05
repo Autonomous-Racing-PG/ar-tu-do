@@ -14,7 +14,7 @@
 constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
 constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1;
 constexpr const char* TOPIC_PID_INPUT = "/pid_input";
-constexpr const char* TOPIC_LASER_SCAN = "/racer/laser/scan";
+constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMER_STOP = "/std_msgs/Bool";
 
 class WallFollowing
