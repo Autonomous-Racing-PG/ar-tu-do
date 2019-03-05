@@ -57,9 +57,9 @@ enum \hyperlink{keyboard__controller_8h_a4f3852c29660b2c7415360633c54e0bb}{Key\+
 \item 
 constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_a3881a7dd470107a7c50efedc0a708839}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}input/drive\+\_\+param/keyboard\char`\"{}
 \item 
-constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH} = \char`\"{}/set/dms\char`\"{}
+constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH} = \char`\"{}/input/dms\+\_\+heartbeat\char`\"{}
 \item 
-constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_aef6a253625ee17e952e60fd4d132cc8e}{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR} = \char`\"{}/unlock\+\_\+motor\char`\"{}
+constexpr const char $\ast$ \hyperlink{keyboard__controller_8h_aef6a253625ee17e952e60fd4d132cc8e}{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR} = \char`\"{}/commands/unlock\+\_\+motor\char`\"{}
 \item 
 constexpr int \hyperlink{keyboard__controller_8h_a19ecc164327668cf4b24f872053a3dd5}{K\+E\+Y\+\_\+\+C\+O\+U\+NT} = 5
 \item 
@@ -203,7 +203,7 @@ Definition at line 56 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH@{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH@{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}{TOPIC_DEAD_MANS_SWITCH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH = \char`\"{}/set/dms\char`\"{}}\hypertarget{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}{}\label{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH}{TOPIC_DEAD_MANS_SWITCH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+E\+A\+D\+\_\+\+M\+A\+N\+S\+\_\+\+S\+W\+I\+T\+CH = \char`\"{}/input/dms\+\_\+heartbeat\char`\"{}}\hypertarget{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}{}\label{keyboard__controller_8h_aabd38024f2f1a3ffba466bdd55e1142c}
 
 
 Definition at line 15 of file keyboard\+\_\+controller.\+h.
@@ -217,7 +217,7 @@ Definition at line 14 of file keyboard\+\_\+controller.\+h.
 
 \index{keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR@{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR}}
 \index{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR@{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR}!keyboard\+\_\+controller.\+h@{keyboard\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR}{TOPIC_UNLOCK_MOTOR}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR = \char`\"{}/unlock\+\_\+motor\char`\"{}}\hypertarget{keyboard__controller_8h_aef6a253625ee17e952e60fd4d132cc8e}{}\label{keyboard__controller_8h_aef6a253625ee17e952e60fd4d132cc8e}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR}{TOPIC_UNLOCK_MOTOR}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+M\+O\+T\+OR = \char`\"{}/commands/unlock\+\_\+motor\char`\"{}}\hypertarget{keyboard__controller_8h_aef6a253625ee17e952e60fd4d132cc8e}{}\label{keyboard__controller_8h_aef6a253625ee17e952e60fd4d132cc8e}
 
 
 Definition at line 16 of file keyboard\+\_\+controller.\+h.

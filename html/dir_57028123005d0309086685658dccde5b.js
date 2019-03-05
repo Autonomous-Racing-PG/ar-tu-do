@@ -4,7 +4,5 @@ var dir_57028123005d0309086685658dccde5b =
     [ "vesc_sim.h", "vesc__sim_8h.html", [
       [ "VESCSimulator", "class_v_e_s_c_simulator.html", "class_v_e_s_c_simulator" ]
     ] ],
-    [ "vesc_sim_driver.h", "vesc__sim__driver_8h.html", [
-      [ "VESCSimulationDriver", "class_v_e_s_c_simulation_driver.html", "class_v_e_s_c_simulation_driver" ]
-    ] ]
+    [ "vesc_sim_driver.h", "vesc__sim__driver_8h.html", "vesc__sim__driver_8h" ]
 ];

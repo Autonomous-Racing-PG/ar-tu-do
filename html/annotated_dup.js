@@ -1,6 +1,5 @@
 var annotated_dup =
 [
-    [ "car_config", "namespacecar__config.html", null ],
     [ "AutonomousControl", "class_autonomous_control.html", "class_autonomous_control" ],
     [ "CarController", "class_car_controller.html", "class_car_controller" ],
     [ "DMSController", "class_d_m_s_controller.html", "class_d_m_s_controller" ],

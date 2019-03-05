@@ -157,11 +157,18 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>COMMAND_GO
-: <a class="el" href="car__control_8h.html#a3ba962d8165c56ab8545410f4edd510f">car_control.h</a>
+<li>CMD_VEL
+: <a class="el" href="navigation__stack__control__converter_8h.html#a561eb346694ef40c617c49bb160363d8">navigation_stack_control_converter.h</a>
+, <a class="el" href="vesc__sim__driver_8h.html#a561eb346694ef40c617c49bb160363d8">vesc_sim_driver.h</a>
 </li>
-<li>COMMAND_STOP
-: <a class="el" href="car__control_8h.html#a6d4b6e4b84736143609cad22046a82fa">car_control.h</a>
+<li>COMMAND_BRAKE
+: <a class="el" href="vesc__sim__driver_8h.html#affe1486b6714ce41c5ddc70d4ff7790d">vesc_sim_driver.h</a>
+</li>
+<li>COMMAND_POSITION
+: <a class="el" href="vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091">vesc_sim_driver.h</a>
+</li>
+<li>COMMAND_THROTTLE
+: <a class="el" href="vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40">vesc_sim_driver.h</a>
 </li>
 </ul>
 
@@ -260,27 +267,40 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 : <a class="el" href="joystick__controller_8h.html#a1e56417499d1048f130bc194015c7bef">joystick_controller.h</a>
 </li>
 <li>TOPIC_DMS_HEARTBEAT
-: <a class="el" href="car__control_8h.html#ab79acdeb3354fab42b5a2474a8e0edbb">car_control.h</a>
+: <a class="el" href="dms__controller_8h.html#ab79acdeb3354fab42b5a2474a8e0edbb">dms_controller.h</a>
 </li>
 <li>TOPIC_DRIVE_PARAM
-: <a class="el" href="car__control_8h.html#ae2bdb9527cf2548c238295d766dcff5a">car_control.h</a>
+: <a class="el" href="navigation__stack__control__converter_8h.html#ae2bdb9527cf2548c238295d766dcff5a">navigation_stack_control_converter.h</a>
+, <a class="el" href="vesc__sim__driver_8h.html#ae2bdb9527cf2548c238295d766dcff5a">vesc_sim_driver.h</a>
+, <a class="el" href="car__controller_8h.html#ae2bdb9527cf2548c238295d766dcff5a">car_controller.h</a>
+, <a class="el" href="drive__parameters__multiplexer_8h.html#ae2bdb9527cf2548c238295d766dcff5a">drive_parameters_multiplexer.h</a>
 </li>
 <li>TOPIC_DRIVE_PARAMETERS
-: <a class="el" href="joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839">joystick_controller.h</a>
+: <a class="el" href="autonomous__control_8h.html#a3881a7dd470107a7c50efedc0a708839">autonomous_control.h</a>
+, <a class="el" href="joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839">joystick_controller.h</a>
 , <a class="el" href="keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839">keyboard_controller.h</a>
+</li>
+<li>TOPIC_DRIVE_PARAMETERS_JOYSTICK
+: <a class="el" href="drive__parameters__multiplexer_8h.html#acad3ffcfaa48058df12450d859be316f">drive_parameters_multiplexer.h</a>
+</li>
+<li>TOPIC_DRIVE_PARAMETERS_KEYBOARD
+: <a class="el" href="drive__parameters__multiplexer_8h.html#a88a4d0018c305262ad30809f4cf48b49">drive_parameters_multiplexer.h</a>
+</li>
+<li>TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING
+: <a class="el" href="drive__parameters__multiplexer_8h.html#a41302cccfc15c5719bfd03bd0c71879a">drive_parameters_multiplexer.h</a>
 </li>
 <li>TOPIC_EMER_STOP
 : <a class="el" href="emergency__stop_8h.html#aae50d7969e7c8997a87eda9ce70df79e">emergency_stop.h</a>
 , <a class="el" href="wall__following_8h.html#aae50d7969e7c8997a87eda9ce70df79e">wall_following.h</a>
 </li>
 <li>TOPIC_FOCBOX_ANGLE
-: <a class="el" href="car__control_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7">car_control.h</a>
+: <a class="el" href="car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7">car_controller.h</a>
 </li>
 <li>TOPIC_FOCBOX_BRAKE
-: <a class="el" href="car__control_8h.html#a43c2621ae66c8cc9428026d680ed4fcb">car_control.h</a>
+: <a class="el" href="car__controller_8h.html#a43c2621ae66c8cc9428026d680ed4fcb">car_controller.h</a>
 </li>
 <li>TOPIC_FOCBOX_SPEED
-: <a class="el" href="car__control_8h.html#a913c683c9209599c259aaebae91b557e">car_control.h</a>
+: <a class="el" href="car__controller_8h.html#a913c683c9209599c259aaebae91b557e">car_controller.h</a>
 </li>
 <li>TOPIC_LASER_SCAN
 : <a class="el" href="emergency__stop_8h.html#a47333d71d0bb2a72869aa7441034798c">emergency_stop.h</a>
@@ -290,8 +310,9 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 : <a class="el" href="wall__following_8h.html#aeb9e9ce4abd8e37986512b3455bb2174">wall_following.h</a>
 </li>
 <li>TOPIC_UNLOCK_MOTOR
-: <a class="el" href="car__control_8h.html#aef6a253625ee17e952e60fd4d132cc8e">car_control.h</a>
-, <a class="el" href="keyboard__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e">keyboard_controller.h</a>
+: <a class="el" href="keyboard__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e">keyboard_controller.h</a>
+, <a class="el" href="car__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e">car_controller.h</a>
+, <a class="el" href="dms__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e">dms_controller.h</a>
 </li>
 </ul>
 
