@@ -89,21 +89,4 @@ namespace car_config
      * @unit radian/s * minute = radians
      */
     constexpr double ERPM_TO_RAD_PER_SEC = MOTOR_POLES * 2 * PI / 60;
-
-    constexpr char COMMAND_POSITION[]{ "/commands/servo/position" };
-    constexpr char COMMAND_THROTTLE[]{ "/commands/motor/speed" };
-    constexpr char COMMAND_BRAKE[]{ "/commands/motor/brake" };
-
-    namespace simulation
-    {
-        constexpr char WHEEL_LEFT_BACK_VELOCITY[]{ "/racer/left_wheel_back_velocity_controller/command" };
-        constexpr char WHEEL_LEFT_FRONT_VELOCITY[]{ "/racer/left_wheel_front_velocity_controller/command" };
-        constexpr char WHEEL_RIGHT_BACK_VELOCITY[]{ "/racer/right_wheel_back_velocity_controller/command" };
-        constexpr char WHEEL_RIGHT_FRONT_VELOCITY[]{ "/racer/right_wheel_front_velocity_controller/command" };
-        constexpr char LEFT_STEERING_POSITION[]{ "/racer/left_steering_hinge_position_controller/command" };
-        constexpr char RIGHT_STEERING_POSITION[]{ "/racer/right_steering_hinge_position_controller/command" };
-    };
-
-    constexpr const char TOPIC_DRIVE_PARAM[]{ "/set/drive_param" };
-    constexpr const char CMD_VEL[]{ "cmd_vel" };
 };

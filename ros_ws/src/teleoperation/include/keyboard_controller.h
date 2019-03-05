@@ -12,8 +12,8 @@
 #include <stdexcept>
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/keyboard";
-constexpr const char* TOPIC_DEAD_MANS_SWITCH = "/set/dms";
-constexpr const char* TOPIC_UNLOCK_MOTOR = "/unlock_motor";
+constexpr const char* TOPIC_DEAD_MANS_SWITCH = "/input/dms_heartbeat";
+constexpr const char* TOPIC_UNLOCK_MOTOR = "/commands/unlock_motor";
 
 enum class Keycode : int
 {

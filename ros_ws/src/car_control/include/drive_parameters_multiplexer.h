@@ -2,11 +2,15 @@
 
 #include <ros/ros.h>
 
-#include "car_control.h"
 #include "drive_parameters_source.h"
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
 #include <vector>
+
+constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
+constexpr const char* TOPIC_DRIVE_PARAMETERS_KEYBOARD = "input/drive_param/keyboard";
+constexpr const char* TOPIC_DRIVE_PARAMETERS_JOYSTICK = "input/drive_param/joystick";
+constexpr const char* TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING = "input/drive_param/wallfollowing";
 
 /*
 * This node subscribes to all publishers that send drive_param messages and selects one to forward to the car controller

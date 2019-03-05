@@ -1,7 +1,5 @@
 #include "dms_controller.h"
 
-#include "car_control.h"
-
 DMSController::DMSController()
 {
     this->m_heartbeat_subscriber =

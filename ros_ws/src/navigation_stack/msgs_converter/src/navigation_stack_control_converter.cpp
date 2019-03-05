@@ -11,11 +11,10 @@ constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001;
 NavigationStackControlConverter::NavigationStackControlConverter()
 {
     this->m_command_velocity_subscriber =
-        this->m_node_handle.subscribe<geometry_msgs::Twist>(car_config::CMD_VEL, 1,
+        this->m_node_handle.subscribe<geometry_msgs::Twist>(CMD_VEL, 1,
                                                             &NavigationStackControlConverter::convertCallback, this);
 
-    this->m_drive_param_publisher =
-        this->m_node_handle.advertise<drive_msgs::drive_param>(car_config::TOPIC_DRIVE_PARAM, 10);
+    this->m_drive_param_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 10);
 }
 
 void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel_message)
