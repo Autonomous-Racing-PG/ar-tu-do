@@ -6,6 +6,7 @@ var searchData=
   ['setspeed',['setSpeed',['../class_v_e_s_c_simulator.html#aaeff43c35fda29fb69663ff2f6b51f42',1,'VESCSimulator']]],
   ['space',['SPACE',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57',1,'keyboard_controller.h']]],
   ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],
+  ['spin',['spin',['../class_d_m_s_controller.html#a4260d418f52da772f8b7704607df86b0',1,'DMSController']]],
   ['start',['start',['../class_v_e_s_c_simulator.html#a2e504297f7502495288ff5d3b52996cc',1,'VESCSimulator']]],
   ['steer_5fleft',['STEER_LEFT',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbace64911e4c5738134f296b7e7706fd86',1,'keyboard_controller.h']]],
   ['steer_5fright',['STEER_RIGHT',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bba2f519bbf001708f1709b0b01550e76d9',1,'keyboard_controller.h']]],
