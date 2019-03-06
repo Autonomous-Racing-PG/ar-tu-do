@@ -18,33 +18,26 @@ float map(float in_lower, float in_upper, float out_lower, float out_upper, floa
 bool WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle, float& range)
 {
     int index = map(lidar->angle_min, lidar->angle_max, 0, LIDAR_SAMPLE_COUNT, angle * DEG_TO_RAD);
-    
+
     // clang-format off
     if (index < 0
         || index >= LIDAR_SAMPLE_COUNT
         || lidar->ranges[index] < MIN_RANGE
         || lidar->ranges[index] > MAX_RANGE) {
-        return false;
+        ROS_INFO_STREAM("Could not sample lidar, using fallback value");
+        return FALLBACK_RANGE;
     }
     // clang-format on
 
-    range = lidar->ranges[index];
-    return true;
+    return lidar->ranges[index];
 }
 
 void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     float leftRightSign = this->m_follow_right_wall ? -1 : 1;
 
-    float range1 = DEFAULT_RANGE;
-    float range2 = DEFAULT_RANGE;
-    
-    if (!this->getRangeAtDegree(lidar, SAMPLE_ANGLE_1 * leftRightSign, range1)) {
-        ROS_INFO_STREAM("Could not sample lidar, using default value");
-    };
-    if (!this->getRangeAtDegree(lidar, SAMPLE_ANGLE_2 * leftRightSign, range2)) {
-        ROS_INFO_STREAM("Could not sample lidar, using default value");
-    }
+    float range1 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_1 * leftRightSign);
+    float range2 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_2 * leftRightSign);
 
     // These calculations are based on this document: http://f1tenth.org/lab_instructions/t6.pdf
 

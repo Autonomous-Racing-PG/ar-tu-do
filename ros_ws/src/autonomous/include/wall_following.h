@@ -21,7 +21,7 @@ constexpr int LIDAR_SAMPLE_COUNT = 720;
 constexpr float MIN_RANGE = 0.2;
 constexpr float MAX_RANGE = 30;
 
-constexpr float DEFAULT_RANGE = 4;
+constexpr float FALLBACK_RANGE = 4;
 
 constexpr float SAMPLE_ANGLE_1 = 40;
 constexpr float SAMPLE_ANGLE_2 = 90;
@@ -52,7 +52,7 @@ class WallFollowing
     ros::Subscriber m_lidar_subscriber;
     ros::Publisher m_drive_parameter_publisher;
 
-    bool m_follow_right_wall = true;
+    bool m_follow_right_wall = false;
     bool m_emergency_stop = true;
 
     PIDController m_pid_controller = PIDController(120, 0.48, 7.5);
@@ -65,8 +65,8 @@ class WallFollowing
 
     /**
      * @brief Samples the lidar range at the given angle in degree.
-     * If no valid sample was found, the range parameter is not changed and false is returned.
+     * If no valid sample was found, FALLBACK_RANGE is returned.
      * The angle 0 points forward.
      */
-    bool getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle, float& range);
+    float getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle);
 };
