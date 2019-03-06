@@ -51,21 +51,10 @@ void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float wallAngle = std::atan((range1 * std::cos(SAMPLE_WINDOW_SIZE * DEG_TO_RAD) - range2) / (range1 * std::sin(SAMPLE_WINDOW_SIZE * DEG_TO_RAD)));
     float currentWallDistance = range2 * std::cos(wallAngle);
     float predictedWallDistance = currentWallDistance + PREDICTION_DISTANCE * std::sin(wallAngle);
-    
+
     float error = TARGET_WALL_DISTANCE - predictedWallDistance;
-
-    float kp = 120;
-    float ki = 0.48;
-    float kd = 7.5;
-    float dt = 0.025; // 25ms iteration time
+    float correction = this->m_pid_controller.updateAndGetCorrection(error, DELTA_TIME);    
     
-    this->m_integral += error * dt;
-    float derivative = (error - m_prev_error) / dt;
-
-    float correction = kp * error + ki * this->m_integral + kd * derivative;
-
-    this->m_prev_error = error;
-
     float steeringAngle = std::atan(leftRightSign * correction * DEG_TO_RAD);
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);

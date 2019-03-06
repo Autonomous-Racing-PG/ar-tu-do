@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "drive_msgs/drive_param.h"
+#include "pid_controller.h"
 #include "sensor_msgs/LaserScan.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Float64.h"
@@ -34,6 +35,9 @@ constexpr float PREDICTION_DISTANCE = 0.5;
 // The desired distance between the wall and the car
 constexpr float TARGET_WALL_DISTANCE = 0.5;
 
+// Time between two lidar scans
+constexpr float DELTA_TIME = 0.025;
+
 constexpr float DEG_TO_RAD = M_PI / 180.0;
 
 class WallFollowing
@@ -51,8 +55,7 @@ class WallFollowing
     bool m_follow_right_wall = true;
     bool m_emergency_stop = true;
 
-    float m_prev_error = 0;
-    float m_integral = 0;
+    PIDController m_pid_controller = PIDController(120, 0.48, 7.5);
     
     void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
     
