@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-<!-- Launches all necessary nodes that let the car drive autonomous. -->
+<!-- Launches all necessary nodes that let the car drive autonomously. -->
 
     <!-- wall_following node -->
     <node

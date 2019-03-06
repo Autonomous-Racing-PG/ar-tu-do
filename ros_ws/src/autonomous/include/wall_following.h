@@ -13,7 +13,7 @@
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
-constexpr const char* TOPIC_EMERGENCY_STOP = "/std_msgs/Bool";
+constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 
 constexpr int LIDAR_SAMPLE_COUNT = 720;
 
@@ -35,8 +35,7 @@ constexpr float PREDICTION_DISTANCE = 0.5;
 // The desired distance between the wall and the car
 constexpr float TARGET_WALL_DISTANCE = 0.5;
 
-// Time between two lidar scans
-constexpr float DELTA_TIME = 0.025;
+constexpr float TIME_BETWEEN_SCANS = 0.025;
 
 constexpr float DEG_TO_RAD = M_PI / 180.0;
 
@@ -56,9 +55,9 @@ class WallFollowing
     bool m_emergency_stop = true;
 
     PIDController m_pid_controller = PIDController(120, 0.48, 7.5);
-    
+
     void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
-    
+
     void emergencyStopCallback(const std_msgs::Bool emergency_stop_message);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
     void publishDriveParameters(float velocity, float angle);
