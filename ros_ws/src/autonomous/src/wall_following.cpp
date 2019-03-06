@@ -10,9 +10,10 @@ WallFollowing::WallFollowing()
     this->m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
+// map value in range [in_lower, in_upper] to the corresponding number in range [out_lower, out_upper] 
 float map(float in_lower, float in_upper, float out_lower, float out_upper, float value)
 {
-    return out_lower + (out_upper - out_lower) * (value - in_lower) / (in_upper - in_lower);
+    return out_lower + ((out_upper - out_lower) * (value - in_lower) / (in_upper - in_lower));
 }
 
 float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle)
