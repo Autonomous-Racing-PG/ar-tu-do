@@ -42,12 +42,23 @@ class WallFollowing
     WallFollowing();
 
     private:
-    void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    ros::NodeHandle m_node_handle;
 
-    /**
-     * @brief Checks if there is a wall to close in front of the car.
-     */
-    bool emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    ros::Subscriber m_emergency_stop_subscriber;
+    ros::Subscriber m_lidar_subscriber;
+    ros::Publisher m_drive_parameter_publisher;
+
+    bool m_follow_right_wall = true;
+    bool m_emergency_stop = true;
+
+    float m_prev_error = 0;
+    float m_integral = 0;
+    
+    void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    
+    void emergencyStopCallback(const std_msgs::Bool emergency_stop_message);
+    void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    void publishDriveParameters(float velocity, float angle);
 
     /**
      * @brief Samples the lidar range at the given angle in degree.
@@ -55,21 +66,4 @@ class WallFollowing
      * The angle 0 points forward.
      */
     bool getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle, float& range);
-
-    bool m_follow_right_wall = true;
-    bool m_emergency_stop = true;
-
-    float m_prev_error = 0;
-    float m_integral = 0;
-
-    ros::NodeHandle m_node_handle;
-    ros::Subscriber m_emergency_stop_subscriber;
-    ros::Subscriber m_lidar_subscriber;
-
-    void emergencyStopCallback(const std_msgs::Bool emergency_stop_message);
-
-    void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
-    void publishDriveParameters(float velocity, float angle);
-
-    ros::Publisher m_drive_parameter_publisher;
 };
