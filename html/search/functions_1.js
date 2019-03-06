@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['carcontroller',['CarController',['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController']]],
-  ['clamp',['clamp',['../keyboard__controller_8cpp.html#a215566526f35eabece78faa4ea465f24',1,'keyboard_controller.cpp']]]
+  ['dmscontroller',['DMSController',['../class_d_m_s_controller.html#acf8a9f7eb6ca02674679d5205253a0f9',1,'DMSController']]],
+  ['driveparametersmultiplexer',['DriveParametersMultiplexer',['../class_drive_parameters_multiplexer.html#a00fd5b0e6d1d76fce05212c78310bebc',1,'DriveParametersMultiplexer']]],
+  ['driveparameterssource',['DriveParametersSource',['../class_drive_parameters_source.html#ab6ab4aa02955d8929ee04669faef1be2',1,'DriveParametersSource']]]
 ];

@@ -96,6 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -183,6 +184,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>DEFAULT_TIME
 : <a class="el" href="drive__parameters__source_8cpp.html#a5321e1ae3a4d5012418ca83968e312aa">drive_parameters_source.cpp</a>
 </li>
+<li>DEG_TO_RAD
+: <a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">wall_following.h</a>
+</li>
 <li>DriveParameterCallbackFunction
 : <a class="el" href="drive__parameters__source_8h.html#a87328cd02ddd6c83ff6d4943cf8a93c2">drive_parameters_source.h</a>
 </li>
@@ -197,6 +201,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>FALLBACK_RANGE
+: <a class="el" href="wall__following_8h.html#a4ab7ead14418fadcb107d7b685cd54f0">wall_following.h</a>
+</li>
 <li>FAST_STEER_LIMIT
 : <a class="el" href="keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87">keyboard_controller.h</a>
 </li>
@@ -226,30 +233,44 @@ $(document).ready(function(){initNavTree('globals.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>LIDAR_SAMPLE_COUNT
+: <a class="el" href="wall__following_8h.html#a60f71ba43e0843dd0e6c3d45fead8919">wall_following.h</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
-: <a class="el" href="autonomous__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">autonomous_control.cpp</a>
-, <a class="el" href="emergency__stop_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">emergency_stop.cpp</a>
+: <a class="el" href="emergency__stop_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">emergency_stop.cpp</a>
 , <a class="el" href="wall__following_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">wall_following.cpp</a>
 , <a class="el" href="car__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">car_controller.cpp</a>
 , <a class="el" href="dms__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">dms_controller.cpp</a>
 , <a class="el" href="drive__parameters__multiplexer_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">drive_parameters_multiplexer.cpp</a>
 , <a class="el" href="test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">test_car_control.cpp</a>
-, <a class="el" href="navigation__stack_2msgs__converter_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main.cpp</a>
-, <a class="el" href="joystick__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">joystick_controller.cpp</a>
 , <a class="el" href="keyboard__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">keyboard_controller.cpp</a>
+, <a class="el" href="simulation_2vesc__sim_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main.cpp</a>
+, <a class="el" href="joystick__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">joystick_controller.cpp</a>
+, <a class="el" href="navigation__stack_2msgs__converter_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main.cpp</a>
 </li>
 <li>map()
 : <a class="el" href="keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca">keyboard_controller.cpp</a>
+, <a class="el" href="wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc">wall_following.cpp</a>
 </li>
 <li>MAX_ANGLE
 : <a class="el" href="car__controller_8h.html#a255100e74bdebdad077eb6ed0e8f594b">car_controller.h</a>
+</li>
+<li>MAX_RANGE
+: <a class="el" href="wall__following_8h.html#a36742d5598d56216bba3f928732fb273">wall_following.h</a>
 </li>
 <li>MAX_SPEED
 : <a class="el" href="car__controller_8h.html#a7a28cf8a6a41437434d1a709da9d8f6f">car_controller.h</a>
 </li>
 <li>MAX_THROTTLE
 : <a class="el" href="keyboard__controller_8h.html#a670fdc7f227b3ed454e9e4b01d9bf117">keyboard_controller.h</a>
+</li>
+<li>MIN_RANGE
+: <a class="el" href="wall__following_8h.html#af3148611e517385b1e8138ec5de109ac">wall_following.h</a>
 </li>
 </ul>
 
@@ -267,10 +288,22 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>PARAMETER_UPDATE_FREQUENCY
 : <a class="el" href="keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c">keyboard_controller.h</a>
 </li>
+<li>PREDICTION_DISTANCE
+: <a class="el" href="wall__following_8h.html#a77f9814fd2f21e3edfc0da317f35a646">wall_following.h</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SAMPLE_ANGLE_1
+: <a class="el" href="wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e">wall_following.h</a>
+</li>
+<li>SAMPLE_ANGLE_2
+: <a class="el" href="wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d">wall_following.h</a>
+</li>
+<li>SAMPLE_WINDOW_SIZE
+: <a class="el" href="wall__following_8h.html#a3495dd24192350a3cf65f78e03d63f7e">wall_following.h</a>
+</li>
 <li>STEERING_GRAVITY
 : <a class="el" href="keyboard__controller_8h.html#a8cfb8f83cd91665c0b18f3e213edf672">keyboard_controller.h</a>
 </li>
@@ -284,11 +317,17 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>TARGET_WALL_DISTANCE
+: <a class="el" href="wall__following_8h.html#a9382d9a68e8181e26709fdb64d008506">wall_following.h</a>
+</li>
 <li>TEST()
 : <a class="el" href="test__car__control_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9">test_car_control.cpp</a>
 </li>
 <li>THROTTLE_GRAVITY
 : <a class="el" href="keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b">keyboard_controller.h</a>
+</li>
+<li>TIME_BETWEEN_SCANS
+: <a class="el" href="wall__following_8h.html#a0cbfc65bb8d94aee00c9ea274e13cee6">wall_following.h</a>
 </li>
 <li>TOPIC_DEAD_MANS_SWITCH
 : <a class="el" href="keyboard__controller_8h.html#aabd38024f2f1a3ffba466bdd55e1142c">keyboard_controller.h</a>
@@ -300,13 +339,13 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="dms__controller_8h.html#ab79acdeb3354fab42b5a2474a8e0edbb">dms_controller.h</a>
 </li>
 <li>TOPIC_DRIVE_PARAM
-: <a class="el" href="navigation__stack__control__converter_8h.html#ae2bdb9527cf2548c238295d766dcff5a">navigation_stack_control_converter.h</a>
-, <a class="el" href="vesc__sim__driver_8h.html#ae2bdb9527cf2548c238295d766dcff5a">vesc_sim_driver.h</a>
-, <a class="el" href="car__controller_8h.html#ae2bdb9527cf2548c238295d766dcff5a">car_controller.h</a>
+: <a class="el" href="car__controller_8h.html#ae2bdb9527cf2548c238295d766dcff5a">car_controller.h</a>
 , <a class="el" href="drive__parameters__multiplexer_8h.html#ae2bdb9527cf2548c238295d766dcff5a">drive_parameters_multiplexer.h</a>
+, <a class="el" href="navigation__stack__control__converter_8h.html#ae2bdb9527cf2548c238295d766dcff5a">navigation_stack_control_converter.h</a>
+, <a class="el" href="vesc__sim__driver_8h.html#ae2bdb9527cf2548c238295d766dcff5a">vesc_sim_driver.h</a>
 </li>
 <li>TOPIC_DRIVE_PARAMETERS
-: <a class="el" href="autonomous__control_8h.html#a3881a7dd470107a7c50efedc0a708839">autonomous_control.h</a>
+: <a class="el" href="wall__following_8h.html#a3881a7dd470107a7c50efedc0a708839">wall_following.h</a>
 , <a class="el" href="joystick__controller_8h.html#a3881a7dd470107a7c50efedc0a708839">joystick_controller.h</a>
 , <a class="el" href="keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839">keyboard_controller.h</a>
 </li>
@@ -319,9 +358,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING
 : <a class="el" href="drive__parameters__multiplexer_8h.html#a41302cccfc15c5719bfd03bd0c71879a">drive_parameters_multiplexer.h</a>
 </li>
-<li>TOPIC_EMER_STOP
-: <a class="el" href="emergency__stop_8h.html#aae50d7969e7c8997a87eda9ce70df79e">emergency_stop.h</a>
-, <a class="el" href="wall__following_8h.html#aae50d7969e7c8997a87eda9ce70df79e">wall_following.h</a>
+<li>TOPIC_EMERGENCY_STOP
+: <a class="el" href="emergency__stop_8h.html#a1f6b8d64fcb3748f9c9284f063015c77">emergency_stop.h</a>
+, <a class="el" href="wall__following_8h.html#a1f6b8d64fcb3748f9c9284f063015c77">wall_following.h</a>
 </li>
 <li>TOPIC_FOCBOX_ANGLE
 : <a class="el" href="car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7">car_controller.h</a>
@@ -335,9 +374,6 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>TOPIC_LASER_SCAN
 : <a class="el" href="emergency__stop_8h.html#a47333d71d0bb2a72869aa7441034798c">emergency_stop.h</a>
 , <a class="el" href="wall__following_8h.html#a47333d71d0bb2a72869aa7441034798c">wall_following.h</a>
-</li>
-<li>TOPIC_PID_INPUT
-: <a class="el" href="wall__following_8h.html#aeb9e9ce4abd8e37986512b3455bb2174">wall_following.h</a>
 </li>
 <li>TOPIC_UNLOCK_MOTOR
 : <a class="el" href="car__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e">car_controller.h</a>

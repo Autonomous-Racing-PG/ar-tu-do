@@ -5,7 +5,7 @@ var searchData=
   ['decelerate',['DECELERATE',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbaceeff3cb59294b233b481ddb6dee95bf',1,'keyboard_controller.h']]],
   ['deceleration_5fscaling_5ffactor',['DECELERATION_SCALING_FACTOR',['../joystick__controller_8h.html#a27923d1c16e61de371e62e7aff73147e',1,'joystick_controller.h']]],
   ['default_5ftime',['DEFAULT_TIME',['../drive__parameters__source_8cpp.html#a5321e1ae3a4d5012418ca83968e312aa',1,'drive_parameters_source.cpp']]],
-  ['deg_5fto_5frad',['DEG_TO_RAD',['../namespacecar__config.html#a72deaa1a555d694e52fb768ffba1d8cb',1,'car_config']]],
+  ['deg_5fto_5frad',['DEG_TO_RAD',['../wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa',1,'DEG_TO_RAD():&#160;wall_following.h'],['../namespacecar__config.html#a72deaa1a555d694e52fb768ffba1d8cb',1,'car_config::DEG_TO_RAD()']]],
   ['dms_5fcontroller_2ecpp',['dms_controller.cpp',['../dms__controller_8cpp.html',1,'']]],
   ['dms_5fcontroller_2eh',['dms_controller.h',['../dms__controller_8h.html',1,'']]],
   ['dmscontroller',['DMSController',['../class_d_m_s_controller.html',1,'DMSController'],['../class_d_m_s_controller.html#acf8a9f7eb6ca02674679d5205253a0f9',1,'DMSController::DMSController()']]],
