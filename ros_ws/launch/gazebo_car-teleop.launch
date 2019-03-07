@@ -30,6 +30,5 @@
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
-
-    <include file="$(find car_tf)/launch/car_transformer.launch"/>
+    
 </launch>
