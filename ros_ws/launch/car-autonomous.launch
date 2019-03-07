@@ -1,0 +1,25 @@
+<launch>
+    <arg name="joystick_type" default="ps3"/>
+
+    <include file="$(find car_control)/launch/car_control.launch"/>
+
+    <include file="$(find teleoperation)/launch/remote_control.launch">
+        <arg name="joystick_type" value="$(arg joystick_type)"/>
+    </include>
+
+    <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
+    
+    <!-- Passing parameters to the vesc_to_odom node doesn't currently work-->
+    <!--<node pkg="vesc_ackermann" type="vesc_to_odom_node" name="vesc_to_odom_node"
+        output="screen" launch-prefix="" >
+        <param name="speed_to_erpm_gain" value="64.96"/>
+        <param name="speed_to_erpm_offset" value="0"/>
+        <param name="steering_angle_to_servo_gain" value="-0.95492965"/>
+        <param name="steering_angle_to_servo_offset" value="0.5"/>
+        <param name="wheelbase" value="0.325"/>
+    </node>-->
+
+    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args=""/>
+</launch>
