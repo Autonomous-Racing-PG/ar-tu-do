@@ -20,7 +20,7 @@ float map(float in_lower, float in_upper, float out_lower, float out_upper, floa
 float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle)
 {
     int sampleCount = (lidar->angle_max - lidar->angle_min) / lidar->angle_increment;
-    int index = map(lidar->angle_min, lidar->angle_max, 0, sampleCount, angle * DEG_TO_RAD);
+    int index = map(lidar->angle_min, lidar->angle_max, 0, sampleCount, angle);
     
     // clang-format off
     if (index < 0
@@ -51,8 +51,8 @@ void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float range1 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_1 * leftRightSign);
     float range2 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_2 * leftRightSign);
 
-    float wallAngle = atan((range1 * cos(SAMPLE_WINDOW_SIZE * DEG_TO_RAD) - range2) /
-                           (range1 * sin(SAMPLE_WINDOW_SIZE * DEG_TO_RAD)));
+    float wallAngle = atan((range1 * cos(SAMPLE_WINDOW_SIZE) - range2) /
+                           (range1 * sin(SAMPLE_WINDOW_SIZE)));
     float currentWallDistance = range2 * cos(wallAngle);
     float predictedWallDistance = currentWallDistance + PREDICTION_DISTANCE * sin(wallAngle);
 
@@ -63,10 +63,10 @@ void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
-    this->m_debug_geometry.drawLine(0, createPoint(range1 * cos(SAMPLE_ANGLE_1 * leftRightSign * DEG_TO_RAD),
-                                                   range1 * sin(SAMPLE_ANGLE_1 * leftRightSign * DEG_TO_RAD), 0.0),
-                                    createPoint(range2 * cos(SAMPLE_ANGLE_2 * leftRightSign * DEG_TO_RAD),
-                                                range2 * sin(SAMPLE_ANGLE_2 * leftRightSign * DEG_TO_RAD), 0.0),
+    this->m_debug_geometry.drawLine(0, createPoint(range1 * cos(SAMPLE_ANGLE_1 * leftRightSign),
+                                                   range1 * sin(SAMPLE_ANGLE_1 * leftRightSign), 0.0),
+                                    createPoint(range2 * cos(SAMPLE_ANGLE_2 * leftRightSign),
+                                                range2 * sin(SAMPLE_ANGLE_2 * leftRightSign), 0.0),
                                     createColor(0, 1, 0, 1), 0.03);
     this->m_debug_geometry.drawLine(1, createPoint(PREDICTION_DISTANCE, 0, 0),
                                     createPoint(PREDICTION_DISTANCE, -error, 0), createColor(1, 0, 0, 1), 0.03);

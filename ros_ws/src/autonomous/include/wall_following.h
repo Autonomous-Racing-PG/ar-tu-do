@@ -17,14 +17,16 @@ constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 constexpr const char* TOPIC_VISUALIZATION = "/wallfollowing_visualization";
 
+constexpr float DEG_TO_RAD = M_PI / 180.0;
+
 // Discard lidar measurements outside this range
 constexpr float MIN_RANGE = 0.2;
 constexpr float MAX_RANGE = 30;
 
 constexpr float FALLBACK_RANGE = 4;
 
-constexpr float SAMPLE_ANGLE_1 = 40;
-constexpr float SAMPLE_ANGLE_2 = 90;
+constexpr float SAMPLE_ANGLE_1 = 40 * DEG_TO_RAD;
+constexpr float SAMPLE_ANGLE_2 = 90 * DEG_TO_RAD;
 constexpr float SAMPLE_WINDOW_SIZE = SAMPLE_ANGLE_2 - SAMPLE_ANGLE_1;
 
 constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
@@ -36,8 +38,6 @@ constexpr float PREDICTION_DISTANCE = 0.5;
 constexpr float TARGET_WALL_DISTANCE = 0.5;
 
 constexpr float TIME_BETWEEN_SCANS = 0.025;
-
-constexpr float DEG_TO_RAD = M_PI / 180.0;
 
 class WallFollowing
 {
