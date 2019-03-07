@@ -2,6 +2,7 @@
 #include <boost/algorithm/clamp.hpp>
 
 WallFollowing::WallFollowing()
+    : m_debug_geometry(this->m_node_handle, TOPIC_VISUALIZATION, "hokuyo")
 {
     this->m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
@@ -10,7 +11,7 @@ WallFollowing::WallFollowing()
     this->m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
-// map value in range [in_lower, in_upper] to the corresponding number in range [out_lower, out_upper] 
+// map value in range [in_lower, in_upper] to the corresponding number in range [out_lower, out_upper]
 float map(float in_lower, float in_upper, float out_lower, float out_upper, float value)
 {
     return out_lower + ((out_upper - out_lower) * (value - in_lower) / (in_upper - in_lower));
@@ -49,17 +50,29 @@ void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float range1 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_1 * leftRightSign);
     float range2 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_2 * leftRightSign);
 
-    float wallAngle = std::atan((range1 * std::cos(SAMPLE_WINDOW_SIZE * DEG_TO_RAD) - range2) /
-                                (range1 * std::sin(SAMPLE_WINDOW_SIZE * DEG_TO_RAD)));
-    float currentWallDistance = range2 * std::cos(wallAngle);
-    float predictedWallDistance = currentWallDistance + PREDICTION_DISTANCE * std::sin(wallAngle);
+    float wallAngle = atan((range1 * cos(SAMPLE_WINDOW_SIZE * DEG_TO_RAD) - range2) /
+                           (range1 * sin(SAMPLE_WINDOW_SIZE * DEG_TO_RAD)));
+    float currentWallDistance = range2 * cos(wallAngle);
+    float predictedWallDistance = currentWallDistance + PREDICTION_DISTANCE * sin(wallAngle);
 
     float error = TARGET_WALL_DISTANCE - predictedWallDistance;
     float correction = this->m_pid_controller.updateAndGetCorrection(error, TIME_BETWEEN_SCANS);
 
-    float steeringAngle = std::atan(leftRightSign * correction * DEG_TO_RAD);
+    float steeringAngle = atan(leftRightSign * correction * DEG_TO_RAD);
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
+
+    this->m_debug_geometry.drawLine(0, createPoint(range1 * cos(SAMPLE_ANGLE_1 * leftRightSign * DEG_TO_RAD),
+                                                   range1 * sin(SAMPLE_ANGLE_1 * leftRightSign * DEG_TO_RAD), 0.0),
+                                    createPoint(range2 * cos(SAMPLE_ANGLE_2 * leftRightSign * DEG_TO_RAD),
+                                                range2 * sin(SAMPLE_ANGLE_2 * leftRightSign * DEG_TO_RAD), 0.0),
+                                    createColor(0, 1, 0, 1), 0.03);
+    this->m_debug_geometry.drawLine(1, createPoint(PREDICTION_DISTANCE, 0, 0),
+                                    createPoint(PREDICTION_DISTANCE, -error, 0), createColor(1, 0, 0, 1), 0.03);
+    this->m_debug_geometry.drawLine(2, createPoint(PREDICTION_DISTANCE, -error, 0),
+                                    createPoint(PREDICTION_DISTANCE + cos(wallAngle) * 2, -error + sin(wallAngle) * 2,
+                                                0),
+                                    createColor(0, 1, 1, 1), 0.03);
 
     this->publishDriveParameters(velocity, steeringAngle);
 }

@@ -5,6 +5,7 @@
 
 #include "drive_msgs/drive_param.h"
 #include "pid_controller.h"
+#include "rviz_geometry_publisher.h"
 #include "sensor_msgs/LaserScan.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Float64.h"
@@ -14,6 +15,7 @@
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
+constexpr const char* TOPIC_VISUALIZATION = "/wallfollowing_visualization";
 
 constexpr int LIDAR_SAMPLE_COUNT = 720;
 
@@ -50,6 +52,8 @@ class WallFollowing
     ros::Subscriber m_emergency_stop_subscriber;
     ros::Subscriber m_lidar_subscriber;
     ros::Publisher m_drive_parameter_publisher;
+
+    RvizGeometryPublisher m_debug_geometry;
 
     bool m_follow_right_wall = false;
     bool m_emergency_stop = true;
