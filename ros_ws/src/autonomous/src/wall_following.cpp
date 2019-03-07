@@ -19,11 +19,12 @@ float map(float in_lower, float in_upper, float out_lower, float out_upper, floa
 
 float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float angle)
 {
-    int index = map(lidar->angle_min, lidar->angle_max, 0, LIDAR_SAMPLE_COUNT, angle * DEG_TO_RAD);
-
+    int sampleCount = (lidar->angle_max - lidar->angle_min) / lidar->angle_increment;
+    int index = map(lidar->angle_min, lidar->angle_max, 0, sampleCount, angle * DEG_TO_RAD);
+    
     // clang-format off
     if (index < 0
-        || index >= LIDAR_SAMPLE_COUNT
+        || index >= sampleCount
         || lidar->ranges[index] < MIN_RANGE
         || lidar->ranges[index] > MAX_RANGE) {
         ROS_INFO_STREAM("Could not sample lidar, using fallback value");

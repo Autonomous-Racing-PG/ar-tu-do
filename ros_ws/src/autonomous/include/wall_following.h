@@ -17,8 +17,6 @@ constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 constexpr const char* TOPIC_VISUALIZATION = "/wallfollowing_visualization";
 
-constexpr int LIDAR_SAMPLE_COUNT = 720;
-
 // Discard lidar measurements outside this range
 constexpr float MIN_RANGE = 0.2;
 constexpr float MAX_RANGE = 30;
