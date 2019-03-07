@@ -21,7 +21,7 @@ float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& li
 {
     int sampleCount = (lidar->angle_max - lidar->angle_min) / lidar->angle_increment;
     int index = map(lidar->angle_min, lidar->angle_max, 0, sampleCount, angle);
-    
+
     // clang-format off
     if (index < 0
         || index >= sampleCount
@@ -35,6 +35,20 @@ float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& li
     return lidar->ranges[index];
 }
 
+Wall WallFollowing::getWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall)
+{
+    Wall wall;
+    float leftRightSign = right_wall ? -1 : 1;
+
+    wall.m_angle1 = SAMPLE_ANGLE_1 * leftRightSign;
+    wall.m_angle2 = SAMPLE_ANGLE_2 * leftRightSign;
+
+    wall.m_range1 = this->getRangeAtDegree(lidar, wall.m_angle1);
+    wall.m_range2 = this->getRangeAtDegree(lidar, wall.m_angle2);
+
+    return wall;
+}
+
 /**
  * @brief This method attempts to follow either the right or left wall.
  * It samples two points next to the car and estimates a straight wall based on them.
@@ -44,17 +58,12 @@ float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& li
  * to the wall and TARGET_DISTANCE.
  * The calculation is based on this document: http://f1tenth.org/lab_instructions/t6.pdf
  */
-void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
+void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall)
 {
-    float leftRightSign = this->m_follow_right_wall ? -1 : 1;
+    float leftRightSign = right_wall ? -1 : 1;
 
-    float range1 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_1 * leftRightSign);
-    float range2 = this->getRangeAtDegree(lidar, SAMPLE_ANGLE_2 * leftRightSign);
-
-    float wallAngle = atan((range1 * cos(SAMPLE_WINDOW_SIZE) - range2) /
-                           (range1 * sin(SAMPLE_WINDOW_SIZE)));
-    float currentWallDistance = range2 * cos(wallAngle);
-    float predictedWallDistance = currentWallDistance + PREDICTION_DISTANCE * sin(wallAngle);
+    Wall wall = this->getWall(lidar, right_wall);
+    float predictedWallDistance = wall.predictDistance(PREDICTION_DISTANCE);
 
     float error = TARGET_WALL_DISTANCE - predictedWallDistance;
     float correction = this->m_pid_controller.updateAndGetCorrection(error, TIME_BETWEEN_SCANS);
@@ -63,16 +72,14 @@ void WallFollowing::followWall(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
-    this->m_debug_geometry.drawLine(0, createPoint(range1 * cos(SAMPLE_ANGLE_1 * leftRightSign),
-                                                   range1 * sin(SAMPLE_ANGLE_1 * leftRightSign), 0.0),
-                                    createPoint(range2 * cos(SAMPLE_ANGLE_2 * leftRightSign),
-                                                range2 * sin(SAMPLE_ANGLE_2 * leftRightSign), 0.0),
-                                    createColor(0, 1, 0, 1), 0.03);
+    wall.draw(this->m_debug_geometry, 0, createColor(0, 1, 0, 1));
     this->m_debug_geometry.drawLine(1, createPoint(PREDICTION_DISTANCE, 0, 0),
-                                    createPoint(PREDICTION_DISTANCE, -error, 0), createColor(1, 0, 0, 1), 0.03);
-    this->m_debug_geometry.drawLine(2, createPoint(PREDICTION_DISTANCE, -error, 0),
-                                    createPoint(PREDICTION_DISTANCE + cos(wallAngle) * 2, -error + sin(wallAngle) * 2,
-                                                0),
+                                    createPoint(PREDICTION_DISTANCE, -error * leftRightSign, 0),
+                                    createColor(1, 0, 0, 1), 0.03);
+    float wallAngle = wall.getAngle();
+    this->m_debug_geometry.drawLine(2, createPoint(PREDICTION_DISTANCE, -error * leftRightSign, 0),
+                                    createPoint(PREDICTION_DISTANCE + cos(wallAngle) * 2,
+                                                (-error + sin(wallAngle) * 2) * leftRightSign, 0),
                                     createColor(0, 1, 1, 1), 0.03);
 
     this->publishDriveParameters(velocity, steeringAngle);
@@ -95,7 +102,7 @@ void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     if (this->m_emergency_stop == false)
     {
-        this->followWall(lidar);
+        this->followWall(lidar, false);
     }
     else
     {

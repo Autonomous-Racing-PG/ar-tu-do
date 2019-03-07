@@ -1,3 +1,4 @@
+#pragma once
 
 #include "std_msgs/ColorRGBA.h"
 #include <ros/ros.h>

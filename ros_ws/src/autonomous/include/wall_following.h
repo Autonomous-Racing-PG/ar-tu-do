@@ -9,6 +9,7 @@
 #include "sensor_msgs/LaserScan.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Float64.h"
+#include "wall.h"
 #include <ros/console.h>
 #include <ros/ros.h>
 
@@ -27,7 +28,6 @@ constexpr float FALLBACK_RANGE = 4;
 
 constexpr float SAMPLE_ANGLE_1 = 40 * DEG_TO_RAD;
 constexpr float SAMPLE_ANGLE_2 = 90 * DEG_TO_RAD;
-constexpr float SAMPLE_WINDOW_SIZE = SAMPLE_ANGLE_2 - SAMPLE_ANGLE_1;
 
 constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
 constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1;
@@ -50,15 +50,14 @@ class WallFollowing
     ros::Subscriber m_emergency_stop_subscriber;
     ros::Subscriber m_lidar_subscriber;
     ros::Publisher m_drive_parameter_publisher;
-
     RvizGeometryPublisher m_debug_geometry;
 
-    bool m_follow_right_wall = false;
     bool m_emergency_stop = true;
 
     PIDController m_pid_controller = PIDController(120, 0.48, 7.5);
 
-    void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    void followWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall);
+    Wall getWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall);
 
     void emergencyStopCallback(const std_msgs::Bool emergency_stop_message);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
