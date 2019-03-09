@@ -4,6 +4,10 @@
 #include <ros/ros.h>
 #include <tf/transform_listener.h>
 
+constexpr const char* TOPIC_LASER_SCAN = "/racer/laser/scan";
+constexpr const char* TOPIC_LASER_SCAN_POINTCLOUD = "/racer/laser/tf_pointcloud";
+constexpr const char* MODEL_BASE_LINK = "base_link";
+
 /**
  * @brief This converter class converts a 2D laser scan
  * as defined by sensor_msgs/LaserScan into a point
@@ -15,40 +19,14 @@
 class LaserscanTransformer
 {
     public:
-    /**
-     * @brief Initializes the publisher and subscriber
-     *
-     */
     LaserscanTransformer();
 
     private:
-    /**
-     * @brief ROS Handle of the class
-     *
-     */
     ros::NodeHandle m_node_handle;
-
-    /**
-     * @brief ROS Subscriber for sensor_msgs/LaserScan messages
-     * TOPIC: "/racer/laser/scan"
-     */
-    ros::Subscriber laserscan_subscriber;
-
-    /**
-     * @brief ROS Publisher for the sensor_msgs/PointCloud2 message.
-     * TOPIC: "/racer/laser/tf_pointcloud"
-     */
-    ros::Publisher pointcloud_publisher;
-
-    /**
-     * @brief This class will project laser scans into point clouds.
-     */
-    laser_geometry::LaserProjection projector;
-
-    /**
-     * @brief This class makes the task of receiving transforms easier
-    */
-    tf::TransformListener listener;
+    ros::Subscriber m_laserscan_subscriber;
+    ros::Publisher m_pointcloud_publisher;
+    laser_geometry::LaserProjection m_projector;
+    tf::TransformListener m_listener;
 
     void scanCallback(const sensor_msgs::LaserScan::ConstPtr& laserscan);
 };
