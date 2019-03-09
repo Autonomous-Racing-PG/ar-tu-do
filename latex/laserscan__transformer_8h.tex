@@ -1,0 +1,59 @@
+\hypertarget{laserscan__transformer_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/car\+\_\+tf/include/laserscan\+\_\+transformer.h File Reference}
+\label{laserscan__transformer_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/car\+\_\+tf/include/laserscan\+\_\+transformer.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/car\+\_\+tf/include/laserscan\+\_\+transformer.\+h}}
+{\ttfamily \#include $<$laser\+\_\+geometry/laser\+\_\+geometry.\+h$>$}\\*
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$tf/transform\+\_\+listener.\+h$>$}\\*
+Include dependency graph for laserscan\+\_\+transformer.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{laserscan__transformer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{laserscan__transformer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_laserscan_transformer}{Laserscan\+Transformer}
+\begin{DoxyCompactList}\small\item\em This converter class converts a 2D laser scan as defined by sensor\+\_\+msgs/\+Laser\+Scan into a point cloud as defined by sensor\+\_\+msgs/\+Point\+Cloud2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr const char $\ast$ \hyperlink{laserscan__transformer_8h_a47333d71d0bb2a72869aa7441034798c}{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN} = \char`\"{}/racer/laser/scan\char`\"{}
+\item 
+constexpr const char $\ast$ \hyperlink{laserscan__transformer_8h_a71026150c7c235a54f41d65e2e09d179}{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD} = \char`\"{}/racer/laser/tf\+\_\+pointcloud\char`\"{}
+\item 
+constexpr const char $\ast$ \hyperlink{laserscan__transformer_8h_a4926bba825b08114a4703807e2639725}{M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK} = \char`\"{}base\+\_\+link\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{laserscan\+\_\+transformer.\+h@{laserscan\+\_\+transformer.\+h}!M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK@{M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK}}
+\index{M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK@{M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK}!laserscan\+\_\+transformer.\+h@{laserscan\+\_\+transformer.\+h}}
+\subsubsection[{\texorpdfstring{M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK}{MODEL_BASE_LINK}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ M\+O\+D\+E\+L\+\_\+\+B\+A\+S\+E\+\_\+\+L\+I\+NK = \char`\"{}base\+\_\+link\char`\"{}}\hypertarget{laserscan__transformer_8h_a4926bba825b08114a4703807e2639725}{}\label{laserscan__transformer_8h_a4926bba825b08114a4703807e2639725}
+
+
+Definition at line 9 of file laserscan\+\_\+transformer.\+h.
+
+\index{laserscan\+\_\+transformer.\+h@{laserscan\+\_\+transformer.\+h}!T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}}
+\index{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}!laserscan\+\_\+transformer.\+h@{laserscan\+\_\+transformer.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}{TOPIC_LASER_SCAN}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN = \char`\"{}/racer/laser/scan\char`\"{}}\hypertarget{laserscan__transformer_8h_a47333d71d0bb2a72869aa7441034798c}{}\label{laserscan__transformer_8h_a47333d71d0bb2a72869aa7441034798c}
+
+
+Definition at line 7 of file laserscan\+\_\+transformer.\+h.
+
+\index{laserscan\+\_\+transformer.\+h@{laserscan\+\_\+transformer.\+h}!T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD}}
+\index{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD}!laserscan\+\_\+transformer.\+h@{laserscan\+\_\+transformer.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD}{TOPIC_LASER_SCAN_POINTCLOUD}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+A\+N\+\_\+\+P\+O\+I\+N\+T\+C\+L\+O\+UD = \char`\"{}/racer/laser/tf\+\_\+pointcloud\char`\"{}}\hypertarget{laserscan__transformer_8h_a71026150c7c235a54f41d65e2e09d179}{}\label{laserscan__transformer_8h_a71026150c7c235a54f41d65e2e09d179}
+
+
+Definition at line 8 of file laserscan\+\_\+transformer.\+h.
+

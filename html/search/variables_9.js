@@ -10,5 +10,6 @@ var searchData=
   ['max_5fthrottle',['MAX_THROTTLE',['../keyboard__controller_8h.html#a670fdc7f227b3ed454e9e4b01d9bf117',1,'keyboard_controller.h']]],
   ['min_5frange',['MIN_RANGE',['../wall__following_8h.html#af3148611e517385b1e8138ec5de109ac',1,'wall_following.h']]],
   ['min_5fsteering_5fangle',['MIN_STEERING_ANGLE',['../namespacecar__config.html#a38229ce5d2e17e0c30b86864fb20d9ce',1,'car_config']]],
+  ['model_5fbase_5flink',['MODEL_BASE_LINK',['../laserscan__transformer_8h.html#a4926bba825b08114a4703807e2639725',1,'laserscan_transformer.h']]],
   ['motor_5fpoles',['MOTOR_POLES',['../namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5',1,'car_config']]]
 ];

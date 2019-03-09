@@ -15,7 +15,8 @@ var searchData=
   ['topic_5ffocbox_5fangle',['TOPIC_FOCBOX_ANGLE',['../car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7',1,'car_controller.h']]],
   ['topic_5ffocbox_5fbrake',['TOPIC_FOCBOX_BRAKE',['../car__controller_8h.html#a43c2621ae66c8cc9428026d680ed4fcb',1,'car_controller.h']]],
   ['topic_5ffocbox_5fspeed',['TOPIC_FOCBOX_SPEED',['../car__controller_8h.html#a913c683c9209599c259aaebae91b557e',1,'car_controller.h']]],
-  ['topic_5flaser_5fscan',['TOPIC_LASER_SCAN',['../emergency__stop_8h.html#a47333d71d0bb2a72869aa7441034798c',1,'TOPIC_LASER_SCAN():&#160;emergency_stop.h'],['../wall__following_8h.html#a47333d71d0bb2a72869aa7441034798c',1,'TOPIC_LASER_SCAN():&#160;wall_following.h']]],
+  ['topic_5flaser_5fscan',['TOPIC_LASER_SCAN',['../emergency__stop_8h.html#a47333d71d0bb2a72869aa7441034798c',1,'TOPIC_LASER_SCAN():&#160;emergency_stop.h'],['../wall__following_8h.html#a47333d71d0bb2a72869aa7441034798c',1,'TOPIC_LASER_SCAN():&#160;wall_following.h'],['../laserscan__transformer_8h.html#a47333d71d0bb2a72869aa7441034798c',1,'TOPIC_LASER_SCAN():&#160;laserscan_transformer.h']]],
+  ['topic_5flaser_5fscan_5fpointcloud',['TOPIC_LASER_SCAN_POINTCLOUD',['../laserscan__transformer_8h.html#a71026150c7c235a54f41d65e2e09d179',1,'laserscan_transformer.h']]],
   ['topic_5funlock_5fmotor',['TOPIC_UNLOCK_MOTOR',['../car__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e',1,'TOPIC_UNLOCK_MOTOR():&#160;car_controller.h'],['../dms__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e',1,'TOPIC_UNLOCK_MOTOR():&#160;dms_controller.h'],['../keyboard__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e',1,'TOPIC_UNLOCK_MOTOR():&#160;keyboard_controller.h']]],
   ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
   ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]

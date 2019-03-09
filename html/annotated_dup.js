@@ -7,6 +7,7 @@ var annotated_dup =
     [ "EmergencyStop", "class_emergency_stop.html", "class_emergency_stop" ],
     [ "JoystickController", "class_joystick_controller.html", "class_joystick_controller" ],
     [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ],
+    [ "LaserscanTransformer", "class_laserscan_transformer.html", "class_laserscan_transformer" ],
     [ "NavigationStackControlConverter", "class_navigation_stack_control_converter.html", "class_navigation_stack_control_converter" ],
     [ "PIDController", "class_p_i_d_controller.html", "class_p_i_d_controller" ],
     [ "VESCSimulationDriver", "class_v_e_s_c_simulation_driver.html", "class_v_e_s_c_simulation_driver" ],
