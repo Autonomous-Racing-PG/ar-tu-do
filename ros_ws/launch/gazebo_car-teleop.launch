@@ -23,10 +23,12 @@
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
 
+    <include file="$(find car_tf)/launch/car_transformer.launch"/>
+
     <include file="$(find car_control)/launch/car_control.launch"/>
 
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
-
+    
 </launch>
