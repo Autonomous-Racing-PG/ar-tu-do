@@ -2,48 +2,36 @@
 sudo: true
 dist: xenial
 
+env:
+  global:
+    - SRC_PATH=$(pwd)
+    - ROS_DISTRO: kinetic
+    - GH_REPO_NAME: ros.package
+    - DOXYFILE: $TRAVIS_BUILD_DIR/docs/master/Doxyfile
+    - GH_REPO_REF: github.com/Autonomous-Racing-PG/ros.package.git
+
 jobs:
   include:
     - # build project
-      branches:
-        except:
-          - gh-pages
-          - master
-
-      if: type = pullrequest
+      if: type = pull_request
 
       addons:
         apt:
           packages:
             - libeigen3-dev
             - python-wstool
-            - clang
-            - clang-format
             - libsdl2-dev
 
       cache:
           apt: true
-          ccache: true
-
-      language: cpp
-
-      matrix:
-        include:
-        - name: "ROS kinetic"
-          env: ROS_DISTRO=kinetic
-
-      env:
-        global:
-          - SRC_PATH=$(pwd)
-          - GH_REPO_NAME: ros.package
-          - GH_REPO_REF: github.com/Autonomous-Racing-PG/ros.package.git
+          ccache: true      
 
       before_install:
         - cd ros_ws
         - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
         - sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
         - sudo apt-get update -qq
-        - sudo apt-get install -y "ros-${ROS_DISTRO}-desktop-full"
+        - sudo apt-get install -y "ros-${ROS_DISTRO}-ros-base"
         - source /opt/ros/${ROS_DISTRO}/setup.bash
         - sudo rosdep init
         - rosdep update
@@ -60,6 +48,8 @@ jobs:
         - catkin_make run_tests && catkin_test_results
       
     - # create documentation
+      if: type != pull_request AND branch = master
+      
       addons:
         apt:
           packages:
@@ -72,13 +62,6 @@ jobs:
       cache:
           apt: true
           ccache: true
-      
-      env:
-        global:
-          - SRC_PATH=$(pwd)
-          - GH_REPO_NAME: ros.package
-          - DOXYFILE: $TRAVIS_BUILD_DIR/docs/master/Doxyfile
-          - GH_REPO_REF: github.com/Autonomous-Racing-PG/ros.package.git
 
       script:
         - cd $TRAVIS_BUILD_DIR
