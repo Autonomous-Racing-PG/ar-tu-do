@@ -47,7 +47,7 @@ void KeyboardController::createWindow()
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        throw std::runtime_error("Could not initialize SDL");
+        throw std::runtime_error("Could not initialize SDL: " + std::string(SDL_GetError()));
     }
     this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED,
                                       SDL_WINDOWPOS_UNDEFINED, 450, 100, SDL_WINDOW_RESIZABLE);
