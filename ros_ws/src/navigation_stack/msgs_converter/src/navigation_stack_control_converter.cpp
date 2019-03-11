@@ -1,6 +1,7 @@
 #include "navigation_stack_control_converter.h"
 #include "car_config.h"
 #include <algorithm>
+#include <boost/algorithm/clamp.hpp>
 #include <eigen3/Eigen/Dense>
 
 using namespace Eigen;
@@ -47,15 +48,7 @@ void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist
 
     double servo_data = (angle_rad * car_config::STEERING_TO_SERVO_GAIN) + car_config::STEERING_TO_SERVO_OFFSET;
 
-    // c++17 servo_data = std::clamp(servo_data,0,1);
-    if (servo_data < 0)
-    {
-        servo_data = 0;
-    }
-    else if (servo_data > 1)
-    {
-        servo_data = 1;
-    }
+    servo_data = boost::algorithm::clamp(servo_data, 0.0, 1.0);
 
     drive_msgs::drive_param control_message;
     control_message.velocity = erpm_speed / car_config::MAX_RPM_ELECTRICAL; // convert from min-max erpm to (-1)-1
