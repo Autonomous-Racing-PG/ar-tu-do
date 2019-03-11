@@ -10,6 +10,8 @@ class Wall
     float m_range1;
     float m_range2;
 
+    Wall(float angle1, float angle2, float range1, float range2);
+
     float getAngle();
 
     float predictDistance(float distancce_to_current_position);

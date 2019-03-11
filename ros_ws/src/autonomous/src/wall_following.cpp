@@ -37,16 +37,14 @@ float WallFollowing::getRangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& li
 
 Wall WallFollowing::getWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall)
 {
-    Wall wall;
     float leftRightSign = right_wall ? -1 : 1;
 
-    wall.m_angle1 = SAMPLE_ANGLE_1 * leftRightSign;
-    wall.m_angle2 = SAMPLE_ANGLE_2 * leftRightSign;
+    float angle1 = SAMPLE_ANGLE_1 * leftRightSign;
+    float angle2 = SAMPLE_ANGLE_2 * leftRightSign;
+    float range1 = this->getRangeAtDegree(lidar, angle1);
+    float range2 = this->getRangeAtDegree(lidar, angle2);
 
-    wall.m_range1 = this->getRangeAtDegree(lidar, wall.m_angle1);
-    wall.m_range2 = this->getRangeAtDegree(lidar, wall.m_angle2);
-
-    return wall;
+    return Wall(angle1, angle2, range1, range2);
 }
 
 /**
