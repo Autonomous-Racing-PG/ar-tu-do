@@ -1,13 +1,12 @@
 #include "pid_controller.h"
 
 PIDController::PIDController(float p, float i, float d)
+    : m_p{ p }
+    , m_i{ i }
+    , m_d{ d }
+    , m_previous_error{ 0 }
+    , m_integral{ 0 }
 {
-    this->m_p = p;
-    this->m_i = i;
-    this->m_d = d;
-
-    this->m_previous_error = 0;
-    this->m_integral = 0;
 }
 
 float PIDController::updateAndGetCorrection(float error, float deltaTime)
