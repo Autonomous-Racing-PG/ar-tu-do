@@ -46,14 +46,7 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
     }
 
     // return 0 (stop) if the object is too close
-    if ((front_range_sum / 6) < 0.3)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return ((front_range_sum / 6) < 0.3);
 }
 
 void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
