@@ -1,5 +1,6 @@
 <launch>
 
+    <arg name="marker_frame_id" default="hokuyo"/>
     <arg name="world" default="racetrack_decorated_2"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
@@ -20,7 +21,10 @@
         <arg name="use_gpu" value="$(arg use_gpu)"/>
     </include>
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <include file="$(find autonomous)/launch/autonomous_driving.launch">
+        <arg name="marker_frame_id" value="$(arg marker_frame_id)"/>
+    </include>
+
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch"/>
     <include file="$(find teleoperation)/launch/remote_control.launch"/>

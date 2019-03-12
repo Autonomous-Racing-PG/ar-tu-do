@@ -15,6 +15,8 @@
 #include <ros/console.h>
 #include <ros/ros.h>
 
+constexpr const char* PARAMETER_MARKER_FRAME_ID = "marker_frame_id";
+
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
@@ -45,7 +47,7 @@ constexpr float TIME_BETWEEN_SCANS = 0.025;
 class WallFollowing
 {
     public:
-    WallFollowing();
+    WallFollowing(const std::string& frame_id);
 
     private:
     ros::NodeHandle m_node_handle;
