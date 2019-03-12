@@ -120,9 +120,11 @@ $(document).ready(function(){initNavTree('wall__following_8h.html','');});
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;drive_msgs/drive_param.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="pid__controller_8h_source.html">pid_controller.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rviz__geometry__publisher_8h_source.html">rviz_geometry_publisher.h</a>&quot;</code><br />
 <code>#include &quot;sensor_msgs/LaserScan.h&quot;</code><br />
 <code>#include &quot;std_msgs/Bool.h&quot;</code><br />
 <code>#include &quot;std_msgs/Float64.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="wall_8h_source.html">wall.h</a>&quot;</code><br />
 <code>#include &lt;ros/console.h&gt;</code><br />
 <code>#include &lt;ros/ros.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -130,7 +132,9 @@ Include dependency graph for wall_following.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="wall__following_8h__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2autonomous_2include_2wall__following_8h" alt=""/></div>
 <map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2autonomous_2include_2wall__following_8h" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2autonomous_2include_2wall__following_8h">
-<area shape="rect" id="node7" href="pid__controller_8h.html" title="pid_controller.h" alt="" coords="543,139,654,165"/>
+<area shape="rect" id="node7" href="pid__controller_8h.html" title="pid_controller.h" alt="" coords="675,139,786,165"/>
+<area shape="rect" id="node8" href="rviz__geometry__publisher_8h.html" title="rviz_geometry_publisher.h" alt="" coords="173,213,347,240"/>
+<area shape="rect" id="node15" href="wall_8h.html" title="wall.h" alt="" coords="199,139,255,165"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -157,32 +161,30 @@ Variables</h2></td></tr>
 <tr class="separator:a47333d71d0bb2a72869aa7441034798c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f6b8d64fcb3748f9c9284f063015c77"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a1f6b8d64fcb3748f9c9284f063015c77">TOPIC_EMERGENCY_STOP</a> = &quot;/emergency_stop&quot;</td></tr>
 <tr class="separator:a1f6b8d64fcb3748f9c9284f063015c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60f71ba43e0843dd0e6c3d45fead8919"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a60f71ba43e0843dd0e6c3d45fead8919">LIDAR_SAMPLE_COUNT</a> = 720</td></tr>
-<tr class="separator:a60f71ba43e0843dd0e6c3d45fead8919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1f5a46e8424d4bd501c9d4126e7482"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a2f1f5a46e8424d4bd501c9d4126e7482">TOPIC_VISUALIZATION</a> = &quot;/wallfollowing_visualization&quot;</td></tr>
+<tr class="separator:a2f1f5a46e8424d4bd501c9d4126e7482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3a44464ce67ffd6379bf1fc72ba54aa"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">DEG_TO_RAD</a> = M_PI / 180.0</td></tr>
+<tr class="separator:ab3a44464ce67ffd6379bf1fc72ba54aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3148611e517385b1e8138ec5de109ac"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#af3148611e517385b1e8138ec5de109ac">MIN_RANGE</a> = 0.2</td></tr>
 <tr class="separator:af3148611e517385b1e8138ec5de109ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36742d5598d56216bba3f928732fb273"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a36742d5598d56216bba3f928732fb273">MAX_RANGE</a> = 30</td></tr>
 <tr class="separator:a36742d5598d56216bba3f928732fb273"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ab7ead14418fadcb107d7b685cd54f0"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a4ab7ead14418fadcb107d7b685cd54f0">FALLBACK_RANGE</a> = 4</td></tr>
 <tr class="separator:a4ab7ead14418fadcb107d7b685cd54f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50fe375b7ab93411c2975631c8def75e"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e">SAMPLE_ANGLE_1</a> = 40</td></tr>
+<tr class="memitem:a50fe375b7ab93411c2975631c8def75e"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e">SAMPLE_ANGLE_1</a> = 30 * <a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">DEG_TO_RAD</a></td></tr>
 <tr class="separator:a50fe375b7ab93411c2975631c8def75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a604cc4a32789c25fa8ea5bcb6cac6b3d"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d">SAMPLE_ANGLE_2</a> = 90</td></tr>
+<tr class="memitem:a604cc4a32789c25fa8ea5bcb6cac6b3d"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d">SAMPLE_ANGLE_2</a> = 70 * <a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">DEG_TO_RAD</a></td></tr>
 <tr class="separator:a604cc4a32789c25fa8ea5bcb6cac6b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3495dd24192350a3cf65f78e03d63f7e"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a3495dd24192350a3cf65f78e03d63f7e">SAMPLE_WINDOW_SIZE</a> = <a class="el" href="wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d">SAMPLE_ANGLE_2</a> - <a class="el" href="wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e">SAMPLE_ANGLE_1</a></td></tr>
-<tr class="separator:a3495dd24192350a3cf65f78e03d63f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cd0112685c87c86e13b3e6f92d433b5"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a2cd0112685c87c86e13b3e6f92d433b5">WALL_FOLLOWING_MAX_SPEED</a> = 0.25</td></tr>
 <tr class="separator:a2cd0112685c87c86e13b3e6f92d433b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ade9c0d19463c8f0a0427558e6beb03"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a7ade9c0d19463c8f0a0427558e6beb03">WALL_FOLLOWING_MIN_SPEED</a> = 0.1</td></tr>
+<tr class="memitem:a7ade9c0d19463c8f0a0427558e6beb03"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a7ade9c0d19463c8f0a0427558e6beb03">WALL_FOLLOWING_MIN_SPEED</a> = 0.2</td></tr>
 <tr class="separator:a7ade9c0d19463c8f0a0427558e6beb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f9814fd2f21e3edfc0da317f35a646"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a77f9814fd2f21e3edfc0da317f35a646">PREDICTION_DISTANCE</a> = 0.5</td></tr>
+<tr class="memitem:a77f9814fd2f21e3edfc0da317f35a646"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a77f9814fd2f21e3edfc0da317f35a646">PREDICTION_DISTANCE</a> = 2</td></tr>
 <tr class="separator:a77f9814fd2f21e3edfc0da317f35a646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9382d9a68e8181e26709fdb64d008506"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a9382d9a68e8181e26709fdb64d008506">TARGET_WALL_DISTANCE</a> = 0.5</td></tr>
 <tr class="separator:a9382d9a68e8181e26709fdb64d008506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cbfc65bb8d94aee00c9ea274e13cee6"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#a0cbfc65bb8d94aee00c9ea274e13cee6">TIME_BETWEEN_SCANS</a> = 0.025</td></tr>
 <tr class="separator:a0cbfc65bb8d94aee00c9ea274e13cee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3a44464ce67ffd6379bf1fc72ba54aa"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">DEG_TO_RAD</a> = M_PI / 180.0</td></tr>
-<tr class="separator:ab3a44464ce67ffd6379bf1fc72ba54aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="ab3a44464ce67ffd6379bf1fc72ba54aa"></a>
@@ -195,7 +197,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00040">40</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00021">21</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -209,21 +211,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00024">24</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a60f71ba43e0843dd0e6c3d45fead8919"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int LIDAR_SAMPLE_COUNT = 720</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00018">18</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00027">27</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +225,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00022">22</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00025">25</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +239,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00021">21</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00024">24</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -260,12 +248,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float PREDICTION_DISTANCE = 0.5</td>
+          <td class="memname">constexpr float PREDICTION_DISTANCE = 2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00034">34</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00037">37</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -274,12 +262,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float SAMPLE_ANGLE_1 = 40</td>
+          <td class="memname">constexpr float SAMPLE_ANGLE_1 = 30 * <a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">DEG_TO_RAD</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00026">26</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00029">29</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -288,26 +276,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float SAMPLE_ANGLE_2 = 90</td>
+          <td class="memname">constexpr float SAMPLE_ANGLE_2 = 70 * <a class="el" href="wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa">DEG_TO_RAD</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00027">27</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3495dd24192350a3cf65f78e03d63f7e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr float SAMPLE_WINDOW_SIZE = <a class="el" href="wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d">SAMPLE_ANGLE_2</a> - <a class="el" href="wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e">SAMPLE_ANGLE_1</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00028">28</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00030">30</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +295,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00036">36</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00039">39</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -335,7 +309,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00038">38</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00041">41</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +323,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00014">14</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00016">16</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -363,7 +337,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00016">16</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00018">18</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +351,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00015">15</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00017">17</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f1f5a46e8424d4bd501c9d4126e7482"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* TOPIC_VISUALIZATION = &quot;/wallfollowing_visualization&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00019">19</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -391,7 +379,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00030">30</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00032">32</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>
@@ -400,12 +388,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float WALL_FOLLOWING_MIN_SPEED = 0.1</td>
+          <td class="memname">constexpr float WALL_FOLLOWING_MIN_SPEED = 0.2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00031">31</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
+<p>Definition at line <a class="el" href="wall__following_8h_source.html#l00033">33</a> of file <a class="el" href="wall__following_8h_source.html">wall_following.h</a>.</p>
 
 </div>
 </div>

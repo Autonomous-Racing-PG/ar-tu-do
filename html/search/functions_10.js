@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7ekeyboardcontroller',['~KeyboardController',['../class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d',1,'KeyboardController']]]
+  ['wall',['Wall',['../class_wall.html#a033589df14e33d23252eea91b2cc998e',1,'Wall']]],
+  ['wallfollowing',['WallFollowing',['../class_wall_following.html#a29085d48ad54961a4ff1567ad2566446',1,'WallFollowing']]]
 ];

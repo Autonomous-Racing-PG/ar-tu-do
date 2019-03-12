@@ -1,5 +1,9 @@
 var searchData=
 [
+  ['m_5fangle1',['m_angle1',['../class_wall.html#aa55464f62abb57889a95936563a20671',1,'Wall']]],
+  ['m_5fangle2',['m_angle2',['../class_wall.html#a1acb9bc37500a68c08db14c3659c3cd0',1,'Wall']]],
+  ['m_5frange1',['m_range1',['../class_wall.html#a56b11c6748405e939de7cf4f9fabdc2d',1,'Wall']]],
+  ['m_5frange2',['m_range2',['../class_wall.html#aeb7c600e6e41792c60498ca310c833f1',1,'Wall']]],
   ['max_5fangle',['MAX_ANGLE',['../car__controller_8h.html#a255100e74bdebdad077eb6ed0e8f594b',1,'car_controller.h']]],
   ['max_5frange',['MAX_RANGE',['../wall__following_8h.html#a36742d5598d56216bba3f928732fb273',1,'wall_following.h']]],
   ['max_5frpm_5felectrical',['MAX_RPM_ELECTRICAL',['../namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b',1,'car_config']]],

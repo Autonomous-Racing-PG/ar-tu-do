@@ -3,7 +3,6 @@ var searchData=
   ['s',['S',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e',1,'keyboard_controller.h']]],
   ['sample_5fangle_5f1',['SAMPLE_ANGLE_1',['../wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e',1,'wall_following.h']]],
   ['sample_5fangle_5f2',['SAMPLE_ANGLE_2',['../wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d',1,'wall_following.h']]],
-  ['sample_5fwindow_5fsize',['SAMPLE_WINDOW_SIZE',['../wall__following_8h.html#a3495dd24192350a3cf65f78e03d63f7e',1,'wall_following.h']]],
   ['servopositioncallback',['servoPositionCallback',['../class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310',1,'VESCSimulationDriver']]],
   ['setservoangle',['setServoAngle',['../class_v_e_s_c_simulator.html#a33b5c6d6dbe7ed92e9ae3b1a681eccb1',1,'VESCSimulator']]],
   ['setspeed',['setSpeed',['../class_v_e_s_c_simulator.html#aaeff43c35fda29fb69663ff2f6b51f42',1,'VESCSimulator']]],

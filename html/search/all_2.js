@@ -11,5 +11,7 @@ var searchData=
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],
   ['cpp_5fstyle_5fguide_2emd',['CPP_STYLE_GUIDE.md',['../_c_p_p___s_t_y_l_e___g_u_i_d_e_8md.html',1,'']]],
+  ['createcolor',['createColor',['../rviz__geometry__publisher_8h.html#aee2de06a4a8ac1f51af401825568d83a',1,'createColor(double r, double g, double b, double a):&#160;rviz_geometry_publisher.cpp'],['../rviz__geometry__publisher_8cpp.html#aee2de06a4a8ac1f51af401825568d83a',1,'createColor(double r, double g, double b, double a):&#160;rviz_geometry_publisher.cpp']]],
+  ['createpoint',['createPoint',['../rviz__geometry__publisher_8h.html#afe771c547275957f1c8ed44386f9529e',1,'createPoint(double x, double y, double z):&#160;rviz_geometry_publisher.cpp'],['../rviz__geometry__publisher_8cpp.html#afe771c547275957f1c8ed44386f9529e',1,'createPoint(double x, double y, double z):&#160;rviz_geometry_publisher.cpp']]],
   ['cpp_5fstyle_5fguide',['CPP_STYLE_GUIDE',['../md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_CPP_STYLE_GUIDE.html',1,'']]]
 ];

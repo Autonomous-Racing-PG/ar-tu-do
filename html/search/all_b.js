@@ -1,8 +1,12 @@
 var searchData=
 [
+  ['m_5fangle1',['m_angle1',['../class_wall.html#aa55464f62abb57889a95936563a20671',1,'Wall']]],
+  ['m_5fangle2',['m_angle2',['../class_wall.html#a1acb9bc37500a68c08db14c3659c3cd0',1,'Wall']]],
+  ['m_5frange1',['m_range1',['../class_wall.html#a56b11c6748405e939de7cf4f9fabdc2d',1,'Wall']]],
+  ['m_5frange2',['m_range2',['../class_wall.html#aeb7c600e6e41792c60498ca310c833f1',1,'Wall']]],
   ['main',['main',['../emergency__stop_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;emergency_stop.cpp'],['../wall__following_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;wall_following.cpp'],['../car__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;car_controller.cpp'],['../dms__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;dms_controller.cpp'],['../drive__parameters__multiplexer_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;drive_parameters_multiplexer.cpp'],['../test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;test_car_control.cpp'],['../car__tf_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../navigation__stack_2msgs__converter_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../simulation_2vesc__sim_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../joystick__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;joystick_controller.cpp'],['../keyboard__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;keyboard_controller.cpp']]],
-  ['main_2ecpp',['main.cpp',['../simulation_2vesc__sim_2src_2main_8cpp.html',1,'']]],
   ['main_2ecpp',['main.cpp',['../car__tf_2src_2main_8cpp.html',1,'']]],
+  ['main_2ecpp',['main.cpp',['../simulation_2vesc__sim_2src_2main_8cpp.html',1,'']]],
   ['main_2ecpp',['main.cpp',['../navigation__stack_2msgs__converter_2src_2main_8cpp.html',1,'']]],
   ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
   ['map',['map',['../wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc',1,'map(float in_lower, float in_upper, float out_lower, float out_upper, float value):&#160;wall_following.cpp'],['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'map(double value, double in_lower, double in_upper, double out_lower, double out_upper):&#160;keyboard_controller.cpp']]],

@@ -10,7 +10,9 @@ var annotated_dup =
     [ "LaserscanTransformer", "class_laserscan_transformer.html", "class_laserscan_transformer" ],
     [ "NavigationStackControlConverter", "class_navigation_stack_control_converter.html", "class_navigation_stack_control_converter" ],
     [ "PIDController", "class_p_i_d_controller.html", "class_p_i_d_controller" ],
+    [ "RvizGeometryPublisher", "class_rviz_geometry_publisher.html", "class_rviz_geometry_publisher" ],
     [ "VESCSimulationDriver", "class_v_e_s_c_simulation_driver.html", "class_v_e_s_c_simulation_driver" ],
     [ "VESCSimulator", "class_v_e_s_c_simulator.html", "class_v_e_s_c_simulator" ],
+    [ "Wall", "class_wall.html", "class_wall" ],
     [ "WallFollowing", "class_wall_following.html", "class_wall_following" ]
 ];

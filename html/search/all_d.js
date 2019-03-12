@@ -9,5 +9,6 @@ var searchData=
   ['pid_5fcontroller_2ecpp',['pid_controller.cpp',['../pid__controller_8cpp.html',1,'']]],
   ['pid_5fcontroller_2eh',['pid_controller.h',['../pid__controller_8h.html',1,'']]],
   ['pidcontroller',['PIDController',['../class_p_i_d_controller.html',1,'PIDController'],['../class_p_i_d_controller.html#a7a31bdebce80ed89383985bd63a1abd1',1,'PIDController::PIDController()']]],
+  ['predictdistance',['predictDistance',['../class_wall.html#ad5b01236dea4aed8c75a8600c2b64c02',1,'Wall']]],
   ['prediction_5fdistance',['PREDICTION_DISTANCE',['../wall__following_8h.html#a77f9814fd2f21e3edfc0da317f35a646',1,'wall_following.h']]]
 ];
