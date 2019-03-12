@@ -9,7 +9,7 @@ Launches all necessary nodes that let the user control the car with the keyboard
 
     <!-- remote joy -->
     <node
-      respawn="true"
+      respawn="false"
       pkg="teleoperation"
       type="joystick_controller"
       name="joystick_controller"
@@ -19,7 +19,7 @@ Launches all necessary nodes that let the user control the car with the keyboard
 
     <!-- joy node -->
     <node
-      respawn="true"
+      respawn="false"
       pkg="joy"
       type="joy_node"
       name="joy_node"
@@ -32,7 +32,7 @@ Launches all necessary nodes that let the user control the car with the keyboard
 
     <!-- remote keyboard -->
     <node
-      respawn="true"
+      respawn="false"
       pkg="teleoperation"
       type="keyboard_controller"
       name="keyboard_controller"
