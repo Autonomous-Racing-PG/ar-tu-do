@@ -26,14 +26,15 @@ constexpr float MAX_RANGE = 30;
 
 constexpr float FALLBACK_RANGE = 4;
 
-constexpr float SAMPLE_ANGLE_1 = 40 * DEG_TO_RAD;
-constexpr float SAMPLE_ANGLE_2 = 90 * DEG_TO_RAD;
+constexpr float SAMPLE_ANGLE_1 = 30 * DEG_TO_RAD;
+constexpr float SAMPLE_ANGLE_2 = 70 * DEG_TO_RAD;
 
 constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
 constexpr float WALL_FOLLOWING_MIN_SPEED = 0.2;
 
-// The car will aim to reach the target wall distance after travelling this distance
-constexpr float PREDICTION_DISTANCE = 1;
+// The car will aim to reach the target wall distance after travelling this distance.
+// The higher this number, the more aggressively the car will cut corners.
+constexpr float PREDICTION_DISTANCE = 2;
 // The desired distance between the wall and the car
 constexpr float TARGET_WALL_DISTANCE = 0.5;
 
@@ -54,7 +55,7 @@ class WallFollowing
 
     bool m_emergency_stop = true;
 
-    PIDController m_pid_controller = PIDController(120, 0.48, 7.5);
+    PIDController m_pid_controller = PIDController(6, 0.01, 0.3);
 
     void followSingleWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall);
     void followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar);
