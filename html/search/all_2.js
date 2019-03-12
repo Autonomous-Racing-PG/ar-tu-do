@@ -5,7 +5,6 @@ var searchData=
   ['car_5fcontroller_2ecpp',['car_controller.cpp',['../car__controller_8cpp.html',1,'']]],
   ['car_5fcontroller_2eh',['car_controller.h',['../car__controller_8h.html',1,'']]],
   ['carcontroller',['CarController',['../class_car_controller.html',1,'CarController'],['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController::CarController()']]],
-  ['clamp',['clamp',['../keyboard__controller_8cpp.html#a215566526f35eabece78faa4ea465f24',1,'keyboard_controller.cpp']]],
   ['cmd_5fvel',['CMD_VEL',['../navigation__stack__control__converter_8h.html#a561eb346694ef40c617c49bb160363d8',1,'CMD_VEL():&#160;navigation_stack_control_converter.h'],['../vesc__sim__driver_8h.html#a561eb346694ef40c617c49bb160363d8',1,'CMD_VEL():&#160;vesc_sim_driver.h']]],
   ['command_5fbrake',['COMMAND_BRAKE',['../vesc__sim__driver_8h.html#affe1486b6714ce41c5ddc70d4ff7790d',1,'vesc_sim_driver.h']]],
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],

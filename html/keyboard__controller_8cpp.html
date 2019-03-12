@@ -114,6 +114,7 @@ $(document).ready(function(){initNavTree('keyboard__controller_8cpp.html','');})
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>&quot;</code><br />
+<code>#include &lt;boost/algorithm/clamp.hpp&gt;</code><br />
 <code>#include &lt;std_msgs/Int64.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for keyboard_controller.cpp:</div>
@@ -128,59 +129,12 @@ Include dependency graph for keyboard_controller.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a215566526f35eabece78faa4ea465f24"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8cpp.html#a215566526f35eabece78faa4ea465f24">clamp</a> (double value, double lower, double upper)</td></tr>
-<tr class="separator:a215566526f35eabece78faa4ea465f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c2a2e4c6a836edf99a7e4107e3874ca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca">map</a> (double value, double in_lower, double in_upper, double out_lower, double out_upper)</td></tr>
 <tr class="separator:a9c2a2e4c6a836edf99a7e4107e3874ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a215566526f35eabece78faa4ea465f24"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double clamp </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>lower</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>upper</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8cpp_source.html#l00005">5</a> of file <a class="el" href="keyboard__controller_8cpp_source.html">keyboard_controller.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24_icgraph.png" border="0" usemap="#keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24_icgraph" alt=""/></div>
-<map name="keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24_icgraph" id="keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24_icgraph">
-<area shape="rect" id="node2" href="wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc" title="map" alt="" coords="162,5,209,32"/>
-<area shape="rect" id="node3" href="class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d" title="KeyboardController\l::~KeyboardController" alt="" coords="111,57,260,98"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
 <a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +159,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8cpp_source.html#l00197">197</a> of file <a class="el" href="keyboard__controller_8cpp_source.html">keyboard_controller.cpp</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8cpp_source.html#l00193">193</a> of file <a class="el" href="keyboard__controller_8cpp_source.html">keyboard_controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +205,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8cpp_source.html#l00010">10</a> of file <a class="el" href="keyboard__controller_8cpp_source.html">keyboard_controller.cpp</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8cpp_source.html#l00006">6</a> of file <a class="el" href="keyboard__controller_8cpp_source.html">keyboard_controller.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>

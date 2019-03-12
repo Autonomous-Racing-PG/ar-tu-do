@@ -1,6 +1,7 @@
 \hypertarget{keyboard__controller_8cpp}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/teleoperation/src/keyboard\+\_\+controller.cpp File Reference}
 \label{keyboard__controller_8cpp}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/src/keyboard\+\_\+controller.\+cpp@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/teleoperation/src/keyboard\+\_\+controller.\+cpp}}
 {\ttfamily \#include \char`\"{}keyboard\+\_\+controller.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$boost/algorithm/clamp.\+hpp$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+Int64.\+h$>$}\\*
 Include dependency graph for keyboard\+\_\+controller.\+cpp\+:
 \nopagebreak
@@ -13,8 +14,6 @@ Include dependency graph for keyboard\+\_\+controller.\+cpp\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \hyperlink{keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24}{clamp} (double value, double lower, double upper)
-\item 
 double \hyperlink{keyboard__controller_8cpp_a9c2a2e4c6a836edf99a7e4107e3874ca}{map} (double value, double in\+\_\+lower, double in\+\_\+upper, double out\+\_\+lower, double out\+\_\+upper)
 \item 
 int \hyperlink{keyboard__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
@@ -22,31 +21,6 @@ int \hyperlink{keyboard__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main
 
 
 \subsection{Function Documentation}
-\index{keyboard\+\_\+controller.\+cpp@{keyboard\+\_\+controller.\+cpp}!clamp@{clamp}}
-\index{clamp@{clamp}!keyboard\+\_\+controller.\+cpp@{keyboard\+\_\+controller.\+cpp}}
-\subsubsection[{\texorpdfstring{clamp(double value, double lower, double upper)}{clamp(double value, double lower, double upper)}}]{\setlength{\rightskip}{0pt plus 5cm}double clamp (
-\begin{DoxyParamCaption}
-\item[{double}]{value, }
-\item[{double}]{lower, }
-\item[{double}]{upper}
-\end{DoxyParamCaption}
-)}\hypertarget{keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24}{}\label{keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24}
-
-
-Definition at line 5 of file keyboard\+\_\+controller.\+cpp.
-
-
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=271pt]{keyboard__controller_8cpp_a215566526f35eabece78faa4ea465f24_icgraph}
-\end{center}
-\end{figure}
-
-
 \index{keyboard\+\_\+controller.\+cpp@{keyboard\+\_\+controller.\+cpp}!main@{main}}
 \index{main@{main}!keyboard\+\_\+controller.\+cpp@{keyboard\+\_\+controller.\+cpp}}
 \subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
@@ -57,7 +31,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{keyboard__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{keyboard__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
 
 
-Definition at line 197 of file keyboard\+\_\+controller.\+cpp.
+Definition at line 193 of file keyboard\+\_\+controller.\+cpp.
 
 \index{keyboard\+\_\+controller.\+cpp@{keyboard\+\_\+controller.\+cpp}!map@{map}}
 \index{map@{map}!keyboard\+\_\+controller.\+cpp@{keyboard\+\_\+controller.\+cpp}}
@@ -72,7 +46,7 @@ Definition at line 197 of file keyboard\+\_\+controller.\+cpp.
 )}\hypertarget{keyboard__controller_8cpp_a9c2a2e4c6a836edf99a7e4107e3874ca}{}\label{keyboard__controller_8cpp_a9c2a2e4c6a836edf99a7e4107e3874ca}
 
 
-Definition at line 10 of file keyboard\+\_\+controller.\+cpp.
+Definition at line 6 of file keyboard\+\_\+controller.\+cpp.
 
 
 
