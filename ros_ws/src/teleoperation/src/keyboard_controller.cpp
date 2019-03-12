@@ -1,11 +1,7 @@
 #include "keyboard_controller.h"
+#include <boost/algorithm/clamp.hpp>
 #include <std_msgs/Int64.h>
 using std::abs;
-
-double clamp(double value, double lower, double upper)
-{
-    return std::min(upper, std::max(value, lower));
-}
 
 double map(double value, double in_lower, double in_upper, double out_lower, double out_upper)
 {
@@ -151,9 +147,9 @@ void KeyboardController::updateDriveParameters(double delta_time)
 
     double steer_limit = map(abs(this->m_velocity), 0, MAX_THROTTLE, 1, FAST_STEER_LIMIT);
     double angle_update = steer * delta_time * STEERING_SPEED;
-    this->m_angle = clamp(this->m_angle + angle_update, -steer_limit, +steer_limit);
+    this->m_angle = boost::algorithm::clamp(this->m_angle + angle_update, -steer_limit, +steer_limit);
     double velocity_update = throttle * delta_time * (this->m_velocity * throttle > 0 ? ACCELERATION : BRAKING);
-    this->m_velocity = clamp(this->m_velocity + velocity_update, -MAX_THROTTLE, +MAX_THROTTLE);
+    this->m_velocity = boost::algorithm::clamp(this->m_velocity + velocity_update, -MAX_THROTTLE, +MAX_THROTTLE);
 
     if (steer == 0 && this->m_angle != 0)
     {

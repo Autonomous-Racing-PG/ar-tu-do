@@ -46,34 +46,23 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
     }
 
     // return 0 (stop) if the object is too close
-    if ((front_range_sum / 6) < 0.3)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return ((front_range_sum / 6) < 0.3);
 }
 
 void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-
     bool emergency_stop = emergencyStop(lidar);
 
-    if (emergency_stop == false)
-    {
-        std_msgs::Bool emer_stop;
-        emer_stop.data = false;
-        emer_stop_publisher.publish(emer_stop);
-    }
-    else
+    if (emergency_stop)
     {
         ROS_INFO_STREAM("Too close! Stop!");
-        std_msgs::Bool emer_stop;
-        emer_stop.data = true;
-        emer_stop_publisher.publish(emer_stop);
     }
+
+    std_msgs::Bool emer_stop;
+    {
+        emer_stop.data = emergency_stop;
+    }
+    emer_stop_publisher.publish(emer_stop);
 }
 
 int main(int argc, char** argv)
