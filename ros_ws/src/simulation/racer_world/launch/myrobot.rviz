@@ -159,9 +159,18 @@ Visualization Manager:
       Visibility:
         Grid: true
         LaserScan: true
+        Marker: true
         RobotModel: true
         Value: true
       Zoom Factor: 1
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: wallfollowing_visualization
+      Name: Marker
+      Namespaces:
+        points_and_lines: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
