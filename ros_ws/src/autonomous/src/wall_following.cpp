@@ -1,8 +1,8 @@
 #include "wall_following.h"
 #include <boost/algorithm/clamp.hpp>
 
-WallFollowing::WallFollowing()
-    : m_debug_geometry(this->m_node_handle, TOPIC_VISUALIZATION, "hokuyo")
+WallFollowing::WallFollowing(const std::string& frame_id)
+    : m_debug_geometry(this->m_node_handle, TOPIC_VISUALIZATION, frame_id)
 {
     this->m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
@@ -91,7 +91,7 @@ void WallFollowing::followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float error = (rightWall.predictDistance(PREDICTION_DISTANCE) - leftWall.predictDistance(PREDICTION_DISTANCE)) / 2;
     float correction = this->m_pid_controller.updateAndGetCorrection(error, TIME_BETWEEN_SCANS);
 
-    float steeringAngle = atan(correction) * 2 / M_PI;;
+    float steeringAngle = atan(correction) * 2 / M_PI;
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
@@ -136,7 +136,27 @@ void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "wall_following");
-    WallFollowing wall_following;
+    ros::NodeHandle private_node_handle("~");
+
+    /**
+     * Attention:
+     * ==========
+     * Please make sure the parameter PARAMETER_MARKER_FRAME_ID is set
+     * correctly for YOUR configuration, as the frame id can be different
+     * on different simulators or real cars.
+     **/
+    std::string frame_id;
+    private_node_handle.getParam(PARAMETER_MARKER_FRAME_ID, frame_id);
+
+    // There might be a valid reason to set the parameter to empty string.
+    // But in most cases being empty should be wrong, so a warning should
+    // help finding the reason why the car doesn't follow a wall.
+    if (frame_id.empty())
+    {
+        ROS_WARN_STREAM("Parameter: '" << PARAMETER_MARKER_FRAME_ID << "' is empty!");
+    }
+
+    WallFollowing wall_following(frame_id);
     ros::spin();
     return EXIT_SUCCESS;
 }

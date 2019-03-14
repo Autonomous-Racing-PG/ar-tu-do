@@ -1,4 +1,6 @@
 <launch>
+
+    <arg name="marker_frame_id" default="hokuyo"/>
     <arg name="joystick_type" default="ps3"/>
 
     <include file="$(find car_control)/launch/car_control.launch"/>
@@ -19,7 +21,9 @@
         <param name="wheelbase" value="0.325"/>
     </node>-->
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <include file="$(find autonomous)/launch/autonomous_driving.launch">
+        <arg name="marker_frame_id" value="$(arg marker_frame_id)"/>
+    </include>
 
     <node name="rviz" pkg="rviz" type="rviz" args=""/>
 </launch>
