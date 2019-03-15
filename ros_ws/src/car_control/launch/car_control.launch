@@ -3,8 +3,9 @@
 <!-- 
 Launches all necessary nodes that listen for drive_parameters and translate them to the car
 -->
-    <arg name="dms_check_rate" default="20"/> <!-- in Hz -->
-    <arg name="dms_expiration" default="100"/> <!-- in ms -->
+    <arg name="dms_enabled" default="true" />
+    <arg name="dms_check_rate" default="20" /> <!-- in Hz -->
+    <arg name="dms_expiration" default="100" /> <!-- in ms -->
 	
     <!-- car control node -->
     <node
@@ -13,10 +14,12 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       type="car_controller"
       name="car_controller"
       output="screen" >
+      <param name="dms_enabled" type="bool" value = "$(arg dms_enabled)" />
     </node>
 
     <!-- dms control node -->
     <node
+      if="$(arg dms_enabled)"
       respawn="true"
       pkg="car_control"
       type="dms_controller"
