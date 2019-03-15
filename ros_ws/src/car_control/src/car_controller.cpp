@@ -8,8 +8,8 @@ CarController::CarController()
 {
     ros::NodeHandle private_node_handle("~");
 
-    private_node_handle.getParam(PARAMETER_DMS_ENABLED, this->dms_enabled);
-    if (dms_enabled)
+    private_node_handle.getParam(PARAMETER_DMS_ENABLED, this->m_dms_enabled);
+    if (m_dms_enabled)
     {
         m_motor_unlocked = false;
     }

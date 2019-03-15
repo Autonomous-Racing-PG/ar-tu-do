@@ -11,9 +11,6 @@
 
 constexpr const char* PARAMETER_DMS_ENABLED = "dms_enabled";
 
-constexpr const int MAX_SPEED = 5000;
-constexpr const double MAX_ANGLE = 0.9;
-
 constexpr const char* TOPIC_FOCBOX_SPEED = "/commands/motor/speed";
 constexpr const char* TOPIC_FOCBOX_ANGLE = "/commands/servo/position";
 constexpr const char* TOPIC_FOCBOX_BRAKE = "commands/motor/brake";
@@ -28,7 +25,7 @@ class CarController
     private:
     ros::NodeHandle m_node_handle;
 
-    bool dms_enabled;
+    bool m_dms_enabled;
 
     ros::Subscriber m_drive_parameters_subscriber;
     ros::Subscriber m_unlock_motor_subscriber;
