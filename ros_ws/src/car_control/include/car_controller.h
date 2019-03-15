@@ -9,6 +9,8 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/Float64.h>
 
+constexpr const char* PARAMETER_DMS_ENABLED = "dms_enabled";
+
 constexpr const int MAX_SPEED = 5000;
 constexpr const double MAX_ANGLE = 0.9;
 
@@ -25,6 +27,8 @@ class CarController
 
     private:
     ros::NodeHandle m_node_handle;
+
+    bool dms_enabled;
 
     ros::Subscriber m_drive_parameters_subscriber;
     ros::Subscriber m_unlock_motor_subscriber;
