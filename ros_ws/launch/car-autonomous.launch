@@ -3,18 +3,24 @@
 
     <arg name="marker_frame_id" default="hokuyo"/>
     <arg name="joystick_type" default="ps3"/>
+    <arg name="dms_enabled" default="true" />
+    <arg name="dms_check_rate" default="20" />
+    <arg name="dms_expiration" default="100" />
 
-    <include file="$(find car_control)/launch/car_control.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch">
+        <arg name="dms_enabled" value="$(arg dms_enabled)" />
+        <arg name="dms_check_rate" value="$(arg dms_check_rate)" />
+        <arg name="dms_expiration" value="$(arg dms_expiration)" />
+    </include>
 
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
 
     <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
-    
+
     <!-- Passing parameters to the vesc_to_odom node doesn't currently work-->
-    <!--<node pkg="vesc_ackermann" type="vesc_to_odom_node" name="vesc_to_odom_node"
-        output="screen" launch-prefix="" >
+    <!--<node pkg="vesc_ackermann" type="vesc_to_odom_node" name="vesc_to_odom_node" output="screen" launch-prefix="">
         <param name="speed_to_erpm_gain" value="64.96"/>
         <param name="speed_to_erpm_offset" value="0"/>
         <param name="steering_angle_to_servo_gain" value="-0.95492965"/>

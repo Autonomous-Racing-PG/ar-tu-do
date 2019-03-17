@@ -10,6 +10,9 @@
     <arg name="verbose" default="true"/>
     <arg name="joystick_type" default="xbox360"/>
     <arg name="use_gpu" default="true"/>
+    <arg name="dms_enabled" default="true" />
+    <arg name="dms_check_rate" default="20" />
+    <arg name="dms_expiration" default="100" />
 
     <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch">
         <arg name="world" value="$(arg world)"/>
@@ -26,10 +29,14 @@
 
     <include file="$(find car_tf)/launch/car_transformer.launch"/>
 
-    <include file="$(find car_control)/launch/car_control.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch">
+        <arg name="dms_enabled" value="$(arg dms_enabled)" />
+        <arg name="dms_check_rate" value="$(arg dms_check_rate)" />
+        <arg name="dms_expiration" value="$(arg dms_expiration)" />
+    </include>
 
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
-    
+
 </launch>
