@@ -14,6 +14,9 @@
   <xacro:property name="hokuyoSize" value="0.1"/>
   <xacro:property name="hokuyoMass" value="0.1"/>
 
+  <xacro:property name="imuSize" value="0.1"/>
+  <xacro:property name="imuMass" value="0.1"/>
+
   <xacro:property name="bodySizeL" value="0.49"/>
   <xacro:property name="bodySizeB" value="0.18"/>
   <xacro:property name="bodySizeH" value="0.1"/>
@@ -121,6 +124,36 @@
     <origin xyz="0.21 0 0.135" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="laser"/>
+  </joint>
+
+  <!-- IMU -->
+  <link name="imu_link">
+    <inertial>
+      <mass value="${imuMass}" />
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <box_inertia m="${imuMass}" l="${imuSize}" b="${imuSize}" h="${imuSize}" />
+    </inertial>
+
+    <collision>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${imuSize} ${imuSize} ${imuSize}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${imuSize} ${imuSize} ${imuSize}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.135" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="imu_link"/>
   </joint>
 
 </robot>
