@@ -1,8 +1,6 @@
 var car__controller_8h =
 [
     [ "CarController", "class_car_controller.html", "class_car_controller" ],
-    [ "MAX_ANGLE", "car__controller_8h.html#a255100e74bdebdad077eb6ed0e8f594b", null ],
-    [ "MAX_SPEED", "car__controller_8h.html#a7a28cf8a6a41437434d1a709da9d8f6f", null ],
     [ "PARAMETER_DMS_ENABLED", "car__controller_8h.html#ab5b746b77e0319c62c4e2ff4a99c6bb8", null ],
     [ "TOPIC_DRIVE_PARAM", "car__controller_8h.html#ae2bdb9527cf2548c238295d766dcff5a", null ],
     [ "TOPIC_FOCBOX_ANGLE", "car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7", null ],

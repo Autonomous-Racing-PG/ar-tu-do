@@ -36,7 +36,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"test__car__control_8cpp_source.html"
+"vesc__sim_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
