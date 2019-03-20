@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ros/ros.h>
+#include "drive_mode.h"
 
 #include <chrono>
 #include <std_msgs/Int64.h>
@@ -12,13 +13,6 @@ constexpr const char* PARAMETER_DMS_EXPIRATION = "dms_expiration";
 constexpr const char* TOPIC_HEARTBEAT_MANUAL = "/input/heartbeat_manual";
 constexpr const char* TOPIC_HEARTBEAT_AUTONOMOUS = "/input/heartbeat_autonomous";
 constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
-
-enum class DriveMode : int
-{
-    LOCKED = 0,
-    MANUAL = 1,
-    AUTONOMOUS = 2
-};
 
 class DMSController
 {
