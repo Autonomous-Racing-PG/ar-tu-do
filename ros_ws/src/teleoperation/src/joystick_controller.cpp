@@ -11,7 +11,8 @@ JoystickController::JoystickController()
 {
     this->m_drive_parameter_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->m_dms_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DMS, 1);
+    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1);
+    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
 
     this->m_joystick_subscriber =
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
@@ -21,18 +22,24 @@ JoystickController::JoystickController()
     this->m_deceleration_locked = true;
 }
 
+std_msgs::Int64 createHearbeatMessage() {
+    auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+    auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+
+    std_msgs::Int64 message;
+    message.data = time_since_epoch.count();
+    return message;
+}
+
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
-    // check if dms button is pressed. if yes -> send dms_message
-    if (joystick->buttons[m_joystick_map.deadMansSwitchButton] == 1)
+    if (joystick->buttons[m_joystick_map.enableManualButton] == 1)
     {
-        auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
-        auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-
-        std_msgs::Int64 dead_mans_switch_message;
-        dead_mans_switch_message.data = time_since_epoch.count();
-
-        this->m_dms_publisher.publish(dead_mans_switch_message);
+        this->m_enable_manual_publisher.publish(createHearbeatMessage());
+    }
+    if (joystick->buttons[m_joystick_map.enableAutonomousButton] == 1)
+    {
+        this->m_enable_autonomous_publisher.publish(createHearbeatMessage());
     }
 
     // compute and publish the provided steering and velocity

@@ -10,7 +10,8 @@
 
 constexpr const char* PARAMETER_JOYSTICK_TYPE = "joystick_type";
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
-constexpr const char* TOPIC_DMS = "/input/dms_heartbeat";
+constexpr const char* TOPIC_HEARTBEAT_MANUAL = "/input/heartbeat_manual";
+constexpr const char* TOPIC_HEARTBEAT_AUTONOMOUS = "/input/heartbeat_autonomous";
 
 constexpr float EPSILON = 0.001;
 
@@ -39,12 +40,13 @@ class JoystickController
         int steeringAxis;
         int accelerationAxis;
         int decelerationAxis;
-        int deadMansSwitchButton;
+        int enableManualButton;
+        int enableAutonomousButton;
     };
 
-    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14 };
-    const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0 };
-    const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0 };
+    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14, 15 };
+    const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0, 1 };
+    const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0, 1 };
 
     public:
     JoystickController();
@@ -53,7 +55,8 @@ class JoystickController
     ros::NodeHandle m_node_handle;
     ros::Publisher m_drive_parameter_publisher;
     ros::Subscriber m_joystick_subscriber;
-    ros::Publisher m_dms_publisher;
+    ros::Publisher m_enable_manual_publisher;
+    ros::Publisher m_enable_autonomous_publisher;
 
     JoystickMapping m_joystick_map;
 
