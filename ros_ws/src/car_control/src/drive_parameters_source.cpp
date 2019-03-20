@@ -8,7 +8,7 @@ DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const
                                              double timeout)
 {
     ROS_ASSERT_MSG(drive_mode != DriveMode::LOCKED, "Don't define a drive parameter source for the LOCKED mode.");
-    
+
     this->m_drive_parameters_subscriber =
         node_handle->subscribe<drive_msgs::drive_param>(topic, 1, &DriveParametersSource::driveParametersCallback,
                                                         this);

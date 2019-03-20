@@ -24,7 +24,7 @@ KeyboardController::KeyboardController()
     this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
     this->m_drive_mode_subscriber =
         this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1, &KeyboardController::driveModeCallback,
-                                                      this);
+                                                       this);
 
     this->loadImages();
     this->createWindow();
@@ -50,8 +50,8 @@ void KeyboardController::createWindow()
     {
         throw std::runtime_error("Could not initialize SDL: " + std::string(SDL_GetError()));
     }
-    this->m_window = SDL_CreateWindow("Keyboard teleoperation", SDL_WINDOWPOS_UNDEFINED,
-                                      SDL_WINDOWPOS_UNDEFINED, 580, 128, SDL_WINDOW_RESIZABLE);
+    this->m_window = SDL_CreateWindow("Keyboard teleoperation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 580,
+                                      128, SDL_WINDOW_RESIZABLE);
 
     SDL_Surface* icon = SDL_LoadBMP(icon_filename.c_str());
     if (icon != NULL)
@@ -91,7 +91,8 @@ void KeyboardController::updateWindow()
 {
     SDL_Surface* surface = SDL_GetWindowSurface(this->m_window);
     SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));
-    switch (this->m_drive_mode) {
+    switch (this->m_drive_mode)
+    {
         case DriveMode::LOCKED:
             SDL_BlitSurface(this->m_image_locked, NULL, surface, NULL);
             break;
@@ -105,7 +106,8 @@ void KeyboardController::updateWindow()
     SDL_UpdateWindowSurface(this->m_window);
 }
 
-void KeyboardController::loadImages() {
+void KeyboardController::loadImages()
+{
     std::string locked_filename = ros::package::getPath("teleoperation") + std::string("/img/locked.bmp");
     this->m_image_locked = SDL_LoadBMP(locked_filename.c_str());
     std::string manual_filename = ros::package::getPath("teleoperation") + std::string("/img/manual.bmp");
@@ -128,7 +130,8 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
     this->updateDeadMansSwitch();
 }
 
-std_msgs::Int64 createHearbeatMessage() {
+std_msgs::Int64 createHearbeatMessage()
+{
     auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
     auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
 
@@ -205,7 +208,6 @@ void KeyboardController::publishDriveParameters()
     drive_parameters.angle = this->m_angle;
     this->m_drive_parameters_publisher.publish(drive_parameters);
 }
-
 
 void KeyboardController::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message)
 {

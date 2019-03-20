@@ -22,7 +22,8 @@ JoystickController::JoystickController()
     this->m_deceleration_locked = true;
 }
 
-std_msgs::Int64 createHearbeatMessage() {
+std_msgs::Int64 createHearbeatMessage()
+{
     auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
     auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
 

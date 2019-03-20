@@ -49,7 +49,7 @@ void CarController::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mod
     {
         this->stop();
     }
-    this->m_motor_unlocked =  mode != DriveMode::LOCKED;
+    this->m_motor_unlocked = mode != DriveMode::LOCKED;
 }
 
 void CarController::stop()

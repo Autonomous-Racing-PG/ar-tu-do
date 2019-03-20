@@ -1,11 +1,11 @@
 #pragma once
 
-#include <ros/ros.h>
 #include "drive_mode.h"
+#include <ros/ros.h>
 
 #include <chrono>
-#include <std_msgs/Int64.h>
 #include <std_msgs/Int32.h>
+#include <std_msgs/Int64.h>
 
 constexpr const char* PARAMETER_DMS_CHECK_RATE = "dms_check_rate";
 constexpr const char* PARAMETER_DMS_EXPIRATION = "dms_expiration";

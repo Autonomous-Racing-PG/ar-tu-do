@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ros/ros.h>
 #include "drive_mode.h"
+#include <ros/ros.h>
 
 #include <chrono>
 #include <drive_msgs/drive_param.h>

@@ -3,9 +3,11 @@
 DMSController::DMSController()
 {
     this->m_heartbeat_manual_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1, &DMSController::heartbeatManualCallback, this);
+        this->m_node_handle.subscribe<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1,
+                                                       &DMSController::heartbeatManualCallback, this);
     this->m_heartbeat_autonomous_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1, &DMSController::heartbeatAutonomousCallback, this);
+        this->m_node_handle.subscribe<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1,
+                                                       &DMSController::heartbeatAutonomousCallback, this);
     this->m_drive_mode_publisher = this->m_node_handle.advertise<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1);
     this->configureParameters();
     this->m_last_heartbeat_manual = std::chrono::steady_clock::time_point::min();
@@ -23,23 +25,27 @@ void DMSController::spin()
     }
 }
 
-DriveMode DMSController::getDriveMode() {
-    if (this->m_mode_override != NO_OVERRIDE) {
+DriveMode DMSController::getDriveMode()
+{
+    if (this->m_mode_override != NO_OVERRIDE)
+    {
         return this->m_mode_override;
     }
 
     auto current_time = std::chrono::steady_clock::now();
-    if (this->m_last_heartbeat_manual + this->m_expiration_time > current_time) {
+    if (this->m_last_heartbeat_manual + this->m_expiration_time > current_time)
+    {
         return DriveMode::MANUAL;
     }
-    if (this->m_last_heartbeat_autonomous + this->m_expiration_time > current_time) {
+    if (this->m_last_heartbeat_autonomous + this->m_expiration_time > current_time)
+    {
         return DriveMode::AUTONOMOUS;
     }
     return DriveMode::LOCKED;
 }
 
 void DMSController::publishDriveMode()
-{    
+{
     std_msgs::Int32 drive_mode_message;
     drive_mode_message.data = (int)this->getDriveMode();
     this->m_drive_mode_publisher.publish(drive_mode_message);
@@ -86,10 +92,10 @@ void DMSController::configureParameters()
         mode_override_parameter = 0;
     }
     this->m_mode_override = (DriveMode)mode_override_parameter;
-    if (this->m_mode_override != NO_OVERRIDE) {
+    if (this->m_mode_override != NO_OVERRIDE)
+    {
         ROS_WARN_STREAM("Drive Mode Override is enabled. The car will drive even if no key is pressed.");
     }
-
 }
 
 int main(int argc, char** argv)

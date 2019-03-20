@@ -1,6 +1,7 @@
 #include "drive_parameters_multiplexer.h"
 
-DriveParametersMultiplexer::DriveParametersMultiplexer() : m_drive_mode { DriveMode::LOCKED }
+DriveParametersMultiplexer::DriveParametersMultiplexer()
+    : m_drive_mode{ DriveMode::LOCKED }
 {
     this->m_drive_parameters_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1);
     this->m_last_updated_source = NULL;
@@ -16,7 +17,8 @@ DriveParametersMultiplexer::DriveParametersMultiplexer() : m_drive_mode { DriveM
                                                           callback, DriveMode::AUTONOMOUS, 0.1)),
     };
     this->m_drive_mode_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1, &DriveParametersMultiplexer::driveModeCallback, this);
+        this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1,
+                                                       &DriveParametersMultiplexer::driveModeCallback, this);
 }
 
 // clang-format off

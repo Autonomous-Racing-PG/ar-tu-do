@@ -38,7 +38,8 @@ enum class KeyIndex : int
 
 constexpr int KEY_COUNT = 6;
 
-constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A, Keycode::S, Keycode::D, Keycode::SPACE, Keycode::B };
+constexpr std::array<Keycode, KEY_COUNT> KEY_CODES = { Keycode::W, Keycode::A,     Keycode::S,
+                                                       Keycode::D, Keycode::SPACE, Keycode::B };
 
 enum class DriveMode : int
 {
