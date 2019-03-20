@@ -15,6 +15,9 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
 
     int index_start = available_samples / 2 - SAMPLE_ANGLE / lidar->angle_increment / 2;
     int index_end = available_samples / 2 + SAMPLE_ANGLE / lidar->angle_increment / 2;
+    ROS_ASSERT_MSG(index_start >= 0 && index_end < available_samples,
+                   "SAMPLE_ANGLE is too big. Trying to access lidar samples out of bounds.");
+
     for (int i = index_start; i < index_end; i++)
     {
         float range = lidar->ranges[i];
