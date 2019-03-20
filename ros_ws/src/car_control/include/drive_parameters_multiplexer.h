@@ -5,12 +5,14 @@
 #include "drive_parameters_source.h"
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/Int32.h>
 #include <vector>
 
 constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_KEYBOARD = "input/drive_param/keyboard";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_JOYSTICK = "input/drive_param/joystick";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING = "input/drive_param/wallfollowing";
+constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
 
 /*
 * This node subscribes to all publishers that send drive_param messages and selects one to forward to the car controller
@@ -30,6 +32,9 @@ class DriveParametersMultiplexer
     std::array<std::unique_ptr<DriveParametersSource>, 3> m_sources;
     DriveParametersSource* m_last_updated_source;
     ros::Publisher m_drive_parameters_publisher;
+    ros::Subscriber m_drive_mode_subscriber;
+
+    DriveMode m_drive_mode;
 
     /**
      * @brief Determines wheter an updated source will be forwarded to the car controller,
@@ -43,4 +48,6 @@ class DriveParametersMultiplexer
      * to the car controller.
      */
     void onUpdate(DriveParametersSource* source, const drive_msgs::drive_param::ConstPtr& message);
+
+    void driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message);
 };

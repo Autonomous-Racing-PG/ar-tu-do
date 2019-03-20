@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ros/ros.h>
+#include "drive_mode.h"
 
 #include <chrono>
 #include <drive_msgs/drive_param.h>
@@ -31,7 +32,7 @@ class DriveParametersSource
      * @param timeout Messages will be deferred when they are older than this, in seconds.
      */
     DriveParametersSource(ros::NodeHandle* node_handle, const char* topic,
-                          DriveParameterCallbackFunction update_callback, int priority, double timeout);
+                          DriveParameterCallbackFunction update_callback, DriveMode drive_mode, double timeout);
 
     /**
      * @brief Returns true if no update was received for a certain time, determined by the timeout variable.
@@ -44,16 +45,12 @@ class DriveParametersSource
      */
     bool isIdle();
 
-    /**
-     * @brief Returns the priority of the source. If multiple sources are not idle, the source with the
-     * highest priority is forwarded.
-     */
-    int getPriority();
+    DriveMode getDriveMode();
 
     private:
     ros::Subscriber m_drive_parameters_subscriber;
 
-    int m_priority;
+    DriveMode m_drive_mode;
     bool m_idle;
     std::chrono::duration<double> m_timeout;
     std::chrono::steady_clock::time_point m_last_update;

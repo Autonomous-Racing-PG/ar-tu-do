@@ -1,6 +1,6 @@
 #include "drive_parameters_multiplexer.h"
 
-DriveParametersMultiplexer::DriveParametersMultiplexer()
+DriveParametersMultiplexer::DriveParametersMultiplexer() : m_drive_mode { DriveMode::LOCKED }
 {
     this->m_drive_parameters_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1);
     this->m_last_updated_source = NULL;
@@ -9,23 +9,31 @@ DriveParametersMultiplexer::DriveParametersMultiplexer()
 
     this->m_sources = {
         std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_DRIVE_PARAMETERS_KEYBOARD,
-                                                          callback, 1, 0.1)),
+                                                          callback, DriveMode::MANUAL, 0.1)),
         std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_DRIVE_PARAMETERS_JOYSTICK,
-                                                          callback, 1, 0.1)),
+                                                          callback, DriveMode::MANUAL, 0.1)),
         std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING,
-                                                          callback, 0, 0.1)),
+                                                          callback, DriveMode::AUTONOMOUS, 0.1)),
     };
+    this->m_drive_mode_subscriber =
+        this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1, &DriveParametersMultiplexer::driveModeCallback, this);
 }
 
 // clang-format off
 bool DriveParametersMultiplexer::validateSource(DriveParametersSource* source)
 {
     ROS_ASSERT_MSG(source != nullptr, "Parameter 'source' must not be null.");
+
+    if (source->getDriveMode() != this->m_drive_mode)
+    {
+        return false;
+    }
+
     return this->m_last_updated_source == nullptr
         || this->m_last_updated_source == source
         || this->m_last_updated_source->isOutdated()
-        || (!source->isIdle() && this->m_last_updated_source->isIdle())
-        || (!source->isIdle() && this->m_last_updated_source->getPriority() < source->getPriority());
+        || this->m_last_updated_source->getDriveMode() != this->m_drive_mode
+        || (!source->isIdle() && this->m_last_updated_source->isIdle());
 }
 // clang-format on
 
@@ -39,6 +47,11 @@ void DriveParametersMultiplexer::onUpdate(DriveParametersSource* source,
     }
     this->m_drive_parameters_publisher.publish(message);
     this->m_last_updated_source = source;
+}
+
+void DriveParametersMultiplexer::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message)
+{
+    this->m_drive_mode = (DriveMode)drive_mode_message->data;
 }
 
 int main(int argc, char** argv)

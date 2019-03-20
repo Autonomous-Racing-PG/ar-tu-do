@@ -4,13 +4,15 @@
 constexpr auto DEFAULT_TIME = std::chrono::steady_clock::time_point::min();
 
 DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const char* topic,
-                                             DriveParameterCallbackFunction update_callback, int priority,
+                                             DriveParameterCallbackFunction update_callback, DriveMode drive_mode,
                                              double timeout)
 {
+    ROS_ASSERT_MSG(drive_mode != DriveMode::LOCKED, "Don't define a drive parameter source for the LOCKED mode.");
+    
     this->m_drive_parameters_subscriber =
         node_handle->subscribe<drive_msgs::drive_param>(topic, 1, &DriveParametersSource::driveParametersCallback,
                                                         this);
-    this->m_priority = priority;
+    this->m_drive_mode = drive_mode;
     this->m_idle = true;
     this->m_updateCallback = update_callback;
     this->m_timeout = std::chrono::duration<double>(timeout);
@@ -38,7 +40,7 @@ bool DriveParametersSource::isIdle()
     return this->m_idle;
 }
 
-int DriveParametersSource::getPriority()
+DriveMode DriveParametersSource::getDriveMode()
 {
-    return this->m_priority;
+    return this->m_drive_mode;
 }
