@@ -20,7 +20,8 @@ KeyboardController::KeyboardController()
 
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DEAD_MANS_SWITCH, 1);
+    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1);
+    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
     this->m_unlock_motor_subscriber =
         this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_UNLOCK_MOTOR, 1, &KeyboardController::unlockMotorCallback,
                                                       this);
@@ -110,20 +111,27 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
     this->updateDeadMansSwitch();
 }
 
+std_msgs::Int64 createHearbeatMessage() {
+    auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+    auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+
+    std_msgs::Int64 message;
+    message.data = time_since_epoch.count();
+    return message;
+}
+
 /**
  *  Checks if the Dead Man's Switch key is pressed and publish the Dead Man's Switch message
  */
 void KeyboardController::updateDeadMansSwitch()
 {
-    if (this->m_key_pressed_state[(size_t)KeyIndex::DEAD_MANS_SWITCH])
+    if (this->m_key_pressed_state[(size_t)KeyIndex::ENABLE_MANUAL])
     {
-        auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
-        auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-
-        std_msgs::Int64 dead_mans_switch_message;
-        dead_mans_switch_message.data = time_since_epoch.count();
-
-        this->m_dead_mans_switch_publisher.publish(dead_mans_switch_message);
+        this->m_enable_manual_publisher.publish(createHearbeatMessage());
+    }
+    if (this->m_key_pressed_state[(size_t)KeyIndex::ENABLE_AUTONOMOUS])
+    {
+        this->m_enable_autonomous_publisher.publish(createHearbeatMessage());
     }
 }
 
