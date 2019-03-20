@@ -24,8 +24,11 @@ void DMSController::spin()
 }
 
 DriveMode DMSController::getDriveMode() {
-    auto current_time = std::chrono::steady_clock::now();
+    if (this->m_mode_override != NO_OVERRIDE) {
+        return this->m_mode_override;
+    }
 
+    auto current_time = std::chrono::steady_clock::now();
     if (this->m_last_heartbeat_manual + this->m_expiration_time > current_time) {
         return DriveMode::MANUAL;
     }
@@ -74,6 +77,19 @@ void DMSController::configureParameters()
         expiration_ms = 100;
     }
     this->m_expiration_time = std::chrono::duration<double>(expiration_ms / 1000.0);
+
+    int mode_override_parameter;
+    private_node_handle.getParam(PARAMETER_MODE_OVERRIDE, mode_override_parameter);
+    if (mode_override_parameter < 0 || mode_override_parameter > 2)
+    {
+        ROS_WARN_STREAM("Invalid value for mode override.");
+        mode_override_parameter = 0;
+    }
+    this->m_mode_override = (DriveMode)mode_override_parameter;
+    if (this->m_mode_override != NO_OVERRIDE) {
+        ROS_WARN_STREAM("Drive Mode Override is enabled. The car will drive even if no key is pressed.");
+    }
+
 }
 
 int main(int argc, char** argv)

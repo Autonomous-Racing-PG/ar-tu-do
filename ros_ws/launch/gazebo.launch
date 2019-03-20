@@ -12,6 +12,13 @@
     <arg name="use_gpu" default="true"/>
     <arg name="joystick_type" default="xbox360"/>
 
+    <!-- Mode Override
+        1 forces manual driving
+        2 forces autonomous driving
+        0 uses user input to enable the modes
+    -->
+    <arg name="mode_override" default="0"/>
+
     <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch">
         <arg name="world" value="$(arg world)"/>
         <arg name="paused" value="$(arg paused)"/>
@@ -28,7 +35,9 @@
     </include>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
-    <include file="$(find car_control)/launch/car_control.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch">
+        <arg name="mode_override" value="$(arg mode_override)"/>
+    </include>
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>

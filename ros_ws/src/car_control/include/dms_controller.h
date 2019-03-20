@@ -9,10 +9,13 @@
 
 constexpr const char* PARAMETER_DMS_CHECK_RATE = "dms_check_rate";
 constexpr const char* PARAMETER_DMS_EXPIRATION = "dms_expiration";
+constexpr const char* PARAMETER_MODE_OVERRIDE = "mode_override";
 
 constexpr const char* TOPIC_HEARTBEAT_MANUAL = "/input/heartbeat_manual";
 constexpr const char* TOPIC_HEARTBEAT_AUTONOMOUS = "/input/heartbeat_autonomous";
 constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
+
+constexpr DriveMode NO_OVERRIDE = DriveMode::LOCKED;
 
 class DMSController
 {
@@ -26,6 +29,8 @@ class DMSController
      * @brief How often the unlock motor message is published, in Hz
      */
     int m_update_frequency;
+
+    DriveMode m_mode_override;
 
     /**
      * @brief How old the last dead man's switch heartbeat can be, in ms

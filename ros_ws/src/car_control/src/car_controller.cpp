@@ -6,19 +6,6 @@
 CarController::CarController()
     : m_motor_unlocked{ false }
 {
-    ros::NodeHandle private_node_handle("~");
-
-    private_node_handle.getParam(PARAMETER_DMS_ENABLED, this->m_dms_enabled);
-    if (m_dms_enabled)
-    {
-        m_motor_unlocked = false;
-    }
-    else
-    {
-        m_motor_unlocked = true;
-        ROS_WARN_STREAM("DMS is not enabled! (always pressed)");
-    }
-
     this->m_drive_parameters_subscriber =
         this->m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1,
                                                                &CarController::driveParametersCallback, this);

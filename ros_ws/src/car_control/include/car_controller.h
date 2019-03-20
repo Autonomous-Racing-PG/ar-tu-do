@@ -10,8 +10,6 @@
 #include <std_msgs/Int32.h>
 #include <std_msgs/Float64.h>
 
-constexpr const char* PARAMETER_DMS_ENABLED = "dms_enabled";
-
 constexpr const char* TOPIC_FOCBOX_SPEED = "/commands/motor/speed";
 constexpr const char* TOPIC_FOCBOX_ANGLE = "/commands/servo/position";
 constexpr const char* TOPIC_FOCBOX_BRAKE = "commands/motor/brake";
@@ -26,8 +24,6 @@ class CarController
 
     private:
     ros::NodeHandle m_node_handle;
-
-    bool m_dms_enabled;
 
     ros::Subscriber m_drive_parameters_subscriber;
     ros::Subscriber m_drive_mode_subscriber;
