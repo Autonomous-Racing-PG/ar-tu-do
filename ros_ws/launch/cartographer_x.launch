@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="marker_frame_id" default="hokuyo"/>
+    <arg name="world" default="racetrack_decorated_2"/>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="verbose" default="true"/>
+    <arg name="use_gpu" default="true"/>
+    <arg name="dms_enabled" default="true" />
+    <arg name="dms_check_rate" default="20" />
+    <arg name="dms_expiration" default="100" />
+
+    <include file="$(find racer_world)/launch/racer_gazebo.launch">
+        <arg name="world" value="$(arg world)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="verbose" value="$(arg verbose)"/>
+        <arg name="use_gpu" value="$(arg use_gpu)"/>
+    </include>
+
+    <include file="$(find autonomous)/launch/autonomous_driving.launch">
+        <arg name="marker_frame_id" value="$(arg marker_frame_id)"/>
+    </include>
+
+    <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch">
+        <arg name="dms_enabled" value="$(arg dms_enabled)" />
+        <arg name="dms_check_rate" value="$(arg dms_check_rate)" />
+        <arg name="dms_expiration" value="$(arg dms_expiration)" />
+    </include>
+    <include file="$(find teleoperation)/launch/remote_control.launch"/>
+
+    <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+          -configuration_directory $(find racer_description)/config
+          -configuration_basename cartographer_config.lua" output="screen">
+    </node>
+
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+</launch>
