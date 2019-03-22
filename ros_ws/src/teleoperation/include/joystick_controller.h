@@ -44,7 +44,7 @@ class JoystickController
         int enableAutonomousButton;
     };
 
-    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14, 15 };
+    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14, 13 };
     const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0, 1 };
     const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0, 1 };
 
