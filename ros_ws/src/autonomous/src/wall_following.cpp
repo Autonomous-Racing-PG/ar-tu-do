@@ -70,7 +70,7 @@ void WallFollowing::followSingleWall(const sensor_msgs::LaserScan::ConstPtr& lid
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
-    wall.draw(this->m_debug_geometry, 0, createColor(0, 1, 0, 1));
+    wall.draw(this->m_debug_geometry, 0, createColor(0, 0, 1, 1));
     this->m_debug_geometry.drawLine(1, createPoint(PREDICTION_DISTANCE, 0, 0),
                                     createPoint(PREDICTION_DISTANCE, -error * leftRightSign, 0),
                                     createColor(1, 0, 0, 1), 0.03);
@@ -95,8 +95,8 @@ void WallFollowing::followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::max(0.0, std::abs(steeringAngle) - 0.15));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
-    leftWall.draw(this->m_debug_geometry, 0, createColor(0, 1, 0, 1));
-    rightWall.draw(this->m_debug_geometry, 1, createColor(0, 1, 0, 1));
+    leftWall.draw(this->m_debug_geometry, 0, createColor(0, 0, 1, 1));
+    rightWall.draw(this->m_debug_geometry, 1, createColor(0, 0, 1, 1));
     this->m_debug_geometry.drawLine(2, createPoint(PREDICTION_DISTANCE, 0, 0),
                                     createPoint(PREDICTION_DISTANCE, -error, 0), createColor(1, 0, 0, 1), 0.03);
     float distance2 = PREDICTION_DISTANCE + 2;
