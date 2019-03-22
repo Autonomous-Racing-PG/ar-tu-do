@@ -33,7 +33,7 @@ constexpr float FALLBACK_RANGE = 4;
 constexpr float SAMPLE_ANGLE_1 = 30 * DEG_TO_RAD;
 constexpr float SAMPLE_ANGLE_2 = 70 * DEG_TO_RAD;
 
-constexpr float WALL_FOLLOWING_MAX_SPEED = 0.25;
+constexpr float WALL_FOLLOWING_MAX_SPEED = 0.35;
 constexpr float WALL_FOLLOWING_MIN_SPEED = 0.2;
 
 // The car will aim to reach the target wall distance after travelling this distance.

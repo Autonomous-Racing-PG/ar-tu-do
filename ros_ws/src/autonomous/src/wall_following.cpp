@@ -92,7 +92,7 @@ void WallFollowing::followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float correction = this->m_pid_controller.updateAndGetCorrection(error, TIME_BETWEEN_SCANS);
 
     float steeringAngle = atan(correction) * 2 / M_PI;
-    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::abs(steeringAngle));
+    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::max(0.0, std::abs(steeringAngle) - 0.15));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
     leftWall.draw(this->m_debug_geometry, 0, createColor(0, 1, 0, 1));
