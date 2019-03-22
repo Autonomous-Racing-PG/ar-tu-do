@@ -45,6 +45,8 @@ void CarController::publishDriveParameters(double relative_speed, double relativ
 void CarController::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message)
 {
     DriveMode mode = (DriveMode)drive_mode_message->data;
+    ROS_ASSERT_MSG(mode == DriveMode::LOCKED || mode == DriveMode::MANUAL || mode == DriveMode::AUTONOMOUS,
+                   "Unknown drive mode.");
     if (this->m_motor_unlocked && mode == DriveMode::LOCKED)
     {
         this->stop();

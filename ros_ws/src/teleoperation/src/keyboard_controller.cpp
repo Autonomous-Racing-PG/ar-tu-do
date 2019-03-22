@@ -212,6 +212,8 @@ void KeyboardController::publishDriveParameters()
 void KeyboardController::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message)
 {
     auto mode = (DriveMode)drive_mode_message->data;
+    ROS_ASSERT_MSG(mode == DriveMode::LOCKED || mode == DriveMode::MANUAL || mode == DriveMode::AUTONOMOUS,
+                   "Unknown drive mode.");
     if (this->m_drive_mode != mode)
     {
         this->m_drive_mode = mode;

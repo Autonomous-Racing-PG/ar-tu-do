@@ -86,12 +86,15 @@ void DMSController::configureParameters()
 
     int mode_override_parameter;
     private_node_handle.getParam(PARAMETER_MODE_OVERRIDE, mode_override_parameter);
-    if (mode_override_parameter < 0 || mode_override_parameter > 2)
+
+    this->m_mode_override = (DriveMode)mode_override_parameter;
+    if (this->m_mode_override != DriveMode::LOCKED && this->m_mode_override != DriveMode::MANUAL &&
+        this->m_mode_override != DriveMode::AUTONOMOUS)
     {
         ROS_WARN_STREAM("Invalid value for mode override.");
-        mode_override_parameter = 0;
+        this->m_mode_override = NO_OVERRIDE;
     }
-    this->m_mode_override = (DriveMode)mode_override_parameter;
+
     if (this->m_mode_override != NO_OVERRIDE)
     {
         ROS_WARN_STREAM("Drive Mode Override is enabled. The car will drive even if no key is pressed.");
