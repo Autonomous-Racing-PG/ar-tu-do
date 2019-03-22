@@ -4,6 +4,10 @@
     <arg name="marker_frame_id" default="laser"/>
     <arg name="joystick_type" default="ps3"/>
 
+    <node pkg="urg_node" type="urg_node" name="urg_node">
+        <param name="_ip_address"  value="192.168.1.10"/>
+    </node>
+
     <include file="$(find car_control)/launch/car_control.launch"/>
 
     <include file="$(find teleoperation)/launch/remote_control.launch">
