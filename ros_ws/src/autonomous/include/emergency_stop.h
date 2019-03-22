@@ -18,7 +18,7 @@ constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 
 constexpr float SAMPLE_ANGLE = 6 * DEG_TO_RAD;
-constexpr float RANGE_THRESHOLD = 0.3;
+constexpr float RANGE_THRESHOLD = 0.7;
 
 constexpr float MAX_RANGE = 30;
 
