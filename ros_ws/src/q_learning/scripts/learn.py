@@ -5,6 +5,7 @@ from std_msgs.msg import String
 from gazebo_msgs.srv import SetModelState
 from gazebo_msgs.msg import ModelState
 
+rospy.wait_for_service('/gazebo/set_model_state')
 set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 
 def respawn():
