@@ -32,10 +32,16 @@
   </include>
 
   <node
-    respawn="true"
     pkg="q_learning"
     type="learn.py"
     name="learn"
+    output="screen" >
+  </node>
+
+  <node
+    pkg="q_learning"
+    type="crash_detector"
+    name="crash_detector"
     output="screen" >
   </node>
 </launch>
