@@ -7,10 +7,15 @@ from gazebo_msgs.msg import ModelState, ModelStates
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
 from random import randint
+from collections import namedtuple
 
 ACTIONS = [(-0.7, 0.2), (-0.3, 0.3), (0, 0.4), (0.3, 0.3), (0.7, 0.2), (0.0, 0.6)]
 LASER_SAMPLE_COUNT = 16
-MAX_RANGE = 10
+MAX_RANGE = 10 # Clamp lidar measurements to this distance
+
+MAX_EPISODE_LENGTH = 50
+
+Episode = namedtuple("Episode", ["states", "actions", "reward"])
 
 def respawn():
     state = ModelState()
@@ -25,28 +30,32 @@ def respawn():
     set_model_state(state)
 
 def get_distance_travelled():
-    if current_position is None or start_position is None:
+    if current_position is None or previous_position is None:
         return 0
-    return ((current_position.x - start_position.x)**2 + (current_position.y - start_position.y)**2)**0.5
+    return ((current_position.x - previous_position.x)**2 + (current_position.y - previous_position.y)**2)**0.5
 
-def reset_run(_ = None):
-    global start_position
-
+def crash_callback(_):
     distance_travelled = get_distance_travelled()
     if distance_travelled < 0.1:
         return
+    reset_episode()
 
-    rospy.loginfo("Distance travelled: " + str(distance_travelled) + "m")
-    start_position = None
+def reset_episode():
+    global previous_position, current_episode, episode_count
+
+    if current_episode is not None:
+        rospy.loginfo("Episode " + str(episode_count) + " complete. " + str(len(current_episode.actions)) + " steps, cumulative reward: " + format(sum(current_episode.reward), '.2f'))
+
+    current_episode = Episode([], [], [])
+    episode_count += 1
+    previous_position = None
     respawn()
 
 def model_state_callback(message):
-    global current_position, start_position
+    global current_position, previous_position
     if len(message.pose) < 2:
         return
     current_position = message.pose[1].position
-    if start_position == None:
-        start_position = current_position
 
 def publish_drive_parameters(angle, velocity):
     message = drive_param()
@@ -74,19 +83,35 @@ def get_state():
     return [min(1, laser_scan.ranges[i] / MAX_RANGE) ** 0.5 for i in indices]
 
 current_position = None
-start_position = None
+previous_position = None
 laser_scan = None
+
+current_episode = None
+episode_count = 0
 
 rospy.wait_for_service('/gazebo/set_model_state')
 set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 
 rospy.init_node('learn', anonymous=True)
-rospy.Subscriber("/crash", Empty, reset_run)
+rospy.Subscriber("/crash", Empty, crash_callback)
 rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param, queue_size=1)
-respawn()
+reset_episode()
 rate = rospy.Rate(5)
+
 while not rospy.is_shutdown():
-    drive(get_random_action())
+    if len(current_episode.actions) > MAX_EPISODE_LENGTH:
+        reset_episode()
+    else:
+        action = get_random_action()
+        state = get_state()
+        reward = get_distance_travelled()
+
+        current_episode.states.append(state)
+        current_episode.actions.append(action)
+        current_episode.reward.append(reward)
+        drive(action)
+        previous_position = current_position
+
     rate.sleep()
