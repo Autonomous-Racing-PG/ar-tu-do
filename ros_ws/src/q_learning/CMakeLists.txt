@@ -7,6 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   gazebo_msgs
+  drive_msgs
 )
 find_package(gazebo REQUIRED)
 

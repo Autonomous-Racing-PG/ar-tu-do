@@ -17,4 +17,5 @@
   <depend>std_msgs</depend>
   <depend>roscpp</depend>
   <depend>rospy</depend>
+  <depend>drive_msgs</depend>
 </package>

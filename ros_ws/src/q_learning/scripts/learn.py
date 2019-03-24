@@ -4,12 +4,10 @@ import rospy
 from std_msgs.msg import String, Empty
 from gazebo_msgs.srv import SetModelState
 from gazebo_msgs.msg import ModelState, ModelStates
+from drive_msgs.msg import drive_param
+from random import randint
 
-rospy.wait_for_service('/gazebo/set_model_state')
-set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
-
-current_position = None
-start_position = None
+ACTIONS = [(-0.7, 0.2), (-0.3, 0.3), (0, 0.4), (0.3, 0.3), (0.7, 0.2), (0.0, 0.6)]
 
 def respawn():
     state = ModelState()
@@ -47,10 +45,31 @@ def model_state_callback(message):
     if start_position == None:
         start_position = current_position
 
+def publish_drive_parameters(angle, velocity):
+    message = drive_param()
+    message.angle = angle
+    message.velocity = velocity
+    drive_parameters_publisher.publish(message)
+
+def drive(action_index):
+    if action_index < 0 or action_index >= len(ACTIONS):
+        raise Exception("Invalid action: " + str(action_index))
+    publish_drive_parameters(*ACTIONS[action_index])
+
+def get_random_action():
+    return randint(0, len(ACTIONS) - 1)
+
+current_position = None
+start_position = None
+
+rospy.wait_for_service('/gazebo/set_model_state')
+set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 
 rospy.init_node('learn', anonymous=True)
 rospy.Subscriber("/crash", Empty, reset_run)
 rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
-rate = rospy.Rate(0.3)
+drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param)
+rate = rospy.Rate(5)
 while not rospy.is_shutdown():
+    drive(get_random_action())
     rate.sleep()
