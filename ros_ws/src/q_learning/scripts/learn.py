@@ -4,10 +4,13 @@ import rospy
 from std_msgs.msg import String, Empty
 from gazebo_msgs.srv import SetModelState
 from gazebo_msgs.msg import ModelState, ModelStates
+from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
 from random import randint
 
 ACTIONS = [(-0.7, 0.2), (-0.3, 0.3), (0, 0.4), (0.3, 0.3), (0.7, 0.2), (0.0, 0.6)]
+LASER_SAMPLE_COUNT = 16
+MAX_RANGE = 10
 
 def respawn():
     state = ModelState()
@@ -59,8 +62,20 @@ def drive(action_index):
 def get_random_action():
     return randint(0, len(ACTIONS) - 1)
 
+def laser_callback(message):
+    global laser_scan
+    laser_scan = message
+
+def get_state():
+    if laser_scan == None:
+        return [0 for _ in range(LASER_SAMPLE_COUNT)]
+    count = (laser_scan.angle_max - laser_scan.angle_min) / laser_scan.angle_increment
+    indices = [int(i * count / LASER_SAMPLE_COUNT) for i in range(LASER_SAMPLE_COUNT)]
+    return [min(1, laser_scan.ranges[i] / MAX_RANGE) ** 0.5 for i in indices]
+
 current_position = None
 start_position = None
+laser_scan = None
 
 rospy.wait_for_service('/gazebo/set_model_state')
 set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
@@ -68,7 +83,9 @@ set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 rospy.init_node('learn', anonymous=True)
 rospy.Subscriber("/crash", Empty, reset_run)
 rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
-drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param)
+rospy.Subscriber("/scan", LaserScan, laser_callback)
+drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param, queue_size=1)
+respawn()
 rate = rospy.Rate(5)
 while not rospy.is_shutdown():
     drive(get_random_action())
