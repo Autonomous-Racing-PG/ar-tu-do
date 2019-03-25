@@ -6,6 +6,7 @@ from gazebo_msgs.srv import SetModelState
 from gazebo_msgs.msg import ModelState, ModelStates
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
+from tf.transformations import quaternion_from_euler
 
 import math
 import random
@@ -130,10 +131,13 @@ def respawn():
     state.pose.position.x = 0
     state.pose.position.y = -0.5
     state.pose.position.z = 0
-    state.twist.linear.x = 0
-    state.twist.linear.y = 0
-    state.twist.linear.z = 0
 
+    q = quaternion_from_euler(2 * math.pi * random.random(), math.pi, 0)
+    state.pose.orientation.x = q[0]
+    state.pose.orientation.z = q[1]
+    state.pose.orientation.w = q[2]
+    state.pose.orientation.y = q[3]
+    
     set_model_state(state)
 
 def get_distance_travelled():
