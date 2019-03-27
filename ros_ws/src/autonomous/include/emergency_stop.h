@@ -15,6 +15,9 @@
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 
+constexpr const float EMERGENCY_STOP_DISTANCE = 1;
+constexpr const float CAR_BUMPER_LENGTH = 0.2;
+
 class EmergencyStop
 {
     public:

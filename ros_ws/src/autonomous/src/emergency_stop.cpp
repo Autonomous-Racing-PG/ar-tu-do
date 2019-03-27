@@ -32,21 +32,23 @@ float EmergencyStop::rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar
 
 bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
+    // calculate the radius of the lidar to be used to check if there is
+    // an obstacle in front of the car, with respect to the EMERGENCY_STOP_DISTANCE
+    float radius = (360 * CAR_BUMPER_LENGTH) / (M_PI * EMERGENCY_STOP_DISTANCE * 2);
 
-    // used for range averaging
-    float front_range_sum = 0;
+    // compute the number of lidar samples needed to cover the radius calculated above.
+    int lidar_samples = (int) radius / 0.375;
 
-    // calculate the average distance in front of the car (6° radius)
-    // used for robustness
-    // (e.g. there is noise and only a single index shows a close range...
-    // ... this is probably not an obstacle)
-    for (int i = 133; i < 139; i++)
+    // determine the minimum distance between the car and a potetial obstacle 
+    float min_dist = 100;
+    for (int i = 135 - lidar_samples/2 ; i < 135 + lidar_samples/2; i++)
     {
-        front_range_sum += rangeAtDegree(lidar, i);
+        if(min_dist > rangeAtDegree(lidar, i))
+            min_dist = rangeAtDegree(lidar,i);
     }
 
     // return 0 (stop) if the object is too close
-    return ((front_range_sum / 6) < 0.3);
+    return (min_dist < EMERGENCY_STOP_DISTANCE);
 }
 
 void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
