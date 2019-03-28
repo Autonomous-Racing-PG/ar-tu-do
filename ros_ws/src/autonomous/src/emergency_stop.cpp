@@ -2,67 +2,56 @@
 
 EmergencyStop::EmergencyStop()
 {
-    lidar_subscriber =
+    m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &EmergencyStop::lidarCallback, this);
-    emer_stop_publisher = m_node_handle.advertise<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1);
-}
-
-float EmergencyStop::rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta)
-{
-    // check if calculated index is invalid
-    // if so then return the chosen max range (here 4)
-    if (theta / 0.375f < 0 || theta / 0.375f > 719)
-    {
-        return 4;
-    }
-
-    // ranges size is 720, angle range is 270°
-    // so one step equals an angle of 0,375°
-    // to access range at angle theta, you have to divide the given theta by the step size
-    float range = lidar->ranges[theta / 0.375];
-
-    // check for absurd or nan values
-    // the max range should be 4 so the car doesn't get affected by walls very far away
-    if (range > 4 || std::isinf(range))
-    {
-        range = 4;
-    }
-    return range;
+    m_emergency_stop_publisher = m_node_handle.advertise<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1);
 }
 
 bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
+    int available_samples = (lidar->angle_max - lidar->angle_min) / lidar->angle_increment;
+    int samples_used = 0;
+    float range_sum = 0;
 
-    // used for range averaging
-    float front_range_sum = 0;
+    int index_start = available_samples / 2 - SAMPLE_ANGLE / lidar->angle_increment / 2;
+    int index_end = available_samples / 2 + SAMPLE_ANGLE / lidar->angle_increment / 2;
+    ROS_ASSERT_MSG(index_start >= 0 && index_end < available_samples,
+                   "SAMPLE_ANGLE is too big. Trying to access lidar samples out of bounds.");
 
-    // calculate the average distance in front of the car (6° radius)
-    // used for robustness
-    // (e.g. there is noise and only a single index shows a close range...
-    // ... this is probably not an obstacle)
-    for (int i = 133; i < 139; i++)
+    for (int i = index_start; i < index_end; i++)
     {
-        front_range_sum += rangeAtDegree(lidar, i);
+        float range = lidar->ranges[i];
+
+        if (range < MAX_RANGE && !std::isinf(range))
+        {
+            range_sum += range;
+            samples_used++;
+        }
     }
 
-    // return 0 (stop) if the object is too close
-    return ((front_range_sum / 6) < 0.3);
+    if (samples_used == 0)
+    {
+        return false;
+    }
+
+    float range_average = range_sum / samples_used;
+    return range_average < RANGE_THRESHOLD;
 }
 
 void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-    bool emergency_stop = emergencyStop(lidar);
+    bool emergency_stop_active = emergencyStop(lidar);
 
-    if (emergency_stop)
+    if (emergency_stop_active)
     {
-        ROS_INFO_STREAM("Too close! Stop!");
+        ROS_INFO_STREAM("Wall detected. Emergency stop is active.");
     }
 
-    std_msgs::Bool emer_stop;
+    std_msgs::Bool message;
     {
-        emer_stop.data = emergency_stop;
+        message.data = emergency_stop_active;
     }
-    emer_stop_publisher.publish(emer_stop);
+    m_emergency_stop_publisher.publish(message);
 }
 
 int main(int argc, char** argv)

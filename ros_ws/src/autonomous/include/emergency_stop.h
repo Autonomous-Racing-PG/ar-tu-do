@@ -12,8 +12,15 @@
 #include <ros/console.h>
 #include <ros/ros.h>
 
+constexpr float DEG_TO_RAD = M_PI / 180.0;
+
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
+
+constexpr float SAMPLE_ANGLE = 6 * DEG_TO_RAD;
+constexpr float RANGE_THRESHOLD = 0.7;
+
+constexpr float MAX_RANGE = 30;
 
 class EmergencyStop
 {
@@ -22,33 +29,14 @@ class EmergencyStop
 
     private:
     /**
-     * @brief Checks if there is a wall to close in front of the car.
-     *
-     * @param lidar The lidar scan values
-     * @return true ...if the car is too close to a wall
-     * @return false ...if the car is not too close to a wall
+     * @brief Returns true if there is a wall too close in front of the car.
      */
     bool emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar);
 
-    /**
-     * @brief Maps the given degree value to the corresponding array index of the lidar array
-     * and returns the range.
-     *
-     * @param lidar The lidar scan values
-     * @param theta Degree value
-     * @return float Range at the given degree
-     */
-    float rangeAtDegree(const sensor_msgs::LaserScan::ConstPtr& lidar, float theta);
-
     ros::NodeHandle m_node_handle;
-    ros::Subscriber lidar_subscriber;
+    ros::Subscriber m_lidar_subscriber;
 
-    /**
-     * @brief The callback method for this node. Gets the lidar input and handles the emergency stop.
-     *
-     * @param lidar
-     */
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
 
-    ros::Publisher emer_stop_publisher;
+    ros::Publisher m_emergency_stop_publisher;
 };
