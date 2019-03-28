@@ -73,7 +73,7 @@
   <gazebo reference="hokuyo">
     <sensor type="${hokuyo_sensor}" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>$(arg visualize_lidar)</visualize>
       <update_rate>60</update_rate>
       <ray>
         <scan>

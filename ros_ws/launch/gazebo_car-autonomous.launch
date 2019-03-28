@@ -9,6 +9,7 @@
     <arg name="debug" default="false"/>
     <arg name="verbose" default="true"/>
     <arg name="use_gpu" default="true"/>
+    <arg name="visualize_lidar" default="false"/>
 
     <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch">
         <arg name="world" value="$(arg world)"/>
@@ -18,7 +19,7 @@
         <arg name="headless" value="$(arg headless)"/>
         <arg name="debug" value="$(arg debug)"/>
         <arg name="verbose" value="$(arg verbose)"/>
-        <arg name="use_gpu" value="$(arg use_gpu)"/>
+        <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
     </include>
 
     <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
