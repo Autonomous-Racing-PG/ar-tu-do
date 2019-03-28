@@ -12,7 +12,7 @@
     <arg name="use_gpu" default="true"/>
     <arg name="visualize_lidar" default="false"/>
 
-    <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch">
+    <include file="$(find racer_world)/launch/racer_gazebo.launch">
         <arg name="world" value="$(arg world)"/>
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
@@ -23,6 +23,8 @@
         <arg name="use_gpu" value="$(arg use_gpu)"/>
         <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
     </include>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
 
