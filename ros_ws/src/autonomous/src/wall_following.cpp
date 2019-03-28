@@ -136,7 +136,7 @@ void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "wall_following");
-    WallFollowing wall_following();
+    WallFollowing wall_following;
     ros::spin();
     return EXIT_SUCCESS;
 }
