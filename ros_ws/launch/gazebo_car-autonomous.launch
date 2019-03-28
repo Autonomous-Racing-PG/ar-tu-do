@@ -19,6 +19,7 @@
         <arg name="headless" value="$(arg headless)"/>
         <arg name="debug" value="$(arg debug)"/>
         <arg name="verbose" value="$(arg verbose)"/>
+        <arg name="use_gpu" value="$(arg use_gpu)"/>
         <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
     </include>
 
