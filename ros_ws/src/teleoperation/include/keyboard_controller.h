@@ -55,7 +55,7 @@ constexpr double STEERING_GRAVITY = 2;
 // When no throttle key is pressed, the velocity will change towards 0 at this rate, in units per second
 constexpr double THROTTLE_GRAVITY = 3;
 
-constexpr double MAX_THROTTLE = 0.25;
+constexpr double MAX_THROTTLE = 0.35;
 
 class KeyboardController
 {

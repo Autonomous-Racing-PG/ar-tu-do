@@ -59,7 +59,7 @@ class WallFollowing
 
     bool m_emergency_stop = true;
 
-    PIDController m_pid_controller = PIDController(6, 0.01, 0.3);
+    PIDController m_pid_controller = PIDController(5, 0.01, 0.2);
 
     void followSingleWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall);
     void followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar);
