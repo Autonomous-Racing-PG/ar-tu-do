@@ -146,8 +146,12 @@ var NAVTREEINDEX0 =
 "emergency__stop_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,0,1,0,0],
 "emergency__stop_8cpp_source.html":[5,0,0,0,0,0,1,0],
 "emergency__stop_8h.html":[5,0,0,0,0,0,0,0],
-"emergency__stop_8h.html#a1f6b8d64fcb3748f9c9284f063015c77":[5,0,0,0,0,0,0,0,1],
-"emergency__stop_8h.html#a47333d71d0bb2a72869aa7441034798c":[5,0,0,0,0,0,0,0,2],
+"emergency__stop_8h.html#a1f6b8d64fcb3748f9c9284f063015c77":[5,0,0,0,0,0,0,0,5],
+"emergency__stop_8h.html#a35f01de48a0247ffa2674e116ae971d0":[5,0,0,0,0,0,0,0,3],
+"emergency__stop_8h.html#a36742d5598d56216bba3f928732fb273":[5,0,0,0,0,0,0,0,2],
+"emergency__stop_8h.html#a47333d71d0bb2a72869aa7441034798c":[5,0,0,0,0,0,0,0,6],
+"emergency__stop_8h.html#a5b30ee0e3351a6a6e9701f948e322e2e":[5,0,0,0,0,0,0,0,4],
+"emergency__stop_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa":[5,0,0,0,0,0,0,0,1],
 "emergency__stop_8h_source.html":[5,0,0,0,0,0,0,0],
 "files.html":[5,0],
 "functions.html":[4,2,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX0 =
 "simulation_2vesc__sim_2src_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,4,0,1,0,0],
 "simulation_2vesc__sim_2src_2main_8cpp_source.html":[5,0,0,0,0,4,0,1,0],
 "test__car__control_8cpp.html":[5,0,0,0,0,1,2,0],
-"test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,1,2,0,0],
-"test__car__control_8cpp.html#a6accdba7cce21b4fbadc9847942eccee":[5,0,0,0,0,1,2,0,2],
-"test__car__control_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9":[5,0,0,0,0,1,2,0,1],
-"test__car__control_8cpp_source.html":[5,0,0,0,0,1,2,0],
-"vesc__sim_8cpp.html":[5,0,0,0,0,4,0,1,1]
+"test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,1,2,0,0]
 };

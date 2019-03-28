@@ -10,7 +10,7 @@ var searchData=
   ['main_2ecpp',['main.cpp',['../navigation__stack_2msgs__converter_2src_2main_8cpp.html',1,'']]],
   ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
   ['map',['map',['../wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc',1,'map(float in_lower, float in_upper, float out_lower, float out_upper, float value):&#160;wall_following.cpp'],['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'map(double value, double in_lower, double in_upper, double out_lower, double out_upper):&#160;keyboard_controller.cpp']]],
-  ['max_5frange',['MAX_RANGE',['../wall__following_8h.html#a36742d5598d56216bba3f928732fb273',1,'wall_following.h']]],
+  ['max_5frange',['MAX_RANGE',['../emergency__stop_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;emergency_stop.h'],['../wall__following_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;wall_following.h']]],
   ['max_5frpm_5felectrical',['MAX_RPM_ELECTRICAL',['../namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b',1,'car_config']]],
   ['max_5frpm_5fmechanical',['MAX_RPM_MECHANICAL',['../namespacecar__config.html#ad35069a183782259c6280aa219b72ffa',1,'car_config']]],
   ['max_5fservo_5fposition',['MAX_SERVO_POSITION',['../namespacecar__config.html#af1712762f3ad9f8805ba474d5f3e7274',1,'car_config']]],
