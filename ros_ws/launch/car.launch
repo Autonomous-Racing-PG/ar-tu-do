@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <arg name="marker_frame_id" default="hokuyo"/>
     <arg name="joystick_type" default="ps3"/>
+
+    <node pkg="urg_node" type="urg_node" name="urg_node">
+        <param name="_ip_address"  value="192.168.1.10"/>
+    </node>
 
     <include file="$(find car_control)/launch/car_control.launch"/>
 
@@ -21,9 +24,7 @@
         <param name="wheelbase" value="0.325"/>
     </node>-->
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch">
-        <arg name="marker_frame_id" value="$(arg marker_frame_id)"/>
-    </include>
+    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
 
-    <node name="rviz" pkg="rviz" type="rviz" args=""/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
 </launch>
