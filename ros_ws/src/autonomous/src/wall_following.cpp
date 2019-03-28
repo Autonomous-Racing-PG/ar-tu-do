@@ -1,8 +1,8 @@
 #include "wall_following.h"
 #include <boost/algorithm/clamp.hpp>
 
-WallFollowing::WallFollowing(const std::string& frame_id)
-    : m_debug_geometry(this->m_node_handle, TOPIC_VISUALIZATION, frame_id)
+WallFollowing::WallFollowing()
+    : m_debug_geometry(this->m_node_handle, TOPIC_VISUALIZATION, LIDAR_FRAME)
 {
     this->m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
@@ -136,27 +136,7 @@ void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "wall_following");
-    ros::NodeHandle private_node_handle("~");
-
-    /**
-     * Attention:
-     * ==========
-     * Please make sure the parameter PARAMETER_MARKER_FRAME_ID is set
-     * correctly for YOUR configuration, as the frame id can be different
-     * on different simulators or real cars.
-     **/
-    std::string frame_id;
-    private_node_handle.getParam(PARAMETER_MARKER_FRAME_ID, frame_id);
-
-    // There might be a valid reason to set the parameter to empty string.
-    // But in most cases being empty should be wrong, so a warning should
-    // help finding the reason why the car doesn't follow a wall.
-    if (frame_id.empty())
-    {
-        ROS_WARN_STREAM("Parameter: '" << PARAMETER_MARKER_FRAME_ID << "' is empty!");
-    }
-
-    WallFollowing wall_following(frame_id);
+    WallFollowing wall_following();
     ros::spin();
     return EXIT_SUCCESS;
 }
