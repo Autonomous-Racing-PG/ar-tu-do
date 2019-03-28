@@ -70,8 +70,8 @@
     <xacro:property name="hokuyo_plugin" value="libgazebo_ros_laser.so"/>
   </xacro:unless>
 
-  <gazebo reference="hokuyo">
-    <sensor type="${hokuyo_sensor}" name="head_hokuyo_sensor">
+  <gazebo reference="laser">
+    <sensor type="${hokuyo_sensor}" name="laser_Scanner">
       <pose>0 0 0 0 0 0</pose>
       <visualize>$(arg visualize_lidar)</visualize>
       <update_rate>60</update_rate>
