@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-    <arg name="marker_frame_id" default="hokuyo"/>
     <arg name="world" default="racetrack_decorated_2"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
@@ -10,8 +9,9 @@
     <arg name="debug" default="false"/>
     <arg name="verbose" default="true"/>
     <arg name="use_gpu" default="true"/>
+    <arg name="visualize_lidar" default="false"/>
 
-    <include file="$(find racer_world)/launch/racer_gazebo_rviz.launch">
+    <include file="$(find racer_world)/launch/racer_gazebo.launch">
         <arg name="world" value="$(arg world)"/>
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
@@ -20,11 +20,12 @@
         <arg name="debug" value="$(arg debug)"/>
         <arg name="verbose" value="$(arg verbose)"/>
         <arg name="use_gpu" value="$(arg use_gpu)"/>
+        <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
     </include>
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch">
-        <arg name="marker_frame_id" value="$(arg marker_frame_id)"/>
-    </include>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
+
+    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch"/>

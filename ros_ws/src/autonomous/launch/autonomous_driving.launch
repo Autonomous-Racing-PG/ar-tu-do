@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 <!-- Launches all necessary nodes that let the car drive autonomously. -->
-    <arg name="marker_frame_id" default="hokuyo"/> <!-- "hokuyo" in the simulation and "laser" on the physical car -->
-
     <!-- wall_following node -->
     <node
       respawn="true"
@@ -10,7 +8,6 @@
       type="wall_following"
       name="wall_following"
       output="screen" >
-      <param name="marker_frame_id" type="str" value = "$(arg marker_frame_id)" />
     </node>
 
     <!-- emergency_stop node -->

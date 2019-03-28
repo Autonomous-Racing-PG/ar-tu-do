@@ -94,7 +94,7 @@
   </joint>
 
   <!-- Hokuyo Laser -->
-  <link name="hokuyo">
+  <link name="laser">
     <inertial>
       <mass value="${hokuyoMass}" />
       <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
@@ -116,11 +116,11 @@
     </visual>
   </link>
 
-  <joint name="hokuyo_joint" type="fixed">
+  <joint name="laser_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.21 0 0.135" rpy="0 0 0"/>
     <parent link="chassis"/>
-    <child link="hokuyo"/>
+    <child link="laser"/>
   </joint>
 
 </robot>
