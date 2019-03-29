@@ -13,6 +13,8 @@ import random
 import numpy as np
 from itertools import count
 from collections import namedtuple
+import threading
+import time
 
 import torch
 import torch.nn as nn
@@ -88,42 +90,49 @@ def select_action(state):
             net_output = policy_net(state)
             return net_output.max(0)[1].item()
 
+optimization_steps = 0
+
 def optimize_model():
-    if not memory.full():
-        return
+    while not rospy.is_shutdown():
+        sample_size = int(memory.size() * 0.4)
+        if (sample_size < 100):
+            time.sleep(1)
+            continue
+        
+        transitions = memory.sample(sample_size)
+        
+        global started_optimization
+        if not started_optimization:
+            started_optimization = True
+            rospy.loginfo("Model optimization started.")
 
-    global started_optimization
-    if not started_optimization:
-        started_optimization = True
-        rospy.loginfo("Model optimization started.")
-    
-    transitions = memory.sample(BATCH_SIZE)
-    
-    # create a single Transition tuple with lists of states, actions, rewards and next states
-    batch = Transition(*zip(*transitions))
-    
-    state_batch = torch.stack(batch.state)
-    next_states = torch.stack(batch.next_state)
-    action_batch = torch.tensor(batch.action, device=device, dtype=torch.long)
-    reward_batch = torch.cat(batch.reward)
+        # create a single Transition tuple with lists of states, actions, rewards and next states
+        batch = Transition(*zip(*transitions))
+        
+        state_batch = torch.stack(batch.state)
+        next_states = torch.stack(batch.next_state)
+        action_batch = torch.tensor(batch.action, device=device, dtype=torch.long)
+        reward_batch = torch.cat(batch.reward)
 
-    # Compute Q values for the actions that were taken
-    net_output = policy_net(state_batch)
-    state_action_values = net_output.index_select(1, action_batch)
-    next_state_values = target_net(next_states).max(1)[0].detach()
+        # Compute Q values for the actions that were taken
+        net_output = policy_net(state_batch)
+        state_action_values = net_output.index_select(1, action_batch)
+        next_state_values = target_net(next_states).max(1)[0].detach()
 
-    # Compute the expected Q values
-    expected_state_action_values = (next_state_values * DISCOUNT_FACTOR) + reward_batch
+        # Compute the expected Q values
+        expected_state_action_values = (next_state_values * DISCOUNT_FACTOR) + reward_batch
 
-    # Compute Huber loss
-    loss = F.smooth_l1_loss(state_action_values, expected_state_action_values.unsqueeze(1))
+        # Compute Huber loss
+        loss = F.smooth_l1_loss(state_action_values, expected_state_action_values.unsqueeze(1))
 
-    # Optimize the model
-    optimizer.zero_grad()
-    loss.backward()
-    for param in policy_net.parameters():
-        param.grad.data.clamp_(-1, 1)
-    optimizer.step()
+        # Optimize the model
+        optimizer.zero_grad()
+        loss.backward()
+        for param in policy_net.parameters():
+            param.grad.data.clamp_(-1, 1)
+        optimizer.step()
+        global optimization_steps
+        optimization_steps += 1
 
 def respawn():
     state = ModelState()
@@ -234,6 +243,7 @@ rate = rospy.Rate(40)
 
 rospy.loginfo("Started training.")
 
+threading.Thread(target=optimize_model).start()
 
 while not rospy.is_shutdown():
     if len(current_episode.actions) > MAX_EPISODE_LENGTH:
@@ -253,8 +263,7 @@ while not rospy.is_shutdown():
             except IndexError:
                 # Race condition. The car crashed and the current episode is empty. Do nothing.
                 pass
-            
-            optimize_model()
+
 
         current_episode.states.append(state)
         current_episode.actions.append(action)
