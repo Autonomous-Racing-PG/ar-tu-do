@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['d',['D',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5',1,'keyboard_controller.h']]],
-  ['dead_5fmans_5fswitch',['DEAD_MANS_SWITCH',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bba5ea9ff88324a0fcc230686e273a00de1',1,'keyboard_controller.h']]],
-  ['decelerate',['DECELERATE',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbaceeff3cb59294b233b481ddb6dee95bf',1,'keyboard_controller.h']]]
+  ['b',['B',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571',1,'keyboard_controller.h']]]
 ];

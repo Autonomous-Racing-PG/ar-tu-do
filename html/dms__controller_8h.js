@@ -1,8 +1,11 @@
 var dms__controller_8h =
 [
     [ "DMSController", "class_d_m_s_controller.html", "class_d_m_s_controller" ],
+    [ "NO_OVERRIDE", "dms__controller_8h.html#a3a735101c1e4015e392138629110e821", null ],
     [ "PARAMETER_DMS_CHECK_RATE", "dms__controller_8h.html#a3b6ebf94ee59ba27ab11c7425a2e8bf0", null ],
     [ "PARAMETER_DMS_EXPIRATION", "dms__controller_8h.html#a06afb2972e04d22f02daa1e8587b3874", null ],
-    [ "TOPIC_DMS_HEARTBEAT", "dms__controller_8h.html#ab79acdeb3354fab42b5a2474a8e0edbb", null ],
-    [ "TOPIC_UNLOCK_MOTOR", "dms__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e", null ]
+    [ "PARAMETER_MODE_OVERRIDE", "dms__controller_8h.html#a8bb9a8af0fb69fd2634716c05ea43ce9", null ],
+    [ "TOPIC_DRIVE_MODE", "dms__controller_8h.html#a2fb4491f9a2dfe8baac21fd8a728ac30", null ],
+    [ "TOPIC_HEARTBEAT_AUTONOMOUS", "dms__controller_8h.html#a1d805453ad0a894550dab891e5dbe44e", null ],
+    [ "TOPIC_HEARTBEAT_MANUAL", "dms__controller_8h.html#a3750c1de56b20886f8932d6005c2b231", null ]
 ];

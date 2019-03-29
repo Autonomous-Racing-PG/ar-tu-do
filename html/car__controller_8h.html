@@ -114,17 +114,19 @@ $(document).ready(function(){initNavTree('car__controller_8h.html','');});
 <div class="title">car_controller.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;ros/ros.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="drive__mode_8h_source.html">drive_mode.h</a>&quot;</code><br />
+<code>#include &lt;ros/ros.h&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &lt;drive_msgs/drive_param.h&gt;</code><br />
-<code>#include &lt;std_msgs/Bool.h&gt;</code><br />
 <code>#include &lt;std_msgs/Float64.h&gt;</code><br />
+<code>#include &lt;std_msgs/Int32.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for car_controller.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="car__controller_8h__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2car__control_2include_2car__controller_8h" alt=""/></div>
 <map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2car__control_2include_2car__controller_8h" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2car__control_2include_2car__controller_8h">
+<area shape="rect" id="node2" href="drive__mode_8h.html" title="drive_mode.h" alt="" coords="5,139,105,165"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -145,8 +147,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab5b746b77e0319c62c4e2ff4a99c6bb8"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car__controller_8h.html#ab5b746b77e0319c62c4e2ff4a99c6bb8">PARAMETER_DMS_ENABLED</a> = &quot;dms_enabled&quot;</td></tr>
-<tr class="separator:ab5b746b77e0319c62c4e2ff4a99c6bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913c683c9209599c259aaebae91b557e"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car__controller_8h.html#a913c683c9209599c259aaebae91b557e">TOPIC_FOCBOX_SPEED</a> = &quot;/commands/motor/speed&quot;</td></tr>
 <tr class="separator:a913c683c9209599c259aaebae91b557e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fac7fea1c94a1d065ccd5b845ab45f7"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7">TOPIC_FOCBOX_ANGLE</a> = &quot;/commands/servo/position&quot;</td></tr>
@@ -155,21 +155,21 @@ Variables</h2></td></tr>
 <tr class="separator:a43c2621ae66c8cc9428026d680ed4fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2bdb9527cf2548c238295d766dcff5a"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car__controller_8h.html#ae2bdb9527cf2548c238295d766dcff5a">TOPIC_DRIVE_PARAM</a> = &quot;/commands/drive_param&quot;</td></tr>
 <tr class="separator:ae2bdb9527cf2548c238295d766dcff5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef6a253625ee17e952e60fd4d132cc8e"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car__controller_8h.html#aef6a253625ee17e952e60fd4d132cc8e">TOPIC_UNLOCK_MOTOR</a> = &quot;/commands/unlock_motor&quot;</td></tr>
-<tr class="separator:aef6a253625ee17e952e60fd4d132cc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb4491f9a2dfe8baac21fd8a728ac30"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="car__controller_8h.html#a2fb4491f9a2dfe8baac21fd8a728ac30">TOPIC_DRIVE_MODE</a> = &quot;/commands/drive_mode&quot;</td></tr>
+<tr class="separator:a2fb4491f9a2dfe8baac21fd8a728ac30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ab5b746b77e0319c62c4e2ff4a99c6bb8"></a>
+<a class="anchor" id="a2fb4491f9a2dfe8baac21fd8a728ac30"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr const char* PARAMETER_DMS_ENABLED = &quot;dms_enabled&quot;</td>
+          <td class="memname">constexpr const char* TOPIC_DRIVE_MODE = &quot;/commands/drive_mode&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00012">12</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00017">17</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
 
 </div>
 </div>
@@ -183,7 +183,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00017">17</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00016">16</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
 
 </div>
 </div>
@@ -197,7 +197,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00015">15</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00014">14</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
 
 </div>
 </div>
@@ -211,7 +211,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00016">16</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00015">15</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
 
 </div>
 </div>
@@ -225,21 +225,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00014">14</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aef6a253625ee17e952e60fd4d132cc8e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* TOPIC_UNLOCK_MOTOR = &quot;/commands/unlock_motor&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00018">18</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="car__controller_8h_source.html#l00013">13</a> of file <a class="el" href="car__controller_8h_source.html">car_controller.h</a>.</p>
 
 </div>
 </div>

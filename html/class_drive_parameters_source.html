@@ -120,24 +120,23 @@ $(document).ready(function(){initNavTree('class_drive_parameters_source.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab6ab4aa02955d8929ee04669faef1be2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#ab6ab4aa02955d8929ee04669faef1be2">DriveParametersSource</a> (ros::NodeHandle *node_handle, const char *topic, <a class="el" href="drive__parameters__source_8h.html#a87328cd02ddd6c83ff6d4943cf8a93c2">DriveParameterCallbackFunction</a> update_callback, int priority, double timeout)</td></tr>
-<tr class="memdesc:ab6ab4aa02955d8929ee04669faef1be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_drive_parameters_source.html">DriveParametersSource</a> object, subscribes to the topic and stores the parameters into local variables.  <a href="#ab6ab4aa02955d8929ee04669faef1be2">More...</a><br /></td></tr>
-<tr class="separator:ab6ab4aa02955d8929ee04669faef1be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14e32856e8a672539b1b3ea9e511d0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#ab14e32856e8a672539b1b3ea9e511d0a">DriveParametersSource</a> (ros::NodeHandle *node_handle, const char *topic, <a class="el" href="drive__parameters__source_8h.html#a87328cd02ddd6c83ff6d4943cf8a93c2">DriveParameterCallbackFunction</a> update_callback, <a class="el" href="drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a> drive_mode, double timeout)</td></tr>
+<tr class="memdesc:ab14e32856e8a672539b1b3ea9e511d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_drive_parameters_source.html">DriveParametersSource</a> object, subscribes to the topic and stores the parameters into local variables.  <a href="#ab14e32856e8a672539b1b3ea9e511d0a">More...</a><br /></td></tr>
+<tr class="separator:ab14e32856e8a672539b1b3ea9e511d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19ac7507bffaa6167393d24fe5f7f67e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#a19ac7507bffaa6167393d24fe5f7f67e">isOutdated</a> ()</td></tr>
 <tr class="memdesc:a19ac7507bffaa6167393d24fe5f7f67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if no update was received for a certain time, determined by the timeout variable.  <a href="#a19ac7507bffaa6167393d24fe5f7f67e">More...</a><br /></td></tr>
 <tr class="separator:a19ac7507bffaa6167393d24fe5f7f67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a716e9da760080cdc8d0e69553932c789"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#a716e9da760080cdc8d0e69553932c789">isIdle</a> ()</td></tr>
 <tr class="memdesc:a716e9da760080cdc8d0e69553932c789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the last update contained values close to 0 for both steering and throttle. If no update was received yet, this returns true.  <a href="#a716e9da760080cdc8d0e69553932c789">More...</a><br /></td></tr>
 <tr class="separator:a716e9da760080cdc8d0e69553932c789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ca68bb4cf93f5124c60330582ba82dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#a0ca68bb4cf93f5124c60330582ba82dc">getPriority</a> ()</td></tr>
-<tr class="memdesc:a0ca68bb4cf93f5124c60330582ba82dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the priority of the source. If multiple sources are not idle, the source with the highest priority is forwarded.  <a href="#a0ca68bb4cf93f5124c60330582ba82dc">More...</a><br /></td></tr>
-<tr class="separator:a0ca68bb4cf93f5124c60330582ba82dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a75910ac804b72f54f268edf5bfee80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#a4a75910ac804b72f54f268edf5bfee80">getDriveMode</a> ()</td></tr>
+<tr class="separator:a4a75910ac804b72f54f268edf5bfee80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="drive__parameters__source_8h_source.html#l00019">19</a> of file <a class="el" href="drive__parameters__source_8h_source.html">drive_parameters_source.h</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8h_source.html#l00020">20</a> of file <a class="el" href="drive__parameters__source_8h_source.html">drive_parameters_source.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab6ab4aa02955d8929ee04669faef1be2"></a>
+<a class="anchor" id="ab14e32856e8a672539b1b3ea9e511d0a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -162,8 +161,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>priority</em>, </td>
+          <td class="paramtype"><a class="el" href="drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a>&#160;</td>
+          <td class="paramname"><em>drive_mode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -196,12 +195,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0ca68bb4cf93f5124c60330582ba82dc"></a>
+<a class="anchor" id="a4a75910ac804b72f54f268edf5bfee80"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int DriveParametersSource::getPriority </td>
+          <td class="memname"><a class="el" href="drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a> DriveParametersSource::getDriveMode </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -209,15 +208,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the priority of the source. If multiple sources are not idle, the source with the highest priority is forwarded. </p>
-
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00041">41</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00043">43</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc_icgraph.png" border="0" usemap="#class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc_icgraph" alt=""/></div>
-<map name="class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc_icgraph" id="class_drive_parameters_source_a0ca68bb4cf93f5124c60330582ba82dc_icgraph">
+<div class="center"><img src="class_drive_parameters_source_a4a75910ac804b72f54f268edf5bfee80_icgraph.png" border="0" usemap="#class_drive_parameters_source_a4a75910ac804b72f54f268edf5bfee80_icgraph" alt=""/></div>
+<map name="class_drive_parameters_source_a4a75910ac804b72f54f268edf5bfee80_icgraph" id="class_drive_parameters_source_a4a75910ac804b72f54f268edf5bfee80_icgraph">
 <area shape="rect" id="node2" href="class_drive_parameters_multiplexer.html#a00fd5b0e6d1d76fce05212c78310bebc" title="Construct a new DriveParametersMultiplexer object and initialize sources for all publishers of drive ..." alt="" coords="215,5,405,47"/>
 </map>
 </div>
@@ -240,7 +237,7 @@ Here is the caller graph for this function:</div>
 
 <p>Returns true if the last update contained values close to 0 for both steering and throttle. If no update was received yet, this returns true. </p>
 
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00036">36</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00038">38</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -269,7 +266,7 @@ Here is the caller graph for this function:</div>
 
 <p>Returns true if no update was received for a certain time, determined by the timeout variable. </p>
 
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00027">27</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00029">29</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
