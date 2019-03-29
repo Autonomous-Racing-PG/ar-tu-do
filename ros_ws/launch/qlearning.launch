@@ -20,7 +20,7 @@
   <include file="$(find car_tf)/launch/car_transformer.launch"/>
 
   <include file="$(find car_control)/launch/car_control.launch">
-      <arg name="dms_enabled" value="false"/>
+      <arg name="mode_override" value="2"/>
   </include>
 
   <!-- Q-Learning related nodes: -->
