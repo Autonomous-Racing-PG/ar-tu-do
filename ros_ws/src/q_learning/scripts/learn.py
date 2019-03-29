@@ -112,11 +112,12 @@ def optimize_model():
         state_batch = torch.stack(batch.state)
         next_states = torch.stack(batch.next_state)
         action_batch = torch.tensor(batch.action, device=device, dtype=torch.long)
+        action_batch = torch.unsqueeze(action_batch, 1)
         reward_batch = torch.cat(batch.reward)
 
         # Compute Q values for the actions that were taken
         net_output = policy_net(state_batch)
-        state_action_values = net_output.index_select(1, action_batch)
+        state_action_values = net_output.gather(1, action_batch)
         next_state_values = target_net(next_states).max(1)[0].detach()
 
         # Compute the expected Q values
