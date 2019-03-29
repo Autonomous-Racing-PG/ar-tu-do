@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-
     <arg name="joystick_type" default="ps3"/>
 
     <node pkg="urg_node" type="urg_node" name="urg_node">

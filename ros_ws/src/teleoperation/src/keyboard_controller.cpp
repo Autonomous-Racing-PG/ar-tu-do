@@ -20,11 +20,13 @@ KeyboardController::KeyboardController()
 
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->m_dead_mans_switch_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_DEAD_MANS_SWITCH, 1);
-    this->m_unlock_motor_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_UNLOCK_MOTOR, 1, &KeyboardController::unlockMotorCallback,
-                                                      this);
+    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1);
+    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
+    this->m_drive_mode_subscriber =
+        this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1, &KeyboardController::driveModeCallback,
+                                                       this);
 
+    this->loadImages();
     this->createWindow();
 
     auto tick_duration = ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY);
@@ -34,19 +36,22 @@ KeyboardController::KeyboardController()
 KeyboardController::~KeyboardController()
 {
     SDL_DestroyWindow(this->m_window);
+    SDL_FreeSurface(this->m_image_locked);
+    SDL_FreeSurface(this->m_image_manual);
+    SDL_FreeSurface(this->m_image_autonomous);
     SDL_Quit();
 }
 
 void KeyboardController::createWindow()
 {
-    std::string icon_filename = ros::package::getPath("teleoperation") + std::string("/wasd.bmp");
+    std::string icon_filename = ros::package::getPath("teleoperation") + std::string("/img/wasd.bmp");
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         throw std::runtime_error("Could not initialize SDL: " + std::string(SDL_GetError()));
     }
-    this->m_window = SDL_CreateWindow("Keyboard teleoperation - Use WASD keys", SDL_WINDOWPOS_UNDEFINED,
-                                      SDL_WINDOWPOS_UNDEFINED, 450, 100, SDL_WINDOW_RESIZABLE);
+    this->m_window = SDL_CreateWindow("Keyboard teleoperation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 580,
+                                      128, SDL_WINDOW_RESIZABLE);
 
     SDL_Surface* icon = SDL_LoadBMP(icon_filename.c_str());
     if (icon != NULL)
@@ -77,23 +82,38 @@ void KeyboardController::pollWindowEvents()
         }
         else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_EXPOSED)
         {
-            this->updateWindowColor();
+            this->updateWindow();
         }
     }
 }
 
-void KeyboardController::updateWindowColor()
+void KeyboardController::updateWindow()
 {
     SDL_Surface* surface = SDL_GetWindowSurface(this->m_window);
-    if (this->m_car_unlocked)
+    SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));
+    switch (this->m_drive_mode)
     {
-        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 110, 199, 46));
-    }
-    else
-    {
-        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));
+        case DriveMode::LOCKED:
+            SDL_BlitSurface(this->m_image_locked, NULL, surface, NULL);
+            break;
+        case DriveMode::MANUAL:
+            SDL_BlitSurface(this->m_image_manual, NULL, surface, NULL);
+            break;
+        case DriveMode::AUTONOMOUS:
+            SDL_BlitSurface(this->m_image_autonomous, NULL, surface, NULL);
+            break;
     }
     SDL_UpdateWindowSurface(this->m_window);
+}
+
+void KeyboardController::loadImages()
+{
+    std::string locked_filename = ros::package::getPath("teleoperation") + std::string("/img/locked.bmp");
+    this->m_image_locked = SDL_LoadBMP(locked_filename.c_str());
+    std::string manual_filename = ros::package::getPath("teleoperation") + std::string("/img/manual.bmp");
+    this->m_image_manual = SDL_LoadBMP(manual_filename.c_str());
+    std::string autonomous_filename = ros::package::getPath("teleoperation") + std::string("/img/autonomous.bmp");
+    this->m_image_autonomous = SDL_LoadBMP(autonomous_filename.c_str());
 }
 
 /**
@@ -110,20 +130,28 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
     this->updateDeadMansSwitch();
 }
 
+std_msgs::Int64 createHearbeatMessage()
+{
+    auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+    auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+
+    std_msgs::Int64 message;
+    message.data = time_since_epoch.count();
+    return message;
+}
+
 /**
  *  Checks if the Dead Man's Switch key is pressed and publish the Dead Man's Switch message
  */
 void KeyboardController::updateDeadMansSwitch()
 {
-    if (this->m_key_pressed_state[(size_t)KeyIndex::DEAD_MANS_SWITCH])
+    if (this->m_key_pressed_state[(size_t)KeyIndex::ENABLE_MANUAL])
     {
-        auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
-        auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-
-        std_msgs::Int64 dead_mans_switch_message;
-        dead_mans_switch_message.data = time_since_epoch.count();
-
-        this->m_dead_mans_switch_publisher.publish(dead_mans_switch_message);
+        this->m_enable_manual_publisher.publish(createHearbeatMessage());
+    }
+    if (this->m_key_pressed_state[(size_t)KeyIndex::ENABLE_AUTONOMOUS])
+    {
+        this->m_enable_autonomous_publisher.publish(createHearbeatMessage());
     }
 }
 
@@ -181,12 +209,15 @@ void KeyboardController::publishDriveParameters()
     this->m_drive_parameters_publisher.publish(drive_parameters);
 }
 
-void KeyboardController::unlockMotorCallback(const std_msgs::Bool::ConstPtr& unlock_motor_message)
+void KeyboardController::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message)
 {
-    if (this->m_car_unlocked != unlock_motor_message->data)
+    auto mode = (DriveMode)drive_mode_message->data;
+    ROS_ASSERT_MSG(mode == DriveMode::LOCKED || mode == DriveMode::MANUAL || mode == DriveMode::AUTONOMOUS,
+                   "Unknown drive mode.");
+    if (this->m_drive_mode != mode)
     {
-        this->m_car_unlocked = unlock_motor_message->data;
-        this->updateWindowColor();
+        this->m_drive_mode = mode;
+        this->updateWindow();
     }
 }
 

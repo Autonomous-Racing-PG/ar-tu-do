@@ -1,21 +1,20 @@
 #pragma once
 
+#include "drive_mode.h"
 #include <ros/ros.h>
 
 #include <algorithm>
 #include <time.h>
 
 #include <drive_msgs/drive_param.h>
-#include <std_msgs/Bool.h>
 #include <std_msgs/Float64.h>
-
-constexpr const char* PARAMETER_DMS_ENABLED = "dms_enabled";
+#include <std_msgs/Int32.h>
 
 constexpr const char* TOPIC_FOCBOX_SPEED = "/commands/motor/speed";
 constexpr const char* TOPIC_FOCBOX_ANGLE = "/commands/servo/position";
 constexpr const char* TOPIC_FOCBOX_BRAKE = "commands/motor/brake";
 constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
-constexpr const char* TOPIC_UNLOCK_MOTOR = "/commands/unlock_motor";
+constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
 
 class CarController
 {
@@ -25,10 +24,8 @@ class CarController
     private:
     ros::NodeHandle m_node_handle;
 
-    bool m_dms_enabled;
-
     ros::Subscriber m_drive_parameters_subscriber;
-    ros::Subscriber m_unlock_motor_subscriber;
+    ros::Subscriber m_drive_mode_subscriber;
 
     ros::Publisher m_speed_pulisher;
     ros::Publisher m_angle_publisher;
@@ -44,8 +41,7 @@ class CarController
     /**
      * @brief callback for the topic that enables / disables the motor
      */
-    void unlockMotorCallback(const std_msgs::Bool::ConstPtr& unlock_motor_message);
-
+    void driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message);
     /**
      * @brief takes a speed and angle, converts and forwards them to gazebo/focbox
      */
