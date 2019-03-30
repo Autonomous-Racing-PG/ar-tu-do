@@ -21,23 +21,24 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 
-ACTIONS = [(-0.7, 0.2), (-0.3, 0.3), (0, 0.4), (0.3, 0.3), (0.7, 0.2), (0.0, 0.6)]
+ACTIONS = [(-0.1, 0.1), (0.1, 0.1)]
 ACTION_COUNT = len(ACTIONS)
 
-LASER_SAMPLE_COUNT = 32 # Only use some of the LIDAR measurements
+LASER_SAMPLE_COUNT = 16 # Only use some of the LIDAR measurements
 MAX_RANGE = 10 # Clamp lidar measurements to this distance
 
 DISCOUNT_FACTOR = 0.999 # aka gamma
 
-MAX_EPISODE_LENGTH = 500
-BATCH_SIZE = 200 # Number of steps that are randomly sampled for each neural net update
-MEMORY_SIZE = 4000 # Sample neural net update from the memory. It contains this many episodes.
+MAX_EPISODE_LENGTH = 400
+MEMORY_SIZE = 10000 # Sample neural net update from the memory. It contains this many episodes.
+
+BATCH_SIZE = 200
 
 # Probability to select a random episode starts at EPS_START
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 0.9
-EPS_END = 0.05
-EPS_DECAY = 800
+EPS_END = 0.2
+EPS_DECAY = 3000
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -71,13 +72,11 @@ class DQN(nn.Module):
     def __init__(self):
         super(DQN, self).__init__()
         self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 8)
-        self.fc2 = nn.Linear(8, 8)
-        self.fc3 = nn.Linear(8, ACTION_COUNT)
+        self.fc2 = nn.Linear(8, ACTION_COUNT)
     
     def forward(self, x):
         x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        return self.fc3(x)
+        return self.fc2(x)
 
 def get_eps_threshold():
     return EPS_END + (EPS_START - EPS_END) * math.exp(-1. * total_steps / EPS_DECAY)
@@ -93,13 +92,12 @@ def select_action(state):
 optimization_steps = 0
 
 def optimize_model():
-    while not rospy.is_shutdown():
-        sample_size = int(memory.size() * 0.4)
-        if (sample_size < 100):
+    while not rospy.is_shutdown():        
+        if (BATCH_SIZE * 2 > memory.size()):
             time.sleep(1)
             continue
         
-        transitions = memory.sample(sample_size)
+        transitions = memory.sample(BATCH_SIZE)
         
         global started_optimization
         if not started_optimization:
@@ -138,11 +136,14 @@ def optimize_model():
 def respawn():
     state = ModelState()
     state.model_name = "racer"
-    state.pose.position.x = 0
-    state.pose.position.y = -0.5
+    state.pose.position.x = 5 #-5 + random.random() * 10
+    state.pose.position.y = -0.4
     state.pose.position.z = 0
 
-    q = quaternion_from_euler(2 * math.pi * random.random(), math.pi, 0)
+    # angle = random.random() * 2 * math.pi
+    # angle = random.random() - 0.5 + math.pi
+    angle = -math.pi
+    q = quaternion_from_euler(angle, math.pi, 0)
     state.pose.orientation.x = q[0]
     state.pose.orientation.z = q[1]
     state.pose.orientation.w = q[2]
@@ -166,7 +167,8 @@ def log_progress():
         + str(len(current_episode.actions)) + " steps" \
         + ", cumulative reward: " + format(sum(current_episode.rewards).data[0].item(), ".2f") \
         + (", memory size: " + str(memory.size()) + " / " + str(memory.capacity) if not memory.full() else "") \
-        + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions")
+        + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions" \
+        + ", opt. steps: " + str(optimization_steps))
 
 def reset_episode():
     global previous_position, current_episode, episode_count
@@ -208,7 +210,8 @@ def get_state():
         return torch.tensor([0 for _ in range(LASER_SAMPLE_COUNT)], device=device, dtype=torch.float32)
     count = (laser_scan.angle_max - laser_scan.angle_min) / laser_scan.angle_increment
     indices = [int(i * count / LASER_SAMPLE_COUNT) for i in range(LASER_SAMPLE_COUNT)]
-    values = [min(1, laser_scan.ranges[i] / MAX_RANGE) ** 0.5 for i in indices]
+    #values = [min(1, laser_scan.ranges[i] / MAX_RANGE) * 2 - 1 for i in indices]
+    values = [(laser_scan.ranges[i] / MAX_RANGE) ** 0.5 for i in indices]
     return torch.tensor(values, device=device)
 
 rospy.init_node('learn', anonymous=True)
@@ -240,7 +243,7 @@ rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param, queue_size=1)
 reset_episode()
-rate = rospy.Rate(40)
+rate = rospy.Rate(45)
 
 rospy.loginfo("Started training.")
 
@@ -251,7 +254,7 @@ while not rospy.is_shutdown():
         reset_episode()
     else:
         state = get_state()
-        reward = get_distance_travelled()
+        reward = 5 #get_distance_travelled()
         action = select_action(state)
         
         drive(action)
@@ -265,11 +268,9 @@ while not rospy.is_shutdown():
                 # Race condition. The car crashed and the current episode is empty. Do nothing.
                 pass
 
-
         current_episode.states.append(state)
         current_episode.actions.append(action)
         current_episode.rewards.append(reward)
-        if memory.full():
-            total_steps += 1
+        total_steps += 1
 
     rate.sleep()
