@@ -13,6 +13,5 @@
 
   <!-- Dependencies -->
   <depend>catkin</depend>
-  <depend>ros_controllers</depend>
 
 </package>
