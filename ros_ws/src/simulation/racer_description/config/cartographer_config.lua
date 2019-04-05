@@ -24,7 +24,7 @@ options = {
   odom_frame = "odom",
   provide_odom_frame = false,
   publish_frame_projected_to_2d = false,
-  use_odometry = true,
+  use_odometry = false,
   use_nav_sat = false,
   use_landmarks = false,
   num_laser_scans = 1,
@@ -43,11 +43,5 @@ options = {
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
-TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 10
-TRAJECTORY_BUILDER_2D.min_range = 0.1
-TRAJECTORY_BUILDER_2D.max_range = 30
--- POSE_GRAPH.optimize_every_n_nodes = 10
--- TRAJECTORY_BUILDER_2D.submaps.num_range_data = 30
--- TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 
 return options
