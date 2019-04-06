@@ -14,6 +14,8 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 
+from ring_buffer import RingBuffer
+
 rospy.init_node('learn', anonymous=True)
 import car
 
@@ -35,32 +37,6 @@ LEARNING_RATE = 0.001
 EPS_START = 0.9
 EPS_END = 0.2
 EPS_DECAY = 12000
-
-Transition = namedtuple('Transition', ('state', 'action', 'next_state', 'reward'))
-
-
-class ReplayMemory(object):
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.memory = []
-        self.position = 0
-
-    def push(self, *args):
-        """Saves a transition."""
-        if not self.full():
-            self.memory.append(None)
-        self.memory[self.position] = Transition(*args)
-        self.position = (self.position + 1) % self.capacity
-
-    def sample(self, batch_size):
-        return random.sample(self.memory, batch_size)
-
-    def full(self):
-        return len(self.memory) >= self.capacity
-
-    def size(self):
-        return len(self.memory)
-
 
 class NeuralQEstimator(nn.Module):
     def __init__(self):
@@ -106,24 +82,23 @@ def optimize_model():
         if (100 > memory.size()):
             time.sleep(1)
             continue
+
+        if optimization_step_count == 0:
+            rospy.loginfo("Model optimization started.")        
         
         transitions = memory.sample(min(BATCH_SIZE, memory.size()))
         
-        if optimization_step_count == 0:
-            rospy.loginfo("Model optimization started.")
-
-        # create a single Transition tuple with lists of states, actions, rewards and next states
-        batch = Transition(*zip(*transitions))
+        states, actions, next_states, rewards = tuple(zip(*transitions))
         
-        state_batch = torch.stack(batch.state)
-        next_states = torch.stack(batch.next_state)
-        action_batch = torch.tensor(batch.action, device=device, dtype=torch.long)
-        reward_batch = torch.cat(batch.reward)
+        state_batch = torch.stack(states)
+        next_state_batch = torch.stack(next_states)
+        action_batch = torch.tensor(actions, device=device, dtype=torch.long)
+        reward_batch = torch.tensor(rewards, device=device, dtype=torch.float)
 
         # Compute Q values for the actions that were taken
         policy_net_output = policy_net(state_batch)
         state_action_values = policy_net_output#.clone()
-        target_net_output = target_net(next_states)
+        target_net_output = target_net(next_state_batch)
         next_state_values = target_net_output.max(1)[0].detach()
 
         # Compute the expected Q values
@@ -206,9 +181,9 @@ def step():
     perform_action(action)
 
     if len(current_episode_states) > 0:
-        reward_tensor = torch.tensor([reward], device=device, dtype=torch.float32)
         try:
-            memory.push(current_episode_states[-1], action, state, reward_tensor)
+            transistion = (current_episode_states[-1], action, state, reward)
+            memory.push(transistion)
         except IndexError:
             # Race condition. The car crashed and the current episode is empty. Do nothing.
             pass
@@ -225,7 +200,7 @@ target_net.load_state_dict(policy_net.state_dict())
 target_net.eval()
 
 optimizer = optim.RMSprop(policy_net.parameters(), lr=LEARNING_RATE)
-memory = ReplayMemory(MEMORY_SIZE)
+memory = RingBuffer(MEMORY_SIZE)
 
 current_episode_states = None
 crash_states = []
