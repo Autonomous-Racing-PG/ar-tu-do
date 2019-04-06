@@ -1,5 +1,6 @@
 import random
 
+
 class RingBuffer(object):
     def __init__(self, capacity):
         self.capacity = capacity

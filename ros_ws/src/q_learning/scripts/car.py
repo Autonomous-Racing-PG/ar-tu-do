@@ -10,6 +10,7 @@ import math
 
 import torch
 
+
 def reset(position, orientation):
     global start_position
     start_position = position
@@ -25,15 +26,18 @@ def reset(position, orientation):
     state.pose.orientation.z = q[1]
     state.pose.orientation.w = q[2]
     state.pose.orientation.y = q[3]
-    
+
     set_model_state(state)
+
 
 def _crash_callback(_):
     for function in _crash_callback_functions:
         function()
 
+
 def register_crash_callback(function):
     _crash_callback_functions.append(function)
+
 
 def _model_state_callback(message):
     global current_position
@@ -41,29 +45,37 @@ def _model_state_callback(message):
         return
     current_position = (message.pose[1].position.x, message.pose[1].position.y)
 
+
 def drive(angle, velocity):
     message = drive_param()
     message.angle = angle
     message.velocity = velocity
     drive_parameters_publisher.publish(message)
 
+
 def _laser_callback(message):
     global laser_scan
     laser_scan = message
 
+
 _scan_indices = None
 
+
 def get_scan(sample_count, device):
-    if laser_scan == None:
-        return torch.tensor([0 for _ in range(sample_count)], device=device, dtype=torch.float32)
-    
+    if laser_scan is None:
+        return torch.tensor([0 for _ in range(sample_count)],
+                            device=device, dtype=torch.float32)
+
     global _scan_indices
     if _scan_indices is None or len(_scan_indices) != sample_count:
-        count = (laser_scan.angle_max - laser_scan.angle_min) / laser_scan.angle_increment    
-        _scan_indices = [int(i * count / sample_count) for i in range(sample_count)]
-    
+        count = (laser_scan.angle_max - laser_scan.angle_min) / \
+            laser_scan.angle_increment
+        _scan_indices = [int(i * count / sample_count)
+                         for i in range(sample_count)]
+
     values = [laser_scan.ranges[i] for i in _scan_indices]
     return torch.tensor(values, device=device)
+
 
 current_position = None
 start_position = None
@@ -78,4 +90,5 @@ set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 rospy.Subscriber("/crash", Empty, _crash_callback)
 rospy.Subscriber("/gazebo/model_states", ModelStates, _model_state_callback)
 rospy.Subscriber("/scan", LaserScan, _laser_callback)
-drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param, queue_size=1)
+drive_parameters_publisher = rospy.Publisher(
+    "/commands/drive_param", drive_param, queue_size=1)
