@@ -43,14 +43,14 @@
 
     <group if="$(eval ros_version=='kinetic')">
         <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
-          -configuration_directory $(find racer_description)/config
+          -configuration_directory $(find car_cartographer)/config
           -configuration_basename cartographer_config_kinetic.lua" output="screen">
         </node>
     </group>
 
     <group if="$(eval ros_version=='melodic')">
         <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
-          -configuration_directory $(find racer_description)/config
+          -configuration_directory $(find car_cartographer)/config
           -configuration_basename cartographer_config_melodic.lua" output="screen">
         </node>
 

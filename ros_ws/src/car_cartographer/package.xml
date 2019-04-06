@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>car_cartographer</name>
+  <version>0.0.0</version>
+  <description>The "car_cartographer" package is a package for everything cartographer related.</description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>cartographer</exec_depend>
+  <exec_depend>cartographer_ros</exec_depend>
+  <exec_depend>cartographer_ros_msgs</exec_depend>
+  <exec_depend>cartographer_rviz</exec_depend>
+</package>
