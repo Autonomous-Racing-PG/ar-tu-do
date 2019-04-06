@@ -10,6 +10,7 @@
     <arg name="use_gpu" default="true"/>
     <arg name="joystick_type" default="xbox360"/>
     <arg name="visualize_lidar" default="false"/>
+    <arg name="ros_version" default="kinetic"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -40,12 +41,21 @@
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
 
-    <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+    <group if="$(eval ros_version=='kinetic')">
+        <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
           -configuration_directory $(find racer_description)/config
-          -configuration_basename cartographer_config.lua" output="screen">
-    </node>
+          -configuration_basename cartographer_config_kinetic.lua" output="screen">
+        </node>
+    </group>
 
-    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+    <group if="$(eval ros_version=='melodic')">
+        <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+          -configuration_directory $(find racer_description)/config
+          -configuration_basename cartographer_config_melodic.lua" output="screen">
+        </node>
+
+        <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+    </group>
 
     <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
 </launch>
