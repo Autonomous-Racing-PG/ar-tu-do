@@ -21,10 +21,10 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 
-ACTIONS = [(-0.1, 0.1), (0.1, 0.1)]
+ACTIONS = [(-0.4, 0.2), (0.4, 0.2)]
 ACTION_COUNT = len(ACTIONS)
 
-LASER_SAMPLE_COUNT = 16 # Only use some of the LIDAR measurements
+LASER_SAMPLE_COUNT = 64 # Only use some of the LIDAR measurements
 MAX_RANGE = 10 # Clamp lidar measurements to this distance
 
 DISCOUNT_FACTOR = 0.999 # aka gamma
@@ -38,7 +38,7 @@ BATCH_SIZE = 200
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 0.9
 EPS_END = 0.2
-EPS_DECAY = 3000
+EPS_DECAY = 12000
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -71,12 +71,14 @@ class ReplayMemory(object):
 class DQN(nn.Module):
     def __init__(self):
         super(DQN, self).__init__()
-        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 8)
-        self.fc2 = nn.Linear(8, ACTION_COUNT)
+        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 32)
+        self.fc2 = nn.Linear(32, 16)
+        self.fc3 = nn.Linear(16, ACTION_COUNT)
     
     def forward(self, x):
         x = F.relu(self.fc1(x))
-        return self.fc2(x)
+        x = F.relu(self.fc2(x))
+        return self.fc3(x)
 
 def get_eps_threshold():
     return EPS_END + (EPS_START - EPS_END) * math.exp(-1. * total_steps / EPS_DECAY)
@@ -91,13 +93,34 @@ def select_action(state):
 
 optimization_steps = 0
 
+def learn_terminal_states():
+    if len(terminal_states) < 10:
+        return
+    
+    states = random.sample(terminal_states, min(100, len(terminal_states)))
+            
+    state_batch = torch.stack(states)
+    q = torch.zeros(len(states), ACTION_COUNT, device = device)
+
+    # Compute Q values for the actions that were taken
+    policy_net_output = policy_net(state_batch)
+            
+    # Compute Huber loss
+    loss = F.smooth_l1_loss(policy_net_output, q)
+
+    # Optimize the model
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+
 def optimize_model():
     while not rospy.is_shutdown():        
-        if (BATCH_SIZE * 2 > memory.size()):
+        if (100 > memory.size()):
             time.sleep(1)
             continue
         
-        transitions = memory.sample(BATCH_SIZE)
+        transitions = memory.sample(min(BATCH_SIZE, memory.size()))
         
         global started_optimization
         if not started_optimization:
@@ -110,19 +133,21 @@ def optimize_model():
         state_batch = torch.stack(batch.state)
         next_states = torch.stack(batch.next_state)
         action_batch = torch.tensor(batch.action, device=device, dtype=torch.long)
-        action_batch = torch.unsqueeze(action_batch, 1)
         reward_batch = torch.cat(batch.reward)
 
         # Compute Q values for the actions that were taken
-        net_output = policy_net(state_batch)
-        state_action_values = net_output.gather(1, action_batch)
-        next_state_values = target_net(next_states).max(1)[0].detach()
+        policy_net_output = policy_net(state_batch)
+        state_action_values = policy_net_output#.clone()
+        target_net_output = target_net(next_states)
+        next_state_values = target_net_output.max(1)[0].detach()
 
         # Compute the expected Q values
         expected_state_action_values = (next_state_values * DISCOUNT_FACTOR) + reward_batch
-
+        #rospy.loginfo("expected_state_action_values: " + str(expected_state_action_values))
+        target_net_output[torch.arange(0, target_net_output.size()[0], device=device, dtype=torch.long), action_batch] = expected_state_action_values
+                
         # Compute Huber loss
-        loss = F.smooth_l1_loss(state_action_values, expected_state_action_values.unsqueeze(1))
+        loss = F.smooth_l1_loss(state_action_values, target_net_output)
 
         # Optimize the model
         optimizer.zero_grad()
@@ -133,16 +158,23 @@ def optimize_model():
         global optimization_steps
         optimization_steps += 1
 
+        learn_terminal_states()
+
+        if optimization_steps % 10 == 0:
+            target_net.load_state_dict(policy_net.state_dict())
+
 def respawn():
     state = ModelState()
     state.model_name = "racer"
-    state.pose.position.x = 5 #-5 + random.random() * 10
-    state.pose.position.y = -0.4
+    state.pose.position.x = 0#10
+    state.pose.position.y = -0.5
     state.pose.position.z = 0
 
     # angle = random.random() * 2 * math.pi
-    # angle = random.random() - 0.5 + math.pi
-    angle = -math.pi
+    # angle = (random.random() - 0.5) * 0.8 + math.pi
+    # angle = math.pi * 0.25
+    # angle = (0 if episode_count % 2 == 0 else math.pi) + math.pi * 0.25
+    angle = math.pi
     q = quaternion_from_euler(angle, math.pi, 0)
     state.pose.orientation.x = q[0]
     state.pose.orientation.z = q[1]
@@ -157,18 +189,19 @@ def get_distance_travelled():
     return ((current_position.x - previous_position.x)**2 + (current_position.y - previous_position.y)**2)**0.5
 
 def crash_callback(_):
-    distance_travelled = get_distance_travelled()
     if current_episode is None or len(current_episode.states) < 2:
         return
+    if len(current_episode.states) > 10:
+        terminal_states.append(get_state())
     reset_episode()
 
 def log_progress():
     rospy.loginfo("Episode " + str(episode_count) + ": " \
         + str(len(current_episode.actions)) + " steps" \
-        + ", cumulative reward: " + format(sum(current_episode.rewards).data[0].item(), ".2f") \
         + (", memory size: " + str(memory.size()) + " / " + str(memory.capacity) if not memory.full() else "") \
         + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions" \
-        + ", opt. steps: " + str(optimization_steps))
+        + ", optimization steps: " + str(optimization_steps))
+    #test()
 
 def reset_episode():
     global previous_position, current_episode, episode_count
@@ -211,7 +244,7 @@ def get_state():
     count = (laser_scan.angle_max - laser_scan.angle_min) / laser_scan.angle_increment
     indices = [int(i * count / LASER_SAMPLE_COUNT) for i in range(LASER_SAMPLE_COUNT)]
     #values = [min(1, laser_scan.ranges[i] / MAX_RANGE) * 2 - 1 for i in indices]
-    values = [(laser_scan.ranges[i] / MAX_RANGE) ** 0.5 for i in indices]
+    values = [laser_scan.ranges[i] for i in indices]
     return torch.tensor(values, device=device)
 
 rospy.init_node('learn', anonymous=True)
@@ -222,7 +255,9 @@ target_net = DQN().to(device)
 target_net.load_state_dict(policy_net.state_dict())
 target_net.eval()
 
-optimizer = optim.RMSprop(policy_net.parameters())
+terminal_states = []
+
+optimizer = optim.RMSprop(policy_net.parameters(), lr=0.001)
 memory = ReplayMemory(MEMORY_SIZE)
 
 current_position = None
@@ -243,7 +278,7 @@ rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher("/commands/drive_param", drive_param, queue_size=1)
 reset_episode()
-rate = rospy.Rate(45)
+rate = rospy.Rate(20)
 
 rospy.loginfo("Started training.")
 
@@ -254,7 +289,7 @@ while not rospy.is_shutdown():
         reset_episode()
     else:
         state = get_state()
-        reward = 5 #get_distance_travelled()
+        reward = 1
         action = select_action(state)
         
         drive(action)
