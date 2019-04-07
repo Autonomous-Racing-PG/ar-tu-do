@@ -33,6 +33,21 @@ class Circle():
         distance = (x**2 + y**2) ** 0.5
         return Point(self.center.x + x * self.radius / distance, self.center.y + y * self.radius / distance)
 
+class PIDController():
+    def __init__(self, p, i, d):
+        self.p = p
+        self.i = i
+        self.d = d
+
+        self.integral = 0
+        self.previous_error = 0
+    
+    def update_and_get_correction(self, error, delta_time):
+        self.integral += error * delta_time
+        derivative = (error - self.previous_error) / delta_time
+        self.previous_error = error
+        return self.p * error + self.i * self.integral + self.d * derivative
+
 def drive(angle, velocity):
     message = drive_param()
     message.angle = angle
@@ -83,7 +98,17 @@ def handle_scan():
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
     
-    
+    target_position = Point((left_point.x + right_point.x) / 2, (left_point.y + right_point.y) / 2)
+    error = target_position.x - predicted_car_position.x
+    if math.isnan(error) or math.isinf(error):
+        error = 0
+
+    correction = pid.update_and_get_correction(error, 1.0 / UPDATE_FREQUENCY)
+
+    steering_angle = correction
+    drive(steering_angle, 0.2)
+    #rospy.loginfo(str(error) + "  ->  " + str(correction) + "  ->  " + str(steering_angle))
+
     plt.clf()
     plt.xlim(-7, 7)
     plt.ylim(-2, 12)
@@ -93,6 +118,7 @@ def handle_scan():
     plt.plot(left_circle_array[:,0], left_circle_array[:,1], color="blue")
     plt.plot(right_circle_array[:,0], right_circle_array[:,1], color="cyan")
     plt.plot([left_point[0], right_point[0]], [left_point[1], right_point[1]], color="green")
+    plt.plot([predicted_car_position[0], target_position[0]], [predicted_car_position[1], target_position[1]], color="red")
     plt.draw()
     plt.pause(0.001)
 
@@ -106,9 +132,12 @@ drive_parameters_publisher = rospy.Publisher(
 
 rospy.init_node('wall2', anonymous=True)
 
-timer = rospy.Rate(20)
+UPDATE_FREQUENCY = 20
+
+timer = rospy.Rate(UPDATE_FREQUENCY)
 plt.ion()
-    
+
+pid = PIDController(1.5, 0.01, 0.01)
 
 while not rospy.is_shutdown():
     handle_scan()
