@@ -94,7 +94,7 @@ def handle_scan():
     left_circle_array = left_circle.create_array()
     right_circle_array = right_circle.create_array()
 
-    predicted_car_position = Point(0, 1)
+    predicted_car_position = Point(0, 1.5)
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
     
@@ -103,13 +103,26 @@ def handle_scan():
     if math.isnan(error) or math.isinf(error):
         error = 0
 
-    correction = pid.update_and_get_correction(error, 1.0 / UPDATE_FREQUENCY)
+    steering_angle = pid.update_and_get_correction(error, 1.0 / UPDATE_FREQUENCY)
 
-    steering_angle = correction
-    drive(steering_angle, 0.2)
-    #rospy.loginfo(str(error) + "  ->  " + str(correction) + "  ->  " + str(steering_angle))
+    SLOW = 0.15
+    FAST = 1.0
 
-    plt.clf()
+    relative_speed = 0.1
+
+    radius = min(left_circle.radius, right_circle.radius)
+    
+    RADIUS_SMALL = 2
+    RADIUS_BIG = 10
+
+    absolute_error = abs(error)
+    relative_speed = max(0.0, min(1.0, 1.2 - absolute_error * 1.7, (radius - RADIUS_SMALL) / (RADIUS_BIG - RADIUS_SMALL)))
+
+    rospy.loginfo("speed: " + format(relative_speed, '.2f') + ", radius: " + format(radius, '.2f') + ", error: " + format(error, '.2f'))
+
+    drive(steering_angle * (1.0 - relative_speed), SLOW + (FAST - SLOW) * relative_speed)
+
+    '''plt.clf()
     plt.xlim(-7, 7)
     plt.ylim(-2, 12)
     plt.gca().set_aspect("equal")
@@ -120,7 +133,7 @@ def handle_scan():
     plt.plot([left_point[0], right_point[0]], [left_point[1], right_point[1]], color="green")
     plt.plot([predicted_car_position[0], target_position[0]], [predicted_car_position[1], target_position[1]], color="red")
     plt.draw()
-    plt.pause(0.001)
+    plt.pause(0.001)'''
 
 
 laser_scan = None
@@ -132,7 +145,7 @@ drive_parameters_publisher = rospy.Publisher(
 
 rospy.init_node('wall2', anonymous=True)
 
-UPDATE_FREQUENCY = 20
+UPDATE_FREQUENCY = 60
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 plt.ion()
