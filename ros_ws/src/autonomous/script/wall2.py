@@ -4,11 +4,34 @@ import rospy
 from std_msgs.msg import String, Empty
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
+import circle_fit as cf
 
 import numpy as np
 
+import math
+
 import matplotlib.pyplot as plt
 
+from collections import namedtuple
+
+Point = namedtuple("Point", ["x", "y"])
+
+class Circle():
+    def __init__(self, center, radius):
+        self.center = center
+        self.radius = radius
+
+    def create_array(self, sample_count=200):
+        points = np.zeros((sample_count, 2))
+        points[:, 0] = self.center.x - np.sin(np.arange(0, math.pi * 2, math.pi * 2 / sample_count)) * self.radius
+        points[:, 1] = self.center.y + np.cos(np.arange(0, math.pi * 2, math.pi * 2 / sample_count)) * self.radius
+        return points
+
+    def get_closest_point(self, point):
+        x = point.x - self.center.x
+        y = point.y - self.center.y
+        distance = (x**2 + y**2) ** 0.5
+        return Point(self.center.x + x * self.radius / distance, self.center.y + y * self.radius / distance)
 
 def drive(angle, velocity):
     message = drive_param()
@@ -20,6 +43,13 @@ def drive(angle, velocity):
 def laser_callback(message):
     global laser_scan
     laser_scan = message
+
+
+def fit_circle(points):
+    center_x, center_y, _, _ = cf.hyper_fit(points)
+    center = Point(center_x, center_y)
+    radius = np.average(np.linalg.norm(points - [center.x, center.y], axis=1))
+    return Circle(center, radius)
 
 
 def handle_scan():
@@ -39,16 +69,32 @@ def handle_scan():
     margin_relative = 0.1
     margin = int(sample_count * margin_relative)
     split = margin + np.argmax(distances[margin:-margin]) + 1
+
+    right_wall = points[:split, :]
+    left_wall = points[split:, :]
+
+    left_circle = fit_circle(left_wall)
+    right_circle = fit_circle(right_wall)
+    
+    left_circle_array = left_circle.create_array()
+    right_circle_array = right_circle.create_array()
+
+    predicted_car_position = Point(0, 1)
+    left_point = left_circle.get_closest_point(predicted_car_position)
+    right_point = right_circle.get_closest_point(predicted_car_position)
+    
     
     plt.clf()
     plt.xlim(-7, 7)
     plt.ylim(-2, 12)
     plt.gca().set_aspect("equal")
-    plt.scatter(points[:split,0], points[:split,1], marker="x", color="red")
-    plt.scatter(points[split:,0], points[split:,1], marker="x", color="blue")
+    plt.scatter(left_wall[:,0], left_wall[:,1], marker=".", color="blue")
+    plt.scatter(right_wall[:,0], right_wall[:,1], marker=".", color="cyan")
+    plt.plot(left_circle_array[:,0], left_circle_array[:,1], color="blue")
+    plt.plot(right_circle_array[:,0], right_circle_array[:,1], color="cyan")
+    plt.plot([left_point[0], right_point[0]], [left_point[1], right_point[1]], color="green")
     plt.draw()
     plt.pause(0.001)
-        
 
 
 laser_scan = None
