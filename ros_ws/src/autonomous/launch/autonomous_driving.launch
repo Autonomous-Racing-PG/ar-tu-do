@@ -5,8 +5,8 @@
     <node
       respawn="true"
       pkg="autonomous"
-      type="wall_following"
-      name="wall_following"
+      type="wall2.py"
+      name="wall2"
       output="screen" >
     </node>
 
