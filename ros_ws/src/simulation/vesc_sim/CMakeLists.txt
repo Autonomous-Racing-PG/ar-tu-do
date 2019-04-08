@@ -22,7 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Declare things to be passed to dependent projects
 catkin_package(
-  INCLUDE_DIRS include
+  INCLUDE_DIRS include include/optimization
   CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs vesc_msgs nav_msgs
 )
 
@@ -42,6 +42,15 @@ add_executable(vesc_sim_driver
 src/main.cpp
 src/vesc_sim_driver.cpp
 src/vesc_sim.cpp
+src/optimization/anti_mean.cpp
+src/optimization/bspline.cpp
+src/optimization/leastsquares.cpp
+src/optimization/leastsquares1.cpp
+src/optimization/leastsquares2.cpp
+src/optimization/leastsquares3.cpp
+src/optimization/linear.cpp
+src/optimization/mean.cpp
+src/optimization/optimizer.cpp
 )
 
 target_link_libraries(vesc_sim_driver ${catkin_LIBRARIES})

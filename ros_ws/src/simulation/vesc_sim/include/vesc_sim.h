@@ -2,11 +2,13 @@
 
 #include <ros/ros.h>
 #include <string>
+#include "optimization/optimizer.h"
 
 class VESCSimulator
 {
     public:
     VESCSimulator();
+    ~VESCSimulator();
     inline void setServoAngle(const double& data)
     {
         this->m_servo_data = data;
@@ -38,6 +40,12 @@ class VESCSimulator
     double m_frequency;
     std::string m_odom_frame;
     std::string m_base_frame;
+    Optimizer* m_optim_x_dot;
+    Optimizer* m_optim_y_dot;
+    Optimizer* m_optim_x_pos;
+    Optimizer* m_optim_y_pos;
+    Optimizer* m_optim_cur_ang_vel;
+    
 
     void timerCallback(const ros::TimerEvent& event);
 };
