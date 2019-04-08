@@ -6,13 +6,11 @@
 
 using namespace Eigen;
 
-constexpr double VELOCITY_THRESHOLD = 0.001;
-constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001;
 
 NavigationStackControlConverter::NavigationStackControlConverter()
 {
     this->m_command_velocity_subscriber =
-        this->m_node_handle.subscribe<geometry_msgs::Twist>(CMD_VEL, 1,
+        this->m_node_handle.subscribe<geometry_msgs::Twist>(TOPIC_CMD_VEL, 1,
                                                             &NavigationStackControlConverter::convertCallback, this);
 
     this->m_drive_param_publisher = this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 10);

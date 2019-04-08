@@ -12,6 +12,7 @@ constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_KEYBOARD = "input/drive_param/keyboard";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_JOYSTICK = "input/drive_param/joystick";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING = "input/drive_param/wallfollowing";
+constexpr const char* TOPIC_DRIVE_PARAMETERS_NAVIGATIONSTACK = "input/drive_param/navigationstack";
 constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
 
 /*

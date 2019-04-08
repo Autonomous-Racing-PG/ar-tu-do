@@ -5,8 +5,11 @@
 #include <drive_msgs/drive_param.h>
 #include <geometry_msgs/Twist.h>
 
-constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
-constexpr const char* CMD_VEL = "cmd_vel";
+constexpr const char* TOPIC_DRIVE_PARAM = "input/drive_param/navigationstack";
+constexpr const char* TOPIC_CMD_VEL = "cmd_vel";
+
+constexpr double VELOCITY_THRESHOLD = 0.001;
+constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001;
 
 /**
  * @brief This converter class converts "cmd_vel" messages to "drive_param" messages.
