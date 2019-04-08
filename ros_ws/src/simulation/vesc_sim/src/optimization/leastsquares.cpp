@@ -1,7 +1,7 @@
 #include "optimization/leastsquares.h"
 
-namespace tudora_optimization
-{
+
+
 	LeastSquaresOptimizer::LeastSquaresOptimizer(unsigned int window_length,double sampletime) :Optimizer(sampletime),
 		window_length_(window_length), index_(window_length-1)
 	{
@@ -24,4 +24,3 @@ namespace tudora_optimization
 		ticksPosVec_.setZero(window_length_ * 2);
 		theta_pos_vec_.setZero(window_length_);
 	}
-}

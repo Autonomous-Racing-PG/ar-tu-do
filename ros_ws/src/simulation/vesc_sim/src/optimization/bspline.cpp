@@ -1,7 +1,7 @@
 #include "optimization/bspline.h"
 
-namespace tudora_optimization
-{
+
+
 	BSplineOptimizer::BSplineOptimizer(double sampletime) : Optimizer(sampletime),
 		num_points_(0)
 	{
@@ -31,7 +31,6 @@ namespace tudora_optimization
 		}
 
 		vel_ = (val / sum);
-		info();
 		return vel_;
 	}
 
@@ -47,4 +46,3 @@ namespace tudora_optimization
 		points_.clear();
 	}
 
-}

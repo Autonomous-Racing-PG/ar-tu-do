@@ -1,6 +1,6 @@
 #pragma once
-namespace tudora_optimization
-{
+
+
 	/**
 	* @brief
 	* DE:
@@ -68,4 +68,3 @@ namespace tudora_optimization
 		*/
 		double vel_;
 	};
-}

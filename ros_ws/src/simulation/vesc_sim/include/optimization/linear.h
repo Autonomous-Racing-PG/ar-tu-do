@@ -1,8 +1,8 @@
 #pragma once
 #include "optimization/optimizer.h"
 
-namespace tudora_optimization
-{
+
+
 	/**
 	* @brief
 	* DE:
@@ -31,7 +31,6 @@ namespace tudora_optimization
 			pos_= value;
 			vel_ = (value - old_value_) / sampletime_;
 			old_value_ = value;
-			info();
 			return vel_;
 		}
 
@@ -54,4 +53,3 @@ namespace tudora_optimization
 		*/
 		double old_value_;
 	};
-}

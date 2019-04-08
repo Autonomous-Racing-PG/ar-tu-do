@@ -1,11 +1,10 @@
 #pragma once
 
-#include <Eigen/Core>
-#include <Eigen/Dense>
 #include "optimization/optimizer.h"
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Dense>
 
-namespace tudora_optimization
-{
+
 	class LeastSquaresOptimizer : public Optimizer
 	{
 	public:
@@ -26,4 +25,3 @@ namespace tudora_optimization
 		Eigen::MatrixXd help_2_;
 		Eigen::VectorXd theta_pos_vec_;
 	};
-}

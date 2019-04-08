@@ -2,8 +2,8 @@
 #include <deque>
 #include "optimization/optimizer.h"
 
-namespace tudora_optimization
-{
+
+
     class Mean : public Optimizer
     {
 	public:
@@ -32,4 +32,3 @@ namespace tudora_optimization
 		std::deque<double> window_;
 		double mean_;
     };
-}

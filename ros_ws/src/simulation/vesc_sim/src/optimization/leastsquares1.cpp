@@ -1,7 +1,7 @@
 #include "optimization/leastsquares1.h"
 
-namespace tudora_optimization
-{
+
+
 	LeastSquares1::LeastSquares1(unsigned int window_length, double sampletime) :LeastSquaresOptimizer(window_length, sampletime)
 	{
 		init();
@@ -26,7 +26,6 @@ namespace tudora_optimization
 			}
 			index_ = window_length_ - 1;
 		}
-		info();
 		return vel_;
 	}
 
@@ -52,4 +51,3 @@ namespace tudora_optimization
 		help_1_ = help_2_*psi_mat_;
 		help_1_ = help_1_.inverse();
 	}
-}

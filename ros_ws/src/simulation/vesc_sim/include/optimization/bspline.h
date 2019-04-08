@@ -2,8 +2,8 @@
 #include <deque>
 #include "optimization/optimizer.h"
 
-namespace tudora_optimization
-{
+
+
 	class BSplineOptimizer :public Optimizer
 	{
 	public:
@@ -17,4 +17,3 @@ namespace tudora_optimization
 		std::deque<double> weights_;
 		unsigned int num_points_;
 	};
-}

@@ -2,8 +2,8 @@
 
 #include "optimization/leastsquares.h"
 
-namespace tudora_optimization
-{
+
+
 	class LeastSquares1 : public LeastSquaresOptimizer
 	{
 	public:
@@ -14,4 +14,3 @@ namespace tudora_optimization
 		virtual void init() override;
 		double time_end_;
 	};
-}

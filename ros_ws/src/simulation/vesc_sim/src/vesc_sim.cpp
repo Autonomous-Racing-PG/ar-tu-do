@@ -29,7 +29,7 @@ VESCSimulator::VESCSimulator()
     this->m_odometry_publisher = this->m_node_handle.advertise<nav_msgs::Odometry>("odom", 10);
 }
 
-VESCSimulator::VESCSimulator()
+VESCSimulator::~VESCSimulator()
 {
     delete m_optim_x_dot;
     delete m_optim_y_dot;
@@ -42,7 +42,6 @@ void VESCSimulator::start()
 {
     if (!m_started)
     {
-        m_ls_optim->init();
         m_timer = m_node_handle.createTimer(ros::Duration(1.0 / m_frequency), &VESCSimulator::timerCallback, this);
         m_started = true;
     }

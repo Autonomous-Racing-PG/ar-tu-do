@@ -1,8 +1,8 @@
 #pragma once
 
+#include "optimization/leastsquares1.h"
 #include <ros/ros.h>
 #include <string>
-#include "optimization/optimizer.h"
 
 class VESCSimulator
 {
@@ -40,12 +40,11 @@ class VESCSimulator
     double m_frequency;
     std::string m_odom_frame;
     std::string m_base_frame;
-    Optimizer* m_optim_x_dot;
-    Optimizer* m_optim_y_dot;
-    Optimizer* m_optim_x_pos;
-    Optimizer* m_optim_y_pos;
-    Optimizer* m_optim_cur_ang_vel;
-    
+    LeastSquares1* m_optim_x_dot;
+    LeastSquares1* m_optim_y_dot;
+    LeastSquares1* m_optim_x_pos;
+    LeastSquares1* m_optim_y_pos;
+    LeastSquares1* m_optim_cur_ang_vel;
 
     void timerCallback(const ros::TimerEvent& event);
 };

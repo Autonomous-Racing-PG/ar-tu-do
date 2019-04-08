@@ -2,8 +2,8 @@
 #include <deque>
 #include "optimization/mean.h"
 
-namespace tudora_optimization
-{
+
+
     class AntiMean : public Mean
     {
 	public:
@@ -13,4 +13,3 @@ namespace tudora_optimization
 			return value - Mean::optimize(value);
 		}	
     };
-}

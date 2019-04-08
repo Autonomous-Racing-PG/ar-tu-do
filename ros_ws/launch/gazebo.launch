@@ -41,4 +41,6 @@
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
+
+    <node pkg="tf" type="static_transform_publisher" name="base_frame_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /base_link 10" />
 </launch>
