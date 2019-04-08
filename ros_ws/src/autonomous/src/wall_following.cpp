@@ -76,8 +76,8 @@ void WallFollowing::followSingleWall(const sensor_msgs::LaserScan::ConstPtr& lid
                                     createColor(1, 0, 0, 1), 0.03);
     float wallAngle = wall.getAngle();
     this->m_debug_geometry.drawLine(2, createPoint(PREDICTION_DISTANCE, -error * leftRightSign, 0),
-                                    createPoint(PREDICTION_DISTANCE + (float)cos(wallAngle) * 2,
-                                                (-error + (float)sin(wallAngle) * 2) * leftRightSign, 0),
+                                    createPoint(PREDICTION_DISTANCE + std::cos(wallAngle) * 2,
+                                                (-error + std::sin(wallAngle) * 2) * leftRightSign, 0),
                                     createColor(0, 1, 1, 1), 0.03);
 
     this->publishDriveParameters(velocity, steeringAngle);
@@ -92,7 +92,7 @@ void WallFollowing::followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float correction = this->m_pid_controller.updateAndGetCorrection(error, TIME_BETWEEN_SCANS);
 
     float steeringAngle = atan(correction) * 2 / M_PI;
-    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - (float)std::max(0.0, (double)std::abs(steeringAngle) - 0.15));
+    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::max(0.0f, std::abs(steeringAngle) - 0.15f));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
     leftWall.draw(this->m_debug_geometry, 0, createColor(0, 0, 1, 1));
