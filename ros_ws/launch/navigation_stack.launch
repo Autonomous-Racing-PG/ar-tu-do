@@ -42,5 +42,5 @@
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
 
-    <include file="$(find navigation_stack_config)/launch/move_base.launch">
+    <include file="$(find navigation_stack_config)/launch/move_base.launch"/>
 </launch>
