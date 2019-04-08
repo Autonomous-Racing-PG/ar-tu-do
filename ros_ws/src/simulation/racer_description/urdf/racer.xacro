@@ -127,27 +127,7 @@
   </joint>
 
   <!-- IMU -->
-  <link name="imu_link">
-    <inertial>
-      <mass value="${imuMass}" />
-      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
-      <box_inertia m="${imuMass}" l="${imuSize}" b="${imuSize}" h="${imuSize}" />
-    </inertial>
-
-    <collision>
-      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
-      <geometry>
-        <box size="${imuSize} ${imuSize} ${imuSize}"/>
-      </geometry>
-    </collision>
-
-    <visual>
-      <origin xyz="0 0 ${wheel_height/2}" rpy="0 0 0"/>
-      <geometry>
-        <box size="${imuSize} ${imuSize} ${imuSize}"/>
-      </geometry>
-    </visual>
-  </link>
+  <link name="imu_link" />
 
   <joint name="imu_joint" type="fixed">
     <axis xyz="0 1 0" />
