@@ -30,7 +30,7 @@ class DriveParametersMultiplexer
     private:
     ros::NodeHandle m_node_handle;
 
-    std::array<std::unique_ptr<DriveParametersSource>, 3> m_sources;
+    std::array<std::unique_ptr<DriveParametersSource>, 4> m_sources;
     DriveParametersSource* m_last_updated_source;
     ros::Publisher m_drive_parameters_publisher;
     ros::Subscriber m_drive_mode_subscriber;
