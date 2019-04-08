@@ -123,4 +123,14 @@
     <child link="laser"/>
   </joint>
 
+  <!-- IMU -->
+  <link name="imu_link" />
+
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.135" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="imu_link"/>
+  </joint>
+
 </robot>
