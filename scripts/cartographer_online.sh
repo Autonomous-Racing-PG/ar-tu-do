@@ -9,13 +9,13 @@ xacro -o $currentdir/ros_ws/src/navigation_stack/car_cartographer/files/racer.ur
 echo " Done."
 echo "Recording topics..."
 rosbag record -j -O ros_ws/src/navigation_stack/car_cartographer/files/recording.bag scan imu __name:=rosbag_recording >/dev/null 2>/dev/null &
-echo "Please drive with the car now (1.5 laps minimum, 3-4 laps recommended)"
-read -p "Press RETURN to stop recording"
+echo "Please drive with the car now (1.5 laps minimum, 3-5 laps recommended)."
+read -p "Press RETURN to stop recording."
 rosnode kill /rosbag_recording >/dev/null
 wait
 echo "Stopped recording. Done."
 echo -n "Create .pbstream..."
-roslaunch car_cartographer cartographer_bag_fast.launch bag_filenames:=$currentdir/ros_ws/src/navigation_stack/car_cartographer/files/recording.bag ros_version:=$ROS_DISTRO >/dev/null 2>/dev/null
+roslaunch car_cartographer cartographer_offline_fast.launch bag_filenames:=$currentdir/ros_ws/src/navigation_stack/car_cartographer/files/recording.bag ros_version:=$ROS_DISTRO >/dev/null 2>/dev/null
 echo " Done."
 echo -n "Create map..."
 roslaunch car_cartographer cartographer_make_map.launch bag_filenames:=$currentdir/ros_ws/src/navigation_stack/car_cartographer/files/recording.bag pose_graph_filename:=$currentdir/ros_ws/src/navigation_stack/car_cartographer/files/recording.bag.pbstream >/dev/null 2>/dev/null
