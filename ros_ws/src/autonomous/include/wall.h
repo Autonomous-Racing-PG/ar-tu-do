@@ -1,3 +1,5 @@
+#pragma once
+
 #include "rviz_geometry_publisher.h"
 #include <cmath>
 #include <cstdlib>
