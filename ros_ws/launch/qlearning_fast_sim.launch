@@ -5,7 +5,7 @@
   <arg name="headless" default="false"/>
 
   <include file="$(find racer_world)/launch/racer_gazebo.launch">
-      <arg name="world" value="racetrack_decorated"/>
+      <arg name="world" value="racetrack_decorated_fast_sim"/>
       <arg name="paused" value="$(arg paused)"/>
       <arg name="use_sim_time" value="true"/>
       <arg name="gui" value="$(arg gui)"/>
