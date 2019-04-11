@@ -8,6 +8,8 @@ Panels:
         - /RobotModel1/Links1/left_wheel_back1
         - /RobotModel1/Links1/left_wheel_front1
         - /Camera1/Visibility1
+        - /Map1
+        - /Map2
       Splitter Ratio: 0.446488291
     Tree Height: 616
   - Class: rviz/Selection
@@ -71,6 +73,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         chassis:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -159,6 +166,7 @@ Visualization Manager:
       Visibility:
         Grid: true
         LaserScan: true
+        Map: true
         Marker: true
         RobotModel: true
         Value: true
@@ -168,8 +176,28 @@ Visualization Manager:
       Marker Topic: wallfollowing_visualization
       Name: Marker
       Namespaces:
-        points_and_lines: true
+        {}
       Queue Size: 100
+      Value: true
+    - Alpha: 0.699999988
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /move_base/global_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
       Value: true
   Enabled: true
   Global Options:
@@ -196,25 +224,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.68077326
+      Distance: 39.1057739
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.194699436
-        Y: -1.06967628
-        Z: 0.501551986
+        X: 2.81297636
+        Y: -0.180353761
+        Z: 3.42002296
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.435397863
+      Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.10357618
+      Yaw: 3.0535748
     Saved: ~
 Window Geometry:
   Camera:

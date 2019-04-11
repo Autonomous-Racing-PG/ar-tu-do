@@ -16,7 +16,7 @@
         2 forces autonomous driving
         0 uses user input to enable the modes
     -->
-    <arg name="mode_override" default="0"/>
+    <arg name="mode_override" default="2"/>
 
     <include file="$(find racer_world)/launch/racer_gazebo.launch">
         <arg name="world" value="$(arg world)"/>
@@ -32,7 +32,7 @@
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <!-- <include file="$(find autonomous)/launch/autonomous_driving.launch"/> -->
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch">
@@ -43,4 +43,8 @@
     </include>
 
     <include file="$(find navigation_stack_config)/launch/move_base.launch"/>
+    <include file="$(find navigation_stack_control_converter)/launch/navigation_stack_control_converter.launch"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /odom 10" />
+    <node pkg="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /base_link 10" />
 </launch>
