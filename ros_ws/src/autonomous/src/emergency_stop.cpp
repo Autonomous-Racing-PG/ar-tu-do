@@ -13,7 +13,7 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
 
     // calculate the sample_angle of the lidar to be used to check if there is
     // an obstacle in front of the car, with respect to the RANGE_THRESHOLD
-    float sample_angle = (360 * CAR_BUMPER_LENGTH) / (M_PI * RANGE_THRESHOLD * 2) * DEG_TO_RAD;
+    float sample_angle = atan(CAR_BUMPER_LENGTH / 2 / RANGE_THRESHOLD);
 
     int index_start = available_samples / 2 - sample_angle / lidar->angle_increment / 2;
     int index_end = available_samples / 2 + sample_angle / lidar->angle_increment / 2;
@@ -24,16 +24,7 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
     // Instead of calculating the range average, we are more cautious because we would 
     // rather have false positives instead of false negatives.
     // i.e. we would rather stop too much than crash into an obstacle.
-    float min_dist = MAX_RANGE;
-    for (int i = index_start; i < index_end; i++)
-    {
-        float range = lidar->ranges[i];
-
-        if(min_dist > range)
-        {
-            min_dist = range;
-        }
-    }
+    auto min_dist = std::min(MAX_RANGE, *std::min_element(lidar->ranges.begin() + index_start, lidar->ranges.begin() + index_end));
 
     return min_dist < RANGE_THRESHOLD;
 }
