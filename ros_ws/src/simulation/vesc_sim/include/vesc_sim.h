@@ -1,7 +1,9 @@
 #pragma once
 
+#include <boost/shared_ptr.hpp>
 #include <ros/ros.h>
 #include <string>
+#include <tf/transform_broadcaster.h>
 
 class VESCSimulator
 {
@@ -21,6 +23,7 @@ class VESCSimulator
     private:
     ros::NodeHandle m_node_handle;
     ros::Publisher m_odometry_publisher;
+    boost::shared_ptr<tf::TransformBroadcaster> m_tf_publisher;
     ros::Timer m_timer;
     ros::Time m_last_stamp;
 

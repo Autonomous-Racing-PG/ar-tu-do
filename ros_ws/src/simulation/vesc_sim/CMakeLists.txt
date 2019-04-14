@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   vesc_msgs
   nav_msgs
+  geometry_msgs
+  tf
 )
 
 
@@ -23,7 +25,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Declare things to be passed to dependent projects
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs vesc_msgs nav_msgs
+  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs vesc_msgs nav_msgs geometry_msgs tf
 )
 
 

@@ -20,4 +20,6 @@
   <depend>rospy</depend>
   <depend>nav_msgs</depend>
   <depend>vesc_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf</depend>
 </package>

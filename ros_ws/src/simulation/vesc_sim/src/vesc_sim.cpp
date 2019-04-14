@@ -1,5 +1,6 @@
 #include "vesc_sim.h"
 #include "car_config.h"
+#include <geometry_msgs/TransformStamped.h>
 #include <nav_msgs/Odometry.h>
 
 VESCSimulator::VESCSimulator()
@@ -21,6 +22,7 @@ VESCSimulator::VESCSimulator()
     m_base_frame = "base_link";
 
     this->m_odometry_publisher = this->m_node_handle.advertise<nav_msgs::Odometry>("odom", 10);
+    m_tf_publisher.reset(new tf::TransformBroadcaster);
 }
 
 void VESCSimulator::start()
@@ -87,8 +89,18 @@ void VESCSimulator::timerCallback(const ros::TimerEvent& event)
     odom->twist.twist.linear.y = 0.0;
     odom->twist.twist.angular.z = m_current_angular_velocity;
 
+    geometry_msgs::TransformStamped tf;
+    tf.header.frame_id = m_odom_frame;
+    tf.child_frame_id = m_base_frame;
+    tf.header.stamp = stamp_now;
+    tf.transform.translation.x = m_x_position;
+    tf.transform.translation.y = m_y_position;
+    tf.transform.translation.z = 0.0;
+    tf.transform.rotation = odom->pose.pose.orientation;
+
     if (ros::ok())
     {
         m_odometry_publisher.publish(odom);
+        m_tf_publisher->sendTransform(tf);
     }
 }
