@@ -139,11 +139,13 @@ def on_crash():
 
 
 def log_progress():
+    test = policy_net.forward(TEST_SCAN).tolist()
     rospy.loginfo("Episode " + str(episode_count) + ": "  # nopep8 \
         + str(len(current_episode_states)) + " steps"  # nopep8 \
         + (", memory size: " + str(memory.size()) + " / " + str(memory.capacity) if not memory.full() else "")  # nopep8 \
         + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions"  # nopep8 \
-        + ", optimization steps: " + str(optimization_step_count))  # nopep8
+        + ", optimization steps: " + str(optimization_step_count) # nopep8 \
+        + ", test: " + str(test))  # nopep8
 
 
 def reset_episode():
@@ -210,7 +212,15 @@ target_net = NeuralQEstimator().to(device)
 target_net.load_state_dict(policy_net.state_dict())
 target_net.eval()
 
-
+TEST_SCAN = torch.tensor([ 3.7452,  3.5563,  3.4159,  3.3219,  3.2454,  3.2170,  3.2289,  3.2187,
+    0.2295,  0.2486,  0.2640,  0.2501,  0.2589,  0.2591,  0.2718,  0.2589,
+    0.2721,  0.2887,  0.2888,  0.3232,  0.3380,  0.3530,  0.3963,  0.4139,
+    0.4555,  0.5164,  0.6194,  0.7361,  0.9580,  1.2119,  1.3391, 12.3717,
+    6.3367,  5.2729,  4.6968,  4.1166,  3.5303,  2.9208,  2.4639,  2.1669,
+    1.7586,  1.6287,  1.6486,  1.5390,  1.4283,  1.3593,  1.3124,  1.2491,
+    1.2228,  1.1751,  1.1655,  1.1324,  1.1337,  1.1198,  1.1232,  1.1507,
+    1.1621,  1.1873,  1.2166,  1.2648,  1.3209,  1.3559,  1.4453,  1.5478],
+device=device)
 
 optimizer = optim.SGD(policy_net.parameters(), lr=LEARNING_RATE)
 memory = RingBuffer(MEMORY_SIZE)
