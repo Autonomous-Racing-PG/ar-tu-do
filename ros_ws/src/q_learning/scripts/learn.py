@@ -62,7 +62,7 @@ that the Q value for these states should always be 0
 def learn_crash_states():
     if len(crash_states) < 10:
         return
-
+    optimizer.zero_grad()
     states = random.sample(crash_states, min(100, len(crash_states)))
 
     state_batch = torch.stack(states)
@@ -75,7 +75,6 @@ def learn_crash_states():
     loss = F.smooth_l1_loss(policy_net_output, q)
 
     # Optimize the model
-    optimizer.zero_grad()
     loss.backward()
     optimizer.step()
 
@@ -83,6 +82,7 @@ def learn_crash_states():
 def optimize_model():
     global optimization_step_count
     while not rospy.is_shutdown():
+        optimizer.zero_grad()
         if (100 > memory.size()):
             time.sleep(1)
             continue
@@ -118,7 +118,6 @@ def optimize_model():
         loss = F.smooth_l1_loss(state_action_values, target_net_output)
 
         # Optimize the model
-        optimizer.zero_grad()
         loss.backward()
         for param in policy_net.parameters():
             param.grad.data.clamp_(-1, 1)
