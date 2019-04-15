@@ -110,6 +110,7 @@ void JoystickController::selectJoystickMapping()
     else
     {
         ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to xbox360 keybindings");
+        ROS_INFO_STREAM(PARAMETER_JOYSTICK_TYPE << " : " << joystick_type);
         m_joystick_map = joystick_mapping_xbox360;
     }
 }
