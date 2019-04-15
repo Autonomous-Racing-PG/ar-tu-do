@@ -10,6 +10,10 @@ import math
 
 import torch
 
+import numpy as np
+
+MAX_DISTANCE = 30
+
 
 def reset(position, orientation):
     global start_position
@@ -70,10 +74,11 @@ def get_scan(sample_count, device):
     if _scan_indices is None or len(_scan_indices) != sample_count:
         count = (laser_scan.angle_max - laser_scan.angle_min) / \
             laser_scan.angle_increment
-        _scan_indices = [int(i * count / sample_count)
-                         for i in range(sample_count)]
+        _scan_indices = (np.arange(sample_count) * count / sample_count).astype(int)
 
-    values = [laser_scan.ranges[i] for i in _scan_indices]
+    scan = np.array(laser_scan.ranges, dtype=np.float32)
+    values = scan[_scan_indices]
+    values[values > MAX_DISTANCE] = MAX_DISTANCE
     return torch.tensor(values, device=device)
 
 
