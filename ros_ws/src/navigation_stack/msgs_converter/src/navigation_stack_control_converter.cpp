@@ -2,6 +2,7 @@
 #include "car_config.h"
 #include <algorithm>
 #include <boost/algorithm/clamp.hpp>
+#include <cmath>
 #include <eigen3/Eigen/Dense>
 
 using namespace Eigen;
@@ -43,7 +44,7 @@ void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist
         }
 
         // check if norm is zero, then the steering angle (angle_rad) will be infinity!
-        angle_rad = atan((car_config::WHEELBASE * velocity_angular) / velocity_result);
+        angle_rad = std::atan((car_config::WHEELBASE * velocity_angular) / velocity_result);
     }
 
     double servo_data = (angle_rad * car_config::STEERING_TO_SERVO_GAIN) + car_config::STEERING_TO_SERVO_OFFSET;

@@ -1,5 +1,5 @@
 #include "drive_parameters_source.h"
-#include <math.h>
+#include <cmath>
 
 constexpr auto DEFAULT_TIME = std::chrono::steady_clock::time_point::min();
 
@@ -22,7 +22,7 @@ DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const
 void DriveParametersSource::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& message)
 {
     this->m_last_update = std::chrono::steady_clock::now();
-    this->m_idle = fabs(message->velocity) < IDLE_RANGE && fabs(message->angle) < IDLE_RANGE;
+    this->m_idle = std::abs(message->velocity) < IDLE_RANGE && std::abs(message->angle) < IDLE_RANGE;
     this->m_updateCallback(this, message);
 }
 

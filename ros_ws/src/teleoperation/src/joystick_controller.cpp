@@ -49,7 +49,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 
     if (this->m_acceleration_locked)
     {
-        if (abs(acceleration) < EPSILON)
+        if (std::abs(acceleration) < EPSILON)
         {
             this->m_acceleration_locked = false;
         }
@@ -60,7 +60,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     }
     if (this->m_deceleration_locked)
     {
-        if (abs(deceleration) < EPSILON)
+        if (std::abs(deceleration) < EPSILON)
         {
             this->m_deceleration_locked = false;
         }

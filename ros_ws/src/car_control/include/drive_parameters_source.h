@@ -12,7 +12,7 @@ class DriveParametersSource;
 using DriveParameterCallbackFunction =
     std::function<void(DriveParametersSource*, const drive_msgs::drive_param::ConstPtr&)>;
 
-constexpr double IDLE_RANGE = 0.01;
+constexpr float IDLE_RANGE = 0.01f;
 
 /*
 *  A class that listens on a topic that publishes drive parameters and stores information about that source
