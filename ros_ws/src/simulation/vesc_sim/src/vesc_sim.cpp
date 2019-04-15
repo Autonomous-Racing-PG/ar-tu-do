@@ -20,7 +20,7 @@ VESCSimulator::VESCSimulator()
     m_last_stamp = ros::Time::now();
     m_odom_frame = "odom";
     m_base_frame = "base_link";
-    unsigned int window_size = 10;
+    unsigned int window_size = 5;
     m_optim_x_dot = new LeastSquares1(window_size,1/m_frequency);
     m_optim_y_dot = new LeastSquares1(window_size,1/m_frequency);
     m_optim_x_pos = new LeastSquares1(window_size,1/m_frequency);

@@ -26,7 +26,7 @@
 			}
 			index_ = window_length_ - 1;
 		}
-		return vel_;
+		return pos_;
 	}
 
 	void LeastSquares1::init()
