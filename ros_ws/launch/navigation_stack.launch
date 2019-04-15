@@ -45,6 +45,6 @@
     <include file="$(find navigation_stack_config)/launch/move_base.launch"/>
     <include file="$(find navigation_stack_control_converter)/launch/navigation_stack_control_converter.launch"/>
 
-    <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /odom 10" />
-    <node pkg="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /base_link 10" />
+    <!--node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /odom 10" />
+    <node pkg="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /base_link 10" /-->
 </launch>
