@@ -36,8 +36,8 @@ LEARNING_RATE = 0.001
 # Probability to select a random episode starts at EPS_START
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 0.9
-EPS_END = 0.2
-EPS_DECAY = 12000
+EPS_END = 0.25
+EPS_DECAY = 2000
 
 
 class NeuralQEstimator(nn.Module):
@@ -115,7 +115,7 @@ def optimize_model():
                           action_batch] = expected_state_action_values
 
         # Compute Huber loss
-        loss = F.smooth_l1_loss(state_action_values, target_net_output)
+        loss = F.mse_loss(state_action_values, target_net_output.detach())
 
         # Optimize the model
         loss.backward()
@@ -154,7 +154,7 @@ def reset_episode():
 
     current_episode_states = []
     episode_count += 1
-    car.reset((0, -0.5), 0)
+    car.reset((10, 1), math.pi * 0.25 + (0 if random.random() > 0.5 else math.pi))
 
 
 def get_eps_threshold():
@@ -210,7 +210,9 @@ target_net = NeuralQEstimator().to(device)
 target_net.load_state_dict(policy_net.state_dict())
 target_net.eval()
 
-optimizer = optim.RMSprop(policy_net.parameters(), lr=LEARNING_RATE)
+
+
+optimizer = optim.SGD(policy_net.parameters(), lr=LEARNING_RATE)
 memory = RingBuffer(MEMORY_SIZE)
 
 current_episode_states = None
