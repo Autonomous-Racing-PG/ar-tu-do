@@ -13,6 +13,8 @@
       <rosparam file="$(find navigation_stack_config)/config/local_costmap_params.yaml" command="load" />
       <rosparam file="$(find navigation_stack_config)/config/global_costmap_params.yaml" command="load" />
       <rosparam file="$(find navigation_stack_config)/config/base_local_planner_params.yaml" command="load" />
-   </node>
 
+      <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+      <param name="controller_frequency" value="10.0" />
+   </node>
 </launch> 
