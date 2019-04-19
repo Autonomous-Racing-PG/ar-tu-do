@@ -8,8 +8,6 @@ Panels:
         - /RobotModel1/Links1/left_wheel_back1
         - /RobotModel1/Links1/left_wheel_front1
         - /Camera1/Visibility1
-        - /Map1
-        - /Map2
       Splitter Ratio: 0.446488291
     Tree Height: 616
   - Class: rviz/Selection
@@ -32,6 +30,8 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: LaserScan
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -81,7 +81,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         laser:
           Alpha: 1
           Show Axes: false
@@ -168,6 +167,7 @@ Visualization Manager:
         LaserScan: true
         Map: true
         Marker: true
+        Path: true
         RobotModel: true
         Value: true
       Zoom Factor: 1
@@ -199,6 +199,52 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Lines
+      Line Width: 0.0299999993
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /move_base/NavfnROS/plan
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 170; 0; 127
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Lines
+      Line Width: 0.0299999993
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /move_base/TebLocalPlannerROS/local_plan
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -224,25 +270,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 39.1057739
+      Distance: 20.859623
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 2.81297636
-        Y: -0.180353761
-        Z: 3.42002296
+        X: 9.84466934
+        Y: 8.19494152
+        Z: 3.26528311
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.56979632
+      Pitch: 0.824796677
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.0535748
+      Yaw: 6.06357861
     Saved: ~
 Window Geometry:
   Camera:
