@@ -119,6 +119,10 @@ def follow_walls(left_circle, right_circle):
 
     drive(steering_angle * (1.0 - relative_speed), SLOW + (FAST - SLOW) * relative_speed)
 
+    show_line_in_rviz(2, [left_point, right_point], color = ColorRGBA(1, 1, 1, 0.3), line_width = 0.005)
+    show_line_in_rviz(3, [Point(0,0), predicted_car_position], color = ColorRGBA(1, 1, 1, 0.3), line_width = 0.005)
+    show_line_in_rviz(4, [predicted_car_position, target_position], color = ColorRGBA(1, 0.4, 0, 1))
+
 def show_line_in_rviz(id, points, color = ColorRGBA(1, 1, 1, 1), line_width = 0.02):
     message = Marker()
     message.header.frame_id = "laser"
