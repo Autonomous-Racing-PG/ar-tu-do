@@ -6,35 +6,13 @@ from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
 from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point as PointMessage
-import circle_fit as cf
 
-import numpy as np
+import circle
+from circle import Point
 
 import math
 
-from collections import namedtuple
-
-Point = namedtuple("Point", ["x", "y"])
-
-class Circle():
-    def __init__(self, center, radius):
-        self.center = center
-        self.radius = radius
-
-    def create_array(self, start_angle, end_angle, sample_count=50):
-        points = np.zeros((sample_count, 2))
-        points[:, 0] = self.center.x + np.sin(np.linspace(start_angle, end_angle, sample_count)) * self.radius
-        points[:, 1] = self.center.y + np.cos(np.linspace(start_angle, end_angle, sample_count)) * self.radius
-        return points
-
-    def get_angle(self, point):
-        return math.atan2(point.x - self.center.x, point.y - self.center.y)
-
-    def get_closest_point(self, point):
-        x = point.x - self.center.x
-        y = point.y - self.center.y
-        distance = (x**2 + y**2) ** 0.5
-        return Point(self.center.x + x * self.radius / distance, self.center.y + y * self.radius / distance)
+import numpy as np
 
 class PIDController():
     def __init__(self, p, i, d):
@@ -62,12 +40,6 @@ def laser_callback(message):
     global laser_scan
     laser_scan = message
 
-
-def fit_circle(points):
-    center_x, center_y, _, _ = cf.hyper_fit(points)
-    center = Point(center_x, center_y)
-    radius = np.average(np.linalg.norm(points - [center.x, center.y], axis=1))
-    return Circle(center, radius)
 
 def get_scan_as_cartesian():
     if laser_scan is None:
@@ -161,9 +133,9 @@ def handle_scan():
     right_wall = points[:split, :]
     left_wall = points[split:, :]
 
-    left_circle = fit_circle(left_wall)
-    right_circle = fit_circle(right_wall)
-    
+    left_circle = circle.fit(left_wall)
+    right_circle = circle.fit(right_wall)
+
     follow_walls(left_circle, right_circle)
 
     show_circle_in_rviz(left_circle, left_wall, 0)
