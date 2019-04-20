@@ -14,6 +14,18 @@ import math
 
 import numpy as np
 
+SLOW = 0.15
+FAST = 1.0
+
+RADIUS_SMALL = 2
+RADIUS_BIG = 10
+
+ERROR_SPEED_DECREASE = 1.7
+ERROR_DEAD_ZONE = 0.2
+
+UPDATE_FREQUENCY = 60
+
+
 class PIDController():
     def __init__(self, p, i, d):
         self.p = p
@@ -22,12 +34,13 @@ class PIDController():
 
         self.integral = 0
         self.previous_error = 0
-    
+
     def update_and_get_correction(self, error, delta_time):
         self.integral += error * delta_time
         derivative = (error - self.previous_error) / delta_time
         self.previous_error = error
         return self.p * error + self.i * self.integral + self.d * derivative
+
 
 def drive(angle, velocity):
     message = drive_param()
@@ -44,9 +57,12 @@ def laser_callback(message):
 def get_scan_as_cartesian():
     if laser_scan is None:
         raise Exception("No scan has been received yet.")
-    
+
     ranges = np.array(laser_scan.ranges)
-    angles = np.arange(laser_scan.angle_min, laser_scan.angle_max, laser_scan.angle_increment)
+    angles = np.linspace(
+        laser_scan.angle_min,
+        laser_scan.angle_max,
+        ranges.shape[0])
 
     points = np.zeros((ranges.shape[0], 2))
     points[:, 0] = -np.sin(angles) * ranges
@@ -54,11 +70,11 @@ def get_scan_as_cartesian():
 
     return points
 
-def find_left_right_border(points, margin_relative = 0.1):
-    margin_relative = 0.1
+
+def find_left_right_border(points, margin_relative=0.1):
     margin = int(points.shape[0] * margin_relative)
-    
-    relative = points[margin + 1:-margin, :] - points[margin:-margin-1,:]
+
+    relative = points[margin + 1:-margin, :] - points[margin:-margin - 1, :]
     distances = np.linalg.norm(relative, axis=1)
 
     return margin + np.argmax(distances) + 1
@@ -68,34 +84,34 @@ def follow_walls(left_circle, right_circle):
     predicted_car_position = Point(0, 1.5)
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
-    
-    target_position = Point((left_point.x + right_point.x) / 2, (left_point.y + right_point.y) / 2)
+
+    target_position = Point(
+        (left_point.x + right_point.x) / 2,
+        (left_point.y + right_point.y) / 2)
     error = target_position.x - predicted_car_position.x
     if math.isnan(error) or math.isinf(error):
         error = 0
 
-    steering_angle = pid.update_and_get_correction(error, 1.0 / UPDATE_FREQUENCY)
-
-    SLOW = 0.15
-    FAST = 1.0
-
-    relative_speed = 0.1
+    steering_angle = pid.update_and_get_correction(
+        error, 1.0 / UPDATE_FREQUENCY)
 
     radius = min(left_circle.radius, right_circle.radius)
-    
-    RADIUS_SMALL = 2
-    RADIUS_BIG = 10
+    speed_limit_radius = (radius - RADIUS_SMALL) / (RADIUS_BIG - RADIUS_SMALL)
+    speed_limit_error = 1 + ERROR_DEAD_ZONE - abs(error) * ERROR_SPEED_DECREASE
+    relative_speed = max(0.0, min(1.0, speed_limit_error, speed_limit_radius))
+    speed = SLOW + (FAST - SLOW) * relative_speed
 
-    absolute_error = abs(error)
-    relative_speed = max(0.0, min(1.0, 1.2 - absolute_error * 1.7, (radius - RADIUS_SMALL) / (RADIUS_BIG - RADIUS_SMALL)))
+    drive(steering_angle * (1.0 - relative_speed), speed)
 
-    drive(steering_angle * (1.0 - relative_speed), SLOW + (FAST - SLOW) * relative_speed)
+    show_line_in_rviz(2, [left_point, right_point],
+                      color=ColorRGBA(1, 1, 1, 0.3), line_width=0.005)
+    show_line_in_rviz(3, [Point(0, 0), predicted_car_position],
+                      color=ColorRGBA(1, 1, 1, 0.3), line_width=0.005)
+    show_line_in_rviz(4, [predicted_car_position,
+                          target_position], color=ColorRGBA(1, 0.4, 0, 1))
 
-    show_line_in_rviz(2, [left_point, right_point], color = ColorRGBA(1, 1, 1, 0.3), line_width = 0.005)
-    show_line_in_rviz(3, [Point(0,0), predicted_car_position], color = ColorRGBA(1, 1, 1, 0.3), line_width = 0.005)
-    show_line_in_rviz(4, [predicted_car_position, target_position], color = ColorRGBA(1, 0.4, 0, 1))
 
-def show_line_in_rviz(id, points, color = ColorRGBA(1, 1, 1, 1), line_width = 0.02):
+def show_line_in_rviz(id, points, color=ColorRGBA(1, 1, 1, 1), line_width=0.02):  # nopep8
     message = Marker()
     message.header.frame_id = "laser"
     message.header.stamp = rospy.Time.now()
@@ -107,12 +123,12 @@ def show_line_in_rviz(id, points, color = ColorRGBA(1, 1, 1, 1), line_width = 0.
     message.type = Marker.LINE_STRIP
     message.scale.x = line_width
     message.color = color
-    if type(points) is np.ndarray:
-        message.points = [PointMessage(points[i, 1], -points[i, 0], 0) for i in range(points.shape[0])]
-    elif type(points) is list:
-        message.points = [PointMessage(point.y, -point.x, 0) for point in points]
+    if isinstance(points, np.ndarray):
+        message.points = [PointMessage(points[i, 1], -points[i, 0], 0) for i in range(points.shape[0])]  # nopep8
+    elif isinstance(points, list):
+        message.points = [PointMessage(point.y, -point.x, 0) for point in points]  # nopep8
     else:
-        raise Exception("points should be a numpy array or list of points, but is " + str(type(points)) + ".")
+        raise Exception("points should be a numpy array or list of points, but is " + str(type(points)) + ".")  # nopep8
 
     marker_publisher.publish(message)
 
@@ -121,12 +137,13 @@ def show_circle_in_rviz(circle, wall, id):
     start_angle = circle.get_angle(Point(wall[0, 0], wall[0, 1]))
     end_angle = circle.get_angle(Point(wall[-1, 0], wall[-1, 1]))
     points = circle.create_array(start_angle, end_angle)
-    show_line_in_rviz(id, points, color = ColorRGBA(0, 1, 1, 1))
+    show_line_in_rviz(id, points, color=ColorRGBA(0, 1, 1, 1))
+
 
 def handle_scan():
     if laser_scan is None:
         return
-    
+
     points = get_scan_as_cartesian()
     split = find_left_right_border(points)
 
@@ -140,19 +157,17 @@ def handle_scan():
 
     show_circle_in_rviz(left_circle, left_wall, 0)
     show_circle_in_rviz(right_circle, right_wall, 1)
-    
+
 
 laser_scan = None
 
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     "/input/drive_param/wallfollowing", drive_param, queue_size=1)
-marker_publisher = rospy.Publisher("/wallfollowing_visualization", Marker, queue_size=1)
-
+marker_publisher = rospy.Publisher(
+    "/wallfollowing_visualization", Marker, queue_size=1)
 
 rospy.init_node('wall2', anonymous=True)
-
-UPDATE_FREQUENCY = 60
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 

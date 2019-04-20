@@ -8,3 +8,5 @@ ros_ws/src/CMakeLists.txt
 ros_ws/\.catkin_workspace
 
 .vscode/
+
+*.pyc
