@@ -10,8 +10,6 @@ import numpy as np
 
 import math
 
-import matplotlib.pyplot as plt
-
 from collections import namedtuple
 
 Point = namedtuple("Point", ["x", "y"])
@@ -66,34 +64,30 @@ def fit_circle(points):
     radius = np.average(np.linalg.norm(points - [center.x, center.y], axis=1))
     return Circle(center, radius)
 
-
-def handle_scan():
+def get_scan_as_cartesian():
     if laser_scan is None:
-        return
+        raise Exception("No scan has been received yet.")
+    
     ranges = np.array(laser_scan.ranges)
-    sample_count = ranges.shape[0]
     angles = np.arange(laser_scan.angle_min, laser_scan.angle_max, laser_scan.angle_increment)
 
     points = np.zeros((ranges.shape[0], 2))
     points[:, 0] = -np.sin(angles) * ranges
     points[:, 1] = np.cos(angles) * ranges
 
-    relative = points[1:, :] - points[:-1,:]
+    return points
+
+def find_left_right_border(points, margin_relative = 0.1):
+    margin_relative = 0.1
+    margin = int(points.shape[0] * margin_relative)
+    
+    relative = points[margin + 1:-margin, :] - points[margin:-margin-1,:]
     distances = np.linalg.norm(relative, axis=1)
 
-    margin_relative = 0.1
-    margin = int(sample_count * margin_relative)
-    split = margin + np.argmax(distances[margin:-margin]) + 1
+    return margin + np.argmax(distances) + 1
 
-    right_wall = points[:split, :]
-    left_wall = points[split:, :]
 
-    left_circle = fit_circle(left_wall)
-    right_circle = fit_circle(right_wall)
-    
-    left_circle_array = left_circle.create_array()
-    right_circle_array = right_circle.create_array()
-
+def follow_walls(left_circle, right_circle):
     predicted_car_position = Point(0, 1.5)
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
@@ -118,23 +112,24 @@ def handle_scan():
     absolute_error = abs(error)
     relative_speed = max(0.0, min(1.0, 1.2 - absolute_error * 1.7, (radius - RADIUS_SMALL) / (RADIUS_BIG - RADIUS_SMALL)))
 
-    rospy.loginfo("speed: " + format(relative_speed, '.2f') + ", radius: " + format(radius, '.2f') + ", error: " + format(error, '.2f'))
-
     drive(steering_angle * (1.0 - relative_speed), SLOW + (FAST - SLOW) * relative_speed)
 
-    '''plt.clf()
-    plt.xlim(-7, 7)
-    plt.ylim(-2, 12)
-    plt.gca().set_aspect("equal")
-    plt.scatter(left_wall[:,0], left_wall[:,1], marker=".", color="blue")
-    plt.scatter(right_wall[:,0], right_wall[:,1], marker=".", color="cyan")
-    plt.plot(left_circle_array[:,0], left_circle_array[:,1], color="blue")
-    plt.plot(right_circle_array[:,0], right_circle_array[:,1], color="cyan")
-    plt.plot([left_point[0], right_point[0]], [left_point[1], right_point[1]], color="green")
-    plt.plot([predicted_car_position[0], target_position[0]], [predicted_car_position[1], target_position[1]], color="red")
-    plt.draw()
-    plt.pause(0.001)'''
 
+def handle_scan():
+    if laser_scan is None:
+        return
+    
+    points = get_scan_as_cartesian()
+    split = find_left_right_border(points)        
+
+    right_wall = points[:split, :]
+    left_wall = points[split:, :]
+
+    left_circle = fit_circle(left_wall)
+    right_circle = fit_circle(right_wall)
+    
+    follow_walls(left_circle, right_circle)
+    
 
 laser_scan = None
 
@@ -148,7 +143,6 @@ rospy.init_node('wall2', anonymous=True)
 UPDATE_FREQUENCY = 60
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
-plt.ion()
 
 pid = PIDController(1.5, 0.01, 0.01)
 
