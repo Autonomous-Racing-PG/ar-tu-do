@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import String, Empty
+from std_msgs.msg import String, Empty, ColorRGBA
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
+from visualization_msgs.msg import Marker
+from geometry_msgs.msg import Point as PointMessage
 import circle_fit as cf
 
 import numpy as np
@@ -19,11 +21,14 @@ class Circle():
         self.center = center
         self.radius = radius
 
-    def create_array(self, sample_count=200):
+    def create_array(self, start_angle, end_angle, sample_count=50):
         points = np.zeros((sample_count, 2))
-        points[:, 0] = self.center.x - np.sin(np.arange(0, math.pi * 2, math.pi * 2 / sample_count)) * self.radius
-        points[:, 1] = self.center.y + np.cos(np.arange(0, math.pi * 2, math.pi * 2 / sample_count)) * self.radius
+        points[:, 0] = self.center.x + np.sin(np.linspace(start_angle, end_angle, sample_count)) * self.radius
+        points[:, 1] = self.center.y + np.cos(np.linspace(start_angle, end_angle, sample_count)) * self.radius
         return points
+
+    def get_angle(self, point):
+        return math.atan2(point.x - self.center.x, point.y - self.center.y)
 
     def get_closest_point(self, point):
         x = point.x - self.center.x
@@ -114,13 +119,40 @@ def follow_walls(left_circle, right_circle):
 
     drive(steering_angle * (1.0 - relative_speed), SLOW + (FAST - SLOW) * relative_speed)
 
+def show_line_in_rviz(id, points, color = ColorRGBA(1, 1, 1, 1), line_width = 0.02):
+    message = Marker()
+    message.header.frame_id = "laser"
+    message.header.stamp = rospy.Time.now()
+    message.ns = "wall_following"
+    message.type = Marker.ADD
+    message.pose.orientation.w = 1
+
+    message.id = id
+    message.type = Marker.LINE_STRIP
+    message.scale.x = line_width
+    message.color = color
+    if type(points) is np.ndarray:
+        message.points = [PointMessage(points[i, 1], -points[i, 0], 0) for i in range(points.shape[0])]
+    elif type(points) is list:
+        message.points = [PointMessage(point.y, -point.x, 0) for point in points]
+    else:
+        raise Exception("points should be a numpy array or list of points, but is " + str(type(points)) + ".")
+
+    marker_publisher.publish(message)
+
+
+def show_circle_in_rviz(circle, wall, id):
+    start_angle = circle.get_angle(Point(wall[0, 0], wall[0, 1]))
+    end_angle = circle.get_angle(Point(wall[-1, 0], wall[-1, 1]))
+    points = circle.create_array(start_angle, end_angle)
+    show_line_in_rviz(id, points, color = ColorRGBA(0, 1, 1, 1))
 
 def handle_scan():
     if laser_scan is None:
         return
     
     points = get_scan_as_cartesian()
-    split = find_left_right_border(points)        
+    split = find_left_right_border(points)
 
     right_wall = points[:split, :]
     left_wall = points[split:, :]
@@ -129,6 +161,9 @@ def handle_scan():
     right_circle = fit_circle(right_wall)
     
     follow_walls(left_circle, right_circle)
+
+    show_circle_in_rviz(left_circle, left_wall, 0)
+    show_circle_in_rviz(right_circle, right_wall, 1)
     
 
 laser_scan = None
@@ -136,6 +171,7 @@ laser_scan = None
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     "/input/drive_param/wallfollowing", drive_param, queue_size=1)
+marker_publisher = rospy.Publisher("/wallfollowing_visualization", Marker, queue_size=1)
 
 
 rospy.init_node('wall2', anonymous=True)
