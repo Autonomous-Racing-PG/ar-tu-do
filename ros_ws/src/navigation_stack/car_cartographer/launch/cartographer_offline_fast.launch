@@ -24,7 +24,7 @@
           -configuration_directory $(find car_cartographer)/config
           -configuration_basename cartographer_config_kinetic.lua
           -urdf_filename $(find car_cartographer)/files/racer.urdf
-          -bag_filenames $(arg bag_filenames)" output="screen">
+          -bag_filenames $(arg bag_filenames)" output="screen" required="true">
     </node>
   </group>
 
@@ -33,7 +33,7 @@
           -configuration_directory $(find car_cartographer)/config
           -configuration_basenames cartographer_config_melodic.lua
           -urdf_filenames $(find car_cartographer)/files/racer.urdf
-          -bag_filenames $(arg bag_filenames)" output="screen">
+          -bag_filenames $(arg bag_filenames)" output="screen" required="true">
     </node>
   </group>
 </launch>
