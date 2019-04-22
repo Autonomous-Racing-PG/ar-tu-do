@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import String, Empty, ColorRGBA
+from std_msgs.msg import ColorRGBA
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
-from visualization_msgs.msg import Marker
-from geometry_msgs.msg import Point as PointMessage
+
+from rviz_geometry import show_circle_in_rviz, show_line_in_rviz
 
 import circle
 from circle import Point
@@ -111,35 +111,6 @@ def follow_walls(left_circle, right_circle):
                           target_position], color=ColorRGBA(1, 0.4, 0, 1))
 
 
-def show_line_in_rviz(id, points, color=ColorRGBA(1, 1, 1, 1), line_width=0.02):  # nopep8
-    message = Marker()
-    message.header.frame_id = "laser"
-    message.header.stamp = rospy.Time.now()
-    message.ns = "wall_following"
-    message.type = Marker.ADD
-    message.pose.orientation.w = 1
-
-    message.id = id
-    message.type = Marker.LINE_STRIP
-    message.scale.x = line_width
-    message.color = color
-    if isinstance(points, np.ndarray):
-        message.points = [PointMessage(points[i, 1], -points[i, 0], 0) for i in range(points.shape[0])]  # nopep8
-    elif isinstance(points, list):
-        message.points = [PointMessage(point.y, -point.x, 0) for point in points]  # nopep8
-    else:
-        raise Exception("points should be a numpy array or list of points, but is " + str(type(points)) + ".")  # nopep8
-
-    marker_publisher.publish(message)
-
-
-def show_circle_in_rviz(circle, wall, id):
-    start_angle = circle.get_angle(Point(wall[0, 0], wall[0, 1]))
-    end_angle = circle.get_angle(Point(wall[-1, 0], wall[-1, 1]))
-    points = circle.create_array(start_angle, end_angle)
-    show_line_in_rviz(id, points, color=ColorRGBA(0, 1, 1, 1))
-
-
 def handle_scan():
     if laser_scan is None:
         return
@@ -164,8 +135,6 @@ laser_scan = None
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     "/input/drive_param/wallfollowing", drive_param, queue_size=1)
-marker_publisher = rospy.Publisher(
-    "/wallfollowing_visualization", Marker, queue_size=1)
 
 rospy.init_node('wall2', anonymous=True)
 
