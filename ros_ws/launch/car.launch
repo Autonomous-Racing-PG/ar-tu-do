@@ -20,7 +20,7 @@
         <param name="wheelbase" value="0.325"/>
     </node>-->
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <include file="$(find wallfollowing1)/launch/autonomous_driving.launch"/>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
 

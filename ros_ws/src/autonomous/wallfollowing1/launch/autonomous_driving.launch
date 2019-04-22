@@ -2,18 +2,19 @@
 <launch>
 <!-- Launches all necessary nodes that let the car drive autonomously. -->
     <!-- wall_following node -->
+
     <node
       respawn="true"
-      pkg="autonomous"
-      type="wall2.py"
-      name="wall2"
+      pkg="wallfollowing1"
+      type="wall_following"
+      name="wall_following"
       output="screen" >
-    </node>
+    </node>-
 
     <!-- emergency_stop node -->
     <node
       respawn="true"
-      pkg="autonomous"
+      pkg="wallfollowing1"
       type="emergency_stop"
       name="emergency_stop"
       output="screen" >
