@@ -136,7 +136,7 @@ rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     "/input/drive_param/wallfollowing", drive_param, queue_size=1)
 
-rospy.init_node('wall2', anonymous=True)
+rospy.init_node('wallfollowing', anonymous=True)
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 

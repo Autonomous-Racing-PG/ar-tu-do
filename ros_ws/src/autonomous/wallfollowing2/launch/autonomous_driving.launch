@@ -5,8 +5,8 @@
     <node
       respawn="true"
       pkg="wallfollowing2"
-      type="wall2.py"
-      name="wall2"
+      type="wallfollowing.py"
+      name="wallfollowing"
       output="screen" >
     </node>
 </launch>
