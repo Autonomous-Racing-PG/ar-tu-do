@@ -13,7 +13,7 @@ DriveParametersMultiplexer::DriveParametersMultiplexer()
                                                           callback, DriveMode::MANUAL, 0.1)),
         std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_DRIVE_PARAMETERS_JOYSTICK,
                                                           callback, DriveMode::MANUAL, 0.1)),
-        std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_DRIVE_PARAMETERS_WALLFOLLOWING,
+        std::move(std::make_unique<DriveParametersSource>(&this->m_node_handle, TOPIC_DRIVE_PARAMETERS_AUTONOMOUS,
                                                           callback, DriveMode::AUTONOMOUS, 0.1)),
     };
     this->m_drive_mode_subscriber =

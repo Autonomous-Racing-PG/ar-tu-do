@@ -134,7 +134,7 @@ laser_scan = None
 
 rospy.Subscriber("/scan", LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
-    "/input/drive_param/wallfollowing", drive_param, queue_size=1)
+    "/input/drive_param/autonomous", drive_param, queue_size=1)
 
 rospy.init_node('wallfollowing', anonymous=True)
 
