@@ -27,16 +27,22 @@ UPDATE_FREQUENCY = 60
 
 
 class PIDController():
-    def __init__(self, p, i, d):
+    def __init__(self, p, i, d, anti_windup = 0.2):
         self.p = p
         self.i = i
         self.d = d
+        self.anti_windup = anti_windup
 
         self.integral = 0
         self.previous_error = 0
 
     def update_and_get_correction(self, error, delta_time):
         self.integral += error * delta_time
+        if self.integral > self.anti_windup:
+            self.integral = self.anti_windup
+        elif self.integral < -self.anti_windup:
+            self.integral = -self.anti_windup
+
         derivative = (error - self.previous_error) / delta_time
         self.previous_error = error
         return self.p * error + self.i * self.integral + self.d * derivative
@@ -140,7 +146,7 @@ rospy.init_node('wallfollowing', anonymous=True)
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 
-pid = PIDController(1.5, 0.01, 0.01)
+pid = PIDController(1.5, 0.2, 0.01)
 
 while not rospy.is_shutdown():
     handle_scan()
