@@ -33,6 +33,7 @@
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
 
     <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <node name="lap_timer" pkg="lap_timer" type="lap_timer.py" output="screen"/>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch">
