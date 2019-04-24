@@ -24,4 +24,5 @@
   <depend>amcl</depend>
   <depend>move_base</depend>
   <depend>map_server</depend>
+  <depend>teb_local_planner</depend>
 </package>

@@ -6,7 +6,6 @@
 
 using namespace Eigen;
 
-
 NavigationStackControlConverter::NavigationStackControlConverter()
 {
     this->m_command_velocity_subscriber =
@@ -19,16 +18,13 @@ NavigationStackControlConverter::NavigationStackControlConverter()
 void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel_message)
 {
 
-    double velocity_x = cmd_vel_message->linear.x;
-    double velocity_y = cmd_vel_message->linear.y;
-    double velocity_angular = cmd_vel_message->angular.z;
+    double velocity = cmd_vel_message->linear.x;
+    double angle = cmd_vel_message->angular.z;
 
-    Vector2d metric_velocity(velocity_x, velocity_y);
-
-    double velocity_result = metric_velocity.norm();
-    double erpm_speed = velocity_result * car_config::TRANSMISSION / car_config::ERPM_TO_SPEED;
+    double erpm_speed = velocity * car_config::TRANSMISSION / car_config::ERPM_TO_SPEED;
     double angle_rad = 0;
 
+    /*
     if (std::abs(velocity_angular) < ANGULAR_VELOCITY_THRESHOLD)
     {
         if (velocity_result < 0 && velocity_result > -VELOCITY_THRESHOLD)
@@ -39,12 +35,10 @@ void NavigationStackControlConverter::convertCallback(const geometry_msgs::Twist
         {
             velocity_result = VELOCITY_THRESHOLD;
         }
-
-        // check if norm is zero, then the steering angle (angle_rad) will be infinity!
-        angle_rad = atan((car_config::WHEELBASE * velocity_angular) / velocity_result);
     }
+    */
 
-    double servo_data = (angle_rad * car_config::STEERING_TO_SERVO_GAIN) + car_config::STEERING_TO_SERVO_OFFSET;
+    double servo_data = (angle * car_config::STEERING_TO_SERVO_GAIN) + car_config::STEERING_TO_SERVO_OFFSET;
 
     servo_data = boost::algorithm::clamp(servo_data, 0.0, 1.0);
 
