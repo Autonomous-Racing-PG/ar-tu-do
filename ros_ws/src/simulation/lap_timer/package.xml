@@ -2,7 +2,7 @@
 <package format="2">
   <name>lap_timer</name>
   <version>0.0.0</version>
-  <description>Wallfollowing implemented in Python based on modelling walls as circles</description>
+  <description>Lap timer for the simulated race track</description>
 
   <!-- Maintainer -->
   <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
