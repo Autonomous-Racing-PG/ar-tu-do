@@ -6,8 +6,6 @@ add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
-  drive_msgs
-  roscpp
   rospy
   std_msgs
 )
@@ -22,7 +20,7 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp
 
 ## Declare things to be passed to dependent projects
 catkin_package(
-  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs
+  CATKIN_DEPENDS rospy std_msgs
 )
 
 

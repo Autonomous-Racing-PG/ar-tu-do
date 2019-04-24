@@ -2,7 +2,6 @@
 
 import rospy
 from gazebo_msgs.msg import ModelState, ModelStates
-from drive_msgs.msg import drive_param
 from math import floor
 
 from collections import namedtuple
