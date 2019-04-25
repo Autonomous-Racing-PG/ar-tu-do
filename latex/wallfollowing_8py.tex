@@ -1,0 +1,58 @@
+\hypertarget{wallfollowing_8py}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/autonomous/wallfollowing2/script/wallfollowing.py File Reference}
+\label{wallfollowing_8py}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/wallfollowing2/script/wallfollowing.\+py@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/wallfollowing2/script/wallfollowing.\+py}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classwallfollowing_1_1_p_i_d_controller}{wallfollowing.\+P\+I\+D\+Controller}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacewallfollowing}{wallfollowing}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacewallfollowing_a66b98adda1f5c1ba1ed6c0029a5d27f6}{wallfollowing.\+drive} (angle, velocity)
+\item 
+def \hyperlink{namespacewallfollowing_abaea68d69064fe86d2badf8535dd35a4}{wallfollowing.\+laser\+\_\+callback} (message)
+\item 
+def \hyperlink{namespacewallfollowing_a31cb307c96c7aac244353e90506342cf}{wallfollowing.\+get\+\_\+scan\+\_\+as\+\_\+cartesian} ()
+\item 
+def \hyperlink{namespacewallfollowing_a85455c82dd12c297c8cbc3227c1ba598}{wallfollowing.\+find\+\_\+left\+\_\+right\+\_\+border} (points, margin\+\_\+relative=0.\+1)
+\item 
+def \hyperlink{namespacewallfollowing_a4b2e06015971d569a9e05eb263ae210b}{wallfollowing.\+follow\+\_\+walls} (left\+\_\+circle, right\+\_\+circle)
+\item 
+def \hyperlink{namespacewallfollowing_a3db0ade925064bd6564f1db9ef4ebec1}{wallfollowing.\+handle\+\_\+scan} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacewallfollowing_a765ce45df7d0c3d9134fc83534029e36}{wallfollowing.\+T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}
+\item 
+string \hyperlink{namespacewallfollowing_a7e38e617465ebdfa7ec0576ac63443f8}{wallfollowing.\+T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN} = \char`\"{}/scan\char`\"{}
+\item 
+float \hyperlink{namespacewallfollowing_a30a4013dbd3a6ea5275fbed3fe35da22}{wallfollowing.\+S\+L\+OW} = 0.\+15
+\item 
+float \hyperlink{namespacewallfollowing_ab1e7c06b4efb8e38a97ac8ec783a6beb}{wallfollowing.\+F\+A\+ST} = 1.\+0
+\item 
+int \hyperlink{namespacewallfollowing_aa59c6dfd10cb4f1550367b3268417436}{wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL} = 2
+\item 
+int \hyperlink{namespacewallfollowing_a4b502375f79f9fcc2a823cc60da7bee0}{wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+B\+IG} = 10
+\item 
+float \hyperlink{namespacewallfollowing_a6e8aff0586478dde973909ebe62f58a5}{wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE} = 1.\+7
+\item 
+float \hyperlink{namespacewallfollowing_ac87d5f143cfd44f170a1d385ebd1a71b}{wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE} = 0.\+2
+\item 
+int \hyperlink{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}{wallfollowing.\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY} = 60
+\item 
+\hyperlink{namespacewallfollowing_a35ff373c811db70d98205347a736c606}{wallfollowing.\+laser\+\_\+scan} = None
+\item 
+\hyperlink{namespacewallfollowing_aa69138defbbc5f21e99db50a6b3c903f}{wallfollowing.\+drive\+\_\+parameters\+\_\+publisher}
+\item 
+\hyperlink{namespacewallfollowing_a005968f85117845c036ef1cbd61034bb}{wallfollowing.\+anonymous}
+\item 
+\hyperlink{namespacewallfollowing_a57288dd797e0bd15012f3ebf1670ce38}{wallfollowing.\+timer} = rospy.\+Rate(U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY)
+\item 
+\hyperlink{namespacewallfollowing_adc9f95e0b626be8ddae98a596a38e7e8}{wallfollowing.\+pid} = \hyperlink{class_p_i_d_controller}{P\+I\+D\+Controller}(1.\+5, 0.\+2, 0.\+01)
+\end{DoxyCompactItemize}

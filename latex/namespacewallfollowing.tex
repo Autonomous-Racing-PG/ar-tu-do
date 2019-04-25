@@ -1,0 +1,303 @@
+\hypertarget{namespacewallfollowing}{}\section{wallfollowing Namespace Reference}
+\label{namespacewallfollowing}\index{wallfollowing@{wallfollowing}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classwallfollowing_1_1_p_i_d_controller}{P\+I\+D\+Controller}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacewallfollowing_a66b98adda1f5c1ba1ed6c0029a5d27f6}{drive} (angle, velocity)
+\item 
+def \hyperlink{namespacewallfollowing_abaea68d69064fe86d2badf8535dd35a4}{laser\+\_\+callback} (message)
+\item 
+def \hyperlink{namespacewallfollowing_a31cb307c96c7aac244353e90506342cf}{get\+\_\+scan\+\_\+as\+\_\+cartesian} ()
+\item 
+def \hyperlink{namespacewallfollowing_a85455c82dd12c297c8cbc3227c1ba598}{find\+\_\+left\+\_\+right\+\_\+border} (points, margin\+\_\+relative=0.\+1)
+\item 
+def \hyperlink{namespacewallfollowing_a4b2e06015971d569a9e05eb263ae210b}{follow\+\_\+walls} (left\+\_\+circle, right\+\_\+circle)
+\item 
+def \hyperlink{namespacewallfollowing_a3db0ade925064bd6564f1db9ef4ebec1}{handle\+\_\+scan} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacewallfollowing_a765ce45df7d0c3d9134fc83534029e36}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}
+\item 
+string \hyperlink{namespacewallfollowing_a7e38e617465ebdfa7ec0576ac63443f8}{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN} = \char`\"{}/scan\char`\"{}
+\item 
+float \hyperlink{namespacewallfollowing_a30a4013dbd3a6ea5275fbed3fe35da22}{S\+L\+OW} = 0.\+15
+\item 
+float \hyperlink{namespacewallfollowing_ab1e7c06b4efb8e38a97ac8ec783a6beb}{F\+A\+ST} = 1.\+0
+\item 
+int \hyperlink{namespacewallfollowing_aa59c6dfd10cb4f1550367b3268417436}{R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL} = 2
+\item 
+int \hyperlink{namespacewallfollowing_a4b502375f79f9fcc2a823cc60da7bee0}{R\+A\+D\+I\+U\+S\+\_\+\+B\+IG} = 10
+\item 
+float \hyperlink{namespacewallfollowing_a6e8aff0586478dde973909ebe62f58a5}{E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE} = 1.\+7
+\item 
+float \hyperlink{namespacewallfollowing_ac87d5f143cfd44f170a1d385ebd1a71b}{E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE} = 0.\+2
+\item 
+int \hyperlink{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY} = 60
+\item 
+\hyperlink{namespacewallfollowing_a35ff373c811db70d98205347a736c606}{laser\+\_\+scan} = None
+\item 
+\hyperlink{namespacewallfollowing_aa69138defbbc5f21e99db50a6b3c903f}{drive\+\_\+parameters\+\_\+publisher}
+\item 
+\hyperlink{namespacewallfollowing_a005968f85117845c036ef1cbd61034bb}{anonymous}
+\item 
+\hyperlink{namespacewallfollowing_a57288dd797e0bd15012f3ebf1670ce38}{timer} = rospy.\+Rate(\hyperlink{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY})
+\item 
+\hyperlink{namespacewallfollowing_adc9f95e0b626be8ddae98a596a38e7e8}{pid} = \hyperlink{classwallfollowing_1_1_p_i_d_controller}{P\+I\+D\+Controller}(1.\+5, 0.\+2, 0.\+01)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{wallfollowing@{wallfollowing}!drive@{drive}}
+\index{drive@{drive}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{drive(angle, velocity)}{drive(angle, velocity)}}]{\setlength{\rightskip}{0pt plus 5cm}def wallfollowing.\+drive (
+\begin{DoxyParamCaption}
+\item[{}]{angle, }
+\item[{}]{velocity}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacewallfollowing_a66b98adda1f5c1ba1ed6c0029a5d27f6}{}\label{namespacewallfollowing_a66b98adda1f5c1ba1ed6c0029a5d27f6}
+
+
+Definition at line 54 of file wallfollowing.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacewallfollowing_a66b98adda1f5c1ba1ed6c0029a5d27f6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{wallfollowing@{wallfollowing}!find\+\_\+left\+\_\+right\+\_\+border@{find\+\_\+left\+\_\+right\+\_\+border}}
+\index{find\+\_\+left\+\_\+right\+\_\+border@{find\+\_\+left\+\_\+right\+\_\+border}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{find\+\_\+left\+\_\+right\+\_\+border(points, margin\+\_\+relative=0.\+1)}{find_left_right_border(points, margin_relative=0.1)}}]{\setlength{\rightskip}{0pt plus 5cm}def wallfollowing.\+find\+\_\+left\+\_\+right\+\_\+border (
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{margin\+\_\+relative = {\ttfamily 0.1}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacewallfollowing_a85455c82dd12c297c8cbc3227c1ba598}{}\label{namespacewallfollowing_a85455c82dd12c297c8cbc3227c1ba598}
+
+
+Definition at line 83 of file wallfollowing.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{namespacewallfollowing_a85455c82dd12c297c8cbc3227c1ba598_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{wallfollowing@{wallfollowing}!follow\+\_\+walls@{follow\+\_\+walls}}
+\index{follow\+\_\+walls@{follow\+\_\+walls}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{follow\+\_\+walls(left\+\_\+circle, right\+\_\+circle)}{follow_walls(left_circle, right_circle)}}]{\setlength{\rightskip}{0pt plus 5cm}def wallfollowing.\+follow\+\_\+walls (
+\begin{DoxyParamCaption}
+\item[{}]{left\+\_\+circle, }
+\item[{}]{right\+\_\+circle}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacewallfollowing_a4b2e06015971d569a9e05eb263ae210b}{}\label{namespacewallfollowing_a4b2e06015971d569a9e05eb263ae210b}
+
+
+Definition at line 92 of file wallfollowing.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{namespacewallfollowing_a4b2e06015971d569a9e05eb263ae210b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{namespacewallfollowing_a4b2e06015971d569a9e05eb263ae210b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{wallfollowing@{wallfollowing}!get\+\_\+scan\+\_\+as\+\_\+cartesian@{get\+\_\+scan\+\_\+as\+\_\+cartesian}}
+\index{get\+\_\+scan\+\_\+as\+\_\+cartesian@{get\+\_\+scan\+\_\+as\+\_\+cartesian}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{get\+\_\+scan\+\_\+as\+\_\+cartesian()}{get_scan_as_cartesian()}}]{\setlength{\rightskip}{0pt plus 5cm}def wallfollowing.\+get\+\_\+scan\+\_\+as\+\_\+cartesian (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacewallfollowing_a31cb307c96c7aac244353e90506342cf}{}\label{namespacewallfollowing_a31cb307c96c7aac244353e90506342cf}
+
+
+Definition at line 66 of file wallfollowing.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacewallfollowing_a31cb307c96c7aac244353e90506342cf_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{wallfollowing@{wallfollowing}!handle\+\_\+scan@{handle\+\_\+scan}}
+\index{handle\+\_\+scan@{handle\+\_\+scan}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{handle\+\_\+scan()}{handle_scan()}}]{\setlength{\rightskip}{0pt plus 5cm}def wallfollowing.\+handle\+\_\+scan (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacewallfollowing_a3db0ade925064bd6564f1db9ef4ebec1}{}\label{namespacewallfollowing_a3db0ade925064bd6564f1db9ef4ebec1}
+
+
+Definition at line 123 of file wallfollowing.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacewallfollowing_a3db0ade925064bd6564f1db9ef4ebec1_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{wallfollowing@{wallfollowing}!laser\+\_\+callback@{laser\+\_\+callback}}
+\index{laser\+\_\+callback@{laser\+\_\+callback}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{laser\+\_\+callback(message)}{laser_callback(message)}}]{\setlength{\rightskip}{0pt plus 5cm}def wallfollowing.\+laser\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacewallfollowing_abaea68d69064fe86d2badf8535dd35a4}{}\label{namespacewallfollowing_abaea68d69064fe86d2badf8535dd35a4}
+
+
+Definition at line 61 of file wallfollowing.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{wallfollowing@{wallfollowing}!anonymous@{anonymous}}
+\index{anonymous@{anonymous}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{anonymous}{anonymous}}]{\setlength{\rightskip}{0pt plus 5cm}wallfollowing.\+anonymous}\hypertarget{namespacewallfollowing_a005968f85117845c036ef1cbd61034bb}{}\label{namespacewallfollowing_a005968f85117845c036ef1cbd61034bb}
+
+
+Definition at line 148 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!drive\+\_\+parameters\+\_\+publisher@{drive\+\_\+parameters\+\_\+publisher}}
+\index{drive\+\_\+parameters\+\_\+publisher@{drive\+\_\+parameters\+\_\+publisher}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{drive\+\_\+parameters\+\_\+publisher}{drive_parameters_publisher}}]{\setlength{\rightskip}{0pt plus 5cm}wallfollowing.\+drive\+\_\+parameters\+\_\+publisher}\hypertarget{namespacewallfollowing_aa69138defbbc5f21e99db50a6b3c903f}{}\label{namespacewallfollowing_aa69138defbbc5f21e99db50a6b3c903f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = rospy.Publisher(
+2     TOPIC\_DRIVE\_PARAMETERS, drive\_param, queue\_size=1)
+\end{DoxyCode}
+
+
+Definition at line 145 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE@{E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE}}
+\index{E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE@{E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE}{ERROR_DEAD_ZONE}}]{\setlength{\rightskip}{0pt plus 5cm}float wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE = 0.\+2}\hypertarget{namespacewallfollowing_ac87d5f143cfd44f170a1d385ebd1a71b}{}\label{namespacewallfollowing_ac87d5f143cfd44f170a1d385ebd1a71b}
+
+
+Definition at line 27 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE@{E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE}}
+\index{E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE@{E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE}{ERROR_SPEED_DECREASE}}]{\setlength{\rightskip}{0pt plus 5cm}float wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE = 1.\+7}\hypertarget{namespacewallfollowing_a6e8aff0586478dde973909ebe62f58a5}{}\label{namespacewallfollowing_a6e8aff0586478dde973909ebe62f58a5}
+
+
+Definition at line 26 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!F\+A\+ST@{F\+A\+ST}}
+\index{F\+A\+ST@{F\+A\+ST}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{F\+A\+ST}{FAST}}]{\setlength{\rightskip}{0pt plus 5cm}float wallfollowing.\+F\+A\+ST = 1.\+0}\hypertarget{namespacewallfollowing_ab1e7c06b4efb8e38a97ac8ec783a6beb}{}\label{namespacewallfollowing_ab1e7c06b4efb8e38a97ac8ec783a6beb}
+
+
+Definition at line 21 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!laser\+\_\+scan@{laser\+\_\+scan}}
+\index{laser\+\_\+scan@{laser\+\_\+scan}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{laser\+\_\+scan}{laser_scan}}]{\setlength{\rightskip}{0pt plus 5cm}wallfollowing.\+laser\+\_\+scan = None}\hypertarget{namespacewallfollowing_a35ff373c811db70d98205347a736c606}{}\label{namespacewallfollowing_a35ff373c811db70d98205347a736c606}
+
+
+Definition at line 142 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!pid@{pid}}
+\index{pid@{pid}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{pid}{pid}}]{\setlength{\rightskip}{0pt plus 5cm}wallfollowing.\+pid = {\bf P\+I\+D\+Controller}(1.\+5, 0.\+2, 0.\+01)}\hypertarget{namespacewallfollowing_adc9f95e0b626be8ddae98a596a38e7e8}{}\label{namespacewallfollowing_adc9f95e0b626be8ddae98a596a38e7e8}
+
+
+Definition at line 152 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!R\+A\+D\+I\+U\+S\+\_\+\+B\+IG@{R\+A\+D\+I\+U\+S\+\_\+\+B\+IG}}
+\index{R\+A\+D\+I\+U\+S\+\_\+\+B\+IG@{R\+A\+D\+I\+U\+S\+\_\+\+B\+IG}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{R\+A\+D\+I\+U\+S\+\_\+\+B\+IG}{RADIUS_BIG}}]{\setlength{\rightskip}{0pt plus 5cm}int wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+B\+IG = 10}\hypertarget{namespacewallfollowing_a4b502375f79f9fcc2a823cc60da7bee0}{}\label{namespacewallfollowing_a4b502375f79f9fcc2a823cc60da7bee0}
+
+
+Definition at line 24 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL@{R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL}}
+\index{R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL@{R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL}{RADIUS_SMALL}}]{\setlength{\rightskip}{0pt plus 5cm}int wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL = 2}\hypertarget{namespacewallfollowing_aa59c6dfd10cb4f1550367b3268417436}{}\label{namespacewallfollowing_aa59c6dfd10cb4f1550367b3268417436}
+
+
+Definition at line 23 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!S\+L\+OW@{S\+L\+OW}}
+\index{S\+L\+OW@{S\+L\+OW}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{S\+L\+OW}{SLOW}}]{\setlength{\rightskip}{0pt plus 5cm}float wallfollowing.\+S\+L\+OW = 0.\+15}\hypertarget{namespacewallfollowing_a30a4013dbd3a6ea5275fbed3fe35da22}{}\label{namespacewallfollowing_a30a4013dbd3a6ea5275fbed3fe35da22}
+
+
+Definition at line 20 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!timer@{timer}}
+\index{timer@{timer}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{timer}{timer}}]{\setlength{\rightskip}{0pt plus 5cm}wallfollowing.\+timer = rospy.\+Rate({\bf U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY})}\hypertarget{namespacewallfollowing_a57288dd797e0bd15012f3ebf1670ce38}{}\label{namespacewallfollowing_a57288dd797e0bd15012f3ebf1670ce38}
+
+
+Definition at line 150 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
+\index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}string wallfollowing.\+T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}}\hypertarget{namespacewallfollowing_a765ce45df7d0c3d9134fc83534029e36}{}\label{namespacewallfollowing_a765ce45df7d0c3d9134fc83534029e36}
+
+
+Definition at line 17 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}}
+\index{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN}{TOPIC_LASER_SCAN}}]{\setlength{\rightskip}{0pt plus 5cm}string wallfollowing.\+T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN = \char`\"{}/scan\char`\"{}}\hypertarget{namespacewallfollowing_a7e38e617465ebdfa7ec0576ac63443f8}{}\label{namespacewallfollowing_a7e38e617465ebdfa7ec0576ac63443f8}
+
+
+Definition at line 18 of file wallfollowing.\+py.
+
+\index{wallfollowing@{wallfollowing}!U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}}
+\index{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}!wallfollowing@{wallfollowing}}
+\subsubsection[{\texorpdfstring{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}{UPDATE_FREQUENCY}}]{\setlength{\rightskip}{0pt plus 5cm}int wallfollowing.\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY = 60}\hypertarget{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}{}\label{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}
+
+
+Definition at line 29 of file wallfollowing.\+py.
+
