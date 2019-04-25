@@ -9,33 +9,30 @@ EmergencyStop::EmergencyStop()
 
 bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
+    ROS_ASSERT_MSG(RANGE_THRESHOLD <= MAX_RANGE, "Threshold is bigger then max range. Function will always return false.");
+    ROS_ASSERT_MSG(MAX_RANGE > 0, "Max range is zero or below. Function will mostly return true.");
+    ROS_ASSERT_MSG(RANGE_THRESHOLD > 0, "Threshold is zero or below. Function will mostly return false.");
+
     int available_samples = (lidar->angle_max - lidar->angle_min) / lidar->angle_increment;
-    int samples_used = 0;
-    float range_sum = 0;
 
-    int index_start = available_samples / 2 - SAMPLE_ANGLE / lidar->angle_increment / 2;
-    int index_end = available_samples / 2 + SAMPLE_ANGLE / lidar->angle_increment / 2;
+    // calculate the sample_angle of the lidar to be used to check if there is
+    // an obstacle in front of the car, with respect to the RANGE_THRESHOLD
+    // We want to check every lidar sample that is located in front of the car at a distance of RANGE_THRESHOLD.
+    float sample_angle = std::atan(CAR_BUMPER_LENGTH / 2 / RANGE_THRESHOLD);
+
+    int index_start = available_samples / 2 - sample_angle / lidar->angle_increment / 2;
+    int index_end = available_samples / 2 + sample_angle / lidar->angle_increment / 2;
     ROS_ASSERT_MSG(index_start >= 0 && index_end < available_samples,
-                   "SAMPLE_ANGLE is too big. Trying to access lidar samples out of bounds.");
+                   "sample_angle is too big. Trying to access lidar samples out of bounds.");  
 
-    for (int i = index_start; i < index_end; i++)
-    {
-        float range = lidar->ranges[i];
+    // determine the minimum distance between the car and a potetial obstacle
+    // Instead of calculating the range average, we are more cautious because we would 
+    // rather have false positives instead of false negatives.
+    // i.e. we would rather stop too much than crash into an obstacle.
+    auto min_range = std::min(MAX_RANGE, *std::min_element(lidar->ranges.begin() + index_start, lidar->ranges.begin() + index_end));
+    ROS_ASSERT_MSG(min_range >= 0, "The minimal distance between the car and a potential obstacle is below zero.");
 
-        if (range < MAX_RANGE && !std::isinf(range))
-        {
-            range_sum += range;
-            samples_used++;
-        }
-    }
-
-    if (samples_used == 0)
-    {
-        return false;
-    }
-
-    float range_average = range_sum / samples_used;
-    return range_average < RANGE_THRESHOLD;
+    return min_range < RANGE_THRESHOLD;
 }
 
 void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
