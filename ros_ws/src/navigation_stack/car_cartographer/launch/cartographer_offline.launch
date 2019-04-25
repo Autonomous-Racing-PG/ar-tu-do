@@ -14,6 +14,8 @@
   limitations under the License.
 -->
 
+<!-- Modified by the F1/10 Autonomous Racing Project Group -->
+
 <launch>
   <arg name="ros_version" default="kinetic"/>
 
