@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package format="2">
-  <name>autonomous</name>
+  <name>wallfollowing2</name>
   <version>0.0.0</version>
-  <description>The "autonomous" package contains all code related to autonomous operation of the car.</description>
+  <description>Wallfollowing implemented in Python based on modelling walls as circles</description>
 
   <!-- Maintainer -->
   <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>

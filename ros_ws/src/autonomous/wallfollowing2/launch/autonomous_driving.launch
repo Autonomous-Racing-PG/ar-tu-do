@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- Launches all necessary nodes that let the car drive autonomously. -->
+    <!-- wall_following node -->
+    <node
+      respawn="true"
+      pkg="wallfollowing2"
+      type="wallfollowing.py"
+      name="wallfollowing"
+      output="screen" >
+    </node>
+</launch>

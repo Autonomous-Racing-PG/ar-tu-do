@@ -15,7 +15,7 @@
 #include <ros/console.h>
 #include <ros/ros.h>
 
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous";
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 constexpr const char* TOPIC_VISUALIZATION = "/wallfollowing_visualization";
