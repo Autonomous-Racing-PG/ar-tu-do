@@ -14,6 +14,9 @@ import math
 
 import numpy as np
 
+TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
+TOPIC_LASER_SCAN = "/scan"
+
 SLOW = 0.15
 FAST = 1.0
 
@@ -138,9 +141,9 @@ def handle_scan():
 
 laser_scan = None
 
-rospy.Subscriber("/scan", LaserScan, laser_callback)
+rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
-    "/input/drive_param/autonomous", drive_param, queue_size=1)
+    TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
 
 rospy.init_node('wallfollowing', anonymous=True)
 
