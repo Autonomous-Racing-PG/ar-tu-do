@@ -27,7 +27,7 @@ UPDATE_FREQUENCY = 60
 
 
 class PIDController():
-    def __init__(self, p, i, d, anti_windup = 0.2):
+    def __init__(self, p, i, d, anti_windup=0.2):
         self.p = p
         self.i = i
         self.d = d

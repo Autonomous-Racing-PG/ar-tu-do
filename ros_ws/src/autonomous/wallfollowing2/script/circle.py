@@ -51,10 +51,9 @@ def sigma(coords, x, y, r):
         sum_ += (sqrt(dx * dx + dy * dy) - r)**2
     return sqrt(sum_ / len(coords))
 
+
 # Based on
 # https://github.com/AlliedToasters/circle-fit/blob/master/circle_fit/circle_fit.py
-
-
 def fit(points, IterMax=99):
     X = points[:, 0]
     Y = points[:, 1]
