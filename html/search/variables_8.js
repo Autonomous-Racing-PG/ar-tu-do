@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['left_5fsteering_5fposition',['LEFT_STEERING_POSITION',['../namespacesimulation.html#aeabd7d3863831a7fc50ce8728ca46885',1,'simulation']]],
-  ['lidar_5fframe',['LIDAR_FRAME',['../wall__following_8h.html#ac6631c1f8956559998695f2038277c65',1,'wall_following.h']]]
+  ['key_5fcodes',['KEY_CODES',['../keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc',1,'keyboard_controller.h']]],
+  ['key_5fcount',['KEY_COUNT',['../keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5',1,'keyboard_controller.h']]]
 ];

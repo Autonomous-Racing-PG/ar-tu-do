@@ -1,5 +1,6 @@
 var annotated_dup =
 [
+    [ "lap_timer", "namespacelap__timer.html", "namespacelap__timer" ],
     [ "CarController", "class_car_controller.html", "class_car_controller" ],
     [ "DMSController", "class_d_m_s_controller.html", "class_d_m_s_controller" ],
     [ "DriveParametersMultiplexer", "class_drive_parameters_multiplexer.html", "class_drive_parameters_multiplexer" ],

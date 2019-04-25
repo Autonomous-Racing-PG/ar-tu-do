@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wall',['Wall',['../class_wall.html',1,'']]],
-  ['wallfollowing',['WallFollowing',['../class_wall_following.html',1,'']]]
+  ['timer',['Timer',['../classlap__timer_1_1_timer.html',1,'lap_timer']]]
 ];

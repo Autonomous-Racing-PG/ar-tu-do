@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['carcontroller',['CarController',['../class_car_controller.html',1,'']]]
+  ['area',['Area',['../classlap__timer_1_1_area.html',1,'lap_timer']]]
 ];

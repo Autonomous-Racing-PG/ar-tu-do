@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rvizgeometrypublisher',['RvizGeometryPublisher',['../class_rviz_geometry_publisher.html#ace4d6e2e5dd88168dd4e6c5f528a255e',1,'RvizGeometryPublisher']]]
+  ['navigationstackcontrolconverter',['NavigationStackControlConverter',['../class_navigation_stack_control_converter.html#aaa467e7f68ffb78c9778cdeedc972fac',1,'NavigationStackControlConverter']]]
 ];

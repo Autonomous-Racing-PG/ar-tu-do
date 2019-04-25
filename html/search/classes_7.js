@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pidcontroller',['PIDController',['../class_p_i_d_controller.html',1,'']]]
+  ['navigationstackcontrolconverter',['NavigationStackControlConverter',['../class_navigation_stack_control_converter.html',1,'']]]
 ];

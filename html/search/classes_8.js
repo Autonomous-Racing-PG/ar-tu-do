@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rvizgeometrypublisher',['RvizGeometryPublisher',['../class_rviz_geometry_publisher.html',1,'']]]
+  ['pidcontroller',['PIDController',['../class_p_i_d_controller.html',1,'']]]
 ];

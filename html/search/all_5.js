@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['fallback_5frange',['FALLBACK_RANGE',['../wall__following_8h.html#a4ab7ead14418fadcb107d7b685cd54f0',1,'wall_following.h']]],
-  ['fast_5fsteer_5flimit',['FAST_STEER_LIMIT',['../keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87',1,'keyboard_controller.h']]],
-  ['front_5fwheel_5fdistance',['FRONT_WHEEL_DISTANCE',['../namespacecar__config.html#a80d9d6f97a63ffcaba87b65a9e1e29e4',1,'car_config']]]
+  ['emergency_5fstop_2ecpp',['emergency_stop.cpp',['../emergency__stop_8cpp.html',1,'']]],
+  ['emergency_5fstop_2eh',['emergency_stop.h',['../emergency__stop_8h.html',1,'']]],
+  ['emergencystop',['EmergencyStop',['../class_emergency_stop.html',1,'EmergencyStop'],['../class_emergency_stop.html#acd5c3e0c838fe697ebf95452199cca77',1,'EmergencyStop::EmergencyStop()']]],
+  ['enable_5fautonomous',['ENABLE_AUTONOMOUS',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbad083a074856ee376bcd97103499a769f',1,'keyboard_controller.h']]],
+  ['enable_5fmanual',['ENABLE_MANUAL',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bba5fdf28325c0d8aff8049eab1f5a3fb3f',1,'keyboard_controller.h']]],
+  ['epsilon',['EPSILON',['../joystick__controller_8h.html#a5a724c92d7a761382e1727b34f570121',1,'joystick_controller.h']]],
+  ['erpm_5fto_5frad_5fper_5fsec',['ERPM_TO_RAD_PER_SEC',['../namespacecar__config.html#a877c4a772a47f4737d9f03fe8a22e106',1,'car_config']]],
+  ['erpm_5fto_5fspeed',['ERPM_TO_SPEED',['../namespacecar__config.html#af33b95798967e7193927782fd91d36ce',1,'car_config']]],
+  ['extents',['extents',['../classlap__timer_1_1_area.html#a9c808f67a0835a36528d4b7abd4f2950',1,'lap_timer::Area']]]
 ];

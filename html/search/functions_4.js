@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['isidle',['isIdle',['../class_drive_parameters_source.html#a716e9da760080cdc8d0e69553932c789',1,'DriveParametersSource']]],
-  ['isoutdated',['isOutdated',['../class_drive_parameters_source.html#a19ac7507bffaa6167393d24fe5f7f67e',1,'DriveParametersSource']]]
+  ['format_5fduration',['format_duration',['../namespacelap__timer.html#a7d41ff473803df11a493382fc80b2cb7',1,'lap_timer']]]
 ];

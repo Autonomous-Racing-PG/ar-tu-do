@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['laserscantransformer',['LaserscanTransformer',['../class_laserscan_transformer.html#a3fe9989fc225e8eaeea106f58db09db0',1,'LaserscanTransformer']]]
+  ['joystickcontroller',['JoystickController',['../class_joystick_controller.html#aa7ba7d1b336933c7431ac8796b43c898',1,'JoystickController']]]
 ];

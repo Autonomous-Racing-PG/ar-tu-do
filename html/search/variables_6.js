@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['idle_5frange',['IDLE_RANGE',['../drive__parameters__source_8h.html#af134ff392bc50e71b086c1bc0e633e2e',1,'drive_parameters_source.h']]]
+  ['history',['history',['../classlap__timer_1_1_timer.html#a7068a3c73d3386620181bbaee0a56604',1,'lap_timer::Timer']]]
 ];
