@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sample_5fangle',['SAMPLE_ANGLE',['../emergency__stop_8h.html#a5b30ee0e3351a6a6e9701f948e322e2e',1,'emergency_stop.h']]],
   ['sample_5fangle_5f1',['SAMPLE_ANGLE_1',['../wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e',1,'wall_following.h']]],
   ['sample_5fangle_5f2',['SAMPLE_ANGLE_2',['../wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d',1,'wall_following.h']]],
   ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],

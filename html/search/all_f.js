@@ -1,7 +1,6 @@
 var searchData=
 [
   ['s',['S',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e',1,'keyboard_controller.h']]],
-  ['sample_5fangle',['SAMPLE_ANGLE',['../emergency__stop_8h.html#a5b30ee0e3351a6a6e9701f948e322e2e',1,'emergency_stop.h']]],
   ['sample_5fangle_5f1',['SAMPLE_ANGLE_1',['../wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e',1,'wall_following.h']]],
   ['sample_5fangle_5f2',['SAMPLE_ANGLE_2',['../wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d',1,'wall_following.h']]],
   ['servopositioncallback',['servoPositionCallback',['../class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310',1,'VESCSimulationDriver']]],

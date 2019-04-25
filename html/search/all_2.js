@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['car_5fbumper_5flength',['CAR_BUMPER_LENGTH',['../emergency__stop_8h.html#ad9d3f0d12fce3f2667f01e3e82c819bd',1,'emergency_stop.h']]],
   ['car_5fconfig',['car_config',['../namespacecar__config.html',1,'']]],
   ['car_5fconfig_2eh',['car_config.h',['../car__config_8h.html',1,'']]],
   ['car_5fcontroller_2ecpp',['car_controller.cpp',['../car__controller_8cpp.html',1,'']]],
