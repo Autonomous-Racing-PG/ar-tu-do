@@ -26,19 +26,21 @@ LASER_SAMPLE_COUNT = 64  # Only use some of the LIDAR measurements
 
 DISCOUNT_FACTOR = 0.999  # aka gamma
 
-MAX_EPISODE_LENGTH = 400
+MAX_EPISODE_LENGTH = 600
 # Sample neural net update from the memory. It contains this many episodes.
 MEMORY_SIZE = 10000
 
 BATCH_SIZE = 200
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.002
 
 # Probability to select a random episode starts at EPS_START
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 0.9
-EPS_END = 0.25
-EPS_DECAY = 2000
-
+EPS_END = 0.10
+EPS_DECAY = 500000
+REWARD = 2
+ACC_REWARD = 0
+TOTAL_REWARD = 0
 
 class NeuralQEstimator(nn.Module):
     def __init__(self):
@@ -131,14 +133,15 @@ def optimize_model():
 
 
 def on_crash():
+    global REWARD
     if current_episode_states is None or len(current_episode_states) < 2:
         return
     if len(current_episode_states) > 10:
         crash_states.append(current_episode_states[-1])
-    reset_episode()
-
+    REWARD = -10 
 
 def log_progress():
+    global TOTAL_REWARD
     test = policy_net.forward(TEST_SCAN).tolist()
     rospy.loginfo("Episode " + str(episode_count) + ": "  # nopep8 \
         + str(len(current_episode_states)) + " steps"  # nopep8 \
@@ -146,6 +149,8 @@ def log_progress():
         + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions"  # nopep8 \
         + ", optimization steps: " + str(optimization_step_count) # nopep8 \
         + ", test: " + str(test))  # nopep8
+    if episode_count % 10 == 0:
+        rospy.loginfo("Average accumulated Reward: " + str(TOTAL_REWARD/episode_count))
 
 
 def reset_episode():
@@ -181,19 +186,31 @@ def perform_action(action_index):
 
 
 def step():
+    global REWARD, ACC_REWARD, TOTAL_REWARD
+    car_flipped = False
+    car_orientation = car.get_car_pos_x() 
     if len(current_episode_states) > MAX_EPISODE_LENGTH:
+        rospy.loginfo("Accumulated Reward:" + str(ACC_REWARD))
+        TOTAL_REWARD += ACC_REWARD
+        ACC_REWARD = 0
         reset_episode()
         return
 
+    if car_orientation[1] < -0.2 and car_orientation > -0.322:
+        rospy.loginfo("CAR FLIPPED")
+        REWARD = -6000
+        car_flipped = True
+
+    ACC_REWARD += REWARD
     state = car.get_scan(LASER_SAMPLE_COUNT, device)
-    reward = 1
+    
     action = select_action(state)
 
     perform_action(action)
 
     if len(current_episode_states) > 0:
         try:
-            transistion = (current_episode_states[-1], action, state, reward)
+            transistion = (current_episode_states[-1], action, state, REWARD)
             memory.push(transistion)
         except IndexError:
             # Race condition. The car crashed and the current episode is empty.
@@ -203,6 +220,18 @@ def step():
     current_episode_states.append(state)
     global total_step_count
     total_step_count += 1
+    REWARD = 2
+    
+    if car_flipped:
+        rospy.loginfo("Accumulated Reward:" + str(ACC_REWARD))
+        TOTAL_REWARD += ACC_REWARD
+        ACC_REWARD = 0
+        reset_episode()
+        return
+
+    #(-2.5115459480578326, -0.20815514356980613, -1.3759510978008045)
+    #(-3.141217254439627, -0.32171944078397496, -1.8755338157994788)
+    #(-3.141274954812683, -0.3217224998170558, -1.7335801543992733)
 
 
 rospy.loginfo("Initializing Pytorch...")

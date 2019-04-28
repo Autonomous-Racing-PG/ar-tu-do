@@ -5,6 +5,7 @@ from gazebo_msgs.msg import ModelState, ModelStates
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
 from tf.transformations import quaternion_from_euler
+from tf.transformations import euler_from_quaternion
 
 import math
 
@@ -27,9 +28,9 @@ def reset(position, orientation):
 
     q = quaternion_from_euler(orientation, math.pi, 0)
     state.pose.orientation.x = q[0]
-    state.pose.orientation.z = q[1]
-    state.pose.orientation.w = q[2]
-    state.pose.orientation.y = q[3]
+    state.pose.orientation.y = q[1]
+    state.pose.orientation.z = q[2]
+    state.pose.orientation.w = q[3]
 
     set_model_state(state)
 
@@ -44,10 +45,11 @@ def register_crash_callback(function):
 
 
 def _model_state_callback(message):
-    global current_position
+    global current_position, current_orientation
     if len(message.pose) < 2:
         return
     current_position = (message.pose[1].position.x, message.pose[1].position.y)
+    current_orientation = (message.pose[1].orientation.x, message.pose[1].orientation.y ,message.pose[1].orientation.z, message.pose[1].orientation.w)
 
 
 def drive(angle, velocity):
@@ -81,8 +83,12 @@ def get_scan(sample_count, device):
     values[values > MAX_DISTANCE] = MAX_DISTANCE
     return torch.tensor(values, device=device)
 
+def get_car_pos_x():
+    return euler_from_quaternion(current_orientation)
+
 
 current_position = None
+current_orientation = None
 start_position = None
 laser_scan = None
 
