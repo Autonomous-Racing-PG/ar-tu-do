@@ -73,7 +73,12 @@
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission>    
+
+    <gazebo reference="${lr}_wheel_${fb}">
+      <mu1>0.9</mu1>
+      <mu2>0.9</mu2>
+    </gazebo> 
   </xacro:macro>
 
   <!-- Steering -->
