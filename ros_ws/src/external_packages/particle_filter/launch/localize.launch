@@ -30,7 +30,7 @@
 	<include file="$(find particle_filter)/launch/map_server.launch"/>
 
 	<arg name="scan_topic" default="/scan"/>
-	<arg name="odometry_topic" default="/vesc/odom"/>
+	<arg name="odometry_topic" default="/odom"/>
 	<!-- <arg name="odometry_topic" default="/odom"/> -->
 	<arg name="angle_step" default="18"/>
 	<arg name="max_particles" default="4000"/>
@@ -49,7 +49,7 @@
 		<param name="squash_factor" value="$(arg squash_factor)"/>
 		<param name="theta_discretization" value="112"/>
 		<!-- max sensor range in meters -->
-		<param name="max_range" value="10"/> 
+		<param name="max_range" value="30"/> 
 		<param name="viz" value="$(arg viz)"/> 
 		<param name="fine_timing" value="0"/> 
 		<param name="publish_odom" value="1"/> 
