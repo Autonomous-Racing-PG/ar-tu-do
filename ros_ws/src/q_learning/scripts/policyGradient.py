@@ -17,7 +17,7 @@ import car
 rospy.init_node('learn', anonymous=True)
 
 
-ACTIONS = [(-0.4, 0.05), (0.4, 0.05),(-0.2, 0.1), (0.2, 0.1),(-0.1, 0.15), (0.1, 0.15)]
+ACTIONS = [(-0.4, 0.05), (0.4, 0.05),(-0.2, 0.1), (0.2, 0.1),(-0.1, 0.15), (0.1, 0.15), (.0, 0.2), (.0, 0.1)]
 ACTION_COUNT = len(ACTIONS)
 
 LASER_SAMPLE_COUNT = 128  # Only use some of the LIDAR measurements
@@ -98,11 +98,15 @@ def update_policy():
     
     if rewards.numel() > 1:
         rewards = (rewards - rewards.mean()) / (rewards.std() + np.finfo(np.float32).eps)
+
+    print('REWARDS: {}'.format(rewards))
     
     #rospy.loginfo("AFTER rewards: " + str(rewards))
     
     # Calculate loss
     loss = (torch.sum(torch.mul(policy.policy_history, Variable(rewards)).mul(-1), -1))
+
+    print('LOSS: {}'.format(loss))
     
     # Update network weights
     optimizer.zero_grad()
@@ -121,12 +125,13 @@ def perform_action(action_index):
     car.drive(*ACTIONS[action_index])
 
 def on_crash():
-    global running_reward, crash
+    global crash
     crash = True
 
 def main(episodes, device):
-    global running_reward, done, crash, deadlock 
+    global done, crash, deadlock 
     running_reward = 1
+    average_reward_per_episode = 0
     for episode in range(episodes):
 
         # Spawns the car the coordinates (x=0, y= -0.5) with an orientation of math.pi + (0 if random.random() > 0.5 else math.pi)
@@ -136,7 +141,7 @@ def main(episodes, device):
         # If true, the current episode will end instantly
         done = False       
     
-        for time in range(3000):
+        for time in range(4000):
             
             # Choose an action w.r.t the current state
             action = select_action(state)
@@ -147,7 +152,7 @@ def main(episodes, device):
             state = car.get_scan(LASER_SAMPLE_COUNT, device)
 
             # The faster the car is driving, the bigger the reward
-            running_reward = 10 * ACTIONS[action][1]
+            running_reward = 1 * ACTIONS[action][1]
             
             # True when the car intersects with a wall 
             if crash:
@@ -165,24 +170,25 @@ def main(episodes, device):
                 deadlock += 1
                 if deadlock >= 5:
                     done = True
+                    deadlock = 0
             else:
                 deadlock = 0
             
             # Save reward
             policy.reward_episode.append(running_reward)
-            
+            average_reward_per_episode += running_reward
             # End the episode
             if done:
                 break
         
         # Used to determine when the environment is solved.
-        running_reward = (running_reward * 0.99) + (time * 0.01)
+        #running_reward = (running_reward * 0.99) + (time * 0.01)
 
         update_policy()
 
-        if episode % 50 == 0:
-            print('Episode {}\tLast length: {:5d}\tAverage length: {:.2f}'.format(episode, time, running_reward))
-
+        
+        print('Episode {}\tLast length: {:5d}\tSum Reward: {}'.format(episode, time, average_reward_per_episode))
+        average_reward_per_episode = 0
         #if running_reward > env.spec.reward_threshold:
         #    print("Solved! Running reward is now {} and the last episode runs to {} time steps!".format(running_reward, time))
         #    break
