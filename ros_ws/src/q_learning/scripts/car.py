@@ -13,7 +13,7 @@ import torch
 
 import numpy as np
 
-MAX_DISTANCE = 30
+MAX_DISTANCE = 10
 
 
 def reset(position, orientation):
@@ -28,9 +28,9 @@ def reset(position, orientation):
 
     q = quaternion_from_euler(orientation, math.pi, 0)
     state.pose.orientation.x = q[0]
-    state.pose.orientation.y = q[1]
-    state.pose.orientation.z = q[2]
-    state.pose.orientation.w = q[3]
+    state.pose.orientation.z = q[1]
+    state.pose.orientation.w = q[2]
+    state.pose.orientation.y = q[3]
 
     set_model_state(state)
 
