@@ -189,10 +189,6 @@ def main(episodes, device):
         
         print('Episode {}\tLast length: {:5d}\tSum Reward: {}'.format(episode, time, average_reward_per_episode))
         average_reward_per_episode = 0
-        #if running_reward > env.spec.reward_threshold:
-        #    print("Solved! Running reward is now {} and the last episode runs to {} time steps!".format(running_reward, time))
-        #    break
-
 
 rospy.loginfo("Initializing Pytorch...")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
