@@ -1,5 +1,8 @@
 var searchData=
 [
+  ['calculate_5fcar_5fvelocity',['calculate_car_velocity',['../namespacespeedometer.html#a4ca81a50632f9d3d0e04894fca34e332',1,'speedometer']]],
+  ['calculate_5fvelocity',['calculate_velocity',['../namespacespeedometer.html#afed491810c85b27bb72e83868d0dc71a',1,'speedometer']]],
+  ['calculate_5fwheel_5fvelocity',['calculate_wheel_velocity',['../namespacespeedometer.html#a2a7f450594d6757472719121830bb6a6',1,'speedometer']]],
   ['carcontroller',['CarController',['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController']]],
   ['complete_5flap',['complete_lap',['../classlap__timer_1_1_timer.html#a92500d76bee13b511faef4d16c875baf',1,'lap_timer::Timer']]],
   ['contains',['contains',['../classlap__timer_1_1_area.html#a782a85c5bdf1baf1592a9e075e37edb9',1,'lap_timer::Area']]],

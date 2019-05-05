@@ -5,5 +5,6 @@ var namespaces =
     [ "lap_timer", "namespacelap__timer.html", null ],
     [ "rviz_geometry", "namespacerviz__geometry.html", null ],
     [ "simulation", "namespacesimulation.html", null ],
+    [ "speedometer", "namespacespeedometer.html", null ],
     [ "wallfollowing", "namespacewallfollowing.html", null ]
 ];

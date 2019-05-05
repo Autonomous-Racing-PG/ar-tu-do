@@ -1,10 +1,14 @@
 var searchData=
 [
+  ['calculate_5fcar_5fvelocity',['calculate_car_velocity',['../namespacespeedometer.html#a4ca81a50632f9d3d0e04894fca34e332',1,'speedometer']]],
+  ['calculate_5fvelocity',['calculate_velocity',['../namespacespeedometer.html#afed491810c85b27bb72e83868d0dc71a',1,'speedometer']]],
+  ['calculate_5fwheel_5fvelocity',['calculate_wheel_velocity',['../namespacespeedometer.html#a2a7f450594d6757472719121830bb6a6',1,'speedometer']]],
   ['car_5fbumper_5flength',['CAR_BUMPER_LENGTH',['../emergency__stop_8h.html#ad9d3f0d12fce3f2667f01e3e82c819bd',1,'emergency_stop.h']]],
   ['car_5fconfig',['car_config',['../namespacecar__config.html',1,'']]],
   ['car_5fconfig_2eh',['car_config.h',['../car__config_8h.html',1,'']]],
   ['car_5fcontroller_2ecpp',['car_controller.cpp',['../car__controller_8cpp.html',1,'']]],
   ['car_5fcontroller_2eh',['car_controller.h',['../car__controller_8h.html',1,'']]],
+  ['car_5fvelocity',['car_velocity',['../namespacespeedometer.html#ae3da3978da28ccc499609198cdfcc8ac',1,'speedometer']]],
   ['carcontroller',['CarController',['../class_car_controller.html',1,'CarController'],['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController::CarController()']]],
   ['center',['center',['../classcircle_1_1_circle.html#aa2ed466736c7e4436ab6ded456ebd24b',1,'circle.Circle.center()'],['../classlap__timer_1_1_area.html#ae04bf9abe3859ab806dc3f3a699d9689',1,'lap_timer.Area.center()']]],
   ['checkpoint_5f1',['CHECKPOINT_1',['../namespacelap__timer.html#a7d4aff4d1c24ecd19c02265c9dfa0a6f',1,'lap_timer']]],

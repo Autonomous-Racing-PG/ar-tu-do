@@ -12,6 +12,7 @@ var searchData=
   ['manual',['MANUAL',['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;keyboard_controller.h'],['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;keyboard_controller.h']]],
   ['map',['map',['../wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc',1,'map(float in_lower, float in_upper, float out_lower, float out_upper, float value):&#160;wall_following.cpp'],['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'map(double value, double in_lower, double in_upper, double out_lower, double out_upper):&#160;keyboard_controller.cpp']]],
   ['marker_5fpublisher',['marker_publisher',['../namespacerviz__geometry.html#ac4b20d63343627f7ac14151eba108ba8',1,'rviz_geometry']]],
+  ['max_5fcar_5fvelocity',['max_car_velocity',['../namespacespeedometer.html#a11f245c5d45ac2b534d8d0b46e877dfc',1,'speedometer']]],
   ['max_5frange',['MAX_RANGE',['../emergency__stop_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;emergency_stop.h'],['../wall__following_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;wall_following.h']]],
   ['max_5frpm_5felectrical',['MAX_RPM_ELECTRICAL',['../namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b',1,'car_config']]],
   ['max_5frpm_5fmechanical',['MAX_RPM_MECHANICAL',['../namespacecar__config.html#ad35069a183782259c6280aa219b72ffa',1,'car_config']]],
@@ -21,7 +22,8 @@ var searchData=
   ['min_5frange',['MIN_RANGE',['../wall__following_8h.html#af3148611e517385b1e8138ec5de109ac',1,'wall_following.h']]],
   ['min_5fsteering_5fangle',['MIN_STEERING_ANGLE',['../namespacecar__config.html#a38229ce5d2e17e0c30b86864fb20d9ce',1,'car_config']]],
   ['model_5fbase_5flink',['MODEL_BASE_LINK',['../laserscan__transformer_8h.html#a4926bba825b08114a4703807e2639725',1,'laserscan_transformer.h']]],
-  ['model_5fstate_5fcallback',['model_state_callback',['../namespacelap__timer.html#a60b42977737ca2088ea8aaa1b8305c17',1,'lap_timer']]],
+  ['model_5fstate_5fcallback',['model_state_callback',['../namespacelap__timer.html#a60b42977737ca2088ea8aaa1b8305c17',1,'lap_timer.model_state_callback()'],['../namespacespeedometer.html#a06ac7e0dff56627c3e41df35a34be250',1,'speedometer.model_state_callback()']]],
+  ['model_5fstates_5fmessage',['model_states_message',['../namespacespeedometer.html#add00b4d69fb6713b1aca36de3240e3b2',1,'speedometer']]],
   ['motor_5fpoles',['MOTOR_POLES',['../namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5',1,'car_config']]],
   ['motorbrakecallback',['motorBrakeCallback',['../class_v_e_s_c_simulation_driver.html#a0eeb8ca3f5d59b55e275fd7fbc256115',1,'VESCSimulationDriver']]],
   ['motorspeedcallback',['motorSpeedCallback',['../class_v_e_s_c_simulation_driver.html#a270768bae1850f87eec061ca5e828845',1,'VESCSimulationDriver']]]

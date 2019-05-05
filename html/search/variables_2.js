@@ -1,6 +1,7 @@
 var searchData=
 [
   ['car_5fbumper_5flength',['CAR_BUMPER_LENGTH',['../emergency__stop_8h.html#ad9d3f0d12fce3f2667f01e3e82c819bd',1,'emergency_stop.h']]],
+  ['car_5fvelocity',['car_velocity',['../namespacespeedometer.html#ae3da3978da28ccc499609198cdfcc8ac',1,'speedometer']]],
   ['center',['center',['../classcircle_1_1_circle.html#aa2ed466736c7e4436ab6ded456ebd24b',1,'circle.Circle.center()'],['../classlap__timer_1_1_area.html#ae04bf9abe3859ab806dc3f3a699d9689',1,'lap_timer.Area.center()']]],
   ['checkpoint_5f1',['CHECKPOINT_1',['../namespacelap__timer.html#a7d4aff4d1c24ecd19c02265c9dfa0a6f',1,'lap_timer']]],
   ['checkpoint_5f2',['CHECKPOINT_2',['../namespacelap__timer.html#a33e41bd5d29fc940e87ee99b1aea26cd',1,'lap_timer']]],
