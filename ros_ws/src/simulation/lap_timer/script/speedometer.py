@@ -42,21 +42,14 @@ def link_state_callback(message):
 
     angle_velocities = [(t.x**2 + t.y**2)**0.5
                         for t in twists]
+
     angular_velocity = sum(angle_velocities) / len(angle_velocities)
     odometry_velocity = angular_velocity * WHEEL_RADIUS * 2
 
 
 def show_info():
-    global idle
     if velocity is None or max_velocity is None or odometry_velocity is None:
         return
-    if abs(odometry_velocity) < 0.01:
-        if idle:
-            return
-        else:
-            idle = True
-    else:
-        idle = False
 
     rospy.loginfo(
         "car: {0:.2f} m/s, max: {1:.2f} m/s, wheels: {2:.2f} m/s, slip: ".format(
