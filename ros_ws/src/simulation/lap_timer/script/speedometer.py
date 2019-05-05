@@ -31,45 +31,19 @@ LINK_NAMES = [
     'racer::right_wheel_front',
     'racer::right_wheel_back']
 WHEEL_RADIUS = 0.05
-last_orientations = None
-last_time_angular = None
 odometry_velocity = None
 
 
-def get_angle(q1, q2):
-    return acos((q1.w * q2.w + q1.x * q2.x + q1.y * q2.y + q1.z * q2.z))
-
-
 def link_state_callback(message):
-    global last_orientations, last_time_angular, odometry_velocity
+    global odometry_velocity
     indices = [i for i in range(len(message.name))
                if message.name[i] in LINK_NAMES]
-    orientations = [message.pose[i].orientation for i in indices]
-    if last_orientations is None:
-        last_orientations = orientations
-        return
+    twists = [message.twist[i].angular for i in indices]
 
-    now = rospy.Time.now()
-
-    if last_time_angular is None:
-        last_time_angular = now
-        return
-
-    duration = abs((last_time_angular - now).to_sec())
-    if duration < 0.03:
-        return
-
-    last_time_angular = now
-
-    angles = [get_angle(last_orientations[i], orientations[i])
-              for i in range(len(orientations))]
-    last_orientations = orientations
-    angle = sum(angles) / len(angles)
-    angular_velocity = angle / duration
+    angle_velocities = [(t.x**2 + t.y**2)**0.5
+                        for t in twists]
+    angular_velocity = sum(angle_velocities) / len(angle_velocities)
     odometry_velocity = angular_velocity * WHEEL_RADIUS * 2
-
-
-idle = True
 
 
 def show_info():
