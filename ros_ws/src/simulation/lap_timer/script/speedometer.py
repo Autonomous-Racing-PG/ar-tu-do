@@ -9,38 +9,16 @@ from math import acos
 
 Point = namedtuple("Point", ["x", "y"])
 
-last_time = None
-last_position = None
 velocity = 0
 max_velocity = 0
 
 
-def get_distance(a, b):
-    return ((a.x - b.x)**2 + (a.y - b.y)**2)**0.5
-
-
 def model_state_callback(message):
-    global last_time, last_position, max_velocity, velocity
+    global max_velocity, velocity
     if len(message.pose) < 2:
         return
-
-    position = Point(message.pose[1].position.x, message.pose[1].position.y)
-    now = rospy.Time.now()
-
-    if last_time is None:
-        last_time = now
-        last_position = position
-        return
-
-    duration = abs((last_time - now).to_sec())
-    if duration < 0.03:
-        return
-    last_time = now
-
-    distance = get_distance(position, last_position)
-    last_position = position
-    velocity = distance / duration
-
+    velocity = (message.twist[1].linear.x**2 +
+                message.twist[1].linear.y**2)**0.5
     if velocity > max_velocity:
         max_velocity = velocity
 
