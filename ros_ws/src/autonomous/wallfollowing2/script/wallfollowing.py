@@ -17,16 +17,20 @@ import numpy as np
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_LASER_SCAN = "/scan"
 
-SLOW = 0.15
+SLOW = 0.2
 FAST = 1.0
 
-RADIUS_SMALL = 2
-RADIUS_BIG = 10
+RADIUS_SMALL = 0
+RADIUS_BIG = 30
 
-ERROR_SPEED_DECREASE = 1.7
-ERROR_DEAD_ZONE = 0.2
+ERROR_SPEED_DECREASE = 4
+ERROR_DEAD_ZONE = 0.15
 
 UPDATE_FREQUENCY = 60
+
+MAX_ACCELERATION = 0.5
+
+last_speed = 0
 
 
 class PIDController():
@@ -49,6 +53,12 @@ class PIDController():
         derivative = (error - self.previous_error) / delta_time
         self.previous_error = error
         return self.p * error + self.i * self.integral + self.d * derivative
+
+
+def map(in_lower, in_upper, out_lower, out_upper, value):
+    result = out_lower + (out_upper - out_lower) * \
+        (value - in_lower) / (in_upper - in_lower)
+    return min(out_upper, max(out_lower, result))
 
 
 def drive(angle, velocity):
@@ -90,7 +100,9 @@ def find_left_right_border(points, margin_relative=0.1):
 
 
 def follow_walls(left_circle, right_circle):
-    predicted_car_position = Point(0, 1.5)
+    global last_speed
+
+    predicted_car_position = Point(0, 1.4 + last_speed)
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
 
@@ -105,11 +117,16 @@ def follow_walls(left_circle, right_circle):
         error, 1.0 / UPDATE_FREQUENCY)
 
     radius = min(left_circle.radius, right_circle.radius)
-    speed_limit_radius = (radius - RADIUS_SMALL) / (RADIUS_BIG - RADIUS_SMALL)
-    speed_limit_error = 1 + ERROR_DEAD_ZONE - abs(error) * ERROR_SPEED_DECREASE
-    relative_speed = max(0.0, min(1.0, speed_limit_error, speed_limit_radius))
-    speed = SLOW + (FAST - SLOW) * relative_speed
+    speed_limit_radius = map(RADIUS_SMALL, RADIUS_BIG, 0, 1, radius)
+    speed_limit_error = max(0, 1 + ERROR_DEAD_ZONE - abs(error) * ERROR_SPEED_DECREASE)  # nopep8
+    speed_limit_acceleration = last_speed + MAX_ACCELERATION / UPDATE_FREQUENCY
 
+    relative_speed = min(
+        speed_limit_error,
+        speed_limit_radius,
+        speed_limit_acceleration)
+    last_speed = relative_speed
+    speed = map(0, 1, SLOW, FAST, relative_speed)
     drive(steering_angle * (1.0 - relative_speed), speed)
 
     show_line_in_rviz(2, [left_point, right_point],
@@ -149,7 +166,7 @@ rospy.init_node('wallfollowing', anonymous=True)
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 
-pid = PIDController(1.5, 0.2, 0.01)
+pid = PIDController(1.5, 0.2, 0.02)
 
 while not rospy.is_shutdown():
     handle_scan()
