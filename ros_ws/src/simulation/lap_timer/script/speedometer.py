@@ -51,10 +51,10 @@ def link_state_update(message):
     twists = [message.twist[i].angular for i in indices]
 
     angle_velocities = [(t.x**2 + t.y**2)**0.5
-                        for t in twists]
+                        for t in twists]                # imperfect approximation, but good enough?
 
     angular_velocity = sum(angle_velocities) / len(angle_velocities)
-    odometry_velocity = angular_velocity * WHEEL_RADIUS * 2
+    odometry_velocity = angular_velocity * WHEEL_RADIUS  # missing factor of 2?
 
 
 def show_info():
