@@ -144,8 +144,8 @@ def handle_scan():
     points = get_scan_as_cartesian()
     split = find_left_right_border(points)
 
-    right_wall = points[:split, :]
-    left_wall = points[split:, :]
+    right_wall = points[:split:4, :]
+    left_wall = points[split::4, :]
 
     left_circle = circle.fit(left_wall)
     right_circle = circle.fit(right_wall)
