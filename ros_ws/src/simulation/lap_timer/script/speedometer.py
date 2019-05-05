@@ -3,30 +3,32 @@
 import rospy
 from gazebo_msgs.msg import ModelState, ModelStates, LinkState, LinkStates
 
-from collections import namedtuple
+wheel_velocity = None
+car_velocity = None
+max_car_velocity = 0
 
-from math import acos
-
-Point = namedtuple("Point", ["x", "y"])
-
-velocity = 0
-max_velocity = 0
-last_model_state_msg = None
+model_states_message = None
+link_states_message = None
 
 
 def model_state_callback(message):
-    global last_model_state_msg
-    last_model_state_msg = message
+    global model_states_message
+    model_states_message = message
 
 
-def model_state_update(message):
-    global max_velocity, velocity
-    if len(message.pose) < 2:
+def link_state_callback(message):
+    global link_states_message
+    link_states_message = message
+
+
+def calculate_car_velocity():
+    global max_car_velocity, car_velocity
+    if len(model_states_message.pose) < 2:
         return
-    velocity = (message.twist[1].linear.x**2 +
-                message.twist[1].linear.y**2)**0.5
-    if velocity > max_velocity:
-        max_velocity = velocity
+    car_velocity = (model_states_message.twist[1].linear.x**2 +
+                    model_states_message.twist[1].linear.y**2)**0.5
+    if car_velocity > max_car_velocity:
+        max_car_velocity = car_velocity
 
 
 LINK_NAMES = [
@@ -35,54 +37,55 @@ LINK_NAMES = [
     'racer::right_wheel_front',
     'racer::right_wheel_back']
 WHEEL_RADIUS = 0.05
-odometry_velocity = None
-last_link_state_msg = None
 
 
-def link_state_callback(message):
-    global last_link_state_msg
-    last_link_state_msg = message
+def calculate_wheel_velocity():
+    global wheel_velocity
+    indices = [i for i in range(len(link_states_message.name))
+               if link_states_message.name[i] in LINK_NAMES]
+    twists = [link_states_message.twist[i].angular for i in indices]
 
-
-def link_state_update(message):
-    global odometry_velocity
-    indices = [i for i in range(len(message.name))
-               if message.name[i] in LINK_NAMES]
-    twists = [message.twist[i].angular for i in indices]
-
-    angle_velocities = [(t.x**2 + t.y**2)**0.5
-                        for t in twists]                # imperfect approximation, but good enough?
-
+    angle_velocities = [(t.x**2 + t.y**2)**0.5 for t in twists]
     angular_velocity = sum(angle_velocities) / len(angle_velocities)
-    odometry_velocity = angular_velocity * WHEEL_RADIUS  # missing factor of 2?
+    wheel_velocity = angular_velocity * WHEEL_RADIUS
 
 
 def show_info():
-    if velocity is None or max_velocity is None or odometry_velocity is None:
+    if car_velocity is None or max_car_velocity is None or wheel_velocity is None:
         return
 
     rospy.loginfo(
         "car: {0:.2f} m/s, max: {1:.2f} m/s, wheels: {2:.2f} m/s, slip: ".format(
-            velocity,
-            max_velocity,
-            odometry_velocity) +
+            car_velocity,
+            max_car_velocity,
+            wheel_velocity) +
         "{0:.2f}".format(
-            odometry_velocity -
-            velocity).rjust(5))
+            wheel_velocity -
+            car_velocity).rjust(5))
+
+
+idle = True
 
 
 def calculate_velocity(event):
-    global last_link_state_msg, last_model_state_msg
-    if last_model_state_msg is None or last_link_state_msg is None:
+    global idle
+    if model_states_message is None or link_states_message is None:
         return
-    model_state_update(last_model_state_msg)
-    link_state_update(last_link_state_msg)
+
+    calculate_car_velocity()
+    calculate_wheel_velocity()
+
+    if abs(car_velocity) < 0.01 and abs(wheel_velocity) < 0.01:
+        if idle:
+            return
+        else:
+            idle = True
     show_info()
 
 
 rospy.init_node('speedometer', anonymous=True)
 rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
 rospy.Subscriber("/gazebo/link_states", LinkStates, link_state_callback)
-rospy.Timer(rospy.Duration(0, 50000000), calculate_velocity)
+rospy.Timer(rospy.Duration(0.05, 0), calculate_velocity)
 
 rospy.spin()
