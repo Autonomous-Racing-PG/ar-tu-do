@@ -205,7 +205,7 @@ E.g.
 ```C++
 #define MY_MACRO_CONST 10                   // Bad as this macro may be already defined somewhere else
 const unsigned MY_CONST_CONST = 10;         // Better as one would get a compile time error if it was defined somewhere else!
-constexpr unsigned MY_CONSTEXPR_CONST = 10; // Good as the compile tries to initialize the variable on compile time if possible.
+constexpr unsigned MY_CONSTEXPR_CONST = 10; // Good as the compiler tries to initialize the variable on compile time if possible.
 ```
 
 See [Using constexpr to Improve Security, Performance and Encapsulation in C++](https://smartbear.de/blog/develop/using-constexpr-to-improve-security-performance-an/?l=ua)
