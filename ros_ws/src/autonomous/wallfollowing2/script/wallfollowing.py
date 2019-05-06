@@ -30,6 +30,8 @@ UPDATE_FREQUENCY = 60
 
 MAX_ACCELERATION = 0.5
 
+PREDICTION_DISTANCE = 1.4
+
 last_speed = 0
 
 
@@ -102,7 +104,7 @@ def find_left_right_border(points, margin_relative=0.1):
 def follow_walls(left_circle, right_circle):
     global last_speed
 
-    predicted_car_position = Point(0, 1.4 + last_speed)
+    predicted_car_position = Point(0, PREDICTION_DISTANCE + last_speed)
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
 
