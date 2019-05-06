@@ -86,7 +86,7 @@ All filenames SHOULD be *snake_cased*.
 
 All C++ source files SHOULD have the extension `.cpp`.
 
-All C++ header files SHOULD have the extension `.h` and SHOULD be place in the `include` directory of the ROS Packages `src` directory.
+All C++ header files SHOULD have the extension `.h` and SHOULD be placed in the `include` directory of the ROS Packages `src` directory.
 
 If a file mainly contains definition or implementation of a class, the file SHOULD be named *snake_cased* after the class name e.g. `class MyOwnClass` results to the filename `my_own_class.h/.cpp` 
 
@@ -203,7 +203,7 @@ All Constants names SHOULD be *SNAKE_CASED*.
 Try to use `constexpr`, `enum` and `enum class` before resorting to `#define` or `const`.
 E.g.
 ```C++
-#define MY_MACRO_CONST 10                   // Bad as this macro may already defined somewhere else
+#define MY_MACRO_CONST 10                   // Bad as this macro may be already defined somewhere else
 const unsigned MY_CONST_CONST = 10;         // Better as one would get a compile time error if it was defined somewhere else!
 constexpr unsigned MY_CONSTEXPR_CONST = 10; // Good as the compile tries to initialize the variable on compile time if possible.
 ```
