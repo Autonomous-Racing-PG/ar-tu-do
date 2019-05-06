@@ -115,6 +115,7 @@ class ParticleFiler():
 
         # these topics are for coordinate space things
         self.pub_tf = tf.TransformBroadcaster()
+        self.sub_tf = tf.TransformListener()
 
         # these topics are to receive data from the racecar
         self.laser_sub = rospy.Subscriber(rospy.get_param("~scan_topic", "/scan"), LaserScan, self.lidarCB, queue_size=1)
@@ -170,8 +171,8 @@ class ParticleFiler():
             stamp = rospy.Time.now()
 
         # this may cause issues with the TF tree. If so, see the below code.
-        self.pub_tf.sendTransform((pose[0],pose[1],0),tf.transformations.quaternion_from_euler(0, 0, pose[2]), 
-               stamp , "/laser", "/map")
+        # self.pub_tf.sendTransform((pose[0],pose[1],0),tf.transformations.quaternion_from_euler(0, 0, pose[2]), 
+        #        stamp , "/laser", "/map")
 
         # also publish odometry to facilitate getting the localization pose
         if self.PUBLISH_ODOM:
@@ -182,7 +183,7 @@ class ParticleFiler():
             odom.pose.pose.orientation = Utils.angle_to_quaternion(pose[2])
             self.odom_pub.publish(odom)
         
-        return # below this line is disabled
+        # return # below this line is disabled
 
         """
         Our particle filter provides estimates for the "laser" frame
@@ -195,15 +196,25 @@ class ParticleFiler():
         """
 
         # Get map -> laser transform.
-        map_laser_pos = np.array( (pose[0],pose[1],0) )
-        map_laser_rotation = np.array( tf.transformations.quaternion_from_euler(0, 0, pose[2]) )
-        # Apply laser -> base_link transform to map -> laser transform
-        # This gives a map -> base_link transform
-        laser_base_link_offset = (0.265, 0, 0)
-        map_laser_pos -= np.dot(tf.transformations.quaternion_matrix(tf.transformations.unit_vector(map_laser_rotation))[:3,:3], laser_base_link_offset).T
+        map_laser_matrix = tf.transformations.compose_matrix(
+            translate = np.array( (pose[0],pose[1],0) ),
+            angles = np.array( (0, 0, pose[2]) )
+        )
+
+        # Get laser -> base_link transform.
+        laser_base_transform = tf_sub.lookupTransform("/laser", "/base_link", rospy.Time())
+        laser_base_matrix = tf.transformations.compose_matrix(
+            translate = laser_base_transform[0],
+            angles = tf.transformations.euler_from_quaternion(laser_base_transform[1])
+        )
+        
+        # Get map -> base_link transform.
+        map_base_matrix = tf.transformations.concatenate_matrices(map_laser_matrix, laser_base_matrix)
+        # map_base_matrix = tf.transformations.concatenate_matrices(laser_base_matrix, map_laser_matrix)
+        _, _, map_base_rotation, map_base_pos, _ = tf.transformations.decompose_matrix(map_base_matrix)
 
         # Publish transform
-        self.pub_tf.sendTransform(map_laser_pos, map_laser_rotation, stamp , "/base_link", "/map")
+        self.pub_tf.sendTransform(map_base_pos, map_base_rotation, stamp , "/base_link", "/map")
 
     def visualize(self):
         '''

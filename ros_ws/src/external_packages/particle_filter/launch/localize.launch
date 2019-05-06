@@ -52,7 +52,7 @@
 		<param name="max_range" value="30"/> 
 		<param name="viz" value="$(arg viz)"/> 
 		<param name="fine_timing" value="0"/> 
-		<param name="publish_odom" value="1"/> 
+		<param name="publish_odom" value="0"/> 
 
 		<!-- sensor model constants, see sensor model section in the Lab5 guide document -->
 		<param name="z_short" value="0.01"/> 
