@@ -657,7 +657,7 @@ or
 <a id="zero-cost-abstraction"></a>
 # Zero cost abstraction
 
-Zero cost abstractions like `std::array` SHOULD always be prefered, as they add optional bound-checking and iterators.
+Zero cost abstractions like `std::array` or `std::lock_guard` SHOULD always be prefered.
 ```C++
 // BAD
 int64_t arr[3] = {1,2,3};
@@ -668,4 +668,18 @@ std::array<int64_t, 3> arr = {1,2,3};
 // GOOD (but experimental)
 auto arr = std::experimental::make_array(1,2,3);
 // See: https://en.cppreference.com/w/cpp/experimental/make_array
+
+//BAD
+void foo() {
+    resource_mutex.lock();
+    // DO STUFF
+    resource_mutex.unlock();
+}
+// GOOD
+void foo() {
+    {
+        auto lock_guard = std::lock_guard<std::mutex>(resource_mutex)
+        // DO STUFF
+    }
+}
 ```
