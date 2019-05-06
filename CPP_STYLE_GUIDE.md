@@ -456,7 +456,7 @@ namespace A
 <a id="inheritance"></a>
 # Inheritance
 
-You MUST declare an overridden virtual function as virtual AND overridden to clarify whether or not a given function is virtual (and overridden).
+You MUST declare an overridden virtual function with the identifiers `virtual` AND `override` to clarify whether or not a given function is virtual (and overridden).
 ```C++
 // BAD
 class Base {
