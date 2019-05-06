@@ -382,7 +382,7 @@ for (auto& item_length : lengths) {
 }
 ```
 
-Comments SHOULD not be used to structure the code.
+Comments SHOULD NOT be used to structure the code.
 Instead of separating a long function with comments, it SHOULD be split into multiple shorter functions.
 
 <a id="text-output"></a>
