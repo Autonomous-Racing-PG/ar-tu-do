@@ -297,7 +297,7 @@ It also provides information on how to use the project to those who didn't read 
 
 Code SHOULD be documented in a [doxygen](http://www.doxygen.nl/manual/docblocks.html) compatible fashion.
 
-Method and class summaries SHOULD be omitted if they do not provide more information than the name:
+Function and class summaries SHOULD be omitted if they do not provide more information than the name:
 
 ```C++
 // BAD
@@ -310,7 +310,7 @@ int List::getSize()
 }
 ```
 
-Conversely, classes and methods SHOULD be named so that it is obvious what they do:
+Conversely, classes and functions SHOULD be named so that it is obvious what they do:
 
 ```C++
 // BAD
