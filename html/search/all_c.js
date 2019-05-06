@@ -7,6 +7,7 @@ var searchData=
   ['laserscan_5ftransformer_2ecpp',['laserscan_transformer.cpp',['../laserscan__transformer_8cpp.html',1,'']]],
   ['laserscan_5ftransformer_2eh',['laserscan_transformer.h',['../laserscan__transformer_8h.html',1,'']]],
   ['laserscantransformer',['LaserscanTransformer',['../class_laserscan_transformer.html',1,'LaserscanTransformer'],['../class_laserscan_transformer.html#a3fe9989fc225e8eaeea106f58db09db0',1,'LaserscanTransformer::LaserscanTransformer()']]],
+  ['last_5fspeed',['last_speed',['../namespacewallfollowing.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe',1,'wallfollowing']]],
   ['left_5fsteering_5fposition',['LEFT_STEERING_POSITION',['../namespacesimulation.html#aeabd7d3863831a7fc50ce8728ca46885',1,'simulation']]],
   ['lidar_5fframe',['LIDAR_FRAME',['../wall__following_8h.html#ac6631c1f8956559998695f2038277c65',1,'wall_following.h']]],
   ['link_5fnames',['LINK_NAMES',['../namespacespeedometer.html#ade01e300777f9944bd7c39c26cf8552e',1,'speedometer']]],

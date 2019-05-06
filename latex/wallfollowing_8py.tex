@@ -13,6 +13,8 @@ class \hyperlink{classwallfollowing_1_1_p_i_d_controller}{wallfollowing.\+P\+I\+
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+def \hyperlink{namespacewallfollowing_a908b60b64e20dec7078e707a829b610d}{wallfollowing.\+map} (in\+\_\+lower, in\+\_\+upper, out\+\_\+lower, out\+\_\+upper, value)
+\item 
 def \hyperlink{namespacewallfollowing_a66b98adda1f5c1ba1ed6c0029a5d27f6}{wallfollowing.\+drive} (angle, velocity)
 \item 
 def \hyperlink{namespacewallfollowing_abaea68d69064fe86d2badf8535dd35a4}{wallfollowing.\+laser\+\_\+callback} (message)
@@ -32,19 +34,25 @@ string \hyperlink{namespacewallfollowing_a765ce45df7d0c3d9134fc83534029e36}{wall
 \item 
 string \hyperlink{namespacewallfollowing_a7e38e617465ebdfa7ec0576ac63443f8}{wallfollowing.\+T\+O\+P\+I\+C\+\_\+\+L\+A\+S\+E\+R\+\_\+\+S\+C\+AN} = \char`\"{}/scan\char`\"{}
 \item 
-float \hyperlink{namespacewallfollowing_a30a4013dbd3a6ea5275fbed3fe35da22}{wallfollowing.\+S\+L\+OW} = 0.\+15
+float \hyperlink{namespacewallfollowing_a30a4013dbd3a6ea5275fbed3fe35da22}{wallfollowing.\+S\+L\+OW} = 0.\+2
 \item 
 float \hyperlink{namespacewallfollowing_ab1e7c06b4efb8e38a97ac8ec783a6beb}{wallfollowing.\+F\+A\+ST} = 1.\+0
 \item 
-int \hyperlink{namespacewallfollowing_aa59c6dfd10cb4f1550367b3268417436}{wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL} = 2
+int \hyperlink{namespacewallfollowing_aa59c6dfd10cb4f1550367b3268417436}{wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+S\+M\+A\+LL} = 0
 \item 
-int \hyperlink{namespacewallfollowing_a4b502375f79f9fcc2a823cc60da7bee0}{wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+B\+IG} = 10
+int \hyperlink{namespacewallfollowing_a4b502375f79f9fcc2a823cc60da7bee0}{wallfollowing.\+R\+A\+D\+I\+U\+S\+\_\+\+B\+IG} = 30
 \item 
-float \hyperlink{namespacewallfollowing_a6e8aff0586478dde973909ebe62f58a5}{wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE} = 1.\+7
+int \hyperlink{namespacewallfollowing_a205d8fd2e51cc16818cb679f6c87c861}{wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+C\+R\+E\+A\+SE} = 4
 \item 
-float \hyperlink{namespacewallfollowing_ac87d5f143cfd44f170a1d385ebd1a71b}{wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE} = 0.\+2
+float \hyperlink{namespacewallfollowing_ac87d5f143cfd44f170a1d385ebd1a71b}{wallfollowing.\+E\+R\+R\+O\+R\+\_\+\+D\+E\+A\+D\+\_\+\+Z\+O\+NE} = 0.\+15
 \item 
 int \hyperlink{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}{wallfollowing.\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY} = 60
+\item 
+float \hyperlink{namespacewallfollowing_acc4e21a1971c33663609d022c899c167}{wallfollowing.\+M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+ON} = 0.\+5
+\item 
+float \hyperlink{namespacewallfollowing_a40e67d731c86a71ce7d1b8c17bff0514}{wallfollowing.\+P\+R\+E\+D\+I\+C\+T\+I\+O\+N\+\_\+\+D\+I\+S\+T\+A\+N\+CE} = 1.\+4
+\item 
+int \hyperlink{namespacewallfollowing_a9ee8d77a4629b5d8ecb2899da6e3a7fe}{wallfollowing.\+last\+\_\+speed} = 0
 \item 
 \hyperlink{namespacewallfollowing_a35ff373c811db70d98205347a736c606}{wallfollowing.\+laser\+\_\+scan} = None
 \item 
@@ -54,5 +62,5 @@ int \hyperlink{namespacewallfollowing_a7ba7bea964894fd6f3def270bd3afa43}{wallfol
 \item 
 \hyperlink{namespacewallfollowing_a57288dd797e0bd15012f3ebf1670ce38}{wallfollowing.\+timer} = rospy.\+Rate(U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY)
 \item 
-\hyperlink{namespacewallfollowing_adc9f95e0b626be8ddae98a596a38e7e8}{wallfollowing.\+pid} = \hyperlink{class_p_i_d_controller}{P\+I\+D\+Controller}(1.\+5, 0.\+2, 0.\+01)
+\hyperlink{namespacewallfollowing_adc9f95e0b626be8ddae98a596a38e7e8}{wallfollowing.\+pid} = \hyperlink{class_p_i_d_controller}{P\+I\+D\+Controller}(1.\+5, 0.\+2, 0.\+02)
 \end{DoxyCompactItemize}

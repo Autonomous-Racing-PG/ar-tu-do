@@ -4,6 +4,7 @@ var searchData=
   ['sample_5fangle_5f1',['SAMPLE_ANGLE_1',['../wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e',1,'wall_following.h']]],
   ['sample_5fangle_5f2',['SAMPLE_ANGLE_2',['../wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d',1,'wall_following.h']]],
   ['servopositioncallback',['servoPositionCallback',['../class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310',1,'VESCSimulationDriver']]],
+  ['set_5fmodel_5fstate',['set_model_state',['../namespacereset__car.html#a79ac68e30c39e4988f93ef77679b838c',1,'reset_car']]],
   ['setservoangle',['setServoAngle',['../class_v_e_s_c_simulator.html#a33b5c6d6dbe7ed92e9ae3b1a681eccb1',1,'VESCSimulator']]],
   ['setspeed',['setSpeed',['../class_v_e_s_c_simulator.html#aaeff43c35fda29fb69663ff2f6b51f42',1,'VESCSimulator']]],
   ['show_5fcircle_5fin_5frviz',['show_circle_in_rviz',['../namespacerviz__geometry.html#a07a18d3bf4954414457db93c65b71c2e',1,'rviz_geometry']]],

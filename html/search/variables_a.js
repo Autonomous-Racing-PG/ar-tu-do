@@ -5,6 +5,7 @@ var searchData=
   ['m_5frange1',['m_range1',['../class_wall.html#a56b11c6748405e939de7cf4f9fabdc2d',1,'Wall']]],
   ['m_5frange2',['m_range2',['../class_wall.html#aeb7c600e6e41792c60498ca310c833f1',1,'Wall']]],
   ['marker_5fpublisher',['marker_publisher',['../namespacerviz__geometry.html#ac4b20d63343627f7ac14151eba108ba8',1,'rviz_geometry']]],
+  ['max_5facceleration',['MAX_ACCELERATION',['../namespacewallfollowing.html#acc4e21a1971c33663609d022c899c167',1,'wallfollowing']]],
   ['max_5fcar_5fvelocity',['max_car_velocity',['../namespacespeedometer.html#a11f245c5d45ac2b534d8d0b46e877dfc',1,'speedometer']]],
   ['max_5frange',['MAX_RANGE',['../emergency__stop_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;emergency_stop.h'],['../wall__following_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;wall_following.h']]],
   ['max_5frpm_5felectrical',['MAX_RPM_ELECTRICAL',['../namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b',1,'car_config']]],

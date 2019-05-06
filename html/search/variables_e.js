@@ -2,6 +2,7 @@ var searchData=
 [
   ['sample_5fangle_5f1',['SAMPLE_ANGLE_1',['../wall__following_8h.html#a50fe375b7ab93411c2975631c8def75e',1,'wall_following.h']]],
   ['sample_5fangle_5f2',['SAMPLE_ANGLE_2',['../wall__following_8h.html#a604cc4a32789c25fa8ea5bcb6cac6b3d',1,'wall_following.h']]],
+  ['set_5fmodel_5fstate',['set_model_state',['../namespacereset__car.html#a79ac68e30c39e4988f93ef77679b838c',1,'reset_car']]],
   ['slow',['SLOW',['../namespacewallfollowing.html#a30a4013dbd3a6ea5275fbed3fe35da22',1,'wallfollowing']]],
   ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],
   ['start',['start',['../classlap__timer_1_1_timer.html#a3543c782f954f47c01b2068674bfe96b',1,'lap_timer::Timer']]],
