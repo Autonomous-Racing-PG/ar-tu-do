@@ -94,7 +94,7 @@ All filenames S\+H\+O\+U\+LD be {\itshape snake\+\_\+cased}.
 
 All C++ source files S\+H\+O\+U\+LD have the extension {\ttfamily .cpp}.
 
-All C++ header files S\+H\+O\+U\+LD have the extension {\ttfamily .h} and S\+H\+O\+U\+LD be place in the {\ttfamily include} directory of the R\+OS Packages {\ttfamily src} directory.
+All C++ header files S\+H\+O\+U\+LD have the extension {\ttfamily .h} and S\+H\+O\+U\+LD be placed in the {\ttfamily include} directory of the R\+OS Packages {\ttfamily src} directory.
 
 If a file mainly contains definition or implementation of a class, the file S\+H\+O\+U\+LD be named {\itshape snake\+\_\+cased} after the class name e.\+g. {\ttfamily class My\+Own\+Class} results to the filename {\ttfamily my\+\_\+own\+\_\+class.\+h/.cpp}
 
@@ -224,10 +224,10 @@ All Constants names S\+H\+O\+U\+LD be {\itshape S\+N\+A\+K\+E\+\_\+\+C\+A\+S\+ED
 Try to use {\ttfamily constexpr}, {\ttfamily enum} and {\ttfamily enum class} before resorting to {\ttfamily \#define} or {\ttfamily const}. E.\+g. 
 \begin{DoxyCode}
 1 \{C++\}
-2 #define MY\_MACRO\_CONST 10                   // Bad as this macro may already defined somewhere else
+2 #define MY\_MACRO\_CONST 10                   // Bad as this macro may be already defined somewhere else
 3 const unsigned MY\_CONST\_CONST = 10;         // Better as one would get a compile time error if it was
        defined somewhere else!
-4 constexpr unsigned MY\_CONSTEXPR\_CONST = 10; // Good as the compile tries to initialize the variable on
+4 constexpr unsigned MY\_CONSTEXPR\_CONST = 10; // Good as the compiler tries to initialize the variable on
        compile time if possible.
 \end{DoxyCode}
 
@@ -312,7 +312,7 @@ Documentation explains the high-\/level structure of the code. It also provides 
 
 Code S\+H\+O\+U\+LD be documented in a \href{http://www.doxygen.nl/manual/docblocks.html}{\tt doxygen} compatible fashion.
 
-Method and class summaries S\+H\+O\+U\+LD be omitted if they do not provide more information than the name\+:
+Function and class summaries S\+H\+O\+U\+LD be omitted if they do not provide more information than the name\+:
 
 
 \begin{DoxyCode}
@@ -328,7 +328,7 @@ Method and class summaries S\+H\+O\+U\+LD be omitted if they do not provide more
 \end{DoxyCode}
 
 
-Conversely, classes and methods S\+H\+O\+U\+LD be named so that it is obvious what they do\+:
+Conversely, classes and functions S\+H\+O\+U\+LD be named so that it is obvious what they do\+:
 
 
 \begin{DoxyCode}
@@ -418,7 +418,7 @@ Comments S\+H\+O\+U\+LD explain why something is done, not what is being done. T
 \end{DoxyCode}
 
 
-Comments S\+H\+O\+U\+LD not be used to structure the code. Instead of separating a long function with comments, it S\+H\+O\+U\+LD be split into multiple shorter functions.
+Comments S\+H\+O\+U\+LD N\+OT be used to structure the code. Instead of separating a long function with comments, it S\+H\+O\+U\+LD be split into multiple shorter functions.
 
 \section*{Text output}
 
@@ -492,7 +492,7 @@ You S\+H\+O\+U\+LD N\+OT use a using-\/directive in a header file. E.\+g.
 
 \section*{Inheritance}
 
-You M\+U\+ST declare an overridden virtual function as virtual A\+ND overridden to clarify whether or not a given function is virtual (and overridden). 
+You M\+U\+ST declare an overridden virtual function with the identifiers {\ttfamily virtual} A\+ND {\ttfamily override} to clarify whether or not a given function is virtual (and overridden). 
 \begin{DoxyCode}
 1 \{C++\}
 2 // BAD
@@ -693,7 +693,7 @@ You S\+H\+O\+U\+LD use {\ttfamily \#pragma G\+CC warning \char`\"{}\+M\+S\+G\cha
 
 \section*{Zero cost abstraction}
 
-Zero cost abstractions like {\ttfamily std\+::array} S\+H\+O\+U\+LD always be prefered, as they add optional bound-\/checking and iterators. 
+Zero cost abstractions like {\ttfamily std\+::array} or {\ttfamily std\+::lock\+\_\+guard} S\+H\+O\+U\+LD always be prefered. 
 \begin{DoxyCode}
 1 \{C++\}
 2 // BAD
@@ -705,5 +705,19 @@ Zero cost abstractions like {\ttfamily std\+::array} S\+H\+O\+U\+LD always be pr
 8 // GOOD (but experimental)
 9 auto arr = std::experimental::make\_array(1,2,3);
 10 // See: https://en.cppreference.com/w/cpp/experimental/make\_array
+11 
+12 //BAD
+13 void foo() \{
+14     resource\_mutex.lock();
+15     // DO STUFF
+16     resource\_mutex.unlock();
+17 \}
+18 // GOOD
+19 void foo() \{
+20     \{
+21         auto lock\_guard = std::lock\_guard<std::mutex>(resource\_mutex)
+22         // DO STUFF
+23     \}
+24 \}
 \end{DoxyCode}
  
