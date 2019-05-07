@@ -86,7 +86,7 @@ All filenames SHOULD be *snake_cased*.
 
 All C++ source files SHOULD have the extension `.cpp`.
 
-All C++ header files SHOULD have the extension `.h` and SHOULD be place in the `include` directory of the ROS Packages `src` directory.
+All C++ header files SHOULD have the extension `.h` and SHOULD be placed in the `include` directory of the ROS Packages `src` directory.
 
 If a file mainly contains definition or implementation of a class, the file SHOULD be named *snake_cased* after the class name e.g. `class MyOwnClass` results to the filename `my_own_class.h/.cpp` 
 
@@ -203,9 +203,9 @@ All Constants names SHOULD be *SNAKE_CASED*.
 Try to use `constexpr`, `enum` and `enum class` before resorting to `#define` or `const`.
 E.g.
 ```C++
-#define MY_MACRO_CONST 10                   // Bad as this macro may already defined somewhere else
+#define MY_MACRO_CONST 10                   // Bad as this macro may be already defined somewhere else
 const unsigned MY_CONST_CONST = 10;         // Better as one would get a compile time error if it was defined somewhere else!
-constexpr unsigned MY_CONSTEXPR_CONST = 10; // Good as the compile tries to initialize the variable on compile time if possible.
+constexpr unsigned MY_CONSTEXPR_CONST = 10; // Good as the compiler tries to initialize the variable on compile time if possible.
 ```
 
 See [Using constexpr to Improve Security, Performance and Encapsulation in C++](https://smartbear.de/blog/develop/using-constexpr-to-improve-security-performance-an/?l=ua)
@@ -297,7 +297,7 @@ It also provides information on how to use the project to those who didn't read 
 
 Code SHOULD be documented in a [doxygen](http://www.doxygen.nl/manual/docblocks.html) compatible fashion.
 
-Method and class summaries SHOULD be omitted if they do not provide more information than the name:
+Function and class summaries SHOULD be omitted if they do not provide more information than the name:
 
 ```C++
 // BAD
@@ -310,7 +310,7 @@ int List::getSize()
 }
 ```
 
-Conversely, classes and methods SHOULD be named so that it is obvious what they do:
+Conversely, classes and functions SHOULD be named so that it is obvious what they do:
 
 ```C++
 // BAD
@@ -382,7 +382,7 @@ for (auto& item_length : lengths) {
 }
 ```
 
-Comments SHOULD not be used to structure the code.
+Comments SHOULD NOT be used to structure the code.
 Instead of separating a long function with comments, it SHOULD be split into multiple shorter functions.
 
 <a id="text-output"></a>
@@ -456,7 +456,7 @@ namespace A
 <a id="inheritance"></a>
 # Inheritance
 
-You MUST declare an overridden virtual function as virtual AND overridden to clarify whether or not a given function is virtual (and overridden).
+You MUST declare an overridden virtual function with the identifiers `virtual` AND `override` to clarify whether or not a given function is virtual (and overridden).
 ```C++
 // BAD
 class Base {
@@ -657,7 +657,7 @@ or
 <a id="zero-cost-abstraction"></a>
 # Zero cost abstraction
 
-Zero cost abstractions like `std::array` SHOULD always be prefered, as they add optional bound-checking and iterators.
+Zero cost abstractions like `std::array` or `std::lock_guard` SHOULD always be prefered.
 ```C++
 // BAD
 int64_t arr[3] = {1,2,3};
@@ -668,4 +668,18 @@ std::array<int64_t, 3> arr = {1,2,3};
 // GOOD (but experimental)
 auto arr = std::experimental::make_array(1,2,3);
 // See: https://en.cppreference.com/w/cpp/experimental/make_array
+
+//BAD
+void foo() {
+    resource_mutex.lock();
+    // DO STUFF
+    resource_mutex.unlock();
+}
+// GOOD
+void foo() {
+    {
+        auto lock_guard = std::lock_guard<std::mutex>(resource_mutex)
+        // DO STUFF
+    }
+}
 ```
