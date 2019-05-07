@@ -167,15 +167,14 @@ class ParticleFiler():
 
     def publish_tf(self,pose, stamp=None):
         """ Publish a tf for the car. This tells ROS where the car is with respect to the map. """
-        if stamp == None:
-            stamp = rospy.Time.now()
 
         # this may cause issues with the TF tree. If so, see the below code.
         # self.pub_tf.sendTransform((pose[0],pose[1],0),tf.transformations.quaternion_from_euler(0, 0, pose[2]), 
         #        stamp , "/laser", "/map")
 
         # also publish odometry to facilitate getting the localization pose
-        if self.PUBLISH_ODOM:
+        #if self.PUBLISH_ODOM:
+        if None:
             odom = Odometry()
             odom.header = Utils.make_header("/map", stamp)
             odom.pose.pose.position.x = pose[0]
@@ -183,17 +182,7 @@ class ParticleFiler():
             odom.pose.pose.orientation = Utils.angle_to_quaternion(pose[2])
             self.odom_pub.publish(odom)
         
-        # return # below this line is disabled
-
-        """
-        Our particle filter provides estimates for the "laser" frame
-        since that is where our laser range estimates are measure from. Thus,
-        We want to publish a "map" -> "laser" transform.
-
-        However, the car's position is measured with respect to the "base_link"
-        frame (it is the root of the TF tree). Thus, we should actually define
-        a "map" -> "base_link" transform as to not break the TF tree.
-        """
+        # Everything below is not optimized yet.
 
         # Get map -> laser transform.
         map_laser_matrix = tf.transformations.compose_matrix(
@@ -201,20 +190,27 @@ class ParticleFiler():
             angles = np.array( (0, 0, pose[2]) )
         )
 
-        # Get laser -> base_link transform.
-        laser_base_transform = tf_sub.lookupTransform("/laser", "/base_link", rospy.Time())
-        laser_base_matrix = tf.transformations.compose_matrix(
-            translate = laser_base_transform[0],
-            angles = tf.transformations.euler_from_quaternion(laser_base_transform[1])
+        # Get laser -> odom transform.
+        #self.sub_tf.waitForTransform("laser", "odom", rospy.Time(), rospy.Duration(3)) # (unnecessary?) slowdown
+        laser_odom_transform = self.sub_tf.lookupTransform("laser", "odom", rospy.Time())
+        laser_odom_matrix = tf.transformations.compose_matrix(
+            translate = laser_odom_transform[0],
+            angles = tf.transformations.euler_from_quaternion(laser_odom_transform[1])
         )
         
-        # Get map -> base_link transform.
-        map_base_matrix = tf.transformations.concatenate_matrices(map_laser_matrix, laser_base_matrix)
-        # map_base_matrix = tf.transformations.concatenate_matrices(laser_base_matrix, map_laser_matrix)
-        _, _, map_base_rotation, map_base_pos, _ = tf.transformations.decompose_matrix(map_base_matrix)
+        # Calculate map -> odom transform.
+        map_odom_matrix = tf.transformations.concatenate_matrices(map_laser_matrix, laser_odom_matrix)
+        # map_odom_matrix = tf.transformations.concatenate_matrices(laser_odom_matrix, map_laser_matrix)
+        _, _, map_odom_rotation_euler, map_odom_pos, _ = tf.transformations.decompose_matrix(map_odom_matrix)
+        map_odom_rotation = tf.transformations.quaternion_from_euler(map_odom_rotation_euler[0], map_odom_rotation_euler[1], map_odom_rotation_euler[2])
+
+        if stamp == None:
+            stamp = rospy.Time.now()
+            
+        stamp = stamp + rospy.Duration(0.2) # not even the worst hack in this function
 
         # Publish transform
-        self.pub_tf.sendTransform(map_base_pos, map_base_rotation, stamp , "/base_link", "/map")
+        self.pub_tf.sendTransform(map_odom_pos.tolist(), map_odom_rotation.tolist(), stamp , "odom", "map")
 
     def visualize(self):
         '''
