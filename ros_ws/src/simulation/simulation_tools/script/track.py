@@ -21,7 +21,7 @@ class TrackPosition():
             track.forward[segment, 1], track.forward[segment, 0])
 
     def __str__(self):
-        return "{0:.2f}m ({1:.0f}%), segment {2:d}, to center: {3:.2f}m, track: {4:.0f}°".format(
+        return "{0:.2f} m ({1:.0f}%), segment {2:d}, to center: {3:.2f} m, track: {4:.0f}°".format(
             self.total_distance,
             self.total_progress * 100,
             self.segment,
