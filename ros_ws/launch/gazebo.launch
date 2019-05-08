@@ -32,7 +32,7 @@
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
 
-    <node name="lap_timer" pkg="lap_timer" type="lap_timer.py" output="screen"/>
+    <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="screen"/>
     <include file="$(find wallfollowing2)/launch/autonomous_driving.launch"/>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package format="2">
-  <name>lap_timer</name>
+  <name>simulation_tools</name>
   <version>0.0.0</version>
-  <description>Lap timer for the simulated race track</description>
+  <description>Useful scripts and tools to work with out-of-scenario information</description>
 
   <!-- Maintainer -->
   <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
