@@ -4,6 +4,7 @@ var annotated_dup =
     [ "lap_timer", "namespacelap__timer.html", "namespacelap__timer" ],
     [ "wallfollowing", "namespacewallfollowing.html", "namespacewallfollowing" ],
     [ "CarController", "class_car_controller.html", "class_car_controller" ],
+    [ "CrashDetector", "class_crash_detector.html", "class_crash_detector" ],
     [ "DMSController", "class_d_m_s_controller.html", "class_d_m_s_controller" ],
     [ "DriveParametersMultiplexer", "class_drive_parameters_multiplexer.html", "class_drive_parameters_multiplexer" ],
     [ "DriveParametersSource", "class_drive_parameters_source.html", "class_drive_parameters_source" ],

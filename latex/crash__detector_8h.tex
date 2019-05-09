@@ -1,0 +1,58 @@
+\hypertarget{crash__detector_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/include/crash\+\_\+detector.h File Reference}
+\label{crash__detector_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/include/crash\+\_\+detector.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/include/crash\+\_\+detector.\+h}}
+{\ttfamily \#include $<$gazebo/gazebo.\+hh$>$}\\*
+{\ttfamily \#include $<$gazebo/gazebo\+\_\+client.\+hh$>$}\\*
+{\ttfamily \#include $<$gazebo/msgs/msgs.\+hh$>$}\\*
+{\ttfamily \#include $<$gazebo/transport/transport.\+hh$>$}\\*
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+Empty.\+h$>$}\\*
+Include dependency graph for crash\+\_\+detector.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{crash__detector_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{crash__detector_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_crash_detector}{Crash\+Detector}
+\begin{DoxyCompactList}\small\item\em R\+OS node that listens on a gazebo topic for collisions and publishes to a R\+OS topic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr const char $\ast$ \hyperlink{crash__detector_8h_aa597ef29ab47e4addc00c6732b377a96}{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH} = \char`\"{}/crash\char`\"{}
+\item 
+constexpr const char $\ast$ \hyperlink{crash__detector_8h_a525271c0b32ecd91e6697f99ed4ab29c}{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{crash\+\_\+detector.\+h@{crash\+\_\+detector.\+h}!T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH@{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH@{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}!crash\+\_\+detector.\+h@{crash\+\_\+detector.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}{TOPIC_CRASH}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH = \char`\"{}/crash\char`\"{}}\hypertarget{crash__detector_8h_aa597ef29ab47e4addc00c6732b377a96}{}\label{crash__detector_8h_aa597ef29ab47e4addc00c6732b377a96}
+
+
+Definition at line 10 of file crash\+\_\+detector.\+h.
+
+\index{crash\+\_\+detector.\+h@{crash\+\_\+detector.\+h}!T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR}}
+\index{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR}!crash\+\_\+detector.\+h@{crash\+\_\+detector.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR}{TOPIC_GAZEBO_SENSOR}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+S\+E\+N\+S\+OR}\hypertarget{crash__detector_8h_a525271c0b32ecd91e6697f99ed4ab29c}{}\label{crash__detector_8h_a525271c0b32ecd91e6697f99ed4ab29c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    \textcolor{stringliteral}{"/gazebo/racetrack/track/walls-collision-link/walls-contact-sensor/contacts"}
+\end{DoxyCode}
+
+
+Definition at line 11 of file crash\+\_\+detector.\+h.
+

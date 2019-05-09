@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Autonomous Racing: /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/lap_timer/script Directory Reference</title>
+<title>Autonomous Racing: CrashDetector Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -51,8 +51,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -73,8 +73,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li class="current"><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('dir_bb577893f6bb80a0ce019cdf582e7f5a.html','');});
+$(document).ready(function(){initNavTree('class_crash_detector.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,26 +108,56 @@ $(document).ready(function(){initNavTree('dir_bb577893f6bb80a0ce019cdf582e7f5a.h
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_crash_detector-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">script Directory Reference</div>  </div>
+<div class="title">CrashDetector Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>ROS node that listens on a gazebo topic for collisions and publishes to a ROS topic.  
+ <a href="class_crash_detector.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="crash__detector_8h_source.html">crash_detector.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:lap__timer_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lap__timer_8py.html">lap_timer.py</a> <a href="lap__timer_8py_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:reset__car_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reset__car_8py.html">reset_car.py</a> <a href="reset__car_8py_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:speedometer_8py"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="speedometer_8py.html">speedometer.py</a> <a href="speedometer_8py_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4ee1c57168019f26a8f3b3263350a306"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_crash_detector.html#a4ee1c57168019f26a8f3b3263350a306">CrashDetector</a> ()</td></tr>
+<tr class="separator:a4ee1c57168019f26a8f3b3263350a306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>ROS node that listens on a gazebo topic for collisions and publishes to a ROS topic. </p>
+
+<p>Definition at line <a class="el" href="crash__detector_8h_source.html#l00017">17</a> of file <a class="el" href="crash__detector_8h_source.html">crash_detector.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4ee1c57168019f26a8f3b3263350a306"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CrashDetector::CrashDetector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="crash__detector_8cpp_source.html#l00003">3</a> of file <a class="el" href="crash__detector_8cpp_source.html">crash_detector.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/include/<a class="el" href="crash__detector_8h_source.html">crash_detector.h</a></li>
+<li>/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/src/<a class="el" href="crash__detector_8cpp_source.html">crash_detector.cpp</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c1346cf4828efdd0d2baf0d391d01b77.html">master</a></li><li class="navelem"><a class="el" href="dir_42e62708e74a9749a2aab797cd8af43b.html">ros_ws</a></li><li class="navelem"><a class="el" href="dir_e6b6c919899e96597b50b37fd7e3dee9.html">src</a></li><li class="navelem"><a class="el" href="dir_a353d45b370cd696c55c8fcdf2f398c6.html">simulation</a></li><li class="navelem"><a class="el" href="dir_df08af0baef6c1af690fac8814a052f1.html">lap_timer</a></li><li class="navelem"><a class="el" href="dir_bb577893f6bb80a0ce019cdf582e7f5a.html">script</a></li>
+    <li class="navelem"><a class="el" href="class_crash_detector.html">CrashDetector</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
