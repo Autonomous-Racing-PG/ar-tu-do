@@ -20,7 +20,7 @@
                     <mesh><uri>model://track_decorated.dae</uri></mesh>
                 </geometry>
                 </visual>
-                <collision name="collision">
+                <collision name="ground-collision">
                     <geometry>
                         <plane>
                             <normal>0 0 1</normal>
@@ -37,8 +37,8 @@
                     </surface>
                 </collision>
             </link>
-            <link name="walls">
-                <collision name="collision">
+            <link name="walls-collision-link">
+                <collision name="walls-collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh><uri>model://walls.dae</uri></mesh>
@@ -52,9 +52,14 @@
                         </friction>
                     </surface>
                 </collision>
+                <sensor name='walls-contact-sensor' type='contact'>
+                    <contact>
+                        <collision>walls-collision</collision>
+                    </contact>
+                </sensor>
             </link>
-            <link name="decoration-colliders">
-                <collision name="collision">
+            <link name="decoration-collision-link">
+                <collision name="decoration-collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh><uri>model://decoration_colliders.dae</uri></mesh>
