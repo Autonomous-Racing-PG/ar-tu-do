@@ -58,8 +58,8 @@
                     </contact>
                 </sensor>
             </link>
-            <link name="decoration-colliders">
-                <collision name="collision">
+            <link name="decoration-collision-link">
+                <collision name="decoration-collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh><uri>model://decoration_colliders_2.dae</uri></mesh>
@@ -73,6 +73,11 @@
                         </friction>
                     </surface>
                 </collision>
+                <sensor name='decoration-contact-sensor' type='contact'>
+                    <contact>
+                        <collision>decoration-collision</collision>
+                    </contact>
+                </sensor>
             </link>
         </model>
     </world>

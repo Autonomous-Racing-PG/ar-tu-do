@@ -5,8 +5,10 @@ CrashDetector::CrashDetector()
     this->m_crash_publisher = this->m_ros_node_handle.advertise<std_msgs::Empty>(TOPIC_CRASH, 1);
     this->m_gazebo_node = gazebo::transport::NodePtr(new gazebo::transport::Node());
     this->m_gazebo_node->Init();
-    this->m_sensor_subscriber =
-        this->m_gazebo_node->Subscribe(TOPIC_GAZEBO_SENSOR, &CrashDetector::gazeboTopicCallback, this);
+    this->m_walls_sensor_subscriber =
+        this->m_gazebo_node->Subscribe(TOPIC_GAZEBO_SENSOR_WALLS, &CrashDetector::gazeboTopicCallback, this);
+    this->m_decoration_sensor_subscriber =
+        this->m_gazebo_node->Subscribe(TOPIC_GAZEBO_SENSOR_DECORATION, &CrashDetector::gazeboTopicCallback, this);
 }
 
 void CrashDetector::gazeboTopicCallback(ConstContactsPtr& gazebo_message)
