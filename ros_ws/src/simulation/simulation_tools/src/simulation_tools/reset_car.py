@@ -40,9 +40,17 @@ def reset_random(max_angle=0, max_offset_from_center=0, forward=True):
           (random.random() * 2 - 1) * max_offset_from_center, forward)
 
 
-rospy.init_node("reset_car")
-rospy.wait_for_service('/gazebo/set_model_state')
-set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+set_model_state = None
+
+
+def register_service():
+    global set_model_state
+    rospy.wait_for_service('/gazebo/set_model_state')
+    set_model_state = rospy.ServiceProxy(
+        '/gazebo/set_model_state', SetModelState)
+
 
 if __name__ == "__main__":
+    rospy.init_node("reset_car")
+    register_service()
     set_pose(Point(0, 0), math.pi)
