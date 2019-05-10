@@ -5,69 +5,20 @@ import math
 import random
 from collections import namedtuple, deque
 import rospy
+from std_msgs.msg import String, Empty
 
 import torch
-import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 
 from simulation_tools.reset_car import Point
 import simulation_tools.reset_car as reset_car
 
-import os
+from simulation_tools.track import track
+
+from parameters import *
 
 rospy.init_node('learn', anonymous=True)
-
-ACTIONS = [(-0.5, 0.2), (0.5, 0.2)]
-ACTION_COUNT = len(ACTIONS)
-
-LASER_SAMPLE_COUNT = 16  # Only use some of the LIDAR measurements
-
-DISCOUNT_FACTOR = 0.99  # aka gamma
-
-MAX_EPISODE_LENGTH = 300
-# Sample neural net update from the memory. It contains this many episodes.
-MEMORY_SIZE = 1000
-
-BATCH_SIZE = 128
-LEARNING_RATE = 0.001
-
-# Probability to select a random episode starts at EPS_START
-# and reaches EPS_END once EPS_DECAY episodes are completed.
-EPS_START = 1.0
-EPS_END = 0.1
-EPS_DECAY = 5000
-
-UPDATE_FREQUENCY = 30
-
-MODEL_FILENAME = "model.to"
-
-
-class NeuralQEstimator(nn.Module):
-    def __init__(self):
-        super(NeuralQEstimator, self).__init__()
-        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 32)
-        self.fc2 = nn.Linear(32, 32)
-        self.fc3 = nn.Linear(32, ACTION_COUNT)
-
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        return self.fc3(x)
-
-    def load(self):
-        if os.path.isfile(MODEL_FILENAME):
-            self.load_state_dict(torch.load(MODEL_FILENAME))
-            rospy.loginfo("Model parameters loaded.")
-    
-    def save(self):
-        torch.save(self.state_dict(), MODEL_FILENAME)
-
-
-'''
-Sample some states in which the car crashed and learn
-that the Q value for these states should always be 0
-'''
 
 def replay():
     global optimization_step_count
@@ -104,18 +55,11 @@ def replay():
     optimization_step_count += 1
 
 
-def on_crash():
+def on_crash(_):
     global is_terminal_step
     if episode_length > 5:
         is_terminal_step = True
 
-
-def log_progress():
-    rospy.loginfo("Episode " + str(episode_count) + ": "  # nopep8 \
-        + str(episode_length).rjust(4) + " steps"  # nopep8 \
-        + (", memory size: " + str(len(memory)) + " / " + str(MEMORY_SIZE) if len(memory) < MEMORY_SIZE else "")  # nopep8 \
-        + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions"  # nopep8 \
-        + ", optimization steps: " + str(optimization_step_count) + " " + net_output_debug_string)  # nopep8
 
 def get_eps_threshold():
     return EPS_END + (EPS_START - EPS_END) * \
@@ -142,13 +86,24 @@ def perform_action(action_index):
     
 
 def get_reward():
-    distance = abs(car.get_distance_to_track_center())
+    track_position = track.localize(car.current_position)
+    distance = abs(track_position.distance_to_center)
+
     if distance < 0.2:
         return 1
     elif distance < 0.4:
         return 0.7
     else:
         return 0.4
+
+
+def log_progress():
+    rospy.loginfo("Episode " + str(episode_count) + ": "  # nopep8 \
+        + str(episode_length).rjust(4) + " steps"  # nopep8 \
+        + (", memory size: " + str(len(memory)) + " / " + str(MEMORY_SIZE) if len(memory) < MEMORY_SIZE else "")  # nopep8 \
+        + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions"  # nopep8 \
+        + ", optimization steps: " + str(optimization_step_count) + " " + net_output_debug_string)  # nopep8
+
 
 reset_car.register_service()
 
@@ -163,7 +118,6 @@ memory = deque(maxlen=MEMORY_SIZE)
 net_output_debug_string = ""
 
 state = None
-crash_states = []
 episode_count = 0
 episode_length = 0
 total_step_count = 0
@@ -171,7 +125,7 @@ optimization_step_count = 0
 is_terminal_step = False
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
-car.register_crash_callback(on_crash)
+rospy.Subscriber("/crash", Empty, on_crash)
 rospy.loginfo("Started driving.")
 
 while not rospy.is_shutdown():
