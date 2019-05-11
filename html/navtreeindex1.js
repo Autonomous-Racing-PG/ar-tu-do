@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"index.html":[],
 "index.html":[0],
 "joystick__controller_8cpp.html":[5,0,0,0,0,5,1,0],
 "joystick__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,5,1,0,1],
@@ -37,8 +38,8 @@ var NAVTREEINDEX1 =
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83":[5,0,0,0,0,5,0,1,1],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,1],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,4],
-"keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,0],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,3],
+"keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,0],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83ade7d660fc991e08c2d3526fec8a46c4a":[5,0,0,0,0,5,0,1,1,2],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83ade7d660fc991e08c2d3526fec8a46c4a":[5,0,0,0,0,5,0,1,1,5],
 "keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bb":[5,0,0,0,0,5,0,1,3],
@@ -88,8 +89,8 @@ var NAVTREEINDEX1 =
 "namespaces.html":[3,0],
 "namespacesetup.html":[3,0,3],
 "namespacesimulation.html":[3,0,4],
-"namespacesimulation__tools.html":[4,0,1],
 "namespacesimulation__tools.html":[3,0,5],
+"namespacesimulation__tools.html":[4,0,1],
 "namespacesimulation__tools_1_1lap__timer.html":[3,0,5,0],
 "namespacesimulation__tools_1_1lap__timer.html":[4,0,1,0],
 "namespacesimulation__tools_1_1reset__car.html":[3,0,5,1],
