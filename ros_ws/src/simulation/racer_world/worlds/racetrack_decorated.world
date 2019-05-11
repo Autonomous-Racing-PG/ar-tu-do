@@ -73,6 +73,11 @@
                         </friction>
                     </surface>
                 </collision>
+                <sensor name='decoration-contact-sensor' type='contact'>
+                    <contact>
+                        <collision>decoration-collision</collision>
+                    </contact>
+                </sensor>
             </link>
         </model>
     </world>
