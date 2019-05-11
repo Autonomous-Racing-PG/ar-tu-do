@@ -56,4 +56,4 @@ laser_scan = None
 rospy.Subscriber("/gazebo/model_states", ModelStates, _model_state_callback)
 rospy.Subscriber("/scan", LaserScan, _laser_callback)
 drive_parameters_publisher = rospy.Publisher(
-    "/commands/drive_param", drive_param, queue_size=1)
+    "/input/drive_param/autonomous", drive_param, queue_size=1)
