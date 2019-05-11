@@ -15,14 +15,15 @@ policy_net = NeuralQEstimator().to(device)
 policy_net.load()
 
 if not os.path.isfile(MODEL_FILENAME):
-    rospy.logerr("Model parameters for the neural net not found. You need to train it first.")
+    rospy.logerr(
+        "Model parameters for the neural net not found. You need to train it first.")
     rospy.signal_shutdown()
     exit(1)
 
 while not rospy.is_shutdown():
     scan = car.get_scan(LASER_SAMPLE_COUNT, device)
     with torch.no_grad():
-        net_output = policy_net(scan)        
+        net_output = policy_net(scan)
         action_index = net_output.max(0)[1].item()
         action = ACTIONS[action_index]
         print(action_index, net_output)

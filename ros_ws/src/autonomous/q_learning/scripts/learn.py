@@ -23,6 +23,7 @@ import time
 
 rospy.init_node('learn', anonymous=True)
 
+
 def replay():
     global optimization_step_count
     if len(memory) < 500:
@@ -33,23 +34,24 @@ def replay():
 
     transitions = random.sample(memory, min(BATCH_SIZE, len(memory)))
 
-    states, actions, rewards, next_states, is_terminal = tuple(zip(*transitions))
+    states, actions, rewards, next_states, is_terminal = tuple(zip(*transitions))  # nopep8
 
-    state_batch = torch.stack(states)
-    action_batch = torch.tensor(actions, device=device, dtype=torch.long)
-    reward_batch = torch.tensor(rewards, device=device, dtype=torch.float)
-    next_state_batch = torch.stack(next_states)
-    is_terminal_batch = torch.tensor(is_terminal, device = device, dtype = torch.long)
-        
-    next_state_values = policy_net(next_state_batch).max(1)[0].detach()
-    q_updates = reward_batch + next_state_values * DISCOUNT_FACTOR
-    q_updates[is_terminal_batch] = reward_batch[is_terminal_batch]
+    states = torch.stack(states)
+    actions = torch.tensor(actions, device=device, dtype=torch.long)
+    rewards = torch.tensor(rewards, device=device, dtype=torch.float)
+    next_states = torch.stack(next_states)
+    is_terminal = torch.tensor(is_terminal, device=device, dtype=torch.long)
+
+    next_state_values = policy_net(next_states).max(1)[0].detach()
+    q_updates = rewards + next_state_values * DISCOUNT_FACTOR
+    q_updates[is_terminal] = rewards[is_terminal]
 
     optimizer.zero_grad()
-    net_output = policy_net.forward(state_batch)
+    net_output = policy_net.forward(states)
     target = net_output.detach().clone()
-    target[torch.arange(0, len(transitions), device=device, dtype=torch.long), action_batch] = q_updates
-    
+    target[torch.arange(0, len(transitions), device=device,
+                        dtype=torch.long), actions] = q_updates
+
     loss = F.smooth_l1_loss(net_output, target)
     loss.backward()
     for param in policy_net.parameters():
@@ -71,22 +73,23 @@ def get_eps_threshold():
 
 def select_action(state):
     global net_output_debug_string
-    # Calculate threshold for epsilon greedy strategy
+
     if random.random() < get_eps_threshold():
         return random.randrange(ACTION_COUNT)
-    else:
-        with torch.no_grad():
-            net_output = policy_net(state)
-            if episode_length < 10:
-                net_output_debug_string = ", ".join(["{0:.1f}".format(v).rjust(5) for v in net_output.tolist()])
-            return net_output.max(0)[1].item()
+
+    with torch.no_grad():
+        output = policy_net(state)
+        if episode_length < 10:
+            net_output_debug_string = ", ".join(
+                ["{0:.1f}".format(v).rjust(5) for v in output.tolist()])
+        return output.max(0)[1].item()
 
 
 def perform_action(action_index):
     if action_index < 0 or action_index >= len(ACTIONS):
         raise Exception("Invalid action: " + str(action_index))
     car.drive(*ACTIONS[action_index])
-    
+
 
 def get_reward():
     track_position = track.localize(car.current_position)
@@ -101,12 +104,14 @@ def get_reward():
 
 
 def log_progress():
-    average_episode_length = sum(episode_length_history) / len(episode_length_history)
-    average_cumulative_reward = sum(cumulative_reward_history) / len(cumulative_reward_history)
+    average_episode_length = sum(
+        episode_length_history) / len(episode_length_history)
+    average_cumulative_reward = sum(
+        cumulative_reward_history) / len(cumulative_reward_history)
     rospy.loginfo("Episode " + str(episode_count) + ": "  # nopep8 \
         + str(episode_length).rjust(3) + " steps (" + str(int(average_episode_length)).rjust(3) + " avg), "  # nopep8 \
         + "return: " + "{0:.1f}".format(cumulative_reward).rjust(5)  # nopep8 \
-        + " (" + "{0:.1f}".format(average_cumulative_reward).rjust(5) +  " avg), "  # nopep8 \
+        + " (" + "{0:.1f}".format(average_cumulative_reward).rjust(5) + " avg), "  # nopep8 \
         + ("memory: {0:d} / {1:d}, ".format(len(memory), MEMORY_SIZE) if len(memory) < MEMORY_SIZE else "")  # nopep8 \
         + "ε-greedy: " + str(int(get_eps_threshold() * 100)) + "% random, "  # nopep8 \
         + "nn opt steps: " + str(optimization_step_count) + ", "  # nopep8 \
@@ -121,7 +126,7 @@ def on_complete_episode():
     cumulative_reward_history.append(cumulative_reward)
 
     now = time.time()
-    real_time_factor = episode_length / (now - episode_start_time) / UPDATE_FREQUENCY
+    real_time_factor = episode_length / (now - episode_start_time) / UPDATE_FREQUENCY  # nopep8
     episode_start_time = now
     log_progress()
 
@@ -133,14 +138,16 @@ def on_complete_episode():
         policy_net.save()
         rospy.loginfo("Model parameters saved.")
 
+
 reset_car.register_service()
 
 rospy.loginfo("Initializing Pytorch...")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 policy_net = NeuralQEstimator().to(device)
 if os.path.isfile(MODEL_FILENAME):
-    rospy.logwarn("Warning: Using existing model parameters as a starting point for training." \
-        + " If you want to start from scratch, delete the file '" + MODEL_FILENAME + "'")
+    rospy.logwarn(
+        "Warning: Using existing model parameters as a starting point for training." +
+        " If you want to start from scratch, delete the file '{0:s}'".format(MODEL_FILENAME))
     policy_net.load()
 
 optimizer = optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
@@ -173,7 +180,7 @@ while not rospy.is_shutdown():
     episode_length += 1
     total_step_count += 1
 
-    timer.sleep()    
+    timer.sleep()
 
     next_state = car.get_scan(LASER_SAMPLE_COUNT, device)
     reward = get_reward()
@@ -182,8 +189,10 @@ while not rospy.is_shutdown():
     state = next_state
 
     if is_terminal_step or episode_length >= MAX_EPISODE_LENGTH:
-        reset_car.reset_random(max_angle=math.pi / 180 * 20, max_offset_from_center=0.2)
-        is_terminal_step = False        
+        reset_car.reset_random(
+            max_angle=math.pi / 180 * 20,
+            max_offset_from_center=0.2)
+        is_terminal_step = False
         state = None
 
         on_complete_episode()

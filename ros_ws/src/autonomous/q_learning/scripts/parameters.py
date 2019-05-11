@@ -12,11 +12,12 @@ ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
 # When changing this value, also update laser_sample_count in qlearning.launch
-LASER_SAMPLE_COUNT = 16  
+LASER_SAMPLE_COUNT = 16
 
 UPDATE_FREQUENCY = 30
 
 MODEL_FILENAME = "model.to"
+
 
 class NeuralQEstimator(nn.Module):
     def __init__(self):
@@ -34,7 +35,7 @@ class NeuralQEstimator(nn.Module):
         if os.path.isfile(MODEL_FILENAME):
             self.load_state_dict(torch.load(MODEL_FILENAME))
             rospy.loginfo("Model parameters loaded.")
-    
+
     def save(self):
         torch.save(self.state_dict(), MODEL_FILENAME)
 
@@ -44,7 +45,8 @@ class NeuralQEstimator(nn.Module):
 DISCOUNT_FACTOR = 0.99  # aka gamma
 
 MAX_EPISODE_LENGTH = 300
-# Sample neural net update from the replay memory. It contains this many episodes.
+# Sample neural net update from the replay memory.
+# It contains this many episodes.
 MEMORY_SIZE = 1000
 
 BATCH_SIZE = 128

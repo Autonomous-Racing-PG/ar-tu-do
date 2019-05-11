@@ -17,7 +17,9 @@ def _model_state_callback(message):
     global current_position
     if len(message.pose) < 2:
         return
-    current_position = Point(message.pose[1].position.x, message.pose[1].position.y)
+    current_position = Point(
+        message.pose[1].position.x,
+        message.pose[1].position.y)
 
 
 def drive(angle, velocity):
@@ -31,8 +33,10 @@ def _laser_callback(message):
     global laser_scan
     laser_scan = message
 
-    if message.header.seq > 2000 and message.header.seq / message.header.stamp.to_sec() < UPDATE_FREQUENCY:
-        rospy.logwarn("Lidar messages are being published to slowly. Consider reducing the lidar resolution.")
+    header = message.header
+    if header.seq > 2000 and header.seq / header.stamp.to_sec() < UPDATE_FREQUENCY:
+        rospy.logwarn('''Lidar messages are being published to slowly.
+            Consider reducing the lidar resolution.''')
 
 
 _scan_indices = None
@@ -51,7 +55,7 @@ def get_scan(sample_count, device):
                          for i in range(sample_count)]
 
     values = [laser_scan.ranges[i] for i in _scan_indices]
-    values = [v if not math.isinf(v) and not math.isnan(v) else 100 for v in values]
+    values = [v if not math.isinf(v) else 100 for v in values]
     return torch.tensor(values, device=device)
 
 
