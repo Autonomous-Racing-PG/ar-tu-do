@@ -6,7 +6,7 @@ var searchData=
   ['m_5frange2',['m_range2',['../class_wall.html#aeb7c600e6e41792c60498ca310c833f1',1,'Wall']]],
   ['marker_5fpublisher',['marker_publisher',['../namespacerviz__geometry.html#ac4b20d63343627f7ac14151eba108ba8',1,'rviz_geometry']]],
   ['max_5facceleration',['MAX_ACCELERATION',['../namespacewallfollowing.html#acc4e21a1971c33663609d022c899c167',1,'wallfollowing']]],
-  ['max_5fcar_5fvelocity',['max_car_velocity',['../namespacespeedometer.html#a11f245c5d45ac2b534d8d0b46e877dfc',1,'speedometer']]],
+  ['max_5fcar_5fvelocity',['max_car_velocity',['../namespacesimulation__tools_1_1speedometer.html#a4db24fad416ca0a52b89d1529e4c38e9',1,'simulation_tools::speedometer']]],
   ['max_5frange',['MAX_RANGE',['../emergency__stop_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;emergency_stop.h'],['../wall__following_8h.html#a36742d5598d56216bba3f928732fb273',1,'MAX_RANGE():&#160;wall_following.h']]],
   ['max_5frpm_5felectrical',['MAX_RPM_ELECTRICAL',['../namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b',1,'car_config']]],
   ['max_5frpm_5fmechanical',['MAX_RPM_MECHANICAL',['../namespacecar__config.html#ad35069a183782259c6280aa219b72ffa',1,'car_config']]],
@@ -16,6 +16,6 @@ var searchData=
   ['min_5frange',['MIN_RANGE',['../wall__following_8h.html#af3148611e517385b1e8138ec5de109ac',1,'wall_following.h']]],
   ['min_5fsteering_5fangle',['MIN_STEERING_ANGLE',['../namespacecar__config.html#a38229ce5d2e17e0c30b86864fb20d9ce',1,'car_config']]],
   ['model_5fbase_5flink',['MODEL_BASE_LINK',['../laserscan__transformer_8h.html#a4926bba825b08114a4703807e2639725',1,'laserscan_transformer.h']]],
-  ['model_5fstates_5fmessage',['model_states_message',['../namespacespeedometer.html#add00b4d69fb6713b1aca36de3240e3b2',1,'speedometer']]],
+  ['model_5fstates_5fmessage',['model_states_message',['../namespacesimulation__tools_1_1speedometer.html#acd7f0f18f37f468db40dae82775a6313',1,'simulation_tools::speedometer']]],
   ['motor_5fpoles',['MOTOR_POLES',['../namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5',1,'car_config']]]
 ];

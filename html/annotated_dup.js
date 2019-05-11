@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "circle", "namespacecircle.html", "namespacecircle" ],
-    [ "lap_timer", "namespacelap__timer.html", "namespacelap__timer" ],
+    [ "simulation_tools", "namespacesimulation__tools.html", "namespacesimulation__tools" ],
     [ "wallfollowing", "namespacewallfollowing.html", "namespacewallfollowing" ],
     [ "CarController", "class_car_controller.html", "class_car_controller" ],
     [ "CrashDetector", "class_crash_detector.html", "class_crash_detector" ],

@@ -1,0 +1,5 @@
+<map id="simulation_tools.speedometer.calculate_velocity" name="simulation_tools.speedometer.calculate_velocity">
+<area shape="rect" id="node2" href="$namespacesimulation__tools_1_1speedometer.html#a3323b9f8885fc1ce38dd75f2555cccba" title="simulation_tools.speedometer.calculate\l_car_velocity" alt="" coords="308,5,559,47"/>
+<area shape="rect" id="node3" href="$namespacesimulation__tools_1_1speedometer.html#af7706082fba920fe977bdb0e4dd464f8" title="simulation_tools.speedometer.calculate\l_wheel_velocity" alt="" coords="308,71,559,112"/>
+<area shape="rect" id="node4" href="$namespacesimulation__tools_1_1speedometer.html#a605162cce10e81643f8f38ad72363b65" title="simulation_tools.speedometer.show_info" alt="" coords="304,137,563,163"/>
+</map>

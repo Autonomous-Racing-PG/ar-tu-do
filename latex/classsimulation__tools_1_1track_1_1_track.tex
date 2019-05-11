@@ -1,0 +1,138 @@
+\hypertarget{classsimulation__tools_1_1track_1_1_track}{}\section{simulation\+\_\+tools.\+track.\+Track Class Reference}
+\label{classsimulation__tools_1_1track_1_1_track}\index{simulation\+\_\+tools.\+track.\+Track@{simulation\+\_\+tools.\+track.\+Track}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classsimulation__tools_1_1track_1_1_track_a688ef860ebacddc55c143c6202a3dab5}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classsimulation__tools_1_1track_1_1_track_ac6de34747fd382897e7f790cd9faf67c}{points})
+\item 
+def \hyperlink{classsimulation__tools_1_1track_1_1_track_a74c6566237436692a421615bd5cf9064}{localize} (self, point)
+\item 
+def \hyperlink{classsimulation__tools_1_1track_1_1_track_a65ae88cad753af6ebf71ae09fd110ac8}{get\+\_\+position} (self, total\+\_\+distance, distance\+\_\+to\+\_\+center=0)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_ac6de34747fd382897e7f790cd9faf67c}{points}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_a69be8807eecacfd98981e206ea3a003f}{size}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_aa74dadec286ae8ad2f3399c6fd9e9fd9}{segment\+\_\+length}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_a24b60622edd3b0825f31fd6426d9380b}{length}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_ae944fe956579cafe73bf09d3a7c072bc}{forward}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_a668e3804fa2720790fb57f592c73c782}{right}
+\item 
+\hyperlink{classsimulation__tools_1_1track_1_1_track_a4513ffc3cdb1963bce98c678b093c40b}{cumulative\+\_\+distance}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 33 of file track.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, points)}{__init__(self, points)}}]{\setlength{\rightskip}{0pt plus 5cm}def simulation\+\_\+tools.\+track.\+Track.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{points}
+\end{DoxyParamCaption}
+)}\hypertarget{classsimulation__tools_1_1track_1_1_track_a688ef860ebacddc55c143c6202a3dab5}{}\label{classsimulation__tools_1_1track_1_1_track_a688ef860ebacddc55c143c6202a3dab5}
+
+
+Definition at line 34 of file track.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!get\+\_\+position@{get\+\_\+position}}
+\index{get\+\_\+position@{get\+\_\+position}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{get\+\_\+position(self, total\+\_\+distance, distance\+\_\+to\+\_\+center=0)}{get_position(self, total_distance, distance_to_center=0)}}]{\setlength{\rightskip}{0pt plus 5cm}def simulation\+\_\+tools.\+track.\+Track.\+get\+\_\+position (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{total\+\_\+distance, }
+\item[{}]{distance\+\_\+to\+\_\+center = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classsimulation__tools_1_1track_1_1_track_a65ae88cad753af6ebf71ae09fd110ac8}{}\label{classsimulation__tools_1_1track_1_1_track_a65ae88cad753af6ebf71ae09fd110ac8}
+\begin{DoxyVerb}Returns a TrackPosition object based on the on-track distance from the start
+line and the distance to the center of the track. \end{DoxyVerb}
+ 
+
+Definition at line 56 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!localize@{localize}}
+\index{localize@{localize}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{localize(self, point)}{localize(self, point)}}]{\setlength{\rightskip}{0pt plus 5cm}def simulation\+\_\+tools.\+track.\+Track.\+localize (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{point}
+\end{DoxyParamCaption}
+)}\hypertarget{classsimulation__tools_1_1track_1_1_track_a74c6566237436692a421615bd5cf9064}{}\label{classsimulation__tools_1_1track_1_1_track_a74c6566237436692a421615bd5cf9064}
+\begin{DoxyVerb}Returns a TrackPosition object based on a position in world space. \end{DoxyVerb}
+ 
+
+Definition at line 46 of file track.\+py.
+
+
+
+\subsection{Member Data Documentation}
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!cumulative\+\_\+distance@{cumulative\+\_\+distance}}
+\index{cumulative\+\_\+distance@{cumulative\+\_\+distance}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{cumulative\+\_\+distance}{cumulative_distance}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+cumulative\+\_\+distance}\hypertarget{classsimulation__tools_1_1track_1_1_track_a4513ffc3cdb1963bce98c678b093c40b}{}\label{classsimulation__tools_1_1track_1_1_track_a4513ffc3cdb1963bce98c678b093c40b}
+
+
+Definition at line 43 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!forward@{forward}}
+\index{forward@{forward}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{forward}{forward}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+forward}\hypertarget{classsimulation__tools_1_1track_1_1_track_ae944fe956579cafe73bf09d3a7c072bc}{}\label{classsimulation__tools_1_1track_1_1_track_ae944fe956579cafe73bf09d3a7c072bc}
+
+
+Definition at line 40 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!length@{length}}
+\index{length@{length}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{length}{length}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+length}\hypertarget{classsimulation__tools_1_1track_1_1_track_a24b60622edd3b0825f31fd6426d9380b}{}\label{classsimulation__tools_1_1track_1_1_track_a24b60622edd3b0825f31fd6426d9380b}
+
+
+Definition at line 39 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!points@{points}}
+\index{points@{points}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{points}{points}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+points}\hypertarget{classsimulation__tools_1_1track_1_1_track_ac6de34747fd382897e7f790cd9faf67c}{}\label{classsimulation__tools_1_1track_1_1_track_ac6de34747fd382897e7f790cd9faf67c}
+
+
+Definition at line 35 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!right@{right}}
+\index{right@{right}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{right}{right}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+right}\hypertarget{classsimulation__tools_1_1track_1_1_track_a668e3804fa2720790fb57f592c73c782}{}\label{classsimulation__tools_1_1track_1_1_track_a668e3804fa2720790fb57f592c73c782}
+
+
+Definition at line 41 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!segment\+\_\+length@{segment\+\_\+length}}
+\index{segment\+\_\+length@{segment\+\_\+length}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{segment\+\_\+length}{segment_length}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+segment\+\_\+length}\hypertarget{classsimulation__tools_1_1track_1_1_track_aa74dadec286ae8ad2f3399c6fd9e9fd9}{}\label{classsimulation__tools_1_1track_1_1_track_aa74dadec286ae8ad2f3399c6fd9e9fd9}
+
+
+Definition at line 38 of file track.\+py.
+
+\index{simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}!size@{size}}
+\index{size@{size}!simulation\+\_\+tools\+::track\+::\+Track@{simulation\+\_\+tools\+::track\+::\+Track}}
+\subsubsection[{\texorpdfstring{size}{size}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+track.\+Track.\+size}\hypertarget{classsimulation__tools_1_1track_1_1_track_a69be8807eecacfd98981e206ea3a003f}{}\label{classsimulation__tools_1_1track_1_1_track_a69be8807eecacfd98981e206ea3a003f}
+
+
+Definition at line 36 of file track.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/src/simulation\+\_\+tools/\hyperlink{track_8py}{track.\+py}\end{DoxyCompactItemize}

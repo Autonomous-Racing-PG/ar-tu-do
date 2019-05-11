@@ -36,8 +36,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e"
+"____init_____8py.html",
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
