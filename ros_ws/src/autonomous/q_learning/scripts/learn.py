@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# coding: utf-8
 
 import car
 import math
@@ -24,7 +25,7 @@ rospy.init_node('learn', anonymous=True)
 
 def replay():
     global optimization_step_count
-    if len(memory) < 100:
+    if len(memory) < 500:
         return
 
     if optimization_step_count == 0:
@@ -77,7 +78,7 @@ def select_action(state):
         with torch.no_grad():
             net_output = policy_net(state)
             if episode_length < 10:
-                net_output_debug_string = str(net_output)
+                net_output_debug_string = ", ".join(["{0:.1f}".format(v).rjust(5) for v in net_output.tolist()])
             return net_output.max(0)[1].item()
 
 
@@ -100,20 +101,47 @@ def get_reward():
 
 
 def log_progress():
+    average_episode_length = sum(episode_length_history) / len(episode_length_history)
+    average_cumulative_reward = sum(cumulative_reward_history) / len(cumulative_reward_history)
     rospy.loginfo("Episode " + str(episode_count) + ": "  # nopep8 \
-        + str(episode_length).rjust(4) + " steps"  # nopep8 \
-        + (", memory size: " + str(len(memory)) + " / " + str(MEMORY_SIZE) if len(memory) < MEMORY_SIZE else "")  # nopep8 \
-        + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions"  # nopep8 \
-        + ", optimization steps: " + str(optimization_step_count) + " " + net_output_debug_string  # nopep8 \
-        + ", real time factor: {0:.1f}".format(real_time_factor)) # nopep8
+        + str(episode_length).rjust(3) + " steps (" + str(int(average_episode_length)).rjust(3) + " avg), "  # nopep8 \
+        + "return: " + "{0:.1f}".format(cumulative_reward).rjust(5)  # nopep8 \
+        + " (" + "{0:.1f}".format(average_cumulative_reward).rjust(5) +  " avg), "  # nopep8 \
+        + ("memory: {0:d} / {1:d}, ".format(len(memory), MEMORY_SIZE) if len(memory) < MEMORY_SIZE else "")  # nopep8 \
+        + "ε-greedy: " + str(int(get_eps_threshold() * 100)) + "% random, "  # nopep8 \
+        + "nn opt steps: " + str(optimization_step_count) + ", "  # nopep8 \
+        + "nn output: [" + net_output_debug_string + "], "  # nopep8 \
+        + "sim time {0:.1f}x".format(real_time_factor)  # nopep8 \
+        )  # nopep8
 
+
+def on_complete_episode():
+    global real_time_factor, episode_start_time, episode_count, episode_length, cumulative_reward
+    episode_length_history.append(episode_length)
+    cumulative_reward_history.append(cumulative_reward)
+
+    now = time.time()
+    real_time_factor = episode_length / (now - episode_start_time) / UPDATE_FREQUENCY
+    episode_start_time = now
+    log_progress()
+
+    episode_count += 1
+    episode_length = 0
+    cumulative_reward = 0
+
+    if episode_count % 50 == 0:
+        policy_net.save()
+        rospy.loginfo("Model parameters saved.")
 
 reset_car.register_service()
 
 rospy.loginfo("Initializing Pytorch...")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 policy_net = NeuralQEstimator().to(device)
-policy_net.load()
+if os.path.isfile(MODEL_FILENAME):
+    rospy.logwarn("Warning: Using existing model parameters as a starting point for training." \
+        + " If you want to start from scratch, delete the file '" + MODEL_FILENAME + "'")
+    policy_net.load()
 
 optimizer = optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
 memory = deque(maxlen=MEMORY_SIZE)
@@ -125,14 +153,17 @@ episode_count = 0
 episode_length = 0
 total_step_count = 0
 optimization_step_count = 0
+cumulative_reward = 0
 is_terminal_step = False
+
+episode_length_history = deque(maxlen=50)
+cumulative_reward_history = deque(maxlen=50)
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 rospy.Subscriber("/crash", Empty, on_crash)
-rospy.loginfo("Started driving.")
 
 real_time_factor = 0
-last_sleep_time = time.time()
+episode_start_time = time.time()
 
 while not rospy.is_shutdown():
     if state is None:
@@ -142,30 +173,21 @@ while not rospy.is_shutdown():
     episode_length += 1
     total_step_count += 1
 
-    timer.sleep()
-    now = time.time()
-    real_time_factor = 1.0 / (now - last_sleep_time) / UPDATE_FREQUENCY
-    last_sleep_time = now
+    timer.sleep()    
 
     next_state = car.get_scan(LASER_SAMPLE_COUNT, device)
     reward = get_reward()
+    cumulative_reward += reward
     memory.append((state, action, reward, next_state, is_terminal_step))
     state = next_state
 
     if is_terminal_step or episode_length >= MAX_EPISODE_LENGTH:
         reset_car.reset_random(max_angle=math.pi / 180 * 20, max_offset_from_center=0.2)
-        is_terminal_step = False
-        log_progress()
-
+        is_terminal_step = False        
         state = None
-        episode_count += 1
-        episode_length = 0
 
-        if episode_count % 50 == 0:
-            policy_net.save()
-            rospy.loginfo("Model parameters saved.")
+        on_complete_episode()
 
         timer.sleep()
-        last_sleep_time = time.time()
 
     replay()
