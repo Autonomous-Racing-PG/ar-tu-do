@@ -18,6 +18,8 @@ from simulation_tools.track import track
 
 from parameters import *
 
+import time
+
 rospy.init_node('learn', anonymous=True)
 
 def replay():
@@ -102,7 +104,8 @@ def log_progress():
         + str(episode_length).rjust(4) + " steps"  # nopep8 \
         + (", memory size: " + str(len(memory)) + " / " + str(MEMORY_SIZE) if len(memory) < MEMORY_SIZE else "")  # nopep8 \
         + ", selecting " + str(int(get_eps_threshold() * 100)) + "% random actions"  # nopep8 \
-        + ", optimization steps: " + str(optimization_step_count) + " " + net_output_debug_string)  # nopep8
+        + ", optimization steps: " + str(optimization_step_count) + " " + net_output_debug_string  # nopep8 \
+        + ", real time factor: {0:.1f}".format(real_time_factor)) # nopep8
 
 
 reset_car.register_service()
@@ -128,6 +131,9 @@ timer = rospy.Rate(UPDATE_FREQUENCY)
 rospy.Subscriber("/crash", Empty, on_crash)
 rospy.loginfo("Started driving.")
 
+real_time_factor = 0
+last_sleep_time = time.time()
+
 while not rospy.is_shutdown():
     if state is None:
         state = car.get_scan(LASER_SAMPLE_COUNT, device)
@@ -137,6 +143,9 @@ while not rospy.is_shutdown():
     total_step_count += 1
 
     timer.sleep()
+    now = time.time()
+    real_time_factor = 1.0 / (now - last_sleep_time) / UPDATE_FREQUENCY
+    last_sleep_time = now
 
     next_state = car.get_scan(LASER_SAMPLE_COUNT, device)
     reward = get_reward()
@@ -157,5 +166,6 @@ while not rospy.is_shutdown():
             rospy.loginfo("Model parameters saved.")
 
         timer.sleep()
+        last_sleep_time = time.time()
 
     replay()

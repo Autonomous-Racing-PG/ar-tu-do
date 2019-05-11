@@ -9,6 +9,7 @@
   <arg name="verbose" default="true"/>
   <arg name="use_gpu" default="true"/>
   <arg name="visualize_lidar" default="false"/>
+  <arg name="extra_gazebo_args" default=""/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find racer_world)/worlds/$(arg world).world"/>
@@ -17,6 +18,7 @@
     <arg name="gui" value="$(arg gui)"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="verbose" value="$(arg verbose)"/>
+    <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
   </include>
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=$(arg use_gpu) visualize_lidar:=$(arg visualize_lidar)"/>
