@@ -10,7 +10,9 @@ import rospy
 ACTIONS = [(-0.5, 0.2), (0.5, 0.2)]
 ACTION_COUNT = len(ACTIONS)
 
-LASER_SAMPLE_COUNT = 16  # Only use some of the LIDAR measurements
+# Only use some of the LIDAR measurements
+# When changing this value, also update laser_sample_count in qlearning.launch
+LASER_SAMPLE_COUNT = 16  
 
 UPDATE_FREQUENCY = 30
 

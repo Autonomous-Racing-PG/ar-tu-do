@@ -9,6 +9,7 @@
   <arg name="verbose" default="true"/>
   <arg name="use_gpu" default="true"/>
   <arg name="visualize_lidar" default="false"/>
+  <arg name="laser_sample_count" default="1080"/>
   <arg name="extra_gazebo_args" default=""/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -21,7 +22,7 @@
     <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=$(arg use_gpu) visualize_lidar:=$(arg visualize_lidar)"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=$(arg use_gpu) visualize_lidar:=$(arg visualize_lidar) laser_sample_count:=$(arg laser_sample_count)"/>
 
   <node name="racer_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model racer" />
 
