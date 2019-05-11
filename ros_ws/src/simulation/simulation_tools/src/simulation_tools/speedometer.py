@@ -3,6 +3,8 @@
 import rospy
 from gazebo_msgs.msg import ModelState, ModelStates, LinkState, LinkStates
 
+from track import track, Point
+
 wheel_velocity = None
 car_velocity = None
 max_car_velocity = 0
@@ -54,14 +56,23 @@ def show_info():
     if car_velocity is None or max_car_velocity is None or wheel_velocity is None:
         return
 
+    position = Point(
+        model_states_message.pose[1].position.x,
+        model_states_message.pose[1].position.y)
+
     rospy.loginfo(
         "car: {0:.2f} m/s, max: {1:.2f} m/s, wheels: {2:.2f} m/s, slip: ".format(
             car_velocity,
             max_car_velocity,
             wheel_velocity) +
-        "{0:.2f}".format(
+        "{0:.2f}, ".format(
             wheel_velocity -
-            car_velocity).rjust(5))
+            car_velocity).rjust(7) +
+        str(
+                track.localize(position)) +
+        ", world: ({0:.2f}, {1:.2f})".format(
+            position.x,
+            position.y))
 
 
 idle = True
