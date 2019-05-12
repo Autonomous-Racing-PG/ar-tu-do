@@ -40,7 +40,7 @@ def replay():
     actions = torch.tensor(actions, device=device, dtype=torch.long)
     rewards = torch.tensor(rewards, device=device, dtype=torch.float)
     next_states = torch.stack(next_states)
-    is_terminal = torch.tensor(is_terminal, device=device, dtype=torch.long)
+    is_terminal = torch.tensor(is_terminal, device=device, dtype=torch.uint8)
 
     next_state_values = policy_net(next_states).max(1)[0].detach()
     q_updates = rewards + next_state_values * DISCOUNT_FACTOR
