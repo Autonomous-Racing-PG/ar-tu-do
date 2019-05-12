@@ -191,7 +191,8 @@ while not rospy.is_shutdown():
     if is_terminal_step or episode_length >= MAX_EPISODE_LENGTH:
         reset_car.reset_random(
             max_angle=math.pi / 180 * 20,
-            max_offset_from_center=0.2)
+            max_offset_from_center=0.2,
+            forward=random.random() > 0.5)
         is_terminal_step = False
         state = None
 
