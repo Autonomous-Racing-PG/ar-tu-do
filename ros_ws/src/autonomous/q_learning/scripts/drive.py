@@ -15,9 +15,9 @@ policy_net = NeuralQEstimator().to(device)
 policy_net.load()
 
 if not os.path.isfile(MODEL_FILENAME):
-    rospy.logerr(
-        "Model parameters for the neural net not found. You need to train it first.")
-    rospy.signal_shutdown()
+    message = "Model parameters for the neural net not found. You need to train it first."
+    rospy.logerr(message)
+    rospy.signal_shutdown(message)
     exit(1)
 
 while not rospy.is_shutdown():
@@ -26,6 +26,5 @@ while not rospy.is_shutdown():
         net_output = policy_net(scan)
         action_index = net_output.max(0)[1].item()
         action = ACTIONS[action_index]
-        print(action_index, net_output)
         car.drive(*action)
     timer.sleep()

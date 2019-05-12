@@ -5,6 +5,8 @@ import torch.nn.functional as F
 import os
 import rospy
 
+from rospkg import RosPack
+
 # General parameters
 
 ACTIONS = [(-0.5, 0.2), (0.5, 0.2)]
@@ -16,7 +18,7 @@ LASER_SAMPLE_COUNT = 16
 
 UPDATE_FREQUENCY = 30
 
-MODEL_FILENAME = "model.to"
+MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
 
 
 class NeuralQEstimator(nn.Module):
@@ -45,8 +47,8 @@ class NeuralQEstimator(nn.Module):
 DISCOUNT_FACTOR = 0.99  # aka gamma
 
 MAX_EPISODE_LENGTH = 300
-# Sample neural net update from the replay memory.
-# It contains this many episodes.
+# Sample neural net update batch from the replay memory.
+# It contains this many steps.
 MEMORY_SIZE = 1000
 
 BATCH_SIZE = 128
