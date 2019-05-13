@@ -11,8 +11,8 @@ AiDriver::AiDriver()
 
     m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN_SUBSCRIBE, 1, &AiDriver::lidarCallback, this);
-    m_net_deploy_subscriber =
-        m_node_handle.subscribe<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_SUBSCRIBE, 1, &AiDriver::netDeployCallback, this);
+    m_net_deploy_subscriber = m_node_handle.subscribe<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_SUBSCRIBE, 1,
+                                                                                &AiDriver::netDeployCallback, this);
 
     m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_PUBLISH, 1);
 
@@ -27,7 +27,7 @@ AiDriver::AiDriver()
     {
         ROS_WARN_STREAM("could not load " + file_path);
         ROS_INFO_STREAM("initialising network with random weights");
-        m_net.create_standard(NUM_LAYERS, NUM_INPUT, NUM_HIDDEN, NUM_OUTPUT);
+        m_net.create_standard_array(NUM_LAYERS, NET_ARGS);
     }
 }
 
@@ -57,7 +57,7 @@ void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
     long size = data->size;
     FANN::connection connections[size];
     m_net.get_connection_array(connections);
-    for(int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         connections[i].weight = data->weights[i];
     }
@@ -75,7 +75,6 @@ void AiDriver::update()
     // publish outputs
     publishDriveParameters(m_output[0], m_output[1]);
 }
-
 
 int main(int argc, char** argv)
 {

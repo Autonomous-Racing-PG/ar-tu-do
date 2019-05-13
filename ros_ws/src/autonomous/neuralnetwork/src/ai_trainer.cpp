@@ -8,8 +8,7 @@ AiTrainer::AiTrainer()
         m_node_handle.subscribe<std_msgs::Empty>(TOPIC_CRASH_SUBSCRIBE, 1, &AiTrainer::crashCallback, this);
     m_gazebo_model_state_publisher =
         m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE_PUBLISH, 1);
-    m_net_deploy_publisher =
-        m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
+    m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
 
     initfirstGeneration();
     update();
@@ -18,7 +17,8 @@ AiTrainer::AiTrainer()
 void AiTrainer::update()
 {
     // end previous test
-    if(m_running_test) {
+    if (m_running_test)
+    {
         endTest();
         m_net_index++;
     }
@@ -33,7 +33,8 @@ void AiTrainer::update()
     }
 
     // start new test
-    if(m_running_test == false) {
+    if (m_running_test == false)
+    {
         prepareTest();
     }
     // deploy new test
@@ -42,8 +43,9 @@ void AiTrainer::update()
 
 void AiTrainer::initfirstGeneration()
 {
-    for(int i = 0; i < GENERATION_SIZE; i++) {
-        FANN::neural_net *net = new FANN::neural_net;
+    for (int i = 0; i < GENERATION_SIZE; i++)
+    {
+        FANN::neural_net* net = new FANN::neural_net;
         net->create_standard_array(NUM_LAYERS, NET_ARGS);
         m_nets[i] = net;
         m_scores[i] = 0;
@@ -55,7 +57,7 @@ void AiTrainer::initfirstGeneration()
 // TODO
 void AiTrainer::chooseBestFromGeneration()
 {
-    for(int i = 0; i < GENERATION_BEST; i++)
+    for (int i = 0; i < GENERATION_BEST; i++)
     {
         m_best_nets[i] = m_nets[i];
         m_best_scores[i] = m_scores[i];
@@ -65,10 +67,10 @@ void AiTrainer::chooseBestFromGeneration()
 void AiTrainer::createNextGeneration()
 {
     chooseBestFromGeneration();
-    for(int i = 0, big_i = 0; i < GENERATION_BEST; i++)
+    for (int i = 0, big_i = 0; i < GENERATION_BEST; i++)
     {
         // parent
-        FANN::neural_net *parent = m_best_nets[i];
+        FANN::neural_net* parent = m_best_nets[i];
 
         // copy parent
         m_nets[big_i] = parent;
@@ -77,7 +79,9 @@ void AiTrainer::createNextGeneration()
         // create parent mutations
         for (int i = 0; i < GENERATION_MULTIPLIER; i++)
         {
-            FANN::neural_net *child = new FANN::neural_net(*parent);
+            FANN::neural_net* child = new FANN::neural_net();
+            child->create_standard_array(NUM_LAYERS, NET_ARGS);
+            cloneNet(child, parent);
             mutate(child, 1);
             m_nets[big_i] = child;
             big_i++;
@@ -89,9 +93,26 @@ void AiTrainer::createNextGeneration()
     {
         m_scores[i] = 0;
     }
+    m_gen++;
 }
 
-void AiTrainer::mutate(FANN::neural_net *net, fann_type rate)
+void AiTrainer::cloneNet(FANN::neural_net* to, FANN::neural_net* from)
+{
+    long size = to->get_total_connections();
+
+    FANN::connection c_to[size];
+    to->get_connection_array(c_to);
+
+    FANN::connection c_from[size];
+    from->get_connection_array(c_from);
+
+    for (int i = 0; i < size; i++)
+    {
+        c_to[i].weight = c_from[i].weight;
+    }
+}
+
+void AiTrainer::mutate(FANN::neural_net* net, fann_type rate)
 {
     long size = net->get_total_connections();
     FANN::connection connections[size];
@@ -122,9 +143,8 @@ std::vector<fann_type> AiTrainer::generateRandomVector(int size, fann_type rate)
     return vec;
 }
 
-
-void AiTrainer::deploy(FANN::neural_net *net)
-{  
+void AiTrainer::deploy(FANN::neural_net* net)
+{
     neuralnetwork::net_param message;
     // size
     long size = net->get_total_connections();
@@ -133,7 +153,7 @@ void AiTrainer::deploy(FANN::neural_net *net)
     FANN::connection connections[size];
     net->get_connection_array(connections);
     std::vector<float> weights;
-    for(int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         weights.push_back(connections[i].weight);
     }
@@ -164,7 +184,6 @@ void AiTrainer::prepareTest()
     // setting start time
     m_time_start = ros::Time::now();
     m_running_test = true;
-
 }
 
 void AiTrainer::endTest()
@@ -172,7 +191,8 @@ void AiTrainer::endTest()
     ros::Duration d = ros::Time::now() - m_time_start;
     ros::Time t = ros::Time(0) + d;
     m_running_test = false;
-    ROS_INFO_STREAM("test ended | generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_net_index) + " | score: " + std::to_string(t.toSec()));
+    ROS_INFO_STREAM("test ended | generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_net_index) +
+                    " | score: " + std::to_string(t.toSec()));
 }
 
 int main(int argc, char** argv)

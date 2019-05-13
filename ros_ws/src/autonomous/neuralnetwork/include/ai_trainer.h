@@ -2,8 +2,8 @@
 
 #include "ai_config.h"
 
-#include "floatfann.h"
 #include "fann_cpp.h"
+#include "floatfann.h"
 
 #include <dirent.h>
 #include <map>
@@ -16,10 +16,10 @@
 
 #include <drive_msgs/drive_param.h>
 #include <gazebo_msgs/ModelState.h>
+#include <neuralnetwork/net_param.h>
 #include <std_msgs/Bool.h>
 #include <std_msgs/Empty.h>
 #include <std_msgs/String.h>
-#include <neuralnetwork/net_param.h>
 
 constexpr const char* TOPIC_CRASH_SUBSCRIBE = "/crash";
 
@@ -48,10 +48,10 @@ class AiTrainer
 
     // generation variables and functions
     int m_gen;
-    FANN::neural_net *m_nets[GENERATION_SIZE];
+    FANN::neural_net* m_nets[GENERATION_SIZE];
     int m_scores[GENERATION_SIZE];
 
-    FANN::neural_net *m_best_nets[GENERATION_BEST];
+    FANN::neural_net* m_best_nets[GENERATION_BEST];
     int m_best_scores[GENERATION_BEST];
 
     void update();
@@ -60,21 +60,22 @@ class AiTrainer
     void initfirstGeneration();
     void chooseBestFromGeneration();
     void createNextGeneration();
-    
-    void mutate(FANN::neural_net *net, fann_type rate);
+    void cloneNet(FANN::neural_net* to, FANN::neural_net* from);
+
+    void mutate(FANN::neural_net* net, fann_type rate);
     std::vector<fann_type> generateRandomVector(int size, fann_type rate);
-    
+
     // net variables and functions
     int m_net_index = 0;
-    
+
     void prepareTest();
     void endTest();
 
     // current test
     bool m_running_test = false;
     ros::Time m_time_start;
-    
-    void deploy(FANN::neural_net *net);
+
+    void deploy(FANN::neural_net* net);
 
     // callbacks
     void crashCallback(const std_msgs::Empty::ConstPtr&);
