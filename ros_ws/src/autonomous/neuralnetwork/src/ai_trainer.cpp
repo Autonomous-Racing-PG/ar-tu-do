@@ -20,7 +20,6 @@ void AiTrainer::update()
     if (m_running_test)
     {
         endTest();
-        m_net_index++;
     }
 
     // create new generation if needed
@@ -32,13 +31,14 @@ void AiTrainer::update()
         m_net_index = 0;
     }
 
+    // deploy new test
+    deploy(m_nets[m_net_index]);
+
     // start new test
     if (m_running_test == false)
     {
         prepareTest();
     }
-    // deploy new test
-    deploy(m_nets[m_net_index]);
 }
 
 void AiTrainer::initfirstGeneration()
@@ -47,6 +47,7 @@ void AiTrainer::initfirstGeneration()
     {
         FANN::neural_net* net = new FANN::neural_net;
         net->create_standard_array(NUM_LAYERS, NET_ARGS);
+        net->randomize_weights((fann_type)(-1.0), (fann_type)(1.0));
         m_nets[i] = net;
         m_scores[i] = 0;
     }
@@ -59,8 +60,16 @@ void AiTrainer::chooseBestFromGeneration()
 {
     for (int i = 0; i < GENERATION_BEST; i++)
     {
-        m_best_nets[i] = m_nets[i];
-        m_best_scores[i] = m_scores[i];
+        int best_net = -1;
+        for (int j = 0; j < GENERATION_SIZE; j++)
+        {
+            if (best_net == -1 || m_scores[j] > m_scores[best_net])
+            {
+                best_net = j;
+            }
+        }
+        m_best_nets[i] = m_nets[best_net];
+        m_scores[best_net] = -1;
     }
 }
 
@@ -100,16 +109,10 @@ void AiTrainer::cloneNet(FANN::neural_net* to, FANN::neural_net* from)
 {
     long size = to->get_total_connections();
 
-    FANN::connection c_to[size];
-    to->get_connection_array(c_to);
-
     FANN::connection c_from[size];
     from->get_connection_array(c_from);
 
-    for (int i = 0; i < size; i++)
-    {
-        c_to[i].weight = c_from[i].weight;
-    }
+    to->set_weight_array(c_from, size);
 }
 
 void AiTrainer::mutate(FANN::neural_net* net, fann_type rate)
@@ -145,6 +148,8 @@ std::vector<fann_type> AiTrainer::generateRandomVector(int size, fann_type rate)
 
 void AiTrainer::deploy(FANN::neural_net* net)
 {
+    net->randomize_weights(-1, 1);
+
     neuralnetwork::net_param message;
     // size
     long size = net->get_total_connections();
@@ -152,6 +157,8 @@ void AiTrainer::deploy(FANN::neural_net* net)
     // connections
     FANN::connection connections[size];
     net->get_connection_array(connections);
+    std::vector<unsigned int> from_neurons;
+    std::vector<unsigned int> to_neurons;
     std::vector<float> weights;
     for (int i = 0; i < size; i++)
     {
@@ -159,11 +166,6 @@ void AiTrainer::deploy(FANN::neural_net* net)
     }
     message.weights = weights;
     m_net_deploy_publisher.publish(message);
-}
-
-void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
-{
-    update();
 }
 
 void AiTrainer::prepareTest()
@@ -181,7 +183,7 @@ void AiTrainer::prepareTest()
     state_message.pose.orientation.y = 0;
     m_gazebo_model_state_publisher.publish(state_message);
 
-    // setting start time
+    // start timer
     m_time_start = ros::Time::now();
     m_running_test = true;
 }
@@ -190,9 +192,16 @@ void AiTrainer::endTest()
 {
     ros::Duration d = ros::Time::now() - m_time_start;
     ros::Time t = ros::Time(0) + d;
+    m_scores[m_net_index] = t.toSec();
     m_running_test = false;
     ROS_INFO_STREAM("test ended | generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_net_index) +
-                    " | score: " + std::to_string(t.toSec()));
+                    " | score: " + std::to_string(m_scores[m_net_index]));
+    m_net_index++;
+}
+
+void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
+{
+    update();
 }
 
 int main(int argc, char** argv)

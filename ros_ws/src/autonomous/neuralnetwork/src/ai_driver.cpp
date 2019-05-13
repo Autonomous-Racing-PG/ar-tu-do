@@ -16,7 +16,7 @@ AiDriver::AiDriver()
 
     m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_PUBLISH, 1);
 
-    m_timer = m_node_handle.createTimer(ros::Duration(0.2), &AiDriver::timerCallback, this);
+    m_timer = m_node_handle.createTimer(ros::Duration(0.1), &AiDriver::timerCallback, this);
 
     std::string file_path = config_folder + "/" + config_file;
     if (m_net.create_from_file(file_path))
@@ -28,6 +28,7 @@ AiDriver::AiDriver()
         ROS_WARN_STREAM("could not load " + file_path);
         ROS_INFO_STREAM("initialising network with random weights");
         m_net.create_standard_array(NUM_LAYERS, NET_ARGS);
+        m_net.randomize_weights((fann_type)(-1.0), (fann_type)(1.0));
     }
 }
 
@@ -56,11 +57,13 @@ void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
 {
     long size = data->size;
     FANN::connection connections[size];
-    m_net.get_connection_array(connections);
     for (int i = 0; i < size; i++)
     {
+        connections[i] = FANN::connection();
         connections[i].weight = data->weights[i];
     }
+    m_net.create_standard_array(NUM_LAYERS, NET_ARGS);
+    m_net.set_weight_array(connections, size);
 }
 
 void AiDriver::update()
@@ -73,7 +76,10 @@ void AiDriver::update()
     m_input[1] = m_output[1];
 
     // publish outputs
-    publishDriveParameters(m_output[0], m_output[1]);
+    fann_type speed = 1 - (m_output[0] * 2);
+    fann_type angle = 1 - (m_output[1] * 2);
+
+    publishDriveParameters(speed, angle);
 }
 
 int main(int argc, char** argv)

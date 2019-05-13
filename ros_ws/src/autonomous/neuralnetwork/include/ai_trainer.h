@@ -49,10 +49,9 @@ class AiTrainer
     // generation variables and functions
     int m_gen;
     FANN::neural_net* m_nets[GENERATION_SIZE];
-    int m_scores[GENERATION_SIZE];
+    double m_scores[GENERATION_SIZE];
 
     FANN::neural_net* m_best_nets[GENERATION_BEST];
-    int m_best_scores[GENERATION_BEST];
 
     void update();
 
