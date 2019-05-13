@@ -4,19 +4,21 @@ AiDriver::AiDriver()
 {
     ros::NodeHandle private_node_handle("~");
 
-    std::string config_path;
+    std::string config_folder;
     std::string config_file;
-    private_node_handle.getParam(PARAMETER_CONFIG_PATH, config_path);
-    private_node_handle.getParam(PARAMETER_DEFAULT_CONFIG, config_file);
+    private_node_handle.getParam(PARAMETER_CONFIG_FOLDER, config_folder);
+    private_node_handle.getParam(PARAMETER_CONFIG_FILE, config_file);
 
     m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN_SUBSCRIBE, 1, &AiDriver::lidarCallback, this);
+    m_net_deploy_subscriber =
+        m_node_handle.subscribe<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_SUBSCRIBE, 1, &AiDriver::netDeployCallback, this);
 
     m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_PUBLISH, 1);
 
     m_timer = m_node_handle.createTimer(ros::Duration(0.2), &AiDriver::timerCallback, this);
 
-    std::string file_path = config_path + "/" + config_file;
+    std::string file_path = config_folder + "/" + config_file;
     if (m_net.create_from_file(file_path))
     {
         ROS_INFO_STREAM("successfully loaded ai driver from " + file_path);
@@ -48,6 +50,11 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     {
         m_input[i + 2] = lidar->ranges[LIDAR_INDICES[i]];
     }
+}
+
+void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
+{
+    std::cout << "received net params" << std::endl;
 }
 
 void AiDriver::update()

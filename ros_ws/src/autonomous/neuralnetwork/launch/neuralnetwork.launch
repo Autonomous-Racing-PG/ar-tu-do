@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-    <arg name="nn_config_path" default="/home/sami/dev/ros.package/ros_ws/src/autonomous/neuralnetwork/config" /> <!-- path where the config files are -->
-    <arg name="nn_config_file" default="random2.net" /> <!-- file in the config folder -->
+    <arg name="nn_config_folder" default="/mnt/d/git/ros.package/ros_ws/src/autonomous/neuralnetwork/config" /> <!-- path where the config files are -->
+    <arg name="nn_config_file" default="random.net" /> <!-- file in the config folder -->
 
 
     <node
@@ -11,19 +11,17 @@
       type="ai_driver"
       name="ai_driver"
       output="screen" >
-      <param name="nn_config_path" type="string" value = "$(arg nn_config_path)"/>
+      <param name="nn_config_folder" type="string" value = "$(arg nn_config_folder)"/>
       <param name="nn_config_file" type="string" value = "$(arg nn_config_file)"/>
     </node>
 
-    <!--
     <node
       respawn="true"
       pkg="neuralnetwork"
       type="ai_trainer"
       name="ai_trainer"
       output="screen" >
-      <param name="config_path" type="string" value = "$(arg config_path)" />
+      <param name="nn_config_folder" type="string" value = "$(arg nn_config_folder)" />
     </node>
-    -->
 
 </launch>

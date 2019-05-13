@@ -15,12 +15,15 @@
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Bool.h>
 #include <std_msgs/String.h>
+#include <neuralnetwork/net_param.h>
 
-constexpr const char* PARAMETER_CONFIG_PATH = "nn_config_path";
-constexpr const char* PARAMETER_DEFAULT_CONFIG = "nn_default_file";
+constexpr const char* PARAMETER_CONFIG_FOLDER = "nn_config_folder";
+constexpr const char* PARAMETER_CONFIG_FILE = "nn_config_file";
 
 constexpr const char* TOPIC_DRIVE_PARAMETERS_PUBLISH = "/commands/drive_param";
 constexpr const char* TOPIC_LASER_SCAN_SUBSCRIBE = "/scan";
+
+constexpr const char* TOPIC_NET_DEPLOY_SUBSCRIBE = "/nn/net/deploy";
 
 
 class AiDriver
@@ -31,6 +34,7 @@ class AiDriver
     private:
     ros::NodeHandle m_node_handle;
     ros::Subscriber m_lidar_subscriber;
+    ros::Subscriber m_net_deploy_subscriber;
     ros::Publisher m_drive_parameter_publisher;
     ros::Timer m_timer;
 
@@ -50,6 +54,7 @@ class AiDriver
 
     void timerCallback(const ros::TimerEvent&);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
+    void netDeployCallback(const neuralnetwork::net_param::ConstPtr& data);
     void publishDriveParameters(fann_type velocity, fann_type angle);
 
     void update();
