@@ -54,7 +54,13 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 
 void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
 {
-    std::cout << "received net params" << std::endl;
+    long size = data->size;
+    FANN::connection connections[size];
+    m_net.get_connection_array(connections);
+    for(int i = 0; i < size; i++)
+    {
+        connections[i].weight = data->weights[i];
+    }
 }
 
 void AiDriver::update()
