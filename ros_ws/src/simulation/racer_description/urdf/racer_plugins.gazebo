@@ -78,7 +78,7 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>1080</samples>
+            <samples>$(arg laser_sample_count)</samples>
             <resolution>1</resolution>
             <min_angle>-2.35619</min_angle>
             <max_angle>2.35619</max_angle>

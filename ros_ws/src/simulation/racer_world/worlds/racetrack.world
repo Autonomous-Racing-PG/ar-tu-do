@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version="1.4">
     <world name="racetrack">
+        <physics type="ode" default="true">
+            <!-- Default physics profile with no changes -->
+        </physics>
+        <physics name="qlearning" type="ode" default="false">
+            <real_time_update_rate>0</real_time_update_rate>
+        </physics>
+
         <include>
             <uri>model://sun</uri>
         </include>
