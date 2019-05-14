@@ -44,6 +44,10 @@ class NeuralQEstimator(nn.Module):
 
 # Training parameters
 
+# Start by loading previously trained parameters.
+# If this is False, training will start from scratch
+USE_EXISTING_PARAMETERS = False
+
 DISCOUNT_FACTOR = 0.99  # aka gamma
 
 MAX_EPISODE_LENGTH = 300

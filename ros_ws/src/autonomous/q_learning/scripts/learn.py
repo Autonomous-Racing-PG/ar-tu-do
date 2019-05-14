@@ -143,11 +143,9 @@ reset_car.register_service()
 
 rospy.loginfo("Initializing Pytorch...")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 policy_net = NeuralQEstimator().to(device)
-if os.path.isfile(MODEL_FILENAME):
-    rospy.logwarn(
-        "Warning: Using existing model parameters as a starting point for training." +
-        " If you want to start from scratch, delete the file '{0:s}'".format(MODEL_FILENAME))
+if USE_EXISTING_PARAMETERS:
     policy_net.load()
 
 optimizer = optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
