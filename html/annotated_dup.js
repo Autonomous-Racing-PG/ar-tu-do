@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "circle", "namespacecircle.html", "namespacecircle" ],
+    [ "parameters", "namespaceparameters.html", "namespaceparameters" ],
     [ "simulation_tools", "namespacesimulation__tools.html", "namespacesimulation__tools" ],
     [ "wallfollowing", "namespacewallfollowing.html", "namespacewallfollowing" ],
     [ "CarController", "class_car_controller.html", "class_car_controller" ],

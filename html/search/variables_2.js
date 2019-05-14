@@ -11,5 +11,8 @@ var searchData=
   ['command_5fbrake',['COMMAND_BRAKE',['../vesc__sim__driver_8h.html#affe1486b6714ce41c5ddc70d4ff7790d',1,'vesc_sim_driver.h']]],
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],
-  ['cumulative_5fdistance',['cumulative_distance',['../classsimulation__tools_1_1track_1_1_track.html#a4513ffc3cdb1963bce98c678b093c40b',1,'simulation_tools::track::Track']]]
+  ['cumulative_5fdistance',['cumulative_distance',['../classsimulation__tools_1_1track_1_1_track.html#a4513ffc3cdb1963bce98c678b093c40b',1,'simulation_tools::track::Track']]],
+  ['cumulative_5freward',['cumulative_reward',['../namespacelearn.html#ab5c577e91e23a790a4813443943e0be3',1,'learn']]],
+  ['cumulative_5freward_5fhistory',['cumulative_reward_history',['../namespacelearn.html#ad9217367bd7e61622cd66dfcdaf6b1e8',1,'learn']]],
+  ['current_5fposition',['current_position',['../namespacecar.html#a3266e330b22975e2200ee0cb7ad7d0ca',1,'car']]]
 ];

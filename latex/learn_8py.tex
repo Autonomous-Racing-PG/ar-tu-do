@@ -1,0 +1,77 @@
+\hypertarget{learn_8py}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/learn.py File Reference}
+\label{learn_8py}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/learn.\+py@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/learn.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacelearn}{learn}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacelearn_a39889cb816ab9a6bc7a528ee4c8784db}{learn.\+replay} ()
+\item 
+def \hyperlink{namespacelearn_ae0746217c771a7b43503a88b0a55c8c5}{learn.\+on\+\_\+crash} (\+\_\+)
+\item 
+def \hyperlink{namespacelearn_ae05616fc87e970aa8283fc7223fb8753}{learn.\+get\+\_\+eps\+\_\+threshold} ()
+\item 
+def \hyperlink{namespacelearn_a5dbccbd480a1c02fe1e4c1fc67a066cc}{learn.\+select\+\_\+action} (state)
+\item 
+def \hyperlink{namespacelearn_a2734a6ee9a0aed781d4db3abc7d206fb}{learn.\+perform\+\_\+action} (action\+\_\+index)
+\item 
+def \hyperlink{namespacelearn_a6b3b3e6dbffdbc5bbd5d685d582e66c6}{learn.\+get\+\_\+reward} ()
+\item 
+def \hyperlink{namespacelearn_a88c4cfe2b9604f8e7b6a72715d86fb4e}{learn.\+log\+\_\+progress} ()
+\item 
+def \hyperlink{namespacelearn_acf15a1858c52a77007bc14f91f461f0f}{learn.\+on\+\_\+complete\+\_\+episode} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacelearn_a876436d14202fc09e5ca40af082209ca}{learn.\+anonymous}
+\item 
+\hyperlink{namespacelearn_ae55deaa379fcb61fd26a801452c29737}{learn.\+device} = torch.\+device(\char`\"{}cuda\char`\"{} if torch.\+cuda.\+is\+\_\+available() else \char`\"{}cpu\char`\"{})
+\item 
+\hyperlink{namespacelearn_aff1270198d684f1b88420d8ecbf660f0}{learn.\+policy\+\_\+net} = Neural\+Q\+Estimator().to(device)
+\item 
+\hyperlink{namespacelearn_ac338ecc10d74abd2f4882f19a6305c67}{learn.\+optimizer} = optim.\+Adam(policy\+\_\+net.\+parameters(), lr=L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE)
+\item 
+\hyperlink{namespacelearn_ab19d2fd92231ad109b1bee73faa22b3f}{learn.\+memory} = deque(maxlen=M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE)
+\item 
+string \hyperlink{namespacelearn_a2cfc8cc1bdb6765aba4bd1de7af92885}{learn.\+net\+\_\+output\+\_\+debug\+\_\+string} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{namespacelearn_a48d8007f4bd73948e2b7683cd736edfc}{learn.\+state} = None
+\item 
+int \hyperlink{namespacelearn_a789e811e8744ef36689cd7a37bd5aeb2}{learn.\+episode\+\_\+count} = 0
+\item 
+int \hyperlink{namespacelearn_ae4490c7a6bca1f4587c5a4f662e1dcc8}{learn.\+episode\+\_\+length} = 0
+\item 
+int \hyperlink{namespacelearn_a3e9002d722506447b145dcdf6fdc3abe}{learn.\+total\+\_\+step\+\_\+count} = 0
+\item 
+int \hyperlink{namespacelearn_af7c116c0d6b60453699825c2f7c17696}{learn.\+optimization\+\_\+step\+\_\+count} = 0
+\item 
+int \hyperlink{namespacelearn_ab5c577e91e23a790a4813443943e0be3}{learn.\+cumulative\+\_\+reward} = 0
+\item 
+bool \hyperlink{namespacelearn_a281a04971ff2288564c37fcf2a144453}{learn.\+is\+\_\+terminal\+\_\+step} = False
+\item 
+\hyperlink{namespacelearn_ab297229048af5d469452446449da2c3f}{learn.\+episode\+\_\+length\+\_\+history} = deque(maxlen=50)
+\item 
+\hyperlink{namespacelearn_ad9217367bd7e61622cd66dfcdaf6b1e8}{learn.\+cumulative\+\_\+reward\+\_\+history} = deque(maxlen=50)
+\item 
+\hyperlink{namespacelearn_a5af012dac7493e3547f6f8a4820dfc69}{learn.\+timer} = rospy.\+Rate(U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY)
+\item 
+int \hyperlink{namespacelearn_a9b863a68264a65e5330ea30ef3765f9e}{learn.\+real\+\_\+time\+\_\+factor} = 0
+\item 
+\hyperlink{namespacelearn_a501494c1d2211b6bda3c2670aa625a8b}{learn.\+episode\+\_\+start\+\_\+time} = time.\+time()
+\item 
+\hyperlink{namespacelearn_a8bfecbfb11b553990cd4c4bc5475133d}{learn.\+action} = select\+\_\+action(state)
+\item 
+\hyperlink{namespacelearn_af84ef16d78643794df249943a937c8a1}{learn.\+next\+\_\+state} = \hyperlink{namespacecar_af96ea5ae50f968d7a2ff6bcc21cad1c2}{car.\+get\+\_\+scan}(L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT, device)
+\item 
+\hyperlink{namespacelearn_acfe9ef43af1b064075a2d4c52cb54340}{learn.\+reward} = get\+\_\+reward()
+\item 
+\hyperlink{namespacelearn_a5c5a2877d619463f5d69e7b25222695c}{learn.\+max\+\_\+angle}
+\item 
+\hyperlink{namespacelearn_a7616f004dbc376e458dbaf5310921be4}{learn.\+max\+\_\+offset\+\_\+from\+\_\+center}
+\item 
+\hyperlink{namespacelearn_a33c110a8b5a4759b0b29bf9b97efa037}{learn.\+forward}
+\end{DoxyCompactItemize}

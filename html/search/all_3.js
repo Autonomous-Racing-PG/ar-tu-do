@@ -3,6 +3,8 @@ var searchData=
   ['calculate_5fcar_5fvelocity',['calculate_car_velocity',['../namespacesimulation__tools_1_1speedometer.html#a3323b9f8885fc1ce38dd75f2555cccba',1,'simulation_tools::speedometer']]],
   ['calculate_5fvelocity',['calculate_velocity',['../namespacesimulation__tools_1_1speedometer.html#aad7d50b1f509c29bb6b854ea4b649947',1,'simulation_tools::speedometer']]],
   ['calculate_5fwheel_5fvelocity',['calculate_wheel_velocity',['../namespacesimulation__tools_1_1speedometer.html#af7706082fba920fe977bdb0e4dd464f8',1,'simulation_tools::speedometer']]],
+  ['car',['car',['../namespacecar.html',1,'']]],
+  ['car_2epy',['car.py',['../car_8py.html',1,'']]],
   ['car_5fbumper_5flength',['CAR_BUMPER_LENGTH',['../emergency__stop_8h.html#ad9d3f0d12fce3f2667f01e3e82c819bd',1,'emergency_stop.h']]],
   ['car_5fconfig',['car_config',['../namespacecar__config.html',1,'']]],
   ['car_5fconfig_2eh',['car_config.h',['../car__config_8h.html',1,'']]],
@@ -33,5 +35,8 @@ var searchData=
   ['createhearbeatmessage',['createHearbeatMessage',['../joystick__controller_8cpp.html#aaa576f3a427df004cb7cc3e064920722',1,'createHearbeatMessage():&#160;joystick_controller.cpp'],['../keyboard__controller_8cpp.html#aaa576f3a427df004cb7cc3e064920722',1,'createHearbeatMessage():&#160;keyboard_controller.cpp']]],
   ['createpoint',['createPoint',['../rviz__geometry__publisher_8h.html#afe771c547275957f1c8ed44386f9529e',1,'createPoint(double x, double y, double z):&#160;rviz_geometry_publisher.cpp'],['../rviz__geometry__publisher_8cpp.html#afe771c547275957f1c8ed44386f9529e',1,'createPoint(double x, double y, double z):&#160;rviz_geometry_publisher.cpp']]],
   ['cumulative_5fdistance',['cumulative_distance',['../classsimulation__tools_1_1track_1_1_track.html#a4513ffc3cdb1963bce98c678b093c40b',1,'simulation_tools::track::Track']]],
+  ['cumulative_5freward',['cumulative_reward',['../namespacelearn.html#ab5c577e91e23a790a4813443943e0be3',1,'learn']]],
+  ['cumulative_5freward_5fhistory',['cumulative_reward_history',['../namespacelearn.html#ad9217367bd7e61622cd66dfcdaf6b1e8',1,'learn']]],
+  ['current_5fposition',['current_position',['../namespacecar.html#a3266e330b22975e2200ee0cb7ad7d0ca',1,'car']]],
   ['cpp_5fstyle_5fguide',['CPP_STYLE_GUIDE',['../md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_CPP_STYLE_GUIDE.html',1,'']]]
 ];
