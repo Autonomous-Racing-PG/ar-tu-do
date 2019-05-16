@@ -2,8 +2,10 @@
 
 #include "ai_config.h"
 
-#include "fann_cpp.h"
 #include "floatfann.h"
+#include "fann_cpp.h"
+
+#include "ai_vector_math.h"
 
 #include <dirent.h>
 #include <map>
@@ -62,7 +64,6 @@ class AiTrainer
     void cloneNet(FANN::neural_net* to, FANN::neural_net* from);
 
     void mutate(FANN::neural_net* net, fann_type rate);
-    std::vector<fann_type> generateRandomVector(int size, fann_type rate);
 
     // net variables and functions
     int m_net_index = 0;
@@ -78,4 +79,5 @@ class AiTrainer
 
     // callbacks
     void crashCallback(const std_msgs::Empty::ConstPtr&);
+
 };

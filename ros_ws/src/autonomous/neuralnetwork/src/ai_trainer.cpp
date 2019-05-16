@@ -122,28 +122,13 @@ void AiTrainer::mutate(FANN::neural_net* net, fann_type rate)
     net->get_connection_array(connections);
 
     // creating random vector
-    std::vector<fann_type> mutation_delta = generateRandomVector(size, rate);
+    std::vector<fann_type> mutation_delta = random_vector(size, rate, r_mult_all);
 
     // applying vector
     for (int i = 0; i < size; i++)
     {
         connections[i].weight = connections[i].weight * mutation_delta[i];
     }
-}
-
-std::vector<fann_type> AiTrainer::generateRandomVector(int size, fann_type rate)
-{
-    std::vector<fann_type> vec;
-    int i = 0;
-    fann_type randValue = 0;
-    srand(time(NULL));
-    while (i < size)
-    {
-        randValue = (fann_type)0.5 + (rand() * rate);
-        vec.push_back(randValue);
-        i++;
-    }
-    return vec;
 }
 
 void AiTrainer::deploy(FANN::neural_net* net)
