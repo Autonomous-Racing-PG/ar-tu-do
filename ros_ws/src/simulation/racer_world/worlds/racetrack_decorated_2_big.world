@@ -25,7 +25,8 @@
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh>
-                            <uri>model://track_decorated_2_big.dae</uri>
+                            <uri>model://track_decorated_2.dae</uri>
+                            <scale>2.5 2.5 2.5</scale>
                         </mesh>
                     </geometry>
                 </visual>
@@ -51,7 +52,8 @@
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh>
-                            <uri>model://walls_big.dae</uri>
+                            <uri>model://walls.dae</uri>
+                            <scale>2.5 2.5 2.5</scale>
                         </mesh>
                     </geometry>
                     <surface>
@@ -70,12 +72,12 @@
                 </sensor>
             </link>
             <link name="decoration-collision-link">
-                <pose>-5.2 7.2 0 0 0 0</pose>
                 <collision name="decoration-collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh>
-                            <uri>model://decoration_colliders_2_big.dae</uri>
+                            <uri>model://decoration_colliders_2.dae</uri>
+                            <scale>2.5 2.5 2.5</scale>
                         </mesh>
                     </geometry>
                     <surface>
