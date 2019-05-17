@@ -24,8 +24,8 @@
 
   <node
     pkg="q_learning"
-    type="learn.py"
-    name="learn"
+    type="train.py"
+    name="q_learning_training"
     output="screen" >
   </node>
 
