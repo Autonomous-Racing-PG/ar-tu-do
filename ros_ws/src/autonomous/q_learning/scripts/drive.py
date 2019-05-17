@@ -1,30 +1,31 @@
 #!/usr/bin/env python
 
-import rospy
-from parameters import *
-import car
-import torch
+from qlearning import QLearningNode
 import os
+import rospy
+from parameters import MODEL_FILENAME
+import torch
 
-rospy.init_node('qdriver', anonymous=True)
 
-timer = rospy.Rate(UPDATE_FREQUENCY)
+class QLearningDrivingNode(QLearningNode):
+    def __init__(self):
+        QLearningNode.__init__(self)
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-policy_net = NeuralQEstimator().to(device)
-policy_net.load()
+        self.policy.load()
+        if not os.path.isfile(MODEL_FILENAME):
+            message = "Model parameters for the neural net not found. You need to train it first."
+            rospy.logerr(message)
+            rospy.signal_shutdown(message)
+            exit(1)
 
-if not os.path.isfile(MODEL_FILENAME):
-    message = "Model parameters for the neural net not found. You need to train it first."
-    rospy.logerr(message)
-    rospy.signal_shutdown(message)
-    exit(1)
+    def on_receive_laser_scan(self, message):
+        state = self.convert_laser_message_to_tensor(message)
 
-while not rospy.is_shutdown():
-    scan = car.get_scan(LASER_SAMPLE_COUNT, device)
-    with torch.no_grad():
-        net_output = policy_net(scan)
-        action_index = net_output.max(0)[1].item()
-        action = ACTIONS[action_index]
-        car.drive(*action)
-    timer.sleep()
+        with torch.no_grad():
+            action = self.policy(state).max(0)[1].item()
+        self.perform_action(action)
+
+
+rospy.init_node('q_learning_driving', anonymous=True)
+node = QLearningDrivingNode()
+rospy.spin()

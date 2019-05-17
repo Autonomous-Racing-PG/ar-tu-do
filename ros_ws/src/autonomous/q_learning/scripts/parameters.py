@@ -7,6 +7,12 @@ import rospy
 
 from rospkg import RosPack
 
+# TOPICS
+TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
+TOPIC_SCAN = "/scan"
+TOPIC_CRASH = "/crash"
+TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
+
 # General parameters
 
 ACTIONS = [(-0.5, 0.2), (0.5, 0.2)]
@@ -50,7 +56,7 @@ USE_EXISTING_PARAMETERS = False
 
 DISCOUNT_FACTOR = 0.99  # aka gamma
 
-MAX_EPISODE_LENGTH = 300
+MAX_EPISODE_LENGTH = 500
 # Sample neural net update batch from the replay memory.
 # It contains this many steps.
 MEMORY_SIZE = 10000
@@ -62,4 +68,4 @@ LEARNING_RATE = 0.001
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 1.0
 EPS_END = 0.1
-EPS_DECAY = 5000
+EPS_DECAY = 10000
