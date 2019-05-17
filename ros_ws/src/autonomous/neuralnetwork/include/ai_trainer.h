@@ -31,12 +31,10 @@ constexpr const char* TOPIC_NET_DEPLOY_PUBLISH = "/nn/net/deploy";
 
 constexpr const char* PARAMETER_CONFIG_FOLDER = "nn_config_folder";
 
-constexpr const int GENERATION_MULTIPLIER = 3;
-constexpr const int GENERATION_BEST = 1;
-constexpr const int GENERATION_SIZE = GENERATION_BEST + GENERATION_BEST * GENERATION_MULTIPLIER;
-
-constexpr const float LEARNING_RATE = 0.2f; // 0 < LEARNING_RATE < 1
-constexpr const float MAX_TIME = 30.0f;     // seconds
+constexpr const char* PARAMETER_TRAINING_GENERATION_MULTIPLIER = "nn_training_generation_multiplier";
+constexpr const char* PARAMETER_TRAINING_GENERATION_BEST = "nn_training_generation_best";
+constexpr const char* PARAMETER_TRAINING_LEARNING_RATE = "nn_training_learning_rate";
+constexpr const char* PARAMETER_TRAINING_MAX_TIME = "nn_training_max_time";
 
 class AiTrainer
 {
@@ -51,14 +49,19 @@ class AiTrainer
     ros::Publisher m_gazebo_model_state_publisher;
     ros::Publisher m_net_deploy_publisher;
 
-    std::string m_config_folder;
+    std::string m_parameter_config_folder;
+    int m_parameter_training_generation_multiplier;
+    int m_parameter_training_generation_best;
+    int m_generation_size;
+    fann_type m_parameter_training_learning_rate;
+    float m_parameter_training_max_time;
 
     // generation variables and functions
     int m_gen;
-    FANN::neural_net* m_nets[GENERATION_SIZE];
-    double m_scores[GENERATION_SIZE];
+    std::vector<FANN::neural_net*> m_nets;
+    std::vector<double> m_scores;
 
-    FANN::neural_net* m_best_nets[GENERATION_BEST];
+    std::vector<FANN::neural_net*> m_best_nets;
 
     void update();
 

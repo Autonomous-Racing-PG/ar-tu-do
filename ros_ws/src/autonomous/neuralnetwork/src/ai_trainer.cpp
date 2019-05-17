@@ -3,7 +3,14 @@
 AiTrainer::AiTrainer()
 {
     ros::NodeHandle private_node_handle("~");
-    private_node_handle.getParam(PARAMETER_CONFIG_FOLDER, m_config_folder);
+    private_node_handle.getParam(PARAMETER_CONFIG_FOLDER, m_parameter_config_folder);
+    private_node_handle.getParam(PARAMETER_TRAINING_GENERATION_MULTIPLIER, m_parameter_training_generation_multiplier);
+    private_node_handle.getParam(PARAMETER_TRAINING_GENERATION_BEST, m_parameter_training_generation_best);
+    m_generation_size = m_parameter_training_generation_best +
+        m_parameter_training_generation_best * m_parameter_training_generation_multiplier;
+    private_node_handle.getParam(PARAMETER_TRAINING_LEARNING_RATE, m_parameter_config_folder);
+    private_node_handle.getParam(PARAMETER_TRAINING_MAX_TIME, m_parameter_training_max_time);
+
     m_crash_subscriber =
         m_node_handle.subscribe<std_msgs::Empty>(TOPIC_CRASH_SUBSCRIBE, 1, &AiTrainer::crashCallback, this);
     m_drive_parameters_subscriber =
@@ -13,9 +20,14 @@ AiTrainer::AiTrainer()
         m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE_PUBLISH, 1);
     m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
 
+    m_nets.reserve(m_generation_size);
+    m_scores.reserve(m_generation_size);
+    m_best_nets.reserve(m_parameter_training_generation_best);
+
     initfirstGeneration();
     update();
-    m_lap_timer = m_node_handle.createTimer(ros::Duration(MAX_TIME), &AiTrainer::lapTimerCallback, this, true);
+    m_lap_timer = m_node_handle.createTimer(ros::Duration(m_parameter_training_max_time), &AiTrainer::lapTimerCallback,
+                                            this, true);
     m_lap_timer.stop();
 }
 
@@ -34,7 +46,7 @@ void AiTrainer::update()
     }
 
     // create new generation if needed
-    if (m_net_index == GENERATION_SIZE)
+    if (m_net_index == m_generation_size)
     {
         // clean and prepare next generation
         createNextGeneration();
@@ -54,7 +66,7 @@ void AiTrainer::update()
 
 void AiTrainer::initfirstGeneration()
 {
-    for (int i = 0; i < GENERATION_SIZE; i++)
+    for (int i = 0; i < m_generation_size; i++)
     {
         FANN::neural_net* net = new FANN::neural_net;
         net->create_standard_array(NUM_LAYERS, NET_ARGS);
@@ -63,16 +75,16 @@ void AiTrainer::initfirstGeneration()
         m_scores[i] = 0;
     }
     m_gen = 0;
-    ROS_INFO_STREAM("created first generation randomly with " + std::to_string(GENERATION_SIZE) + " entities");
+    ROS_INFO_STREAM("created first generation randomly with " + std::to_string(m_generation_size) + " entities");
 }
 
 // TODO
 void AiTrainer::chooseBestFromGeneration()
 {
-    for (int i = 0; i < GENERATION_BEST; i++)
+    for (int i = 0; i < m_parameter_training_generation_best; i++)
     {
         int best_net = -1;
-        for (int j = 0; j < GENERATION_SIZE; j++)
+        for (int j = 0; j < m_generation_size; j++)
         {
             if (best_net == -1 || m_scores[j] > m_scores[best_net])
             {
@@ -83,13 +95,13 @@ void AiTrainer::chooseBestFromGeneration()
         m_scores[best_net] = -1;
     }
     // save best
-    m_best_nets[0]->save(m_config_folder + "/best_of/champion_" + std::to_string(m_gen) + ".config");
+    m_best_nets[0]->save(m_parameter_config_folder + "/best_of/champion_" + std::to_string(m_gen) + ".config");
 }
 
 void AiTrainer::createNextGeneration()
 {
     chooseBestFromGeneration();
-    for (int i = 0, big_i = 0; i < GENERATION_BEST; i++)
+    for (int i = 0, big_i = 0; i < m_parameter_training_generation_best; i++)
     {
         // parent
         FANN::neural_net* parent = m_best_nets[i];
@@ -99,19 +111,19 @@ void AiTrainer::createNextGeneration()
         big_i++;
 
         // create parent mutations
-        for (int i = 0; i < GENERATION_MULTIPLIER; i++)
+        for (int i = 0; i < m_parameter_training_generation_multiplier; i++)
         {
             FANN::neural_net* child = new FANN::neural_net();
             child->create_standard_array(NUM_LAYERS, NET_ARGS);
             cloneNet(child, parent);
-            mutate(child, LEARNING_RATE);
+            mutate(child, m_parameter_training_learning_rate);
             m_nets[big_i] = child;
             big_i++;
         }
     }
 
     // reset scores
-    for (int i = 0; i < GENERATION_SIZE; i++)
+    for (int i = 0; i < m_generation_size; i++)
     {
         m_scores[i] = 0;
     }

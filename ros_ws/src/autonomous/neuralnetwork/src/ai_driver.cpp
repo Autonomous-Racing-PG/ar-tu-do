@@ -14,7 +14,7 @@ AiDriver::AiDriver()
     m_net_deploy_subscriber = m_node_handle.subscribe<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_SUBSCRIBE, 1,
                                                                                 &AiDriver::netDeployCallback, this);
 
-    m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_PUBLISH, 1);
+    m_drive_parameters_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_PUBLISH, 1);
 
     m_timer = m_node_handle.createTimer(ros::Duration(0.1), &AiDriver::timerCallback, this);
 
@@ -25,7 +25,8 @@ AiDriver::AiDriver()
     }
     else
     {
-        ROS_WARN_STREAM("could not load " + file_path);
+        ROS_ERROR_STREAM("could not load " + file_path);
+        ROS_ERROR_STREAM("maybe the folder or reading permission is missing");
         ROS_INFO_STREAM("initialising network with random weights");
         m_net.create_standard_array(NUM_LAYERS, NET_ARGS);
         m_net.randomize_weights((fann_type)(-1.0), (fann_type)(1.0));
@@ -42,7 +43,7 @@ void AiDriver::publishDriveParameters(fann_type velocity, fann_type angle)
     drive_msgs::drive_param drive_parameters;
     drive_parameters.velocity = velocity;
     drive_parameters.angle = angle;
-    m_drive_parameter_publisher.publish(drive_parameters);
+    m_drive_parameters_publisher.publish(drive_parameters);
 }
 
 void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
