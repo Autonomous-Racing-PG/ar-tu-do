@@ -2,8 +2,8 @@
 
 #include "ai_config.h"
 
-#include "floatfann.h"
 #include "fann_cpp.h"
+#include "floatfann.h"
 
 #include <dirent.h>
 #include <map>
@@ -13,9 +13,9 @@
 
 #include "sensor_msgs/LaserScan.h"
 #include <drive_msgs/drive_param.h>
+#include <neuralnetwork/net_param.h>
 #include <std_msgs/Bool.h>
 #include <std_msgs/String.h>
-#include <neuralnetwork/net_param.h>
 
 constexpr const char* PARAMETER_CONFIG_FOLDER = "nn_config_folder";
 constexpr const char* PARAMETER_CONFIG_FILE = "nn_config_file";
@@ -24,7 +24,6 @@ constexpr const char* TOPIC_DRIVE_PARAMETERS_PUBLISH = "/commands/drive_param";
 constexpr const char* TOPIC_LASER_SCAN_SUBSCRIBE = "/scan";
 
 constexpr const char* TOPIC_NET_DEPLOY_SUBSCRIBE = "/nn/net/deploy";
-
 
 class AiDriver
 {
@@ -35,7 +34,7 @@ class AiDriver
     ros::NodeHandle m_node_handle;
     ros::Subscriber m_lidar_subscriber;
     ros::Subscriber m_net_deploy_subscriber;
-    ros::Publisher m_drive_parameter_publisher;
+    ros::Publisher m_drive_parameters_publisher;
     ros::Timer m_timer;
 
     FANN::neural_net m_net;

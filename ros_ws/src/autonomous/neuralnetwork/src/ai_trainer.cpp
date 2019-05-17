@@ -6,16 +6,27 @@ AiTrainer::AiTrainer()
     private_node_handle.getParam(PARAMETER_CONFIG_FOLDER, m_config_folder);
     m_crash_subscriber =
         m_node_handle.subscribe<std_msgs::Empty>(TOPIC_CRASH_SUBSCRIBE, 1, &AiTrainer::crashCallback, this);
+    m_drive_parameters_subscriber =
+        m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_SUBSCRIBE, 1,
+                                                         &AiTrainer::driveParametersCallback, this);
     m_gazebo_model_state_publisher =
         m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE_PUBLISH, 1);
     m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
 
     initfirstGeneration();
     update();
+    m_lap_timer = m_node_handle.createTimer(ros::Duration(MAX_TIME), &AiTrainer::lapTimerCallback, this, true);
+    m_lap_timer.stop();
 }
 
 void AiTrainer::update()
 {
+    // change value 0.1
+    if ((ros::Time::now() - m_time_start).toSec() < 0.1)
+    {
+        return;
+    }
+
     // end previous test
     if (m_running_test)
     {
@@ -71,6 +82,8 @@ void AiTrainer::chooseBestFromGeneration()
         m_best_nets[i] = m_nets[best_net];
         m_scores[best_net] = -1;
     }
+    // save best
+    m_best_nets[0]->save(m_config_folder + "/best_of/champion_" + std::to_string(m_gen) + ".config");
 }
 
 void AiTrainer::createNextGeneration()
@@ -91,7 +104,7 @@ void AiTrainer::createNextGeneration()
             FANN::neural_net* child = new FANN::neural_net();
             child->create_standard_array(NUM_LAYERS, NET_ARGS);
             cloneNet(child, parent);
-            mutate(child, 1);
+            mutate(child, LEARNING_RATE);
             m_nets[big_i] = child;
             big_i++;
         }
@@ -122,13 +135,18 @@ void AiTrainer::mutate(FANN::neural_net* net, fann_type rate)
     net->get_connection_array(connections);
 
     // creating random vector
-    std::vector<fann_type> mutation_delta = random_vector(size, rate, r_mult_all);
+    std::vector<fann_type> mutation_delta = random_vector(size, rate, r_mult_one);
 
     // applying vector
     for (int i = 0; i < size; i++)
     {
         connections[i].weight = connections[i].weight * mutation_delta[i];
     }
+}
+
+void AiTrainer::lapTimerCallback(const ros::TimerEvent&)
+{
+    update();
 }
 
 void AiTrainer::deploy(FANN::neural_net* net)
@@ -168,16 +186,24 @@ void AiTrainer::prepareTest()
     state_message.pose.orientation.y = 0;
     m_gazebo_model_state_publisher.publish(state_message);
 
-    // start timer
+    // start lap timer
+    m_lap_timer.start();
+
+    // start time counting
     m_time_start = ros::Time::now();
     m_running_test = true;
+
+    m_speed_value = 0;
 }
 
 void AiTrainer::endTest()
 {
+    // stop timer
+    m_lap_timer.stop();
+
     ros::Duration d = ros::Time::now() - m_time_start;
     ros::Time t = ros::Time(0) + d;
-    m_scores[m_net_index] = t.toSec();
+    m_scores[m_net_index] = t.toSec() + m_speed_value * 10;
     m_running_test = false;
     ROS_INFO_STREAM("test ended | generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_net_index) +
                     " | score: " + std::to_string(m_scores[m_net_index]));
@@ -187,6 +213,11 @@ void AiTrainer::endTest()
 void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
 {
     update();
+}
+
+void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
+{
+    m_speed_value += (double)parameters->velocity;
 }
 
 int main(int argc, char** argv)

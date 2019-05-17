@@ -2,8 +2,8 @@
 
 #include "ai_config.h"
 
-#include "floatfann.h"
 #include "fann_cpp.h"
+#include "floatfann.h"
 
 #include "ai_vector_math.h"
 
@@ -24,15 +24,19 @@
 #include <std_msgs/String.h>
 
 constexpr const char* TOPIC_CRASH_SUBSCRIBE = "/crash";
+constexpr const char* TOPIC_DRIVE_PARAMETERS_SUBSCRIBE = "/commands/drive_param";
 
 constexpr const char* TOPIC_GAZEBO_MODEL_STATE_PUBLISH = "/gazebo/set_model_state";
 constexpr const char* TOPIC_NET_DEPLOY_PUBLISH = "/nn/net/deploy";
 
 constexpr const char* PARAMETER_CONFIG_FOLDER = "nn_config_folder";
 
-constexpr const int GENERATION_MULTIPLIER = 10;
-constexpr const int GENERATION_BEST = 10;
+constexpr const int GENERATION_MULTIPLIER = 3;
+constexpr const int GENERATION_BEST = 1;
 constexpr const int GENERATION_SIZE = GENERATION_BEST + GENERATION_BEST * GENERATION_MULTIPLIER;
+
+constexpr const float LEARNING_RATE = 0.2f; // 0 < LEARNING_RATE < 1
+constexpr const float MAX_TIME = 30.0f;     // seconds
 
 class AiTrainer
 {
@@ -43,6 +47,7 @@ class AiTrainer
     private:
     ros::NodeHandle m_node_handle;
     ros::Subscriber m_crash_subscriber;
+    ros::Subscriber m_drive_parameters_subscriber;
     ros::Publisher m_gazebo_model_state_publisher;
     ros::Publisher m_net_deploy_publisher;
 
@@ -74,10 +79,13 @@ class AiTrainer
     // current test
     bool m_running_test = false;
     ros::Time m_time_start;
+    double m_speed_value;
+    ros::Timer m_lap_timer;
+    void lapTimerCallback(const ros::TimerEvent&);
 
     void deploy(FANN::neural_net* net);
 
     // callbacks
     void crashCallback(const std_msgs::Empty::ConstPtr&);
-
+    void driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
 };
