@@ -2,10 +2,11 @@
 
 #include "ai_config.h"
 
-#include "fann_cpp.h"
+// clang-format off
 #include "floatfann.h"
-
+#include "fann_cpp.h"
 #include "ai_vector_math.h"
+// clang-format on
 
 #include <dirent.h>
 #include <map>
