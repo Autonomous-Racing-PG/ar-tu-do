@@ -4,6 +4,8 @@ import random
 import numpy as np
 import math
 
+from tf.transformations import euler_from_quaternion
+
 from collections import namedtuple
 Point = namedtuple("Point", ["x", "y"])
 
@@ -28,6 +30,14 @@ class TrackPosition():
             self.distance_to_center,
             self.angle * 180 / math.pi
         )
+
+    def get_relative_angle(self, orientation):
+        quaternion = [orientation.w, orientation.x, orientation.y, orientation.z]
+        euler = euler_from_quaternion(quaternion)
+        return (euler[0] + self.angle) % (2 * math.pi) - math.pi
+
+    def faces_forward(self, orientation):
+        return abs(self.get_relative_angle(orientation)) < math.pi / 2
 
 
 class Track():

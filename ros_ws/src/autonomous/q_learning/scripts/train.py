@@ -38,6 +38,10 @@ class QLearningTrainingNode(QLearningNode):
         self.state = None
         self.action = None
         self.car_position = None
+        self.car_orientation = None
+
+        self.drive_forward = None
+        self.steps_with_wrong_orientation = 0
 
         self.real_time_factor = 0
         self.episode_start_time = time.time()
@@ -149,19 +153,35 @@ class QLearningTrainingNode(QLearningNode):
             self.policy.save()
             rospy.loginfo("Model parameters saved.")
 
+    def check_car_orientation(self):
+        if self.car_position is None:
+            return
+
+        track_position = track.localize(self.car_position)
+        car_direction = track_position.faces_forward(self.car_orientation)
+        if car_direction != self.drive_forward:
+            self.steps_with_wrong_orientation += 1
+        else:
+            self.steps_with_wrong_orientation = 0
+        
+        if self.steps_with_wrong_orientation > 2:
+            self.is_terminal_step = True
+
     def on_receive_laser_scan(self, message):
         state = self.convert_laser_message_to_tensor(message)
 
         if self.state is not None:
+            self.check_car_orientation()
             reward = self.get_reward()
             self.cumulative_reward += reward
             self.memory.append((self.state, self.action, reward, state, self.is_terminal_step))  # nopep8
 
         if self.is_terminal_step or self.episode_length >= MAX_EPISODE_LENGTH:
+            self.drive_forward = random.random() > 0.5
             reset_car.reset_random(
                 max_angle=math.pi / 180 * 20,
                 max_offset_from_center=0.2,
-                forward=random.random() > 0.5)
+                forward=self.drive_forward)
             self.is_terminal_step = False
             self.state = None
             self.on_complete_episode()
@@ -180,6 +200,7 @@ class QLearningTrainingNode(QLearningNode):
         self.car_position = Point(
             message.pose[1].position.x,
             message.pose[1].position.y)
+        self.car_orientation = message.pose[1].orientation
 
 
 rospy.init_node('q_learning_training', anonymous=True)
