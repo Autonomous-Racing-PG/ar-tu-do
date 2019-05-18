@@ -8,6 +8,7 @@
       <arg name="debug" value="false"/>
       <arg name="verbose" value="false"/>
       <arg name="use_gpu" value="true"/>
+      <arg name="laser_sample_count" value="7"/>
   </include>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>

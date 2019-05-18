@@ -48,10 +48,25 @@ void AiDriver::publishDriveParameters(fann_type velocity, fann_type angle)
 
 void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
+    // std::cout << lidar->range_min << " < " << lidar->ranges[3] << " < " << lidar->range_max << std::endl;
+    // std::cout << "angle_min: " << lidar->angle_min << " | angle_max: " << lidar->angle_max << " | angle_increment: "
+    // << lidar->angle_increment  <<  " | range_min: " << lidar->range_min << " | range_max: " << lidar->range_max <<
+    // std::endl;
     for (int i = 0; i < 5; i++)
     {
-        m_input[i + 2] = lidar->ranges[LIDAR_INDICES[i]];
+        float value = lidar->ranges[LIDAR_INDICES[i]];
+        if (value < lidar->range_min)
+        {
+            value = 0;
+        }
+        else if (value > lidar->range_max)
+        {
+            value = lidar->range_max;
+        }
+        m_input[i + 2] = value;
+        // std::cout << m_input[i] << " ";
     }
+    // std::cout << std::endl;
 }
 
 void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
@@ -80,6 +95,14 @@ void AiDriver::update()
     fann_type speed = 1 - (m_output[0] * 2);
     fann_type angle = 1 - (m_output[1] * 2);
 
+    if (speed < -1 || speed > 1)
+    {
+        ROS_WARN_STREAM("ai_driver speed should be -1 < x < 1 but it is " << std::to_string(speed));
+    }
+    if (angle < -1 || angle > 1)
+    {
+        ROS_WARN_STREAM("ai_driver angle should be -1 < x < 1 but it is " << std::to_string(speed));
+    }
     publishDriveParameters(speed, angle);
 }
 
