@@ -4,9 +4,9 @@
     <arg name="nn_config_folder" default="/home/sami/dev/ros.package/ros_ws/src/autonomous/neuralnetwork/config" /> <!-- path where the config files are -->
     <arg name="nn_config_file" default="random.net" /> <!-- file in the config folder -->
     
-    <arg name="nn_training_generation_multiplier" default="2" />
+    <arg name="nn_training_generation_multiplier" default="10" />
     <arg name="nn_training_generation_best" default="2" />
-    <arg name="nn_training_learning_rate" default="0.5" />
+    <arg name="nn_training_learning_rate" default="0.2" />
     <arg name="nn_training_max_time" default="30" />
 
 

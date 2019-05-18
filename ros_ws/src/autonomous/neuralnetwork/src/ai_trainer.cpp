@@ -215,9 +215,9 @@ void AiTrainer::endTest()
 
     ros::Duration d = ros::Time::now() - m_time_start;
     ros::Time t = ros::Time(0) + d;
-    m_scores[m_net_index] = t.toSec() + m_speed_value * 10;
+    m_scores[m_net_index] = m_speed_value / t.toSec();
     m_running_test = false;
-    ROS_INFO_STREAM("test ended | generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_net_index) +
+    ROS_INFO_STREAM("generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_net_index) +
                     " | score: " + std::to_string(m_scores[m_net_index]));
     m_net_index++;
 }
@@ -229,6 +229,11 @@ void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
 
 void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
+    if (parameters->velocity < 0)
+    {
+        m_speed_value = 0;
+        update();
+    }
     m_speed_value += (double)parameters->velocity;
 }
 
