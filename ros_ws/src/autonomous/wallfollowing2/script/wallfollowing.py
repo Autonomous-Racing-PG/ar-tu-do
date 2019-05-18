@@ -80,6 +80,11 @@ def get_scan_as_cartesian():
         raise Exception("No scan has been received yet.")
 
     ranges = np.array(laser_scan.ranges)
+
+    inf_mask = np.isinf(ranges)
+    if inf_mask.any():
+        ranges = ranges[~inf_mask]
+
     angles = np.linspace(
         laser_scan.angle_min,
         laser_scan.angle_max,
