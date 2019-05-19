@@ -1,8 +1,8 @@
 #pragma once
 
-constexpr const unsigned int NUM_LAYERS = 4;
+constexpr const unsigned int NUM_LAYERS = 3;
 constexpr const unsigned int NUM_INPUT = 7;
-constexpr const unsigned int NUM_HIDDEN = 4;
+constexpr const unsigned int NUM_HIDDEN = 3;
 constexpr const unsigned int NUM_OUTPUT = 2;
 constexpr const unsigned int NET_ARGS[] = { NUM_INPUT, NUM_HIDDEN, NUM_OUTPUT };
 

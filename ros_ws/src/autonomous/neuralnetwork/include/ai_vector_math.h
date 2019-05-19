@@ -3,82 +3,51 @@
 #include <algorithm>
 #include <cstdlib>
 #include <vector>
+#include <eigen3/Eigen/Dense>
 
-inline void add(std::vector<fann_type>& a, std::vector<fann_type>& b)
+// vector operations
+// =======================================================================================
+
+// vector functions
+// =======================================================================================
+
+using namespace Eigen;
+
+inline VectorXd r_uniform_real_distribution(int size)
 {
-    for (uint i = 0; i < a.size(); i++)
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<> dis(-1, 1);
+    VectorXd vec(size);
+    for(int i = 0; i < size; i++)
     {
-        a[i] = a[i] + b[i];
-    }
-}
-
-inline void add(std::vector<fann_type>& a, fann_type b)
-{
-    for (uint i = 0; i < a.size(); i++)
-    {
-        a[i] = a[i] + b;
-    }
-}
-
-inline void mult(std::vector<fann_type>& a, std::vector<fann_type>& b)
-{
-    for (uint i = 0; i < a.size(); i++)
-    {
-        a[i] = a[i] * b[i];
-    }
-}
-
-inline void mult(std::vector<fann_type>& a, fann_type b)
-{
-    for (uint i = 0; i < a.size(); i++)
-    {
-        a[i] = a[i] * b;
-    }
-}
-
-inline void r_mult_all(std::vector<fann_type>& mult)
-{
-    for (uint i = 0; i < mult.size(); i++)
-    {
-        fann_type r = (fann_type)std::rand() / RAND_MAX;
-        fann_type b = rand() % 2 == 0 ? 1.0f : -1.0f;
-        mult[i] = r * b;
-    }
-}
-
-inline void r_mult_one(std::vector<fann_type>& mult)
-{
-    int i = std::rand() / (RAND_MAX / mult.size());
-    fann_type r = (fann_type)std::rand() / RAND_MAX;
-    fann_type b = rand() % 2 == 0 ? 1.0f : -1.0f;
-    mult[i] = r * b;
-}
-
-inline void r_mult_random_part(std::vector<fann_type>& mult)
-{
-    uint from = std::rand() / (RAND_MAX / mult.size());
-    uint to = std::rand() / (RAND_MAX / mult.size());
-    if (from > to)
-    {
-        uint tmp = from;
-        from = to;
-        to = tmp;
+        vec[i] = dis(gen);
     }
 
-    for (uint i = from; i < to; i++)
-    {
-        fann_type r = (fann_type)std::rand() / RAND_MAX;
-        fann_type b = rand() % 2 == 0 ? 1.0f : -1.0f;
-        mult[i] = r * b;
-    }
+    return vec;
 }
 
-inline std::vector<fann_type> random_vector(long size, fann_type rate, void (*f)(std::vector<fann_type>&))
+// creates a vector with n ones and (size - n) zeros
+inline VectorXd r_binary_mutation(int size, int n)
 {
-    std::vector<fann_type> vec(size);
-    srand(time(NULL));
-    f(vec);          // -1 < m[i] < 1
-    mult(vec, rate); // -scale < m[i] < scale
-    add(vec, 1.0f);  // 1-scale < m[i] < 1+scale
+    VectorXd vec = VectorXd::Zero(size);
+    for(int i = 0; i < size; )
+    {
+        
+    }
+    return vec;
+}
+
+inline VectorXd r_normal_distribution(int size)
+{
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::normal_distribution<> dis(-1, 1);
+    VectorXd vec(size);
+    for(int i = 0; i < size; i++)
+    {
+        vec[i] = dis(gen);
+    }
+
     return vec;
 }

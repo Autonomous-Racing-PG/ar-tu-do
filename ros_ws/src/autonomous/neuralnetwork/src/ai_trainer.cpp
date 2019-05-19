@@ -110,7 +110,7 @@ void AiTrainer::createNextGeneration()
         m_nets[big_i] = parent;
         big_i++;
 
-        // create parent mutations
+        // create mutations
         for (int i = 0; i < m_parameter_training_generation_multiplier; i++)
         {
             FANN::neural_net* child = new FANN::neural_net();
@@ -147,13 +147,15 @@ void AiTrainer::mutate(FANN::neural_net* net, fann_type rate)
     net->get_connection_array(connections);
 
     // creating random vector
-    std::vector<fann_type> mutation_delta = random_vector(size, rate, r_mult_one);
+    // ============================= mutation workspace ======
+    //std::vector<fann_type> mult_vec = 
 
+    // =======================================================
     // applying vector
-    for (int i = 0; i < size; i++)
-    {
-        connections[i].weight = connections[i].weight * mutation_delta[i];
-    }
+    //for (int i = 0; i < size; i++)
+    //{
+    //    connections[i].weight = connections[i].weight * mutation_delta[i];
+    //}
 }
 
 void AiTrainer::lapTimerCallback(const ros::TimerEvent&)

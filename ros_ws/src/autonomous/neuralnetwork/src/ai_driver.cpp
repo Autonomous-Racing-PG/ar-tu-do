@@ -1,7 +1,22 @@
 #include "ai_driver.h"
 
+#include "ai_vector_math.h"
+#include <eigen3/Eigen/Dense>
+
 AiDriver::AiDriver()
 {
+    // debug
+    int size = 10;
+    Eigen::VectorXd vec = r_binary_mutation(size, 6);
+    ROS_INFO_STREAM("======================================================== test output");
+    for(int i = 0; i < 10; i++)
+    {
+        ROS_INFO_STREAM(std::to_string(vec[i]));
+    }
+    // ***********
+    ROS_INFO_STREAM("========================================================");
+
+
     ros::NodeHandle private_node_handle("~");
 
     std::string config_folder;
