@@ -19,6 +19,7 @@ from simulation_tools.track import track
 
 from gazebo_msgs.msg import ModelStates
 
+BATCH_INDICES = torch.arange(0, BATCH_SIZE, device=device, dtype=torch.long)
 
 class QLearningTrainingNode(QLearningNode):
     def __init__(self):
@@ -57,13 +58,13 @@ class QLearningTrainingNode(QLearningNode):
         rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
 
     def replay(self):
-        if len(self.memory) < 500:
+        if len(self.memory) < 500 or len(self.memory) < BATCH_SIZE:
             return
 
         if self.optimization_step_count == 0:
             rospy.loginfo("Model optimization started.")
 
-        transitions = random.sample(self.memory, min(BATCH_SIZE, len(self.memory)))  # nopep8
+        transitions = random.sample(self.memory, BATCH_SIZE)  # nopep8
         states, actions, rewards, next_states, is_terminal = tuple(zip(*transitions))  # nopep8
 
         states = torch.stack(states)
@@ -79,11 +80,7 @@ class QLearningTrainingNode(QLearningNode):
 
         self.optimizer.zero_grad()
         net_output = self.policy.forward(states)
-        target = net_output.detach().clone()
-        numbers = torch.arange(0, len(transitions), device=device, dtype=torch.long)  # nopep8
-        target[numbers, actions] = q_updates
-
-        loss = F.smooth_l1_loss(net_output, target)
+        loss = F.smooth_l1_loss(net_output[BATCH_INDICES, actions], q_updates)
         loss.backward()
         for param in self.policy.parameters():
             param.grad.data.clamp_(-1, 1)
