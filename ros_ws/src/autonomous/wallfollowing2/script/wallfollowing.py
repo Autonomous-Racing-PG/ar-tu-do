@@ -21,7 +21,7 @@ SLOW = 0.2
 FAST = 1.0
 
 RADIUS_SMALL = 0
-RADIUS_BIG = 30
+RADIUS_BIG = 40
 
 ERROR_SPEED_DECREASE = 4
 ERROR_DEAD_ZONE = 0.15
@@ -80,6 +80,11 @@ def get_scan_as_cartesian():
         raise Exception("No scan has been received yet.")
 
     ranges = np.array(laser_scan.ranges)
+
+    inf_mask = np.isinf(ranges)
+    if inf_mask.any():
+        ranges = ranges[~inf_mask]
+
     angles = np.linspace(
         laser_scan.angle_min,
         laser_scan.angle_max,
