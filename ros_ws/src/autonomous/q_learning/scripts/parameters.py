@@ -15,12 +15,13 @@ TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
 # General parameters
 
-ACTIONS = [(-0.5, 0.2), (0.5, 0.2)]
+ACTIONS = [(0.9, 0.2), (0.5, 0.25), (0.25, 0.3), (0.0, 0.35), (0.0, 0.6)]
+ACTIONS += [(-steering, throttle) for steering, throttle in ACTIONS if steering != 0]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
 # When changing this value, also update laser_sample_count in qlearning.launch
-LASER_SAMPLE_COUNT = 64
+LASER_SAMPLE_COUNT = 32
 
 MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
 
@@ -66,4 +67,4 @@ LEARNING_RATE = 0.001
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 1.0
 EPS_END = 0.1
-EPS_DECAY = 10000
+EPS_DECAY = 20000

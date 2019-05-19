@@ -110,13 +110,16 @@ class QLearningTrainingNode(QLearningNode):
     def get_reward(self):
         track_position = track.localize(self.car_position)
         distance = abs(track_position.distance_to_center)
-
+        
         if distance < 0.2:
-            return 1
+            reward = 1
         elif distance < 0.4:
-            return 0.7
+            reward = 0.7
         else:
-            return 0.4
+            reward = 0.4
+
+        reward += self.throttle_history[-1]**2 * (1 if distance < 0.4 else -1)
+        return reward
 
     def log_training_progress(self):
         average_episode_length = sum(
@@ -133,7 +136,7 @@ class QLearningTrainingNode(QLearningNode):
             + "q: [" + self.net_output_debug_string + "], "  # nopep8 \
             + "time: {0:.1f}x, ".format(self.real_time_factor)  # nopep8 \
             + "laser: {0:.1f} Hz".format(float(self.episode_length) / (rospy.Time.now().to_sec() - self.episode_start_time_sim))  # nopep8 \
-            )  # nopep8
+        )  # nopep8
 
     def on_complete_episode(self):
         self.episode_length_history.append(self.episode_length)
@@ -166,7 +169,7 @@ class QLearningTrainingNode(QLearningNode):
         else:
             self.steps_with_wrong_orientation = 0
         
-        if self.steps_with_wrong_orientation > 2:
+        if self.steps_with_wrong_orientation > 10:
             self.is_terminal_step = True
 
     def on_receive_laser_scan(self, message):
@@ -181,8 +184,8 @@ class QLearningTrainingNode(QLearningNode):
         if self.is_terminal_step or self.episode_length >= MAX_EPISODE_LENGTH:
             self.drive_forward = random.random() > 0.5
             reset_car.reset_random(
-                max_angle=math.pi / 180 * 20,
-                max_offset_from_center=0.2,
+                max_angle=math.pi / 180 * 30,
+                max_offset_from_center=0.1,
                 forward=self.drive_forward)
             self.is_terminal_step = False
             self.state = None
