@@ -19,7 +19,7 @@ class QLearningDrivingNode(QLearningNode):
             exit(1)
 
     def on_receive_laser_scan(self, message):
-        state = self.convert_laser_message_to_tensor(message)
+        state = self.get_state(message)
 
         with torch.no_grad():
             action = self.policy(state).max(0)[1].item()
