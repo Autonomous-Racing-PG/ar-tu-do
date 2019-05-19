@@ -50,7 +50,7 @@ class QLearningNode():
 
         values = [message.ranges[i] for i in scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
-        return torch.tensor(values, device=device)
+        return torch.tensor(values, device=device, dtype = torch.float)
 
     def get_state(self, laser_message):
         scan = self.convert_laser_message_to_tensor(laser_message)
