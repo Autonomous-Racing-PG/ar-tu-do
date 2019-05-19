@@ -21,7 +21,7 @@
 
   <param name="robot_description" textfile="$(find car_cartographer)/files/racer.urdf" />
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /-->
 
   <group if="$(eval ros_version=='kinetic')">
     <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="

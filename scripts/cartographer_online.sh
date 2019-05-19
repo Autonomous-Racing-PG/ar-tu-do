@@ -15,13 +15,12 @@ echo "Recording topics & building map... " | tee -a $logpath
 rosbag record -j -O ros_ws/src/navigation_stack/car_cartographer/files/recording.bag scan imu tf __name:=rosbag_recording 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath &
 roslaunch car_cartographer cartographer_online.launch ros_version:=$ROS_DISTRO 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath &
 echo "Please drive with the car now (1.5 laps minimum, 3-5 laps recommended)."
-read -p "Press RETURN to stop recording."
+read -p "Press RETURN to stop recording and finalize map."
 rosservice call /finish_trajectory 0 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
 rosservice call /write_state "{filename: '$currentdir/ros_ws/src/navigation_stack/car_cartographer/files/recording.bag.pbstream'}" | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
 rosnode kill /rosbag_recording 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
 rosnode kill /cartographer_node 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
 rosnode kill /rviz_cartographer 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
-wait
 echo "Stopped recording. Done." | tee -a $logpath
 
 if [ $ROS_DISTRO == "melodic" ] ; then
