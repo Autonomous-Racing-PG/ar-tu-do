@@ -1,8 +1,10 @@
 #include "joystick_controller.h"
 
 #include <ros/console.h>
+#include <std_msgs/Int64.h>
 #include <std_msgs/Time.h>
-using std::abs;
+
+#include <teleoperation/joystick_controllerConfig.h>
 
 /**
  * @brief Construct a new Remote Joy:: Remote Joy object
@@ -20,6 +22,19 @@ JoystickController::JoystickController()
     this->selectJoystickMapping();
     this->m_acceleration_locked = true;
     this->m_deceleration_locked = true;
+
+    this->updateDynamicConfig();
+    m_dyn_cfg_server.setCallback([&](teleoperation::joystick_controllerConfig& cfg, uint32_t) {
+        m_joystick_map.steeringAxis = cfg.joystick_steering_axis;
+        m_joystick_map.accelerationAxis = cfg.joystick_acceleration_axis;
+        m_joystick_map.decelerationAxis = cfg.joystick_deceleration_axis;
+        m_joystick_map.enableManualButton = cfg.joystick_enable_manual_button;
+        m_joystick_map.enableAutonomousButton = cfg.joystick_enable_autonomous_button;
+
+        m_acceleration_scaling_factor = cfg.acceleration_scaling_factor;
+        m_deceleration_scaling_factor = cfg.deceleration_scaling_factor;
+        m_steering_scaling_factor = cfg.steering_scaling_factor;
+    });
 }
 
 std_msgs::Time createHearbeatMessage()
@@ -31,6 +46,17 @@ std_msgs::Time createHearbeatMessage()
 
 void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joystick)
 {
+    ROS_ASSERT_MSG(m_joystick_map.accelerationAxis < joystick->axes.size(),
+                   "Invalid index access on joystick axis array");
+    ROS_ASSERT_MSG(m_joystick_map.decelerationAxis < joystick->axes.size(),
+                   "Invalid index access on joystick axis array");
+    ROS_ASSERT_MSG(m_joystick_map.steeringAxis < joystick->axes.size(), "Invalid index access on joystick axis array");
+
+    ROS_ASSERT_MSG(m_joystick_map.enableManualButton < joystick->buttons.size(),
+                   "Invalid index access on joystick button array");
+    ROS_ASSERT_MSG(m_joystick_map.enableAutonomousButton < joystick->buttons.size(),
+                   "Invalid index access on joystick button array");
+
     if (joystick->buttons[m_joystick_map.enableManualButton] == 1)
     {
         this->m_enable_manual_publisher.publish(createHearbeatMessage());
@@ -41,8 +67,8 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
     }
 
     // compute and publish the provided steering and velocity
-    float acceleration = (joystick->axes[m_joystick_map.accelerationAxis] - 1) * -0.5f * ACCELERATION_SCALING_FACTOR;
-    float deceleration = (joystick->axes[m_joystick_map.decelerationAxis] - 1) * -0.5f * DECELERATION_SCALING_FACTOR;
+    float acceleration = (joystick->axes[m_joystick_map.accelerationAxis] - 1) * -0.5f * m_acceleration_scaling_factor;
+    float deceleration = (joystick->axes[m_joystick_map.decelerationAxis] - 1) * -0.5f * m_deceleration_scaling_factor;
 
     if (this->m_acceleration_locked)
     {
@@ -69,7 +95,7 @@ void JoystickController::joystickCallback(const sensor_msgs::Joy::ConstPtr& joys
 
     float velocity = acceleration - deceleration;
 
-    float steering_angle = joystick->axes[m_joystick_map.steeringAxis] * -1.0f * STEERING_SCALING_FACTOR;
+    float steering_angle = joystick->axes[m_joystick_map.steeringAxis] * -1.0f * m_steering_scaling_factor;
 
     ROS_ASSERT_MSG(velocity >= -1.0f && velocity <= 1.0f, "Velocity should be between -1 and 1");
     ROS_ASSERT_MSG(steering_angle >= -1.0f && steering_angle <= 1.0f, "Steering angle should be between -1 and 1");
@@ -110,6 +136,24 @@ void JoystickController::selectJoystickMapping()
         ROS_INFO_STREAM(PARAMETER_JOYSTICK_TYPE << " : " << joystick_type);
         m_joystick_map = joystick_mapping_xbox360;
     }
+    this->updateDynamicConfig();
+}
+
+void JoystickController::updateDynamicConfig()
+{
+    teleoperation::joystick_controllerConfig cfg;
+    {
+        cfg.joystick_steering_axis = m_joystick_map.steeringAxis;
+        cfg.joystick_acceleration_axis = m_joystick_map.accelerationAxis;
+        cfg.joystick_deceleration_axis = m_joystick_map.decelerationAxis;
+        cfg.joystick_enable_manual_button = m_joystick_map.enableManualButton;
+        cfg.joystick_enable_autonomous_button = m_joystick_map.enableAutonomousButton;
+
+        cfg.acceleration_scaling_factor = m_acceleration_scaling_factor;
+        cfg.deceleration_scaling_factor = m_deceleration_scaling_factor;
+        cfg.steering_scaling_factor = m_steering_scaling_factor;
+    }
+    m_dyn_cfg_server.updateConfig(cfg);
 }
 
 int main(int argc, char** argv)

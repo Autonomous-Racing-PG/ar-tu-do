@@ -19,5 +19,6 @@
   <depend>rospy</depend>
   <depend>std_msgs</depend>
   <depend>joy</depend>
+  <depend>dynamic_reconfigure</depend>
 
 </package>
