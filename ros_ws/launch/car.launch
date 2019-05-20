@@ -10,6 +10,10 @@
 
     <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
     
+    <rosparam command="load" file="$(find vesc_sim)/config/car_config.yaml"/>
+
+    <include file="$(find vesc_ackermann)/launch/vesc_to_odom_node.launch"/>
+
     <!-- Passing parameters to the vesc_to_odom node doesn't currently work-->
     <!--<node pkg="vesc_ackermann" type="vesc_to_odom_node" name="vesc_to_odom_node"
         output="screen" launch-prefix="" >
