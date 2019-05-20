@@ -5,7 +5,7 @@ Launches all necessary nodes that listen for drive_parameters and translate them
 -->
     <arg name="mode_override" default="0"/>
     <arg name="dms_check_rate" default="20" /> <!-- in Hz -->
-    <arg name="dms_expiration" default="100" /> <!-- in ms -->
+    <arg name="dms_expiration" default="200" /> <!-- in ms -->
 	
     <!-- car control node -->
     <node
