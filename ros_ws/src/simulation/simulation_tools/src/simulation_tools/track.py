@@ -9,6 +9,7 @@ Point = namedtuple("Point", ["x", "y"])
 
 
 class TrackPosition():
+
     def __init__(self, segment, x, y, point, track):
         self.point = point
         self.segment = segment
@@ -31,6 +32,7 @@ class TrackPosition():
 
 
 class Track():
+
     def __init__(self, points):
         self.points = points[:-1, :]
         self.size = points.shape[0] - 1

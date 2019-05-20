@@ -22,6 +22,7 @@ MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
 
 
 class NeuralQEstimator(nn.Module):
+
     def __init__(self):
         super(NeuralQEstimator, self).__init__()
         self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 64)

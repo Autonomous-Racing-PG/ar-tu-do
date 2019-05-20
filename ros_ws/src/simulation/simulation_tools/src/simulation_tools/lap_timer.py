@@ -18,6 +18,7 @@ def format_duration(duration):
 
 
 class Area():
+
     def __init__(self, center, extents):
         self.center = center
         self.extents = extents
@@ -28,6 +29,7 @@ class Area():
 
 
 class Timer():
+
     def __init__(self, name, checkpoints):
         self.name = name
         self.checkpoints = checkpoints
