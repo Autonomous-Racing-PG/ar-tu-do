@@ -21,6 +21,7 @@
 - [Include guard](#include-guard)
 - [Documentation](#documentation)
 - [Comments](#comments)
+    - [Function summary](#function-summary)
 - [Text output](#text-output)
 - [Macros](#macros)
 - [Preprocessor directives](#preprocessor-directives)
@@ -35,6 +36,7 @@
 - [Magic Numbers](#magic-numbers)
 - [Assertions](#assertions)
 - [Deprecation](#deprecation)
+- [Main function](#main-function)
 - [Zero cost abstraction](#zero-cost-abstraction)
 
 <!-- /MarkdownTOC -->
@@ -385,6 +387,11 @@ for (auto& item_length : lengths) {
 Comments SHOULD NOT be used to structure the code.
 Instead of separating a long function with comments, it SHOULD be split into multiple shorter functions.
 
+<a id="function-summary"></a>
+## Function summary
+
+You SHOULD only add a summary to the declaration of a function.
+
 <a id="text-output"></a>
 # Text output
 
@@ -653,6 +660,11 @@ or
 #pragma GCC error "Class MyClass was removed in Version 2.0"
 // Here was once a class called MyClass
 ```
+
+<a id="main-function"></a>
+# Main function
+
+The `main` function of a program SHOULD be in a seperate `.c`/`.cpp` file.
 
 <a id="zero-cost-abstraction"></a>
 # Zero cost abstraction
