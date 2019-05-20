@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import ColorRGBA
+from std_msgs.msg import ColorRGBA, Float64
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
 
@@ -16,6 +16,7 @@ import numpy as np
 
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_LASER_SCAN = "/scan"
+TOPIC_LEAN = "/input/lean"
 
 SLOW = 0.2
 FAST = 1.0
@@ -33,7 +34,7 @@ MAX_ACCELERATION = 0.5
 PREDICTION_DISTANCE = 1.4
 
 last_speed = 0
-
+lean_param = 0.5
 
 class PIDController():
     def __init__(self, p, i, d, anti_windup=0.2):
@@ -74,6 +75,9 @@ def laser_callback(message):
     global laser_scan
     laser_scan = message
 
+def lean_callback(message):
+    global lean_param
+    lean_param = message.data
 
 def get_scan_as_cartesian():
     if laser_scan is None:
@@ -114,8 +118,8 @@ def follow_walls(left_circle, right_circle):
     right_point = right_circle.get_closest_point(predicted_car_position)
 
     target_position = Point(
-        (left_point.x + right_point.x) / 2,
-        (left_point.y + right_point.y) / 2)
+        (1 - lean_param) * left_point.x + lean_param * right_point.x,
+        (1 - lean_param) * left_point.y + lean_param * right_point.y)
     error = target_position.x - predicted_car_position.x
     if math.isnan(error) or math.isinf(error):
         error = 0
@@ -166,6 +170,7 @@ def handle_scan():
 laser_scan = None
 
 rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
+rospy.Subscriber(TOPIC_LEAN, Float64, lean_callback)
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
 
