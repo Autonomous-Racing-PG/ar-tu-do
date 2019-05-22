@@ -4,8 +4,7 @@ odom_frame_id: "odom"
 #base_frame_id: "base_footprint"
 global_frame_id: "map"
 
-odom_model_type: "diff"
-odom_alpha5: 0.1
+odom_model_type: "diff-corrected"
 gui_publish_rate: 10.0
 laser_max_beams: 60
 laser_max_range: 12.0
@@ -13,10 +12,11 @@ min_particles: 500
 max_particles: 2000
 kld_err: 0.05
 kld_z: 0.99
-odom_alpha1: 0.2
-odom_alpha2: 0.2
-odom_alpha3: 0.2
-odom_alpha4: 0.2
+odom_alpha1: 0.005
+odom_alpha2: 0.005
+odom_alpha3: 0.010
+odom_alpha4: 0.005
+odom_alpha5: 0.003
 laser_z_hit: 0.5
 aser_z_short: 0.05
 laser_z_max: 0.05
