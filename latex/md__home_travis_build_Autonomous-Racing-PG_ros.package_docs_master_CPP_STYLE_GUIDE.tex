@@ -31,6 +31,9 @@
 \item \href{#include-guard}{\tt Include guard}
 \item \href{#documentation}{\tt Documentation}
 \item \href{#comments}{\tt Comments}
+\begin{DoxyItemize}
+\item \href{#function-summary}{\tt Function summary}
+\end{DoxyItemize}
 \item \href{#text-output}{\tt Text output}
 \item \href{#macros}{\tt Macros}
 \item \href{#preprocessor-directives}{\tt Preprocessor directives}
@@ -47,6 +50,7 @@
 \item \href{#magic-numbers}{\tt Magic Numbers}
 \item \href{#assertions}{\tt Assertions}
 \item \href{#deprecation}{\tt Deprecation}
+\item \href{#main-function}{\tt Main function}
 \item \href{#zero-cost-abstraction}{\tt Zero cost abstraction}
 \end{DoxyItemize}
 
@@ -420,6 +424,10 @@ Comments S\+H\+O\+U\+LD explain why something is done, not what is being done. T
 
 Comments S\+H\+O\+U\+LD N\+OT be used to structure the code. Instead of separating a long function with comments, it S\+H\+O\+U\+LD be split into multiple shorter functions.
 
+\subsection*{Function summary}
+
+You S\+H\+O\+U\+LD only add a summary to the declaration of a function.
+
 \section*{Text output}
 
 You S\+H\+O\+U\+LD N\+OT use {\ttfamily printf} or {\ttfamily std\+::cout}, instead use \href{http://wiki.ros.org/rosconsole}{\tt rosconsole} as it supports\+:
@@ -690,6 +698,10 @@ You S\+H\+O\+U\+LD use {\ttfamily \#pragma G\+CC warning \char`\"{}\+M\+S\+G\cha
 3 // Here was once a class called MyClass
 \end{DoxyCode}
 
+
+\section*{Main function}
+
+The {\ttfamily main} function of a program S\+H\+O\+U\+LD be in a seperate {\ttfamily .c}/{\ttfamily .cpp} file.
 
 \section*{Zero cost abstraction}
 
