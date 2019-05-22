@@ -3,12 +3,14 @@
 #   Cartographer Offline Script
 #   Must be run in the ros.package directory
 #
-currentdir=$(pwd)
-logpath=$currentdir/ros_ws/src/navigation_stack/car_cartographer/files/cartographer.log
+scriptdir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+logpath=$scriptdir/../ros_ws/src/navigation_stack/car_cartographer/files/cartographer.log
 
-echo -n "Creating .urdf file... " | tee $logpath
+source $scriptdir/../ros_ws/devel/setup.bash
+
+echo -n "Create .urdf file... " | tee $logpath
 echo "" >> $logpath
-xacro -o $currentdir/ros_ws/src/navigation_stack/car_cartographer/files/racer.urdf --inorder $currentdir/ros_ws/src/simulation/racer_description/urdf/racer.xacro use_gpu:=true visualize_lidar:=true 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
+xacro -o $scriptdir/../ros_ws/src/navigation_stack/car_cartographer/files/racer.urdf --inorder $scriptdir/../ros_ws/src/simulation/racer_description/urdf/racer.xacro use_gpu:=true visualize_lidar:=true 2>&1 | sed -r "s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g" >> $logpath
 echo "Done." | tee -a $logpath
 
 if [ $ROS_DISTRO == "kinetic" ] ; then
