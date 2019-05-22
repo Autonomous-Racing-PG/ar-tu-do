@@ -9,6 +9,7 @@
     <arg name="use_gpu" default="true"/>
     <arg name="joystick_type" default="xbox360"/>
     <arg name="visualize_lidar" default="false"/>
+    <arg name="emergency_stop" default="true"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -32,7 +33,10 @@
 
     <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="screen"/>
     <include file="$(find wallfollowing2)/launch/autonomous_driving.launch"/>
-    <include file="$(find emergency_stop)/launch/emergency_stop.launch"/>
+
+    <group if="$(arg emergency_stop)">
+        <include file="$(find emergency_stop)/launch/emergency_stop.launch"/>
+    </group>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch">
