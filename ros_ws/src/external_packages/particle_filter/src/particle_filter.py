@@ -173,14 +173,13 @@ class ParticleFiler():
         #        stamp , "/laser", "/map")
 
         # also publish odometry to facilitate getting the localization pose
-        #if self.PUBLISH_ODOM:
-        if None:
-            odom = Odometry()
-            odom.header = Utils.make_header("/map", stamp)
-            odom.pose.pose.position.x = pose[0]
-            odom.pose.pose.position.y = pose[1]
-            odom.pose.pose.orientation = Utils.angle_to_quaternion(pose[2])
-            self.odom_pub.publish(odom)
+        # if self.PUBLISH_ODOM:
+            # odom = Odometry()
+            # odom.header = Utils.make_header("/map", stamp)
+            # odom.pose.pose.position.x = pose[0]
+            # odom.pose.pose.position.y = pose[1]
+            # odom.pose.pose.orientation = Utils.angle_to_quaternion(pose[2])
+            # self.odom_pub.publish(odom)
         
         # Everything below is not optimized yet.
 
@@ -191,7 +190,7 @@ class ParticleFiler():
         )
 
         # Get laser -> odom transform.
-        #self.sub_tf.waitForTransform("laser", "odom", rospy.Time(), rospy.Duration(3)) # (unnecessary?) slowdown
+        # self.sub_tf.waitForTransform("laser", "odom", rospy.Time(), rospy.Duration(3)) # (unnecessary?) slowdown
         laser_odom_transform = self.sub_tf.lookupTransform("laser", "odom", rospy.Time())
         laser_odom_matrix = tf.transformations.compose_matrix(
             translate = laser_odom_transform[0],
