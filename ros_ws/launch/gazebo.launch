@@ -32,6 +32,7 @@
 
     <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="screen"/>
     <include file="$(find wallfollowing2)/launch/autonomous_driving.launch"/>
+    <include file="$(find emergency_stop)/launch/emergency_stop.launch"/>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch">
