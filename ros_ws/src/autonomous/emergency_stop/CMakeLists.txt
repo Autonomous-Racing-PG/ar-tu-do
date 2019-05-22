@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(wallfollowing1)
+project(emergency_stop)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -36,7 +36,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# wall following node 
-add_executable(wall_following src/wall_following.cpp src/pid_controller.cpp src/rviz_geometry_publisher.cpp src/wall.cpp)
-target_link_libraries(wall_following ${catkin_LIBRARIES})
-add_dependencies(wall_following ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# emergency stop node
+add_executable(emergency_stop src/emergency_stop.cpp)
+target_link_libraries(emergency_stop ${catkin_LIBRARIES})
+add_dependencies(emergency_stop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
