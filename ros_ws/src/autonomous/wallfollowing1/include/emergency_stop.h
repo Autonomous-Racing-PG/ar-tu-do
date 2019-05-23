@@ -7,15 +7,14 @@
 
 #include "drive_msgs/drive_param.h"
 #include "sensor_msgs/LaserScan.h"
-#include "std_msgs/Bool.h"
-#include "std_msgs/Float64.h"
+#include <chrono>
 #include <ros/console.h>
 #include <ros/ros.h>
 
 constexpr float DEG_TO_RAD = M_PI / 180.0;
 
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
-constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
+constexpr const char* TOPIC_EMERGENCY_STOP = "/input/emergencystop";
 
 constexpr float RANGE_THRESHOLD = 0.7;
 constexpr const float CAR_BUMPER_LENGTH = 0.2;

@@ -1,10 +1,11 @@
 #include "emergency_stop.h"
+#include <std_msgs/Int64.h>
 
 EmergencyStop::EmergencyStop()
 {
     m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &EmergencyStop::lidarCallback, this);
-    m_emergency_stop_publisher = m_node_handle.advertise<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1);
+    m_emergency_stop_publisher = m_node_handle.advertise<std_msgs::Int64>(TOPIC_EMERGENCY_STOP, 1);
 }
 
 bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
@@ -44,13 +45,15 @@ void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     if (emergency_stop_active)
     {
         ROS_INFO_STREAM("Wall detected. Emergency stop is active.");
-    }
 
-    std_msgs::Bool message;
-    {
-        message.data = emergency_stop_active;
+        auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+        auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+
+        std_msgs::Int64 message;
+        message.data = time_since_epoch.count();
+
+        m_emergency_stop_publisher.publish(message);
     }
-    m_emergency_stop_publisher.publish(message);
 }
 
 int main(int argc, char** argv)
