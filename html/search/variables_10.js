@@ -12,6 +12,7 @@ var searchData=
   ['topic_5fdrive_5fparameters_5fjoystick',['TOPIC_DRIVE_PARAMETERS_JOYSTICK',['../drive__parameters__multiplexer_8h.html#acad3ffcfaa48058df12450d859be316f',1,'drive_parameters_multiplexer.h']]],
   ['topic_5fdrive_5fparameters_5fkeyboard',['TOPIC_DRIVE_PARAMETERS_KEYBOARD',['../drive__parameters__multiplexer_8h.html#a88a4d0018c305262ad30809f4cf48b49',1,'drive_parameters_multiplexer.h']]],
   ['topic_5femergency_5fstop',['TOPIC_EMERGENCY_STOP',['../emergency__stop_8h.html#a1f6b8d64fcb3748f9c9284f063015c77',1,'TOPIC_EMERGENCY_STOP():&#160;emergency_stop.h'],['../wall__following_8h.html#a1f6b8d64fcb3748f9c9284f063015c77',1,'TOPIC_EMERGENCY_STOP():&#160;wall_following.h']]],
+  ['topic_5femergencystop',['TOPIC_EMERGENCYSTOP',['../dms__controller_8h.html#ae1984ee7f2a753879b8df06edc8d777b',1,'dms_controller.h']]],
   ['topic_5ffocbox_5fangle',['TOPIC_FOCBOX_ANGLE',['../car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7',1,'car_controller.h']]],
   ['topic_5ffocbox_5fbrake',['TOPIC_FOCBOX_BRAKE',['../car__controller_8h.html#a43c2621ae66c8cc9428026d680ed4fcb',1,'car_controller.h']]],
   ['topic_5ffocbox_5fspeed',['TOPIC_FOCBOX_SPEED',['../car__controller_8h.html#a913c683c9209599c259aaebae91b557e',1,'car_controller.h']]],
