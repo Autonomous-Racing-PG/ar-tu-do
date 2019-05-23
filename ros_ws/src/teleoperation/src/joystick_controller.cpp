@@ -1,7 +1,7 @@
 #include "joystick_controller.h"
 
 #include <ros/console.h>
-#include <std_msgs/Int64.h>
+#include <std_msgs/Time.h>
 using std::abs;
 
 /**
@@ -11,8 +11,8 @@ JoystickController::JoystickController()
 {
     this->m_drive_parameter_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1);
-    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
+    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Time>(TOPIC_HEARTBEAT_MANUAL, 1);
+    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Time>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
 
     this->m_joystick_subscriber =
         this->m_node_handle.subscribe<sensor_msgs::Joy>("joy", 10, &JoystickController::joystickCallback, this);
@@ -22,13 +22,10 @@ JoystickController::JoystickController()
     this->m_deceleration_locked = true;
 }
 
-std_msgs::Int64 createHearbeatMessage()
+std_msgs::Time createHearbeatMessage()
 {
-    auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
-    auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-
-    std_msgs::Int64 message;
-    message.data = time_since_epoch.count();
+    std_msgs::Time message;
+    message.data = ros::Time::now();
     return message;
 }
 
