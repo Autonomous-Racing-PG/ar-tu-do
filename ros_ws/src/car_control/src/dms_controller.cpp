@@ -37,7 +37,7 @@ DriveMode DMSController::getDriveMode()
     }
 
     auto current_time = std::chrono::steady_clock::now();
-    if (this->m_last_emergencystop + this->m_emergencystop_exploration_time > current_time)
+    if (this->m_last_emergencystop + this->m_emergencystop_expiration_time > current_time)
     {
         return DriveMode::LOCKED;
     }
@@ -102,15 +102,15 @@ void DMSController::configureParameters()
     this->m_expiration_time = std::chrono::duration<double>(expiration_ms / 1000.0);
 
     // configure emergency stop exploration time
-    int emergencystop_exploration_time;
-    private_node_handle.getParam(PARAMETER_EMERGENCYSTOP_EXPIRATION, emergencystop_exploration_time);
-    if (emergencystop_exploration_time <= 0 || emergencystop_exploration_time > 10000)
+    int emergencystop_expiration_time;
+    private_node_handle.getParam(PARAMETER_EMERGENCYSTOP_EXPIRATION, emergencystop_expiration_time);
+    if (emergencystop_expiration_time <= 0 || emergencystop_expiration_time > 10000)
     {
         ROS_WARN_STREAM("emergencystop_expiration should be between 0 and 10000. Your value: "
-                        << emergencystop_exploration_time << ", using default: 3000.");
-        emergencystop_exploration_time = 3000;
+                        << emergencystop_expiration_time << ", using default: 3000.");
+        emergencystop_expiration_time = 3000;
     }
-    this->m_emergencystop_exploration_time = std::chrono::duration<double>(emergencystop_exploration_time / 1000.0);
+    this->m_emergencystop_expiration_time = std::chrono::duration<double>(emergencystop_expiration_time / 1000.0);
 
     // configure mode override parameter
     int mode_override_parameter;

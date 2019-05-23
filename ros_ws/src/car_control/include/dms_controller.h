@@ -41,7 +41,7 @@ class DMSController
     /**
      * @brief How long the dead man's switch blocks all inputs, after receving an emergency stop message
      */
-    std::chrono::duration<double> m_emergencystop_exploration_time;
+    std::chrono::duration<double> m_emergencystop_expiration_time;
 
     std::chrono::steady_clock::time_point m_last_heartbeat_manual;
     std::chrono::steady_clock::time_point m_last_heartbeat_autonomous;
