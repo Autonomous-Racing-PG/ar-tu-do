@@ -1,6 +1,5 @@
 var dir_cf089c3fc3119e33e3acf7c51e4d091c =
 [
-    [ "emergency_stop.h", "emergency__stop_8h.html", "emergency__stop_8h" ],
     [ "pid_controller.h", "pid__controller_8h.html", [
       [ "PIDController", "class_p_i_d_controller.html", "class_p_i_d_controller" ]
     ] ],
