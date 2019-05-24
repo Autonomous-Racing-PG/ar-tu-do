@@ -1,7 +1,7 @@
 #include "keyboard_controller.h"
 #include <boost/algorithm/clamp.hpp>
 #include <cmath>
-#include <std_msgs/Int64.h>
+#include <std_msgs/Time.h>
 
 double map(double value, double in_lower, double in_upper, double out_lower, double out_upper)
 {
@@ -20,8 +20,8 @@ KeyboardController::KeyboardController()
 
     this->m_drive_parameters_publisher =
         this->m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
-    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_MANUAL, 1);
-    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Int64>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
+    this->m_enable_manual_publisher = this->m_node_handle.advertise<std_msgs::Time>(TOPIC_HEARTBEAT_MANUAL, 1);
+    this->m_enable_autonomous_publisher = this->m_node_handle.advertise<std_msgs::Time>(TOPIC_HEARTBEAT_AUTONOMOUS, 1);
     this->m_drive_mode_subscriber =
         this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1, &KeyboardController::driveModeCallback,
                                                        this);
@@ -130,13 +130,10 @@ void KeyboardController::timerCallback(const ros::TimerEvent& event)
     this->updateDeadMansSwitch();
 }
 
-std_msgs::Int64 createHearbeatMessage()
+std_msgs::Time createHearbeatMessage()
 {
-    auto now = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
-    auto time_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-
-    std_msgs::Int64 message;
-    message.data = time_since_epoch.count();
+    std_msgs::Time message;
+    message.data = ros::Time::now();
     return message;
 }
 
