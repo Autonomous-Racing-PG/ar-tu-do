@@ -37,14 +37,14 @@ DriveMode DMSController::getDriveMode()
     }
 
     auto current_time = ros::Time::now();
+    if (this->m_last_heartbeat_manual + this->m_expiration_time > current_time)
+    {
+        return DriveMode::MANUAL;
+    }
     if (!this->m_last_emergencystop.is_zero() &&
         this->m_last_emergencystop + this->m_emergencystop_expiration_time > current_time)
     {
         return DriveMode::LOCKED;
-    }
-    if (this->m_last_heartbeat_manual + this->m_expiration_time > current_time)
-    {
-        return DriveMode::MANUAL;
     }
     if (this->m_last_heartbeat_autonomous + this->m_expiration_time > current_time)
     {
