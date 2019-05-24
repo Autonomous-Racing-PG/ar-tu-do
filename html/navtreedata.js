@@ -39,7 +39,7 @@ var NAVTREEINDEX =
 [
 "____init_____8py.html",
 "drive__parameters__multiplexer_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627",
-"speedometer_8py.html#af7706082fba920fe977bdb0e4dd464f8"
+"speedometer_8py_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

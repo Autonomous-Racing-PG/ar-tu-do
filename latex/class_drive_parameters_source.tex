@@ -7,7 +7,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_drive_parameters_source_ab14e32856e8a672539b1b3ea9e511d0a}{Drive\+Parameters\+Source} (ros\+::\+Node\+Handle $\ast$node\+\_\+handle, const char $\ast$topic, \hyperlink{drive__parameters__source_8h_a87328cd02ddd6c83ff6d4943cf8a93c2}{Drive\+Parameter\+Callback\+Function} update\+\_\+callback, \hyperlink{drive__mode_8h_a4430ce18ab45f139e6843ac0811fda83}{Drive\+Mode} drive\+\_\+mode, double timeout)
+\hyperlink{class_drive_parameters_source_a4854d2f3c78f8426d267028cd6491a4e}{Drive\+Parameters\+Source} (ros\+::\+Node\+Handle $\ast$node\+\_\+handle, const char $\ast$topic, \hyperlink{drive__parameters__source_8h_a87328cd02ddd6c83ff6d4943cf8a93c2}{Drive\+Parameter\+Callback\+Function} update\+\_\+callback, \hyperlink{drive__mode_8h_a4430ce18ab45f139e6843ac0811fda83}{Drive\+Mode} drive\+\_\+mode, ros\+::\+Duration timeout)
 \begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{class_drive_parameters_source}{Drive\+Parameters\+Source} object, subscribes to the topic and stores the parameters into local variables. \end{DoxyCompactList}\item 
 bool \hyperlink{class_drive_parameters_source_a19ac7507bffaa6167393d24fe5f7f67e}{is\+Outdated} ()
 \begin{DoxyCompactList}\small\item\em Returns true if no update was received for a certain time, determined by the timeout variable. \end{DoxyCompactList}\item 
@@ -20,22 +20,22 @@ bool \hyperlink{class_drive_parameters_source_a716e9da760080cdc8d0e69553932c789}
 \subsection{Detailed Description}
 
 
-Definition at line 20 of file drive\+\_\+parameters\+\_\+source.\+h.
+Definition at line 19 of file drive\+\_\+parameters\+\_\+source.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
 \index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
 \index{Drive\+Parameters\+Source@{Drive\+Parameters\+Source}!Drive\+Parameters\+Source@{Drive\+Parameters\+Source}}
-\subsubsection[{\texorpdfstring{Drive\+Parameters\+Source(ros\+::\+Node\+Handle $\ast$node\+\_\+handle, const char $\ast$topic, Drive\+Parameter\+Callback\+Function update\+\_\+callback, Drive\+Mode drive\+\_\+mode, double timeout)}{DriveParametersSource(ros::NodeHandle *node_handle, const char *topic, DriveParameterCallbackFunction update_callback, DriveMode drive_mode, double timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}Drive\+Parameters\+Source\+::\+Drive\+Parameters\+Source (
+\subsubsection[{\texorpdfstring{Drive\+Parameters\+Source(ros\+::\+Node\+Handle $\ast$node\+\_\+handle, const char $\ast$topic, Drive\+Parameter\+Callback\+Function update\+\_\+callback, Drive\+Mode drive\+\_\+mode, ros\+::\+Duration timeout)}{DriveParametersSource(ros::NodeHandle *node_handle, const char *topic, DriveParameterCallbackFunction update_callback, DriveMode drive_mode, ros::Duration timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}Drive\+Parameters\+Source\+::\+Drive\+Parameters\+Source (
 \begin{DoxyParamCaption}
 \item[{ros\+::\+Node\+Handle $\ast$}]{node\+\_\+handle, }
 \item[{const char $\ast$}]{topic, }
 \item[{{\bf Drive\+Parameter\+Callback\+Function}}]{update\+\_\+callback, }
 \item[{{\bf Drive\+Mode}}]{drive\+\_\+mode, }
-\item[{double}]{timeout}
+\item[{ros\+::\+Duration}]{timeout}
 \end{DoxyParamCaption}
-)}\hypertarget{class_drive_parameters_source_ab14e32856e8a672539b1b3ea9e511d0a}{}\label{class_drive_parameters_source_ab14e32856e8a672539b1b3ea9e511d0a}
+)}\hypertarget{class_drive_parameters_source_a4854d2f3c78f8426d267028cd6491a4e}{}\label{class_drive_parameters_source_a4854d2f3c78f8426d267028cd6491a4e}
 
 
 Construct a new \hyperlink{class_drive_parameters_source}{Drive\+Parameters\+Source} object, subscribes to the topic and stores the parameters into local variables. 
@@ -55,7 +55,7 @@ Construct a new \hyperlink{class_drive_parameters_source}{Drive\+Parameters\+Sou
 \end{DoxyParams}
 
 
-Definition at line 6 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+Definition at line 4 of file drive\+\_\+parameters\+\_\+source.\+cpp.
 
 
 
@@ -69,7 +69,7 @@ Definition at line 6 of file drive\+\_\+parameters\+\_\+source.\+cpp.
 )}\hypertarget{class_drive_parameters_source_a4a75910ac804b72f54f268edf5bfee80}{}\label{class_drive_parameters_source_a4a75910ac804b72f54f268edf5bfee80}
 
 
-Definition at line 43 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+Definition at line 41 of file drive\+\_\+parameters\+\_\+source.\+cpp.
 
 
 
@@ -96,7 +96,7 @@ Returns true if the last update contained values close to 0 for both steering an
 
 
 
-Definition at line 38 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+Definition at line 36 of file drive\+\_\+parameters\+\_\+source.\+cpp.
 
 
 
@@ -123,7 +123,7 @@ Returns true if no update was received for a certain time, determined by the tim
 
 
 
-Definition at line 29 of file drive\+\_\+parameters\+\_\+source.\+cpp.
+Definition at line 27 of file drive\+\_\+parameters\+\_\+source.\+cpp.
 
 
 

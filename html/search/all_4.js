@@ -3,7 +3,6 @@ var searchData=
   ['d',['d',['../classwallfollowing_1_1_p_i_d_controller.html#af054e460466332038060384f50d71fd0',1,'wallfollowing.PIDController.d()'],['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5',1,'D():&#160;keyboard_controller.h']]],
   ['decelerate',['DECELERATE',['../keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbaceeff3cb59294b233b481ddb6dee95bf',1,'keyboard_controller.h']]],
   ['deceleration_5fscaling_5ffactor',['DECELERATION_SCALING_FACTOR',['../joystick__controller_8h.html#a27923d1c16e61de371e62e7aff73147e',1,'joystick_controller.h']]],
-  ['default_5ftime',['DEFAULT_TIME',['../drive__parameters__source_8cpp.html#a5321e1ae3a4d5012418ca83968e312aa',1,'drive_parameters_source.cpp']]],
   ['deg_5fto_5frad',['DEG_TO_RAD',['../emergency__stop_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa',1,'DEG_TO_RAD():&#160;emergency_stop.h'],['../wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa',1,'DEG_TO_RAD():&#160;wall_following.h'],['../namespacecar__config.html#a72deaa1a555d694e52fb768ffba1d8cb',1,'car_config::DEG_TO_RAD()']]],
   ['device',['device',['../namespacedrive.html#a23cc38e06b9fae695cf8845a82fcc273',1,'drive.device()'],['../namespacelearn.html#ae55deaa379fcb61fd26a801452c29737',1,'learn.device()']]],
   ['discount_5ffactor',['DISCOUNT_FACTOR',['../namespaceparameters.html#a70176024e0f585c846365800f1c7819c',1,'parameters']]],
@@ -24,5 +23,5 @@ var searchData=
   ['drivemode',['DriveMode',['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83',1,'DriveMode():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83',1,'DriveMode():&#160;keyboard_controller.h']]],
   ['driveparametercallbackfunction',['DriveParameterCallbackFunction',['../drive__parameters__source_8h.html#a87328cd02ddd6c83ff6d4943cf8a93c2',1,'drive_parameters_source.h']]],
   ['driveparametersmultiplexer',['DriveParametersMultiplexer',['../class_drive_parameters_multiplexer.html',1,'DriveParametersMultiplexer'],['../class_drive_parameters_multiplexer.html#a00fd5b0e6d1d76fce05212c78310bebc',1,'DriveParametersMultiplexer::DriveParametersMultiplexer()']]],
-  ['driveparameterssource',['DriveParametersSource',['../class_drive_parameters_source.html',1,'DriveParametersSource'],['../class_drive_parameters_source.html#ab14e32856e8a672539b1b3ea9e511d0a',1,'DriveParametersSource::DriveParametersSource()']]]
+  ['driveparameterssource',['DriveParametersSource',['../class_drive_parameters_source.html',1,'DriveParametersSource'],['../class_drive_parameters_source.html#a4854d2f3c78f8426d267028cd6491a4e',1,'DriveParametersSource::DriveParametersSource()']]]
 ];

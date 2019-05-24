@@ -121,9 +121,9 @@ $(document).ready(function(){initNavTree('class_drive_parameters_source.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab14e32856e8a672539b1b3ea9e511d0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#ab14e32856e8a672539b1b3ea9e511d0a">DriveParametersSource</a> (ros::NodeHandle *node_handle, const char *topic, <a class="el" href="drive__parameters__source_8h.html#a87328cd02ddd6c83ff6d4943cf8a93c2">DriveParameterCallbackFunction</a> update_callback, <a class="el" href="drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a> drive_mode, double timeout)</td></tr>
-<tr class="memdesc:ab14e32856e8a672539b1b3ea9e511d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_drive_parameters_source.html">DriveParametersSource</a> object, subscribes to the topic and stores the parameters into local variables.  <a href="#ab14e32856e8a672539b1b3ea9e511d0a">More...</a><br /></td></tr>
-<tr class="separator:ab14e32856e8a672539b1b3ea9e511d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4854d2f3c78f8426d267028cd6491a4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#a4854d2f3c78f8426d267028cd6491a4e">DriveParametersSource</a> (ros::NodeHandle *node_handle, const char *topic, <a class="el" href="drive__parameters__source_8h.html#a87328cd02ddd6c83ff6d4943cf8a93c2">DriveParameterCallbackFunction</a> update_callback, <a class="el" href="drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a> drive_mode, ros::Duration timeout)</td></tr>
+<tr class="memdesc:a4854d2f3c78f8426d267028cd6491a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_drive_parameters_source.html">DriveParametersSource</a> object, subscribes to the topic and stores the parameters into local variables.  <a href="#a4854d2f3c78f8426d267028cd6491a4e">More...</a><br /></td></tr>
+<tr class="separator:a4854d2f3c78f8426d267028cd6491a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19ac7507bffaa6167393d24fe5f7f67e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drive_parameters_source.html#a19ac7507bffaa6167393d24fe5f7f67e">isOutdated</a> ()</td></tr>
 <tr class="memdesc:a19ac7507bffaa6167393d24fe5f7f67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if no update was received for a certain time, determined by the timeout variable.  <a href="#a19ac7507bffaa6167393d24fe5f7f67e">More...</a><br /></td></tr>
 <tr class="separator:a19ac7507bffaa6167393d24fe5f7f67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,9 +135,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="drive__parameters__source_8h_source.html#l00020">20</a> of file <a class="el" href="drive__parameters__source_8h_source.html">drive_parameters_source.h</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8h_source.html#l00019">19</a> of file <a class="el" href="drive__parameters__source_8h_source.html">drive_parameters_source.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab14e32856e8a672539b1b3ea9e511d0a"></a>
+<a class="anchor" id="a4854d2f3c78f8426d267028cd6491a4e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -168,7 +168,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">ros::Duration&#160;</td>
           <td class="paramname"><em>timeout</em>&#160;</td>
         </tr>
         <tr>
@@ -191,7 +191,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00006">6</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00004">4</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 </div>
 </div>
@@ -209,7 +209,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00043">43</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00041">41</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -238,7 +238,7 @@ Here is the caller graph for this function:</div>
 
 <p>Returns true if the last update contained values close to 0 for both steering and throttle. If no update was received yet, this returns true. </p>
 
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00038">38</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00036">36</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -267,7 +267,7 @@ Here is the caller graph for this function:</div>
 
 <p>Returns true if no update was received for a certain time, determined by the timeout variable. </p>
 
-<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00029">29</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__parameters__source_8cpp_source.html#l00027">27</a> of file <a class="el" href="drive__parameters__source_8cpp_source.html">drive_parameters_source.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
