@@ -22,15 +22,28 @@
 
 VOXEL_SIZE = 5e-2
 
-include "transform.lua"
+XY_TRANSFORM =  {
+  translation = { 0., 0., 0. },
+  rotation = { 0., -math.pi / 2., 0., },
+}
+
+XZ_TRANSFORM =  {
+  translation = { 0., 0., 0. },
+  rotation = { 0. , 0., -math.pi / 2, },
+}
+
+YZ_TRANSFORM =  {
+  translation = { 0., 0., 0. },
+  rotation = { 0. , 0., math.pi, },
+}
 
 options = {
     tracking_frame = "base_link",
     pipeline = {
       {
         action = "min_max_range_filter",
-        min_range = 0.0,
-        max_range = 5.,
+        min_range = 0.1,
+        max_range = 30.,
       },
       {
         action = "write_ros_map",

@@ -20,6 +20,7 @@
   <param name="/use_sim_time" value="true" />
 
   <arg name="ros_version" default="kinetic"/>
+  <arg name="bag_filenames"/>
 
   <group if="$(eval ros_version=='kinetic')">
     <node name="cartographer_offline_node" pkg="cartographer_ros" type="cartographer_offline_node" args="

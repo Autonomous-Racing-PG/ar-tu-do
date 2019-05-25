@@ -45,6 +45,6 @@ options = {
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
---TRAJECTORY_BUILDER_2D.use_imu_data = false
+TRAJECTORY_BUILDER_2D.use_imu_data = true
 
 return options

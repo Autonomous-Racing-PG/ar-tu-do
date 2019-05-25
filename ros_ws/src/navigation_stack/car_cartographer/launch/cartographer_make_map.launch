@@ -17,12 +17,14 @@
 <!-- Modified by the F1/10 Autonomous Racing Project Group -->
 
 <launch>
-    <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true" type="cartographer_assets_writer" args="
+  <arg name="bag_filenames"/>
+
+  <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true" type="cartographer_assets_writer" args="
         -configuration_directory $(find car_cartographer)/config
         -configuration_basename cartographer_config_assets_writer.lua
         -urdf_filename $(find car_cartographer)/files/racer.urdf
         -bag_filenames $(arg bag_filenames)
         -pose_graph_filename $(arg pose_graph_filename)" output="screen">
-    </node>
+  </node>
 </launch>
 
