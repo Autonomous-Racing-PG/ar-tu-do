@@ -22,6 +22,7 @@ jobs:
             - python-wstool
             - libsdl2-dev
             - clang-format-3.8
+            - libyaml-cpp0.5v5
 
       cache:
           apt: true
@@ -49,6 +50,7 @@ jobs:
         - source /opt/ros/${ROS_DISTRO}/setup.bash
         - catkin_make 
         - catkin_make run_tests && catkin_test_results
+        - ./../scripts/travis/check-consistency.sh || travis_terminate 1
       
     - # create documentation
       if: type != pull_request AND branch = master

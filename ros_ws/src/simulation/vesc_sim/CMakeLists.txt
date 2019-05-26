@@ -9,6 +9,7 @@ set (CMAKE_CXX_STANDARD 11)
 find_package(catkin REQUIRED COMPONENTS
   drive_msgs
   roscpp
+  roslib
   rospy
   std_msgs
   vesc_msgs
@@ -16,7 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   tf
 )
-
+find_package(yaml-cpp REQUIRED)
 
 ###################################
 ## catkin specific configuration ##
@@ -25,7 +26,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## Declare things to be passed to dependent projects
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs vesc_msgs nav_msgs geometry_msgs tf
+  CATKIN_DEPENDS drive_msgs roscpp roslib rospy std_msgs vesc_msgs nav_msgs geometry_msgs tf
+  DEPENDS yaml-cpp
 )
 
 ## Errors and Warnings
@@ -40,6 +42,7 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${YAML_CPP_INCLUDE_DIRS}
 )
 
 # Declare joystick controller node executable
@@ -51,3 +54,7 @@ src/vesc_sim.cpp
 
 target_link_libraries(vesc_sim_driver ${catkin_LIBRARIES})
 add_dependencies(vesc_sim_driver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(params_to_yaml src/params_to_yaml.cpp)
+target_link_libraries(params_to_yaml ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES})
+add_dependencies(params_to_yaml ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
