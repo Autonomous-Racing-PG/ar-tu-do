@@ -1,10 +1,11 @@
 #include "emergency_stop.h"
+#include <std_msgs/Time.h>
 
 EmergencyStop::EmergencyStop()
 {
     m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &EmergencyStop::lidarCallback, this);
-    m_emergency_stop_publisher = m_node_handle.advertise<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1);
+    m_emergency_stop_publisher = m_node_handle.advertise<std_msgs::Time>(TOPIC_EMERGENCY_STOP, 1);
 }
 
 bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
@@ -44,13 +45,12 @@ void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     if (emergency_stop_active)
     {
         ROS_INFO_STREAM("Wall detected. Emergency stop is active.");
-    }
 
-    std_msgs::Bool message;
-    {
-        message.data = emergency_stop_active;
+        std_msgs::Time message;
+        message.data = ros::Time::now();
+
+        m_emergency_stop_publisher.publish(message);
     }
-    m_emergency_stop_publisher.publish(message);
 }
 
 int main(int argc, char** argv)

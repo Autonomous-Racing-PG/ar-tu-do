@@ -11,13 +11,4 @@
       output="screen" >
     </node>-
 
-    <!-- emergency_stop node -->
-    <node
-      respawn="true"
-      pkg="wallfollowing1"
-      type="emergency_stop"
-      name="emergency_stop"
-      output="screen" >
-    </node>
-
 </launch>
