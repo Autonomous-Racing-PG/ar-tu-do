@@ -9,26 +9,16 @@
     </include>
 
     <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
-    
+
     <rosparam command="load" file="$(find vesc_sim)/config/car_config.yaml"/>
 
     <include file="$(find vesc_ackermann)/launch/vesc_to_odom_node.launch"/>
-
-    <!-- Passing parameters to the vesc_to_odom node doesn't currently work-->
-    <!--<node pkg="vesc_ackermann" type="vesc_to_odom_node" name="vesc_to_odom_node"
-        output="screen" launch-prefix="" >
-        <param name="speed_to_erpm_gain" value="64.96"/>
-        <param name="speed_to_erpm_offset" value="0"/>
-        <param name="steering_angle_to_servo_gain" value="-0.95492965"/>
-        <param name="steering_angle_to_servo_offset" value="0.5"/>
-        <param name="wheelbase" value="0.325"/>
-    </node>-->
 
     <include file="$(find wallfollowing1)/launch/autonomous_driving.launch"/>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
 
     <node pkg="urg_node" type="urg_node" name="urg_node">
-        <param name="_ip_address"  value="192.168.1.10"/>
+        <param name="_ip_address" value="192.168.1.10"/>
     </node>
 </launch>
