@@ -17,12 +17,34 @@ import car
 rospy.init_node('learn', anonymous=True)
 
 
-ACTIONS = [(-0.4, 0.05), (0.4, 0.05),(-0.2, 0.1), (0.2, 0.1),(-0.1, 0.15), (0.1, 0.15), (.0, 0.2), (.0, 0.1)]
+ACTIONS = [(-0.4, 0.1),(0.4, 0.1)]
+#ACTION_COUNT = len(ACTIONS)
+
+# angle space are 18 possible steering directions from -1 to 1
+#angle_space = np.linspace(start=-1, stop=1, num=18, endpoint=True)
+#angle_space_len = len(angle_space)
+#angle_space = np.insert(angle_space, (angle_space_len/2), 0.0)
+
+# velocity space are the possible speed settings for the different steering directions
+# with higher speeds for smaller angles
+#velocity_space_half = np.concatenate((
+#        np.repeat(0.05, 6),
+#        np.repeat(0.1, 2),
+#        np.repeat(0.15, 1)))
+#velocity_space = np.concatenate(
+#    (velocity_space_half,
+#    [2.0],
+#    np.flip(velocity_space_half)))
+   
+#ACTIONS = zip(angle_space, velocity_space)
 ACTION_COUNT = len(ACTIONS)
 
-LASER_SAMPLE_COUNT = 128  # Only use some of the LIDAR measurements
+#print(ACTION_COUNT)
+#print(ACTIONS)
 
-learning_rate = 0.001
+LASER_SAMPLE_COUNT = 32  # Only use some of the LIDAR measurements
+
+learning_rate = 0.01
 gamma = 0.99
 running_reward = 0
 done = False
@@ -35,8 +57,8 @@ class Policy(nn.Module):
         self.state_space = LASER_SAMPLE_COUNT
         self.action_space = ACTION_COUNT
         
-        self.l1 = nn.Linear(self.state_space, 256, bias=False)
-        self.l2 = nn.Linear(256, self.action_space, bias=False)
+        self.l1 = nn.Linear(self.state_space, 64, bias=False)
+        self.l2 = nn.Linear(64, self.action_space, bias=False)
         
         self.gamma = gamma
         
@@ -90,16 +112,16 @@ def update_policy():
     
     ##########DEBUG
     #rospy.loginfo("BEFORE rewards: " + str(rewards))
-    #rewards1 = rewards - rewards.mean()
+    rewards1 = rewards - rewards.mean()
     #rospy.loginfo("rewards1: " + str(rewards1))
-    #rewards2 = rewards.std() + np.finfo(np.float32).eps
-    #rospy.loginfo("rewards std: " + str(rewards.std()))
-    #rospy.loginfo("rewards finfo: " + str(np.finfo(np.float32).eps))
+    rewards2 = rewards.std() + np.finfo(np.float32).eps
+    rospy.loginfo("rewards std: " + str(rewards.std()))
+    rospy.loginfo("rewards finfo: " + str(np.finfo(np.float32).eps))
     
     if rewards.numel() > 1:
         rewards = (rewards - rewards.mean()) / (rewards.std() + np.finfo(np.float32).eps)
 
-    print('REWARDS: {}'.format(rewards))
+    #print('REWARDS: {}'.format(rewards))
     
     #rospy.loginfo("AFTER rewards: " + str(rewards))
     
@@ -128,6 +150,9 @@ def on_crash():
     global crash
     crash = True
 
+## TODO REWARDS besser skalieren
+## Maybe zu viele actions sodass zu kompliziert
+
 def main(episodes, device):
     global done, crash, deadlock 
     running_reward = 1
@@ -139,10 +164,11 @@ def main(episodes, device):
         state = car.get_scan(LASER_SAMPLE_COUNT, device)
         
         # If true, the current episode will end instantly
-        done = False       
-    
-        for time in range(4000):
             
+
+        for time in range(400000):
+            done = False  
+            crash = False
             # Choose an action w.r.t the current state
             action = select_action(state)
             # Step through environment using chosen action
@@ -150,14 +176,13 @@ def main(episodes, device):
 
             # Get the next state
             state = car.get_scan(LASER_SAMPLE_COUNT, device)
-
             # The faster the car is driving, the bigger the reward
-            running_reward = 1 * ACTIONS[action][1]
+            running_reward = 10 * ACTIONS[action][1]
             
             # True when the car intersects with a wall 
             if crash:
-                running_reward = -100 * ACTIONS[action][1]
-            crash = False
+                running_reward = -10000 * ACTIONS[action][1] * 2000/(time+1)
+                done = True
 
             # True if car is flipped 
             car_orientation = car.get_car_pos_x()
@@ -183,10 +208,12 @@ def main(episodes, device):
         
         # Used to determine when the environment is solved.
         #running_reward = (running_reward * 0.99) + (time * 0.01)
+        if(time == 0):
+            policy.reward_episode = []
+            policy.policy_history = Variable(torch.Tensor())
+        else:
+            update_policy()
 
-        update_policy()
-
-        
         print('Episode {}\tLast length: {:5d}\tSum Reward: {}'.format(episode, time, average_reward_per_episode))
         average_reward_per_episode = 0
 
@@ -194,6 +221,6 @@ rospy.loginfo("Initializing Pytorch...")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 car.register_crash_callback(on_crash)
-episodes = 10000
+episodes = 1000
 main(episodes, device)
 
