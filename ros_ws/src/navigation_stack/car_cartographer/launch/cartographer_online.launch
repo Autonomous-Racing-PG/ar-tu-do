@@ -1,0 +1,34 @@
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!-- Modified by the F1/10 Autonomous Racing Project Group -->
+
+<launch>
+  <arg name="ros_version" default="kinetic"/>
+
+  <param name="robot_description" textfile="$(find car_cartographer)/files/racer.urdf" />
+
+  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+          -configuration_directory $(find car_cartographer)/config
+          -configuration_basename cartographer_config_$(arg ros_version).lua" output="screen">
+  </node>
+
+  <group if="$(eval ros_version=='melodic')">
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+  </group>
+
+  <node name="rviz_cartographer" pkg="rviz" type="rviz" required="false" args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+</launch>

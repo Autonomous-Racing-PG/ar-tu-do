@@ -1,12 +1,10 @@
 
 ros_ws/build/
-
 ros_ws/devel/
-
 ros_ws/src/CMakeLists.txt
-
 ros_ws/\.catkin_workspace
-
+ros_ws/src/navigation_stack/car_cartographer/files/*
+!ros_ws/src/navigation_stack/car_cartographer/files/.gitkeep
 .vscode/
 
 *.pyc
