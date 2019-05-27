@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version="1.4">
     <world name="racetrack">
+        <physics type="ode" default="true">
+            <!-- Default physics profile with no changes -->
+        </physics>
+        <physics name="qlearning" type="ode" default="false">
+            <real_time_update_rate>0</real_time_update_rate>
+        </physics>
+
         <include>
             <uri>model://sun</uri>
         </include>
@@ -8,7 +15,7 @@
             <camera name="my_camera">
                 <pose>-3.2 7.8 31 0 1.5707963 1.5707963</pose>
             </camera>
-        </gui>    
+        </gui>
         
         <model name="track">
             <pose>0 0 0.01  0 0 0</pose>
@@ -20,7 +27,7 @@
                     <mesh><uri>model://track_decorated.dae</uri></mesh>
                 </geometry>
                 </visual>
-                <collision name="collision">
+                <collision name="ground-collision">
                     <geometry>
                         <plane>
                             <normal>0 0 1</normal>
@@ -37,8 +44,8 @@
                     </surface>
                 </collision>
             </link>
-            <link name="walls">
-                <collision name="collision">
+            <link name="walls-collision-link">
+                <collision name="walls-collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh><uri>model://walls.dae</uri></mesh>
@@ -52,9 +59,14 @@
                         </friction>
                     </surface>
                 </collision>
+                <sensor name='walls-contact-sensor' type='contact'>
+                    <contact>
+                        <collision>walls-collision</collision>
+                    </contact>
+                </sensor>
             </link>
-            <link name="decoration-colliders">
-                <collision name="collision">
+            <link name="decoration-collision-link">
+                <collision name="decoration-collision">
                     <geometry>
                         <!-- Relative path defined in package.xml -->
                         <mesh><uri>model://decoration_colliders.dae</uri></mesh>
@@ -68,6 +80,11 @@
                         </friction>
                     </surface>
                 </collision>
+                <sensor name='decoration-contact-sensor' type='contact'>
+                    <contact>
+                        <collision>decoration-collision</collision>
+                    </contact>
+                </sensor>
             </link>
         </model>
     </world>

@@ -4,12 +4,12 @@
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>
-    <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
     <arg name="verbose" default="true"/>
     <arg name="use_gpu" default="true"/>
     <arg name="joystick_type" default="xbox360"/>
     <arg name="visualize_lidar" default="false"/>
+    <arg name="emergency_stop" default="true"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -23,7 +23,6 @@
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
         <arg name="gui" value="$(arg gui)"/>
-        <arg name="headless" value="$(arg headless)"/>
         <arg name="debug" value="$(arg debug)"/>
         <arg name="verbose" value="$(arg verbose)"/>
         <arg name="use_gpu" value="$(arg use_gpu)"/>
@@ -32,7 +31,12 @@
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="screen"/>
+    <include file="$(find wallfollowing2)/launch/autonomous_driving.launch"/>
+
+    <group if="$(arg emergency_stop)">
+        <include file="$(find emergency_stop)/launch/emergency_stop.launch"/>
+    </group>
 
     <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch">
@@ -41,4 +45,11 @@
     <include file="$(find teleoperation)/launch/remote_control.launch">
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
+
+    <node
+        pkg="simulation_tools"
+        type="crash_detector"
+        name="crash_detector"
+        output="screen" >
+    </node>
 </launch>

@@ -1,0 +1,5 @@
+speed_to_erpm_gain: 64.9612012619981
+speed_to_erpm_offset: 0
+steering_angle_to_servo_gain: -0.954929658551372
+steering_angle_to_servo_offset: 0.5
+wheelbase: 0.325

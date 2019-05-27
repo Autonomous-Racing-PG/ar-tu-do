@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="2">
+  <name>emergency_stop</name>
+  <version>0.0.0</version>
+  <description>
+    Emergency stop implemented in C++ that tries to warn if 
+    the car is about to crash into something ahead.
+  </description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>drive_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+
+</package>

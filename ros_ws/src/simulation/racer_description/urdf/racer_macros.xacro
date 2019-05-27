@@ -60,7 +60,7 @@
       <child link="${lr}_wheel_${fb}"/>
       <origin xyz="${translateX * OffsetJointX} ${translateY * OffsetJointY} ${OffsetJointZ}" rpy="0 0 0" /> 
       <axis xyz="0 1 0" rpy="0 0 0" />
-      <limit effort="10" velocity="100"/>
+      <limit effort="20" velocity="500"/>
       <joint_properties damping="0.0" friction="0.0"/>
     </joint>
 
@@ -73,7 +73,12 @@
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission>    
+
+    <gazebo reference="${lr}_wheel_${fb}">
+      <mu1>0.9</mu1>
+      <mu2>0.9</mu2>
+    </gazebo> 
   </xacro:macro>
 
   <!-- Steering -->

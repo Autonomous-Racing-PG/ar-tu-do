@@ -14,9 +14,12 @@
   <!-- Dependencies -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <build_depend>yaml-cpp</build_depend>
+
   <depend>drive_msgs</depend>
   <depend>std_msgs</depend>
   <depend>roscpp</depend>
+  <depend>roslib</depend>
   <depend>rospy</depend>
   <depend>nav_msgs</depend>
   <depend>vesc_msgs</depend>

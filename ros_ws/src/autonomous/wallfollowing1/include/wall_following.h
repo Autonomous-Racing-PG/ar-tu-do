@@ -15,7 +15,7 @@
 #include <ros/console.h>
 #include <ros/ros.h>
 
-constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/wallfollowing";
+constexpr const char* TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous";
 constexpr const char* TOPIC_LASER_SCAN = "/scan";
 constexpr const char* TOPIC_EMERGENCY_STOP = "/emergency_stop";
 constexpr const char* TOPIC_VISUALIZATION = "/wallfollowing_visualization";
@@ -52,12 +52,9 @@ class WallFollowing
     private:
     ros::NodeHandle m_node_handle;
 
-    ros::Subscriber m_emergency_stop_subscriber;
     ros::Subscriber m_lidar_subscriber;
     ros::Publisher m_drive_parameter_publisher;
     RvizGeometryPublisher m_debug_geometry;
-
-    bool m_emergency_stop = true;
 
     PIDController m_pid_controller = PIDController(5, 0.01, 0.2);
 
@@ -65,7 +62,6 @@ class WallFollowing
     void followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar);
     Wall getWall(const sensor_msgs::LaserScan::ConstPtr& lidar, bool right_wall);
 
-    void emergencyStopCallback(const std_msgs::Bool emergency_stop_message);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
     void publishDriveParameters(float velocity, float angle);
 

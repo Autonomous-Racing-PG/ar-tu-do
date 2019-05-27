@@ -11,7 +11,7 @@ Wall::Wall(float angle1, float angle2, float range1, float range2)
 float Wall::getAngle()
 {
     return std::atan((m_range1 * std::cos(std::abs(m_angle1 - m_angle2)) - m_range2) / m_range1 *
-                std::sin(std::abs(m_angle1 - m_angle2)));
+                     std::sin(std::abs(m_angle1 - m_angle2)));
 }
 
 float Wall::predictDistance(float distancce_to_current_position)

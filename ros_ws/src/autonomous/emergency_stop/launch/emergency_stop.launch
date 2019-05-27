@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- Launches all necessary nodes for the emergency stop -->
+
+    <!-- emergency_stop node -->
+    <node
+      respawn="true"
+      pkg="emergency_stop"
+      type="emergency_stop"
+      name="emergency_stop"
+      output="screen" >
+    </node>
+
+</launch>
