@@ -20,12 +20,20 @@ constexpr const float CAR_BUMPER_LENGTH = 0.2;
 
 constexpr float MAX_RANGE = 30;
 
+enum class EmergencyStatus : int
+{
+    UNUSED = 0,
+    ACTIVATED = 1,
+    CLEARED = 2
+};
+
 class EmergencyStop
 {
     public:
     EmergencyStop();
 
     private:
+    EmergencyStatus emergency_status;
     /**
      * @brief Returns true if there is a wall too close in front of the car.
      */

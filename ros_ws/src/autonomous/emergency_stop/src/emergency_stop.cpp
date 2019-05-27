@@ -1,7 +1,7 @@
 #include "emergency_stop.h"
 #include <std_msgs/Time.h>
 
-EmergencyStop::EmergencyStop()
+EmergencyStop::EmergencyStop():emergency_status(EmergencyStatus::UNUSED)
 {
     m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &EmergencyStop::lidarCallback, this);
@@ -41,15 +41,30 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
 void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     bool emergency_stop_active = emergencyStop(lidar);
+    
+    this->emergency_status = (emergency_status == EmergencyStatus::UNUSED) ? 
+                                emergency_stop_active  ? EmergencyStatus::ACTIVATED : EmergencyStatus::CLEARED : emergency_status;
 
     if (emergency_stop_active)
     {
-        ROS_INFO_STREAM("Wall detected. Emergency stop is active.");
+        if(this->emergency_status == EmergencyStatus::ACTIVATED)
+        {
+            ROS_INFO_STREAM("Wall detected. Emergency stop is active.");
+            this->emergency_status = EmergencyStatus::CLEARED;
+        }
 
         std_msgs::Time message;
         message.data = ros::Time::now();
 
         m_emergency_stop_publisher.publish(message);
+    }
+    else
+    {
+        if(this->emergency_status == EmergencyStatus::CLEARED)
+        {
+            ROS_INFO_STREAM("Wall cleared. Emergency stop is inactive.");
+            this->emergency_status = EmergencyStatus::ACTIVATED;
+        }
     }
 }
 
