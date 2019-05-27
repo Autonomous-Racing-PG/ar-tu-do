@@ -61,6 +61,25 @@ Now several routines can be started by executing the launch-\/files inside the {
 \end{DoxyCode}
 
 
+\subsection*{Building a map with Cartographer}
+
+There are two bash scripts in the {\ttfamily scripts} folder which use \href{https://github.com/googlecartographer/cartographer_ros}{\tt Cartographer} to create a map of a racetrack. This map can then be used for different purposes, for example in the R\+OS navigation stack.
+
+
+\begin{DoxyItemize}
+\item To build a map while a roscore is running and providing sensor data, use the {\ttfamily cartographer\+\_\+online} script.
+\item To build a map from a rosbag, use the {\ttfamily cartographer\+\_\+offline} script. The rosbag must provide range data on the rostopic {\ttfamily /scan} and a transformation tree on {\ttfamily /tf}; depending on your configuration of cartographer in {\ttfamily car\+\_\+cartographer/config} it may need to also have odometry data on {\ttfamily /odom} or I\+MU data on {\ttfamily /imu}.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+1 # Either:
+2 ./scripts/cartographer\_online.sh
+3 # Or:
+4 ./scripts/cartographer\_offline.sh /absolute/path/to/rosbag
+\end{DoxyCode}
+
+
 \subsection*{Documentation}
 
 

@@ -115,7 +115,13 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><h3>Run routines</h3>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash (or setup.zsh)</div></div><!-- fragment --><p>Now several routines can be started by executing the launch-files inside the <b>launch/</b> directory. E.g.</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/gazebo_car-teleop.launch</div></div><!-- fragment --><h3>Run tests</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make run_tests</div></div><!-- fragment --><h2>Documentation</h2>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make run_tests</div></div><!-- fragment --><h2>Building a map with Cartographer</h2>
+<p>There are two bash scripts in the <code>scripts</code> folder which use <a href="https://github.com/googlecartographer/cartographer_ros">Cartographer</a> to create a map of a racetrack. This map can then be used for different purposes, for example in the ROS navigation stack.</p>
+<ul>
+<li>To build a map while a roscore is running and providing sensor data, use the <code>cartographer_online</code> script.</li>
+<li>To build a map from a rosbag, use the <code>cartographer_offline</code> script. The rosbag must provide range data on the rostopic <code>/scan</code> and a transformation tree on <code>/tf</code>; depending on your configuration of cartographer in <code>car_cartographer/config</code> it may need to also have odometry data on <code>/odom</code> or IMU data on <code>/imu</code>.</li>
+</ul>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;# Either:</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./scripts/cartographer_online.sh</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;# Or:</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;./scripts/cartographer_offline.sh /absolute/path/to/rosbag</div></div><!-- fragment --><h2>Documentation</h2>
 <ul>
 <li>For general information and documentation checkout the <a href="https://github.com/Autonomous-Racing-PG/ros.package/wiki">wiki page</a>.</li>
 <li>For source code documentation checkout the auto-generated <a href="https://autonomous-racing-pg.github.io/ros.package/html/index.html">Doxygen documentation</a>.</li>
