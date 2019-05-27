@@ -11,7 +11,7 @@
     <arg name="joystick_type" default="xbox360"/>
     <arg name="visualize_lidar" default="false"/>
     <arg name="pf_angle_step" default="18"/>
-	<arg name="pf_max_particles" default="4000"/>
+	<arg name="pf_max_particles" default="500"/>
 	<arg name="pf_squash_factor" default="2.2"/>
 
     <!-- Mode Override
