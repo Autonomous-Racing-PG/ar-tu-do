@@ -3,10 +3,6 @@
 <robot name="myrobot" 
   xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:arg name="use_gpu" default="true"/>
-  <xacro:arg name="visualize_lidar" default="false"/>
-  <xacro:arg name="laser_sample_count" default="1080"/>
-
   <xacro:include filename="$(find racer_description)/urdf/racer_plugins.gazebo" />
   <xacro:include filename="$(find racer_description)/urdf/racer_macros.xacro" />
 
