@@ -2,7 +2,7 @@
 <launch>
     <arg name="joystick_type" default="ps3"/>
 
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=true visualize_lidar:=true laser_sample_count:=1080"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
 
     <include file="$(find car_control)/launch/car_control.launch"/>
 
