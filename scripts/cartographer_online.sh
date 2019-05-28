@@ -12,7 +12,7 @@ source $scriptdir/../ros_ws/devel/setup.bash
 
 echo -n "Create .urdf file... " | tee $logpath
 echo "" >> $logpath
-xacro -o $scriptdir/../ros_ws/src/navigation_stack/car_cartographer/files/racer.urdf --inorder $scriptdir/../ros_ws/src/simulation/racer_description/urdf/racer.xacro use_gpu:=true visualize_lidar:=true 2>&1 | sed -r $filterstring >> $logpath
+xacro -o $scriptdir/../ros_ws/src/navigation_stack/car_cartographer/files/racer.urdf --inorder $scriptdir/../ros_ws/src/simulation/racer_description/urdf/racer.xacro use_gpu:=true visualize_lidar:=true laser_sample_count:=1080 2>&1 | sed -r $filterstring >> $logpath
 echo "Done." | tee -a $logpath
 
 echo "Record topics & building map... " | tee -a $logpath

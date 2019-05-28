@@ -2,6 +2,8 @@
 <launch>
     <arg name="joystick_type" default="ps3"/>
 
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=true visualize_lidar:=true laser_sample_count:=1080"/>
+
     <include file="$(find car_control)/launch/car_control.launch"/>
 
     <include file="$(find teleoperation)/launch/remote_control.launch">
@@ -15,6 +17,8 @@
     <include file="$(find vesc_ackermann)/launch/vesc_to_odom_node.launch"/>
 
     <include file="$(find wallfollowing1)/launch/autonomous_driving.launch"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
 
