@@ -2,8 +2,6 @@
 
 #include "ai_util.h"
 
-using namespace ai_driver;
-
 AiDriver::AiDriver()
 {
     ros::NodeHandle private_node_handle("~");
@@ -42,15 +40,10 @@ AiDriver::AiDriver()
 
 void AiDriver::timerCallback(const ros::TimerEvent&)
 {
-    if (m_deployed == false)
-    {
-        return;
-    }
-
     update();
 }
 
-void AiDriver::publishDriveParameters(float velocity, float angle)
+void AiDriver::publishDriveParameters(fann_type velocity, fann_type angle)
 {
     if (velocity < -1 || velocity > 1)
     {
@@ -68,17 +61,17 @@ void AiDriver::publishDriveParameters(float velocity, float angle)
 
 void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-    if (m_deployed == false)
-    {
-        return;
-    }
-
-    // TODO: remove magic numbers
     for (int i = 0; i < 5; i++)
     {
         float value = lidar->ranges[LIDAR_INDICES[i]];
-        value = std::min(value, lidar->range_max);
-        value = std::max(value, lidar->range_min);
+        if (value < lidar->range_min)
+        {
+            value = 0;
+        }
+        else if (value > lidar->range_max)
+        {
+            value = lidar->range_max;
+        }
         m_input[i + 2] = value;
     }
     m_changes_lidar++;
@@ -86,27 +79,26 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 
 void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
 {
-    uint layers = data->layers;
-    std::vector<uint> layer_array_vector = data->layer_array;
-    uint* layer_array = &layer_array_vector[0];
-
-    m_net.create_standard_array(layers, layer_array);
-    m_input.reserve(m_net.get_num_input());
-
-    long weight_array_size = data->weight_array_size;
-    FANN::connection weight_array[weight_array_size];
-    m_net.get_connection_array(weight_array);
-    for (int i = 0; i < weight_array_size; i++)
+    long size = data->size;
+    FANN::connection arr[size];
+    m_net.get_connection_array(arr);
+    for (int i = 0; i < size; i++)
     {
-        weight_array[i].weight = data->weight_array[i];
+        arr[i].weight = data->weights[i];
     }
-    m_net.set_weight_array(weight_array, weight_array_size);
+    m_net.create_standard_array(NUM_LAYERS, NET_ARGS);
+    m_net.set_weight_array(arr, size);
 
     m_deployed = true;
 }
 
 void AiDriver::update()
 {
+    if (m_deployed == false)
+    {
+        return;
+    }
+
     // check data age
     if (m_changes_lidar == 0)
     {
@@ -115,18 +107,16 @@ void AiDriver::update()
     m_changes_lidar = 0;
 
     // run network
-    fann_type* output = m_net.run(&m_input[0]);
+    m_output = m_net.run(m_input);
 
     // redirecting speed and angle of the output back as inputs
-    m_input[0] = output[0];
-    m_input[1] = output[1];
+    m_input[0] = m_output[0];
+    m_input[1] = m_output[1];
 
     // publish outputs
-    float speed = output[0];
-    float angle = output[1] * 2 - 1;
+    fann_type speed = m_output[0] * 2 - 1;
+    fann_type angle = m_output[1] * 2 - 1;
 
-    // ROS_INFO_STREAM("_______________________________________________________ speed: " + std::to_string(speed) + " |
-    // angle: " + std::to_string(angle));
     publishDriveParameters(speed, angle);
 }
 
