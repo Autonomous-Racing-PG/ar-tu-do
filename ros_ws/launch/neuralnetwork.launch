@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="use_sim_time" default="true"/>
+
+    <arg name="config_folder" default="$(find neuralnetwork)/configs" /> <!-- path where the config files are -->
+
+    <arg name="mode_training" default="true" />
+
+    <node
+      respawn="true"
+      pkg="neuralnetwork"
+      type="ai_driver"
+      name="ai_driver"
+      output="screen" >
+      <param name="update_rate" type="double" value = "10"/> <!-- Hz-->
+      <param name="config_folder" type="string" value = "$(arg config_folder)"/>
+      <!-- <param name="config_file" type="string" value = "latest.conf"/> -->
+      <!-- <param name="config_file" type="string" value = ""/> -->
+      <param name="config_file" type="string" value = ""/>
+      
+    </node>
+
+  <group if="$(arg mode_training)">
+    <node
+      respawn="true"
+      pkg="neuralnetwork"
+      type="ai_trainer"
+      name="ai_trainer"
+      output="screen" >
+      <param name="generation_size" type="int" value = "20" />
+      <param name="generation_best" type="int" value = "2" />
+      <param name="learning_rate" type="double" value = "0.3" />
+      <param name="max_time" type="double" value = "30" /> 
+      <param name="load_init" type="boolean" value = "true" /> <!-- create first generation with the init folder -->
+      <param name="save_lastest_to_init" type="boolean" value = "true" /> <!-- saves the best and latest networks to the init folder -->
+      <param name="config_folder" type="string" value = "$(arg config_folder)" />
+    </node>
+  </group>
+  
+
+</launch>

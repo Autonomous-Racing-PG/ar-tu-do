@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="2">
+  <name>neuralnetwork</name>
+  <version>0.0.0</version>
+  <description>Neural network implementation</description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>drive_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+</package>
