@@ -63,12 +63,13 @@ class QLearningNode():
 
         throttle_average = float(sum(self.throttle_history)) / len(self.throttle_history)
         steering_average = float(sum(self.steering_history)) / len(self.steering_history)
-        last_action_average_tensor = torch.tensor([throttle_average, steering_average], device = device)
+        # last_action_average_tensor = torch.tensor([throttle_average, steering_average], device = device)
 
         self.last_scan = scan
         self.last_scan_time = scan_time
 
-        state = torch.cat([scan_derivative, scan, last_action_average_tensor])
+        # state = torch.cat([scan_derivative, scan, last_action_average_tensor])
+        state = torch.stack([scan_derivative, scan])
         return state.detach()
 
     def on_receive_laser_scan(self, message):

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="gui" default="false"/>
+  <arg name="gui" default="true"/>
 
   <include file="$(find racer_world)/launch/racer_gazebo.launch">
       <arg name="world" value="racetrack_decorated"/>
@@ -9,7 +9,7 @@
       <arg name="verbose" value="false"/>
       <arg name="use_gpu" value="true"/>
       <arg name="extra_gazebo_args" value="--profile qlearning"/>
-      <arg name="laser_sample_count" value="64"/>
+      <arg name="laser_sample_count" value="1080"/>
   </include>
 
   <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
