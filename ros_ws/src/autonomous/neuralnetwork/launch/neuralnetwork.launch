@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="nn_config_folder" default="$(find neuralnetwork)/config" /> <!-- path where the config files are -->
+    <arg name="nn_config_file" default="random.net" /> <!-- file in the config folder -->
+    
+    <arg name="nn_training_generation_multiplier" default="10" />
+    <arg name="nn_training_generation_best" default="2" />
+    <arg name="nn_training_learning_rate" default="0.2" />
+    <arg name="nn_training_max_time" default="30" />
+
+
+    <node
+      respawn="true"
+      pkg="neuralnetwork"
+      type="ai_driver"
+      name="ai_driver"
+      output="screen" >
+      <param name="nn_config_path" type="string" value = "$(arg nn_config_path)"/>
+      <param name="nn_config_file" type="string" value = "$(arg nn_config_file)"/>
+    </node>
+
+    <!--
+    <node
+      respawn="true"
+      pkg="neuralnetwork"
+      type="ai_trainer"
+      name="ai_trainer"
+      output="screen" >
+      <param name="nn_config_folder" type="string" value = "$(arg nn_config_folder)" />
+      <param name="nn_training_generation_multiplier" type="int" value = "$(arg nn_training_generation_multiplier)" />
+      <param name="nn_training_generation_best" type="int" value = "$(arg nn_training_generation_best)" />
+      <param name="nn_training_learning_rate" type="double" value = "$(arg nn_training_learning_rate)" />
+      <param name="nn_training_max_time" type="double" value = "$(arg nn_training_max_time)" />
+    </node>
+    -->
+
+</launch>
