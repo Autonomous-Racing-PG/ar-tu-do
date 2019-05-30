@@ -101,7 +101,7 @@ class QLearningTrainingNode(QLearningNode):
             return random.randrange(ACTION_COUNT)
 
         with torch.no_grad():
-            output = self.policy(state)
+            output = self.policy(state).squeeze()
             if self.episode_length < 10:
                 self.net_output_debug_string = ", ".join(
                     ["{0:.1f}".format(v).rjust(5) for v in output.tolist()])

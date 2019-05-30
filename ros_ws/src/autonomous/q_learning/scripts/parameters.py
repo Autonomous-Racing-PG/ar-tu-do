@@ -91,6 +91,10 @@ class NeuralQEstimator(nn.Module):
         # )
         # return model(x)
 
+        # If processing a single sample, turn it into a batch of size 1
+        if len(x.shape) == 2:
+            x = torch.unsqueeze(x, 0)
+
         # Size changes from (128, 2, 1080) to (128, 6, 1080)
         x = self.cnv1(x)
         # print('shape nach cnv1:', x.shape)
@@ -104,7 +108,7 @@ class NeuralQEstimator(nn.Module):
         # OR
         # (128, 720) (6*120)
         # print(x.shape[1:])
-        x = x.view(128, np.prod(x.shape[1:]))
+        x = x.view(x.shape[0], np.prod(x.shape[1:]))
         # print('shape nach x.view', x.shape)
         x = self.fc1(x)
         # print('shape nach fc1', x.shape)
