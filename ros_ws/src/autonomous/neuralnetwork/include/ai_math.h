@@ -14,8 +14,6 @@
 
 namespace ai_math
 {
-    using namespace std;
-
     typedef std::vector<fann_type> NetVector;
 
     // ################################################################
@@ -93,36 +91,6 @@ namespace ai_math
         return vec;
     }
 
-    inline NetVector zeros(uint size)
-    {
-        NetVector vec;
-        for (uint i = 0; i < size; i++)
-        {
-            vec.push_back(0);
-        }
-        return vec;
-    }
-
-    inline NetVector ones(uint size)
-    {
-        NetVector vec;
-        for (uint i = 0; i < size; i++)
-        {
-            vec.push_back(1);
-        }
-        return vec;
-    }
-
-    inline NetVector clone(NetVector& a)
-    {
-        NetVector c;
-        for (uint i = 0; i < a.size(); i++)
-        {
-            c.push_back(a[i]);
-        }
-        return c;
-    }
-
     // ################################################################
     // #    vector manupulation
     // ################################################################
@@ -178,51 +146,6 @@ namespace ai_math
     }
 
     // ################################################################
-    // #    vector mutation
-    // ################################################################
-
-    inline NetVector m_exchange_mutation(NetVector& p, uint switches)
-    {
-        uint size = p.size();
-
-        std::random_device rd;  // Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-        std::uniform_int_distribution<> dis(0, size - 1);
-
-        NetVector m = clone(p);
-        for (uint i = 0; i < switches; i++)
-        {
-            int a;
-            int b;
-            do
-            {
-                a = dis(gen);
-                b = dis(gen);
-            } while (a != b);
-
-            fann_type tmp = m[a];
-            m[a] = m[b];
-            m[b] = tmp;
-        }
-
-        return m;
-    }
-
-    inline NetVector m_uniform_add_mutation(NetVector& p, double learning_rate)
-    {
-        NetVector random = r_normal_distribution(p.size(), 0, learning_rate);
-        NetVector m = add(p, random);
-        return m;
-    }
-
-    inline NetVector m_uniform_mult_mutation(NetVector& p, double learning_rate)
-    {
-        NetVector random = r_normal_distribution(p.size(), 1, learning_rate);
-        NetVector m = mult(p, random);
-        return m;
-    }
-
-    // ################################################################
     // #    vector conversion
     // ################################################################
 
@@ -250,10 +173,10 @@ namespace ai_math
         return vec;
     }
 
-    inline FANN::neural_net* vector_to_net(NetVector& vec, uint layers, uint* layer_array)
+    inline FANN::neural_net* vector_to_net(NetVector& vec)
     {
         FANN::neural_net* net = new FANN::neural_net();
-        net->create_standard_array(layers, layer_array);
+        net->create_standard_array(NUM_LAYERS, NET_ARGS);
         uint size = net->get_total_connections();
         FANN::connection arr[size];
         net->get_connection_array(arr);
