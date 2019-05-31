@@ -23,12 +23,7 @@ namespace ai_workspace
     // creates a mutation of a parent vector
     inline NetVector mutate(NetVector parent, double learning_rate)
     {
-        
-        NetVector random = r_normal_distribution(parent.size(), 0, learning_rate);
-        // NetVector boolean = r_binary_mutation(parent.size(), 2);
-        // random = mult(random, boolean);
-
-        NetVector m = add(parent, random);
+        NetVector m = m_uniform_mult_mutation(parent, learning_rate);
         return m;
     }
 
@@ -45,7 +40,7 @@ namespace ai_workspace
             }
             case REASON_OUTPUT:
             {
-                
+
             }
 
             default:
@@ -68,4 +63,6 @@ namespace ai_workspace
                         + " | vel_avg: " + std::to_string(m->avg_velocity) + " | abort reason: " + std::to_string(m->reason);
         return str;
     }
+
+
 }
