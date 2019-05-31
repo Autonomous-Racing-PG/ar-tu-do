@@ -33,6 +33,7 @@ constexpr const char* TOPIC_NET_DEPLOY_PUBLISH = "/ai/deploy";
 constexpr const char* PARAMETER_LOAD_INIT = "load_init";
 constexpr const char* PARAMETER_CONFIG_FOLDER = "config_folder";
 constexpr const char* PARAMETER_SAVE_LATEST_TO_INI = "save_lastest_to_init";
+constexpr const char* PARAMETER_SAVE_GENERATION_INTERVAL = "save_generation_interval";
 
 constexpr const char* PARAMETER_GENERATION_SIZE = "generation_size";
 constexpr const char* PARAMETER_GENERATION_BEST = "generation_best";
@@ -86,6 +87,7 @@ namespace ai_trainer
         ros::Publisher m_net_deploy_publisher;
 
         bool m_save_lastest_to_init;
+        int m_save_generation_interval;
 
         std::string m_config_folder;
         int m_generation_size;
