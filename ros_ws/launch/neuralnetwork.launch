@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-
     <arg name="use_sim_time" default="true"/>
 
     <arg name="config_folder" default="$(find neuralnetwork)/configs" /> <!-- path where the config files are -->
@@ -28,12 +27,13 @@
       type="ai_trainer"
       name="ai_trainer"
       output="screen" >
-      <param name="generation_size" type="int" value = "20" />
-      <param name="generation_best" type="int" value = "2" />
-      <param name="learning_rate" type="double" value = "0.3" />
-      <param name="max_time" type="double" value = "30" /> 
+      <param name="generation_size" type="int" value = "4" />
+      <param name="generation_best" type="int" value = "1" />
+      <param name="learning_rate" type="double" value = "0.8" />
+      <param name="max_time" type="double" value = "10" /> 
       <param name="load_init" type="boolean" value = "true" /> <!-- create first generation with the init folder -->
       <param name="save_lastest_to_init" type="boolean" value = "true" /> <!-- saves the best and latest networks to the init folder -->
+      <param name="save_generation_interval" type="int" value = "5" /> <!-- saves the best networks of every given generation -->
       <param name="config_folder" type="string" value = "$(arg config_folder)" />
     </node>
   </group>
