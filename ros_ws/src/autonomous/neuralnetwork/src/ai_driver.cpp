@@ -114,7 +114,7 @@ void AiDriver::update()
     m_input[1] = m_output[1];
 
     // publish outputs
-    fann_type speed = m_output[0] * 2 - 1;
+    fann_type speed = m_output[0];
     fann_type angle = m_output[1] * 2 - 1;
 
     publishDriveParameters(speed, angle);

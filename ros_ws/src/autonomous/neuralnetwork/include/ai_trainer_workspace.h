@@ -16,7 +16,7 @@ namespace ai_workspace
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
-        double score = (m->added_velocity) / 10.0;
+        double score = (m->added_velocity);
         return score;
     }
 
@@ -45,11 +45,7 @@ namespace ai_workspace
             }
             case REASON_OUTPUT:
             {
-                if (m->c_velocity < 0.0)
-                {
-                    m->reason = reason;
-                    return true;
-                }
+                
             }
 
             default:
