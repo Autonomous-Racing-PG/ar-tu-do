@@ -64,14 +64,8 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     for (int i = 0; i < 5; i++)
     {
         float value = lidar->ranges[LIDAR_INDICES[i]];
-        if (value < lidar->range_min)
-        {
-            value = 0;
-        }
-        else if (value > lidar->range_max)
-        {
-            value = lidar->range_max;
-        }
+        value = std::min(value, lidar->range_max);
+        value = std::max(value, lidar->range_min);
         m_input[i + 2] = value;
     }
     m_changes_lidar++;
