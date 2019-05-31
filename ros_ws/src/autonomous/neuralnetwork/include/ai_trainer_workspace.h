@@ -16,14 +16,18 @@ namespace ai_workspace
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
-        double score = (m->added_velocity);
+        double score = m->added_velocity;
         return score;
     }
 
     // creates a mutation of a parent vector
     inline NetVector mutate(NetVector parent, double learning_rate)
     {
-        NetVector m = m_uniform_mult_mutation(parent, learning_rate);
+        auto r_uniform = r_normal_distribution(parent.size(), 0, learning_rate);
+        // auto r_binary = r_binary_mutation(parent.size(), 2);
+        // auto random = mult(r_uniform, r_binary);
+        // auto m = add(parent, random);
+        auto m = add(parent, r_uniform);
         return m;
     }
 
