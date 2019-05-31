@@ -268,18 +268,18 @@ void AiTrainer::prepareTest()
 {
     std::srand(std::time(nullptr)); // use current time as seed for random generator
 
-    // int pos_x[] = {};
+    // float pos_x[] = {-0.4, 4, 12, 16};
     // -0.4 4 12 16
 
     // reset car model
     gazebo_msgs::ModelState state_message;
     state_message.model_name = "racer";
     state_message.pose.position.x = 0;
-    state_message.pose.position.y = -0.4f;
+    state_message.pose.position.y = -0.4; // pos_x[std::rand() % 4];
     state_message.pose.position.z = 0;
 
     state_message.pose.orientation.x = 0;
-    state_message.pose.orientation.z = 0; //std::rand() % 2;
+    state_message.pose.orientation.z = std::rand() % 2;
     state_message.pose.orientation.w = 0;
     state_message.pose.orientation.y = 0;
     m_gazebo_model_state_publisher.publish(state_message);
@@ -327,7 +327,7 @@ void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr&
      m->c_angle = (double)parameters->angle; // latest angle publish
 
     m->added_velocity = m->added_velocity + (double)parameters->velocity;
-    m->added_angle = m->added_angle + (double)parameters->angle;
+    m->added_angle = m->added_angle + std::abs((double)parameters->angle);
     m->count++;
 
     if(ai_workspace::event(m, REASON_OUTPUT))
