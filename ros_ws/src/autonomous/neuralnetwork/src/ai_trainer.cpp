@@ -13,12 +13,14 @@ AiTrainer::AiTrainer()
     bool load_init;
     private_node_handle.getParam(PARAMETER_LOAD_INIT, load_init);
 
-    private_node_handle.getParam(PARAMETER_CONFIG_FOLDER, m_config_folder);
-    private_node_handle.getParam(PARAMETER_SAVE_LATEST_TO_INI, m_save_lastest_to_init);
     private_node_handle.getParam(PARAMETER_GENERATION_SIZE, m_generation_size);
     private_node_handle.getParam(PARAMETER_GENERATION_BEST, m_generation_best);
     private_node_handle.getParam(PARAMETER_LEARNING_RATE, m_learning_rate);
     private_node_handle.getParam(PARAMETER_MAX_TIME, m_max_time);
+
+    private_node_handle.getParam(PARAMETER_CONFIG_FOLDER, m_config_folder);
+    private_node_handle.getParam(PARAMETER_SAVE_LATEST_TO_INI, m_save_lastest_to_init);
+    private_node_handle.getParam(PARAMETER_SAVE_GENERATION_INTERVAL, m_save_generation_interval);
 
     m_crash_subscriber =
         m_node_handle.subscribe<std_msgs::Empty>(TOPIC_CRASH_SUBSCRIBE, 1, &AiTrainer::crashCallback, this);
@@ -84,7 +86,6 @@ bool AiTrainer::init()
     {
         FANN::neural_net* net = new FANN::neural_net();
         net->create_standard_array(NUM_LAYERS, NET_ARGS);
-        net->randomize_weights((fann_type)(-1.0), (fann_type)(1.0));
         m_nets.push_back(net);
         m_meta.push_back(new meta());
     }
@@ -169,6 +170,24 @@ void AiTrainer::chooseBest()
             b = false;
         }
     }
+
+    // best choosen
+
+    if(m_save_generation_interval != 0 && m_gen != 0 && m_gen % m_save_generation_interval == 0)
+    {
+        // save to best_of
+        for(uint i = 0; i < m_best_nets.size(); i++)
+        {
+            std::string path = m_config_folder + "/best_of/s" + std::to_string(m_gen) + "e" + std::to_string(i) + ".conf";
+            bool b = m_best_nets[i]->save(path);
+            if (!b)
+            {
+                ROS_WARN_STREAM("could not save to: " + path);
+            }
+        }
+
+    }
+
     {
         // save lastest to config
         std::string path = m_config_folder + "/latest.conf";
@@ -260,7 +279,7 @@ void AiTrainer::prepareTest()
     state_message.pose.position.z = 0;
 
     state_message.pose.orientation.x = 0;
-    state_message.pose.orientation.z = 0; // std::rand() % 2;
+    state_message.pose.orientation.z = 0; //std::rand() % 2;
     state_message.pose.orientation.w = 0;
     state_message.pose.orientation.y = 0;
     m_gazebo_model_state_publisher.publish(state_message);
