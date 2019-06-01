@@ -27,13 +27,17 @@
       type="ai_trainer"
       name="ai_trainer"
       output="screen" >
-      <param name="generation_size" type="int" value = "20" />
-      <param name="generation_best" type="int" value = "2" />
+      <param name="generation_size" type="int" value = "100" />
+      <param name="generation_best" type="int" value = "10" />
       <param name="learning_rate" type="double" value = "0.1" />
       <param name="max_time" type="double" value = "50" /> 
-      <param name="load_init" type="boolean" value = "true" /> <!-- create first generation with the init folder -->
-      <param name="save_lastest_to_init" type="boolean" value = "true" /> <!-- saves the best and latest networks to the init folder -->
-      <param name="save_generation_interval" type="int" value = "5" /> <!-- saves the best networks of every given generation -->
+      <!-- create first generation with the init folder -->
+      <!-- init folder should no be emoty! -->
+      <param name="load_init" type="boolean" value = "true" />
+      <!-- saves the best and latest networks to the init folder -->
+      <param name="save_lastest_to_init" type="boolean" value = "true" />
+      <!-- saves the best networks of every given generation -->
+      <param name="save_generation_interval" type="int" value = "5" />
       <param name="config_folder" type="string" value = "$(arg config_folder)" />
     </node>
   </group>
