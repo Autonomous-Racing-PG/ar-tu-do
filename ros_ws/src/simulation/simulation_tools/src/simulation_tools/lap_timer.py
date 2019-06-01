@@ -64,9 +64,7 @@ class Timer():
             rospy.loginfo("Lap " + str(len(self.history)) + " (" + self.name + "): " +  # nopep8
                           format_duration(duration) + ", average: " + format_duration(average))  # nopep8
         self.start = time
-        duration_message = Duration()
-        duration_message.data = duration
-        self.lap_time_publisher.publish(duration_message)
+        self.lap_time_publisher.publish(duration)
 
 
 FINISH_LINE_1 = Area(Point(0, -0.5), Point(2.8, 1))
