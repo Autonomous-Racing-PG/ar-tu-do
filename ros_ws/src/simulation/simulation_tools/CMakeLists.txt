@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   gazebo_msgs
+  marti_common_msgs
 )
 
 find_package(gazebo REQUIRED)
@@ -27,7 +28,7 @@ catkin_python_setup()
 ## Declare things to be passed to dependent projects
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs marti_common_msgs
 )
 
 
