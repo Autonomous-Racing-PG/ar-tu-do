@@ -16,7 +16,7 @@
       <param name="config_folder" type="string" value = "$(arg config_folder)"/>
       <!-- <param name="config_file" type="string" value = "latest.conf"/> -->
       <!-- <param name="config_file" type="string" value = ""/> -->
-      <param name="config_file" type="string" value = ""/>
+      <param name="config_file" type="string" value = "default.conf"/>
       
     </node>
 
@@ -27,8 +27,8 @@
       type="ai_trainer"
       name="ai_trainer"
       output="screen" >
-      <param name="generation_size" type="int" value = "100" />
-      <param name="generation_best" type="int" value = "10" />
+      <param name="generation_size" type="int" value = "20" />
+      <param name="generation_best" type="int" value = "2" />
       <param name="learning_rate" type="double" value = "0.1" />
       <param name="max_time" type="double" value = "50" /> 
       <param name="load_init" type="boolean" value = "true" /> <!-- create first generation with the init folder -->
