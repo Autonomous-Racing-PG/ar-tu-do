@@ -2,10 +2,11 @@
 
 #include "ai_math.h"
 #include "ai_util.h"
+#include "ai_enum.h"
 #include "ai_trainer_workspace.h"
 
 using namespace ai_trainer;
-using namespace ai_math;
+    
 
 AiTrainer::AiTrainer()
 {
@@ -228,6 +229,8 @@ void AiTrainer::createNextGeneration()
     int index = 0;
     while (m_nets.size() < (size_t)m_generation_size)
     {
+        using namespace ai_math;
+
         FANN::neural_net* parent = m_best_nets[index];
         
         NetVector parent_vec = net_to_vector(parent);
@@ -300,7 +303,7 @@ void AiTrainer::endTest()
 void AiTrainer::timerCallback(const ros::TimerEvent&)
 {
     meta *m = m_meta[m_index];
-    if(ai_workspace::event(m, REASON_TIMER))
+    if(ai_workspace::event(m, ai_enum::AbortReason::max_run_time))
     {
         update();
     }
@@ -316,7 +319,7 @@ void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
         return;
     }
     
-    if(ai_workspace::event(m, REASON_CRASH))
+    if(ai_workspace::event(m, ai_enum::AbortReason::crash))
     {
         update();
     }
@@ -333,7 +336,7 @@ void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr&
     m->added_angle = m->added_angle + std::abs((double)parameters->angle);
     m->count++;
 
-    if(ai_workspace::event(m, REASON_OUTPUT))
+    if(ai_workspace::event(m, ai_enum::AbortReason::output))
     {
         update();
     }
@@ -344,7 +347,7 @@ void AiTrainer::lapTimerCallback(const std_msgs::Duration::ConstPtr& time_messag
     meta* m = m_meta[m_index];
     m->lap_time = time_message->data.toSec();
 
-    if(ai_workspace::event(m, REASON_LAP))
+    if(ai_workspace::event(m, ai_enum::AbortReason::lap_finished))
     {
         update();
     }
