@@ -2,6 +2,7 @@
 
 import rospy
 from gazebo_msgs.msg import ModelState, ModelStates
+from std_msgs.msg import Duration
 from math import floor
 
 from collections import namedtuple
@@ -34,6 +35,8 @@ class Timer():
         self.next_checkpoint = 0
         self.history = []
         self.start = None
+        self.lap_time_publisher = rospy.Publisher(
+            "/lap_time", Duration, queue_size=1)
 
     def update(self, position):
         if self.checkpoints[self.next_checkpoint].contains(position):
@@ -61,6 +64,7 @@ class Timer():
             rospy.loginfo("Lap " + str(len(self.history)) + " (" + self.name + "): " +  # nopep8
                           format_duration(duration) + ", average: " + format_duration(average))  # nopep8
         self.start = time
+        self.lap_time_publisher.publish(duration)
 
 
 FINISH_LINE_1 = Area(Point(0, -0.5), Point(2.8, 1))
