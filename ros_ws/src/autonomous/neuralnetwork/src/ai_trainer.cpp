@@ -27,6 +27,9 @@ AiTrainer::AiTrainer()
     m_drive_parameters_subscriber =
         m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_SUBSCRIBE, 1,
                                                          &AiTrainer::driveParametersCallback, this);
+    m_laptimer_subscriber =
+        m_node_handle.subscribe<std_msgs::Duration>(TOPIC_LAP_TIMER_SUBSCRIBE, 1,
+                                                         &AiTrainer::lapTimerCallback, this);
     m_gazebo_model_state_publisher =
         m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE_PUBLISH, 1);
     m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
@@ -238,15 +241,6 @@ void AiTrainer::createNextGeneration()
     m_gen++;
 }
 
-void AiTrainer::timerCallback(const ros::TimerEvent&)
-{
-    meta *m = m_meta[m_index];
-    if(ai_workspace::event(m, REASON_TIMER))
-    {
-        update();
-    }
-}
-
 void AiTrainer::deploy(FANN::neural_net* net)
 {
     long size = net->get_total_connections();
@@ -296,11 +290,20 @@ void AiTrainer::prepareTest()
 void AiTrainer::endTest()
 {
     meta* m = m_meta[m_index];
-    m->time = (ros::Time::now() - m->time_start).toSec();
+    m->run_time = (ros::Time::now() - m->time_start).toSec();
     m->avg_velocity = m->added_velocity / (double)m->count;
     m->score = ai_workspace::fitness(m);
 
     m_running_test = false;
+}
+
+void AiTrainer::timerCallback(const ros::TimerEvent&)
+{
+    meta *m = m_meta[m_index];
+    if(ai_workspace::event(m, REASON_TIMER))
+    {
+        update();
+    }
 }
 
 void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
@@ -336,6 +339,17 @@ void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr&
     }
 }
 
+void AiTrainer::lapTimerCallback(const std_msgs::Duration::ConstPtr& time_message)
+{
+    meta* m = m_meta[m_index];
+    m->lap_time = time_message->data.toSec();
+
+    if(ai_workspace::event(m, REASON_LAP))
+    {
+        update();
+    }
+}
+        
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "ai_trainer");

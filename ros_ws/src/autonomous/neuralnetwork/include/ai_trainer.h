@@ -20,12 +20,15 @@
 #include <drive_msgs/drive_param.h>
 #include <gazebo_msgs/ModelState.h>
 #include <neuralnetwork/net_param.h>
+
 #include <std_msgs/Bool.h>
 #include <std_msgs/Empty.h>
 #include <std_msgs/String.h>
+#include <std_msgs/Duration.h>
 
 constexpr const char* TOPIC_CRASH_SUBSCRIBE = "/crash";
 constexpr const char* TOPIC_DRIVE_PARAMETERS_SUBSCRIBE = "/commands/drive_param";
+constexpr const char* TOPIC_LAP_TIMER_SUBSCRIBE = "/lap_time";
 
 constexpr const char* TOPIC_GAZEBO_MODEL_STATE_PUBLISH = "/gazebo/set_model_state";
 constexpr const char* TOPIC_NET_DEPLOY_PUBLISH = "/ai/deploy";
@@ -47,6 +50,7 @@ namespace ai_trainer
     constexpr const int REASON_CRASH = 1;
     constexpr const int REASON_TIMER = 2;
     constexpr const int REASON_OUTPUT = 3;
+    constexpr const int REASON_LAP = 4;
 
     struct meta
     {
@@ -63,8 +67,9 @@ namespace ai_trainer
 
         // test end
         int reason = 0;
-        double time = 0;
+        double run_time = 0;
         double avg_velocity = 0;
+        double lap_time = 0;
 
         // scoring
         double score = 0;
@@ -83,6 +88,7 @@ namespace ai_trainer
         ros::NodeHandle m_node_handle;
         ros::Subscriber m_crash_subscriber;
         ros::Subscriber m_drive_parameters_subscriber;
+        ros::Subscriber m_laptimer_subscriber;
         ros::Publisher m_gazebo_model_state_publisher;
         ros::Publisher m_net_deploy_publisher;
 
@@ -120,12 +126,13 @@ namespace ai_trainer
         // current test
         bool m_running_test = false;
         ros::Timer m_timer;
-        void timerCallback(const ros::TimerEvent&);
 
         void deploy(FANN::neural_net* net);
 
         // callbacks
+        void timerCallback(const ros::TimerEvent&);
         void crashCallback(const std_msgs::Empty::ConstPtr&);
         void driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters);
+        void lapTimerCallback(const std_msgs::Duration::ConstPtr& time);
     };
 }

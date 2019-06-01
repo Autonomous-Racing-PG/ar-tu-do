@@ -21,7 +21,14 @@
         pkg="simulation_tools"
         type="crash_detector"
         name="crash_detector"
-        output="screen" >
+        output="log" >
+    </node>
+
+    <node
+        pkg="simulation_tools"
+        type="lap_timer.py"
+        name="lap_timer"
+        output="log" >
     </node>
     
 </launch>
