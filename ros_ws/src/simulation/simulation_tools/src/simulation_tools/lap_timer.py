@@ -2,7 +2,7 @@
 
 import rospy
 from gazebo_msgs.msg import ModelState, ModelStates
-from marti_common_msgs.msg import DurationStamped
+from std_msgs.msg import Duration
 from math import floor
 
 from collections import namedtuple
@@ -36,7 +36,7 @@ class Timer():
         self.history = []
         self.start = None
         self.lap_time_publisher = rospy.Publisher(
-            "/lap_time", DurationStamped, queue_size=1)
+            "/lap_time", Duration, queue_size=1)
 
     def update(self, position):
         if self.checkpoints[self.next_checkpoint].contains(position):
@@ -64,9 +64,8 @@ class Timer():
             rospy.loginfo("Lap " + str(len(self.history)) + " (" + self.name + "): " +  # nopep8
                           format_duration(duration) + ", average: " + format_duration(average))  # nopep8
         self.start = time
-        duration_message = DurationStamped()
-        duration_message.header.stamp = time
-        duration_message.value = duration
+        duration_message = Duration()
+        duration_message.data = duration
         self.lap_time_publisher.publish(duration_message)
 
 
