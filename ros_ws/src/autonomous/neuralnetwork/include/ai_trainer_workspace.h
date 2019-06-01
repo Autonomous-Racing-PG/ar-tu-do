@@ -2,11 +2,13 @@
 
 #include "ai_trainer.h"
 #include "ai_math.h"
+#include "ai_enum.h"
 
 namespace ai_workspace
 {
     using namespace ai_trainer;
     using namespace ai_math;
+    using namespace ai_enum;
     using namespace std;
 
     // ################################################################
@@ -42,19 +44,18 @@ namespace ai_workspace
     }
 
     // an event happend. return true to abort test
-    inline bool event(meta *m, int reason)
+    inline bool event(meta *m, AbortReason reason)
     {
         switch(reason)
         {
-            case REASON_TIMER:
-            case REASON_CRASH:
-            case REASON_LAP:
+            case AbortReason::max_run_time:
+            case AbortReason::crash:
+            case AbortReason::lap_finished:
             {
-                m->reason = reason;
+                m->abort_reason = reason;
                 return true;
             }
-            case REASON_OUTPUT:
-
+            case AbortReason::output:
             default:
             {
                 return false;
@@ -74,7 +75,7 @@ namespace ai_workspace
                         // + " | vel_sum: " +  std::to_string(m->added_velocity)
                         + " | score: " + std::to_string(m->score)
                         + " | vel_avg: " + std::to_string(m->avg_velocity)
-                        + " | abort reason: " + std::to_string(m->reason)
+                        + " | abort reason: " + ai_enum::to_string(m->abort_reason)
                         + " | lap_time: " + std::to_string(m->lap_time);
         return str;
     }
