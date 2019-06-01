@@ -16,21 +16,17 @@ namespace ai_workspace
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
-        double max_lap_time = 100.0;
+        double max_lap_time = 50.0;
         double lap_time = std::min(max_lap_time, m->lap_time);
+        double lap_bonus = 0;
 
-        double score;
         if(lap_time > 0.0)
         {
             // completed lap
-            score = 1 - lap_time / max_lap_time; // smaller is better
-        }
-        else
-        {
-            // didnt complete lap
-            score = 0;
+            lap_bonus =  (max_lap_time - lap_time); // smaller is better
         }
 
+        double score = m->added_velocity / 100.0 + lap_bonus;
         return score;
     }
 
@@ -77,9 +73,9 @@ namespace ai_workspace
                         // + " | time: " + std::to_string(m->time)
                         // + " | vel_sum: " +  std::to_string(m->added_velocity)
                         + " | score: " + std::to_string(m->score)
-                        + " | lap_time: " + std::to_string(m->lap_time)
                         + " | vel_avg: " + std::to_string(m->avg_velocity)
-                        + " | abort reason: " + std::to_string(m->reason);
+                        + " | abort reason: " + std::to_string(m->reason)
+                        + " | lap_time: " + std::to_string(m->lap_time);
         return str;
     }
 
