@@ -17,5 +17,6 @@
   <depend>rospy</depend>
   <depend>roscpp</depend>
   <depend>std_msgs</depend>
+  <depend>marti_common_msgs</depend>
 
 </package>
