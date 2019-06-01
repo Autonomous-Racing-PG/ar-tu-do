@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ai_config.h"
+#include "ai_enum.h"
 
 // http://leenissen.dk/fann/html/files/fann_cpp-h.html
 // clang-format off
@@ -47,11 +48,6 @@ constexpr const char* PATH_INIT_FOLDER = "init";
 
 namespace ai_trainer
 {
-    constexpr const int REASON_CRASH = 1;
-    constexpr const int REASON_TIMER = 2;
-    constexpr const int REASON_OUTPUT = 3;
-    constexpr const int REASON_LAP = 4;
-
     struct meta
     {
         // test start
@@ -66,7 +62,8 @@ namespace ai_trainer
         double c_angle = 0; // latest angle publish
 
         // test end
-        int reason = 0;
+        ai_enum::AbortReason abort_reason = ai_enum::AbortReason::none;
+        std::string abort_reason_details = "";
         double run_time = 0;
         double avg_velocity = 0;
         double lap_time = 0;
