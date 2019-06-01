@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"speedometer_8py.html#abc578ddedab907737091cb86856732e7":[5,0,0,0,0,4,0,1,0,3,12],
 "speedometer_8py.html#acd7f0f18f37f468db40dae82775a6313":[5,0,0,0,0,4,0,1,0,3,11],
 "speedometer_8py.html#ad8cbde404030a049eb657fd78f8bec45":[5,0,0,0,0,4,0,1,0,3,4],
 "speedometer_8py.html#af7706082fba920fe977bdb0e4dd464f8":[5,0,0,0,0,4,0,1,0,3,2],

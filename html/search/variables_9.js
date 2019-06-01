@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['lap_5ftime_5fpublisher',['lap_time_publisher',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#a2c9523f33bcf2a72cebb7ccc056a1f53',1,'simulation_tools::lap_timer::Timer']]],
   ['laser_5fsample_5fcount',['LASER_SAMPLE_COUNT',['../namespaceparameters.html#a24735dce78cf9899cf1ec4bda2ea4eac',1,'parameters']]],
   ['laser_5fscan',['laser_scan',['../namespacecar.html#a4ba098e8f3df859abceb50544afdec9f',1,'car.laser_scan()'],['../namespacewallfollowing.html#a35ff373c811db70d98205347a736c606',1,'wallfollowing.laser_scan()']]],
   ['last_5fspeed',['last_speed',['../namespacewallfollowing.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe',1,'wallfollowing']]],
