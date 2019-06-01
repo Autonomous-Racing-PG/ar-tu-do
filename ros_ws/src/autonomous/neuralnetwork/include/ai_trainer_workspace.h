@@ -16,7 +16,21 @@ namespace ai_workspace
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
-        double score = m->added_velocity;
+        double max_lap_time = 100.0;
+        double lap_time = std::min(max_lap_time, m->lap_time);
+
+        double score;
+        if(lap_time > 0.0)
+        {
+            // completed lap
+            score = 1 - lap_time / max_lap_time; // smaller is better
+        }
+        else
+        {
+            // didnt complete lap
+            score = 0;
+        }
+
         return score;
     }
 
@@ -38,14 +52,12 @@ namespace ai_workspace
         {
             case REASON_TIMER:
             case REASON_CRASH:
+            case REASON_LAP:
             {
                 m->reason = reason;
                 return true;
             }
             case REASON_OUTPUT:
-            {
-
-            }
 
             default:
             {
@@ -60,11 +72,14 @@ namespace ai_workspace
 
     inline string get_test_output(meta* m, int m_gen, int m_index, int n)
     {
-        std::string str = "generation: " + std::to_string(m_gen) + " | entity: " + std::to_string(m_index) + "/" +
-                        std::to_string(n)
-                        + " | time: " + std::to_string(m->time) + " | score: " + std::to_string(m->score)
+        std::string str = "generation: " + std::to_string(m_gen) //
+                        + " | entity: " + std::to_string(m_index) + "/" + std::to_string(n)
+                        // + " | time: " + std::to_string(m->time)
                         // + " | vel_sum: " +  std::to_string(m->added_velocity)
-                        + " | vel_avg: " + std::to_string(m->avg_velocity) + " | abort reason: " + std::to_string(m->reason);
+                        + " | score: " + std::to_string(m->score)
+                        + " | lap_time: " + std::to_string(m->lap_time)
+                        + " | vel_avg: " + std::to_string(m->avg_velocity)
+                        + " | abort reason: " + std::to_string(m->reason);
         return str;
     }
 
