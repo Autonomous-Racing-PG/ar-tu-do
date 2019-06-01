@@ -8,6 +8,8 @@ Panels:
         - /RobotModel1/Links1/left_wheel_back1
         - /RobotModel1/Links1/left_wheel_front1
         - /Camera1/Visibility1
+        - /Marker1
+        - /Marker2
       Splitter Ratio: 0.446488291
     Tree Height: 616
   - Class: rviz/Selection
@@ -30,6 +32,8 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: LaserScan
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -75,6 +79,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         laser:
           Alpha: 1
           Show Axes: false
@@ -171,6 +179,14 @@ Visualization Manager:
         points_and_lines: true
       Queue Size: 100
       Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /emergencystop_visualization
+      Name: Marker
+      Namespaces:
+        points_and_lines: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -196,7 +212,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.68077326
+      Distance: 4.66820955
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -214,7 +230,7 @@ Visualization Manager:
       Pitch: 0.435397863
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.10357618
+      Yaw: 4.13357973
     Saved: ~
 Window Geometry:
   Camera:
