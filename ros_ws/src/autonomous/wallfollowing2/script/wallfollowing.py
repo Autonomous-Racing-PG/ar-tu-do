@@ -47,6 +47,7 @@ DEFAULT_PARAMETERS = {
     'controller_d': 0.02
 }
 
+
 class Parameters():
     def __init__(self, default_values):
         self.names = default_values.keys()
@@ -58,7 +59,6 @@ class Parameters():
             default = getattr(self, name)
             value = rospy.get_param("wallfollowing/" + name, default)
             setattr(self, name, value)
-
 
 
 class PIDController():
@@ -95,6 +95,7 @@ def drive(angle, velocity):
     message.velocity = velocity
     drive_parameters_publisher.publish(message)
 
+
 def get_scan_as_cartesian(laser_scan):
     ranges = np.array(laser_scan.ranges)
 
@@ -126,7 +127,8 @@ def find_left_right_border(points, margin_relative=0.1):
 def follow_walls(left_circle, right_circle, barrier, delta_time):
     global last_speed
 
-    prediction_distance = parameters.corner_cutting + parameters.straight_smoothing * last_speed
+    prediction_distance = parameters.corner_cutting + \
+        parameters.straight_smoothing * last_speed
 
     predicted_car_position = Point(0, prediction_distance)
     left_point = left_circle.get_closest_point(predicted_car_position)
@@ -135,7 +137,8 @@ def follow_walls(left_circle, right_circle, barrier, delta_time):
     target_position = Point(
         (left_point.x + right_point.x) / 2,
         (left_point.y + right_point.y) / 2)
-    error = (target_position.x - predicted_car_position.x) / prediction_distance
+    error = (target_position.x - predicted_car_position.x) / \
+        prediction_distance
     if math.isnan(error) or math.isinf(error):
         error = 0
 
@@ -143,10 +146,10 @@ def follow_walls(left_circle, right_circle, barrier, delta_time):
         error, delta_time)
 
     radius = min(left_circle.radius, right_circle.radius)
-    speed_limit_radius = map(parameters.radius_lower, parameters.radius_upper, 0, 1, radius)
+    speed_limit_radius = map(parameters.radius_lower, parameters.radius_upper, 0, 1, radius)  # nopep8
     speed_limit_error = max(0, 1 + parameters.steering_slow_down_dead_zone - abs(error) * parameters.steering_slow_down)  # nopep8
     speed_limit_acceleration = last_speed + parameters.max_acceleration * delta_time
-    speed_limit_barrier = map(parameters.barrier_lower_limit, parameters.barrier_upper_limit, 0, 1, barrier) ** parameters.barrier_exponent
+    speed_limit_barrier = map(parameters.barrier_lower_limit, parameters.barrier_upper_limit, 0, 1, barrier) ** parameters.barrier_exponent  # nopep8
 
     relative_speed = min(
         speed_limit_error,
@@ -155,8 +158,8 @@ def follow_walls(left_circle, right_circle, barrier, delta_time):
         speed_limit_barrier
     )
     last_speed = relative_speed
-    speed = map(0, 1, parameters.min_throttle, parameters.max_throttle, relative_speed)
-    steering_angle = steering_angle * map(parameters.high_speed_steering_limit_dead_zone, 1, 1, parameters.high_speed_steering_limit, relative_speed)
+    speed = map(0, 1, parameters.min_throttle, parameters.max_throttle, relative_speed)  # nopep8
+    steering_angle = steering_angle * map(parameters.high_speed_steering_limit_dead_zone, 1, 1, parameters.high_speed_steering_limit, relative_speed)  # nopep8
     drive(steering_angle, speed)
 
     show_line_in_rviz(2, [left_point, right_point],
@@ -166,9 +169,8 @@ def follow_walls(left_circle, right_circle, barrier, delta_time):
     show_line_in_rviz(4, [predicted_car_position,
                           target_position], color=ColorRGBA(1, 0.4, 0, 1))
 
-    
-    show_line_in_rviz(5, [Point(-2, barrier),
-                          Point( 2, barrier),], color=ColorRGBA(1, 1, 0, 1))
+    show_line_in_rviz(
+        5, [Point(-2, barrier), Point(2, barrier)], color=ColorRGBA(1, 1, 0, 1))
 
 
 def handle_scan(laser_scan, delta_time):
@@ -181,16 +183,18 @@ def handle_scan(laser_scan, delta_time):
     left_circle = circle.fit(left_wall)
     right_circle = circle.fit(right_wall)
 
-    barrier_start = int(points.shape[0] * (0.5 - parameters.barrier_size_realtive))
-    barrier_end = int(points.shape[0] * (0.5 + parameters.barrier_size_realtive))
-    barrier = np.max(points[barrier_start : barrier_end, 1])
-    
+    barrier_start = int(points.shape[0] * (0.5 - parameters.barrier_size_realtive))  # nopep8
+    barrier_end = int(points.shape[0] * (0.5 + parameters.barrier_size_realtive))  # nopep8
+    barrier = np.max(points[barrier_start: barrier_end, 1])
+
     follow_walls(left_circle, right_circle, barrier, delta_time)
 
     show_circle_in_rviz(left_circle, left_wall, 0)
     show_circle_in_rviz(right_circle, right_wall, 1)
 
+
 last_scan = None
+
 
 def laser_callback(scan_message):
     global last_scan
@@ -206,7 +210,10 @@ def laser_callback(scan_message):
 rospy.init_node('wallfollowing', anonymous=True)
 parameters = Parameters(DEFAULT_PARAMETERS)
 parameters.load()
-pid = PIDController(parameters.controller_p, parameters.controller_i, parameters.controller_d)
+pid = PIDController(
+    parameters.controller_p,
+    parameters.controller_i,
+    parameters.controller_d)
 
 rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
