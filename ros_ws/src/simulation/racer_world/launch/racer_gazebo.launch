@@ -24,7 +24,7 @@
   </include>
 
   <!-- launch racer-->
-  <include file="$(find racer_world)/launch/racer.launch" >
+  <include file="$(find racer_world)/launch/robots.launch" >
       <arg name="use_gpu" value="$(arg use_gpu)" />
       <arg name="visualize_lidar" value="$(arg visualize_lidar)" />
       <arg name="laser_sample_count" value="$(arg laser_sample_count)" />
