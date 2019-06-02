@@ -18,6 +18,7 @@ namespace ai_workspace
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
+        /*
         double max_lap_time = 50.0;
         double lap_time = std::min(max_lap_time, m->lap_time);
         double lap_bonus = 0;
@@ -29,6 +30,8 @@ namespace ai_workspace
         }
 
         double score = m->added_velocity / 100.0 + lap_bonus;
+        */
+        double score = m->added_velocity;
         return score;
     }
 
