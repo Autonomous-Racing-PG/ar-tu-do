@@ -59,7 +59,7 @@ namespace ai_trainer
         uint count = 0;
 
         double c_velocity = 0; // latest velocity publish
-        double c_angle = 0; // latest angle publish
+        double c_angle = 0;    // latest angle publish
 
         // test end
         ai_enum::AbortReason abort_reason = ai_enum::AbortReason::none;
