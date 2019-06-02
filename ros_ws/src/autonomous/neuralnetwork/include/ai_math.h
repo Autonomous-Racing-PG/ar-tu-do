@@ -96,7 +96,7 @@ namespace ai_math
     inline NetVector zeros(uint size)
     {
         NetVector vec;
-        for(uint i = 0; i < size; i++)
+        for (uint i = 0; i < size; i++)
         {
             vec.push_back(0);
         }
@@ -106,17 +106,17 @@ namespace ai_math
     inline NetVector ones(uint size)
     {
         NetVector vec;
-        for(uint i = 0; i < size; i++)
+        for (uint i = 0; i < size; i++)
         {
             vec.push_back(1);
         }
         return vec;
     }
 
-    inline NetVector clone(NetVector &a)
+    inline NetVector clone(NetVector& a)
     {
         NetVector c;
-        for(uint i = 0; i < a.size(); i++)
+        for (uint i = 0; i < a.size(); i++)
         {
             c.push_back(a[i]);
         }
@@ -181,7 +181,7 @@ namespace ai_math
     // #    vector mutation
     // ################################################################
 
-    inline NetVector m_exchange_mutation(NetVector &p, uint switches)
+    inline NetVector m_exchange_mutation(NetVector& p, uint switches)
     {
         uint size = p.size();
 
@@ -190,7 +190,7 @@ namespace ai_math
         std::uniform_int_distribution<> dis(0, size - 1);
 
         NetVector m = clone(p);
-        for(uint i = 0; i < switches; i++)
+        for (uint i = 0; i < switches; i++)
         {
             int a;
             int b;
@@ -198,8 +198,7 @@ namespace ai_math
             {
                 a = dis(gen);
                 b = dis(gen);
-            }
-            while(a != b);
+            } while (a != b);
 
             fann_type tmp = m[a];
             m[a] = m[b];
@@ -209,14 +208,14 @@ namespace ai_math
         return m;
     }
 
-    inline NetVector m_uniform_add_mutation(NetVector &p, double learning_rate)
+    inline NetVector m_uniform_add_mutation(NetVector& p, double learning_rate)
     {
         NetVector random = r_normal_distribution(p.size(), 0, learning_rate);
         NetVector m = add(p, random);
         return m;
     }
 
-    inline NetVector m_uniform_mult_mutation(NetVector &p, double learning_rate)
+    inline NetVector m_uniform_mult_mutation(NetVector& p, double learning_rate)
     {
         NetVector random = r_normal_distribution(p.size(), 1, learning_rate);
         NetVector m = mult(p, random);

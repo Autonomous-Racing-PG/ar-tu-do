@@ -19,18 +19,18 @@ namespace ai_enum
     {
         switch (reason)
         {
-        case ai_enum::none:
-            return "none";
-        case ai_enum::crash:
-            return "crash";
-        case ai_enum::max_run_time:
-            return "max_run_time";
-        case ai_enum::output:
-            return "output";
-        case ai_enum::lap_finished:
-            return "lap_finished";
-        default:
-            return "invalid enum";
+            case ai_enum::none:
+                return "none";
+            case ai_enum::crash:
+                return "crash";
+            case ai_enum::max_run_time:
+                return "max_run_time";
+            case ai_enum::output:
+                return "output";
+            case ai_enum::lap_finished:
+                return "lap_finished";
+            default:
+                return "invalid enum";
         }
     }
 }
