@@ -36,6 +36,12 @@ MAX_ACCELERATION = 0.4
 CORNER_CUTTING = 1.4
 STRAIGHT_SMOOTHING = 1.0
 
+BARRIER_SIZE_REALTIVE = 0.1
+BARRIER_LOWER_LIMIT = 1
+BARRIER_UPPER_LIMIT = 15
+BARRIER_EXPONENT = 1.4
+
+
 PID_VALUES = (4, 0.2, 0.02)
 
 
@@ -113,7 +119,7 @@ def find_left_right_border(points, margin_relative=0.1):
     return margin + np.argmax(distances) + 1
 
 
-def follow_walls(left_circle, right_circle):
+def follow_walls(left_circle, right_circle, barrier):
     global last_speed
 
     prediction_distance = CORNER_CUTTING + STRAIGHT_SMOOTHING * last_speed
@@ -136,11 +142,14 @@ def follow_walls(left_circle, right_circle):
     speed_limit_radius = map(RADIUS_LOWER, RADIUS_UPPER, 0, 1, radius)
     speed_limit_error = max(0, 1 + STEERING_SLOW_DOWN_DEAD_ZONE - abs(error) * STEERING_SLOW_DOWN)  # nopep8
     speed_limit_acceleration = last_speed + MAX_ACCELERATION / UPDATE_FREQUENCY
+    speed_limit_barrier = map(BARRIER_LOWER_LIMIT, BARRIER_UPPER_LIMIT, 0, 1, barrier) ** BARRIER_EXPONENT
 
     relative_speed = min(
         speed_limit_error,
         speed_limit_radius,
-        speed_limit_acceleration)
+        speed_limit_acceleration,
+        speed_limit_barrier
+    )
     last_speed = relative_speed
     speed = map(0, 1, MIN_THROTTLE, MAX_THROTTLE, relative_speed)
     steering_angle = steering_angle * map(HIGH_SPEED_STEERING_LIMIT_DEAD_ZONE, 1, 1, HIGH_SPEED_STEERING_LIMIT, relative_speed)
@@ -152,6 +161,10 @@ def follow_walls(left_circle, right_circle):
                       color=ColorRGBA(1, 1, 1, 0.3), line_width=0.005)
     show_line_in_rviz(4, [predicted_car_position,
                           target_position], color=ColorRGBA(1, 0.4, 0, 1))
+
+    
+    show_line_in_rviz(5, [Point(-2, barrier),
+                          Point( 2, barrier),], color=ColorRGBA(1, 1, 0, 1))
 
 
 def handle_scan():
@@ -167,7 +180,11 @@ def handle_scan():
     left_circle = circle.fit(left_wall)
     right_circle = circle.fit(right_wall)
 
-    follow_walls(left_circle, right_circle)
+    barrier_start = int(points.shape[0] * (0.5 - BARRIER_SIZE_REALTIVE))
+    barrier_end = int(points.shape[0] * (0.5 + BARRIER_SIZE_REALTIVE))
+    barrier = np.max(points[barrier_start : barrier_end, 1])
+    
+    follow_walls(left_circle, right_circle, barrier)
 
     show_circle_in_rviz(left_circle, left_wall, 0)
     show_circle_in_rviz(right_circle, right_wall, 1)
