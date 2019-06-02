@@ -1,12 +1,11 @@
 #include "ai_trainer.h"
 
-#include "ai_math.h"
-#include "ai_util.h"
 #include "ai_enum.h"
+#include "ai_math.h"
 #include "ai_trainer_workspace.h"
+#include "ai_util.h"
 
 using namespace ai_trainer;
-    
 
 AiTrainer::AiTrainer()
 {
@@ -29,8 +28,7 @@ AiTrainer::AiTrainer()
         m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_SUBSCRIBE, 1,
                                                          &AiTrainer::driveParametersCallback, this);
     m_laptimer_subscriber =
-        m_node_handle.subscribe<std_msgs::Duration>(TOPIC_LAP_TIMER_SUBSCRIBE, 1,
-                                                         &AiTrainer::lapTimerCallback, this);
+        m_node_handle.subscribe<std_msgs::Duration>(TOPIC_LAP_TIMER_SUBSCRIBE, 1, &AiTrainer::lapTimerCallback, this);
     m_gazebo_model_state_publisher =
         m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE_PUBLISH, 1);
     m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
@@ -177,19 +175,19 @@ void AiTrainer::chooseBest()
 
     // best choosen
 
-    if(m_save_generation_interval != 0 && m_gen != 0 && m_gen % m_save_generation_interval == 0)
+    if (m_save_generation_interval != 0 && m_gen != 0 && m_gen % m_save_generation_interval == 0)
     {
         // save to best_of
-        for(uint i = 0; i < m_best_nets.size(); i++)
+        for (uint i = 0; i < m_best_nets.size(); i++)
         {
-            std::string path = m_config_folder + "/best_of/s" + std::to_string(m_gen) + "e" + std::to_string(i) + ".conf";
+            std::string path =
+                m_config_folder + "/best_of/s" + std::to_string(m_gen) + "e" + std::to_string(i) + ".conf";
             bool b = m_best_nets[i]->save(path);
             if (!b)
             {
                 ROS_WARN_STREAM("could not save to: " + path);
             }
         }
-
     }
 
     {
@@ -232,7 +230,7 @@ void AiTrainer::createNextGeneration()
         using namespace ai_math;
 
         FANN::neural_net* parent = m_best_nets[index];
-        
+
         NetVector parent_vec = net_to_vector(parent);
         NetVector m_vec = ai_workspace::mutate(parent_vec, m_learning_rate);
         FANN::neural_net* m = vector_to_net(m_vec);
@@ -302,8 +300,8 @@ void AiTrainer::endTest()
 
 void AiTrainer::timerCallback(const ros::TimerEvent&)
 {
-    meta *m = m_meta[m_index];
-    if(ai_workspace::event(m, ai_enum::AbortReason::max_run_time))
+    meta* m = m_meta[m_index];
+    if (ai_workspace::event(m, ai_enum::AbortReason::max_run_time))
     {
         update();
     }
@@ -311,15 +309,15 @@ void AiTrainer::timerCallback(const ros::TimerEvent&)
 
 void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
 {
-    meta *m = m_meta[m_index];
+    meta* m = m_meta[m_index];
 
     // remove magic number 0.1
     if ((ros::Time::now() - m->time_start).toSec() < 0.1)
     {
         return;
     }
-    
-    if(ai_workspace::event(m, ai_enum::AbortReason::crash))
+
+    if (ai_workspace::event(m, ai_enum::AbortReason::crash))
     {
         update();
     }
@@ -328,15 +326,15 @@ void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
 void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
     meta* m = m_meta[m_index];
-    
-     m->c_velocity = (double)parameters->velocity; // latest velocity publish
-     m->c_angle = (double)parameters->angle; // latest angle publish
+
+    m->c_velocity = (double)parameters->velocity; // latest velocity publish
+    m->c_angle = (double)parameters->angle;       // latest angle publish
 
     m->added_velocity = m->added_velocity + (double)parameters->velocity;
     m->added_angle = m->added_angle + std::abs((double)parameters->angle);
     m->count++;
 
-    if(ai_workspace::event(m, ai_enum::AbortReason::output))
+    if (ai_workspace::event(m, ai_enum::AbortReason::output))
     {
         update();
     }
@@ -347,12 +345,12 @@ void AiTrainer::lapTimerCallback(const std_msgs::Duration::ConstPtr& time_messag
     meta* m = m_meta[m_index];
     m->lap_time = time_message->data.toSec();
 
-    if(ai_workspace::event(m, ai_enum::AbortReason::lap_finished))
+    if (ai_workspace::event(m, ai_enum::AbortReason::lap_finished))
     {
         update();
     }
 }
-        
+
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "ai_trainer");
