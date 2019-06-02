@@ -2,11 +2,13 @@
 
 #include "ai_trainer.h"
 #include "ai_math.h"
+#include "ai_enum.h"
 
 namespace ai_workspace
 {
     using namespace ai_trainer;
     using namespace ai_math;
+    using namespace ai_enum;
     using namespace std;
 
     // ################################################################
@@ -16,21 +18,20 @@ namespace ai_workspace
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
-        double max_lap_time = 100.0;
+        /*
+        double max_lap_time = 50.0;
         double lap_time = std::min(max_lap_time, m->lap_time);
+        double lap_bonus = 0;
 
-        double score;
         if(lap_time > 0.0)
         {
             // completed lap
-            score = 1 - lap_time / max_lap_time; // smaller is better
-        }
-        else
-        {
-            // didnt complete lap
-            score = 0;
+            lap_bonus =  (max_lap_time - lap_time); // smaller is better
         }
 
+        double score = m->added_velocity / 100.0 + lap_bonus;
+        */
+        double score = m->added_velocity;
         return score;
     }
 
@@ -46,19 +47,18 @@ namespace ai_workspace
     }
 
     // an event happend. return true to abort test
-    inline bool event(meta *m, int reason)
+    inline bool event(meta *m, AbortReason reason)
     {
         switch(reason)
         {
-            case REASON_TIMER:
-            case REASON_CRASH:
-            case REASON_LAP:
+            case AbortReason::max_run_time:
+            case AbortReason::crash:
+            case AbortReason::lap_finished:
             {
-                m->reason = reason;
+                m->abort_reason = reason;
                 return true;
             }
-            case REASON_OUTPUT:
-
+            case AbortReason::output:
             default:
             {
                 return false;
@@ -77,9 +77,9 @@ namespace ai_workspace
                         // + " | time: " + std::to_string(m->time)
                         // + " | vel_sum: " +  std::to_string(m->added_velocity)
                         + " | score: " + std::to_string(m->score)
-                        + " | lap_time: " + std::to_string(m->lap_time)
                         + " | vel_avg: " + std::to_string(m->avg_velocity)
-                        + " | abort reason: " + std::to_string(m->reason);
+                        + " | abort reason: " + ai_enum::to_string(m->abort_reason)
+                        + " | lap_time: " + std::to_string(m->lap_time);
         return str;
     }
 
