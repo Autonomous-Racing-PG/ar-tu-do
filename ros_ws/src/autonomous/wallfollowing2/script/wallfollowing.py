@@ -17,8 +17,6 @@ import numpy as np
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_LASER_SCAN = "/scan"
 
-UPDATE_FREQUENCY = 60
-
 last_speed = 0
 
 DEFAULT_PARAMETERS = {
@@ -97,16 +95,7 @@ def drive(angle, velocity):
     message.velocity = velocity
     drive_parameters_publisher.publish(message)
 
-
-def laser_callback(message):
-    global laser_scan
-    laser_scan = message
-
-
-def get_scan_as_cartesian():
-    if laser_scan is None:
-        raise Exception("No scan has been received yet.")
-
+def get_scan_as_cartesian(laser_scan):
     ranges = np.array(laser_scan.ranges)
 
     inf_mask = np.isinf(ranges)
@@ -134,7 +123,7 @@ def find_left_right_border(points, margin_relative=0.1):
     return margin + np.argmax(distances) + 1
 
 
-def follow_walls(left_circle, right_circle, barrier):
+def follow_walls(left_circle, right_circle, barrier, delta_time):
     global last_speed
 
     prediction_distance = parameters.corner_cutting + parameters.straight_smoothing * last_speed
@@ -151,12 +140,12 @@ def follow_walls(left_circle, right_circle, barrier):
         error = 0
 
     steering_angle = pid.update_and_get_correction(
-        error, 1.0 / UPDATE_FREQUENCY)
+        error, delta_time)
 
     radius = min(left_circle.radius, right_circle.radius)
     speed_limit_radius = map(parameters.radius_lower, parameters.radius_upper, 0, 1, radius)
     speed_limit_error = max(0, 1 + parameters.steering_slow_down_dead_zone - abs(error) * parameters.steering_slow_down)  # nopep8
-    speed_limit_acceleration = last_speed + parameters.max_acceleration / UPDATE_FREQUENCY
+    speed_limit_acceleration = last_speed + parameters.max_acceleration * delta_time
     speed_limit_barrier = map(parameters.barrier_lower_limit, parameters.barrier_upper_limit, 0, 1, barrier) ** parameters.barrier_exponent
 
     relative_speed = min(
@@ -182,11 +171,8 @@ def follow_walls(left_circle, right_circle, barrier):
                           Point( 2, barrier),], color=ColorRGBA(1, 1, 0, 1))
 
 
-def handle_scan():
-    if laser_scan is None:
-        return
-
-    points = get_scan_as_cartesian()
+def handle_scan(laser_scan, delta_time):
+    points = get_scan_as_cartesian(laser_scan)
     split = find_left_right_border(points)
 
     right_wall = points[:split:4, :]
@@ -199,27 +185,32 @@ def handle_scan():
     barrier_end = int(points.shape[0] * (0.5 + parameters.barrier_size_realtive))
     barrier = np.max(points[barrier_start : barrier_end, 1])
     
-    follow_walls(left_circle, right_circle, barrier)
+    follow_walls(left_circle, right_circle, barrier, delta_time)
 
     show_circle_in_rviz(left_circle, left_wall, 0)
     show_circle_in_rviz(right_circle, right_wall, 1)
 
+last_scan = None
 
-laser_scan = None
+def laser_callback(scan_message):
+    global last_scan
+
+    scan_time = scan_message.header.stamp.to_sec()
+    if last_scan is not None and abs(scan_time - last_scan) > 0.0001:
+        delta_time = scan_time - last_scan
+        handle_scan(scan_message, delta_time)
+
+    last_scan = scan_time
+
+
+rospy.init_node('wallfollowing', anonymous=True)
+parameters = Parameters(DEFAULT_PARAMETERS)
+parameters.load()
+pid = PIDController(parameters.controller_p, parameters.controller_i, parameters.controller_d)
 
 rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
 
-rospy.init_node('wallfollowing', anonymous=True)
-
-parameters = Parameters(DEFAULT_PARAMETERS)
-parameters.load()
-
-timer = rospy.Rate(UPDATE_FREQUENCY)
-
-pid = PIDController(parameters.controller_p, parameters.controller_i, parameters.controller_d)
-
 while not rospy.is_shutdown():
-    handle_scan()
-    timer.sleep()
+    rospy.spin()
