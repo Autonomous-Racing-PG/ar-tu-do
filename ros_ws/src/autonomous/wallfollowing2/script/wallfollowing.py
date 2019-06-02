@@ -17,20 +17,27 @@ import numpy as np
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_LASER_SCAN = "/scan"
 
-SLOW = 0.2
-FAST = 1.0
+MIN_THROTTLE = 0.2
+MAX_THROTTLE = 1.0
 
-RADIUS_SMALL = 0
-RADIUS_BIG = 40
+RADIUS_LOWER = 2
+RADIUS_UPPER = 30
 
-ERROR_SPEED_DECREASE = 4
-ERROR_DEAD_ZONE = 0.15
+STEERING_SLOW_DOWN = 4
+STEERING_SLOW_DOWN_DEAD_ZONE = 0.2
+
+HIGH_SPEED_STEERING_LIMIT = 0.5
+HIGH_SPEED_STEERING_LIMIT_DEAD_ZONE = 0.2
 
 UPDATE_FREQUENCY = 60
 
-MAX_ACCELERATION = 0.5
+MAX_ACCELERATION = 0.4
 
-PREDICTION_DISTANCE = 1.4
+CORNER_CUTTING = 1.4
+STRAIGHT_SMOOTHING = 1.0
+
+PID_VALUES = (4, 0.2, 0.02)
+
 
 last_speed = 0
 
@@ -109,14 +116,16 @@ def find_left_right_border(points, margin_relative=0.1):
 def follow_walls(left_circle, right_circle):
     global last_speed
 
-    predicted_car_position = Point(0, PREDICTION_DISTANCE + last_speed)
+    prediction_distance = CORNER_CUTTING + STRAIGHT_SMOOTHING * last_speed
+
+    predicted_car_position = Point(0, prediction_distance)
     left_point = left_circle.get_closest_point(predicted_car_position)
     right_point = right_circle.get_closest_point(predicted_car_position)
 
     target_position = Point(
         (left_point.x + right_point.x) / 2,
         (left_point.y + right_point.y) / 2)
-    error = target_position.x - predicted_car_position.x
+    error = (target_position.x - predicted_car_position.x) / prediction_distance
     if math.isnan(error) or math.isinf(error):
         error = 0
 
@@ -124,8 +133,8 @@ def follow_walls(left_circle, right_circle):
         error, 1.0 / UPDATE_FREQUENCY)
 
     radius = min(left_circle.radius, right_circle.radius)
-    speed_limit_radius = map(RADIUS_SMALL, RADIUS_BIG, 0, 1, radius)
-    speed_limit_error = max(0, 1 + ERROR_DEAD_ZONE - abs(error) * ERROR_SPEED_DECREASE)  # nopep8
+    speed_limit_radius = map(RADIUS_LOWER, RADIUS_UPPER, 0, 1, radius)
+    speed_limit_error = max(0, 1 + STEERING_SLOW_DOWN_DEAD_ZONE - abs(error) * STEERING_SLOW_DOWN)  # nopep8
     speed_limit_acceleration = last_speed + MAX_ACCELERATION / UPDATE_FREQUENCY
 
     relative_speed = min(
@@ -133,8 +142,9 @@ def follow_walls(left_circle, right_circle):
         speed_limit_radius,
         speed_limit_acceleration)
     last_speed = relative_speed
-    speed = map(0, 1, SLOW, FAST, relative_speed)
-    drive(steering_angle * (1.0 - relative_speed), speed)
+    speed = map(0, 1, MIN_THROTTLE, MAX_THROTTLE, relative_speed)
+    steering_angle = steering_angle * map(HIGH_SPEED_STEERING_LIMIT_DEAD_ZONE, 1, 1, HIGH_SPEED_STEERING_LIMIT, relative_speed)
+    drive(steering_angle, speed)
 
     show_line_in_rviz(2, [left_point, right_point],
                       color=ColorRGBA(1, 1, 1, 0.3), line_width=0.005)
@@ -173,7 +183,7 @@ rospy.init_node('wallfollowing', anonymous=True)
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 
-pid = PIDController(1.5, 0.2, 0.02)
+pid = PIDController(*PID_VALUES)
 
 while not rospy.is_shutdown():
     handle_scan()
