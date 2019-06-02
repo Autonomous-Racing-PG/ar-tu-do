@@ -1,8 +1,8 @@
 #pragma once
 
-#include "ai_trainer.h"
-#include "ai_math.h"
 #include "ai_enum.h"
+#include "ai_math.h"
+#include "ai_trainer.h"
 
 namespace ai_workspace
 {
@@ -14,7 +14,7 @@ namespace ai_workspace
     // ################################################################
     // #    parameter functions
     // ################################################################
-     
+
     // returns the fitness of the given test results m
     inline double fitness(meta* m)
     {
@@ -47,9 +47,9 @@ namespace ai_workspace
     }
 
     // an event happend. return true to abort test
-    inline bool event(meta *m, AbortReason reason)
+    inline bool event(meta* m, AbortReason reason)
     {
-        switch(reason)
+        switch (reason)
         {
             case AbortReason::max_run_time:
             case AbortReason::crash:
@@ -73,15 +73,11 @@ namespace ai_workspace
     inline string get_test_output(meta* m, int m_gen, int m_index, int n)
     {
         std::string str = "generation: " + std::to_string(m_gen) //
-                        + " | entity: " + std::to_string(m_index) + "/" + std::to_string(n)
-                        // + " | time: " + std::to_string(m->time)
-                        // + " | vel_sum: " +  std::to_string(m->added_velocity)
-                        + " | score: " + std::to_string(m->score)
-                        + " | vel_avg: " + std::to_string(m->avg_velocity)
-                        + " | abort reason: " + ai_enum::to_string(m->abort_reason)
-                        + " | lap_time: " + std::to_string(m->lap_time);
+            + " | entity: " + std::to_string(m_index) + "/" + std::to_string(n)
+            // + " | time: " + std::to_string(m->time)
+            // + " | vel_sum: " +  std::to_string(m->added_velocity)
+            + " | score: " + std::to_string(m->score) + " | vel_avg: " + std::to_string(m->avg_velocity) +
+            " | abort reason: " + ai_enum::to_string(m->abort_reason) + " | lap_time: " + std::to_string(m->lap_time);
         return str;
     }
-
-
 }
