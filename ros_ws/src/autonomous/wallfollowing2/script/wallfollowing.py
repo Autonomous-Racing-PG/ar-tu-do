@@ -54,9 +54,13 @@ class Parameters():
         self.names = default_values.keys()
         for name in self.names:
             setattr(self, name, default_values[name])
-            
 
-parameters = Parameters(DEFAULT_PARAMETERS)
+    def load(self):
+        for name in self.names:
+            default = getattr(self, name)
+            value = rospy.get_param("wallfollowing/" + name, default)
+            setattr(self, name, value)
+
 
 
 class PIDController():
@@ -208,6 +212,9 @@ drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
 
 rospy.init_node('wallfollowing', anonymous=True)
+
+parameters = Parameters(DEFAULT_PARAMETERS)
+parameters.load()
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 
