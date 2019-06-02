@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="gui" default="true"/>
+  <arg name="gui" default="false"/>
 
   <include file="$(find racer_world)/launch/racer_gazebo.launch">
       <arg name="world" value="racetrack_decorated_2"/>
@@ -12,7 +12,6 @@
       <arg name="extra_gazebo_args" value="--profile qlearning"/>
   </include>
 
-    <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
     <include file="$(find car_control)/launch/car_control.launch">
         <arg name="mode_override" value="2"/>
     </include>

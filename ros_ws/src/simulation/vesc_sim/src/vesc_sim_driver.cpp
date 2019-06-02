@@ -4,31 +4,37 @@
 
 VESCSimulationDriver::VESCSimulationDriver()
 {
+    ros::NodeHandle private_node_handle("~");
+    std::string robot_space;
+    private_node_handle.getParam(PARAM_ROBOT_NAMESPACE, robot_space);
+
+    ROS_WARN_STREAM("robot_space = " + robot_space);
+
     this->m_servo_position_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Float64>(COMMAND_POSITION, 1,
+        this->m_node_handle.subscribe<std_msgs::Float64>(robot_space + COMMAND_POSITION, 1,
                                                          &VESCSimulationDriver::servoPositionCallback, this);
 
     this->m_motor_speed_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Float64>(COMMAND_THROTTLE, 1, &VESCSimulationDriver::motorSpeedCallback,
+        this->m_node_handle.subscribe<std_msgs::Float64>(robot_space + COMMAND_THROTTLE, 1, &VESCSimulationDriver::motorSpeedCallback,
                                                          this);
 
     this->m_motor_brake_subscriber =
-        this->m_node_handle.subscribe<std_msgs::Float64>(COMMAND_BRAKE, 1, &VESCSimulationDriver::motorBrakeCallback,
+        this->m_node_handle.subscribe<std_msgs::Float64>(robot_space + COMMAND_BRAKE, 1, &VESCSimulationDriver::motorBrakeCallback,
                                                          this);
 
     this->m_left_rear_wheel_velocity_publisher =
-        this->m_node_handle.advertise<std_msgs::Float64>(simulation::WHEEL_LEFT_BACK_VELOCITY, 10);
+        this->m_node_handle.advertise<std_msgs::Float64>(robot_space + simulation::WHEEL_LEFT_BACK_VELOCITY, 10);
     this->m_right_rear_wheel_velocity_publisher =
-        this->m_node_handle.advertise<std_msgs::Float64>(simulation::WHEEL_RIGHT_BACK_VELOCITY, 10);
+        this->m_node_handle.advertise<std_msgs::Float64>(robot_space + simulation::WHEEL_RIGHT_BACK_VELOCITY, 10);
     this->m_left_front_wheel_velocity_publisher =
-        this->m_node_handle.advertise<std_msgs::Float64>(simulation::WHEEL_LEFT_FRONT_VELOCITY, 10);
+        this->m_node_handle.advertise<std_msgs::Float64>(robot_space + simulation::WHEEL_LEFT_FRONT_VELOCITY, 10);
     this->m_right_front_wheel_velocity_publisher =
-        this->m_node_handle.advertise<std_msgs::Float64>(simulation::WHEEL_RIGHT_FRONT_VELOCITY, 10);
+        this->m_node_handle.advertise<std_msgs::Float64>(robot_space + simulation::WHEEL_RIGHT_FRONT_VELOCITY, 10);
 
     this->m_left_steering_position_publisher =
-        this->m_node_handle.advertise<std_msgs::Float64>(simulation::LEFT_STEERING_POSITION, 10);
+        this->m_node_handle.advertise<std_msgs::Float64>(robot_space + simulation::LEFT_STEERING_POSITION, 10);
     this->m_right_steering_position_publisher =
-        this->m_node_handle.advertise<std_msgs::Float64>(simulation::RIGHT_STEERING_POSITION, 10);
+        this->m_node_handle.advertise<std_msgs::Float64>(robot_space + simulation::RIGHT_STEERING_POSITION, 10);
 
     m_VESC_simulator.start();
 }

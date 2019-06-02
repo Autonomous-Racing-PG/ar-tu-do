@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <launch>
+  <arg name="robot_namespace" default="robot1"/>
   <!-- drive_parameters converter -->
   <node 
     pkg="vesc_sim" 
     type="vesc_sim_driver" 
     name="vesc_sim_driver" 
     output="screen">
+    <param name="robot_namespace" value="$(arg robot_namespace)"/>
   </node>
 
 </launch>

@@ -13,14 +13,16 @@ constexpr const char* COMMAND_BRAKE = "/commands/motor/brake";
 constexpr const char* TOPIC_DRIVE_PARAM = "/commands/drive_param";
 constexpr const char* CMD_VEL = "cmd_vel";
 
+constexpr const char* PARAM_ROBOT_NAMESPACE = "robot_namespace";
+
 namespace simulation
 {
-    constexpr const char* WHEEL_LEFT_BACK_VELOCITY = "/racer/left_wheel_back_velocity_controller/command";
-    constexpr const char* WHEEL_LEFT_FRONT_VELOCITY = "/racer/left_wheel_front_velocity_controller/command";
-    constexpr const char* WHEEL_RIGHT_BACK_VELOCITY = "/racer/right_wheel_back_velocity_controller/command";
-    constexpr const char* WHEEL_RIGHT_FRONT_VELOCITY = "/racer/right_wheel_front_velocity_controller/command";
-    constexpr const char* LEFT_STEERING_POSITION = "/racer/left_steering_hinge_position_controller/command";
-    constexpr const char* RIGHT_STEERING_POSITION = "/racer/right_steering_hinge_position_controller/command";
+    constexpr const char* WHEEL_LEFT_BACK_VELOCITY = "/left_wheel_back_velocity_controller/command";
+    constexpr const char* WHEEL_LEFT_FRONT_VELOCITY = "/left_wheel_front_velocity_controller/command";
+    constexpr const char* WHEEL_RIGHT_BACK_VELOCITY = "/right_wheel_back_velocity_controller/command";
+    constexpr const char* WHEEL_RIGHT_FRONT_VELOCITY = "/right_wheel_front_velocity_controller/command";
+    constexpr const char* LEFT_STEERING_POSITION = "/left_steering_hinge_position_controller/command";
+    constexpr const char* RIGHT_STEERING_POSITION = "/right_steering_hinge_position_controller/command";
 };
 
 /**

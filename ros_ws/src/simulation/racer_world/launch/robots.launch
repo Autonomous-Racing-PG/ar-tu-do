@@ -13,6 +13,10 @@
       <arg name="visualize_lidar" value="$(arg visualize_lidar)" />
       <arg name="laser_sample_count" value="$(arg laser_sample_count)" />
     </include>
+    
+    <include file="$(find vesc_sim)/launch/vesc_sim.launch">
+      <arg name="robot_namespace" default="/robot1"/>
+    </include>
   </group>
   
 </launch>

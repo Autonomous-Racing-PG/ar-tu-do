@@ -8,5 +8,5 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro' use_gpu:=$(arg use_gpu) visualize_lidar:=$(arg visualize_lidar) laser_sample_count:=$(arg laser_sample_count)"/>
   <node name="racer_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model racer" />
   <include file="$(find racer_control)/launch/racer_control.launch"/>
-  
+
 </launch>
