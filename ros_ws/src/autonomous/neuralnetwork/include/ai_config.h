@@ -1,5 +1,8 @@
 #pragma once
 
+/**
+* @brief constants for creating networks
+*/
 constexpr const unsigned int NUM_LAYERS = 3;
 constexpr const unsigned int NUM_INPUT = 7;
 constexpr const unsigned int NUM_HIDDEN = 5;
