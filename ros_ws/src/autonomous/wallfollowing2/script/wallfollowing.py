@@ -17,35 +17,46 @@ import numpy as np
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_LASER_SCAN = "/scan"
 
-MIN_THROTTLE = 0.2
-MAX_THROTTLE = 1.0
-
-RADIUS_LOWER = 2
-RADIUS_UPPER = 30
-
-STEERING_SLOW_DOWN = 4
-STEERING_SLOW_DOWN_DEAD_ZONE = 0.2
-
-HIGH_SPEED_STEERING_LIMIT = 0.5
-HIGH_SPEED_STEERING_LIMIT_DEAD_ZONE = 0.2
-
 UPDATE_FREQUENCY = 60
 
-MAX_ACCELERATION = 0.4
-
-CORNER_CUTTING = 1.4
-STRAIGHT_SMOOTHING = 1.0
-
-BARRIER_SIZE_REALTIVE = 0.1
-BARRIER_LOWER_LIMIT = 1
-BARRIER_UPPER_LIMIT = 15
-BARRIER_EXPONENT = 1.4
-
-
-PID_VALUES = (4, 0.2, 0.02)
-
-
 last_speed = 0
+
+DEFAULT_PARAMETERS = {
+    'min_throttle': 0.2,
+    'max_throttle': 1.0,
+
+    'radius_lower': 2,
+    'radius_upper': 30,
+
+    'steering_slow_down': 4,
+    'steering_slow_down_dead_zone': 0.2,
+
+    'high_speed_steering_limit': 0.5,
+    'high_speed_steering_limit_dead_zone': 0.2,
+
+    'max_acceleration': 0.4,
+
+    'corner_cutting': 1.4,
+    'straight_smoothing': 1.0,
+
+    'barrier_size_realtive': 0.1,
+    'barrier_lower_limit': 1,
+    'barrier_upper_limit': 15,
+    'barrier_exponent': 1.4,
+
+    'controller_p': 4,
+    'controller_i': 0.2,
+    'controller_d': 0.02
+}
+
+class Parameters():
+    def __init__(self, default_values):
+        self.names = default_values.keys()
+        for name in self.names:
+            setattr(self, name, default_values[name])
+            
+
+parameters = Parameters(DEFAULT_PARAMETERS)
 
 
 class PIDController():
@@ -122,7 +133,7 @@ def find_left_right_border(points, margin_relative=0.1):
 def follow_walls(left_circle, right_circle, barrier):
     global last_speed
 
-    prediction_distance = CORNER_CUTTING + STRAIGHT_SMOOTHING * last_speed
+    prediction_distance = parameters.corner_cutting + parameters.straight_smoothing * last_speed
 
     predicted_car_position = Point(0, prediction_distance)
     left_point = left_circle.get_closest_point(predicted_car_position)
@@ -139,10 +150,10 @@ def follow_walls(left_circle, right_circle, barrier):
         error, 1.0 / UPDATE_FREQUENCY)
 
     radius = min(left_circle.radius, right_circle.radius)
-    speed_limit_radius = map(RADIUS_LOWER, RADIUS_UPPER, 0, 1, radius)
-    speed_limit_error = max(0, 1 + STEERING_SLOW_DOWN_DEAD_ZONE - abs(error) * STEERING_SLOW_DOWN)  # nopep8
-    speed_limit_acceleration = last_speed + MAX_ACCELERATION / UPDATE_FREQUENCY
-    speed_limit_barrier = map(BARRIER_LOWER_LIMIT, BARRIER_UPPER_LIMIT, 0, 1, barrier) ** BARRIER_EXPONENT
+    speed_limit_radius = map(parameters.radius_lower, parameters.radius_upper, 0, 1, radius)
+    speed_limit_error = max(0, 1 + parameters.steering_slow_down_dead_zone - abs(error) * parameters.steering_slow_down)  # nopep8
+    speed_limit_acceleration = last_speed + parameters.max_acceleration / UPDATE_FREQUENCY
+    speed_limit_barrier = map(parameters.barrier_lower_limit, parameters.barrier_upper_limit, 0, 1, barrier) ** parameters.barrier_exponent
 
     relative_speed = min(
         speed_limit_error,
@@ -151,8 +162,8 @@ def follow_walls(left_circle, right_circle, barrier):
         speed_limit_barrier
     )
     last_speed = relative_speed
-    speed = map(0, 1, MIN_THROTTLE, MAX_THROTTLE, relative_speed)
-    steering_angle = steering_angle * map(HIGH_SPEED_STEERING_LIMIT_DEAD_ZONE, 1, 1, HIGH_SPEED_STEERING_LIMIT, relative_speed)
+    speed = map(0, 1, parameters.min_throttle, parameters.max_throttle, relative_speed)
+    steering_angle = steering_angle * map(parameters.high_speed_steering_limit_dead_zone, 1, 1, parameters.high_speed_steering_limit, relative_speed)
     drive(steering_angle, speed)
 
     show_line_in_rviz(2, [left_point, right_point],
@@ -180,8 +191,8 @@ def handle_scan():
     left_circle = circle.fit(left_wall)
     right_circle = circle.fit(right_wall)
 
-    barrier_start = int(points.shape[0] * (0.5 - BARRIER_SIZE_REALTIVE))
-    barrier_end = int(points.shape[0] * (0.5 + BARRIER_SIZE_REALTIVE))
+    barrier_start = int(points.shape[0] * (0.5 - parameters.barrier_size_realtive))
+    barrier_end = int(points.shape[0] * (0.5 + parameters.barrier_size_realtive))
     barrier = np.max(points[barrier_start : barrier_end, 1])
     
     follow_walls(left_circle, right_circle, barrier)
@@ -200,7 +211,7 @@ rospy.init_node('wallfollowing', anonymous=True)
 
 timer = rospy.Rate(UPDATE_FREQUENCY)
 
-pid = PIDController(*PID_VALUES)
+pid = PIDController(parameters.controller_p, parameters.controller_i, parameters.controller_d)
 
 while not rospy.is_shutdown():
     handle_scan()
