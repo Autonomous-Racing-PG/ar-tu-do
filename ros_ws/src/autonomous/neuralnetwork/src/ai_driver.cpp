@@ -2,6 +2,8 @@
 
 #include "ai_util.h"
 
+using namespace ai_driver;
+
 AiDriver::AiDriver()
 {
     ros::NodeHandle private_node_handle("~");
@@ -73,15 +75,20 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 
 void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
 {
-    long size = data->size;
-    FANN::connection arr[size];
-    m_net.get_connection_array(arr);
-    for (int i = 0; i < size; i++)
+    uint layers = data->layers;
+    std::vector<uint> layer_array_vector = data->layer_array;
+    uint* layer_array = &layer_array_vector[0];
+
+    m_net.create_standard_array(layers, layer_array);
+
+    long weight_array_size = data->weight_array_size;
+    FANN::connection weight_array[weight_array_size];
+    m_net.get_connection_array(weight_array);
+    for (int i = 0; i < weight_array_size; i++)
     {
-        arr[i].weight = data->weights[i];
+        weight_array[i].weight = data->weight_array[i];
     }
-    m_net.create_standard_array(NUM_LAYERS, NET_ARGS);
-    m_net.set_weight_array(arr, size);
+    m_net.set_weight_array(weight_array, weight_array_size);
 
     m_deployed = true;
 }
