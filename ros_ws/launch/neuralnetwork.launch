@@ -27,9 +27,9 @@
       type="ai_trainer"
       name="ai_trainer"
       output="screen" >
-      <param name="generation_size" type="int" value = "20" />
-      <param name="generation_best" type="int" value = "2" />
-      <param name="learning_rate" type="double" value = "0.8" />
+      <param name="generation_size" type="int" value = "30" />
+      <param name="generation_best" type="int" value = "3" />
+      <param name="learning_rate" type="double" value = "0.1" />
       <param name="max_time" type="double" value = "50" /> 
       <!-- create first generation with the init folder -->
       <!-- init folder should no be emoty! -->
