@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:arg name="use_gpu" default="true"/>
+  <xacro:arg name="visualize_lidar" default="false"/>
+  <xacro:arg name="laser_sample_count" default="1080"/>
+
   <!-- Gazebo plugins -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -8,24 +12,6 @@
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
-
-  <!-- Differential Drive -->
-  <!--gazebo>
-    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-      <legacyMode>false</legacyMode>
-      <alwaysOn>true</alwaysOn>
-      <updateRate>20</updateRate>
-      <leftJoint>left_wheel_front_hinge</leftJoint>
-      <rightJoint>right_wheel_front_hinge</rightJoint>
-      <wheelSeparation>0.4</wheelSeparation>
-      <wheelDiameter>0.1</wheelDiameter>
-      <torque>20</torque>
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>chassis</robotBaseFrame>
-    </plugin>
-  </gazebo-->
 
   <!-- Camera -->
   <gazebo reference="camera">
@@ -78,7 +64,7 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>1080</samples>
+            <samples>$(arg laser_sample_count)</samples>
             <resolution>1</resolution>
             <min_angle>-2.35619</min_angle>
             <max_angle>2.35619</max_angle>
@@ -107,18 +93,17 @@
   </gazebo>
 
   <!-- IMU -->
-
   <gazebo reference="imu_link">
     <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
-      <update_rate>10000</update_rate>
+      <update_rate>200</update_rate>
       <visualize>true</visualize>
       <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
         <topicName>imu</topicName>
         <bodyName>imu_link</bodyName>
-        <updateRateHZ>1000.0</updateRateHZ>
+        <updateRateHZ>100.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
         <rpyOffset>0 0 0</rpyOffset>
@@ -127,5 +112,4 @@
       <pose>0 0 0 0 0 0</pose>
     </sensor>
   </gazebo>
-
 </robot>

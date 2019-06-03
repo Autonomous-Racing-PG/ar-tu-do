@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- Launches all necessary nodes that let the car drive autonomously. -->    
+    <!-- wall_following node -->
+    <node
+      respawn="true"
+      pkg="wallfollowing2"
+      type="wallfollowing.py"
+      name="wallfollowing"
+      output="screen" >
+        <param name="min_throttle" type="double" value = "0.2" />
+        <param name="max_throttle" type="double" value = "1.0" />
+         
+        <param name="radius_lower" type="double" value = "2.0" />
+        <param name="radius_upper" type="double" value = "30.0" />
+        
+        <param name="steering_slow_down" type="double" value = "4.0" />
+        <param name="steering_slow_down_dead_zone" type="double" value = "0.2" />
+        
+        <param name="high_speed_steering_limit" type="double" value = "0.5" />
+        <param name="high_speed_steering_limit_dead_zone" type="double" value = "0.2" />
+        
+        <param name="max_acceleration" type="double" value = "0.4" />
+        
+        <param name="corner_cutting" type="double" value = "1.4" />
+        <param name="straight_smoothing" type="double" value = "1.0" />
+        
+        
+        <param name="barrier_size_realtive" type="double" value = "0.1" />
+        <param name="barrier_lower_limit" type="double" value = "1.0" />
+        <param name="barrier_upper_limit" type="double" value = "15.0" />
+        <param name="barrier_exponent" type="double" value = "1.4" />
+        
+        <param name="controller_p" type="double" value = "4.0" />
+        <param name="controller_i" type="double" value = "0.2" />
+        <param name="controller_d" type="double" value = "0.02" />
+    </node>
+</launch>

@@ -6,6 +6,7 @@ Launches all necessary nodes that listen for drive_parameters and translate them
     <arg name="mode_override" default="0"/>
     <arg name="dms_check_rate" default="20" /> <!-- in Hz -->
     <arg name="dms_expiration" default="100" /> <!-- in ms -->
+    <arg name="emergencystop_expiration" default="3000" /> <!-- in ms -->
 	
     <!-- car control node -->
     <node
@@ -25,6 +26,7 @@ Launches all necessary nodes that listen for drive_parameters and translate them
       output="screen" >
       <param name="dms_check_rate" type="int" value = "$(arg dms_check_rate)" />
       <param name="dms_expiration" type="int" value = "$(arg dms_expiration)" />
+      <param name="emergencystop_expiration" type="int" value = "$(arg emergencystop_expiration)" />
       <param name="mode_override" type="int" value = "$(arg mode_override)" />
     </node>
 

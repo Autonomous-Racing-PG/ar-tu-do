@@ -1,11 +1,9 @@
 #include "drive_parameters_source.h"
-#include <math.h>
-
-constexpr auto DEFAULT_TIME = std::chrono::steady_clock::time_point::min();
+#include <cmath>
 
 DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const char* topic,
                                              DriveParameterCallbackFunction update_callback, DriveMode drive_mode,
-                                             double timeout)
+                                             ros::Duration timeout)
 {
     ROS_ASSERT_MSG(drive_mode != DriveMode::LOCKED, "Don't define a drive parameter source for the LOCKED mode.");
 
@@ -15,24 +13,24 @@ DriveParametersSource::DriveParametersSource(ros::NodeHandle* node_handle, const
     this->m_drive_mode = drive_mode;
     this->m_idle = true;
     this->m_updateCallback = update_callback;
-    this->m_timeout = std::chrono::duration<double>(timeout);
-    this->m_last_update = DEFAULT_TIME;
+    this->m_timeout = timeout;
+    this->m_last_update = ros::Time();
 }
 
 void DriveParametersSource::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& message)
 {
-    this->m_last_update = std::chrono::steady_clock::now();
-    this->m_idle = fabs(message->velocity) < IDLE_RANGE && fabs(message->angle) < IDLE_RANGE;
+    this->m_last_update = ros::Time::now();
+    this->m_idle = std::abs(message->velocity) < IDLE_RANGE && std::abs(message->angle) < IDLE_RANGE;
     this->m_updateCallback(this, message);
 }
 
 bool DriveParametersSource::isOutdated()
 {
-    if (this->m_last_update == DEFAULT_TIME)
+    if (this->m_last_update.is_zero())
     {
         return true;
     }
-    return this->m_last_update + this->m_timeout < std::chrono::steady_clock::now();
+    return this->m_last_update + this->m_timeout < ros::Time::now();
 }
 
 bool DriveParametersSource::isIdle()

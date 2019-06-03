@@ -63,6 +63,20 @@ roslaunch launch/gazebo_car-teleop.launch
 catkin_make run_tests
 ```
 
+## Building a map with Cartographer
+
+There are two bash scripts in the `scripts` folder which use [Cartographer](https://github.com/googlecartographer/cartographer_ros) to create a map of a racetrack. This map can then be used for different purposes, for example in the ROS navigation stack.
+
+* To build a map while a roscore is running and providing sensor data, use the `cartographer_online` script.
+* To build a map from a rosbag, use the `cartographer_offline` script. The rosbag must provide range data on the rostopic `/scan` and a transformation tree on `/tf`; depending on your configuration of cartographer in `car_cartographer/config` it may need to also have odometry data on `/odom` or IMU data on `/imu`.
+
+```bash
+# Either:
+./scripts/cartographer_online.sh
+# Or:
+./scripts/cartographer_offline.sh /absolute/path/to/rosbag
+```
+
 ## Documentation
 
 * For general information and documentation checkout the [wiki page](https://github.com/Autonomous-Racing-PG/ros.package/wiki).

@@ -21,6 +21,8 @@ jobs:
             - libeigen3-dev
             - python-wstool
             - libsdl2-dev
+            - clang-format-3.8
+            - libyaml-cpp0.5v5
 
       cache:
           apt: true
@@ -41,11 +43,14 @@ jobs:
         - wstool up
         - source /opt/ros/${ROS_DISTRO}/setup.bash
         - rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}
+        - sudo pip install autopep8
 
       script:
+        - ./../scripts/travis/check-format.sh || travis_terminate 1
         - source /opt/ros/${ROS_DISTRO}/setup.bash
         - catkin_make 
         - catkin_make run_tests && catkin_test_results
+        - ./../scripts/travis/check-consistency.sh || travis_terminate 1
       
     - # create documentation
       if: type != pull_request AND branch = master

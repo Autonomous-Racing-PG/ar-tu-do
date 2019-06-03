@@ -1,8 +1,13 @@
 #pragma once
 
-#include <laser_geometry/laser_geometry.h>
 #include <ros/ros.h>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-equal"
+#pragma GCC diagnostic ignored "-Wdouble-promotion"
+#include <laser_geometry/laser_geometry.h>
 #include <tf/transform_listener.h>
+#pragma GCC diagnostic pop
 
 constexpr const char* TOPIC_LASER_SCAN = "/racer/laser/scan";
 constexpr const char* TOPIC_LASER_SCAN_POINTCLOUD = "/racer/laser/tf_pointcloud";

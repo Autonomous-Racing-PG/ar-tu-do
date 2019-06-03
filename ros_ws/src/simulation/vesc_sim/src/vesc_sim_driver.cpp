@@ -1,5 +1,6 @@
 #include "vesc_sim_driver.h"
 #include "car_config.h"
+#include <cmath>
 
 VESCSimulationDriver::VESCSimulationDriver()
 {
@@ -81,8 +82,8 @@ void VESCSimulationDriver::servoPositionCallback(const std_msgs::Float64::ConstP
 VESCSimulationDriver::AckermannSteeringAngles VESCSimulationDriver::calculateSteeringAngles(const double& angle)
 {
     AckermannSteeringAngles angles;
-    double radius = tan(angle + M_PI / 2) * car_config::WHEELBASE;
-    angles.left_wheel_angle = -atan(car_config::WHEELBASE / (radius + car_config::REAR_WHEEL_DISTANCE / 2));
-    angles.right_wheel_angle = -atan(car_config::WHEELBASE / (radius - car_config::REAR_WHEEL_DISTANCE / 2));
+    double radius = std::tan(angle + M_PI / 2) * car_config::WHEELBASE;
+    angles.left_wheel_angle = -std::atan(car_config::WHEELBASE / (radius + car_config::REAR_WHEEL_DISTANCE / 2));
+    angles.right_wheel_angle = -std::atan(car_config::WHEELBASE / (radius - car_config::REAR_WHEEL_DISTANCE / 2));
     return angles;
 }

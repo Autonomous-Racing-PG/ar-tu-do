@@ -6,8 +6,6 @@ WallFollowing::WallFollowing()
 {
     this->m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &WallFollowing::lidarCallback, this);
-    this->m_emergency_stop_subscriber =
-        m_node_handle.subscribe<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1, &WallFollowing::emergencyStopCallback, this);
     this->m_drive_parameter_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
 }
 
@@ -76,8 +74,8 @@ void WallFollowing::followSingleWall(const sensor_msgs::LaserScan::ConstPtr& lid
                                     createColor(1, 0, 0, 1), 0.03);
     float wallAngle = wall.getAngle();
     this->m_debug_geometry.drawLine(2, createPoint(PREDICTION_DISTANCE, -error * leftRightSign, 0),
-                                    createPoint(PREDICTION_DISTANCE + cos(wallAngle) * 2,
-                                                (-error + sin(wallAngle) * 2) * leftRightSign, 0),
+                                    createPoint(PREDICTION_DISTANCE + std::cos(wallAngle) * 2,
+                                                (-error + std::sin(wallAngle) * 2) * leftRightSign, 0),
                                     createColor(0, 1, 1, 1), 0.03);
 
     this->publishDriveParameters(velocity, steeringAngle);
@@ -92,7 +90,7 @@ void WallFollowing::followWalls(const sensor_msgs::LaserScan::ConstPtr& lidar)
     float correction = this->m_pid_controller.updateAndGetCorrection(error, TIME_BETWEEN_SCANS);
 
     float steeringAngle = atan(correction) * 2 / M_PI;
-    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::max(0.0, std::abs(steeringAngle) - 0.15));
+    float velocity = WALL_FOLLOWING_MAX_SPEED * (1 - std::max(0.0f, std::abs(steeringAngle) - 0.15f));
     velocity = boost::algorithm::clamp(velocity, WALL_FOLLOWING_MIN_SPEED, WALL_FOLLOWING_MAX_SPEED);
 
     leftWall.draw(this->m_debug_geometry, 0, createColor(0, 0, 1, 1));
@@ -116,21 +114,9 @@ void WallFollowing::publishDriveParameters(float velocity, float angle)
     this->m_drive_parameter_publisher.publish(drive_parameters);
 }
 
-void WallFollowing::emergencyStopCallback(const std_msgs::Bool emergency_stop_message)
-{
-    this->m_emergency_stop = emergency_stop_message.data;
-}
-
 void WallFollowing::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-    if (this->m_emergency_stop == false)
-    {
-        this->followWalls(lidar);
-    }
-    else
-    {
-        this->publishDriveParameters(0, 0);
-    }
+    this->followWalls(lidar);
 }
 
 int main(int argc, char** argv)

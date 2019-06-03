@@ -12,6 +12,8 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 
+-- Modified by the F1/10 Autonomous Racing Project Group
+
 include "map_builder.lua"
 include "trajectory_builder.lua"
 
@@ -43,6 +45,7 @@ options = {
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
---TRAJECTORY_BUILDER_2D.use_imu_data = false
+TRAJECTORY_BUILDER_2D.use_imu_data = true
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 90
 
 return options

@@ -2,6 +2,8 @@
 <launch>
     <arg name="joystick_type" default="ps3"/>
 
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
+
     <include file="$(find car_control)/launch/car_control.launch"/>
 
     <include file="$(find teleoperation)/launch/remote_control.launch">
@@ -9,22 +11,18 @@
     </include>
 
     <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
-    
-    <!-- Passing parameters to the vesc_to_odom node doesn't currently work-->
-    <!--<node pkg="vesc_ackermann" type="vesc_to_odom_node" name="vesc_to_odom_node"
-        output="screen" launch-prefix="" >
-        <param name="speed_to_erpm_gain" value="64.96"/>
-        <param name="speed_to_erpm_offset" value="0"/>
-        <param name="steering_angle_to_servo_gain" value="-0.95492965"/>
-        <param name="steering_angle_to_servo_offset" value="0.5"/>
-        <param name="wheelbase" value="0.325"/>
-    </node>-->
 
-    <include file="$(find autonomous)/launch/autonomous_driving.launch"/>
+    <rosparam command="load" file="$(find vesc_sim)/config/car_config.yaml"/>
+
+    <include file="$(find vesc_ackermann)/launch/vesc_to_odom_node.launch"/>
+
+    <include file="$(find wallfollowing2)/launch/autonomous_driving_physical.launch"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
 
     <node pkg="urg_node" type="urg_node" name="urg_node">
-        <param name="_ip_address"  value="192.168.1.10"/>
+        <param name="_ip_address" value="192.168.1.10"/>
     </node>
 </launch>

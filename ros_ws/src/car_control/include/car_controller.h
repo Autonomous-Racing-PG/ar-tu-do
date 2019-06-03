@@ -4,7 +4,6 @@
 #include <ros/ros.h>
 
 #include <algorithm>
-#include <time.h>
 
 #include <drive_msgs/drive_param.h>
 #include <std_msgs/Float64.h>
