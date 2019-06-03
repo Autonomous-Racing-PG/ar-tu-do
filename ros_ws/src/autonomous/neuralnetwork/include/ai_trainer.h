@@ -27,27 +27,27 @@
 #include <std_msgs/String.h>
 #include <std_msgs/Duration.h>
 
-constexpr const char* TOPIC_CRASH_SUBSCRIBE = "/crash";
-constexpr const char* TOPIC_DRIVE_PARAMETERS_SUBSCRIBE = "/commands/drive_param";
-constexpr const char* TOPIC_LAP_TIMER_SUBSCRIBE = "/lap_time";
-
-constexpr const char* TOPIC_GAZEBO_MODEL_STATE_PUBLISH = "/gazebo/set_model_state";
-constexpr const char* TOPIC_NET_DEPLOY_PUBLISH = "/ai/deploy";
-
-constexpr const char* PARAMETER_LOAD_INIT = "load_init";
-constexpr const char* PARAMETER_CONFIG_FOLDER = "config_folder";
-constexpr const char* PARAMETER_SAVE_LATEST_TO_INI = "save_lastest_to_init";
-constexpr const char* PARAMETER_SAVE_GENERATION_INTERVAL = "save_generation_interval";
-
-constexpr const char* PARAMETER_GENERATION_SIZE = "generation_size";
-constexpr const char* PARAMETER_GENERATION_BEST = "generation_best";
-constexpr const char* PARAMETER_LEARNING_RATE = "learning_rate";
-constexpr const char* PARAMETER_MAX_TIME = "max_time";
-
-constexpr const char* PATH_INIT_FOLDER = "init";
-
 namespace ai_trainer
 {
+    constexpr const char* TOPIC_CRASH_SUBSCRIBE = "/crash";
+    constexpr const char* TOPIC_DRIVE_PARAMETERS_SUBSCRIBE = "/commands/drive_param";
+    constexpr const char* TOPIC_LAP_TIMER_SUBSCRIBE = "/lap_time";
+
+    constexpr const char* TOPIC_GAZEBO_MODEL_STATE_PUBLISH = "/gazebo/set_model_state";
+    constexpr const char* TOPIC_NET_DEPLOY_PUBLISH = "/ai/deploy";
+
+    constexpr const char* PARAMETER_LOAD_INIT = "load_init";
+    constexpr const char* PARAMETER_CONFIG_FOLDER = "config_folder";
+    constexpr const char* PARAMETER_SAVE_LATEST_TO_INI = "save_lastest_to_init";
+    constexpr const char* PARAMETER_SAVE_GENERATION_INTERVAL = "save_generation_interval";
+
+    constexpr const char* PARAMETER_GENERATION_SIZE = "generation_size";
+    constexpr const char* PARAMETER_GENERATION_BEST = "generation_best";
+    constexpr const char* PARAMETER_LEARNING_RATE = "learning_rate";
+    constexpr const char* PARAMETER_MAX_TIME = "max_time";
+
+    constexpr const char* PATH_INIT_FOLDER = "init";
+
     struct meta
     {
         // test start
