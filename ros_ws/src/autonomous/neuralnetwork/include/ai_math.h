@@ -250,10 +250,10 @@ namespace ai_math
         return vec;
     }
 
-    inline FANN::neural_net* vector_to_net(NetVector& vec)
+    inline FANN::neural_net* vector_to_net(NetVector& vec, uint layers, uint* layer_array)
     {
         FANN::neural_net* net = new FANN::neural_net();
-        net->create_standard_array(NUM_LAYERS, NET_ARGS);
+        net->create_standard_array(layers, layer_array);
         uint size = net->get_total_connections();
         FANN::connection arr[size];
         net->get_connection_array(arr);
