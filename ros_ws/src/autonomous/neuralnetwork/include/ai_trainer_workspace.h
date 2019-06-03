@@ -6,7 +6,7 @@
 
 namespace ai_workspace
 {
-    constexpr const unsigned int DEFAULT_NUM_LAYERS = 2;
+    constexpr const unsigned int DEFAULT_NUM_LAYERS = 3;
     constexpr const unsigned int DEFAULT_NUM_INPUT = 7;
     constexpr const unsigned int DEFAULT_NUM_HIDDEN = 5;
     constexpr const unsigned int DEFAULT_NUM_OUTPUT = 2;
