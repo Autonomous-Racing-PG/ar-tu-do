@@ -87,7 +87,7 @@ bool AiTrainer::init()
     for (int i = 0; i < m_generation_size; i++)
     {
         FANN::neural_net* net = new FANN::neural_net();
-        net->create_standard_array(ai_config::DEFAULT_NUM_LAYERS, ai_config::DEFAULT_LAYER_ARRAY);
+        net->create_standard_array(ai_workspace::DEFAULT_NUM_LAYERS, ai_workspace::DEFAULT_LAYER_ARRAY);
         m_nets.push_back(net);
         m_meta.push_back(new meta());
     }
@@ -255,7 +255,7 @@ void AiTrainer::deploy(FANN::neural_net* net)
     FANN::connection from_weight_array[weight_array_size];
     net->get_connection_array(from_weight_array);
     std::vector<float> weight_array;
-    for (int i = 0; i < weight_array_size; i++)
+    for (uint i = 0; i < weight_array_size; i++)
     {
         weight_array.push_back(from_weight_array[i].weight);
     }
@@ -339,8 +339,8 @@ void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr&
     m->c_velocity = (double)parameters->velocity; // latest velocity publish
     m->c_angle = (double)parameters->angle;       // latest angle publish
 
-    m->added_velocity = m->added_velocity + (double)parameters->velocity;
-    m->added_angle = m->added_angle + std::abs((double)parameters->angle);
+    m->added_velocity += (double)parameters->velocity;
+    m->added_angle += std::abs((double)parameters->angle);
     m->count++;
 
     if (ai_workspace::event(m, ai_enum::AbortReason::output))
