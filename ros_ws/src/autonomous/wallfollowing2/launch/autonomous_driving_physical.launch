@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-<!-- Launches all necessary nodes that let the car drive autonomously. -->    
+<!-- Launches all necessary nodes that let the car drive autonomously. 
+
+Driving parameters tweaked for the physical car.
+TODO: The updated parameters will go here, for now they are the default parameters
+-->
+
+
     <!-- wall_following node -->
     <node
       respawn="true"

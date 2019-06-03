@@ -16,7 +16,7 @@
 
     <include file="$(find vesc_ackermann)/launch/vesc_to_odom_node.launch"/>
 
-    <include file="$(find wallfollowing1)/launch/autonomous_driving.launch"/>
+    <include file="$(find wallfollowing2)/launch/autonomous_driving_physical.launch"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
