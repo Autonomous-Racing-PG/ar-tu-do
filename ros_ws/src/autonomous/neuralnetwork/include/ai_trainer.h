@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ai_config.h"
 #include "ai_enum.h"
 
 // http://leenissen.dk/fann/html/files/fann_cpp-h.html
