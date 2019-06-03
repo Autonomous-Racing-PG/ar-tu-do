@@ -87,7 +87,7 @@ bool AiTrainer::init()
     for (int i = 0; i < m_generation_size; i++)
     {
         FANN::neural_net* net = new FANN::neural_net();
-        net->create_standard_array(NUM_LAYERS, NET_ARGS);
+        net->create_standard_array(ai_config::DEFAULT_NUM_LAYERS, ai_config::DEFAULT_LAYER_ARRAY);
         m_nets.push_back(net);
         m_meta.push_back(new meta());
     }
@@ -233,7 +233,10 @@ void AiTrainer::createNextGeneration()
 
         NetVector parent_vec = net_to_vector(parent);
         NetVector m_vec = ai_workspace::mutate(parent_vec, m_learning_rate);
-        FANN::neural_net* m = vector_to_net(m_vec);
+        uint layers = parent->get_num_layers();
+        uint layer_array[parent->get_num_layers()];
+        parent->get_layer_array(layer_array);
+        FANN::neural_net* m = vector_to_net(m_vec, layers, layer_array);
 
         m_nets.push_back(m);
         m_meta.push_back(new meta());
@@ -244,18 +247,24 @@ void AiTrainer::createNextGeneration()
 
 void AiTrainer::deploy(FANN::neural_net* net)
 {
-    long size = net->get_total_connections();
-    FANN::connection connections[size];
-    net->get_connection_array(connections);
-    std::vector<float> weights;
-    for (int i = 0; i < size; i++)
+    uint layers = net->get_num_layers();
+    std::vector<uint> layer_array(layers);
+    net->get_layer_array(&layer_array[0]);
+
+    uint weight_array_size = net->get_total_connections();
+    FANN::connection from_weight_array[weight_array_size];
+    net->get_connection_array(from_weight_array);
+    std::vector<float> weight_array;
+    for (int i = 0; i < weight_array_size; i++)
     {
-        weights.push_back(connections[i].weight);
+        weight_array.push_back(from_weight_array[i].weight);
     }
 
     neuralnetwork::net_param message;
-    message.size = size;
-    message.weights = weights;
+    message.layers = layers;
+    message.layer_array = layer_array;
+    message.weight_array_size = weight_array_size;
+    message.weight_array = weight_array;
     m_net_deploy_publisher.publish(message);
 }
 

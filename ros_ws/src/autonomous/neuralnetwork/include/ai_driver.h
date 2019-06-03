@@ -20,14 +20,19 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/String.h>
 
-constexpr const char* PARAMETER_CONFIG_FOLDER = "config_folder";
-constexpr const char* PARAMETER_CONFIG_FILE = "config_file";
-constexpr const char* PARAMETER_UPDATE_RATE = "update_rate";
+namespace ai_driver
+{
+    constexpr const char* PARAMETER_CONFIG_FOLDER = "config_folder";
+    constexpr const char* PARAMETER_CONFIG_FILE = "config_file";
+    constexpr const char* PARAMETER_UPDATE_RATE = "update_rate";
 
-constexpr const char* TOPIC_DRIVE_PARAMETERS_PUBLISH = "/commands/drive_param";
-constexpr const char* TOPIC_LASER_SCAN_SUBSCRIBE = "/scan";
+    constexpr const char* TOPIC_DRIVE_PARAMETERS_PUBLISH = "/commands/drive_param";
+    constexpr const char* TOPIC_LASER_SCAN_SUBSCRIBE = "/scan";
 
-constexpr const char* TOPIC_NET_DEPLOY_SUBSCRIBE = "/ai/deploy";
+    constexpr const char* TOPIC_NET_DEPLOY_SUBSCRIBE = "/ai/deploy";
+
+    constexpr const unsigned int LIDAR_INDICES[] = { 0, 1, 2, 3, 4 };
+}
 
 class AiDriver
 {
@@ -46,7 +51,7 @@ class AiDriver
     FANN::neural_net m_net;
 
     int m_changes_lidar = 0;
-    fann_type m_input[NUM_INPUT];
+    fann_type m_input[ai_config::DEFAULT_NUM_INPUT];
     // m_input[0] : current speed
     // m_input[1] : current wheel rotaton
     // m_input[2] : lidar 90 degrees right
