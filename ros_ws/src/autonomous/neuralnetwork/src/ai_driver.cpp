@@ -46,7 +46,7 @@ void AiDriver::timerCallback(const ros::TimerEvent&)
     {
         return;
     }
-    
+
     update();
 }
 
@@ -68,7 +68,7 @@ void AiDriver::publishDriveParameters(float velocity, float angle)
 
 void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
-    if(m_deployed == false) 
+    if (m_deployed == false)
     {
         return;
     }
@@ -115,7 +115,7 @@ void AiDriver::update()
     m_changes_lidar = 0;
 
     // run network
-    fann_type *output = m_net.run(&m_input[0]);
+    fann_type* output = m_net.run(&m_input[0]);
 
     // redirecting speed and angle of the output back as inputs
     m_input[0] = output[0];
@@ -125,7 +125,8 @@ void AiDriver::update()
     float speed = output[0];
     float angle = output[1] * 2 - 1;
 
-    // ROS_INFO_STREAM("_______________________________________________________ speed: " + std::to_string(speed) + " | angle: " + std::to_string(angle));
+    // ROS_INFO_STREAM("_______________________________________________________ speed: " + std::to_string(speed) + " |
+    // angle: " + std::to_string(angle));
     publishDriveParameters(speed, angle);
 }
 
