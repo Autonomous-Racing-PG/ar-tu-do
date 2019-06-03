@@ -9,6 +9,6 @@ ros_ws/src/navigation_stack/car_cartographer/files/*
 
 *.pyc
 
-ros_ws/src/autonomous/neuralnetwork/configs/latest*
-ros_ws/src/autonomous/neuralnetwork/configs/init
-ros_ws/src/autonomous/neuralnetwork/configs/best_of
+ros_ws/src/autonomous/neuralnetwork/configs/latest.conf
+#ros_ws/src/autonomous/neuralnetwork/configs/init/*.conf
+ros_ws/src/autonomous/neuralnetwork/configs/best_of/*.conf
