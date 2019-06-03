@@ -6,6 +6,12 @@
 
 namespace ai_workspace
 {
+    constexpr const unsigned int DEFAULT_NUM_LAYERS = 2;
+    constexpr const unsigned int DEFAULT_NUM_INPUT = 7;
+    constexpr const unsigned int DEFAULT_NUM_HIDDEN = 5;
+    constexpr const unsigned int DEFAULT_NUM_OUTPUT = 2;
+    constexpr const unsigned int DEFAULT_LAYER_ARRAY[] = { DEFAULT_NUM_INPUT, DEFAULT_NUM_HIDDEN, DEFAULT_NUM_OUTPUT };
+
     using namespace ai_trainer;
     using namespace ai_math;
     using namespace ai_enum;
