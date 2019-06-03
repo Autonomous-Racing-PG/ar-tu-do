@@ -121,6 +121,8 @@ $(document).ready(function(){initNavTree('wallfollowing_8py.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwallfollowing_1_1_parameters.html">wallfollowing.Parameters</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwallfollowing_1_1_p_i_d_controller.html">wallfollowing.PIDController</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -135,16 +137,16 @@ Functions</h2></td></tr>
 <tr class="separator:a908b60b64e20dec7078e707a829b610d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66b98adda1f5c1ba1ed6c0029a5d27f6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a66b98adda1f5c1ba1ed6c0029a5d27f6">wallfollowing.drive</a> (angle, velocity)</td></tr>
 <tr class="separator:a66b98adda1f5c1ba1ed6c0029a5d27f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaea68d69064fe86d2badf8535dd35a4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#abaea68d69064fe86d2badf8535dd35a4">wallfollowing.laser_callback</a> (message)</td></tr>
-<tr class="separator:abaea68d69064fe86d2badf8535dd35a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31cb307c96c7aac244353e90506342cf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a31cb307c96c7aac244353e90506342cf">wallfollowing.get_scan_as_cartesian</a> ()</td></tr>
-<tr class="separator:a31cb307c96c7aac244353e90506342cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacb7060aae10ef40bdacceb57283943c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#aacb7060aae10ef40bdacceb57283943c">wallfollowing.get_scan_as_cartesian</a> (laser_scan)</td></tr>
+<tr class="separator:aacb7060aae10ef40bdacceb57283943c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85455c82dd12c297c8cbc3227c1ba598"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a85455c82dd12c297c8cbc3227c1ba598">wallfollowing.find_left_right_border</a> (points, margin_relative=0.1)</td></tr>
 <tr class="separator:a85455c82dd12c297c8cbc3227c1ba598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b2e06015971d569a9e05eb263ae210b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a4b2e06015971d569a9e05eb263ae210b">wallfollowing.follow_walls</a> (left_circle, right_circle)</td></tr>
-<tr class="separator:a4b2e06015971d569a9e05eb263ae210b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3db0ade925064bd6564f1db9ef4ebec1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a3db0ade925064bd6564f1db9ef4ebec1">wallfollowing.handle_scan</a> ()</td></tr>
-<tr class="separator:a3db0ade925064bd6564f1db9ef4ebec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4edc6135d6c1a9b38674119a96b3375"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#ae4edc6135d6c1a9b38674119a96b3375">wallfollowing.follow_walls</a> (left_circle, right_circle, barrier, delta_time)</td></tr>
+<tr class="separator:ae4edc6135d6c1a9b38674119a96b3375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48cc636bf9056c7b7b2db2dede94474a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a48cc636bf9056c7b7b2db2dede94474a">wallfollowing.handle_scan</a> (laser_scan, delta_time)</td></tr>
+<tr class="separator:a48cc636bf9056c7b7b2db2dede94474a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e20aefe2b925b41b17f60b6673840b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a53e20aefe2b925b41b17f60b6673840b">wallfollowing.laser_callback</a> (scan_message)</td></tr>
+<tr class="separator:a53e20aefe2b925b41b17f60b6673840b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -152,36 +154,18 @@ Variables</h2></td></tr>
 <tr class="separator:a765ce45df7d0c3d9134fc83534029e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e38e617465ebdfa7ec0576ac63443f8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a7e38e617465ebdfa7ec0576ac63443f8">wallfollowing.TOPIC_LASER_SCAN</a> = &quot;/scan&quot;</td></tr>
 <tr class="separator:a7e38e617465ebdfa7ec0576ac63443f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30a4013dbd3a6ea5275fbed3fe35da22"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a30a4013dbd3a6ea5275fbed3fe35da22">wallfollowing.SLOW</a> = 0.2</td></tr>
-<tr class="separator:a30a4013dbd3a6ea5275fbed3fe35da22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e7c06b4efb8e38a97ac8ec783a6beb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#ab1e7c06b4efb8e38a97ac8ec783a6beb">wallfollowing.FAST</a> = 1.0</td></tr>
-<tr class="separator:ab1e7c06b4efb8e38a97ac8ec783a6beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa59c6dfd10cb4f1550367b3268417436"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#aa59c6dfd10cb4f1550367b3268417436">wallfollowing.RADIUS_SMALL</a> = 0</td></tr>
-<tr class="separator:aa59c6dfd10cb4f1550367b3268417436"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b502375f79f9fcc2a823cc60da7bee0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a4b502375f79f9fcc2a823cc60da7bee0">wallfollowing.RADIUS_BIG</a> = 40</td></tr>
-<tr class="separator:a4b502375f79f9fcc2a823cc60da7bee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a205d8fd2e51cc16818cb679f6c87c861"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a205d8fd2e51cc16818cb679f6c87c861">wallfollowing.ERROR_SPEED_DECREASE</a> = 4</td></tr>
-<tr class="separator:a205d8fd2e51cc16818cb679f6c87c861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac87d5f143cfd44f170a1d385ebd1a71b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#ac87d5f143cfd44f170a1d385ebd1a71b">wallfollowing.ERROR_DEAD_ZONE</a> = 0.15</td></tr>
-<tr class="separator:ac87d5f143cfd44f170a1d385ebd1a71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba7bea964894fd6f3def270bd3afa43"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a7ba7bea964894fd6f3def270bd3afa43">wallfollowing.UPDATE_FREQUENCY</a> = 60</td></tr>
-<tr class="separator:a7ba7bea964894fd6f3def270bd3afa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc4e21a1971c33663609d022c899c167"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#acc4e21a1971c33663609d022c899c167">wallfollowing.MAX_ACCELERATION</a> = 0.5</td></tr>
-<tr class="separator:acc4e21a1971c33663609d022c899c167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e67d731c86a71ce7d1b8c17bff0514"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a40e67d731c86a71ce7d1b8c17bff0514">wallfollowing.PREDICTION_DISTANCE</a> = 1.4</td></tr>
-<tr class="separator:a40e67d731c86a71ce7d1b8c17bff0514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee8d77a4629b5d8ecb2899da6e3a7fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe">wallfollowing.last_speed</a> = 0</td></tr>
 <tr class="separator:a9ee8d77a4629b5d8ecb2899da6e3a7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ff373c811db70d98205347a736c606"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a35ff373c811db70d98205347a736c606">wallfollowing.laser_scan</a> = None</td></tr>
-<tr class="separator:a35ff373c811db70d98205347a736c606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac161be1e11f04000d35ca725afa3ccdf"><td class="memItemLeft" align="right" valign="top">dictionary&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#ac161be1e11f04000d35ca725afa3ccdf">wallfollowing.DEFAULT_PARAMETERS</a></td></tr>
+<tr class="separator:ac161be1e11f04000d35ca725afa3ccdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6c7c8e53e8b1cd44872666515dd5764"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#ab6c7c8e53e8b1cd44872666515dd5764">wallfollowing.last_scan</a> = None</td></tr>
+<tr class="separator:ab6c7c8e53e8b1cd44872666515dd5764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96254db0e391eed9862d0a6f636033e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#ae96254db0e391eed9862d0a6f636033e">wallfollowing.parameters</a> = Parameters(DEFAULT_PARAMETERS)</td></tr>
+<tr class="separator:ae96254db0e391eed9862d0a6f636033e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9f95e0b626be8ddae98a596a38e7e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#adc9f95e0b626be8ddae98a596a38e7e8">wallfollowing.pid</a></td></tr>
+<tr class="separator:adc9f95e0b626be8ddae98a596a38e7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa69138defbbc5f21e99db50a6b3c903f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#aa69138defbbc5f21e99db50a6b3c903f">wallfollowing.drive_parameters_publisher</a></td></tr>
 <tr class="separator:aa69138defbbc5f21e99db50a6b3c903f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a005968f85117845c036ef1cbd61034bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a005968f85117845c036ef1cbd61034bb">wallfollowing.anonymous</a></td></tr>
-<tr class="separator:a005968f85117845c036ef1cbd61034bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57288dd797e0bd15012f3ebf1670ce38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#a57288dd797e0bd15012f3ebf1670ce38">wallfollowing.timer</a> = rospy.Rate(UPDATE_FREQUENCY)</td></tr>
-<tr class="separator:a57288dd797e0bd15012f3ebf1670ce38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9f95e0b626be8ddae98a596a38e7e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacewallfollowing.html#adc9f95e0b626be8ddae98a596a38e7e8">wallfollowing.pid</a> = <a class="el" href="class_p_i_d_controller.html">PIDController</a>(1.5, 0.2, 0.02)</td></tr>
-<tr class="separator:adc9f95e0b626be8ddae98a596a38e7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,7 +1,6 @@
 var searchData=
 [
   ['fallback_5frange',['FALLBACK_RANGE',['../wall__following_8h.html#a4ab7ead14418fadcb107d7b685cd54f0',1,'wall_following.h']]],
-  ['fast',['FAST',['../namespacewallfollowing.html#ab1e7c06b4efb8e38a97ac8ec783a6beb',1,'wallfollowing']]],
   ['fast_5fsteer_5flimit',['FAST_STEER_LIMIT',['../keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87',1,'keyboard_controller.h']]],
   ['fc1',['fc1',['../classparameters_1_1_neural_q_estimator.html#ab0fb7d0e286565a2531f3ddb126e2592',1,'parameters::NeuralQEstimator']]],
   ['fc2',['fc2',['../classparameters_1_1_neural_q_estimator.html#abd606711b39f423590adacb37c5b55d0',1,'parameters::NeuralQEstimator']]],
@@ -10,7 +9,7 @@ var searchData=
   ['finish_5fline_5f1',['FINISH_LINE_1',['../namespacesimulation__tools_1_1lap__timer.html#ae7d1eef6c19d3320b71be19367ec7fbd',1,'simulation_tools::lap_timer']]],
   ['finish_5fline_5f2',['FINISH_LINE_2',['../namespacesimulation__tools_1_1lap__timer.html#ac066eea03916600e5942b91bba4204fa',1,'simulation_tools::lap_timer']]],
   ['fit',['fit',['../namespacecircle.html#a391c3f0ba3506996d7eb3384bf6eeca6',1,'circle']]],
-  ['follow_5fwalls',['follow_walls',['../namespacewallfollowing.html#a4b2e06015971d569a9e05eb263ae210b',1,'wallfollowing']]],
+  ['follow_5fwalls',['follow_walls',['../namespacewallfollowing.html#ae4edc6135d6c1a9b38674119a96b3375',1,'wallfollowing']]],
   ['format_5fduration',['format_duration',['../namespacesimulation__tools_1_1lap__timer.html#a8ff1f7d7789d5ea92df79c94205a7273',1,'simulation_tools::lap_timer']]],
   ['forward',['forward',['../classsimulation__tools_1_1track_1_1_track.html#ae944fe956579cafe73bf09d3a7c072bc',1,'simulation_tools.track.Track.forward()'],['../classparameters_1_1_neural_q_estimator.html#acadb108832a386bbe20ad80015a2ed06',1,'parameters.NeuralQEstimator.forward()'],['../namespacelearn.html#a33c110a8b5a4759b0b29bf9b97efa037',1,'learn.forward()']]],
   ['forward_5ftrack',['forward_track',['../namespacesimulation__tools_1_1lap__timer.html#aab75b520d524490f7b0bdcf6b28761a6',1,'simulation_tools::lap_timer']]],

@@ -1,0 +1,4 @@
+<map id="wallfollowing.follow_walls" name="wallfollowing.follow_walls">
+<area shape="rect" id="node2" href="$namespacewallfollowing.html#a48cc636bf9056c7b7b2db2dede94474a" title="wallfollowing.handle_scan" alt="" coords="188,13,361,39"/>
+<area shape="rect" id="node3" href="$namespacewallfollowing.html#a53e20aefe2b925b41b17f60b6673840b" title="wallfollowing.laser\l_callback" alt="" coords="409,5,537,47"/>
+</map>

@@ -15,6 +15,7 @@ var hierarchy =
       [ "parameters.NeuralQEstimator", "classparameters_1_1_neural_q_estimator.html", null ]
     ] ],
     [ "NavigationStackControlConverter", "class_navigation_stack_control_converter.html", null ],
+    [ "wallfollowing.Parameters", "classwallfollowing_1_1_parameters.html", null ],
     [ "wallfollowing.PIDController", "classwallfollowing_1_1_p_i_d_controller.html", null ],
     [ "PIDController", "class_p_i_d_controller.html", null ],
     [ "RvizGeometryPublisher", "class_rviz_geometry_publisher.html", null ],
