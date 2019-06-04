@@ -15,8 +15,9 @@ constexpr const char* TOPIC_DRIVE_PARAMETERS_AUTONOMOUS = "input/drive_param/aut
 constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
 
 /*
-* This node subscribes to all publishers that send drive_param messages and selects one to forward to the car controller
-*/
+ * This node subscribes to all publishers that send drive_param messages and selects one to forward to the car
+ * controller
+ */
 class DriveParametersMultiplexer
 {
     public:
