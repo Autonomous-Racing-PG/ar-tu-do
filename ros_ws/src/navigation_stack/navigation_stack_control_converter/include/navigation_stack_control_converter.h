@@ -5,7 +5,7 @@
 #include <drive_msgs/drive_param.h>
 #include <geometry_msgs/Twist.h>
 
-constexpr const char* TOPIC_DRIVE_PARAM = "input/drive_param/navigationstack";
+constexpr const char* TOPIC_DRIVE_PARAM = "input/drive_param/autonomous";
 constexpr const char* TOPIC_CMD_VEL = "cmd_vel";
 
 constexpr double VELOCITY_THRESHOLD = 0.001;
