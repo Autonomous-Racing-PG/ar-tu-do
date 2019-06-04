@@ -11,8 +11,8 @@
     <arg name="joystick_type" default="xbox360"/>
     <arg name="visualize_lidar" default="false"/>
     <arg name="pf_angle_step" default="18"/>
-	<arg name="pf_max_particles" default="500"/>
-	<arg name="pf_squash_factor" default="2.2"/>
+    <arg name="pf_max_particles" default="500"/>
+    <arg name="pf_squash_factor" default="2.2"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -33,7 +33,7 @@
         <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
     </include>
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stack_config)/launch/navigation_stack.rviz"/>
 
     <!-- <include file="$(find autonomous)/launch/autonomous_driving.launch"/> -->
 
