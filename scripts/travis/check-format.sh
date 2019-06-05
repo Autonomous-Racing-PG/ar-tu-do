@@ -10,7 +10,7 @@ do
 done
 
 # Check python code
-PYTHON_DIFF=$(autopep8 --diff --recursive --aggressive --aggressive .)
+PYTHON_DIFF=$(autopep8 --diff --recursive --aggressive --aggressive --exclude="./ros_ws/src/external_packages,./ros_ws/build,./ros_ws/devel" .)
 
 if echo $PYTHON_DIFF | grep -c +++ > /dev/null ; then
     echo "Found formatting problems in the python code."
