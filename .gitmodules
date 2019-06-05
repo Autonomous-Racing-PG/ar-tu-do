@@ -1,3 +1,6 @@
 [submodule "ros_ws/src/external_packages/vesc"]
 	path = ros_ws/src/external_packages/vesc
 	url = https://github.uconn.edu/ret15108/vesc
+[submodule "ros_ws/src/external_packages/particle_filter"]
+	path = ros_ws/src/external_packages/particle_filter
+	url = https://github.com/Autonomous-Racing-PG/particle_filter.git

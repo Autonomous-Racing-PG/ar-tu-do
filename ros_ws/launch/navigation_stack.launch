@@ -13,6 +13,7 @@
     <arg name="pf_angle_step" default="18"/>
     <arg name="pf_max_particles" default="500"/>
     <arg name="pf_squash_factor" default="2.2"/>
+    <arg name="map" default="$(find navigation_stack_config)/maps/recording.bag.yaml"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -49,6 +50,7 @@
         <arg name="pf_angle_step" value="$(arg pf_angle_step)"/>
         <arg name="pf_max_particles" value="$(arg pf_max_particles)"/>
         <arg name="pf_squash_factor" value="$(arg pf_squash_factor)"/>
+        <arg name="map" value="$(arg map)"/>
     </include>
     <include file="$(find navigation_stack_control_converter)/launch/navigation_stack_control_converter.launch"/>
 

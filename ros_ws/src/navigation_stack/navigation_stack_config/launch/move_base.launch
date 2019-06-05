@@ -1,8 +1,9 @@
 <launch>
 
    <arg name="pf_angle_step" default="18"/>
-	<arg name="pf_max_particles" default="4000"/>
-	<arg name="pf_squash_factor" default="2.2"/>
+   <arg name="pf_max_particles" default="4000"/>
+   <arg name="pf_squash_factor" default="2.2"/>
+   <arg name="map" default="$(find navigation_stack_config)/maps/recording.bag.yaml"/>
 
    <master auto="start"/>
    <!-- Run the map server -->
@@ -13,6 +14,7 @@
       <arg name="angle_step" value="$(arg pf_angle_step)"/>
       <arg name="max_particles" value="$(arg pf_max_particles)"/>
       <arg name="squash_factor" value="$(arg pf_squash_factor)"/>
+      <arg name="map" value="$(arg map)"/>
    </include>
 
    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
