@@ -14,8 +14,8 @@ using DriveParameterCallbackFunction =
 constexpr float IDLE_RANGE = 0.01f;
 
 /*
-*  A class that listens on a topic that publishes drive parameters and stores information about that source
-*/
+ *  A class that listens on a topic that publishes drive parameters and stores information about that source
+ */
 class DriveParametersSource
 {
     public:
