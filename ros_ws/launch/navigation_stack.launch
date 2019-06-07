@@ -1,4 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <include file="$(find navigation_stack)/launch/navigation_stack.launch">
+    <arg name="world" default="racetrack_decorated_2"/>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="verbose" default="true"/>
+    <arg name="use_gpu" default="true"/>
+    <arg name="joystick_type" default="xbox360"/>
+    <arg name="visualize_lidar" default="false"/>
+    <arg name="pf_angle_step" default="18"/>
+    <arg name="pf_max_particles" default="500"/>
+    <arg name="pf_squash_factor" default="2.2"/>
+    <arg name="map" default="$(find navigation_stack_config)/maps/recording.bag.yaml"/>
+
+    <!-- Mode Override
+        1 forces manual driving
+        2 forces autonomous driving
+        0 uses user input to enable the modes
+    -->
+    <arg name="mode_override" default="2"/>
+
+    <include file="$(find racer_world)/launch/racer_gazebo.launch">
+        <arg name="world" value="$(arg world)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="verbose" value="$(arg verbose)"/>
+        <arg name="use_gpu" value="$(arg use_gpu)"/>
+        <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
+    </include>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stack_config)/launch/navigation_stack.rviz"/>
+
+    <!-- <include file="$(find autonomous)/launch/autonomous_driving.launch"/> -->
+
+    <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
+    <include file="$(find car_control)/launch/car_control.launch">
+        <arg name="mode_override" value="$(arg mode_override)"/>
+    </include>
+    <include file="$(find teleoperation)/launch/remote_control.launch">
+        <arg name="joystick_type" value="$(arg joystick_type)"/>
+    </include>
+
+    <include file="$(find navigation_stack_config)/launch/move_base.launch">
+        <arg name="pf_angle_step" value="$(arg pf_angle_step)"/>
+        <arg name="pf_max_particles" value="$(arg pf_max_particles)"/>
+        <arg name="pf_squash_factor" value="$(arg pf_squash_factor)"/>
+        <arg name="map" value="$(arg map)"/>
+    </include>
+    <include file="$(find navigation_stack_control_converter)/launch/navigation_stack_control_converter.launch"/>
+
+    <!--node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /odom 10" />
+    <node pkg="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /base_link 10" /-->
+
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
 </launch>

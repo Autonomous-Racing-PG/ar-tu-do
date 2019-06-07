@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam file="$(find navigation_stack_config)/config/amcl_params.yaml" command="load" />
+  </node>
+</launch>

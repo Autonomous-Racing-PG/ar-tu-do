@@ -29,7 +29,7 @@
         <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
     </include>
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/myrobot.rviz"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/wallfollowing.rviz"/>
 
     <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="screen"/>
     <include file="$(find wallfollowing2)/launch/autonomous_driving.launch"/>
@@ -46,10 +46,6 @@
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
 
-    <node
-        pkg="simulation_tools"
-        type="crash_detector"
-        name="crash_detector"
-        output="screen" >
+    <node pkg="simulation_tools" type="crash_detector" name="crash_detector" output="screen">
     </node>
 </launch>

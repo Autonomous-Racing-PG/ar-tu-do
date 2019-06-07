@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="2">
+  <name>navigation_stack_config</name>
+  <version>0.0.0</version>
+  <description>contains config files needed for ros navigation stack</description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>drive_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>nav_msgs</depend>
+  <depend>vesc_msgs</depend>
+  <depend>vesc_sim</depend>
+  <depend>amcl</depend>
+  <depend>move_base</depend>
+  <depend>map_server</depend>
+  <depend>teb_local_planner</depend>
+</package>

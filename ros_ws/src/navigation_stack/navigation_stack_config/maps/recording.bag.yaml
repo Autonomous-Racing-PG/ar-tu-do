@@ -1,0 +1,6 @@
+image: recording.bag.pgm
+resolution: 0.05
+origin: [-18.66635475158692, -1.204608535766603, 0]
+occupied_thresh: 0.51
+free_thresh: 0.49
+negate: 0
