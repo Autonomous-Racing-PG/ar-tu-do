@@ -23,6 +23,5 @@ var searchData=
   ['points',['points',['../classsimulation__tools_1_1track_1_1_track.html#ac6de34747fd382897e7f790cd9faf67c',1,'simulation_tools.track.Track.points()'],['../namespacesimulation__tools_1_1track.html#ab9ddc4d3ba8bb81a3ce02320f46c8a55',1,'simulation_tools.track.POINTS()']]],
   ['policy_5fnet',['policy_net',['../namespacedrive.html#a2e630ff72576502d513dc46034787985',1,'drive.policy_net()'],['../namespacelearn.html#aff1270198d684f1b88420d8ecbf660f0',1,'learn.policy_net()']]],
   ['predictdistance',['predictDistance',['../class_wall.html#ad5b01236dea4aed8c75a8600c2b64c02',1,'Wall']]],
-  ['prediction_5fdistance',['PREDICTION_DISTANCE',['../wall__following_8h.html#a77f9814fd2f21e3edfc0da317f35a646',1,'wall_following.h']]],
   ['previous_5ferror',['previous_error',['../classwallfollowing_1_1_p_i_d_controller.html#a8f880f52e6d6f020769ab01d6459c908',1,'wallfollowing::PIDController']]]
 ];

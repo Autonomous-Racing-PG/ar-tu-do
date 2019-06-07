@@ -119,6 +119,8 @@ $(document).ready(function(){initNavTree('joystick__controller_8h.html','');});
 <code>#include &lt;drive_msgs/drive_param.h&gt;</code><br />
 <code>#include &lt;sensor_msgs/Joy.h&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;dynamic_reconfigure/server.h&gt;</code><br />
+<code>#include &lt;teleoperation/joystick_controllerConfig.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for joystick_controller.h:</div>
 <div class="dyncontent">
@@ -154,49 +156,8 @@ Variables</h2></td></tr>
 <tr class="separator:a1d805453ad0a894550dab891e5dbe44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a724c92d7a761382e1727b34f570121"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joystick__controller_8h.html#a5a724c92d7a761382e1727b34f570121">EPSILON</a> = 0.001</td></tr>
 <tr class="separator:a5a724c92d7a761382e1727b34f570121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0a6c00cd55e4ce8887e55979ac45f75"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joystick__controller_8h.html#ae0a6c00cd55e4ce8887e55979ac45f75">ACCELERATION_SCALING_FACTOR</a> = 0.35f</td></tr>
-<tr class="memdesc:ae0a6c00cd55e4ce8887e55979ac45f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales the absolute acceleration provided by the joystick. Useful if the car should not drive with 100% speed if acceleration button is fully pressed  <a href="#ae0a6c00cd55e4ce8887e55979ac45f75">More...</a><br /></td></tr>
-<tr class="separator:ae0a6c00cd55e4ce8887e55979ac45f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27923d1c16e61de371e62e7aff73147e"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joystick__controller_8h.html#a27923d1c16e61de371e62e7aff73147e">DECELERATION_SCALING_FACTOR</a> = 0.35</td></tr>
-<tr class="memdesc:a27923d1c16e61de371e62e7aff73147e"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales the absolute deceleration provided by the joystick. Useful if the car should not decelerate with 100% speed if deceleration button is fully pressed  <a href="#a27923d1c16e61de371e62e7aff73147e">More...</a><br /></td></tr>
-<tr class="separator:a27923d1c16e61de371e62e7aff73147e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c5df50bc18dcffbb973707048fca39"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joystick__controller_8h.html#a55c5df50bc18dcffbb973707048fca39">STEERING_SCALING_FACTOR</a> = 0.8f</td></tr>
-<tr class="memdesc:a55c5df50bc18dcffbb973707048fca39"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales the absolute steering value (between -1 and 1) provided by the joystick. Useful if the car should not steer 100% left and right  <a href="#a55c5df50bc18dcffbb973707048fca39">More...</a><br /></td></tr>
-<tr class="separator:a55c5df50bc18dcffbb973707048fca39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ae0a6c00cd55e4ce8887e55979ac45f75"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr float ACCELERATION_SCALING_FACTOR = 0.35f</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>scales the absolute acceleration provided by the joystick. Useful if the car should not drive with 100% speed if acceleration button is fully pressed </p>
-
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00021">21</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a27923d1c16e61de371e62e7aff73147e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr float DECELERATION_SCALING_FACTOR = 0.35</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>scales the absolute deceleration provided by the joystick. Useful if the car should not decelerate with 100% speed if deceleration button is fully pressed </p>
-
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00027">27</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a5a724c92d7a761382e1727b34f570121"></a>
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +168,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00015">15</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00018">18</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
 
 </div>
 </div>
@@ -221,23 +182,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00010">10</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a55c5df50bc18dcffbb973707048fca39"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr float STEERING_SCALING_FACTOR = 0.8f</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>scales the absolute steering value (between -1 and 1) provided by the joystick. Useful if the car should not steer 100% left and right </p>
-
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00033">33</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00013">13</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +196,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00011">11</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00014">14</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
 
 </div>
 </div>
@@ -265,7 +210,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00013">13</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00016">16</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +224,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00012">12</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="joystick__controller_8h_source.html#l00015">15</a> of file <a class="el" href="joystick__controller_8h_source.html">joystick_controller.h</a>.</p>
 
 </div>
 </div>

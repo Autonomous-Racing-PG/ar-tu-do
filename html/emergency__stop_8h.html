@@ -122,6 +122,8 @@ $(document).ready(function(){initNavTree('emergency__stop_8h.html','');});
 <code>#include &quot;sensor_msgs/LaserScan.h&quot;</code><br />
 <code>#include &lt;ros/console.h&gt;</code><br />
 <code>#include &lt;ros/ros.h&gt;</code><br />
+<code>#include &lt;dynamic_reconfigure/server.h&gt;</code><br />
+<code>#include &lt;emergency_stop/emergency_stopConfig.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for emergency_stop.h:</div>
 <div class="dyncontent">
@@ -153,28 +155,8 @@ Variables</h2></td></tr>
 <tr class="separator:a47333d71d0bb2a72869aa7441034798c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f6b8d64fcb3748f9c9284f063015c77"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emergency__stop_8h.html#a1f6b8d64fcb3748f9c9284f063015c77">TOPIC_EMERGENCY_STOP</a> = &quot;/input/emergencystop&quot;</td></tr>
 <tr class="separator:a1f6b8d64fcb3748f9c9284f063015c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35f01de48a0247ffa2674e116ae971d0"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emergency__stop_8h.html#a35f01de48a0247ffa2674e116ae971d0">RANGE_THRESHOLD</a> = 0.7</td></tr>
-<tr class="separator:a35f01de48a0247ffa2674e116ae971d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9d3f0d12fce3f2667f01e3e82c819bd"><td class="memItemLeft" align="right" valign="top">constexpr const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emergency__stop_8h.html#ad9d3f0d12fce3f2667f01e3e82c819bd">CAR_BUMPER_LENGTH</a> = 0.2</td></tr>
-<tr class="separator:ad9d3f0d12fce3f2667f01e3e82c819bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36742d5598d56216bba3f928732fb273"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emergency__stop_8h.html#a36742d5598d56216bba3f928732fb273">MAX_RANGE</a> = 30</td></tr>
-<tr class="separator:a36742d5598d56216bba3f928732fb273"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ad9d3f0d12fce3f2667f01e3e82c819bd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const float CAR_BUMPER_LENGTH = 0.2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00019">19</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ab3a44464ce67ffd6379bf1fc72ba54aa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -185,35 +167,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00013">13</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36742d5598d56216bba3f928732fb273"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr float MAX_RANGE = 30</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00021">21</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a35f01de48a0247ffa2674e116ae971d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr float RANGE_THRESHOLD = 0.7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00018">18</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
+<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00016">16</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
 
 </div>
 </div>
@@ -227,7 +181,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00016">16</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
+<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00019">19</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
 
 </div>
 </div>
@@ -241,7 +195,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00015">15</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
+<p>Definition at line <a class="el" href="emergency__stop_8h_source.html#l00018">18</a> of file <a class="el" href="emergency__stop_8h_source.html">emergency_stop.h</a>.</p>
 
 </div>
 </div>

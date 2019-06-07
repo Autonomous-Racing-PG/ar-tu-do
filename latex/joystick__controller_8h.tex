@@ -5,6 +5,8 @@
 {\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
 {\ttfamily \#include $<$sensor\+\_\+msgs/\+Joy.\+h$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$dynamic\+\_\+reconfigure/server.\+h$>$}\\*
+{\ttfamily \#include $<$teleoperation/joystick\+\_\+controller\+Config.\+h$>$}\\*
 Include dependency graph for joystick\+\_\+controller.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -38,81 +40,42 @@ constexpr const char $\ast$ \hyperlink{joystick__controller_8h_a3750c1de56b20886
 constexpr const char $\ast$ \hyperlink{joystick__controller_8h_a1d805453ad0a894550dab891e5dbe44e}{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US} = \char`\"{}/input/heartbeat\+\_\+autonomous\char`\"{}
 \item 
 constexpr float \hyperlink{joystick__controller_8h_a5a724c92d7a761382e1727b34f570121}{E\+P\+S\+I\+L\+ON} = 0.\+001
-\item 
-constexpr float \hyperlink{joystick__controller_8h_ae0a6c00cd55e4ce8887e55979ac45f75}{A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR} = 0.\+35f
-\begin{DoxyCompactList}\small\item\em scales the absolute acceleration provided by the joystick. Useful if the car should not drive with 100\% speed if acceleration button is fully pressed \end{DoxyCompactList}\item 
-constexpr float \hyperlink{joystick__controller_8h_a27923d1c16e61de371e62e7aff73147e}{D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR} = 0.\+35
-\begin{DoxyCompactList}\small\item\em scales the absolute deceleration provided by the joystick. Useful if the car should not decelerate with 100\% speed if deceleration button is fully pressed \end{DoxyCompactList}\item 
-constexpr float \hyperlink{joystick__controller_8h_a55c5df50bc18dcffbb973707048fca39}{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR} = 0.\+8f
-\begin{DoxyCompactList}\small\item\em scales the absolute steering value (between -\/1 and 1) provided by the joystick. Useful if the car should not steer 100\% left and right \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \subsection{Variable Documentation}
-\index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR@{A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}}
-\index{A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR@{A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}{ACCELERATION_SCALING_FACTOR}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR = 0.\+35f}\hypertarget{joystick__controller_8h_ae0a6c00cd55e4ce8887e55979ac45f75}{}\label{joystick__controller_8h_ae0a6c00cd55e4ce8887e55979ac45f75}
-
-
-scales the absolute acceleration provided by the joystick. Useful if the car should not drive with 100\% speed if acceleration button is fully pressed 
-
-
-
-Definition at line 21 of file joystick\+\_\+controller.\+h.
-
-\index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR@{D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}}
-\index{D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR@{D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}{DECELERATION_SCALING_FACTOR}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float D\+E\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR = 0.\+35}\hypertarget{joystick__controller_8h_a27923d1c16e61de371e62e7aff73147e}{}\label{joystick__controller_8h_a27923d1c16e61de371e62e7aff73147e}
-
-
-scales the absolute deceleration provided by the joystick. Useful if the car should not decelerate with 100\% speed if deceleration button is fully pressed 
-
-
-
-Definition at line 27 of file joystick\+\_\+controller.\+h.
-
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!E\+P\+S\+I\+L\+ON@{E\+P\+S\+I\+L\+ON}}
 \index{E\+P\+S\+I\+L\+ON@{E\+P\+S\+I\+L\+ON}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{E\+P\+S\+I\+L\+ON}{EPSILON}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float E\+P\+S\+I\+L\+ON = 0.\+001}\hypertarget{joystick__controller_8h_a5a724c92d7a761382e1727b34f570121}{}\label{joystick__controller_8h_a5a724c92d7a761382e1727b34f570121}
 
 
-Definition at line 15 of file joystick\+\_\+controller.\+h.
+Definition at line 18 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+T\+Y\+PE@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+T\+Y\+PE}}
 \index{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+T\+Y\+PE@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+T\+Y\+PE}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+T\+Y\+PE}{PARAMETER_JOYSTICK_TYPE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+T\+Y\+PE = \char`\"{}joystick\+\_\+type\char`\"{}}\hypertarget{joystick__controller_8h_ab1fc9856ff20e19b2de5cec9f118a527}{}\label{joystick__controller_8h_ab1fc9856ff20e19b2de5cec9f118a527}
 
 
-Definition at line 10 of file joystick\+\_\+controller.\+h.
-
-\index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}}
-\index{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR@{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
-\subsubsection[{\texorpdfstring{S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR}{STEERING_SCALING_FACTOR}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float S\+T\+E\+E\+R\+I\+N\+G\+\_\+\+S\+C\+A\+L\+I\+N\+G\+\_\+\+F\+A\+C\+T\+OR = 0.\+8f}\hypertarget{joystick__controller_8h_a55c5df50bc18dcffbb973707048fca39}{}\label{joystick__controller_8h_a55c5df50bc18dcffbb973707048fca39}
-
-
-scales the absolute steering value (between -\/1 and 1) provided by the joystick. Useful if the car should not steer 100\% left and right 
-
-
-
-Definition at line 33 of file joystick\+\_\+controller.\+h.
+Definition at line 13 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}input/drive\+\_\+param/joystick\char`\"{}}\hypertarget{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}{}\label{joystick__controller_8h_a3881a7dd470107a7c50efedc0a708839}
 
 
-Definition at line 11 of file joystick\+\_\+controller.\+h.
+Definition at line 14 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US}}
 \index{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US}{TOPIC_HEARTBEAT_AUTONOMOUS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US = \char`\"{}/input/heartbeat\+\_\+autonomous\char`\"{}}\hypertarget{joystick__controller_8h_a1d805453ad0a894550dab891e5dbe44e}{}\label{joystick__controller_8h_a1d805453ad0a894550dab891e5dbe44e}
 
 
-Definition at line 13 of file joystick\+\_\+controller.\+h.
+Definition at line 16 of file joystick\+\_\+controller.\+h.
 
 \index{joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL}}
 \index{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL}!joystick\+\_\+controller.\+h@{joystick\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL}{TOPIC_HEARTBEAT_MANUAL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL = \char`\"{}/input/heartbeat\+\_\+manual\char`\"{}}\hypertarget{joystick__controller_8h_a3750c1de56b20886f8932d6005c2b231}{}\label{joystick__controller_8h_a3750c1de56b20886f8932d6005c2b231}
 
 
-Definition at line 12 of file joystick\+\_\+controller.\+h.
+Definition at line 15 of file joystick\+\_\+controller.\+h.
 

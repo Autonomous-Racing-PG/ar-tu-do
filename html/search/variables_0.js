@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['acceleration',['ACCELERATION',['../keyboard__controller_8h.html#a7f06f2775e2c7469140a29018ae10261',1,'keyboard_controller.h']]],
-  ['acceleration_5fscaling_5ffactor',['ACCELERATION_SCALING_FACTOR',['../joystick__controller_8h.html#ae0a6c00cd55e4ce8887e55979ac45f75',1,'joystick_controller.h']]],
   ['action',['action',['../namespacedrive.html#a68b3f3acb667a1c5e05d3ea265164d7a',1,'drive.action()'],['../namespacelearn.html#a8bfecbfb11b553990cd4c4bc5475133d',1,'learn.action()']]],
   ['action_5fcount',['ACTION_COUNT',['../namespaceparameters.html#ae4be13f6dac91f471da3efb4618a54c1',1,'parameters']]],
   ['action_5findex',['action_index',['../namespacedrive.html#a63845082ab90bdcccd95631ad6420392',1,'drive']]],

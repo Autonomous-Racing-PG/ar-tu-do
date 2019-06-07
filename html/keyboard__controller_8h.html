@@ -116,6 +116,7 @@ $(document).ready(function(){initNavTree('keyboard__controller_8h.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_keycode.h&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
 <code>#include &lt;drive_msgs/drive_param.h&gt;</code><br />
@@ -124,6 +125,8 @@ $(document).ready(function(){initNavTree('keyboard__controller_8h.html','');});
 <code>#include &lt;signal.h&gt;</code><br />
 <code>#include &lt;std_msgs/Int32.h&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;dynamic_reconfigure/server.h&gt;</code><br />
+<code>#include &lt;teleoperation/keyboard_controllerConfig.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for keyboard_controller.h:</div>
 <div class="dyncontent">
@@ -150,27 +153,27 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a28fdc629dbeaa30236718d9093e19c07"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07">Keycode</a> : int { <br />
-&#160;&#160;<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276">Keycode::W</a> = 119, 
-<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29">Keycode::A</a> = 97, 
-<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e">Keycode::S</a> = 115, 
-<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5">Keycode::D</a> = 100, 
+&#160;&#160;<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57">Keycode::SPACE</a> = SDLK_SPACE, 
+<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29">Keycode::A</a> = SDLK_a, 
+<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571">Keycode::B</a> = SDLK_b, 
+<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5">Keycode::D</a> = SDLK_d, 
 <br />
-&#160;&#160;<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57">Keycode::SPACE</a> = 32, 
-<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571">Keycode::B</a> = 98
+&#160;&#160;<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e">Keycode::S</a> = SDLK_s, 
+<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276">Keycode::W</a> = SDLK_w
 <br />
  }</td></tr>
 <tr class="separator:a28fdc629dbeaa30236718d9093e19c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f3852c29660b2c7415360633c54e0bb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bb">KeyIndex</a> : int { <br />
-&#160;&#160;<a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbae8637671ccf72cd596fe0c2d1af5ad20">KeyIndex::ACCELERATE</a> = 0, 
-<a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbaceeff3cb59294b233b481ddb6dee95bf">KeyIndex::DECELERATE</a> = 2, 
-<a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbace64911e4c5738134f296b7e7706fd86">KeyIndex::STEER_LEFT</a> = 1, 
-<a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bba2f519bbf001708f1709b0b01550e76d9">KeyIndex::STEER_RIGHT</a> = 3, 
+<tr class="memitem:af63a41b851c52a0c5cf6b4ebaeb44249"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249">KeyIndex</a> : size_t { <br />
+&#160;&#160;<a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ae8637671ccf72cd596fe0c2d1af5ad20">KeyIndex::ACCELERATE</a> = 0, 
+<a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249aceeff3cb59294b233b481ddb6dee95bf">KeyIndex::DECELERATE</a> = 2, 
+<a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ace64911e4c5738134f296b7e7706fd86">KeyIndex::STEER_LEFT</a> = 1, 
+<a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249a2f519bbf001708f1709b0b01550e76d9">KeyIndex::STEER_RIGHT</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bba5fdf28325c0d8aff8049eab1f5a3fb3f">KeyIndex::ENABLE_MANUAL</a> = 4, 
-<a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bbad083a074856ee376bcd97103499a769f">KeyIndex::ENABLE_AUTONOMOUS</a> = 5
+&#160;&#160;<a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249a5fdf28325c0d8aff8049eab1f5a3fb3f">KeyIndex::ENABLE_MANUAL</a> = 4, 
+<a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ad083a074856ee376bcd97103499a769f">KeyIndex::ENABLE_AUTONOMOUS</a> = 5
 <br />
  }</td></tr>
-<tr class="separator:a4f3852c29660b2c7415360633c54e0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:af63a41b851c52a0c5cf6b4ebaeb44249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4430ce18ab45f139e6843ac0811fda83"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83">DriveMode</a> : int { <br />
 &#160;&#160;<a class="el" href="keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203">DriveMode::LOCKED</a> = 0, 
 <a class="el" href="keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a">DriveMode::MANUAL</a> = 1, 
@@ -193,26 +196,8 @@ Variables</h2></td></tr>
 <tr class="separator:a1d805453ad0a894550dab891e5dbe44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fb4491f9a2dfe8baac21fd8a728ac30"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a2fb4491f9a2dfe8baac21fd8a728ac30">TOPIC_DRIVE_MODE</a> = &quot;/commands/drive_mode&quot;</td></tr>
 <tr class="separator:a2fb4491f9a2dfe8baac21fd8a728ac30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ecc164327668cf4b24f872053a3dd5"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5">KEY_COUNT</a> = 6</td></tr>
-<tr class="separator:a19ecc164327668cf4b24f872053a3dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c20c56647297ef05c4808bbb77b05dc"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; <a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07">Keycode</a>, <a class="el" href="keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5">KEY_COUNT</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a2c20c56647297ef05c4808bbb77b05dc">KEY_CODES</a></td></tr>
-<tr class="separator:a2c20c56647297ef05c4808bbb77b05dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d3197843880cb61cbecb5379db066c"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c">PARAMETER_UPDATE_FREQUENCY</a> = 90</td></tr>
 <tr class="separator:a87d3197843880cb61cbecb5379db066c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9063d7d546c70bfc9b5f9d575b594c5"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ad9063d7d546c70bfc9b5f9d575b594c5">STEERING_SPEED</a> = 6</td></tr>
-<tr class="separator:ad9063d7d546c70bfc9b5f9d575b594c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f06f2775e2c7469140a29018ae10261"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a7f06f2775e2c7469140a29018ae10261">ACCELERATION</a> = 0.4</td></tr>
-<tr class="separator:a7f06f2775e2c7469140a29018ae10261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d69992cbd260ed0f86a4e5fd735d4e"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ae3d69992cbd260ed0f86a4e5fd735d4e">BRAKING</a> = 2</td></tr>
-<tr class="separator:ae3d69992cbd260ed0f86a4e5fd735d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a615bf3b38c23cb483977c1943449ce87"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87">FAST_STEER_LIMIT</a> = 0.6</td></tr>
-<tr class="separator:a615bf3b38c23cb483977c1943449ce87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cfb8f83cd91665c0b18f3e213edf672"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a8cfb8f83cd91665c0b18f3e213edf672">STEERING_GRAVITY</a> = 2</td></tr>
-<tr class="separator:a8cfb8f83cd91665c0b18f3e213edf672"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e74cb464c171072d0130141d519a3b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b">THROTTLE_GRAVITY</a> = 3</td></tr>
-<tr class="separator:ac0e74cb464c171072d0130141d519a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a670fdc7f227b3ed454e9e4b01d9bf117"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keyboard__controller_8h.html#a670fdc7f227b3ed454e9e4b01d9bf117">MAX_THROTTLE</a> = 0.35</td></tr>
-<tr class="separator:a670fdc7f227b3ed454e9e4b01d9bf117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="a4430ce18ab45f139e6843ac0811fda83"></a>
@@ -247,7 +232,7 @@ Variables</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00043">43</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00042">42</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
@@ -269,25 +254,25 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276"></a>W&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57"></a>SPACE&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29"></a>A&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e"></a>S&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571"></a>B&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5"></a>D&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57"></a>SPACE&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e"></a>S&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571"></a>B&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276"></a>W&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00018">18</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00022">22</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4f3852c29660b2c7415360633c54e0bb"></a>
+<a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -295,7 +280,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="keyboard__controller_8h.html#a4f3852c29660b2c7415360633c54e0bb">KeyIndex</a> : int</td>
+          <td class="memname">enum <a class="el" href="keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249">KeyIndex</a> : size_t</td>
         </tr>
       </table>
   </td>
@@ -305,115 +290,25 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a4f3852c29660b2c7415360633c54e0bbae8637671ccf72cd596fe0c2d1af5ad20"></a>ACCELERATE&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249ae8637671ccf72cd596fe0c2d1af5ad20"></a>ACCELERATE&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a4f3852c29660b2c7415360633c54e0bbaceeff3cb59294b233b481ddb6dee95bf"></a>DECELERATE&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249aceeff3cb59294b233b481ddb6dee95bf"></a>DECELERATE&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a4f3852c29660b2c7415360633c54e0bbace64911e4c5738134f296b7e7706fd86"></a>STEER_LEFT&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249ace64911e4c5738134f296b7e7706fd86"></a>STEER_LEFT&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a4f3852c29660b2c7415360633c54e0bba2f519bbf001708f1709b0b01550e76d9"></a>STEER_RIGHT&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249a2f519bbf001708f1709b0b01550e76d9"></a>STEER_RIGHT&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a4f3852c29660b2c7415360633c54e0bba5fdf28325c0d8aff8049eab1f5a3fb3f"></a>ENABLE_MANUAL&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249a5fdf28325c0d8aff8049eab1f5a3fb3f"></a>ENABLE_MANUAL&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a4f3852c29660b2c7415360633c54e0bbad083a074856ee376bcd97103499a769f"></a>ENABLE_AUTONOMOUS&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="af63a41b851c52a0c5cf6b4ebaeb44249ad083a074856ee376bcd97103499a769f"></a>ENABLE_AUTONOMOUS&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00028">28</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00032">32</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a7f06f2775e2c7469140a29018ae10261"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double ACCELERATION = 0.4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00055">55</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae3d69992cbd260ed0f86a4e5fd735d4e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double BRAKING = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00057">57</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a615bf3b38c23cb483977c1943449ce87"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double FAST_STEER_LIMIT = 0.6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00061">61</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2c20c56647297ef05c4808bbb77b05dc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::array&lt;<a class="el" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07">Keycode</a>, <a class="el" href="keyboard__controller_8h.html#a19ecc164327668cf4b24f872053a3dd5">KEY_COUNT</a>&gt; KEY_CODES</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= { <a class="code" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276">Keycode::W</a>, <a class="code" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29">Keycode::A</a>,     <a class="code" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e">Keycode::S</a>,</div><div class="line">                                                       <a class="code" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5">Keycode::D</a>, <a class="code" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57">Keycode::SPACE</a>, <a class="code" href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571">Keycode::B</a> }</div><div class="ttc" id="keyboard__controller_8h_html_a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5"><div class="ttname"><a href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5">Keycode::D</a></div></div>
-<div class="ttc" id="keyboard__controller_8h_html_a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571"><div class="ttname"><a href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a9d5ed678fe57bcca610140957afab571">Keycode::B</a></div></div>
-<div class="ttc" id="keyboard__controller_8h_html_a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276"><div class="ttname"><a href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a61e9c06ea9a85a5088a499df6458d276">Keycode::W</a></div></div>
-<div class="ttc" id="keyboard__controller_8h_html_a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29"><div class="ttname"><a href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29">Keycode::A</a></div></div>
-<div class="ttc" id="keyboard__controller_8h_html_a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57"><div class="ttname"><a href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57">Keycode::SPACE</a></div></div>
-<div class="ttc" id="keyboard__controller_8h_html_a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e"><div class="ttname"><a href="keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e">Keycode::S</a></div></div>
-</div><!-- fragment -->
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00040">40</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a19ecc164327668cf4b24f872053a3dd5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int KEY_COUNT = 6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00038">38</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a670fdc7f227b3ed454e9e4b01d9bf117"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double MAX_THROTTLE = 0.35</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00068">68</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a87d3197843880cb61cbecb5379db066c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -424,49 +319,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00050">50</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8cfb8f83cd91665c0b18f3e213edf672"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double STEERING_GRAVITY = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00064">64</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad9063d7d546c70bfc9b5f9d575b594c5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double STEERING_SPEED = 6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00053">53</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac0e74cb464c171072d0130141d519a3b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double THROTTLE_GRAVITY = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00066">66</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00049">49</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
@@ -480,7 +333,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00016">16</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00020">20</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
@@ -494,7 +347,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00013">13</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00017">17</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
@@ -508,7 +361,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00015">15</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00019">19</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>
@@ -522,7 +375,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00014">14</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
+<p>Definition at line <a class="el" href="keyboard__controller_8h_source.html#l00018">18</a> of file <a class="el" href="keyboard__controller_8h_source.html">keyboard_controller.h</a>.</p>
 
 </div>
 </div>

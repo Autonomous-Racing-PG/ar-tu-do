@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['target_5fwall_5fdistance',['TARGET_WALL_DISTANCE',['../wall__following_8h.html#a9382d9a68e8181e26709fdb64d008506',1,'wall_following.h']]],
   ['test',['TEST',['../test__car__control_8cpp.html#abdd1a026bf2a8a181d4f4f61169c22f9',1,'TEST(dummy_test, dummy_test_01):&#160;test_car_control.cpp'],['../test__car__control_8cpp.html#a6accdba7cce21b4fbadc9847942eccee',1,'TEST(dummy_test, dummy_test_02):&#160;test_car_control.cpp']]],
   ['test_5fcar_5fcontrol_2ecpp',['test_car_control.cpp',['../test__car__control_8cpp.html',1,'']]],
-  ['throttle_5fgravity',['THROTTLE_GRAVITY',['../keyboard__controller_8h.html#ac0e74cb464c171072d0130141d519a3b',1,'keyboard_controller.h']]],
-  ['time_5fbetween_5fscans',['TIME_BETWEEN_SCANS',['../wall__following_8h.html#a0cbfc65bb8d94aee00c9ea274e13cee6',1,'wall_following.h']]],
   ['timer',['Timer',['../classsimulation__tools_1_1lap__timer_1_1_timer.html',1,'simulation_tools::lap_timer']]],
   ['timer',['timer',['../namespacedrive.html#ad7f80b53042960cd3cf968dee1ebb197',1,'drive.timer()'],['../namespacelearn.html#a5af012dac7493e3547f6f8a4820dfc69',1,'learn.timer()']]],
   ['topic_5fcmd_5fvel',['TOPIC_CMD_VEL',['../navigation__stack__control__converter_8h.html#ab594cd0b55b96b018586cdb3335b3a6d',1,'navigation_stack_control_converter.h']]],

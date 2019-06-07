@@ -6,8 +6,6 @@ var searchData=
   ['wall_2eh',['wall.h',['../wall_8h.html',1,'']]],
   ['wall_5ffollowing_2ecpp',['wall_following.cpp',['../wall__following_8cpp.html',1,'']]],
   ['wall_5ffollowing_2eh',['wall_following.h',['../wall__following_8h.html',1,'']]],
-  ['wall_5ffollowing_5fmax_5fspeed',['WALL_FOLLOWING_MAX_SPEED',['../wall__following_8h.html#a2cd0112685c87c86e13b3e6f92d433b5',1,'wall_following.h']]],
-  ['wall_5ffollowing_5fmin_5fspeed',['WALL_FOLLOWING_MIN_SPEED',['../wall__following_8h.html#a7ade9c0d19463c8f0a0427558e6beb03',1,'wall_following.h']]],
   ['wallfollowing',['WallFollowing',['../class_wall_following.html',1,'WallFollowing'],['../namespacewallfollowing.html',1,'wallfollowing'],['../class_wall_following.html#a29085d48ad54961a4ff1567ad2566446',1,'WallFollowing::WallFollowing()']]],
   ['wallfollowing_2epy',['wallfollowing.py',['../wallfollowing_8py.html',1,'']]],
   ['wheel_5fdiameter',['WHEEL_DIAMETER',['../namespacecar__config.html#a6f064e331d6d85d46028dfbe75f063dd',1,'car_config']]],

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['update_5ffrequency',['UPDATE_FREQUENCY',['../namespaceparameters.html#ae3bc06467bd63647dbed9a5312495493',1,'parameters']]],
-  ['use_5fexisting_5fparameters',['USE_EXISTING_PARAMETERS',['../namespaceparameters.html#a0cffcb215ac12a1700baedb1a13ec8d5',1,'parameters']]]
+  ['velocity_5fthreshold',['VELOCITY_THRESHOLD',['../navigation__stack__control__converter_8h.html#ad30e79b0be7f604f27b8e851f83a941f',1,'navigation_stack_control_converter.h']]]
 ];

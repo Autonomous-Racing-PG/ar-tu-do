@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['fallback_5frange',['FALLBACK_RANGE',['../wall__following_8h.html#a4ab7ead14418fadcb107d7b685cd54f0',1,'wall_following.h']]],
-  ['fast_5fsteer_5flimit',['FAST_STEER_LIMIT',['../keyboard__controller_8h.html#a615bf3b38c23cb483977c1943449ce87',1,'keyboard_controller.h']]],
   ['fc1',['fc1',['../classparameters_1_1_neural_q_estimator.html#ab0fb7d0e286565a2531f3ddb126e2592',1,'parameters::NeuralQEstimator']]],
   ['fc2',['fc2',['../classparameters_1_1_neural_q_estimator.html#abd606711b39f423590adacb37c5b55d0',1,'parameters::NeuralQEstimator']]],
   ['fc3',['fc3',['../classparameters_1_1_neural_q_estimator.html#ac48aa201a71a0e25e8ca7274a2cc5733',1,'parameters::NeuralQEstimator']]],

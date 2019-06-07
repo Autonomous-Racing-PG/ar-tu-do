@@ -1,7 +1,6 @@
 var searchData=
 [
   ['radius',['radius',['../classcircle_1_1_circle.html#a33aec6cd768f0a1850fae92cf3fcbc95',1,'circle::Circle']]],
-  ['range_5fthreshold',['RANGE_THRESHOLD',['../emergency__stop_8h.html#a35f01de48a0247ffa2674e116ae971d0',1,'emergency_stop.h']]],
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['real_5ftime_5ffactor',['real_time_factor',['../namespacelearn.html#a9b863a68264a65e5330ea30ef3765f9e',1,'learn']]],
   ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../namespacecar__config.html#a43e668702c6dc662ff95f80047ee5500',1,'car_config']]],

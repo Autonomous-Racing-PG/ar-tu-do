@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['car_5fbumper_5flength',['CAR_BUMPER_LENGTH',['../emergency__stop_8h.html#ad9d3f0d12fce3f2667f01e3e82c819bd',1,'emergency_stop.h']]],
   ['car_5fvelocity',['car_velocity',['../namespacesimulation__tools_1_1speedometer.html#a58c9137e8b8cf3668ebac7ca01fa1bc9',1,'simulation_tools::speedometer']]],
   ['center',['center',['../classcircle_1_1_circle.html#aa2ed466736c7e4436ab6ded456ebd24b',1,'circle.Circle.center()'],['../classsimulation__tools_1_1lap__timer_1_1_area.html#ab6d54ce6f15f7931e2c97c418ef275ec',1,'simulation_tools.lap_timer.Area.center()']]],
   ['checkpoint_5f1',['CHECKPOINT_1',['../namespacesimulation__tools_1_1lap__timer.html#a20574c968e10b9baa7bb953a9a7eb693',1,'simulation_tools::lap_timer']]],
