@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Autonomous Racing: /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/msgs_converter/src/navigation_stack_control_converter.cpp File Reference</title>
+<title>Autonomous Racing: /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/src/navigation_stack_control_converter.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,8 +107,6 @@ $(document).ready(function(){initNavTree('navigation__stack__control__converter_
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">navigation_stack_control_converter.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -117,62 +115,24 @@ $(document).ready(function(){initNavTree('navigation__stack__control__converter_
 <code>#include &quot;<a class="el" href="car__config_8h_source.html">car_config.h</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;boost/algorithm/clamp.hpp&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;eigen3/Eigen/Dense&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for navigation_stack_control_converter.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="navigation__stack__control__converter_8cpp__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2navigation__stack_2msgs__converter_2src_2navigation__stack__control__converter_8cpp" alt=""/></div>
-<map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2navigation__stack_2msgs__converter_2src_2navigation__stack__control__converter_8cpp" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2navigation__stack_2msgs__converter_2src_2navigation__stack__control__converter_8cpp">
+<div class="center"><img src="navigation__stack__control__converter_8cpp__incl.png" border="0" usemap="#_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2navigation__stack_2navigation__stack__control__converter_2src_2navigation__stack__control__converter_8cpp" alt=""/></div>
+<map name="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2navigation__stack_2navigation__stack__control__converter_2src_2navigation__stack__control__converter_8cpp" id="_2home_2travis_2build_2_autonomous-_racing-_p_g_2ros_8package_2docs_2master_2ros__ws_2src_2navigation__stack_2navigation__stack__control__converter_2src_2navigation__stack__control__converter_8cpp">
 <area shape="rect" id="node2" href="navigation__stack__control__converter_8h.html" title="navigation_stack_control\l_converter.h" alt="" coords="107,153,273,195"/>
 <area shape="rect" id="node6" href="car__config_8h.html" title="car_config.h" alt="" coords="298,161,391,187"/>
 </map>
 </div>
 </div>
 <p><a href="navigation__stack__control__converter_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ad30e79b0be7f604f27b8e851f83a941f"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="navigation__stack__control__converter_8cpp.html#ad30e79b0be7f604f27b8e851f83a941f">VELOCITY_THRESHOLD</a> = 0.001</td></tr>
-<tr class="separator:ad30e79b0be7f604f27b8e851f83a941f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9060cd03b1a1bf7e0bb273c190b0a675"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="navigation__stack__control__converter_8cpp.html#a9060cd03b1a1bf7e0bb273c190b0a675">ANGULAR_VELOCITY_THRESHOLD</a> = 0.000001</td></tr>
-<tr class="separator:a9060cd03b1a1bf7e0bb273c190b0a675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a9060cd03b1a1bf7e0bb273c190b0a675"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double ANGULAR_VELOCITY_THRESHOLD = 0.000001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="navigation__stack__control__converter_8cpp_source.html#l00011">11</a> of file <a class="el" href="navigation__stack__control__converter_8cpp_source.html">navigation_stack_control_converter.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad30e79b0be7f604f27b8e851f83a941f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double VELOCITY_THRESHOLD = 0.001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="navigation__stack__control__converter_8cpp_source.html#l00010">10</a> of file <a class="el" href="navigation__stack__control__converter_8cpp_source.html">navigation_stack_control_converter.cpp</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c1346cf4828efdd0d2baf0d391d01b77.html">master</a></li><li class="navelem"><a class="el" href="dir_42e62708e74a9749a2aab797cd8af43b.html">ros_ws</a></li><li class="navelem"><a class="el" href="dir_e6b6c919899e96597b50b37fd7e3dee9.html">src</a></li><li class="navelem"><a class="el" href="dir_ca92bc15b16926e3f2a929107d9cd19c.html">navigation_stack</a></li><li class="navelem"><a class="el" href="dir_3fcdce80b483bb2ae2cfffd88d0a51bd.html">msgs_converter</a></li><li class="navelem"><a class="el" href="dir_13ac5ad84f9d5619c9e2e38c713bc695.html">src</a></li><li class="navelem"><a class="el" href="navigation__stack__control__converter_8cpp.html">navigation_stack_control_converter.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_c1346cf4828efdd0d2baf0d391d01b77.html">master</a></li><li class="navelem"><a class="el" href="dir_42e62708e74a9749a2aab797cd8af43b.html">ros_ws</a></li><li class="navelem"><a class="el" href="dir_e6b6c919899e96597b50b37fd7e3dee9.html">src</a></li><li class="navelem"><a class="el" href="dir_ca92bc15b16926e3f2a929107d9cd19c.html">navigation_stack</a></li><li class="navelem"><a class="el" href="dir_70e5060ef93ab4c29297eaea5494f94f.html">navigation_stack_control_converter</a></li><li class="navelem"><a class="el" href="dir_159e9323b271db6ee2970763e7741de1.html">src</a></li><li class="navelem"><a class="el" href="navigation__stack__control__converter_8cpp.html">navigation_stack_control_converter.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>

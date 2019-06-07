@@ -7,7 +7,7 @@ var searchData=
   ['checkpoint_5f2',['CHECKPOINT_2',['../namespacesimulation__tools_1_1lap__timer.html#a7773acfe8635b4d8a0e96d13912243b0',1,'simulation_tools::lap_timer']]],
   ['checkpoint_5f3',['CHECKPOINT_3',['../namespacesimulation__tools_1_1lap__timer.html#a197a8c1ba2497108f555aa4d1670ccd7',1,'simulation_tools::lap_timer']]],
   ['checkpoints',['checkpoints',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#ae042ce601347d175584be16d8166a74e',1,'simulation_tools::lap_timer::Timer']]],
-  ['cmd_5fvel',['CMD_VEL',['../navigation__stack__control__converter_8h.html#a561eb346694ef40c617c49bb160363d8',1,'CMD_VEL():&#160;navigation_stack_control_converter.h'],['../vesc__sim__driver_8h.html#a561eb346694ef40c617c49bb160363d8',1,'CMD_VEL():&#160;vesc_sim_driver.h']]],
+  ['cmd_5fvel',['CMD_VEL',['../vesc__sim__driver_8h.html#a561eb346694ef40c617c49bb160363d8',1,'vesc_sim_driver.h']]],
   ['command_5fbrake',['COMMAND_BRAKE',['../vesc__sim__driver_8h.html#affe1486b6714ce41c5ddc70d4ff7790d',1,'vesc_sim_driver.h']]],
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],

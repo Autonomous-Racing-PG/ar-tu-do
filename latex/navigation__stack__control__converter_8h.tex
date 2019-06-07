@@ -1,5 +1,5 @@
-\hypertarget{navigation__stack__control__converter_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/navigation\+\_\+stack/msgs\+\_\+converter/include/navigation\+\_\+stack\+\_\+control\+\_\+converter.h File Reference}
-\label{navigation__stack__control__converter_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/navigation\+\_\+stack/msgs\+\_\+converter/include/navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/navigation\+\_\+stack/msgs\+\_\+converter/include/navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
+\hypertarget{navigation__stack__control__converter_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/navigation\+\_\+stack/navigation\+\_\+stack\+\_\+control\+\_\+converter/include/navigation\+\_\+stack\+\_\+control\+\_\+converter.h File Reference}
+\label{navigation__stack__control__converter_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/navigation\+\_\+stack/navigation\+\_\+stack\+\_\+control\+\_\+converter/include/navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/navigation\+\_\+stack/navigation\+\_\+stack\+\_\+control\+\_\+converter/include/navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
 {\ttfamily \#include $<$drive\+\_\+msgs/drive\+\_\+param.\+h$>$}\\*
 {\ttfamily \#include $<$geometry\+\_\+msgs/\+Twist.\+h$>$}\\*
@@ -27,24 +27,42 @@ class \hyperlink{class_navigation_stack_control_converter}{Navigation\+Stack\+Co
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-constexpr const char $\ast$ \hyperlink{navigation__stack__control__converter_8h_ae2bdb9527cf2548c238295d766dcff5a}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM} = \char`\"{}/commands/drive\+\_\+param\char`\"{}
+constexpr const char $\ast$ \hyperlink{navigation__stack__control__converter_8h_ae2bdb9527cf2548c238295d766dcff5a}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM} = \char`\"{}input/drive\+\_\+param/autonomous\char`\"{}
 \item 
-constexpr const char $\ast$ \hyperlink{navigation__stack__control__converter_8h_a561eb346694ef40c617c49bb160363d8}{C\+M\+D\+\_\+\+V\+EL} = \char`\"{}cmd\+\_\+vel\char`\"{}
+constexpr const char $\ast$ \hyperlink{navigation__stack__control__converter_8h_ab594cd0b55b96b018586cdb3335b3a6d}{T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL} = \char`\"{}cmd\+\_\+vel\char`\"{}
+\item 
+constexpr double \hyperlink{navigation__stack__control__converter_8h_ad30e79b0be7f604f27b8e851f83a941f}{V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD} = 0.\+001
+\item 
+constexpr double \hyperlink{navigation__stack__control__converter_8h_a9060cd03b1a1bf7e0bb273c190b0a675}{A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD} = 0.\+000001
 \end{DoxyCompactItemize}
 
 
 \subsection{Variable Documentation}
-\index{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}!C\+M\+D\+\_\+\+V\+EL@{C\+M\+D\+\_\+\+V\+EL}}
-\index{C\+M\+D\+\_\+\+V\+EL@{C\+M\+D\+\_\+\+V\+EL}!navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
-\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+V\+EL}{CMD_VEL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ C\+M\+D\+\_\+\+V\+EL = \char`\"{}cmd\+\_\+vel\char`\"{}}\hypertarget{navigation__stack__control__converter_8h_a561eb346694ef40c617c49bb160363d8}{}\label{navigation__stack__control__converter_8h_a561eb346694ef40c617c49bb160363d8}
+\index{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}!A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD@{A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}
+\index{A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD@{A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}!navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
+\subsubsection[{\texorpdfstring{A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}{ANGULAR_VELOCITY_THRESHOLD}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double A\+N\+G\+U\+L\+A\+R\+\_\+\+V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD = 0.\+000001}\hypertarget{navigation__stack__control__converter_8h_a9060cd03b1a1bf7e0bb273c190b0a675}{}\label{navigation__stack__control__converter_8h_a9060cd03b1a1bf7e0bb273c190b0a675}
+
+
+Definition at line 12 of file navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h.
+
+\index{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}!T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL@{T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL@{T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL}!navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL}{TOPIC_CMD_VEL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+C\+M\+D\+\_\+\+V\+EL = \char`\"{}cmd\+\_\+vel\char`\"{}}\hypertarget{navigation__stack__control__converter_8h_ab594cd0b55b96b018586cdb3335b3a6d}{}\label{navigation__stack__control__converter_8h_ab594cd0b55b96b018586cdb3335b3a6d}
 
 
 Definition at line 9 of file navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h.
 
 \index{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}!navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
-\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}{TOPIC_DRIVE_PARAM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM = \char`\"{}/commands/drive\+\_\+param\char`\"{}}\hypertarget{navigation__stack__control__converter_8h_ae2bdb9527cf2548c238295d766dcff5a}{}\label{navigation__stack__control__converter_8h_ae2bdb9527cf2548c238295d766dcff5a}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM}{TOPIC_DRIVE_PARAM}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+AM = \char`\"{}input/drive\+\_\+param/autonomous\char`\"{}}\hypertarget{navigation__stack__control__converter_8h_ae2bdb9527cf2548c238295d766dcff5a}{}\label{navigation__stack__control__converter_8h_ae2bdb9527cf2548c238295d766dcff5a}
 
 
 Definition at line 8 of file navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h.
+
+\index{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}!V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD@{V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}
+\index{V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD@{V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}!navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h@{navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h}}
+\subsubsection[{\texorpdfstring{V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}{VELOCITY_THRESHOLD}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr double V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD = 0.\+001}\hypertarget{navigation__stack__control__converter_8h_ad30e79b0be7f604f27b8e851f83a941f}{}\label{navigation__stack__control__converter_8h_ad30e79b0be7f604f27b8e851f83a941f}
+
+
+Definition at line 11 of file navigation\+\_\+stack\+\_\+control\+\_\+converter.\+h.
 
