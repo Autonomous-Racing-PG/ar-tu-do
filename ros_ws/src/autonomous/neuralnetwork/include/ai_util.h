@@ -2,7 +2,6 @@
 
 #include "ai_math.h"
 
-// http://leenissen.dk/fann/html/files/fann_cpp-h.html
 // clang-format off
 #include "floatfann.h"
 #include "fann_cpp.h"
@@ -25,7 +24,6 @@ namespace ai_util
         struct dirent* ent;
         if ((dir = opendir(folder.c_str())) != NULL)
         {
-            /* print all the files and directories within directory */
             while ((ent = readdir(dir)) != NULL)
             {
                 string name = ent->d_name;
@@ -36,10 +34,6 @@ namespace ai_util
                 vec.push_back(folder + "/" + name);
             }
             closedir(dir);
-        }
-        else
-        {
-            /* could not open directory */
         }
         return vec;
     }

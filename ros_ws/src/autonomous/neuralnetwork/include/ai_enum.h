@@ -6,28 +6,28 @@ namespace ai_enum
 {
     using namespace std;
 
-    enum AbortReason
+    enum EventCause
     {
-        none,
-        crash,
-        max_run_time,
-        output,
-        lap_finished
+        NONE,
+        CRASH,
+        MAX_RUN_TIME,
+        OUTPUT,
+        LAP_FINISHED
     };
 
-    inline string to_string(AbortReason reason)
+    inline string to_string(EventCause cause)
     {
-        switch (reason)
+        switch (cause)
         {
-            case ai_enum::none:
+            case ai_enum::NONE:
                 return "none";
-            case ai_enum::crash:
+            case ai_enum::CRASH:
                 return "crash";
-            case ai_enum::max_run_time:
+            case ai_enum::MAX_RUN_TIME:
                 return "max_run_time";
-            case ai_enum::output:
+            case ai_enum::OUTPUT:
                 return "output";
-            case ai_enum::lap_finished:
+            case ai_enum::LAP_FINISHED:
                 return "lap_finished";
             default:
                 return "invalid enum";

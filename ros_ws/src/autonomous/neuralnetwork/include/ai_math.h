@@ -4,9 +4,6 @@
 #include <cstdlib>
 #include <vector>
 
-#include "ros/static_assert.h"
-
-// http://leenissen.dk/fann/html/files/fann_cpp-h.html
 // clang-format off
 #include "floatfann.h"
 #include "fann_cpp.h"
@@ -14,16 +11,53 @@
 
 namespace ai_math
 {
-    using namespace std;
-
     typedef std::vector<fann_type> NetVector;
+    
+    class Singleton
+    {
+    private:
+		static bool instanceFlag;
+		static Singleton *single;
+		Singleton()
+		{
+			//private constructor
+            std::random_device rd;  // Will be used to obtain a seed for the random number engine
+            std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+            random_generator = gen;
+		}
+
+    public:
+		static Singleton* getInstance();
+        std::mt19937 random_generator;
+		~Singleton()
+		{
+			instanceFlag = false;
+		}
+    };
+
+    bool Singleton::instanceFlag = false;
+    Singleton* Singleton::single = NULL;
+    
+    Singleton* Singleton::getInstance()
+    {
+        if (!instanceFlag)
+        {
+            single = new Singleton();
+            instanceFlag = true;
+            return single;
+        }
+        else
+        {
+            return single;
+        }
+    }
 
     // ################################################################
     // #    create vectors
     // ################################################################
 
     // returns a vector with random values between min and max
-    inline NetVector r_uniform_distribution(int size, fann_type min = -1, fann_type max = 1)
+    inline NetVector sample_uniform_distribution(uint size, fann_type min = -1, fann_type max = 1)
     {
         if (min > max)
         {
@@ -33,92 +67,73 @@ namespace ai_math
             max = tmp;
         }
 
-        std::random_device rd;  // Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<fann_type> dis(min, max);
-        NetVector vec;
-        for (int i = 0; i < size; i++)
+        NetVector vec(size);
+        for (uint i = 0; i < size; i++)
         {
-            vec.push_back(dis(gen));
+            vec[i] = dis(Singleton::getInstance()->random_generator);
         }
-
         return vec;
     }
 
     // returns a vector with random values between min and max
-    inline NetVector r_normal_distribution(uint size, double mean = 0, double stddev = 0.5)
+    inline NetVector sample_normal_distribution(uint size, double mean = 0, double stddev = 0.5)
     {
-        std::random_device rd;  // Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::normal_distribution<fann_type> dis(mean, stddev);
-        NetVector vec;
+        NetVector vec(size);
         for (uint i = 0; i < size; i++)
         {
-            vec.push_back(dis(gen));
+            vec[i] = dis(Singleton::getInstance()->random_generator);
         }
-
         return vec;
     }
 
     // creates a vector with n ones and (size - n) zeros
-    inline NetVector r_binary_mutation(uint size, int n = 1)
+    inline NetVector sample_binary_permutation(uint size, uint number_of_ones = 1)
     {
-        std::vector<bool> boolean;
-        for (uint i = 0; i < size; i++)
+        assert(number_of_ones <= size);
+        NetVector vec(size);
+        for(uint i = 0; i < size; i++)
         {
-            boolean.push_back(false);
-        }
-
-        std::random_device rd;  // Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-        std::uniform_int_distribution<> dis(0, size - 1);
-
-        int ones = 0;
-        while (ones != n)
-        {
-            int target = dis(gen);
-            if (boolean[target] == false)
+            if(i < number_of_ones)
             {
-                boolean[target] = true;
-                ones++;
+                vec[i] = 1.0;
+            }
+            else 
+            {
+                vec[i] = 0.0;
             }
         }
-
-        NetVector vec(size);
-        for (uint i = 0; i < size; i++)
-        {
-            vec[i] = boolean[i] ? 1.0 : 0.0;
-        }
-
+        std::shuffle(vec.begin(), vec.end(), Singleton::getInstance()->random_generator);
         return vec;
     }
 
     inline NetVector zeros(uint size)
     {
-        NetVector vec;
+        NetVector vec(size);
         for (uint i = 0; i < size; i++)
         {
-            vec.push_back(0);
+            vec[i] = 0.0;
         }
         return vec;
     }
 
     inline NetVector ones(uint size)
     {
-        NetVector vec;
+        NetVector vec(size);
         for (uint i = 0; i < size; i++)
         {
-            vec.push_back(1);
+            vec[i] = 1.0;
         }
         return vec;
     }
 
     inline NetVector clone(NetVector& a)
     {
-        NetVector c;
+        NetVector c(a.size());
         for (uint i = 0; i < a.size(); i++)
         {
-            c.push_back(a[i]);
+            c[i] = a[i];
         }
         return c;
     }
@@ -129,6 +144,7 @@ namespace ai_math
 
     inline NetVector mult(NetVector& a, NetVector& b)
     {
+        assert(a.size() == b.size());
         NetVector c(a.size());
         for (uint i = 0; i < a.size(); i++)
         {
@@ -149,6 +165,7 @@ namespace ai_math
 
     inline NetVector add(NetVector& a, NetVector& b)
     {
+        assert(a.size() == b.size());
         NetVector c(a.size());
         for (uint i = 0; i < a.size(); i++)
         {
@@ -157,12 +174,12 @@ namespace ai_math
         return c;
     }
 
-    inline NetVector add(NetVector& a, fann_type add)
+    inline NetVector add(NetVector& a, fann_type b)
     {
         NetVector c(a.size());
         for (uint i = 0; i < a.size(); i++)
         {
-            c[i] = a[i] + add;
+            c[i] = a[i] + b;
         }
         return c;
     }
@@ -181,43 +198,42 @@ namespace ai_math
     // #    vector mutation
     // ################################################################
 
-    inline NetVector m_exchange_mutation(NetVector& p, uint switches)
+    // switches random pairs of values
+    inline NetVector mutation_exchange(NetVector& input, uint number_of_swaps)
     {
-        uint size = p.size();
-
-        std::random_device rd;  // Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+        uint size = input.size();
         std::uniform_int_distribution<> dis(0, size - 1);
 
-        NetVector m = clone(p);
-        for (uint i = 0; i < switches; i++)
+        NetVector result = clone(input);
+        for (uint i = 0; i < number_of_swaps; i++)
         {
-            int a;
-            int b;
+            int swap_index_1;
+            int swap_index_2;
             do
             {
-                a = dis(gen);
-                b = dis(gen);
-            } while (a != b);
+                swap_index_1 = dis(Singleton::getInstance()->random_generator);
+                swap_index_2 = dis(Singleton::getInstance()->random_generator);
+            } while (swap_index_1 == swap_index_2);
 
-            fann_type tmp = m[a];
-            m[a] = m[b];
-            m[b] = tmp;
+            fann_type tmp = result[swap_index_1];
+            result[swap_index_1] = result[swap_index_2];
+            result[swap_index_2] = tmp;
         }
-
-        return m;
+        return result;
     }
 
-    inline NetVector m_uniform_add_mutation(NetVector& p, double learning_rate)
+    // adds a uniform random vector with mean = 0 and stddev = learning_rate to p
+    inline NetVector mutation_add_uniform(NetVector& p, double learning_rate)
     {
-        NetVector random = r_normal_distribution(p.size(), 0, learning_rate);
+        NetVector random = sample_normal_distribution(p.size(), 0, learning_rate);
         NetVector m = add(p, random);
         return m;
     }
 
-    inline NetVector m_uniform_mult_mutation(NetVector& p, double learning_rate)
+    // mults a uniform random vector with mean = 0 and stddev = learning_rate to p
+    inline NetVector mutation_mult_uniform(NetVector& p, double learning_rate)
     {
-        NetVector random = r_normal_distribution(p.size(), 1, learning_rate);
+        NetVector random = sample_normal_distribution(p.size(), 1, learning_rate);
         NetVector m = mult(p, random);
         return m;
     }
@@ -264,4 +280,5 @@ namespace ai_math
         net->set_weight_array(arr, size);
         return net;
     }
+
 }

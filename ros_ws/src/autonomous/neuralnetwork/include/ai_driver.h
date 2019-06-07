@@ -1,6 +1,5 @@
 #pragma once
 
-// http://leenissen.dk/fann/html/files/fann_cpp-h.html
 // clang-format off
 #include "floatfann.h"
 #include "fann_cpp.h"
@@ -28,8 +27,6 @@ namespace ai_driver
     constexpr const char* TOPIC_LASER_SCAN_SUBSCRIBE = "/scan";
 
     constexpr const char* TOPIC_NET_DEPLOY_SUBSCRIBE = "/ai/deploy";
-
-    constexpr const unsigned int LIDAR_INDICES[] = { 0, 1, 2, 3, 4 };
 }
 
 class AiDriver
@@ -48,15 +45,9 @@ class AiDriver
 
     FANN::neural_net m_net;
 
-    int m_changes_lidar = 0;
+    int m_lidar_messages_since_last_neural_net_update = 0;
     std::vector<fann_type> m_input;
-    // m_input[0] : current speed
-    // m_input[1] : current wheel rotaton
-    // m_input[2] : lidar 90 degrees right
-    // m_input[3] : lidar 45 degrees right
-    // m_input[4] : middle
-    // m_input[5] : lidar 45 degrees left
-    // m_input[6] : lidar 90 degrees left
+    // m_input[0] : current speed, m_input[1] : current wheel rotaton, m_input[2-n] : lidar data
 
     void timerCallback(const ros::TimerEvent&);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);

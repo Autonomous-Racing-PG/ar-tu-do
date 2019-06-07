@@ -51,23 +51,19 @@ void AiTrainer::update()
     // end previous test
     if (m_running_test)
     {
-        meta* m = m_meta[m_index]; // read only
+        TrainingContext* tc = m_training_contexts[m_index]; // read only
         endTest();
-        std::string output = ai_workspace::get_test_output(m, m_gen, m_index, m_nets.size());
+        std::string output = ai_workspace::get_test_output(tc, m_gen, m_index, m_training_contexts.size());
         ROS_INFO_STREAM(output);
         m_index++;
     }
 
     // create new generation if needed
-    if (m_index == m_nets.size())
+    if (m_index == m_training_contexts.size())
     {
         chooseBest();
         createNextGeneration();
         ROS_INFO_STREAM("==========================================================");
-        // if(m_gen > 3)
-        //{
-        //    m_learning_rate = 1.0 / m_gen * 3;
-        //}
         ROS_INFO_STREAM("generation: " + std::to_string(m_gen) + " | learning_rate: " +
                         std::to_string(m_learning_rate));
         m_index = 0;
@@ -83,13 +79,13 @@ void AiTrainer::update()
 bool AiTrainer::init()
 {
     m_nets.clear();
-    m_meta.clear();
+    m_training_contexts.clear();
     for (int i = 0; i < m_generation_size; i++)
     {
         FANN::neural_net* net = new FANN::neural_net();
-        net->create_standard_array(ai_workspace::DEFAULT_NUM_LAYERS, ai_workspace::DEFAULT_LAYER_ARRAY);
+        net->create_standard_array(ai_workspace::NUM_LAYERS, ai_workspace::LAYER_ARRAY);
         m_nets.push_back(net);
-        m_meta.push_back(new meta());
+        m_training_contexts.push_back(new TrainingContext());
     }
     m_gen = 0;
     m_index = 0;
@@ -99,7 +95,7 @@ bool AiTrainer::init()
 bool AiTrainer::initLoad()
 {
     m_nets.clear();
-    m_meta.clear();
+    m_training_contexts.clear();
 
     std::string init_folder = m_config_folder + "/" + PATH_INIT_FOLDER;
     std::vector<std::string> paths = ai_util::get_files_in_folder(init_folder);
@@ -118,7 +114,7 @@ bool AiTrainer::initLoad()
         if (b)
         {
             m_nets.push_back(net);
-            m_meta.push_back(new meta());
+            m_training_contexts.push_back(new TrainingContext());
         }
         else
         {
@@ -136,9 +132,9 @@ void AiTrainer::chooseBest()
     m_best_nets.clear();
 
     // clear choosen attribute
-    for (uint i = 0; i < m_meta.size(); i++)
+    for (uint i = 0; i < m_training_contexts.size(); i++)
     {
-        m_meta[i]->choosen = false;
+        m_training_contexts[i]->choosen = false;
     }
 
     bool b = true;
@@ -146,12 +142,12 @@ void AiTrainer::chooseBest()
     {
         // find best index
         int best_i = -1;
-        for (uint i = 0; i < m_nets.size(); i++)
+        for (uint i = 0; i < m_training_contexts.size(); i++)
         {
-            meta* m = m_meta[i];
-            if (m->choosen == false)
+            TrainingContext* tc = m_training_contexts[i];
+            if (tc->choosen == false)
             {
-                if (best_i == -1 || m->score > m_meta[best_i]->score)
+                if (best_i == -1 || tc->score > m_training_contexts[best_i]->score)
                 {
                     best_i = i;
                 }
@@ -161,10 +157,10 @@ void AiTrainer::chooseBest()
         {
             FANN::neural_net* best = m_nets[best_i];
             m_best_nets.push_back(best);
-            m_meta[best_i]->choosen = true;
+            m_training_contexts[best_i]->choosen = true;
 
             // reset score
-            m_meta[best_i]->score = 0;
+            m_training_contexts[best_i]->score = 0;
         }
         else
         {
@@ -213,19 +209,19 @@ void AiTrainer::chooseBest()
 
 void AiTrainer::createNextGeneration()
 {
-    m_nets.clear();
-    m_meta.clear();
+    m_training_contexts.clear();
+    m_training_contexts.clear();
 
     // copy parents
     for (uint i = 0; i < m_best_nets.size(); i++)
     {
         m_nets.push_back(m_best_nets[i]);
-        m_meta.push_back(new meta());
+        m_training_contexts.push_back(new TrainingContext());
     }
 
     // create mutations
     int index = 0;
-    while (m_nets.size() < (size_t)m_generation_size)
+    while (m_training_contexts.size() < (size_t)m_generation_size)
     {
         using namespace ai_math;
 
@@ -239,7 +235,7 @@ void AiTrainer::createNextGeneration()
         FANN::neural_net* m = vector_to_net(m_vec, layers, layer_array);
 
         m_nets.push_back(m);
-        m_meta.push_back(new meta());
+        m_training_contexts.push_back(new TrainingContext());
         index = (index + 1) % m_best_nets.size();
     }
     m_gen++;
@@ -292,25 +288,25 @@ void AiTrainer::prepareTest()
     m_timer = m_node_handle.createTimer(ros::Duration(m_max_time), &AiTrainer::timerCallback, this, true);
 
     // start time counting
-    m_meta[m_index]->time_start = ros::Time::now();
+    m_training_contexts[m_index]->time_start = ros::Time::now();
 
     m_running_test = true;
 }
 
 void AiTrainer::endTest()
 {
-    meta* m = m_meta[m_index];
-    m->run_time = (ros::Time::now() - m->time_start).toSec();
-    m->avg_velocity = m->added_velocity / (double)m->count;
-    m->score = ai_workspace::fitness(m);
+    TrainingContext* tc = m_training_contexts[m_index];
+    tc->run_time = (ros::Time::now() - tc->time_start).toSec();
+    tc->avg_velocity = tc->cumulative_velocity / (double)tc->count;
+    tc->score = ai_workspace::fitness(tc);
 
     m_running_test = false;
 }
 
 void AiTrainer::timerCallback(const ros::TimerEvent&)
 {
-    meta* m = m_meta[m_index];
-    if (ai_workspace::event(m, ai_enum::AbortReason::max_run_time))
+    TrainingContext* tc = m_training_contexts[m_index];
+    if (ai_workspace::event(tc, ai_enum::EventCause::MAX_RUN_TIME))
     {
         update();
     }
@@ -318,15 +314,15 @@ void AiTrainer::timerCallback(const ros::TimerEvent&)
 
 void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
 {
-    meta* m = m_meta[m_index];
+    TrainingContext* tc = m_training_contexts[m_index];
 
     // remove magic number 0.1
-    if ((ros::Time::now() - m->time_start).toSec() < 0.1)
+    if ((ros::Time::now() - tc->time_start).toSec() < 0.1)
     {
         return;
     }
 
-    if (ai_workspace::event(m, ai_enum::AbortReason::crash))
+    if (ai_workspace::event(tc, ai_enum::EventCause::CRASH))
     {
         update();
     }
@@ -334,16 +330,16 @@ void AiTrainer::crashCallback(const std_msgs::Empty::ConstPtr&)
 
 void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
-    meta* m = m_meta[m_index];
+    TrainingContext* tc = m_training_contexts[m_index];
 
-    m->c_velocity = (double)parameters->velocity; // latest velocity publish
-    m->c_angle = (double)parameters->angle;       // latest angle publish
+    tc->c_velocity = (double)parameters->velocity; // latest velocity publish
+    tc->c_angle = (double)parameters->angle;       // latest angle publish
 
-    m->added_velocity += (double)parameters->velocity;
-    m->added_angle += std::abs((double)parameters->angle);
-    m->count++;
+    tc->cumulative_velocity += (double)parameters->velocity;
+    tc->cumulative_angle += std::abs((double)parameters->angle);
+    tc->count++;
 
-    if (ai_workspace::event(m, ai_enum::AbortReason::output))
+    if (ai_workspace::event(tc, ai_enum::EventCause::OUTPUT))
     {
         update();
     }
@@ -351,10 +347,10 @@ void AiTrainer::driveParametersCallback(const drive_msgs::drive_param::ConstPtr&
 
 void AiTrainer::lapTimerCallback(const std_msgs::Duration::ConstPtr& time_message)
 {
-    meta* m = m_meta[m_index];
-    m->lap_time = time_message->data.toSec();
+    TrainingContext* tc = m_training_contexts[m_index];
+    tc->lap_time = time_message->data.toSec();
 
-    if (ai_workspace::event(m, ai_enum::AbortReason::lap_finished))
+    if (ai_workspace::event(tc, ai_enum::EventCause::LAP_FINISHED))
     {
         update();
     }

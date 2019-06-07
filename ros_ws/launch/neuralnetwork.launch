@@ -12,7 +12,7 @@
       type="ai_driver"
       name="ai_driver"
       output="screen" >
-      <param name="update_rate" type="double" value = "10"/> <!-- Hz-->
+      <param name="update_rate" type="double" value = "60"/> <!-- Hz-->
       <param name="config_folder" type="string" value = "$(arg config_folder)"/>
       <!-- <param name="config_file" type="string" value = "latest.conf"/> -->
       <!-- <param name="config_file" type="string" value = ""/> -->

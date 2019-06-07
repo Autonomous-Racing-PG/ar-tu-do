@@ -76,12 +76,12 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     // TODO: remove magic numbers
     for (int i = 0; i < 5; i++)
     {
-        float value = lidar->ranges[LIDAR_INDICES[i]];
+        float value = lidar->ranges[i];
         value = std::min(value, lidar->range_max);
         value = std::max(value, lidar->range_min);
         m_input[i + 2] = value;
     }
-    m_changes_lidar++;
+    m_lidar_messages_since_last_neural_net_update++;
 }
 
 void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
@@ -108,11 +108,11 @@ void AiDriver::netDeployCallback(const neuralnetwork::net_param::ConstPtr& data)
 void AiDriver::update()
 {
     // check data age
-    if (m_changes_lidar == 0)
+    if (m_lidar_messages_since_last_neural_net_update == 0)
     {
         ROS_WARN_STREAM("ai_driver: no lidar update since last neural net update");
     }
-    m_changes_lidar = 0;
+    m_lidar_messages_since_last_neural_net_update = 0;
 
     // run network
     fann_type* output = m_net.run(&m_input[0]);
