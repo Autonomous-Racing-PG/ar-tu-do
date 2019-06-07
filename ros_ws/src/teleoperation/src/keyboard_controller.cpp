@@ -3,6 +3,8 @@
 #include <cmath>
 #include <std_msgs/Time.h>
 
+#include <teleoperation/keyboard_controllerConfig.h>
+
 double map(double value, double in_lower, double in_upper, double out_lower, double out_upper)
 {
     return out_lower + (out_upper - out_lower) * (value - in_lower) / (in_upper - in_lower);
@@ -14,7 +16,7 @@ double map(double value, double in_lower, double in_upper, double out_lower, dou
  * */
 KeyboardController::KeyboardController()
 {
-    ROS_ASSERT_MSG(KEY_CODES.size() == KEY_COUNT, "KEY_CODES needs to have KEY_COUNT many elements.");
+    ROS_ASSERT_MSG(m_key_codes.size() == KEY_COUNT, "KEY_CODES needs to have KEY_COUNT many elements.");
     ROS_ASSERT_MSG(this->m_key_pressed_state.size() == KEY_COUNT,
                    "m_key_pressed_state needs to have KEY_COUNT many elements.");
 
@@ -31,6 +33,19 @@ KeyboardController::KeyboardController()
 
     auto tick_duration = ros::Duration(1.0 / PARAMETER_UPDATE_FREQUENCY);
     this->m_timer = this->m_node_handle.createTimer(tick_duration, &KeyboardController::timerCallback, this);
+
+    this->updateDynamicConfig();
+    m_dyn_cfg_server.setCallback([&](teleoperation::keyboard_controllerConfig& cfg, uint32_t) {
+        m_steering_speed = cfg.steering_speed;
+        m_acceleration = cfg.acceleration;
+        m_braking = cfg.braking;
+
+        m_fast_steer_limit = cfg.fast_steer_limit;
+        m_steering_gravity = cfg.steering_gravity;
+        m_throttle_gravity = cfg.throttle_gravity;
+
+        m_max_throttle = cfg.max_throttle;
+    });
 }
 
 KeyboardController::~KeyboardController()
@@ -70,7 +85,7 @@ void KeyboardController::pollWindowEvents()
         {
             for (size_t i = 0; i < KEY_COUNT; i++)
             {
-                if ((int)event.key.keysym.sym == (int)KEY_CODES[i])
+                if ((int)event.key.keysym.sym == (int)m_key_codes[i])
                 {
                     this->m_key_pressed_state[i] = event.type == SDL_KEYDOWN;
                 }
@@ -170,17 +185,17 @@ void KeyboardController::updateDriveParameters(double delta_time)
         ? +1
         : (this->m_key_pressed_state[(size_t)KeyIndex::DECELERATE] ? -1 : 0);
 
-    double steer_limit = map(std::abs(this->m_velocity), 0, MAX_THROTTLE, 1, FAST_STEER_LIMIT);
-    double angle_update = steer * delta_time * STEERING_SPEED;
+    double steer_limit = map(std::abs(this->m_velocity), 0, m_max_throttle, 1, m_fast_steer_limit);
+    double angle_update = steer * delta_time * m_steering_speed;
     this->m_angle = boost::algorithm::clamp(this->m_angle + angle_update, -steer_limit, +steer_limit);
-    double velocity_update = throttle * delta_time * (this->m_velocity * throttle > 0 ? ACCELERATION : BRAKING);
-    this->m_velocity = boost::algorithm::clamp(this->m_velocity + velocity_update, -MAX_THROTTLE, +MAX_THROTTLE);
+    double velocity_update = throttle * delta_time * (this->m_velocity * throttle > 0 ? m_acceleration : m_braking);
+    this->m_velocity = boost::algorithm::clamp(this->m_velocity + velocity_update, -m_max_throttle, +m_max_throttle);
 
     if (steer == 0 && this->m_angle != 0)
     {
         double sign = std::copysign(1.0, this->m_angle);
-        this->m_angle -= STEERING_GRAVITY * delta_time * sign;
-        if (std::abs(this->m_angle) < STEERING_GRAVITY * delta_time)
+        this->m_angle -= m_steering_gravity * delta_time * sign;
+        if (std::abs(this->m_angle) < m_steering_gravity * delta_time)
         {
             this->m_angle = 0;
         }
@@ -189,8 +204,8 @@ void KeyboardController::updateDriveParameters(double delta_time)
     if (throttle == 0 && this->m_velocity != 0)
     {
         double sign = std::copysign(1.0, this->m_velocity);
-        this->m_velocity -= THROTTLE_GRAVITY * delta_time * sign;
-        if (std::abs(this->m_velocity) < THROTTLE_GRAVITY * delta_time)
+        this->m_velocity -= m_throttle_gravity * delta_time * sign;
+        if (std::abs(this->m_velocity) < m_throttle_gravity * delta_time)
         {
             this->m_velocity = 0;
         }
@@ -216,6 +231,23 @@ void KeyboardController::driveModeCallback(const std_msgs::Int32::ConstPtr& driv
         this->m_drive_mode = mode;
         this->updateWindow();
     }
+}
+
+void KeyboardController::updateDynamicConfig()
+{
+    teleoperation::keyboard_controllerConfig cfg;
+    {
+        cfg.steering_speed = m_steering_speed;
+        cfg.acceleration = m_acceleration;
+        cfg.braking = m_braking;
+
+        cfg.fast_steer_limit = m_fast_steer_limit;
+        cfg.steering_gravity = m_steering_gravity;
+        cfg.throttle_gravity = m_throttle_gravity;
+
+        cfg.max_throttle = m_max_throttle;
+    }
+    m_dyn_cfg_server.updateConfig(cfg);
 }
 
 int main(int argc, char** argv)
