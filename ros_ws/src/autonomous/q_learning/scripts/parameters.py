@@ -61,7 +61,7 @@ MAX_EPISODE_LENGTH = 500
 MEMORY_SIZE = 10000
 
 BATCH_SIZE = 128
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.0001
 
 # Probability to select a random episode starts at EPS_START
 # and reaches EPS_END once EPS_DECAY episodes are completed.
