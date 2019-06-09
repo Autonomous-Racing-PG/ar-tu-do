@@ -45,7 +45,8 @@ class QLearningTrainingNode(QLearningNode):
         self.steps_with_wrong_orientation = 0
 
         self.real_time_factor = 0
-        self.episode_start_time = time.time()
+        self.episode_start_time_real = time.time()
+        self.episode_start_time_sim = rospy.Time.now().to_sec()
 
         if USE_EXISTING_PARAMETERS:
             self.policy.load()
@@ -128,19 +129,23 @@ class QLearningTrainingNode(QLearningNode):
             + " (" + "{0:.1f}".format(average_cumulative_reward).rjust(5) + " avg), "  # nopep8 \
             + ("memory: {0:d} / {1:d}, ".format(len(self.memory), MEMORY_SIZE) if len(self.memory) < MEMORY_SIZE else "")  # nopep8 \
             + "ε-greedy: " + str(int(self.get_epsilon_greedy_threshold() * 100)) + "% random, "  # nopep8 \
-            + "nn opt steps: " + str(self.optimization_step_count) + ", "  # nopep8 \
-            + "nn output: [" + self.net_output_debug_string + "], "  # nopep8 \
-            + "sim time {0:.1f}x".format(self.real_time_factor)  # nopep8 \
+            + "replays: " + str(self.optimization_step_count) + ", "  # nopep8 \
+            + "q: [" + self.net_output_debug_string + "], "  # nopep8 \
+            + "time: {0:.1f}x, ".format(self.real_time_factor)  # nopep8 \
+            + "laser: {0:.1f} Hz".format(float(self.episode_length) / (rospy.Time.now().to_sec() - self.episode_start_time_sim))  # nopep8 \
             )  # nopep8
 
     def on_complete_episode(self):
         self.episode_length_history.append(self.episode_length)
         self.cumulative_reward_history.append(self.cumulative_reward)
 
-        now = time.time()
-        self.real_time_factor = self.episode_length / (now - self.episode_start_time) / UPDATE_FREQUENCY  # nopep8
-        self.episode_start_time = now
+        real_time = time.time()
+        sim_time = rospy.Time.now().to_sec()
+        self.real_time_factor = (sim_time - self.episode_start_time_sim) / (real_time - self.episode_start_time_real)
         self.log_training_progress()
+        self.episode_start_time_real = real_time
+        self.episode_start_time_sim = sim_time
+        
 
         self.episode_count += 1
         self.episode_length = 0

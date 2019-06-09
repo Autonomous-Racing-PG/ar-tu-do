@@ -22,7 +22,6 @@ ACTION_COUNT = len(ACTIONS)
 # When changing this value, also update laser_sample_count in qlearning.launch
 LASER_SAMPLE_COUNT = 32
 
-UPDATE_FREQUENCY = 30
 
 MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
 
