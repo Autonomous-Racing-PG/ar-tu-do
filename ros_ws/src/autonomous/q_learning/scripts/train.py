@@ -21,6 +21,7 @@ from gazebo_msgs.msg import ModelStates
 
 BATCH_INDICES = torch.arange(0, BATCH_SIZE, device=device, dtype=torch.long)
 
+
 class QLearningTrainingNode(QLearningNode):
     def __init__(self):
         QLearningNode.__init__(self)
@@ -141,11 +142,10 @@ class QLearningTrainingNode(QLearningNode):
 
         real_time = time.time()
         sim_time = rospy.Time.now().to_sec()
-        self.real_time_factor = (sim_time - self.episode_start_time_sim) / (real_time - self.episode_start_time_real)
+        self.real_time_factor = (sim_time - self.episode_start_time_sim) / (real_time - self.episode_start_time_real)  # nopep8
         self.log_training_progress()
         self.episode_start_time_real = real_time
         self.episode_start_time_sim = sim_time
-        
 
         self.episode_count += 1
         self.episode_length = 0
@@ -165,7 +165,7 @@ class QLearningTrainingNode(QLearningNode):
             self.steps_with_wrong_orientation += 1
         else:
             self.steps_with_wrong_orientation = 0
-        
+
         if self.steps_with_wrong_orientation > 2:
             self.is_terminal_step = True
 

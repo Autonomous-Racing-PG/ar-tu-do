@@ -32,7 +32,11 @@ class TrackPosition():
         )
 
     def get_relative_angle(self, orientation):
-        quaternion = [orientation.w, orientation.x, orientation.y, orientation.z]
+        quaternion = [
+            orientation.w,
+            orientation.x,
+            orientation.y,
+            orientation.z]
         euler = euler_from_quaternion(quaternion)
         return (euler[0] + self.angle) % (2 * math.pi) - math.pi
 

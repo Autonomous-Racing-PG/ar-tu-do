@@ -39,7 +39,7 @@ class QLearningNode():
 
         values = [message.ranges[i] for i in scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
-        return torch.tensor(values, device=device, dtype = torch.float)
+        return torch.tensor(values, device=device, dtype=torch.float)
 
     def on_receive_laser_scan(self, message):
         raise Exception("on_receive_laser_scan is not implemented.")
