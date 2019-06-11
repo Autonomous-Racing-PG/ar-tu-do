@@ -23,7 +23,7 @@
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
 
     <node pkg="razor_imu_9dof" type="imu_node.py" name="imu_node">
-        <rosparam file="launch/razor_imu_config.yaml" command="load"/>
+        <rosparam file="$(find hardware)/razor_imu_config.yaml" command="load"/>
     </node>
 
     <node pkg="urg_node" type="urg_node" name="urg_node">
