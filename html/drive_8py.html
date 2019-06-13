@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('drive_8py.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -117,6 +118,11 @@ $(document).ready(function(){initNavTree('drive_8py.html','');});
 
 <p><a href="drive_8py_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdrive_1_1_q_learning_driving_node.html">drive.QLearningDrivingNode</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacedrive"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html">drive</a></td></tr>
@@ -124,24 +130,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a417833a8f645f1b27a7285408616a9f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a417833a8f645f1b27a7285408616a9f0">drive.anonymous</a></td></tr>
-<tr class="separator:a417833a8f645f1b27a7285408616a9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7f80b53042960cd3cf968dee1ebb197"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#ad7f80b53042960cd3cf968dee1ebb197">drive.timer</a> = rospy.Rate(UPDATE_FREQUENCY)</td></tr>
-<tr class="separator:ad7f80b53042960cd3cf968dee1ebb197"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23cc38e06b9fae695cf8845a82fcc273"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a23cc38e06b9fae695cf8845a82fcc273">drive.device</a> = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</td></tr>
-<tr class="separator:a23cc38e06b9fae695cf8845a82fcc273"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e630ff72576502d513dc46034787985"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a2e630ff72576502d513dc46034787985">drive.policy_net</a> = NeuralQEstimator().to(device)</td></tr>
-<tr class="separator:a2e630ff72576502d513dc46034787985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82ba3ae0a4aeed9a874c1d9f87e147fd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a82ba3ae0a4aeed9a874c1d9f87e147fd">drive.message</a> = &quot;Model parameters for the neural net not found. You need to train it first.&quot;</td></tr>
-<tr class="separator:a82ba3ae0a4aeed9a874c1d9f87e147fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a082ee6b5d0f5566c851367e7c7792ea5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a082ee6b5d0f5566c851367e7c7792ea5">drive.scan</a> = <a class="el" href="namespacecar.html#af96ea5ae50f968d7a2ff6bcc21cad1c2">car.get_scan</a>(LASER_SAMPLE_COUNT, device)</td></tr>
-<tr class="separator:a082ee6b5d0f5566c851367e7c7792ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0be36d022218be529fdf22d34a4dfc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#aa0be36d022218be529fdf22d34a4dfc7">drive.net_output</a> = policy_net(scan)</td></tr>
-<tr class="separator:aa0be36d022218be529fdf22d34a4dfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63845082ab90bdcccd95631ad6420392"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a63845082ab90bdcccd95631ad6420392">drive.action_index</a> = net_output.max(0)[1].item()</td></tr>
-<tr class="separator:a63845082ab90bdcccd95631ad6420392"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68b3f3acb667a1c5e05d3ea265164d7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a68b3f3acb667a1c5e05d3ea265164d7a">drive.action</a> = ACTIONS[action_index]</td></tr>
-<tr class="separator:a68b3f3acb667a1c5e05d3ea265164d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3118901ad129c1aa0fbf3907733dd38d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedrive.html#a3118901ad129c1aa0fbf3907733dd38d">drive.node</a> = QLearningDrivingNode()</td></tr>
+<tr class="separator:a3118901ad129c1aa0fbf3907733dd38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

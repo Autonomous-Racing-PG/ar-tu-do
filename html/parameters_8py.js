@@ -13,6 +13,9 @@ var parameters_8py =
     [ "MAX_EPISODE_LENGTH", "parameters_8py.html#aa473cc3b100416af3310c6c5a6d19570", null ],
     [ "MEMORY_SIZE", "parameters_8py.html#a49f1ad074b5710a98fc783c5627ddade", null ],
     [ "MODEL_FILENAME", "parameters_8py.html#aff8b0668384f3fa2d1212d3bd0ff42fa", null ],
-    [ "UPDATE_FREQUENCY", "parameters_8py.html#ae3bc06467bd63647dbed9a5312495493", null ],
+    [ "TOPIC_CRASH", "parameters_8py.html#a5e392ed4d998f10824bfd96a0eae2988", null ],
+    [ "TOPIC_DRIVE_PARAMETERS", "parameters_8py.html#a855cb11de60782b8e9997af80bdab518", null ],
+    [ "TOPIC_GAZEBO_MODEL_STATE", "parameters_8py.html#a9d4157266ec0afde91ab7d58be4f688d", null ],
+    [ "TOPIC_SCAN", "parameters_8py.html#a28de242cdbba10666eb0c95aaef6812b", null ],
     [ "USE_EXISTING_PARAMETERS", "parameters_8py.html#a0cffcb215ac12a1700baedb1a13ec8d5", null ]
 ];

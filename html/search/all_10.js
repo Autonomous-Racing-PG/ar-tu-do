@@ -12,7 +12,7 @@ var searchData=
   ['parameters',['parameters',['../namespaceparameters.html',1,'parameters'],['../namespacewallfollowing.html#ae96254db0e391eed9862d0a6f636033e',1,'wallfollowing.parameters()']]],
   ['parameters_2epy',['parameters.py',['../parameters_8py.html',1,'']]],
   ['params_5fto_5fyaml_2ecpp',['params_to_yaml.cpp',['../params__to__yaml_8cpp.html',1,'']]],
-  ['perform_5faction',['perform_action',['../namespacelearn.html#a2734a6ee9a0aed781d4db3abc7d206fb',1,'learn']]],
+  ['perform_5faction',['perform_action',['../classqlearning_1_1_q_learning_node.html#a70f975497db6b5eee94485397b7c18e6',1,'qlearning::QLearningNode']]],
   ['pi',['PI',['../namespacecar__config.html#a90cb9957197db8924811c447bc98703a',1,'car_config']]],
   ['pid',['pid',['../namespacewallfollowing.html#adc9f95e0b626be8ddae98a596a38e7e8',1,'wallfollowing']]],
   ['pid_5fcontroller_2ecpp',['pid_controller.cpp',['../pid__controller_8cpp.html',1,'']]],
@@ -21,7 +21,7 @@ var searchData=
   ['pidcontroller',['PIDController',['../class_p_i_d_controller.html',1,'PIDController'],['../class_p_i_d_controller.html#a7a31bdebce80ed89383985bd63a1abd1',1,'PIDController::PIDController()']]],
   ['point',['point',['../classsimulation__tools_1_1track_1_1_track_position.html#a5c5ad2aecf6e00e6611e8ad70b38de7b',1,'simulation_tools.track.TrackPosition.point()'],['../namespacecircle.html#ae073d8de4a1ba7a4a4920f35128f1c48',1,'circle.Point()'],['../namespacesimulation__tools_1_1lap__timer.html#a55d342023a9bdc266a2ee262040e8d19',1,'simulation_tools.lap_timer.Point()'],['../namespacesimulation__tools_1_1track.html#a927c1793846ca41f328e4b427075cafd',1,'simulation_tools.track.Point()']]],
   ['points',['points',['../classsimulation__tools_1_1track_1_1_track.html#ac6de34747fd382897e7f790cd9faf67c',1,'simulation_tools.track.Track.points()'],['../namespacesimulation__tools_1_1track.html#ab9ddc4d3ba8bb81a3ce02320f46c8a55',1,'simulation_tools.track.POINTS()']]],
-  ['policy_5fnet',['policy_net',['../namespacedrive.html#a2e630ff72576502d513dc46034787985',1,'drive.policy_net()'],['../namespacelearn.html#aff1270198d684f1b88420d8ecbf660f0',1,'learn.policy_net()']]],
+  ['policy',['policy',['../classqlearning_1_1_q_learning_node.html#a2c1150dd506209b085dad03036775375',1,'qlearning::QLearningNode']]],
   ['predictdistance',['predictDistance',['../class_wall.html#ad5b01236dea4aed8c75a8600c2b64c02',1,'Wall']]],
   ['previous_5ferror',['previous_error',['../classwallfollowing_1_1_p_i_d_controller.html#a8f880f52e6d6f020769ab01d6459c908',1,'wallfollowing::PIDController']]]
 ];

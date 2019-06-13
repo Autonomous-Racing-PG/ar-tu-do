@@ -2,6 +2,8 @@ var classsimulation__tools_1_1track_1_1_track_position =
 [
     [ "__init__", "classsimulation__tools_1_1track_1_1_track_position.html#a05040be982ee5680d839a98dc15a26c9", null ],
     [ "__str__", "classsimulation__tools_1_1track_1_1_track_position.html#a7c60c719686ae3ae47ce5dbaad6ffbc4", null ],
+    [ "faces_forward", "classsimulation__tools_1_1track_1_1_track_position.html#a9b8177f89baa57821fd94123a364447c", null ],
+    [ "get_relative_angle", "classsimulation__tools_1_1track_1_1_track_position.html#ae4cf3681d7edde291e3c566cfb21397a", null ],
     [ "angle", "classsimulation__tools_1_1track_1_1_track_position.html#a4809c7245ab044b2b3ca96fbdc80fe72", null ],
     [ "distance_to_center", "classsimulation__tools_1_1track_1_1_track_position.html#a1d45644ad2113e0c7a8e546f52015d46", null ],
     [ "point", "classsimulation__tools_1_1track_1_1_track_position.html#a5c5ad2aecf6e00e6611e8ad70b38de7b", null ],

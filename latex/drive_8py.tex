@@ -1,5 +1,10 @@
 \hypertarget{drive_8py}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/drive.py File Reference}
 \label{drive_8py}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/drive.\+py@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/drive.\+py}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdrive_1_1_q_learning_driving_node}{drive.\+Q\+Learning\+Driving\+Node}
+\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -8,21 +13,5 @@
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{namespacedrive_a417833a8f645f1b27a7285408616a9f0}{drive.\+anonymous}
-\item 
-\hyperlink{namespacedrive_ad7f80b53042960cd3cf968dee1ebb197}{drive.\+timer} = rospy.\+Rate(U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY)
-\item 
-\hyperlink{namespacedrive_a23cc38e06b9fae695cf8845a82fcc273}{drive.\+device} = torch.\+device(\char`\"{}cuda\char`\"{} if torch.\+cuda.\+is\+\_\+available() else \char`\"{}cpu\char`\"{})
-\item 
-\hyperlink{namespacedrive_a2e630ff72576502d513dc46034787985}{drive.\+policy\+\_\+net} = Neural\+Q\+Estimator().to(device)
-\item 
-string \hyperlink{namespacedrive_a82ba3ae0a4aeed9a874c1d9f87e147fd}{drive.\+message} = \char`\"{}Model parameters for the neural net not found. You need to train it first.\char`\"{}
-\item 
-\hyperlink{namespacedrive_a082ee6b5d0f5566c851367e7c7792ea5}{drive.\+scan} = \hyperlink{namespacecar_af96ea5ae50f968d7a2ff6bcc21cad1c2}{car.\+get\+\_\+scan}(L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT, device)
-\item 
-\hyperlink{namespacedrive_aa0be36d022218be529fdf22d34a4dfc7}{drive.\+net\+\_\+output} = policy\+\_\+net(scan)
-\item 
-\hyperlink{namespacedrive_a63845082ab90bdcccd95631ad6420392}{drive.\+action\+\_\+index} = net\+\_\+output.\+max(0)\mbox{[}1\mbox{]}.item()
-\item 
-\hyperlink{namespacedrive_a68b3f3acb667a1c5e05d3ea265164d7a}{drive.\+action} = A\+C\+T\+I\+O\+NS\mbox{[}action\+\_\+index\mbox{]}
+\hyperlink{namespacedrive_a3118901ad129c1aa0fbf3907733dd38d}{drive.\+node} = Q\+Learning\+Driving\+Node()
 \end{DoxyCompactItemize}

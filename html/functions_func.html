@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -144,11 +145,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
 <li>__init__()
 : <a class="el" href="classcircle_1_1_circle.html#ae5573aa3ec1e6df913e13c01cf3ed7b9">circle.Circle</a>
+, <a class="el" href="classdrive_1_1_q_learning_driving_node.html#ae5291b24979a8decaa85d574a20d7661">drive.QLearningDrivingNode</a>
 , <a class="el" href="classparameters_1_1_neural_q_estimator.html#ad820dedb1b53b0967f466939c69145c0">parameters.NeuralQEstimator</a>
+, <a class="el" href="classqlearning_1_1_q_learning_node.html#a6f95c46edee5acba7c59a3eac4e04a2a">qlearning.QLearningNode</a>
 , <a class="el" href="classsimulation__tools_1_1lap__timer_1_1_area.html#a2e75d876da719cbb38730d143eecd8e3">simulation_tools.lap_timer.Area</a>
 , <a class="el" href="classsimulation__tools_1_1lap__timer_1_1_timer.html#a526781ad4e5c09fbe04dda1e5a3f3fd9">simulation_tools.lap_timer.Timer</a>
 , <a class="el" href="classsimulation__tools_1_1track_1_1_track.html#a688ef860ebacddc55c143c6202a3dab5">simulation_tools.track.Track</a>
 , <a class="el" href="classsimulation__tools_1_1track_1_1_track_position.html#a05040be982ee5680d839a98dc15a26c9">simulation_tools.track.TrackPosition</a>
+, <a class="el" href="classtrain_1_1_q_learning_training_node.html#a29b8eee27131f26d94387231e3970021">train.QLearningTrainingNode</a>
 , <a class="el" href="classwallfollowing_1_1_parameters.html#a471c55e861c60ca58f13a272ad4078d4">wallfollowing.Parameters</a>
 , <a class="el" href="classwallfollowing_1_1_p_i_d_controller.html#a1fcf8044594436293cfe4f43b2d27a3a">wallfollowing.PIDController</a>
 </li>
@@ -162,11 +166,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>CarController()
 : <a class="el" href="class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0">CarController</a>
 </li>
+<li>check_car_orientation()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#aeff9ce73821ded751c709f5f5acabd22">train.QLearningTrainingNode</a>
+</li>
 <li>complete_lap()
 : <a class="el" href="classsimulation__tools_1_1lap__timer_1_1_timer.html#a9fac2e869ccbcd86651e333301d8cc33">simulation_tools.lap_timer.Timer</a>
 </li>
 <li>contains()
 : <a class="el" href="classsimulation__tools_1_1lap__timer_1_1_area.html#a846e52eda13a26067757cabc759a4f1c">simulation_tools.lap_timer.Area</a>
+</li>
+<li>convert_laser_message_to_tensor()
+: <a class="el" href="classqlearning_1_1_q_learning_node.html#a907441bbc5b795875ea80de4a6b45798">qlearning.QLearningNode</a>
 </li>
 <li>CrashDetector()
 : <a class="el" href="class_crash_detector.html#a4ee1c57168019f26a8f3b3263350a306">CrashDetector</a>
@@ -204,6 +214,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>faces_forward()
+: <a class="el" href="classsimulation__tools_1_1track_1_1_track_position.html#a9b8177f89baa57821fd94123a364447c">simulation_tools.track.TrackPosition</a>
+</li>
 <li>forward()
 : <a class="el" href="classparameters_1_1_neural_q_estimator.html#acadb108832a386bbe20ad80015a2ed06">parameters.NeuralQEstimator</a>
 </li>
@@ -217,8 +230,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>get_closest_point()
 : <a class="el" href="classcircle_1_1_circle.html#a191eb7323e7138ce625cc345822bff17">circle.Circle</a>
 </li>
+<li>get_epsilon_greedy_threshold()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#ab4d0383d228012c56c9dd31886b80df6">train.QLearningTrainingNode</a>
+</li>
 <li>get_position()
 : <a class="el" href="classsimulation__tools_1_1track_1_1_track.html#a65ae88cad753af6ebf71ae09fd110ac8">simulation_tools.track.Track</a>
+</li>
+<li>get_relative_angle()
+: <a class="el" href="classsimulation__tools_1_1track_1_1_track_position.html#ae4cf3681d7edde291e3c566cfb21397a">simulation_tools.track.TrackPosition</a>
+</li>
+<li>get_reward()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#a1fea335e8f7d2eb257e97364bab331a7">train.QLearningTrainingNode</a>
 </li>
 <li>getAngle()
 : <a class="el" href="class_wall.html#abf364c04876e2a2fe2afa609f87397ec">Wall</a>
@@ -264,6 +286,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>localize()
 : <a class="el" href="classsimulation__tools_1_1track_1_1_track.html#a74c6566237436692a421615bd5cf9064">simulation_tools.track.Track</a>
 </li>
+<li>log_training_progress()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#a7263bf517e3d306b383f5d30bf02e8c8">train.QLearningTrainingNode</a>
+</li>
 </ul>
 
 
@@ -284,7 +309,28 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>on_complete_episode()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#a659667f05d48676284265ee0e445e96e">train.QLearningTrainingNode</a>
+</li>
+<li>on_crash()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#a9f5b2be91deca2b12d3dd055ce294449">train.QLearningTrainingNode</a>
+</li>
+<li>on_model_state_callback()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#a167547fdc06e2d452d972024fd632b9c">train.QLearningTrainingNode</a>
+</li>
+<li>on_receive_laser_scan()
+: <a class="el" href="classdrive_1_1_q_learning_driving_node.html#a2235c596e4d1f3f8d3c535abe2a1af2c">drive.QLearningDrivingNode</a>
+, <a class="el" href="classqlearning_1_1_q_learning_node.html#a2ac97685465b2c7d22ca26019cf2fff5">qlearning.QLearningNode</a>
+, <a class="el" href="classtrain_1_1_q_learning_training_node.html#a4cb5d38537fbb9171e46c85b60efc700">train.QLearningTrainingNode</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>perform_action()
+: <a class="el" href="classqlearning_1_1_q_learning_node.html#a70f975497db6b5eee94485397b7c18e6">qlearning.QLearningNode</a>
+</li>
 <li>PIDController()
 : <a class="el" href="class_p_i_d_controller.html#a7a31bdebce80ed89383985bd63a1abd1">PIDController</a>
 </li>
@@ -295,6 +341,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>replay()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#a82007327cc0867fb55d159d2ed3568b6">train.QLearningTrainingNode</a>
+</li>
 <li>RvizGeometryPublisher()
 : <a class="el" href="class_rviz_geometry_publisher.html#ace4d6e2e5dd88168dd4e6c5f528a255e">RvizGeometryPublisher</a>
 </li>
@@ -304,6 +353,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>save()
 : <a class="el" href="classparameters_1_1_neural_q_estimator.html#a4efb1e7f7a7f77770cbd2a379ff2db8a">parameters.NeuralQEstimator</a>
+</li>
+<li>select_action()
+: <a class="el" href="classtrain_1_1_q_learning_training_node.html#ac03f4ced7d65ef3c2cf36978796fcfda">train.QLearningTrainingNode</a>
 </li>
 <li>servoPositionCallback()
 : <a class="el" href="class_v_e_s_c_simulation_driver.html#a79a48177b8910e181653900308eff310">VESCSimulationDriver</a>

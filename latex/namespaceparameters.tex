@@ -8,13 +8,19 @@ class \hyperlink{classparameters_1_1_neural_q_estimator}{Neural\+Q\+Estimator}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+string \hyperlink{namespaceparameters_a855cb11de60782b8e9997af80bdab518}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}
+\item 
+string \hyperlink{namespaceparameters_a28de242cdbba10666eb0c95aaef6812b}{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN} = \char`\"{}/scan\char`\"{}
+\item 
+string \hyperlink{namespaceparameters_a5e392ed4d998f10824bfd96a0eae2988}{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH} = \char`\"{}/crash\char`\"{}
+\item 
+string \hyperlink{namespaceparameters_a9d4157266ec0afde91ab7d58be4f688d}{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE} = \char`\"{}/gazebo/model\+\_\+states\char`\"{}
+\item 
 list \hyperlink{namespaceparameters_a585a25d0a26bcab4242d2e3fb1c1f93e}{A\+C\+T\+I\+O\+NS} = \mbox{[}(-\/0.\+5, 0.\+2), (0.\+5, 0.\+2)\mbox{]}
 \item 
 \hyperlink{namespaceparameters_ae4be13f6dac91f471da3efb4618a54c1}{A\+C\+T\+I\+O\+N\+\_\+\+C\+O\+U\+NT} = len(\hyperlink{namespaceparameters_a585a25d0a26bcab4242d2e3fb1c1f93e}{A\+C\+T\+I\+O\+NS})
 \item 
 int \hyperlink{namespaceparameters_a24735dce78cf9899cf1ec4bda2ea4eac}{L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT} = 32
-\item 
-int \hyperlink{namespaceparameters_ae3bc06467bd63647dbed9a5312495493}{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY} = 30
 \item 
 \hyperlink{namespaceparameters_aff8b0668384f3fa2d1212d3bd0ff42fa}{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME} = os.\+path.\+join(Ros\+Pack().get\+\_\+path(\char`\"{}q\+\_\+learning\char`\"{}), \char`\"{}model.\+to\char`\"{})
 \item 
@@ -22,19 +28,19 @@ bool \hyperlink{namespaceparameters_a0cffcb215ac12a1700baedb1a13ec8d5}{U\+S\+E\+
 \item 
 float \hyperlink{namespaceparameters_a70176024e0f585c846365800f1c7819c}{D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR} = 0.\+99
 \item 
-int \hyperlink{namespaceparameters_aa473cc3b100416af3310c6c5a6d19570}{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH} = 300
+int \hyperlink{namespaceparameters_aa473cc3b100416af3310c6c5a6d19570}{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH} = 500
 \item 
 int \hyperlink{namespaceparameters_a49f1ad074b5710a98fc783c5627ddade}{M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE} = 10000
 \item 
 int \hyperlink{namespaceparameters_a2d37d9950f7a887014021ab455282af6}{B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE} = 128
 \item 
-float \hyperlink{namespaceparameters_afb996d542e8c3d3e8bbdfe4a711694dd}{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE} = 0.\+001
+float \hyperlink{namespaceparameters_afb996d542e8c3d3e8bbdfe4a711694dd}{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE} = 0.\+0001
 \item 
 float \hyperlink{namespaceparameters_a371d0de003e9046dcc72450b7512ce14}{E\+P\+S\+\_\+\+S\+T\+A\+RT} = 1.\+0
 \item 
 float \hyperlink{namespaceparameters_a3765f189d3af4815766ded3bffcba1e2}{E\+P\+S\+\_\+\+E\+ND} = 0.\+1
 \item 
-int \hyperlink{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}{E\+P\+S\+\_\+\+D\+E\+C\+AY} = 5000
+int \hyperlink{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}{E\+P\+S\+\_\+\+D\+E\+C\+AY} = 10000
 \end{DoxyCompactItemize}
 
 
@@ -44,96 +50,117 @@ int \hyperlink{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}{E\+P\+S\+\
 \subsubsection[{\texorpdfstring{A\+C\+T\+I\+O\+N\+\_\+\+C\+O\+U\+NT}{ACTION_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}parameters.\+A\+C\+T\+I\+O\+N\+\_\+\+C\+O\+U\+NT = len({\bf A\+C\+T\+I\+O\+NS})}\hypertarget{namespaceparameters_ae4be13f6dac91f471da3efb4618a54c1}{}\label{namespaceparameters_ae4be13f6dac91f471da3efb4618a54c1}
 
 
-Definition at line 13 of file parameters.\+py.
+Definition at line 19 of file parameters.\+py.
 
 \index{parameters@{parameters}!A\+C\+T\+I\+O\+NS@{A\+C\+T\+I\+O\+NS}}
 \index{A\+C\+T\+I\+O\+NS@{A\+C\+T\+I\+O\+NS}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{A\+C\+T\+I\+O\+NS}{ACTIONS}}]{\setlength{\rightskip}{0pt plus 5cm}list parameters.\+A\+C\+T\+I\+O\+NS = \mbox{[}(-\/0.\+5, 0.\+2), (0.\+5, 0.\+2)\mbox{]}}\hypertarget{namespaceparameters_a585a25d0a26bcab4242d2e3fb1c1f93e}{}\label{namespaceparameters_a585a25d0a26bcab4242d2e3fb1c1f93e}
 
 
-Definition at line 12 of file parameters.\+py.
+Definition at line 18 of file parameters.\+py.
 
 \index{parameters@{parameters}!B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE@{B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE}}
 \index{B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE@{B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE}{BATCH_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+B\+A\+T\+C\+H\+\_\+\+S\+I\+ZE = 128}\hypertarget{namespaceparameters_a2d37d9950f7a887014021ab455282af6}{}\label{namespaceparameters_a2d37d9950f7a887014021ab455282af6}
 
 
-Definition at line 58 of file parameters.\+py.
+Definition at line 63 of file parameters.\+py.
 
 \index{parameters@{parameters}!D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR@{D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR}}
 \index{D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR@{D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR}{DISCOUNT_FACTOR}}]{\setlength{\rightskip}{0pt plus 5cm}float parameters.\+D\+I\+S\+C\+O\+U\+N\+T\+\_\+\+F\+A\+C\+T\+OR = 0.\+99}\hypertarget{namespaceparameters_a70176024e0f585c846365800f1c7819c}{}\label{namespaceparameters_a70176024e0f585c846365800f1c7819c}
 
 
-Definition at line 51 of file parameters.\+py.
+Definition at line 56 of file parameters.\+py.
 
 \index{parameters@{parameters}!E\+P\+S\+\_\+\+D\+E\+C\+AY@{E\+P\+S\+\_\+\+D\+E\+C\+AY}}
 \index{E\+P\+S\+\_\+\+D\+E\+C\+AY@{E\+P\+S\+\_\+\+D\+E\+C\+AY}!parameters@{parameters}}
-\subsubsection[{\texorpdfstring{E\+P\+S\+\_\+\+D\+E\+C\+AY}{EPS_DECAY}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+E\+P\+S\+\_\+\+D\+E\+C\+AY = 5000}\hypertarget{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}{}\label{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}
+\subsubsection[{\texorpdfstring{E\+P\+S\+\_\+\+D\+E\+C\+AY}{EPS_DECAY}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+E\+P\+S\+\_\+\+D\+E\+C\+AY = 10000}\hypertarget{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}{}\label{namespaceparameters_ab9a88c663385563b35331bbea5c4a74b}
 
 
-Definition at line 65 of file parameters.\+py.
+Definition at line 70 of file parameters.\+py.
 
 \index{parameters@{parameters}!E\+P\+S\+\_\+\+E\+ND@{E\+P\+S\+\_\+\+E\+ND}}
 \index{E\+P\+S\+\_\+\+E\+ND@{E\+P\+S\+\_\+\+E\+ND}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{E\+P\+S\+\_\+\+E\+ND}{EPS_END}}]{\setlength{\rightskip}{0pt plus 5cm}float parameters.\+E\+P\+S\+\_\+\+E\+ND = 0.\+1}\hypertarget{namespaceparameters_a3765f189d3af4815766ded3bffcba1e2}{}\label{namespaceparameters_a3765f189d3af4815766ded3bffcba1e2}
 
 
-Definition at line 64 of file parameters.\+py.
+Definition at line 69 of file parameters.\+py.
 
 \index{parameters@{parameters}!E\+P\+S\+\_\+\+S\+T\+A\+RT@{E\+P\+S\+\_\+\+S\+T\+A\+RT}}
 \index{E\+P\+S\+\_\+\+S\+T\+A\+RT@{E\+P\+S\+\_\+\+S\+T\+A\+RT}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{E\+P\+S\+\_\+\+S\+T\+A\+RT}{EPS_START}}]{\setlength{\rightskip}{0pt plus 5cm}float parameters.\+E\+P\+S\+\_\+\+S\+T\+A\+RT = 1.\+0}\hypertarget{namespaceparameters_a371d0de003e9046dcc72450b7512ce14}{}\label{namespaceparameters_a371d0de003e9046dcc72450b7512ce14}
 
 
-Definition at line 63 of file parameters.\+py.
+Definition at line 68 of file parameters.\+py.
 
 \index{parameters@{parameters}!L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT@{L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT}}
 \index{L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT@{L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT}{LASER_SAMPLE_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT = 32}\hypertarget{namespaceparameters_a24735dce78cf9899cf1ec4bda2ea4eac}{}\label{namespaceparameters_a24735dce78cf9899cf1ec4bda2ea4eac}
 
 
-Definition at line 17 of file parameters.\+py.
+Definition at line 23 of file parameters.\+py.
 
 \index{parameters@{parameters}!L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE@{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE}}
 \index{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE@{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE}!parameters@{parameters}}
-\subsubsection[{\texorpdfstring{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE}{LEARNING_RATE}}]{\setlength{\rightskip}{0pt plus 5cm}float parameters.\+L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE = 0.\+001}\hypertarget{namespaceparameters_afb996d542e8c3d3e8bbdfe4a711694dd}{}\label{namespaceparameters_afb996d542e8c3d3e8bbdfe4a711694dd}
+\subsubsection[{\texorpdfstring{L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE}{LEARNING_RATE}}]{\setlength{\rightskip}{0pt plus 5cm}float parameters.\+L\+E\+A\+R\+N\+I\+N\+G\+\_\+\+R\+A\+TE = 0.\+0001}\hypertarget{namespaceparameters_afb996d542e8c3d3e8bbdfe4a711694dd}{}\label{namespaceparameters_afb996d542e8c3d3e8bbdfe4a711694dd}
 
 
-Definition at line 59 of file parameters.\+py.
+Definition at line 64 of file parameters.\+py.
 
 \index{parameters@{parameters}!M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH@{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH}}
 \index{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH@{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH}!parameters@{parameters}}
-\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH}{MAX_EPISODE_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH = 300}\hypertarget{namespaceparameters_aa473cc3b100416af3310c6c5a6d19570}{}\label{namespaceparameters_aa473cc3b100416af3310c6c5a6d19570}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH}{MAX_EPISODE_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+M\+A\+X\+\_\+\+E\+P\+I\+S\+O\+D\+E\+\_\+\+L\+E\+N\+G\+TH = 500}\hypertarget{namespaceparameters_aa473cc3b100416af3310c6c5a6d19570}{}\label{namespaceparameters_aa473cc3b100416af3310c6c5a6d19570}
 
 
-Definition at line 53 of file parameters.\+py.
+Definition at line 58 of file parameters.\+py.
 
 \index{parameters@{parameters}!M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE@{M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE}}
 \index{M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE@{M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE}{MEMORY_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+M\+E\+M\+O\+R\+Y\+\_\+\+S\+I\+ZE = 10000}\hypertarget{namespaceparameters_a49f1ad074b5710a98fc783c5627ddade}{}\label{namespaceparameters_a49f1ad074b5710a98fc783c5627ddade}
 
 
-Definition at line 56 of file parameters.\+py.
+Definition at line 61 of file parameters.\+py.
 
 \index{parameters@{parameters}!M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME}}
 \index{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME}{MODEL_FILENAME}}]{\setlength{\rightskip}{0pt plus 5cm}parameters.\+M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME = os.\+path.\+join(Ros\+Pack().get\+\_\+path(\char`\"{}q\+\_\+learning\char`\"{}), \char`\"{}model.\+to\char`\"{})}\hypertarget{namespaceparameters_aff8b0668384f3fa2d1212d3bd0ff42fa}{}\label{namespaceparameters_aff8b0668384f3fa2d1212d3bd0ff42fa}
 
 
-Definition at line 21 of file parameters.\+py.
+Definition at line 26 of file parameters.\+py.
 
-\index{parameters@{parameters}!U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}}
-\index{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}!parameters@{parameters}}
-\subsubsection[{\texorpdfstring{U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}{UPDATE_FREQUENCY}}]{\setlength{\rightskip}{0pt plus 5cm}int parameters.\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY = 30}\hypertarget{namespaceparameters_ae3bc06467bd63647dbed9a5312495493}{}\label{namespaceparameters_ae3bc06467bd63647dbed9a5312495493}
+\index{parameters@{parameters}!T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH@{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH@{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}!parameters@{parameters}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}{TOPIC_CRASH}}]{\setlength{\rightskip}{0pt plus 5cm}string parameters.\+T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH = \char`\"{}/crash\char`\"{}}\hypertarget{namespaceparameters_a5e392ed4d998f10824bfd96a0eae2988}{}\label{namespaceparameters_a5e392ed4d998f10824bfd96a0eae2988}
 
 
-Definition at line 19 of file parameters.\+py.
+Definition at line 13 of file parameters.\+py.
+
+\index{parameters@{parameters}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
+\index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!parameters@{parameters}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}string parameters.\+T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}}\hypertarget{namespaceparameters_a855cb11de60782b8e9997af80bdab518}{}\label{namespaceparameters_a855cb11de60782b8e9997af80bdab518}
+
+
+Definition at line 11 of file parameters.\+py.
+
+\index{parameters@{parameters}!T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE}}
+\index{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE}!parameters@{parameters}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE}{TOPIC_GAZEBO_MODEL_STATE}}]{\setlength{\rightskip}{0pt plus 5cm}string parameters.\+T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE = \char`\"{}/gazebo/model\+\_\+states\char`\"{}}\hypertarget{namespaceparameters_a9d4157266ec0afde91ab7d58be4f688d}{}\label{namespaceparameters_a9d4157266ec0afde91ab7d58be4f688d}
+
+
+Definition at line 14 of file parameters.\+py.
+
+\index{parameters@{parameters}!T\+O\+P\+I\+C\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN}}
+\index{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN}!parameters@{parameters}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN}{TOPIC_SCAN}}]{\setlength{\rightskip}{0pt plus 5cm}string parameters.\+T\+O\+P\+I\+C\+\_\+\+S\+C\+AN = \char`\"{}/scan\char`\"{}}\hypertarget{namespaceparameters_a28de242cdbba10666eb0c95aaef6812b}{}\label{namespaceparameters_a28de242cdbba10666eb0c95aaef6812b}
+
+
+Definition at line 12 of file parameters.\+py.
 
 \index{parameters@{parameters}!U\+S\+E\+\_\+\+E\+X\+I\+S\+T\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{U\+S\+E\+\_\+\+E\+X\+I\+S\+T\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
 \index{U\+S\+E\+\_\+\+E\+X\+I\+S\+T\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{U\+S\+E\+\_\+\+E\+X\+I\+S\+T\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!parameters@{parameters}}
 \subsubsection[{\texorpdfstring{U\+S\+E\+\_\+\+E\+X\+I\+S\+T\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{USE_EXISTING_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}bool parameters.\+U\+S\+E\+\_\+\+E\+X\+I\+S\+T\+I\+N\+G\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = False}\hypertarget{namespaceparameters_a0cffcb215ac12a1700baedb1a13ec8d5}{}\label{namespaceparameters_a0cffcb215ac12a1700baedb1a13ec8d5}
 
 
-Definition at line 49 of file parameters.\+py.
+Definition at line 54 of file parameters.\+py.
 

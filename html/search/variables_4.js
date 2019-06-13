@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['episode_5fcount',['episode_count',['../namespacelearn.html#a789e811e8744ef36689cd7a37bd5aeb2',1,'learn']]],
-  ['episode_5flength',['episode_length',['../namespacelearn.html#ae4490c7a6bca1f4587c5a4f662e1dcc8',1,'learn']]],
-  ['episode_5flength_5fhistory',['episode_length_history',['../namespacelearn.html#ab297229048af5d469452446449da2c3f',1,'learn']]],
-  ['episode_5fstart_5ftime',['episode_start_time',['../namespacelearn.html#a501494c1d2211b6bda3c2670aa625a8b',1,'learn']]],
+  ['episode_5fcount',['episode_count',['../classtrain_1_1_q_learning_training_node.html#a5bef341c2aa0b019a190efb961701cdc',1,'train::QLearningTrainingNode']]],
+  ['episode_5flength',['episode_length',['../classtrain_1_1_q_learning_training_node.html#abaa1cd9793d6724977d7b9451e36bc3b',1,'train::QLearningTrainingNode']]],
+  ['episode_5flength_5fhistory',['episode_length_history',['../classtrain_1_1_q_learning_training_node.html#af81cfd1d0306828d0ff901faf85df6b3',1,'train::QLearningTrainingNode']]],
+  ['episode_5fstart_5ftime_5freal',['episode_start_time_real',['../classtrain_1_1_q_learning_training_node.html#a8efbf39c7dcf595fb7c02121c66f9f53',1,'train::QLearningTrainingNode']]],
+  ['episode_5fstart_5ftime_5fsim',['episode_start_time_sim',['../classtrain_1_1_q_learning_training_node.html#aaba249fe751adb0b4167b350ee2ea7a1',1,'train::QLearningTrainingNode']]],
   ['eps_5fdecay',['EPS_DECAY',['../namespaceparameters.html#ab9a88c663385563b35331bbea5c4a74b',1,'parameters']]],
   ['eps_5fend',['EPS_END',['../namespaceparameters.html#a3765f189d3af4815766ded3bffcba1e2',1,'parameters']]],
   ['eps_5fstart',['EPS_START',['../namespaceparameters.html#a371d0de003e9046dcc72450b7512ce14',1,'parameters']]],

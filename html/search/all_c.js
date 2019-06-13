@@ -4,14 +4,11 @@ var searchData=
   ['lap_5ftimer_2epy',['lap_timer.py',['../lap__timer_8py.html',1,'']]],
   ['laser_5fcallback',['laser_callback',['../namespacewallfollowing.html#a53e20aefe2b925b41b17f60b6673840b',1,'wallfollowing']]],
   ['laser_5fsample_5fcount',['LASER_SAMPLE_COUNT',['../namespaceparameters.html#a24735dce78cf9899cf1ec4bda2ea4eac',1,'parameters']]],
-  ['laser_5fscan',['laser_scan',['../namespacecar.html#a4ba098e8f3df859abceb50544afdec9f',1,'car']]],
   ['laserscan_5ftransformer_2ecpp',['laserscan_transformer.cpp',['../laserscan__transformer_8cpp.html',1,'']]],
   ['laserscan_5ftransformer_2eh',['laserscan_transformer.h',['../laserscan__transformer_8h.html',1,'']]],
   ['laserscantransformer',['LaserscanTransformer',['../class_laserscan_transformer.html',1,'LaserscanTransformer'],['../class_laserscan_transformer.html#a3fe9989fc225e8eaeea106f58db09db0',1,'LaserscanTransformer::LaserscanTransformer()']]],
   ['last_5fscan',['last_scan',['../namespacewallfollowing.html#ab6c7c8e53e8b1cd44872666515dd5764',1,'wallfollowing']]],
   ['last_5fspeed',['last_speed',['../namespacewallfollowing.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe',1,'wallfollowing']]],
-  ['learn',['learn',['../namespacelearn.html',1,'']]],
-  ['learn_2epy',['learn.py',['../learn_8py.html',1,'']]],
   ['learning_5frate',['LEARNING_RATE',['../namespaceparameters.html#afb996d542e8c3d3e8bbdfe4a711694dd',1,'parameters']]],
   ['left_5fsteering_5fposition',['LEFT_STEERING_POSITION',['../namespacesimulation.html#aeabd7d3863831a7fc50ce8728ca46885',1,'simulation']]],
   ['length',['length',['../classsimulation__tools_1_1track_1_1_track.html#a24b60622edd3b0825f31fd6426d9380b',1,'simulation_tools::track::Track']]],
@@ -22,5 +19,5 @@ var searchData=
   ['load',['load',['../classparameters_1_1_neural_q_estimator.html#acd78f9e6bdd4cdda419ee5d83363ddd3',1,'parameters.NeuralQEstimator.load()'],['../classwallfollowing_1_1_parameters.html#a7dfbcaac7a2060ce8c3623c8dfb2ed40',1,'wallfollowing.Parameters.load()']]],
   ['localize',['localize',['../classsimulation__tools_1_1track_1_1_track.html#a74c6566237436692a421615bd5cf9064',1,'simulation_tools::track::Track']]],
   ['locked',['LOCKED',['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203',1,'LOCKED():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203',1,'LOCKED():&#160;keyboard_controller.h'],['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203',1,'LOCKED():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203',1,'LOCKED():&#160;keyboard_controller.h']]],
-  ['log_5fprogress',['log_progress',['../namespacelearn.html#a88c4cfe2b9604f8e7b6a72715d86fb4e',1,'learn']]]
+  ['log_5ftraining_5fprogress',['log_training_progress',['../classtrain_1_1_q_learning_training_node.html#a7263bf517e3d306b383f5d30bf02e8c8',1,'train::QLearningTrainingNode']]]
 ];

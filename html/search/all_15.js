@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['velocity_5fthreshold',['VELOCITY_THRESHOLD',['../navigation__stack__control__converter_8h.html#ad30e79b0be7f604f27b8e851f83a941f',1,'navigation_stack_control_converter.h']]],
-  ['vesc_5fsim_2ecpp',['vesc_sim.cpp',['../vesc__sim_8cpp.html',1,'']]],
-  ['vesc_5fsim_2eh',['vesc_sim.h',['../vesc__sim_8h.html',1,'']]],
-  ['vesc_5fsim_5fdriver_2ecpp',['vesc_sim_driver.cpp',['../vesc__sim__driver_8cpp.html',1,'']]],
-  ['vesc_5fsim_5fdriver_2eh',['vesc_sim_driver.h',['../vesc__sim__driver_8h.html',1,'']]],
-  ['vescsimulationdriver',['VESCSimulationDriver',['../class_v_e_s_c_simulation_driver.html',1,'VESCSimulationDriver'],['../class_v_e_s_c_simulation_driver.html#a49b5e654b892018b9c9eecfb7f06485a',1,'VESCSimulationDriver::VESCSimulationDriver()']]],
-  ['vescsimulator',['VESCSimulator',['../class_v_e_s_c_simulator.html',1,'VESCSimulator'],['../class_v_e_s_c_simulator.html#acd6855776958d6c17b26329dee0ae8c4',1,'VESCSimulator::VESCSimulator()']]]
+  ['update',['update',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#ae9b21a99e315e66e34311c6b9feeb0e8',1,'simulation_tools::lap_timer::Timer']]],
+  ['update_5fand_5fget_5fcorrection',['update_and_get_correction',['../classwallfollowing_1_1_p_i_d_controller.html#a8f21bfcfad4e6ee4f02da23222144df7',1,'wallfollowing::PIDController']]],
+  ['updateandgetcorrection',['updateAndGetCorrection',['../class_p_i_d_controller.html#a7cf1348b52906221761682f697902ad3',1,'PIDController']]],
+  ['use_5fexisting_5fparameters',['USE_EXISTING_PARAMETERS',['../namespaceparameters.html#a0cffcb215ac12a1700baedb1a13ec8d5',1,'parameters']]]
 ];

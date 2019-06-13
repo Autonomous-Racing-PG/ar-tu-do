@@ -1,89 +1,22 @@
 \hypertarget{namespacedrive}{}\section{drive Namespace Reference}
 \label{namespacedrive}\index{drive@{drive}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdrive_1_1_q_learning_driving_node}{Q\+Learning\+Driving\+Node}
+\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{namespacedrive_a417833a8f645f1b27a7285408616a9f0}{anonymous}
-\item 
-\hyperlink{namespacedrive_ad7f80b53042960cd3cf968dee1ebb197}{timer} = rospy.\+Rate(U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY)
-\item 
-\hyperlink{namespacedrive_a23cc38e06b9fae695cf8845a82fcc273}{device} = torch.\+device(\char`\"{}cuda\char`\"{} if torch.\+cuda.\+is\+\_\+available() else \char`\"{}cpu\char`\"{})
-\item 
-\hyperlink{namespacedrive_a2e630ff72576502d513dc46034787985}{policy\+\_\+net} = \hyperlink{classparameters_1_1_neural_q_estimator}{Neural\+Q\+Estimator}().to(\hyperlink{namespacedrive_a23cc38e06b9fae695cf8845a82fcc273}{device})
-\item 
-string \hyperlink{namespacedrive_a82ba3ae0a4aeed9a874c1d9f87e147fd}{message} = \char`\"{}Model parameters for the neural net not found. You need to train it first.\char`\"{}
-\item 
-\hyperlink{namespacedrive_a082ee6b5d0f5566c851367e7c7792ea5}{scan} = \hyperlink{namespacecar_af96ea5ae50f968d7a2ff6bcc21cad1c2}{car.\+get\+\_\+scan}(L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT, \hyperlink{namespacedrive_a23cc38e06b9fae695cf8845a82fcc273}{device})
-\item 
-\hyperlink{namespacedrive_aa0be36d022218be529fdf22d34a4dfc7}{net\+\_\+output} = \hyperlink{namespacedrive_a2e630ff72576502d513dc46034787985}{policy\+\_\+net}(\hyperlink{namespacedrive_a082ee6b5d0f5566c851367e7c7792ea5}{scan})
-\item 
-\hyperlink{namespacedrive_a63845082ab90bdcccd95631ad6420392}{action\+\_\+index} = net\+\_\+output.\+max(0)\mbox{[}1\mbox{]}.item()
-\item 
-\hyperlink{namespacedrive_a68b3f3acb667a1c5e05d3ea265164d7a}{action} = A\+C\+T\+I\+O\+NS\mbox{[}\hyperlink{namespacedrive_a63845082ab90bdcccd95631ad6420392}{action\+\_\+index}\mbox{]}
+\hyperlink{namespacedrive_a3118901ad129c1aa0fbf3907733dd38d}{node} = \hyperlink{classdrive_1_1_q_learning_driving_node}{Q\+Learning\+Driving\+Node}()
 \end{DoxyCompactItemize}
 
 
 \subsection{Variable Documentation}
-\index{drive@{drive}!action@{action}}
-\index{action@{action}!drive@{drive}}
-\subsubsection[{\texorpdfstring{action}{action}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+action = A\+C\+T\+I\+O\+NS\mbox{[}{\bf action\+\_\+index}\mbox{]}}\hypertarget{namespacedrive_a68b3f3acb667a1c5e05d3ea265164d7a}{}\label{namespacedrive_a68b3f3acb667a1c5e05d3ea265164d7a}
+\index{drive@{drive}!node@{node}}
+\index{node@{node}!drive@{drive}}
+\subsubsection[{\texorpdfstring{node}{node}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+node = {\bf Q\+Learning\+Driving\+Node}()}\hypertarget{namespacedrive_a3118901ad129c1aa0fbf3907733dd38d}{}\label{namespacedrive_a3118901ad129c1aa0fbf3907733dd38d}
 
 
-Definition at line 28 of file drive.\+py.
-
-\index{drive@{drive}!action\+\_\+index@{action\+\_\+index}}
-\index{action\+\_\+index@{action\+\_\+index}!drive@{drive}}
-\subsubsection[{\texorpdfstring{action\+\_\+index}{action_index}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+action\+\_\+index = net\+\_\+output.\+max(0)\mbox{[}1\mbox{]}.item()}\hypertarget{namespacedrive_a63845082ab90bdcccd95631ad6420392}{}\label{namespacedrive_a63845082ab90bdcccd95631ad6420392}
-
-
-Definition at line 27 of file drive.\+py.
-
-\index{drive@{drive}!anonymous@{anonymous}}
-\index{anonymous@{anonymous}!drive@{drive}}
-\subsubsection[{\texorpdfstring{anonymous}{anonymous}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+anonymous}\hypertarget{namespacedrive_a417833a8f645f1b27a7285408616a9f0}{}\label{namespacedrive_a417833a8f645f1b27a7285408616a9f0}
-
-
-Definition at line 9 of file drive.\+py.
-
-\index{drive@{drive}!device@{device}}
-\index{device@{device}!drive@{drive}}
-\subsubsection[{\texorpdfstring{device}{device}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+device = torch.\+device(\char`\"{}cuda\char`\"{} if torch.\+cuda.\+is\+\_\+available() else \char`\"{}cpu\char`\"{})}\hypertarget{namespacedrive_a23cc38e06b9fae695cf8845a82fcc273}{}\label{namespacedrive_a23cc38e06b9fae695cf8845a82fcc273}
-
-
-Definition at line 13 of file drive.\+py.
-
-\index{drive@{drive}!message@{message}}
-\index{message@{message}!drive@{drive}}
-\subsubsection[{\texorpdfstring{message}{message}}]{\setlength{\rightskip}{0pt plus 5cm}string drive.\+message = \char`\"{}Model parameters for the neural net not found. You need to train it first.\char`\"{}}\hypertarget{namespacedrive_a82ba3ae0a4aeed9a874c1d9f87e147fd}{}\label{namespacedrive_a82ba3ae0a4aeed9a874c1d9f87e147fd}
-
-
-Definition at line 18 of file drive.\+py.
-
-\index{drive@{drive}!net\+\_\+output@{net\+\_\+output}}
-\index{net\+\_\+output@{net\+\_\+output}!drive@{drive}}
-\subsubsection[{\texorpdfstring{net\+\_\+output}{net_output}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+net\+\_\+output = {\bf policy\+\_\+net}({\bf scan})}\hypertarget{namespacedrive_aa0be36d022218be529fdf22d34a4dfc7}{}\label{namespacedrive_aa0be36d022218be529fdf22d34a4dfc7}
-
-
-Definition at line 26 of file drive.\+py.
-
-\index{drive@{drive}!policy\+\_\+net@{policy\+\_\+net}}
-\index{policy\+\_\+net@{policy\+\_\+net}!drive@{drive}}
-\subsubsection[{\texorpdfstring{policy\+\_\+net}{policy_net}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+policy\+\_\+net = {\bf Neural\+Q\+Estimator}().to({\bf device})}\hypertarget{namespacedrive_a2e630ff72576502d513dc46034787985}{}\label{namespacedrive_a2e630ff72576502d513dc46034787985}
-
-
-Definition at line 14 of file drive.\+py.
-
-\index{drive@{drive}!scan@{scan}}
-\index{scan@{scan}!drive@{drive}}
-\subsubsection[{\texorpdfstring{scan}{scan}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+scan = {\bf car.\+get\+\_\+scan}(L\+A\+S\+E\+R\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+C\+O\+U\+NT, {\bf device})}\hypertarget{namespacedrive_a082ee6b5d0f5566c851367e7c7792ea5}{}\label{namespacedrive_a082ee6b5d0f5566c851367e7c7792ea5}
-
-
-Definition at line 24 of file drive.\+py.
-
-\index{drive@{drive}!timer@{timer}}
-\index{timer@{timer}!drive@{drive}}
-\subsubsection[{\texorpdfstring{timer}{timer}}]{\setlength{\rightskip}{0pt plus 5cm}drive.\+timer = rospy.\+Rate(U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY)}\hypertarget{namespacedrive_ad7f80b53042960cd3cf968dee1ebb197}{}\label{namespacedrive_ad7f80b53042960cd3cf968dee1ebb197}
-
-
-Definition at line 11 of file drive.\+py.
+Definition at line 30 of file drive.\+py.
 

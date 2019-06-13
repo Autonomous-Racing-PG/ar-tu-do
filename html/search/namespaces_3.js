@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameters',['parameters',['../namespaceparameters.html',1,'']]]
+  ['qlearning',['qlearning',['../namespaceqlearning.html',1,'']]]
 ];

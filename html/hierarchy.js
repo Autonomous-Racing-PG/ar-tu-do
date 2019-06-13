@@ -18,6 +18,10 @@ var hierarchy =
     [ "wallfollowing.Parameters", "classwallfollowing_1_1_parameters.html", null ],
     [ "wallfollowing.PIDController", "classwallfollowing_1_1_p_i_d_controller.html", null ],
     [ "PIDController", "class_p_i_d_controller.html", null ],
+    [ "qlearning.QLearningNode", "classqlearning_1_1_q_learning_node.html", [
+      [ "drive.QLearningDrivingNode", "classdrive_1_1_q_learning_driving_node.html", null ],
+      [ "train.QLearningTrainingNode", "classtrain_1_1_q_learning_training_node.html", null ]
+    ] ],
     [ "RvizGeometryPublisher", "class_rviz_geometry_publisher.html", null ],
     [ "simulation_tools.lap_timer.Timer", "classsimulation__tools_1_1lap__timer_1_1_timer.html", null ],
     [ "simulation_tools.track.Track", "classsimulation__tools_1_1track_1_1_track.html", null ],
