@@ -20,8 +20,7 @@ ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
 # When changing this value, also update laser_sample_count in qlearning.launch
-LASER_SAMPLE_COUNT = 32
-
+LASER_SAMPLE_COUNT = 64
 
 MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
 
@@ -29,7 +28,7 @@ MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
 class NeuralQEstimator(nn.Module):
     def __init__(self):
         super(NeuralQEstimator, self).__init__()
-        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 64)
+        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT * 2 + 2, 64)
         self.fc2 = nn.Linear(64, 32)
         self.fc3 = nn.Linear(32, ACTION_COUNT)
 

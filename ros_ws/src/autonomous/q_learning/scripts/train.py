@@ -170,7 +170,7 @@ class QLearningTrainingNode(QLearningNode):
             self.is_terminal_step = True
 
     def on_receive_laser_scan(self, message):
-        state = self.convert_laser_message_to_tensor(message)
+        state = self.get_state(message)
 
         if self.state is not None:
             self.check_car_orientation()
@@ -186,6 +186,11 @@ class QLearningTrainingNode(QLearningNode):
                 forward=self.drive_forward)
             self.is_terminal_step = False
             self.state = None
+            self.last_scan = None
+            self.steering_history.clear()
+            self.throttle_history.clear()
+            self.steering_history.append(0)
+            self.throttle_history.append(0)
             self.on_complete_episode()
         else:
             self.state = state
