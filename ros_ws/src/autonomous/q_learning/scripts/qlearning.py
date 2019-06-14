@@ -54,6 +54,7 @@ class QLearningNode():
 
     def get_state(self, laser_message):
         scan = self.convert_laser_message_to_tensor(laser_message)
+        return scan
         scan_time = laser_message.header.stamp.to_sec()
 
         if self.last_scan is None or abs(scan_time - self.last_scan_time) < 0.0001:
