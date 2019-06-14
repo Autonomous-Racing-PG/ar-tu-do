@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="2">
+  <name>hardware</name>
+  <version>0.0.0</version>
+  <description>
+    This package is here to create a dependency to the razor_imu_9dof package
+    and to contain the configuration for the razor_imu_9dof node
+  </description>
+
+  <!-- Maintainer -->
+  <maintainer email="f110@ls12.cs.uni-dortmund.de">PG F1/10</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+  <license>GPLv3</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>razor_imu_9dof</depend>
+</package>
