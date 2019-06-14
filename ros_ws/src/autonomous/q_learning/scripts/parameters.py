@@ -15,7 +15,7 @@ TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
 # General parameters
 
-ACTIONS = [(-0.5, 0.2), (0.5, 0.2)]
+ACTIONS = [(-0.6, 0.2), (0.6, 0.2), (0, 0.2)]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
