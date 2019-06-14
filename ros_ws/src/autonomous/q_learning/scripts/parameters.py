@@ -35,87 +35,66 @@ class NeuralQEstimator(nn.Module):
     def __init__(self):
         super(NeuralQEstimator, self).__init__()
 
-        # We've got 2 input channels (laser scans and their derivatives)
-        # and want 6 output channels
-        #
-        # if we want to keep the dimensions of the output the same
-        # as the input (1080) we need to use a padding of 8
-        # if we use a kernel size of 17
-        self.cnv1 = nn.Conv1d(in_channels=2, out_channels=6, kernel_size=17, padding=8)
-        # self.cnv2 = nn.Conv1d(6, 18, kernel_size=32)
+        # (N, 2, 1080)
+        self.cnv1 = nn.Conv1d(in_channels=2, out_channels=8, kernel_size=5)
+        # (N, 8, 1076)
+        self.mp1 = nn.MaxPool1d(kernel_size=4)
+        # (N, 8, 269)
 
-        # same reasons as above
-        self.mp1 = nn.MaxPool1d(kernel_size=9, padding=4)
-        # self.cnv3 = nn.Conv1d(18, 24, kernel_size=16)
-        # self.cnv4 = nn.Conv1d(24, 32, kernel_size=8)
-        # self.mp2 = nn.MaxPool1d(4)
+        self.cnv2 = nn.Conv1d(in_channels=8, out_channels=16, kernel_size=5)
+        # (N, 16, 265)
+        self.mp2 = nn.MaxPool1d(kernel_size=4)
+        # (N, 16, 66)
 
-        self.fc1 = nn.Linear(720, 512)
-        self.fc2 = nn.Linear(512, 128)
-        self.fc3 = nn.Linear(128, ACTION_COUNT)
+        self.cnv3 = nn.Conv1d(in_channels=16, out_channels=32, kernel_size=5)
+        # (N, 32, 62)
+        self.mp3 = nn.MaxPool1d(kernel_size=4)
+        # (N, 32, 15)
+
+        # reshape
+        # (N, 32 * 15)
+
+        self.fc = nn.Linear(32*15, ACTION_COUNT)
+        # (N, ACTION_COUNT)
+
+        self.fc1 = nn.Linear(32*15, 240)
+        self.fc2 = nn.Linear(240, 120)
+        self.fc3 = nn.Linear(120, ACTION_COUNT)
 
     def forward(self, x):
-        # x = F.elu(self.fc1(x))
-        # x = F.elu(self.fc2(x))
-        # return self.fc3(x)
-
-        # model = torch.nn.Sequential(
-        #     self.cnv1,
-        #     self.cnv2,
-        #     self.mp1,
-        #     self.cnv3,
-        #     self.cnv4,
-        #     self.mp2,
-        #     self.fc1,
-        #     nn.Dropout(p=0.6),
-        #     nn.ELU(),
-        #     self.fc2,
-        #     nn.Dropout(p=0.6),
-        #     nn.ELU(),
-        #     self.fc3,
-        #     nn.Softmax(dim=-1)
-        # )
-        # return model(x)
-
-        # model = torch.nn.Sequential(
-        #     self.cnv1,
-        #     self.mp1,
-        #     self.fc1,
-        #     nn.Dropout(p=0.6),
-        #     nn.ELU(),
-        #     self.fc2,
-        #     nn.Dropout(p=0.6),
-        #     nn.ELU(),
-        #     self.fc3,
-        #     nn.Softmax(dim=-1)
-        # )
-        # return model(x)
 
         # If processing a single sample, turn it into a batch of size 1
         if len(x.shape) == 2:
             x = torch.unsqueeze(x, 0)
 
         # Size changes from (128, 2, 1080) to (128, 6, 1080)
-        x = self.cnv1(x)
-        # print('shape nach cnv1:', x.shape)
+        x = F.elu(self.cnv1(x))
+        print('shape nach cnv1:', x.shape)
 
         # Size changes from (128, 6, 1080) to (128, 6, 120)
         x = self.mp1(x)
-        # print('shape nach mp1:', x.shape)
+        print('shape nach mp1:', x.shape)
+
+        x = F.elu(self.cnv2(x))
+        x = self.mp2(x)
+
+        x = F.elu(self.cnv3(x))
+        x = self.mp3(x)
         # Size changes from (128, 6, 120) to (1, 92160)
         # where 92160 is the product of the shape after
         # the MaxPool Layer (128*6*120)
         # OR
         # (128, 720) (6*120)
-        # print(x.shape[1:])
+        print(x.shape[1:])
         x = x.view(x.shape[0], np.prod(x.shape[1:]))
-        # print('shape nach x.view', x.shape)
-        x = self.fc1(x)
-        # print('shape nach fc1', x.shape)
-        x = F.elu(x)
+        print('shape nach x.view', x.shape)
+        x = F.elu(self.fc1(x))
+        print('shape nach fc1', x.shape)
         x = self.fc2(x)
+        print('shape nach fc2', x.shape)
         x = F.elu(x)
         x = self.fc3(x)
+        print('shape nach fc3', x.shape)
 
         return x
 

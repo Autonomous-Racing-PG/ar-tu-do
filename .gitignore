@@ -10,3 +10,145 @@ ros_ws/\.catkin_workspace
 .vscode/
 
 *.pyc
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/AvRSYRDULdOS73aopH_VPEAfdtgNeMb3m4FblA7WmXA=/_C\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/AvRSYRDULdOS73aopH_VPEAfdtgNeMb3m4FblA7WmXA=/_dl\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/AvRSYRDULdOS73aopH_VPEAfdtgNeMb3m4FblA7WmXA=/_nvrtc\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.__main__\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\._ast\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\._codecs\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\._sre\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\._warnings\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\._weakref\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.errno\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.exceptions\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.gc\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.imp\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.marshal\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.posix\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.pwd\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.signal\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.sys\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.thread\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/E7fiCospYFIjcT6GjM3PYRvMEI_H0riTQaCcg5thm20=/python\.zipimport\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/GGynmFASjo1GzWLC7vHY-ZjJzcfMeZUT1bdCOYcY3aY=/_ccallback_c\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_bisect\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_collections\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_ctypes\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_curses\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_functools\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_hashlib\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_heapq\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_io\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_json\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_locale\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_multiprocessing\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_random\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_socket\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_sqlite3\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_ssl\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_struct\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/_tkinter\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/array\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/binascii\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/bz2\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/cPickle\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/cStringIO\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/datetime\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/fcntl\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/future_builtins\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/grp\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/itertools\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/math\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/mmap\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/operator\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/parser\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/pyexpat\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/readline\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/select\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/strop\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/termios\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/time\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/unicodedata\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/nnj3cYniQntvRgE4kTDCU5gPOFhr4w90SkExuti-AbA=/zlib\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/Po-4CaAhqijQ8pmg9S5MhJoG4ODTVtEwB9ewII-YG7E=/_psutil_linux\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/Po-4CaAhqijQ8pmg9S5MhJoG4ODTVtEwB9ewII-YG7E=/_psutil_posix\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/q97zUb7cavB1bZxBAtD23a7rk0T_f53w3CLtNKz9YX8=/_umath_linalg\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/q97zUb7cavB1bZxBAtD23a7rk0T_f53w3CLtNKz9YX8=/lapack_lite\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/vLZqv2j1I53HNAuDGvRgBLC2XjHsxsL9pAzDZpfzjik=/fftpack_lite\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/xzWU08rpv3q4aKZgxDCkYSD1le3QjxEBLBY1djzg5ug=/_multiarray_tests\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/xzWU08rpv3q4aKZgxDCkYSD1le3QjxEBLBY1djzg5ug=/_multiarray_umath\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/YJm98_5Jh35fAOhpQ4kefxklYQZLKoCs4eEhMzpCFdE=/python\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/zNczPT4vPlYvWbwZwi3NbjwrQ-arFhzXWadBBuTEteY=/mtrand\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/ZtLIHd09V10eJ09ib75Sg3bsDGJProIuhuEbWg3owsg=/_cffi_backend\.pyi
+
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs\.v1/ZtLIHd09V10eJ09ib75Sg3bsDGJProIuhuEbWg3owsg=/_scandir\.pyi
