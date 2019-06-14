@@ -67,34 +67,19 @@ class NeuralQEstimator(nn.Module):
         if len(x.shape) == 2:
             x = torch.unsqueeze(x, 0)
 
-        # Size changes from (128, 2, 1080) to (128, 6, 1080)
         x = F.elu(self.cnv1(x))
-        print('shape nach cnv1:', x.shape)
-
-        # Size changes from (128, 6, 1080) to (128, 6, 120)
         x = self.mp1(x)
-        print('shape nach mp1:', x.shape)
 
         x = F.elu(self.cnv2(x))
         x = self.mp2(x)
 
         x = F.elu(self.cnv3(x))
         x = self.mp3(x)
-        # Size changes from (128, 6, 120) to (1, 92160)
-        # where 92160 is the product of the shape after
-        # the MaxPool Layer (128*6*120)
-        # OR
-        # (128, 720) (6*120)
-        print(x.shape[1:])
+
         x = x.view(x.shape[0], np.prod(x.shape[1:]))
-        print('shape nach x.view', x.shape)
         x = F.elu(self.fc1(x))
-        print('shape nach fc1', x.shape)
-        x = self.fc2(x)
-        print('shape nach fc2', x.shape)
-        x = F.elu(x)
+        x = F.elu(self.fc2(x))
         x = self.fc3(x)
-        print('shape nach fc3', x.shape)
 
         return x
 
