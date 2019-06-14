@@ -10,20 +10,19 @@ Launches all necessary nodes that listen for drive_parameters and translate them
 	
     <!-- car control node -->
     <node
-      respawn="true"
       pkg="car_control"
       type="car_controller"
       name="car_controller"
-      output="screen" >
-    </node>
+      output="screen"
+      required="true" />
 
     <!-- dms control node -->
     <node
-      respawn="true"
       pkg="car_control"
       type="dms_controller"
       name="dms_controller"
-      output="screen" >
+      output="screen"
+      required="true" >
       <param name="dms_check_rate" type="int" value = "$(arg dms_check_rate)" />
       <param name="dms_expiration" type="int" value = "$(arg dms_expiration)" />
       <param name="emergencystop_expiration" type="int" value = "$(arg emergencystop_expiration)" />
@@ -32,11 +31,10 @@ Launches all necessary nodes that listen for drive_parameters and translate them
 
     <!-- Drive Parameters Multiplexer node -->
     <node
-      respawn="true"
       pkg="car_control"
       type="drive_parameters_multiplexer"
       name="drive_parameters_multiplexer"
-      output="screen" >
-    </node>
+      output="screen"
+      required="true" />
 	
 </launch>

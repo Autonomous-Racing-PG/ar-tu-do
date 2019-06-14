@@ -4,11 +4,10 @@
 
     <!-- emergency_stop node -->
     <node
-      respawn="true"
       pkg="emergency_stop"
       type="emergency_stop"
       name="emergency_stop"
-      output="screen" >
-    </node>
+      output="screen" 
+      required="true" />
 
 </launch>
