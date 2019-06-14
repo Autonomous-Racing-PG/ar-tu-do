@@ -58,7 +58,7 @@ DISCOUNT_FACTOR = 0.99  # aka gamma
 MAX_EPISODE_LENGTH = 500
 # Sample neural net update batch from the replay memory.
 # It contains this many steps.
-MEMORY_SIZE = 10000
+MEMORY_SIZE = 5000
 
 BATCH_SIZE = 128
 LEARNING_RATE = 0.0001
@@ -66,5 +66,5 @@ LEARNING_RATE = 0.0001
 # Probability to select a random episode starts at EPS_START
 # and reaches EPS_END once EPS_DECAY episodes are completed.
 EPS_START = 1.0
-EPS_END = 0.1
+EPS_END = 0.3
 EPS_DECAY = 10000
