@@ -57,9 +57,9 @@ class NeuralQEstimator(nn.Module):
         self.fc = nn.Linear(32*15, ACTION_COUNT)
         # (N, ACTION_COUNT)
 
-        self.fc1 = nn.Linear(32*15, 240)
-        self.fc2 = nn.Linear(240, 120)
-        self.fc3 = nn.Linear(120, ACTION_COUNT)
+        # self.fc1 = nn.Linear(32*15, 240)
+        # self.fc2 = nn.Linear(240, 120)
+        # self.fc3 = nn.Linear(120, ACTION_COUNT)
 
     def forward(self, x):
 
@@ -77,9 +77,12 @@ class NeuralQEstimator(nn.Module):
         x = self.mp3(x)
 
         x = x.view(x.shape[0], np.prod(x.shape[1:]))
-        x = F.elu(self.fc1(x))
-        x = F.elu(self.fc2(x))
-        x = self.fc3(x)
+
+        x = self.fc(x)
+
+        # x = F.elu(self.fc1(x))
+        # x = F.elu(self.fc2(x))
+        # x = self.fc3(x)
 
         return x
 
