@@ -6,10 +6,15 @@ add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
+  dynamic_reconfigure
   drive_msgs
   roscpp
   rospy
   std_msgs
+)
+
+generate_dynamic_reconfigure_options(
+  cfg/wallfollowing2.cfg
 )
 
 ## Errors and Warnings
@@ -22,7 +27,7 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wchar-subscripts -Wchkp
 
 ## Declare things to be passed to dependent projects
 catkin_package(
-  CATKIN_DEPENDS drive_msgs roscpp rospy std_msgs
+  CATKIN_DEPENDS dynamic_reconfigure drive_msgs roscpp rospy std_msgs
 )
 
 

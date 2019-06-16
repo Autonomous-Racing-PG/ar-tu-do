@@ -14,6 +14,9 @@ import math
 
 import numpy as np
 
+from dynamic_reconfigure.server import Server
+from wallfollowing2.cfg import wallfollowing2Config
+
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_LASER_SCAN = "/scan"
 
@@ -59,6 +62,10 @@ class Parameters():
             default = getattr(self, name)
             value = rospy.get_param("wallfollowing/" + name, default)
             setattr(self, name, value)
+
+    def __str__(self):
+        return '\n'.join(name + ": " + str(getattr(self, name))
+                         for name in self.names)
 
 
 class PIDController():
@@ -207,6 +214,15 @@ def laser_callback(scan_message):
     last_scan = scan_time
 
 
+def dynamic_configuration_callback(config, level):
+    new_parameters = {key: getattr(config, key) for key in DEFAULT_PARAMETERS}
+    parameters = Parameters(new_parameters)
+    pid.p = parameters.controller_p
+    pid.i = parameters.controller_i
+    pid.d = parameters.controller_d
+    return config
+
+
 rospy.init_node('wallfollowing', anonymous=True)
 parameters = Parameters(DEFAULT_PARAMETERS)
 parameters.load()
@@ -218,6 +234,8 @@ pid = PIDController(
 rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
+
+Server(wallfollowing2Config, dynamic_configuration_callback)
 
 while not rospy.is_shutdown():
     rospy.spin()
