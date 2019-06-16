@@ -58,6 +58,16 @@ def get_scan(sample_count, device):
     values = [v if not math.isinf(v) else 100 for v in values]
     return torch.tensor(values, device=device)
 
+def get_scan_averaged(sample_count, device):
+    lidarAreaSize = int(sample_count / 3)
+    lidarAreaSizeMod = sample_count % 3
+    indices = torch.arange(lidarAreaSize)
+    average_lidarArea1 = torch.mean(torch.index_select(get_scan(sample_count, device),0,torch.tensor(indices, device = device, dtype = torch.long)))
+    indices = torch.arange(lidarAreaSize, lidarAreaSize+ lidarAreaSizeMod)
+    average_lidarArea2 = torch.mean(torch.index_select(get_scan(sample_count, device),0,torch.tensor(indices, device = device, dtype = torch.long)))
+    indices = torch.arange(lidarAreaSize*2 + lidarAreaSizeMod, lidarAreaSize*3+lidarAreaSizeMod)
+    average_lidarArea3 = torch.mean(torch.index_select(get_scan(sample_count, device),0,torch.tensor(indices, device = device, dtype = torch.long)))
+    return torch.tensor([average_lidarArea1, average_lidarArea2, average_lidarArea3], device = device, dtype = torch.float)
 
 current_position = None
 laser_scan = None

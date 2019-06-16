@@ -172,7 +172,7 @@ episode_start_time = time.time()
 
 while not rospy.is_shutdown():
     if state is None:
-        state = car.get_scan(LASER_SAMPLE_COUNT, device)
+        state = car.get_scan(LASER_SAMPLE_COUNT,device)
     action = select_action(state)
     perform_action(action)
     episode_length += 1
@@ -180,7 +180,7 @@ while not rospy.is_shutdown():
 
     timer.sleep()
 
-    next_state = car.get_scan(LASER_SAMPLE_COUNT, device)
+    next_state = car.get_scan(LASER_SAMPLE_COUNT,device)
     reward = get_reward()
     cumulative_reward += reward
     memory.append((state, action, reward, next_state, is_terminal_step))
