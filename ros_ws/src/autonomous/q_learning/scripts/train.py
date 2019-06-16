@@ -60,7 +60,7 @@ class QLearningTrainingNode(QLearningNode):
         rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
 
     def replay(self):
-        if len(self.memory) < 500 or len(self.memory) < BATCH_SIZE:
+        if len(self.memory) < 1500 or len(self.memory) < BATCH_SIZE:
             return
 
         if self.optimization_step_count == 0:
@@ -98,6 +98,7 @@ class QLearningTrainingNode(QLearningNode):
             math.exp(-1. * self.total_step_count / EPS_DECAY)
 
     def select_action(self, state):
+
         if random.random() < self.get_epsilon_greedy_threshold():
             return random.randrange(ACTION_COUNT)
 
@@ -112,12 +113,20 @@ class QLearningTrainingNode(QLearningNode):
         track_position = track.localize(self.car_position)
         distance = abs(track_position.distance_to_center)
 
+        #############
+        penalty = 0
+        if self.action < 2:
+            penalty = 0.5
+        else: 
+            penalty = 1
+        #############
+
         if distance < 0.2:
-            return 1
+            return 1 
         elif distance < 0.4:
-            return 0.7
+            return 0.7 
         else:
-            return 0.4
+            return 0.4 
 
     def log_training_progress(self):
         average_episode_length = sum(
