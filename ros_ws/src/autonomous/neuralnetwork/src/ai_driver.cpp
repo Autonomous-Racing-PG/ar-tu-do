@@ -16,10 +16,10 @@ AiDriver::AiDriver()
     private_node_handle.getParam(PARAMETER_UPDATE_RATE, m_update_rate);
 
     m_lidar_subscriber =
-        m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN_SUBSCRIBE, 1, &AiDriver::lidarCallback, this);
-    m_net_deploy_subscriber = m_node_handle.subscribe<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_SUBSCRIBE, 1,
+        m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &AiDriver::lidarCallback, this);
+    m_net_deploy_subscriber = m_node_handle.subscribe<neuralnetwork::net_param>(TOPIC_NET_DEPLOY, 1,
                                                                                 &AiDriver::netDeployCallback, this);
-    m_drive_parameters_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_PUBLISH, 1);
+    m_drive_parameters_publisher = m_node_handle.advertise<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1);
     m_timer = m_node_handle.createTimer(ros::Duration(1.0 / m_update_rate), &AiDriver::timerCallback, this);
 
     std::string file_path = config_folder + "/" + config_file;
@@ -76,7 +76,7 @@ void AiDriver::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     // TODO: remove magic numbers
     for (int i = 0; i < 5; i++)
     {
-        float value = lidar->ranges[LIDAR_INDICES[i]];
+        float value = lidar->ranges[i];
         value = std::min(value, lidar->range_max);
         value = std::max(value, lidar->range_min);
         m_input[i + 2] = value;
