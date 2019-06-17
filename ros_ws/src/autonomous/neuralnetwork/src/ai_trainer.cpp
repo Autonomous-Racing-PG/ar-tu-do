@@ -36,7 +36,7 @@ AiTrainer::AiTrainer()
     if (load_init)
     {
         initLoad();
-        ROS_INFO_STREAM("created first generation (init folder) with " + std::to_string(m_nets.size()) + " entities");
+        ROS_INFO_STREAM("created first generation from init folder with " + std::to_string(m_nets.size()) + " entities");
     }
     else
     {
