@@ -19,10 +19,14 @@ constexpr const char* TOPIC_VISUALIZATION = "/emergencystop_visualization";
 
 constexpr const char* LIDAR_FRAME = "laser";
 
-constexpr float RANGE_THRESHOLD = 0.7;
+constexpr const char* RANGE_THRESHOLD = "range_threshold";
+constexpr const float RANGE_THRESHOLD_DEFAULT = 0.7;
+
+constexpr const char* MAX_RANGE = "max_range";
+constexpr const float MAX_RANGE_DEFAULT = 30.;
+
 constexpr const float CAR_BUMPER_LENGTH = 0.35;
 
-constexpr float MAX_RANGE = 30;
 
 enum class EmergencyStatus : int
 {
@@ -41,8 +45,13 @@ class EmergencyStop
     ros::Subscriber m_lidar_subscriber;
     ros::Publisher m_emergency_stop_publisher;
 
-    EmergencyStatus emergency_status;
+    EmergencyStatus m_emergency_status;
     RvizGeometryPublisher m_debug_geometry;
+
+    float m_range_threshold;
+    float m_max_range;
+
+    void configureParameters();
 
     /**
      * @brief Returns true if there is a wall too close in front of the car.

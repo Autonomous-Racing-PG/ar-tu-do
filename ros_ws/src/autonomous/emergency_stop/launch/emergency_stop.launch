@@ -2,6 +2,10 @@
 <launch>
 <!-- Launches all necessary nodes for the emergency stop -->
 
+    <!-- emergency_stop parameters -->
+    <arg name="range_threshold" default="0.7"/>
+    <arg name="max_range" default="30."/>
+
     <!-- emergency_stop node -->
     <node
       respawn="true"
@@ -9,6 +13,8 @@
       type="emergency_stop"
       name="emergency_stop"
       output="screen" >
+      <param name="range_threshold" type="double" value = "$(arg range_threshold)" />
+      <param name="max_range" type="double" value = "$(arg max_range)" />
     </node>
 
 </launch>
