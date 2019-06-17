@@ -25,18 +25,18 @@ AiDriver::AiDriver()
     std::string file_path = config_folder + "/" + config_file;
     if (config_file.compare("") == 0)
     {
-        ROS_INFO_STREAM("ai_driver no config file given (waiting for deployment)");
+        ROS_INFO_STREAM("Ai_driver: no config file given (waiting for deployment).");
         m_deployed = false;
     }
     else if (m_net.create_from_file(file_path))
     {
-        ROS_INFO_STREAM("successfully loaded ai driver from " + file_path);
+        ROS_INFO_STREAM("Successfully loaded ai-driver from " + file_path + ".");
         m_deployed = true;
     }
     else
     {
-        ROS_ERROR_STREAM("could not load " + file_path);
-        ROS_ERROR_STREAM("maybe the folder or reading permission is missing");
+        ROS_ERROR_STREAM("Ai_driver: Could not load " + file_path + ".");
+        ROS_ERROR_STREAM("Maybe the folder or reading permission is missing.");
     }
 }
 
@@ -54,11 +54,11 @@ void AiDriver::publishDriveParameters(float velocity, float angle)
 {
     if (velocity < -1 || velocity > 1)
     {
-        ROS_WARN_STREAM("ai_driver speed should be -1 < x < 1 but it is " << std::to_string(velocity));
+        ROS_WARN_STREAM("Ai_driver speed should be -1 < x < 1 but it is " + std::to_string(velocity) + ".");
     }
     if (angle < -1 || angle > 1)
     {
-        ROS_WARN_STREAM("ai_driver angle should be -1 < x < 1 but it is " << std::to_string(angle));
+        ROS_WARN_STREAM("Ai_driver angle should be -1 < x < 1 but it is " + std::to_string(angle) + ".");
     }
     drive_msgs::drive_param drive_parameters;
     drive_parameters.velocity = velocity;
@@ -110,7 +110,7 @@ void AiDriver::update()
     // check data age
     if (m_changes_lidar == 0)
     {
-        ROS_WARN_STREAM("ai_driver: no lidar update since last neural net update");
+        ROS_WARN_STREAM("Ai_driver: no lidar update since last neural net update");
     }
     m_changes_lidar = 0;
 
@@ -124,9 +124,6 @@ void AiDriver::update()
     // publish outputs
     float speed = output[0];
     float angle = output[1] * 2 - 1;
-
-    // ROS_INFO_STREAM("_______________________________________________________ speed: " + std::to_string(speed) + " |
-    // angle: " + std::to_string(angle));
     publishDriveParameters(speed, angle);
 }
 

@@ -36,12 +36,12 @@ AiTrainer::AiTrainer()
     if (load_init)
     {
         initLoad();
-        ROS_INFO_STREAM("created first generation from init folder with " + std::to_string(m_nets.size()) + " entities");
+        ROS_INFO_STREAM("Ai_trainer: created first generation from init folder with " + std::to_string(m_nets.size()) + " entities.");
     }
     else
     {
         init();
-        ROS_INFO_STREAM("created first generation randomly with " + std::to_string(m_nets.size()) + " entities");
+        ROS_INFO_STREAM("Ai_trainer: created first generation randomly with " + std::to_string(m_nets.size()) + " entities.");
     }
     update();
 }
@@ -105,7 +105,7 @@ bool AiTrainer::initLoad()
     std::vector<std::string> paths = ai_util::get_files_in_folder(init_folder);
     if (paths.size() == 0)
     {
-        ROS_WARN_STREAM("could not load from \"" + init_folder + "\"");
+        ROS_WARN_STREAM("Ai_trainer: could not find any files in " + init_folder + ".");
         return false;
     }
 
@@ -122,7 +122,7 @@ bool AiTrainer::initLoad()
         }
         else
         {
-            ROS_WARN_STREAM("could not load " + p);
+            ROS_WARN_STREAM("Ai_trainer: could not load " + p + ".");
         }
     }
     m_gen = 0;
@@ -185,7 +185,7 @@ void AiTrainer::chooseBest()
             bool b = m_best_nets[i]->save(path);
             if (!b)
             {
-                ROS_WARN_STREAM("could not save to: " + path);
+            ROS_WARN_STREAM("Ai_trainer: could not save " + path + ".");
             }
         }
     }
@@ -196,7 +196,7 @@ void AiTrainer::chooseBest()
         bool b = m_best_nets[0]->save(path);
         if (!b)
         {
-            ROS_WARN_STREAM("could not save to: " + path);
+            ROS_WARN_STREAM("Ai_trainer: could not load " + path + ".");
         }
     }
     if (m_save_lastest_to_init)
@@ -206,7 +206,7 @@ void AiTrainer::chooseBest()
         bool b = m_best_nets[0]->save(path);
         if (!b)
         {
-            ROS_WARN_STREAM("could not save to: " + path);
+            ROS_WARN_STREAM("Ai_trainer: could not load " + path + ".");
         }
     }
 }
@@ -270,19 +270,17 @@ void AiTrainer::deploy(FANN::neural_net* net)
 
 void AiTrainer::prepareTest()
 {
-    std::srand(std::time(nullptr)); // use current time as seed for random generator
-
-    // float pos_x[] = {-0.4, 4, 12, 16};
-    // -0.4 4 12 16
+    std::srand(std::time(nullptr));
 
     // reset car model
     gazebo_msgs::ModelState state_message;
     state_message.model_name = "racer";
     state_message.pose.position.x = 0;
-    state_message.pose.position.y = -0.4; // pos_x[std::rand() % 4];
+    state_message.pose.position.y = -0.4;;
     state_message.pose.position.z = 0;
 
     state_message.pose.orientation.x = 0;
+    // random orientation
     state_message.pose.orientation.z = std::rand() % 2;
     state_message.pose.orientation.w = 0;
     state_message.pose.orientation.y = 0;
