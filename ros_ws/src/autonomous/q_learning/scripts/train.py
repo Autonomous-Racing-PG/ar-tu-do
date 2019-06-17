@@ -170,8 +170,7 @@ class QLearningTrainingNode(QLearningNode):
             self.is_terminal_step = True
 
     def on_receive_laser_scan(self, message):
-        state = self.convert_laser_message_to_tensor(message)
-
+        state = get_scan_averaged(self.convert_laser_message_to_tensor(message))
         if self.state is not None:
             self.check_car_orientation()
             reward = self.get_reward()
@@ -204,6 +203,16 @@ class QLearningTrainingNode(QLearningNode):
             message.pose[1].position.y)
         self.car_orientation = message.pose[1].orientation
 
+def get_scan_averaged(scan_data):
+    lidarAreaSize = int(32 / 3)
+    lidarAreaSizeMod = 32 % 3
+    indices = torch.arange(lidarAreaSize)
+    average_lidarArea1 = torch.mean(torch.index_select(scan_data,0,torch.tensor(indices, device = device, dtype = torch.long)))
+    indices = torch.arange(lidarAreaSize, lidarAreaSize+ lidarAreaSizeMod)
+    average_lidarArea2 = torch.mean(torch.index_select(scan_data,0,torch.tensor(indices, device = device, dtype = torch.long)))
+    indices = torch.arange(lidarAreaSize*2 + lidarAreaSizeMod, lidarAreaSize*3+lidarAreaSizeMod)
+    average_lidarArea3 = torch.mean(torch.index_select(scan_data,0,torch.tensor(indices, device = device, dtype = torch.long)))
+    return torch.tensor([average_lidarArea1, average_lidarArea2, average_lidarArea3], device = device, dtype = torch.float)
 
 rospy.init_node('q_learning_training', anonymous=True)
 node = QLearningTrainingNode()
