@@ -13,14 +13,14 @@ These instructions will get you a copy of the project up and running
 sudo apt install libsdl2-dev
 
 # RangeLibc
-    sudo pip uninstall pip && sudo apt install python-pip
-    sudo pip install cython
-    git clone http://github.com/kctess5/range_libc
-    cd range_libc/pywrapper
-    # Either:
-    ./compile.sh            # on VM
-    # Or:
-    ./compile_with_cuda.sh  # on car - compiles GPU ray casting methods
+sudo pip uninstall pip && sudo apt install python-pip
+sudo pip install cython
+git clone http://github.com/kctess5/range_libc
+cd range_libc/pywrapper
+# Either:
+./compile.sh            # on VM
+# Or:
+./compile_with_cuda.sh  # on car - compiles GPU ray casting methods
 ```
 
 ### Clone the Project
