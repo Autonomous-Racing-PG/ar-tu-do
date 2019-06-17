@@ -7,5 +7,6 @@ var searchData=
   ['discount_5ffactor',['DISCOUNT_FACTOR',['../namespaceparameters.html#a70176024e0f585c846365800f1c7819c',1,'parameters']]],
   ['distance_5fto_5fcenter',['distance_to_center',['../classsimulation__tools_1_1track_1_1_track_position.html#a1d45644ad2113e0c7a8e546f52015d46',1,'simulation_tools::track::TrackPosition']]],
   ['drive_5fforward',['drive_forward',['../classtrain_1_1_q_learning_training_node.html#a400f047c3086a321f255b2405f2ebe1f',1,'train::QLearningTrainingNode']]],
-  ['drive_5fparameters_5fpublisher',['drive_parameters_publisher',['../classqlearning_1_1_q_learning_node.html#a2885dd3e3dbd44c0627829d35f9e0041',1,'qlearning.QLearningNode.drive_parameters_publisher()'],['../namespacewallfollowing.html#aa69138defbbc5f21e99db50a6b3c903f',1,'wallfollowing.drive_parameters_publisher()']]]
+  ['drive_5fparameters_5fpublisher',['drive_parameters_publisher',['../classqlearning_1_1_q_learning_node.html#a2885dd3e3dbd44c0627829d35f9e0041',1,'qlearning.QLearningNode.drive_parameters_publisher()'],['../namespacewallfollowing.html#aa69138defbbc5f21e99db50a6b3c903f',1,'wallfollowing.drive_parameters_publisher()']]],
+  ['dyn_5fcfg_5fsrv',['dyn_cfg_srv',['../namespacewallfollowing.html#aff059c2c2e3f873d727fd4d3cfccad14',1,'wallfollowing']]]
 ];
