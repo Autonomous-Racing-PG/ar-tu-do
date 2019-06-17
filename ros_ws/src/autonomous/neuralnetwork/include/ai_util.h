@@ -40,6 +40,7 @@ namespace ai_util
         else
         {
             /* could not open directory */
+            ROS_ERROR_STREAM("could not open folder: " + folder);
         }
         return vec;
     }
