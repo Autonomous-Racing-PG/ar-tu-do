@@ -6,8 +6,8 @@
 #include <iostream>
 
 #include "drive_msgs/drive_param.h"
-#include "sensor_msgs/LaserScan.h"
 #include "rviz_geometry_publisher.h"
+#include "sensor_msgs/LaserScan.h"
 #include <ros/console.h>
 #include <ros/ros.h>
 
@@ -26,7 +26,6 @@ constexpr const char* MAX_RANGE = "max_range";
 constexpr const float MAX_RANGE_DEFAULT = 30.;
 
 constexpr const float CAR_BUMPER_LENGTH = 0.35;
-
 
 enum class EmergencyStatus : int
 {
@@ -58,6 +57,4 @@ class EmergencyStop
      */
     bool emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
-
-
 };
