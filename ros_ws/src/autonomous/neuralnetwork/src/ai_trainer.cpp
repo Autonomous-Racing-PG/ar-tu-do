@@ -23,15 +23,15 @@ AiTrainer::AiTrainer()
     private_node_handle.getParam(PARAMETER_SAVE_GENERATION_INTERVAL, m_save_generation_interval);
 
     m_crash_subscriber =
-        m_node_handle.subscribe<std_msgs::Empty>(TOPIC_CRASH_SUBSCRIBE, 1, &AiTrainer::crashCallback, this);
+        m_node_handle.subscribe<std_msgs::Empty>(TOPIC_CRASH, 1, &AiTrainer::crashCallback, this);
     m_drive_parameters_subscriber =
-        m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS_SUBSCRIBE, 1,
+        m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAMETERS, 1,
                                                          &AiTrainer::driveParametersCallback, this);
     m_laptimer_subscriber =
-        m_node_handle.subscribe<std_msgs::Duration>(TOPIC_LAP_TIMER_SUBSCRIBE, 1, &AiTrainer::lapTimerCallback, this);
+        m_node_handle.subscribe<std_msgs::Duration>(TOPIC_LAP_TIMER, 1, &AiTrainer::lapTimerCallback, this);
     m_gazebo_model_state_publisher =
-        m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE_PUBLISH, 1);
-    m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY_PUBLISH, 1);
+        m_node_handle.advertise<gazebo_msgs::ModelState>(TOPIC_GAZEBO_MODEL_STATE, 1);
+    m_net_deploy_publisher = m_node_handle.advertise<neuralnetwork::net_param>(TOPIC_NET_DEPLOY, 1);
 
     if (load_init)
     {

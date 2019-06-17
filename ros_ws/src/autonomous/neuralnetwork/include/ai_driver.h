@@ -24,12 +24,12 @@ namespace ai_driver
     constexpr const char* PARAMETER_CONFIG_FILE = "config_file";
     constexpr const char* PARAMETER_UPDATE_RATE = "update_rate";
 
-    constexpr const char* TOPIC_DRIVE_PARAMETERS_PUBLISH = "/commands/drive_param";
-    constexpr const char* TOPIC_LASER_SCAN_SUBSCRIBE = "/scan";
+    // publish
+    constexpr const char* TOPIC_DRIVE_PARAMETERS = "/commands/drive_param";
 
-    constexpr const char* TOPIC_NET_DEPLOY_SUBSCRIBE = "/ai/deploy";
-
-    constexpr const unsigned int LIDAR_INDICES[] = { 0, 1, 2, 3, 4 };
+    // subscribe
+    constexpr const char* TOPIC_LASER_SCAN = "/scan";
+    constexpr const char* TOPIC_NET_DEPLOY = "/ai/deploy";
 }
 
 class AiDriver
@@ -50,13 +50,6 @@ class AiDriver
 
     int m_changes_lidar = 0;
     std::vector<fann_type> m_input;
-    // m_input[0] : current speed
-    // m_input[1] : current wheel rotaton
-    // m_input[2] : lidar 90 degrees right
-    // m_input[3] : lidar 45 degrees right
-    // m_input[4] : middle
-    // m_input[5] : lidar 45 degrees left
-    // m_input[6] : lidar 90 degrees left
 
     void timerCallback(const ros::TimerEvent&);
     void lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar);
