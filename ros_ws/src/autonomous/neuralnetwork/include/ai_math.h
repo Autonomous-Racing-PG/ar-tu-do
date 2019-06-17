@@ -6,7 +6,6 @@
 
 #include "ros/static_assert.h"
 
-// http://leenissen.dk/fann/html/files/fann_cpp-h.html
 // clang-format off
 #include "floatfann.h"
 #include "fann_cpp.h"
