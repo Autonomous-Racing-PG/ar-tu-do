@@ -10,6 +10,8 @@ These instructions will get you a copy of the project up and running
 
 ### Install missing system dependencies
 ```bash
+sudo apt install libsdl2-dev
+
 # RangeLibc
 sudo pip uninstall pip && sudo apt install python-pip
 sudo pip install cython
