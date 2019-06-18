@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
 import rospy
+
+from dynamic_reconfigure.server import Server
+from wallfollowing2.cfg import wallfollowing2Config
+
 from std_msgs.msg import ColorRGBA
 from sensor_msgs.msg import LaserScan
 from drive_msgs.msg import drive_param
@@ -207,6 +211,15 @@ def laser_callback(scan_message):
     last_scan = scan_time
 
 
+def dynamic_configuration_callback(config, level):
+    new_parameters = {key: getattr(config, key) for key in DEFAULT_PARAMETERS}
+    parameters = Parameters(new_parameters)
+    pid.p = parameters.controller_p
+    pid.i = parameters.controller_i
+    pid.d = parameters.controller_d
+    return config
+
+
 rospy.init_node('wallfollowing', anonymous=True)
 parameters = Parameters(DEFAULT_PARAMETERS)
 parameters.load()
@@ -218,6 +231,8 @@ pid = PIDController(
 rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
+
+dyn_cfg_srv = Server(wallfollowing2Config, dynamic_configuration_callback)
 
 while not rospy.is_shutdown():
     rospy.spin()
