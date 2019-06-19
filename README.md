@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running
 ### Install missing system dependencies
 ```bash
 sudo apt install libsdl2-dev
+sudo pip install torch
 
 # RangeLibc
 sudo pip uninstall pip && sudo apt install python-pip

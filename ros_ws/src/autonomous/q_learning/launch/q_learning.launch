@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- Q-Learning related nodes: -->
+
+  <node
+    pkg="q_learning"
+    type="train.py"
+    name="q_learning_training"
+    output="screen" >
+  </node>
+
+  <node
+    pkg="simulation_tools"
+    type="crash_detector"
+    name="crash_detector"
+    output="screen" >
+  </node>
+</launch>
