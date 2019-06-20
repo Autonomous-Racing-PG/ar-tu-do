@@ -6,7 +6,7 @@ import random
 import math
 import time
 from collections import deque
-from std_msgs.msg import Empty
+from std_msgs.msg import Empty, Float32
 from parameters import *
 
 import torch
@@ -58,6 +58,8 @@ class QLearningTrainingNode(QLearningNode):
 
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
         rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
+
+        self.reward_publisher = rospy.Publisher(TOPIC_REWARDS, Float32)
 
     def replay(self):
         if len(self.memory) < 500 or len(self.memory) < BATCH_SIZE:
@@ -139,6 +141,8 @@ class QLearningTrainingNode(QLearningNode):
     def on_complete_episode(self):
         self.episode_length_history.append(self.episode_length)
         self.cumulative_reward_history.append(self.cumulative_reward)
+
+        self.reward_publisher.publish(self.cumulative_reward)
 
         real_time = time.time()
         sim_time = rospy.Time.now().to_sec()

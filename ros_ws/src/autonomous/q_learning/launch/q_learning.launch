@@ -15,4 +15,11 @@
     name="crash_detector"
     output="screen" >
   </node>
+
+  <node
+    pkg="q_learning"
+    type="plotter.py"
+    name="q_learning_plotter"
+    output="screen" >
+  </node>
 </launch>

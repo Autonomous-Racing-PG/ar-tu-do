@@ -12,6 +12,7 @@ TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
 TOPIC_SCAN = "/scan"
 TOPIC_CRASH = "/crash"
 TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
+TOPIC_REWARDS = "/qlearning/reward"
 
 # General parameters
 
