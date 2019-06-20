@@ -9,16 +9,17 @@ These instructions will get you a copy of the project up and running
 \#\#\# Install missing system dependencies 
 \begin{DoxyCode}
 1 sudo apt install libsdl2-dev
-2 
-3 # RangeLibc
-4 sudo pip uninstall pip && sudo apt install python-pip
-5 sudo pip install cython
-6 git clone http://github.com/kctess5/range\_libc
-7 cd range\_libc/pywrapper
-8 # Either:
-9 ./compile.sh            # on VM
-10 # Or:
-11 ./compile\_with\_cuda.sh  # on car - compiles GPU ray casting methods
+2 pip install torch
+3 
+4 # RangeLibc
+5 sudo pip uninstall pip && sudo apt install python-pip
+6 pip install cython
+7 git clone http://github.com/kctess5/range\_libc
+8 cd range\_libc/pywrapper
+9 # Either:
+10 ./compile.sh            # on VM
+11 # Or:
+12 ./compile\_with\_cuda.sh  # on car - compiles GPU ray casting methods
 \end{DoxyCode}
 
 
