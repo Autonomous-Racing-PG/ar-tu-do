@@ -5,31 +5,39 @@ from parameters import *
 import pyqtgraph as pg
 import rospy
 import sys
-import numpy
-from collections import deque
-from std_msgs.msg import Float32
+from q_learning.msg import EpisodeResult
 
 
-def update_reward_list(msg):
-    reward_list.append(msg.data)
+def update_result_lists(msg):
+    reward_list.append(msg.reward)
+    length_list.append(msg.length)
 
 
 def update_plot():
-    reward_plot.plot(reward_list, clear=True)
+    reward_plot.setData(range(len(reward_list))[-50:], reward_list[-50:])
+    length_plot.setData(range(len(length_list))[-50:], length_list[-50:])
 
 
-reward_list = deque(maxlen=50)
+reward_list = list()
+length_list = list()
 
 app = QtGui.QApplication(sys.argv)
+app_window = pg.GraphicsWindow(title='Q-Learning Plotter')
+main_plot = app_window.addPlot(title='Episodes')
 
-reward_plot = pg.plot()
+main_plot.addLegend()
+
+length_plot = main_plot.plot(
+    pen='g', symbol='o', symbolPen='w', symbolBrush='g', symbolSize=8, name='length')
+reward_plot = main_plot.plot(
+    pen='r', symbol='o', symbolPen='w', symbolBrush='r', symbolSize=8, name='reward')
 
 update_plot_timer = QtCore.QTimer()
 update_plot_timer.timeout.connect(update_plot)
 update_plot_timer.start(500)
 
 rospy.init_node('q_learning_plotter', anonymous=True)
-rospy.Subscriber(TOPIC_REWARDS, Float32, update_reward_list)
+rospy.Subscriber(TOPIC_EPISODE_RESULT, EpisodeResult, update_result_lists)
 
 if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
     app.exec_()
