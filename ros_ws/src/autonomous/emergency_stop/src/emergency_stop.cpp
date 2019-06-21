@@ -39,8 +39,9 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
     // Instead of calculating the range average, we are more cautious because we would
     // rather have false positives instead of false negatives.
     // i.e. we would rather stop too much than crash into an obstacle.
-    auto min_range = std::min(m_max_range, *std::min_element(lidar->ranges.begin() + index_start,
-                                                             lidar->ranges.begin() + index_end));
+    auto min_range =
+        std::min(m_max_range,
+                 *std::min_element(lidar->ranges.begin() + index_start, lidar->ranges.begin() + index_end));
     ROS_ASSERT_MSG(min_range >= 0, "The minimal distance between the car and a potential obstacle is below zero.");
 
     return min_range < m_range_threshold;

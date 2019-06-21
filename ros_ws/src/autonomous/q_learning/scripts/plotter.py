@@ -28,9 +28,19 @@ main_plot = app_window.addPlot(title='Episodes')
 main_plot.addLegend()
 
 length_plot = main_plot.plot(
-    pen='g', symbol='o', symbolPen='w', symbolBrush='g', symbolSize=8, name='length')
+    pen='g',
+    symbol='o',
+    symbolPen='w',
+    symbolBrush='g',
+    symbolSize=8,
+    name='length')
 reward_plot = main_plot.plot(
-    pen='r', symbol='o', symbolPen='w', symbolBrush='r', symbolSize=8, name='reward')
+    pen='r',
+    symbol='o',
+    symbolPen='w',
+    symbolBrush='r',
+    symbolSize=8,
+    name='reward')
 
 update_plot_timer = QtCore.QTimer()
 update_plot_timer.timeout.connect(update_plot)
