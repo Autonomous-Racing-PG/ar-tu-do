@@ -55,8 +55,8 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
     if (!(min_range < m_range_threshold))
     {
         m_debug_geometry.drawLine(0, createPoint(m_range_threshold, -car_bumper_length_half, 0),
-                                        createPoint(m_range_threshold, car_bumper_length_half, 0),
-                                        createColor(0, 1., 0, 1.), 0.03);
+                                  createPoint(m_range_threshold, car_bumper_length_half, 0), createColor(0, 1., 0, 1.),
+                                  0.03);
     }
     else
     {
@@ -73,8 +73,8 @@ void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
     bool emergency_stop_active = emergencyStop(lidar);
 
     this->m_emergency_status = (this->m_emergency_status == EmergencyStatus::UNUSED)
-    ? emergency_stop_active ? EmergencyStatus::ACTIVATED : EmergencyStatus::CLEARED
-    : this->m_emergency_status;
+        ? emergency_stop_active ? EmergencyStatus::ACTIVATED : EmergencyStatus::CLEARED
+        : this->m_emergency_status;
 
     if (emergency_stop_active)
     {
