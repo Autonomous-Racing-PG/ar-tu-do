@@ -19,6 +19,8 @@
     -->
     <arg name="mode_override" default="0"/>
 
+    <param name="world_name" value="$(arg world)"/>
+
     <include file="$(find racer_world)/launch/racer_gazebo.launch">
         <arg name="world" value="$(arg world)"/>
         <arg name="paused" value="$(arg paused)"/>
