@@ -4,6 +4,7 @@
   <arg name="gui" default="true"/>
   <arg name="realtime_simulation" default="true"/>
   <arg name="car_highlighting" default="true"/>
+  <arg name="plot_window" default="200"/>
 
   <include file="$(find racer_world)/launch/racer_gazebo.launch">
       <arg name="world" value="racetrack_decorated"/>
@@ -24,5 +25,7 @@
       <arg name="mode_override" value="2"/>
   </include>
 
-  <include file="$(find q_learning)/launch/q_learning.launch"/>
+  <include file="$(find q_learning)/launch/q_learning.launch">
+    <arg name="plot_window" value="$(arg plot_window)"/>
+  </include>
 </launch>

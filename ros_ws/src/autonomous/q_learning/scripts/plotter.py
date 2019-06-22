@@ -1,25 +1,32 @@
 #!/usr/bin/env python
 
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtGui
 from parameters import *
 import pyqtgraph as pg
 import rospy
 import sys
+from collections import deque
 from q_learning.msg import EpisodeResult
 
 
-def update_result_lists(msg):
+def update_plot(msg):
+    global episode_count, plot_window
     reward_list.append(msg.reward)
     length_list.append(msg.length)
+    episode_count += 1
+    reward_plot.prepareGeometryChange()
+    reward_plot.setData(range(episode_count)[-plot_window:], reward_list)
+    length_plot.prepareGeometryChange()
+    length_plot.setData(range(episode_count)[-plot_window:], length_list)
 
 
-def update_plot():
-    reward_plot.setData(range(len(reward_list))[-50:], reward_list[-50:])
-    length_plot.setData(range(len(length_list))[-50:], length_list[-50:])
+rospy.init_node('q_learning_plotter', anonymous=True)
 
+plot_window = rospy.get_param("~plot_window")
 
-reward_list = list()
-length_list = list()
+reward_list = deque(maxlen=plot_window)
+length_list = deque(maxlen=plot_window)
+episode_count = 0
 
 app = QtGui.QApplication(sys.argv)
 app_window = pg.GraphicsWindow(title='Q-Learning Plotter')
@@ -29,25 +36,20 @@ main_plot.addLegend()
 
 length_plot = main_plot.plot(
     pen='g',
-    symbol='o',
-    symbolPen='w',
-    symbolBrush='g',
-    symbolSize=8,
+    # symbol='o',
+    # symbolPen='w',
+    # symbolBrush='g',
+    # symbolSize=8,
     name='length')
 reward_plot = main_plot.plot(
     pen='r',
-    symbol='o',
-    symbolPen='w',
-    symbolBrush='r',
-    symbolSize=8,
+    # symbol='o',
+    # symbolPen='w',
+    # symbolBrush='r',
+    # symbolSize=8,
     name='reward')
 
-update_plot_timer = QtCore.QTimer()
-update_plot_timer.timeout.connect(update_plot)
-update_plot_timer.start(500)
-
-rospy.init_node('q_learning_plotter', anonymous=True)
-rospy.Subscriber(TOPIC_EPISODE_RESULT, EpisodeResult, update_result_lists)
+rospy.Subscriber(TOPIC_EPISODE_RESULT, EpisodeResult, update_plot)
 
 if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
     app.exec_()
