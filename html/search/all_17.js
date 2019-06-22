@@ -17,5 +17,6 @@ var searchData=
   ['wheel_5fright_5ffront_5fvelocity',['WHEEL_RIGHT_FRONT_VELOCITY',['../namespacesimulation.html#aad00b40febd3e9442560a15cd5204a46',1,'simulation']]],
   ['wheel_5fvelocity',['wheel_velocity',['../namespacesimulation__tools_1_1speedometer.html#a6d93deddfe3b707f9be21ed85278d8b5',1,'simulation_tools::speedometer']]],
   ['wheel_5fwidth',['WHEEL_WIDTH',['../namespacecar__config.html#ace29186cd9605cde6edd0fd9b814df63',1,'car_config']]],
-  ['wheelbase',['WHEELBASE',['../namespacecar__config.html#a4e9e4925d43a88de91b13bedafabce67',1,'car_config']]]
+  ['wheelbase',['WHEELBASE',['../namespacecar__config.html#a4e9e4925d43a88de91b13bedafabce67',1,'car_config']]],
+  ['world_5fname',['world_name',['../namespacesimulation__tools_1_1lap__timer.html#ac7895961da34f237455ee1f2e19e9a33',1,'simulation_tools.lap_timer.world_name()'],['../namespacesimulation__tools_1_1track.html#ab4fe6910a622507d50763ab0aeb7d990',1,'simulation_tools.track.world_name()']]]
 ];

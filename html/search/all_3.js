@@ -11,7 +11,7 @@ var searchData=
   ['car_5fposition',['car_position',['../classtrain_1_1_q_learning_training_node.html#ac802eca257307ce6c83897c612aa5f90',1,'train::QLearningTrainingNode']]],
   ['car_5fvelocity',['car_velocity',['../namespacesimulation__tools_1_1speedometer.html#a58c9137e8b8cf3668ebac7ca01fa1bc9',1,'simulation_tools::speedometer']]],
   ['carcontroller',['CarController',['../class_car_controller.html',1,'CarController'],['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController::CarController()']]],
-  ['center',['center',['../classcircle_1_1_circle.html#aa2ed466736c7e4436ab6ded456ebd24b',1,'circle.Circle.center()'],['../classsimulation__tools_1_1lap__timer_1_1_area.html#ab6d54ce6f15f7931e2c97c418ef275ec',1,'simulation_tools.lap_timer.Area.center()']]],
+  ['center',['center',['../classcircle_1_1_circle.html#aa2ed466736c7e4436ab6ded456ebd24b',1,'circle.Circle.center()'],['../classsimulation__tools_1_1lap__timer_1_1_area.html#ab6d54ce6f15f7931e2c97c418ef275ec',1,'simulation_tools.lap_timer.Area.center()'],['../namespacesimulation__tools_1_1lap__timer.html#af7bd3bda623e8f26b61e053a98b476f8',1,'simulation_tools.lap_timer.center()']]],
   ['check_5fcar_5forientation',['check_car_orientation',['../classtrain_1_1_q_learning_training_node.html#aeff9ce73821ded751c709f5f5acabd22',1,'train::QLearningTrainingNode']]],
   ['checkpoint_5f1',['CHECKPOINT_1',['../namespacesimulation__tools_1_1lap__timer.html#a20574c968e10b9baa7bb953a9a7eb693',1,'simulation_tools::lap_timer']]],
   ['checkpoint_5f2',['CHECKPOINT_2',['../namespacesimulation__tools_1_1lap__timer.html#a7773acfe8635b4d8a0e96d13912243b0',1,'simulation_tools::lap_timer']]],

@@ -11,5 +11,5 @@ var searchData=
   ['epsilon',['EPSILON',['../joystick__controller_8h.html#a5a724c92d7a761382e1727b34f570121',1,'joystick_controller.h']]],
   ['erpm_5fto_5frad_5fper_5fsec',['ERPM_TO_RAD_PER_SEC',['../namespacecar__config.html#a877c4a772a47f4737d9f03fe8a22e106',1,'car_config']]],
   ['erpm_5fto_5fspeed',['ERPM_TO_SPEED',['../namespacecar__config.html#af33b95798967e7193927782fd91d36ce',1,'car_config']]],
-  ['extents',['extents',['../classsimulation__tools_1_1lap__timer_1_1_area.html#a5a876b3d7c79ddb803e0e66d851c8c4d',1,'simulation_tools::lap_timer::Area']]]
+  ['extents',['extents',['../classsimulation__tools_1_1lap__timer_1_1_area.html#a5a876b3d7c79ddb803e0e66d851c8c4d',1,'simulation_tools.lap_timer.Area.extents()'],['../namespacesimulation__tools_1_1lap__timer.html#a18d52d051d6ebf35a4cee65e89a187d2',1,'simulation_tools.lap_timer.extents()']]]
 ];
