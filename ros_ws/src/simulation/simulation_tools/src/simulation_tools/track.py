@@ -146,6 +146,6 @@ POINTS = np.array((
     (2.64, -0.36)))
 
 if world_name == "racetrack_decorated_2_big":
-    POINTS = POINTS * 2.5
+    POINTS *= 2.5
 
 track = Track(POINTS)
