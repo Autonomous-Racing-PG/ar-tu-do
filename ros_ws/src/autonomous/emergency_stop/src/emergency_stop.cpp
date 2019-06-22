@@ -2,6 +2,8 @@
 #include <std_msgs/Time.h>
 
 EmergencyStop::EmergencyStop()
+    : m_emergency_status(EmergencyStatus::UNUSED)
+    , m_debug_geometry(this->m_node_handle, TOPIC_VISUALIZATION, LIDAR_FRAME)
 {
     m_lidar_subscriber =
         m_node_handle.subscribe<sensor_msgs::LaserScan>(TOPIC_LASER_SCAN, 1, &EmergencyStop::lidarCallback, this);
@@ -43,6 +45,26 @@ bool EmergencyStop::emergencyStop(const sensor_msgs::LaserScan::ConstPtr& lidar)
                                                              lidar->ranges.begin() + index_end));
     ROS_ASSERT_MSG(min_range >= 0, "The minimal distance between the car and a potential obstacle is below zero.");
 
+    const float car_bumper_length_half = m_car_bumper_length / 2;
+    // Min range to obstacle
+    this->m_debug_geometry.drawLine(1, createPoint(min_range, -car_bumper_length_half, 0),
+                                    createPoint(min_range, car_bumper_length_half, 0), createColor(1., 1., 0, 1.),
+                                    0.03);
+
+    // Range threshold
+    if (!(min_range < m_range_threshold))
+    {
+        m_debug_geometry.drawLine(0, createPoint(m_range_threshold, -car_bumper_length_half, 0),
+                                        createPoint(m_range_threshold, car_bumper_length_half, 0),
+                                        createColor(0, 1., 0, 1.), 0.03);
+    }
+    else
+    {
+        this->m_debug_geometry.drawLine(0, createPoint(m_range_threshold, -car_bumper_length_half, 0),
+                                        createPoint(m_range_threshold, car_bumper_length_half, 0),
+                                        createColor(1., 0, 0, 1.), 0.03);
+    }
+
     return min_range < m_range_threshold;
 }
 
@@ -50,14 +72,30 @@ void EmergencyStop::lidarCallback(const sensor_msgs::LaserScan::ConstPtr& lidar)
 {
     bool emergency_stop_active = emergencyStop(lidar);
 
+    this->m_emergency_status = (this->m_emergency_status == EmergencyStatus::UNUSED)
+    ? emergency_stop_active ? EmergencyStatus::ACTIVATED : EmergencyStatus::CLEARED
+    : this->m_emergency_status;
+
     if (emergency_stop_active)
     {
-        ROS_INFO_STREAM("Wall detected. Emergency stop is active.");
+        if (this->m_emergency_status == EmergencyStatus::ACTIVATED)
+        {
+            ROS_WARN_STREAM("Wall detected. Emergency stop is active.");
+            this->m_emergency_status = EmergencyStatus::CLEARED;
+        }
 
         std_msgs::Time message;
         message.data = ros::Time::now();
 
         m_emergency_stop_publisher.publish(message);
+    }
+    else
+    {
+        if (this->m_emergency_status == EmergencyStatus::CLEARED)
+        {
+            ROS_WARN_STREAM("Emergency stop is inactive.");
+            this->m_emergency_status = EmergencyStatus::ACTIVATED;
+        }
     }
 }
 
