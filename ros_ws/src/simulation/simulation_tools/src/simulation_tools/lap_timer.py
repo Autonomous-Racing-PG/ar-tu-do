@@ -69,7 +69,10 @@ class Timer():
 
 
 world_name = rospy.get_param('world_name')
-if world_name not in ['racetrack_decorated', 'racetrack_decorated_2', 'racetrack_decorated_2_big']:
+if world_name not in [
+    'racetrack_decorated',
+    'racetrack_decorated_2',
+        'racetrack_decorated_2_big']:
     rospy.logfatal('Racetrack not supported by lap_timer.')
     sys.exit(1)
 
@@ -80,7 +83,12 @@ CHECKPOINT_2 = Area(Point(0, 4), Point(2, 2))
 CHECKPOINT_3 = Area(Point(-14, 1), Point(2, 2))
 
 if world_name == 'racetrack_decorated_2_big':
-    for area in [FINISH_LINE_1, FINISH_LINE_2, CHECKPOINT_1, CHECKPOINT_2, CHECKPOINT_3]:
+    for area in [
+            FINISH_LINE_1,
+            FINISH_LINE_2,
+            CHECKPOINT_1,
+            CHECKPOINT_2,
+            CHECKPOINT_3]:
         area.center = Point(area.center.x * 2.5, area.center.y * 2.5)
         area.extents = Point(area.extents.x * 2.5, area.extents.y * 2.5)
 
