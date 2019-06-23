@@ -2,12 +2,14 @@
 
 <launch>
 
+  <arg name="robot_control_name" default="robot1_control" />
+
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find racer_control)/config/racer_config.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node 
-    name="controller_spawner" 
+    name="$(arg robot_control_name)" 
     pkg="controller_manager" 
     type="spawner" 
     respawn="false"

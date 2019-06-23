@@ -12,30 +12,28 @@
       <arg name="use_gpu" value="$(arg use_gpu)" />
       <arg name="visualize_lidar" value="$(arg visualize_lidar)" />
       <arg name="laser_sample_count" value="$(arg laser_sample_count)" />
+      <arg name="robot_name" value="robot1" />
     </include>
-  </group>
-  
-</launch>
 
-<?xml version="1.0" encoding="UTF-8"?>
-<launch>
-
-  <arg name="use_gpu" default="true"/>
-  <arg name="visualize_lidar" default="false"/>
-  <arg name="laser_sample_count" default="1080"/>
-
-  <!-- BEGIN ROBOT 1-->
-  <group ns="robot1">
-    <param name="tf_prefix" value="robot1_tf" />
-    <include file="$(find racer_world)/launch/robot.launch" >
-      <arg name="use_gpu" value="$(arg use_gpu)" />
-      <arg name="visualize_lidar" value="$(arg visualize_lidar)" />
-      <arg name="laser_sample_count" value="$(arg laser_sample_count)" />
-    </include>
-    
     <include file="$(find vesc_sim)/launch/vesc_sim.launch">
       <arg name="robot_namespace" default="/robot1"/>
     </include>
   </group>
   
+
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot2">
+    <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find racer_world)/launch/robot.launch" >
+      <arg name="use_gpu" value="$(arg use_gpu)" />
+      <arg name="visualize_lidar" value="$(arg visualize_lidar)" />
+      <arg name="laser_sample_count" value="$(arg laser_sample_count)" />
+      <arg name="robot_name" value="robot2" />
+    </include>
+
+    <include file="$(find vesc_sim)/launch/vesc_sim.launch">
+      <arg name="robot_namespace" default="/robot2"/>
+    </include>
+  </group>
+
 </launch>
