@@ -98,7 +98,8 @@ class QLearningTrainingNode(QLearningNode):
             math.exp(-1. * self.total_step_count / EPS_DECAY)
 
     def select_action(self, state):
-        if random.random() < self.get_epsilon_greedy_threshold():
+        use_epsilon_greedy = self.episode_count % 2 == 0
+        if use_epsilon_greedy and random.random() < self.get_epsilon_greedy_threshold():
             return random.randrange(ACTION_COUNT)
 
         with torch.no_grad():
