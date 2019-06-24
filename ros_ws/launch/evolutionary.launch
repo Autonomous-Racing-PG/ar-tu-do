@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="world" default="racetrack_decorated"/>
+  <arg name="use_gpu" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="realtime_simulation" default="true"/>
+  <arg name="car_highlighting" default="true"/>
+
+  <param name="world_name" value="$(arg world)"/>
+
+  <include file="$(find racer_world)/launch/racer_gazebo.launch">
+      <arg name="world" value="$(arg world)"/>
+      <arg name="gui" value="$(arg gui)"/>
+      <arg name="debug" value="false"/>
+      <arg name="verbose" value="false"/>
+      <arg name="use_gpu" value="$(arg use_gpu)"/>
+      <arg name="extra_gazebo_args" value="--profile qlearning" unless="$(arg realtime_simulation)"/>
+      <arg name="laser_sample_count" value="32"/>
+      <arg name="car_highlighting" value="$(arg car_highlighting)"/>
+  </include>
+
+  <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>
+
+  <include file="$(find car_tf)/launch/car_transformer.launch"/>
+
+  <include file="$(find car_control)/launch/car_control.launch">
+      <arg name="mode_override" value="2"/>
+  </include>
+
+  <include file="$(find evolutionary)/launch/evolutionary_training.launch"/>
+</launch>

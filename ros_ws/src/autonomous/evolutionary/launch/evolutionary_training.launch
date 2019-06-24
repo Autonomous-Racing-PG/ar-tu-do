@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- Evolutionary training related nodes: -->
+
+  <node
+    pkg="evolutionary"
+    type="train.py"
+    name="evolutionary_training"
+    output="screen" >
+  </node>
+
+  <node
+    pkg="simulation_tools"
+    type="crash_detector"
+    name="crash_detector"
+    output="screen" >
+  </node>
+</launch>
