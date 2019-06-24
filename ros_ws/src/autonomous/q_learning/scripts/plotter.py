@@ -36,17 +36,9 @@ main_plot.addLegend()
 
 length_plot = main_plot.plot(
     pen='g',
-    # symbol='o',
-    # symbolPen='w',
-    # symbolBrush='g',
-    # symbolSize=8,
     name='length')
 reward_plot = main_plot.plot(
     pen='r',
-    # symbol='o',
-    # symbolPen='w',
-    # symbolBrush='r',
-    # symbolSize=8,
     name='reward')
 
 rospy.Subscriber(TOPIC_EPISODE_RESULT, EpisodeResult, update_plot)
