@@ -8,6 +8,7 @@ var searchData=
   ['main_2ecpp',['main.cpp',['../car__tf_2src_2main_8cpp.html',1,'']]],
   ['main_2ecpp',['main.cpp',['../simulation_2vesc__sim_2src_2main_8cpp.html',1,'']]],
   ['main_2ecpp',['main.cpp',['../navigation__stack_2navigation__stack__control__converter_2src_2main_8cpp.html',1,'']]],
+  ['main_5fplot',['main_plot',['../namespaceplotter.html#a40d656a97d2e7039f17ee5742490ecf9',1,'plotter']]],
   ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
   ['manual',['MANUAL',['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;keyboard_controller.h'],['../drive__mode_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;drive_mode.h'],['../keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a',1,'MANUAL():&#160;keyboard_controller.h']]],
   ['map',['map',['../wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc',1,'map():&#160;wall_following.cpp'],['../namespacewallfollowing.html#a908b60b64e20dec7078e707a829b610d',1,'wallfollowing.map()'],['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'map():&#160;keyboard_controller.cpp']]],

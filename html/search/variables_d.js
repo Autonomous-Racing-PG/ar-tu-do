@@ -4,6 +4,8 @@ var searchData=
   ['real_5ftime_5ffactor',['real_time_factor',['../classtrain_1_1_q_learning_training_node.html#a407532bec47855fec93201fa87fe80ab',1,'train::QLearningTrainingNode']]],
   ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../namespacecar__config.html#a43e668702c6dc662ff95f80047ee5500',1,'car_config']]],
   ['reverse_5ftrack',['reverse_track',['../namespacesimulation__tools_1_1lap__timer.html#a05166a035886cf7f2693a8f72dc05bbc',1,'simulation_tools::lap_timer']]],
+  ['reward_5flist',['reward_list',['../namespaceplotter.html#aa648ebbb57476267f9430be51eeb420c',1,'plotter']]],
+  ['reward_5fplot',['reward_plot',['../namespaceplotter.html#a40062593c153ab9d59f836890f82dfc7',1,'plotter']]],
   ['right',['right',['../classsimulation__tools_1_1track_1_1_track.html#a668e3804fa2720790fb57f592c73c782',1,'simulation_tools::track::Track']]],
   ['right_5fsteering_5fposition',['RIGHT_STEERING_POSITION',['../namespacesimulation.html#af34d70ba82e8343343521a32e5f6b12a',1,'simulation']]],
   ['rpm_5fto_5fspeed',['RPM_TO_SPEED',['../namespacecar__config.html#aee034b6adfd7932f245bc94d869f2bb6',1,'car_config']]],

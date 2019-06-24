@@ -10,6 +10,8 @@ var searchData=
   ['reset_5fcar_2epy',['reset_car.py',['../reset__car_8py.html',1,'']]],
   ['reset_5frandom',['reset_random',['../namespacesimulation__tools_1_1reset__car.html#a4866780a44278581a356c77cd3ad6b78',1,'simulation_tools::reset_car']]],
   ['reverse_5ftrack',['reverse_track',['../namespacesimulation__tools_1_1lap__timer.html#a05166a035886cf7f2693a8f72dc05bbc',1,'simulation_tools::lap_timer']]],
+  ['reward_5flist',['reward_list',['../namespaceplotter.html#aa648ebbb57476267f9430be51eeb420c',1,'plotter']]],
+  ['reward_5fplot',['reward_plot',['../namespaceplotter.html#a40062593c153ab9d59f836890f82dfc7',1,'plotter']]],
   ['right',['right',['../classsimulation__tools_1_1track_1_1_track.html#a668e3804fa2720790fb57f592c73c782',1,'simulation_tools::track::Track']]],
   ['right_5fsteering_5fposition',['RIGHT_STEERING_POSITION',['../namespacesimulation.html#af34d70ba82e8343343521a32e5f6b12a',1,'simulation']]],
   ['rpm_5fto_5fspeed',['RPM_TO_SPEED',['../namespacecar__config.html#aee034b6adfd7932f245bc94d869f2bb6',1,'car_config']]],

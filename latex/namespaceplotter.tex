@@ -1,0 +1,120 @@
+\hypertarget{namespaceplotter}{}\section{plotter Namespace Reference}
+\label{namespaceplotter}\index{plotter@{plotter}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceplotter_a4dd8967dd22ff14b03fcc921ec7dcc3d}{update\+\_\+plot} (msg)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceplotter_abbb49ab9c0174321374123fd800937f1}{plot\+\_\+window} = rospy.\+get\+\_\+param(\char`\"{}$\sim$plot\+\_\+window\char`\"{})
+\item 
+\hyperlink{namespaceplotter_aa648ebbb57476267f9430be51eeb420c}{reward\+\_\+list} = deque(maxlen=\hyperlink{namespaceplotter_abbb49ab9c0174321374123fd800937f1}{plot\+\_\+window})
+\item 
+\hyperlink{namespaceplotter_ab7eba5fc23c3791ab6bca7c5c975d2b8}{length\+\_\+list} = deque(maxlen=\hyperlink{namespaceplotter_abbb49ab9c0174321374123fd800937f1}{plot\+\_\+window})
+\item 
+int \hyperlink{namespaceplotter_aec1d6d729c0b25355f045e1f5bdc588f}{episode\+\_\+count} = 0
+\item 
+\hyperlink{namespaceplotter_ab20bf5077ebe79698f5f02f62dcb33d2}{app} = Qt\+Gui.\+Q\+Application(sys.\+argv)
+\item 
+\hyperlink{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{app\+\_\+window} = pg.\+Graphics\+Window(title=\textquotesingle{}Q-\/Learning Plotter\textquotesingle{})
+\item 
+\hyperlink{namespaceplotter_a40d656a97d2e7039f17ee5742490ecf9}{main\+\_\+plot} = app\+\_\+window.\+add\+Plot(title=\textquotesingle{}Episodes\textquotesingle{})
+\item 
+\hyperlink{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{length\+\_\+plot}
+\item 
+\hyperlink{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{reward\+\_\+plot}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{plotter@{plotter}!update\+\_\+plot@{update\+\_\+plot}}
+\index{update\+\_\+plot@{update\+\_\+plot}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{update\+\_\+plot(msg)}{update_plot(msg)}}]{\setlength{\rightskip}{0pt plus 5cm}def plotter.\+update\+\_\+plot (
+\begin{DoxyParamCaption}
+\item[{}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceplotter_a4dd8967dd22ff14b03fcc921ec7dcc3d}{}\label{namespaceplotter_a4dd8967dd22ff14b03fcc921ec7dcc3d}
+
+
+Definition at line 12 of file plotter.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{plotter@{plotter}!app@{app}}
+\index{app@{app}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{app}{app}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+app = Qt\+Gui.\+Q\+Application(sys.\+argv)}\hypertarget{namespaceplotter_ab20bf5077ebe79698f5f02f62dcb33d2}{}\label{namespaceplotter_ab20bf5077ebe79698f5f02f62dcb33d2}
+
+
+Definition at line 31 of file plotter.\+py.
+
+\index{plotter@{plotter}!app\+\_\+window@{app\+\_\+window}}
+\index{app\+\_\+window@{app\+\_\+window}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{app\+\_\+window}{app_window}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+app\+\_\+window = pg.\+Graphics\+Window(title=\textquotesingle{}Q-\/Learning Plotter\textquotesingle{})}\hypertarget{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{}\label{namespaceplotter_aac09effafbbcb0f637092be85f99c351}
+
+
+Definition at line 32 of file plotter.\+py.
+
+\index{plotter@{plotter}!episode\+\_\+count@{episode\+\_\+count}}
+\index{episode\+\_\+count@{episode\+\_\+count}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{episode\+\_\+count}{episode_count}}]{\setlength{\rightskip}{0pt plus 5cm}int plotter.\+episode\+\_\+count = 0}\hypertarget{namespaceplotter_aec1d6d729c0b25355f045e1f5bdc588f}{}\label{namespaceplotter_aec1d6d729c0b25355f045e1f5bdc588f}
+
+
+Definition at line 29 of file plotter.\+py.
+
+\index{plotter@{plotter}!length\+\_\+list@{length\+\_\+list}}
+\index{length\+\_\+list@{length\+\_\+list}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{length\+\_\+list}{length_list}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+length\+\_\+list = deque(maxlen={\bf plot\+\_\+window})}\hypertarget{namespaceplotter_ab7eba5fc23c3791ab6bca7c5c975d2b8}{}\label{namespaceplotter_ab7eba5fc23c3791ab6bca7c5c975d2b8}
+
+
+Definition at line 28 of file plotter.\+py.
+
+\index{plotter@{plotter}!length\+\_\+plot@{length\+\_\+plot}}
+\index{length\+\_\+plot@{length\+\_\+plot}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{length\+\_\+plot}{length_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+length\+\_\+plot}\hypertarget{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{}\label{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = main\_plot.plot(
+2     pen=\textcolor{stringliteral}{'g'},
+3     name=\textcolor{stringliteral}{'length'})
+\end{DoxyCode}
+
+
+Definition at line 37 of file plotter.\+py.
+
+\index{plotter@{plotter}!main\+\_\+plot@{main\+\_\+plot}}
+\index{main\+\_\+plot@{main\+\_\+plot}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{main\+\_\+plot}{main_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+main\+\_\+plot = app\+\_\+window.\+add\+Plot(title=\textquotesingle{}Episodes\textquotesingle{})}\hypertarget{namespaceplotter_a40d656a97d2e7039f17ee5742490ecf9}{}\label{namespaceplotter_a40d656a97d2e7039f17ee5742490ecf9}
+
+
+Definition at line 33 of file plotter.\+py.
+
+\index{plotter@{plotter}!plot\+\_\+window@{plot\+\_\+window}}
+\index{plot\+\_\+window@{plot\+\_\+window}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{plot\+\_\+window}{plot_window}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+plot\+\_\+window = rospy.\+get\+\_\+param(\char`\"{}$\sim$plot\+\_\+window\char`\"{})}\hypertarget{namespaceplotter_abbb49ab9c0174321374123fd800937f1}{}\label{namespaceplotter_abbb49ab9c0174321374123fd800937f1}
+
+
+Definition at line 25 of file plotter.\+py.
+
+\index{plotter@{plotter}!reward\+\_\+list@{reward\+\_\+list}}
+\index{reward\+\_\+list@{reward\+\_\+list}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{reward\+\_\+list}{reward_list}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+reward\+\_\+list = deque(maxlen={\bf plot\+\_\+window})}\hypertarget{namespaceplotter_aa648ebbb57476267f9430be51eeb420c}{}\label{namespaceplotter_aa648ebbb57476267f9430be51eeb420c}
+
+
+Definition at line 27 of file plotter.\+py.
+
+\index{plotter@{plotter}!reward\+\_\+plot@{reward\+\_\+plot}}
+\index{reward\+\_\+plot@{reward\+\_\+plot}!plotter@{plotter}}
+\subsubsection[{\texorpdfstring{reward\+\_\+plot}{reward_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+reward\+\_\+plot}\hypertarget{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{}\label{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = main\_plot.plot(
+2     pen=\textcolor{stringliteral}{'r',}
+3 \textcolor{stringliteral}{    name='reward'})
+\end{DoxyCode}
+
+
+Definition at line 40 of file plotter.\+py.
+

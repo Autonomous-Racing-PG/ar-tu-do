@@ -38,8 +38,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "____init_____8py.html",
-"dir_cf089c3fc3119e33e3acf7c51e4d091c.html",
-"test__car__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627"
+"dir_ca92bc15b16926e3f2a929107d9cd19c.html",
+"speedometer_8py.html#a4db24fad416ca0a52b89d1529e4c38e9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

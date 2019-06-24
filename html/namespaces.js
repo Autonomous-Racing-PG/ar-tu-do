@@ -4,6 +4,7 @@ var namespaces =
     [ "circle", "namespacecircle.html", null ],
     [ "drive", "namespacedrive.html", null ],
     [ "parameters", "namespaceparameters.html", null ],
+    [ "plotter", "namespaceplotter.html", null ],
     [ "qlearning", "namespaceqlearning.html", null ],
     [ "rviz_geometry", "namespacerviz__geometry.html", null ],
     [ "setup", "namespacesetup.html", null ],

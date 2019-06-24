@@ -15,6 +15,7 @@ var parameters_8py =
     [ "MODEL_FILENAME", "parameters_8py.html#aff8b0668384f3fa2d1212d3bd0ff42fa", null ],
     [ "TOPIC_CRASH", "parameters_8py.html#a5e392ed4d998f10824bfd96a0eae2988", null ],
     [ "TOPIC_DRIVE_PARAMETERS", "parameters_8py.html#a855cb11de60782b8e9997af80bdab518", null ],
+    [ "TOPIC_EPISODE_RESULT", "parameters_8py.html#aa69db8cd2d598f0d10212ea8df6a2139", null ],
     [ "TOPIC_GAZEBO_MODEL_STATE", "parameters_8py.html#a9d4157266ec0afde91ab7d58be4f688d", null ],
     [ "TOPIC_SCAN", "parameters_8py.html#a28de242cdbba10666eb0c95aaef6812b", null ],
     [ "USE_EXISTING_PARAMETERS", "parameters_8py.html#a0cffcb215ac12a1700baedb1a13ec8d5", null ]

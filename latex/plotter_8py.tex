@@ -1,0 +1,33 @@
+\hypertarget{plotter_8py}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/plotter.py File Reference}
+\label{plotter_8py}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/plotter.\+py@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/autonomous/q\+\_\+learning/scripts/plotter.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceplotter}{plotter}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceplotter_a4dd8967dd22ff14b03fcc921ec7dcc3d}{plotter.\+update\+\_\+plot} (msg)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceplotter_abbb49ab9c0174321374123fd800937f1}{plotter.\+plot\+\_\+window} = rospy.\+get\+\_\+param(\char`\"{}$\sim$plot\+\_\+window\char`\"{})
+\item 
+\hyperlink{namespaceplotter_aa648ebbb57476267f9430be51eeb420c}{plotter.\+reward\+\_\+list} = deque(maxlen=plot\+\_\+window)
+\item 
+\hyperlink{namespaceplotter_ab7eba5fc23c3791ab6bca7c5c975d2b8}{plotter.\+length\+\_\+list} = deque(maxlen=plot\+\_\+window)
+\item 
+int \hyperlink{namespaceplotter_aec1d6d729c0b25355f045e1f5bdc588f}{plotter.\+episode\+\_\+count} = 0
+\item 
+\hyperlink{namespaceplotter_ab20bf5077ebe79698f5f02f62dcb33d2}{plotter.\+app} = Qt\+Gui.\+Q\+Application(sys.\+argv)
+\item 
+\hyperlink{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{plotter.\+app\+\_\+window} = pg.\+Graphics\+Window(title=\textquotesingle{}Q-\/Learning Plotter\textquotesingle{})
+\item 
+\hyperlink{namespaceplotter_a40d656a97d2e7039f17ee5742490ecf9}{plotter.\+main\+\_\+plot} = app\+\_\+window.\+add\+Plot(title=\textquotesingle{}Episodes\textquotesingle{})
+\item 
+\hyperlink{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{plotter.\+length\+\_\+plot}
+\item 
+\hyperlink{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{plotter.\+reward\+\_\+plot}
+\end{DoxyCompactItemize}

@@ -20,6 +20,7 @@ var classtrain_1_1_q_learning_training_node =
     [ "episode_count", "classtrain_1_1_q_learning_training_node.html#a5bef341c2aa0b019a190efb961701cdc", null ],
     [ "episode_length", "classtrain_1_1_q_learning_training_node.html#abaa1cd9793d6724977d7b9451e36bc3b", null ],
     [ "episode_length_history", "classtrain_1_1_q_learning_training_node.html#af81cfd1d0306828d0ff901faf85df6b3", null ],
+    [ "episode_result_publisher", "classtrain_1_1_q_learning_training_node.html#a7fef779ba6b1592b9ed2837abe5ae6ae", null ],
     [ "episode_start_time_real", "classtrain_1_1_q_learning_training_node.html#a8efbf39c7dcf595fb7c02121c66f9f53", null ],
     [ "episode_start_time_sim", "classtrain_1_1_q_learning_training_node.html#aaba249fe751adb0b4167b350ee2ea7a1", null ],
     [ "is_terminal_step", "classtrain_1_1_q_learning_training_node.html#a0f8d5e71ae52a959d5248f57ac55829a", null ],
