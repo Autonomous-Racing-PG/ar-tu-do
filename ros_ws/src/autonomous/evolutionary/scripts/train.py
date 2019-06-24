@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import math
 import rospy
 from sensor_msgs.msg import LaserScan
