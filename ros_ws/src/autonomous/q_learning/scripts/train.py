@@ -18,6 +18,7 @@ import simulation_tools.reset_car as reset_car
 from simulation_tools.track import track
 
 from gazebo_msgs.msg import ModelStates
+from q_learning.msg import EpisodeResult
 
 BATCH_INDICES = torch.arange(0, BATCH_SIZE, device=device, dtype=torch.long)
 
@@ -58,6 +59,9 @@ class QLearningTrainingNode(QLearningNode):
 
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
         rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
+
+        self.episode_result_publisher = rospy.Publisher(
+            TOPIC_EPISODE_RESULT, EpisodeResult, queue_size=1)
 
     def replay(self):
         if len(self.memory) < 500 or len(self.memory) < BATCH_SIZE:
@@ -140,6 +144,9 @@ class QLearningTrainingNode(QLearningNode):
     def on_complete_episode(self):
         self.episode_length_history.append(self.episode_length)
         self.cumulative_reward_history.append(self.cumulative_reward)
+
+        self.episode_result_publisher.publish(
+            reward=self.cumulative_reward, length=int(self.episode_length))
 
         real_time = time.time()
         sim_time = rospy.Time.now().to_sec()

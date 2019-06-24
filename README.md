@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running
 
 ### Install missing system dependencies
 ```bash
-sudo apt install libsdl2-dev
+sudo apt install libsdl2-dev python-pyqtgraph
 pip install torch
 
 # RangeLibc

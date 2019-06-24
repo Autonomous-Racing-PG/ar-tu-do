@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 <!-- Q-Learning related nodes: -->
+  <arg name="plot_window" default="200"/>
 
   <node
     pkg="q_learning"
@@ -14,5 +15,13 @@
     type="crash_detector"
     name="crash_detector"
     output="screen" >
+  </node>
+
+  <node
+    pkg="q_learning"
+    type="plotter.py"
+    name="q_learning_plotter"
+    output="screen" >
+    <param name="plot_window" value="$(arg plot_window)"/>
   </node>
 </launch>
