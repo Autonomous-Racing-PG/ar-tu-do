@@ -71,15 +71,15 @@ class TrainingNode():
     
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
+        rospy.loginfo("Fitness of best driver : {}".format(self.population[0].fitness))
         self.population = self.population[:SURVIVOR_COUNT]
 
-        self.untested_population = list(self.population)
+        self.untested_population = list()
         for _ in range(POPULATION_SIZE - SURVIVOR_COUNT):
             parent = random.choice(self.population)
             offspring = parent.mutate()
             self.untested_population.append(offspring)
         
-        self.population = []
         self.current_driver = self.untested_population[0]
         self.generation += 1
 
