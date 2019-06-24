@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 
-import osimport rospy
+import rospy
 
 from rospkg import RosPack
 from drive_msgs.msg import drive_param
