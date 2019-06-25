@@ -44,7 +44,8 @@ class NeuralCarDriver(nn.Module):
         self.fitness = None
 
     def drive(self, state):
-        action = self.layers.forward(state)
+        with torch.no_grad():
+            action = self.layers.forward(state)
         
         message = drive_param()
         message.angle = action[0].item()
