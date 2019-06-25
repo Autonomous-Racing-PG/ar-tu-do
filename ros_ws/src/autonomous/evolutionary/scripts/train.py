@@ -54,7 +54,6 @@ class TrainingNode():
     def on_complete_test(self):
         self.current_driver.fitness = self.get_fitness()
 
-        rospy.loginfo("Generation: {0}, Test: {1}, Fitness: {2}".format(self.generation, self.test, self.current_driver.fitness))
         self.population.append(self.current_driver)
         self.untested_population.remove(self.current_driver)
         self.episode_length = 0
@@ -71,7 +70,7 @@ class TrainingNode():
     
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
-        rospy.loginfo("Fitness of best driver : {}".format(self.population[0].fitness))
+        rospy.loginfo("Generation {}: Fitness of the population: ".format(self.generation + 1) + ", ".join(str(driver.fitness) for driver in self.population))
         self.population = self.population[:SURVIVOR_COUNT]
 
         self.untested_population = list()
