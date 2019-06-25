@@ -54,12 +54,14 @@ class NeuralQEstimator(nn.Module):
         # reshape
         # (N, 32 * 15)
 
-        self.fc = nn.Linear(32*15, ACTION_COUNT)
+        #self.fc = nn.Linear(32*15, ACTION_COUNT)
         # (N, ACTION_COUNT)
 
-        # self.fc1 = nn.Linear(32*15, 240)
-        # self.fc2 = nn.Linear(240, 120)
-        # self.fc3 = nn.Linear(120, ACTION_COUNT)
+        self.fc1 = nn.Linear(32*15, 240)
+        self.drp1 = nn.Dropout(p=0.5)
+        self.fc2 = nn.Linear(240, 120)
+        self.drp2 = nn.Dropout(p=0.5)
+        self.fc3 = nn.Linear(120, ACTION_COUNT)
 
     def forward(self, x):
 
@@ -78,11 +80,14 @@ class NeuralQEstimator(nn.Module):
 
         x = x.view(x.shape[0], np.prod(x.shape[1:]))
 
-        x = self.fc(x)
+        #x = self.fc(x)
 
-        # x = F.elu(self.fc1(x))
-        # x = F.elu(self.fc2(x))
-        # x = self.fc3(x)
+        x = F.elu(self.fc1(x))
+        x = self.drp1(x)
+        x = F.elu(self.fc2(x))
+        x = self.drp2(x)
+        x = self.fc3(x)
+        x = F.softmax(input=x, dim=1)
 
         return x
 
