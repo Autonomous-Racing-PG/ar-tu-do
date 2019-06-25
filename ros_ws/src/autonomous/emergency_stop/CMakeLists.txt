@@ -45,7 +45,8 @@ include_directories(
 )
 
 # emergency stop node
-add_executable(emergency_stop src/emergency_stop.cpp)
+
+add_executable(emergency_stop src/emergency_stop.cpp src/rviz_geometry_publisher.cpp)
 target_link_libraries(emergency_stop ${catkin_LIBRARIES})
 add_dependencies(emergency_stop ${${PROJECT_NAME}_EXPORTED_TARGETS}_gencfg)
 add_dependencies(emergency_stop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
