@@ -2,6 +2,7 @@ var searchData=
 [
   ['emergency_5fstop_2ecpp',['emergency_stop.cpp',['../emergency__stop_8cpp.html',1,'']]],
   ['emergency_5fstop_2eh',['emergency_stop.h',['../emergency__stop_8h.html',1,'']]],
+  ['emergencystatus',['EmergencyStatus',['../emergency__stop_8h.html#a7bf80d31757ddeb7e74124c5ed4037a7',1,'emergency_stop.h']]],
   ['emergencystop',['EmergencyStop',['../class_emergency_stop.html',1,'EmergencyStop'],['../class_emergency_stop.html#acd5c3e0c838fe697ebf95452199cca77',1,'EmergencyStop::EmergencyStop()']]],
   ['enable_5fautonomous',['ENABLE_AUTONOMOUS',['../keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ad083a074856ee376bcd97103499a769f',1,'keyboard_controller.h']]],
   ['enable_5fmanual',['ENABLE_MANUAL',['../keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249a5fdf28325c0d8aff8049eab1f5a3fb3f',1,'keyboard_controller.h']]],

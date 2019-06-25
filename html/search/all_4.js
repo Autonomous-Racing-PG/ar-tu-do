@@ -11,7 +11,7 @@ var searchData=
   ['dms_5fcontroller_2eh',['dms_controller.h',['../dms__controller_8h.html',1,'']]],
   ['dmscontroller',['DMSController',['../class_d_m_s_controller.html',1,'DMSController'],['../class_d_m_s_controller.html#acf8a9f7eb6ca02674679d5205253a0f9',1,'DMSController::DMSController()']]],
   ['draw',['draw',['../class_wall.html#a18659ecc23d4b23617072afdd95c9d68',1,'Wall']]],
-  ['drawline',['drawLine',['../class_rviz_geometry_publisher.html#a4448e349606332f087c4deda0a710032',1,'RvizGeometryPublisher']]],
+  ['drawline',['drawLine',['../class_rviz_geometry_publisher.html#a4448e349606332f087c4deda0a710032',1,'RvizGeometryPublisher::drawLine(int id, geometry_msgs::Point point1, geometry_msgs::Point point2, std_msgs::ColorRGBA color, float width)'],['../class_rviz_geometry_publisher.html#a4448e349606332f087c4deda0a710032',1,'RvizGeometryPublisher::drawLine(int id, geometry_msgs::Point point1, geometry_msgs::Point point2, std_msgs::ColorRGBA color, float width)']]],
   ['drive',['drive',['../namespacedrive.html',1,'drive'],['../namespacewallfollowing.html#a66b98adda1f5c1ba1ed6c0029a5d27f6',1,'wallfollowing.drive()']]],
   ['drive_2epy',['drive.py',['../drive_8py.html',1,'']]],
   ['drive_5fforward',['drive_forward',['../classtrain_1_1_q_learning_training_node.html#a400f047c3086a321f255b2405f2ebe1f',1,'train::QLearningTrainingNode']]],

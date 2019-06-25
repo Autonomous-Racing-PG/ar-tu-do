@@ -1,4 +1,4 @@
 <map id="Wall::draw" name="Wall::draw">
 <area shape="rect" id="node2" href="$class_rviz_geometry_publisher.html#a4448e349606332f087c4deda0a710032" title="RvizGeometryPublisher\l::drawLine" alt="" coords="137,5,297,47"/>
-<area shape="rect" id="node3" href="$rviz__geometry__publisher_8h.html#afe771c547275957f1c8ed44386f9529e" title="createPoint" alt="" coords="173,71,261,98"/>
+<area shape="rect" id="node3" href="$emergency__stop_2include_2rviz__geometry__publisher_8h.html#afef9ec806dbf27fd15884c570f8ab7e2" title="createPoint" alt="" coords="173,71,261,98"/>
 </map>

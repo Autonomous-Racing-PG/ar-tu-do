@@ -16,8 +16,8 @@ var hierarchy =
     ] ],
     [ "NavigationStackControlConverter", "class_navigation_stack_control_converter.html", null ],
     [ "wallfollowing.Parameters", "classwallfollowing_1_1_parameters.html", null ],
-    [ "wallfollowing.PIDController", "classwallfollowing_1_1_p_i_d_controller.html", null ],
     [ "PIDController", "class_p_i_d_controller.html", null ],
+    [ "wallfollowing.PIDController", "classwallfollowing_1_1_p_i_d_controller.html", null ],
     [ "qlearning.QLearningNode", "classqlearning_1_1_q_learning_node.html", [
       [ "drive.QLearningDrivingNode", "classdrive_1_1_q_learning_driving_node.html", null ],
       [ "train.QLearningTrainingNode", "classtrain_1_1_q_learning_training_node.html", null ]

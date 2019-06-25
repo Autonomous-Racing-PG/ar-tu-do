@@ -9,7 +9,7 @@ var searchData=
   ['length',['length',['../classsimulation__tools_1_1track_1_1_track.html#a24b60622edd3b0825f31fd6426d9380b',1,'simulation_tools::track::Track']]],
   ['length_5flist',['length_list',['../namespaceplotter.html#ab7eba5fc23c3791ab6bca7c5c975d2b8',1,'plotter']]],
   ['length_5fplot',['length_plot',['../namespaceplotter.html#ac0842708a1e94becc6bb776a68a9ac5f',1,'plotter']]],
-  ['lidar_5fframe',['LIDAR_FRAME',['../wall__following_8h.html#ac6631c1f8956559998695f2038277c65',1,'wall_following.h']]],
+  ['lidar_5fframe',['LIDAR_FRAME',['../emergency__stop_8h.html#ac6631c1f8956559998695f2038277c65',1,'LIDAR_FRAME():&#160;emergency_stop.h'],['../wall__following_8h.html#ac6631c1f8956559998695f2038277c65',1,'LIDAR_FRAME():&#160;wall_following.h']]],
   ['link_5fnames',['LINK_NAMES',['../namespacesimulation__tools_1_1speedometer.html#a814c56b4196e3629a065df33256daab8',1,'simulation_tools::speedometer']]],
   ['link_5fstates_5fmessage',['link_states_message',['../namespacesimulation__tools_1_1speedometer.html#a57927328521dd9b5723725e98c92ab78',1,'simulation_tools::speedometer']]]
 ];
