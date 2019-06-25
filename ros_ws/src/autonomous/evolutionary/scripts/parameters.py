@@ -22,7 +22,7 @@ MAX_SPEED = 0.4
 POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
 
-LEARN_RATE = 1
+LEARN_RATE = 0.2
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
 drive_parameters_publisher = rospy.Publisher(
