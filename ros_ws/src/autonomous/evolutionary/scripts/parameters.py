@@ -25,6 +25,8 @@ POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
 
 LEARN_RATE = 0.5
+USE_CROSSOVER = False
+
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
 drive_parameters_publisher = rospy.Publisher(
