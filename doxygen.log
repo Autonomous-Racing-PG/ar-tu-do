@@ -29,6 +29,7 @@ Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.pac
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/launch
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/src
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/cfg
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/launch
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/script
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control
@@ -286,8 +287,7 @@ Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/dms_controller.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_mode.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_parameters_multiplexer.h...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_parameters_source.h...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_con/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/includ/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
@@ -295,7 +295,8 @@ Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
-trol/src/car_controller.cpp...
+e/drive_parameters_source.h...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/car_controller.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/dms_controller.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/drive_parameters_multiplexer.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/drive_parameters_source.cpp...
@@ -353,8 +354,7 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating call graph for function map
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/script/circle.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/script/rviz_geometry.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/script/wallfollowing.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/car_controller.h./home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing2/script/wallfollowing.py.../home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
@@ -362,7 +362,8 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
-..
+
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/car_controller.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/dms_controller.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_mode.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_parameters_multiplexer.h...
@@ -389,8 +390,7 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/src/simulation_tools/speedometer.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/src/simulation_tools/track.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim.h...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:214: warning: explicit link request to 'define' could not be resolved
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/s/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:214: warning: explicit link request to 'define' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:286: warning: explicit link request to 'ifndef' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:295: warning: explicit link request to 'pragma' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:663: warning: explicit link request to 'pragma' could not be resolved
@@ -402,23 +402,8 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim_driver.h:43: warning: argument 'motor_speed' of command @param is not found in the argument list of VESCSimulationDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr &throttle_message)
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim_driver.h:47: warning: The following parameters of VESCSimulationDriver::motorSpeedCallback(const std_msgs::Float64::ConstPtr &throttle_message) are not documented:
   parameter 'throttle_message'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
-ws/src/simulation/vesc_sim/include/vesc_sim_driver.h...
+rc/simulation/vesc_sim/include/vesc_sim.h...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim_driver.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/params_to_yaml.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim_driver.cpp...
@@ -474,6 +459,22 @@ Generating caller graph for function Wall::getAngle
 Generating call graph for function Wall::predictDistance
 Generating caller graph for function Wall::predictDistance
 Generating docs for compound WallFollowing...
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
 Generating namespace index...
 Generating docs for namespace car_config
 Generating docs for namespace circle
@@ -1260,5 +1261,5 @@ Patching output file 166/169
 Patching output file 167/169
 Patching output file 168/169
 Patching output file 169/169
-lookup cache used 1067/65536 hits=4443 misses=1079
+lookup cache used 1077/65536 hits=4480 misses=1093
 finished...

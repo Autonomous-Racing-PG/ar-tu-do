@@ -3,6 +3,7 @@ var wallfollowing_8py =
     [ "Parameters", "classwallfollowing_1_1_parameters.html", "classwallfollowing_1_1_parameters" ],
     [ "PIDController", "classwallfollowing_1_1_p_i_d_controller.html", "classwallfollowing_1_1_p_i_d_controller" ],
     [ "drive", "wallfollowing_8py.html#a66b98adda1f5c1ba1ed6c0029a5d27f6", null ],
+    [ "dynamic_configuration_callback", "wallfollowing_8py.html#aa82241200b0cac397334403b54a2c1ad", null ],
     [ "find_left_right_border", "wallfollowing_8py.html#a85455c82dd12c297c8cbc3227c1ba598", null ],
     [ "follow_walls", "wallfollowing_8py.html#ae4edc6135d6c1a9b38674119a96b3375", null ],
     [ "get_scan_as_cartesian", "wallfollowing_8py.html#aacb7060aae10ef40bdacceb57283943c", null ],
