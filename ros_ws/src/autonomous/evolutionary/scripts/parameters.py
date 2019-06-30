@@ -14,15 +14,17 @@ TOPIC_SCAN = "/scan"
 TOPIC_CRASH = "/crash"
 TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
-STATE_SIZE = 8
+STATE_SIZE = 5
 
-MIN_SPEED = 0.2
-MAX_SPEED = 0.4
+MIN_SPEED = 0.1
+MAX_SPEED = 1.0
+
+MAX_EPISODE_LENGTH = 5000
 
 POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
 
-LEARN_RATE = 0.2
+LEARN_RATE = 0.5
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
 drive_parameters_publisher = rospy.Publisher(
@@ -33,15 +35,17 @@ class NeuralCarDriver(nn.Module):
         super(NeuralCarDriver, self).__init__()
 
         self.layers = nn.Sequential(
-            nn.Linear(STATE_SIZE, 8),
+            nn.Linear(STATE_SIZE, 5),
             nn.ReLU(),
-            nn.Linear(8, 8),
+            nn.Linear(5, 3),
             nn.ReLU(),
-            nn.Linear(8, 2),
+            nn.Linear(3, 2),
             nn.Tanh()
         )
 
         self.fitness = None
+
+        self.total_velocity = 0
 
     def drive(self, state):
         with torch.no_grad():
@@ -51,6 +55,10 @@ class NeuralCarDriver(nn.Module):
         message.angle = action[0].item()
         message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
         drive_parameters_publisher.publish(message)
+        self.total_velocity += message.velocity 
+
+    def get_total_velocity(self):
+        return self.total_velocity
 
     def to_vector(self):
         state_dict = self.layers.state_dict()

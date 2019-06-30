@@ -28,4 +28,6 @@
   </include>
 
   <include file="$(find evolutionary)/launch/evolutionary_training.launch"/>
+
+  <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="log"/>
 </launch>
