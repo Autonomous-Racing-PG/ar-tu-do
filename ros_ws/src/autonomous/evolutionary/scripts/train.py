@@ -75,8 +75,15 @@ class TrainingNode():
 
         self.untested_population = list()
         for _ in range(POPULATION_SIZE - SURVIVOR_COUNT):
-            parent = random.choice(self.population)
-            offspring = parent.mutate()
+            # do uniform crossover randomly between best individuals
+            parent = random.choice(self.population[:SURVIVOR_COUNT])
+            parent2 = random.choice(self.population[:SURVIVOR_COUNT])
+            offspring = parent.crossover_uniform(parent2)
+
+            # mutate offspring with random probability
+            if random.random() > 0.5:
+                offspring = offspring.mutate()
+
             self.untested_population.append(offspring)
         
         self.current_driver = self.untested_population[0]

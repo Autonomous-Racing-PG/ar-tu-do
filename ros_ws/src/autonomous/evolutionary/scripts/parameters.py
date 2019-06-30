@@ -78,3 +78,16 @@ class NeuralCarDriver(nn.Module):
         offspring = NeuralCarDriver()
         offspring.load_vector(parameters)
         return offspring
+
+    def crossover_uniform(self, partner):
+        parameters_self = self.to_vector()
+        parameters_partner = partner.to_vector()
+
+        random_mask = np.random.choice(
+            [True, False], parameters_self.nelement())
+        parameters_offspring = torch.from_numpy(
+            np.where(random_mask, parameters_self, parameters_partner))
+
+        offspring = NeuralCarDriver()
+        offspring.load_vector(parameters_offspring)
+        return offspring
