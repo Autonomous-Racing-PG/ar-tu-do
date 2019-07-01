@@ -5,7 +5,7 @@
             <!-- Default physics profile with no changes -->
         </physics>
         <physics name="qlearning" type="ode" default="false">
-            <real_time_update_rate>0</real_time_update_rate>
+            <real_time_update_rate>2000</real_time_update_rate>
         </physics>
 
         <include>

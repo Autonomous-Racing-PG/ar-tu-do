@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.autograd import Variable
 
 import os
 import rospy
@@ -15,7 +16,7 @@ TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
 # General parameters
 
-ACTIONS = [(-0.6, 0.2), (0.6, 0.2), (0, 0.2)]
+ACTIONS = [(-0.9, 0.2), (0.9, 0.2),(0.5,0.2),(-0.5,0.2),(0, 0.5)]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
@@ -55,7 +56,7 @@ USE_EXISTING_PARAMETERS = False
 
 DISCOUNT_FACTOR = 0.99  # aka gamma
 
-MAX_EPISODE_LENGTH = 500
+MAX_EPISODE_LENGTH = 5000
 # Sample neural net update batch from the replay memory.
 # It contains this many steps.
 MEMORY_SIZE = 5000

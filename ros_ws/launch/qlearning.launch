@@ -25,7 +25,7 @@
 
   <node
     pkg="q_learning"
-    type="train.py"
+    type="drive.py"
     name="q_learning_training"
     output="screen" >
   </node>
