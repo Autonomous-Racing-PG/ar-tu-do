@@ -10,6 +10,7 @@ from gazebo_msgs.msg import ModelStates
 import torch
 from parameters import *
 import simulation_tools.reset_car as reset_car
+from simulation_tools.track import track, Point
 
 
 class TrainingNode():
@@ -19,6 +20,7 @@ class TrainingNode():
             TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
         rospy.Subscriber(TOPIC_SCAN, LaserScan, self.on_receive_laser_scan)
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
+        rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
 
         self.population = []
         self.untested_population = [NeuralCarDriver() for _ in range(POPULATION_SIZE)]
@@ -28,6 +30,10 @@ class TrainingNode():
         self.episode_length = 0
         self.generation = 0
         self.test = 0
+
+        self.segment_start_time = None
+        self.segment_times = []
+        self.track_progress = None
     
     def convert_laser_message_to_tensor(self, message):
         if self.scan_indices is None:
@@ -45,11 +51,13 @@ class TrainingNode():
         self.current_driver.drive(state)
         self.episode_length += 1
 
-        if self.is_terminal_step or self.episode_length > MAX_EPISODE_LENGTH:
+        if self.is_terminal_step:
             self.on_complete_test()
 
     def get_fitness(self):
-        return self.current_driver.get_total_velocity() ** 2 + self.episode_length
+        if len(self.segment_times) < 20:
+            return self.track_progress
+        return sum(200 / SEGMENT_COUNT - time for time in self.segment_times)
 
     def on_complete_test(self):
         self.current_driver.fitness = self.get_fitness()
@@ -58,6 +66,8 @@ class TrainingNode():
         self.untested_population.remove(self.current_driver)
         self.episode_length = 0
         self.is_terminal_step = False
+        self.segment_start_time = rospy.Time.now()
+        self.segment_times = []
 
         if len(self.untested_population) == 0:
             self.current_driver = None
@@ -70,7 +80,7 @@ class TrainingNode():
     
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
-        rospy.loginfo("Generation {}: Fitness of the population: ".format(self.generation + 1) + ", ".join(str(int(driver.fitness)) for driver in self.population))
+        rospy.loginfo("Generation {}: Fitness of the population: ".format(self.generation + 1) + ", ".join("{:.1f}".format(driver.fitness) for driver in self.population))
         self.population = self.population[:SURVIVOR_COUNT]
 
         self.untested_population = list()
@@ -95,6 +105,27 @@ class TrainingNode():
     def on_crash(self, _):
         if self.episode_length > 5:
             self.is_terminal_step = True
+
+    def on_model_state_callback(self, message):
+        if len(message.pose) < 2:
+            return
+        car_position = Point(
+            message.pose[1].position.x,
+            message.pose[1].position.y)
+
+        track_position = track.localize(car_position)
+        self.track_progress = track_position.total_progress
+        current_segment = int(self.track_progress * SEGMENT_COUNT)
+        if current_segment != 1 and len(self.segment_times) == 0:
+            return
+        if current_segment > len(self.segment_times) or (current_segment == 0 and len(self.segment_times) > 2):
+            time = (rospy.Time.now() - self.segment_start_time).to_sec()
+            if time > 0:
+                self.segment_times.append(time)
+            self.segment_start_time = rospy.Time.now()
+            if len(self.segment_times) == SEGMENT_COUNT + 1:
+                self.is_terminal_step = True
+                rospy.loginfo("Lap time: {:.0f}".format(sum(self.segment_times)))
 
 
 rospy.init_node('evolutionary_training', anonymous=True)

@@ -19,13 +19,13 @@ STATE_SIZE = 5
 MIN_SPEED = 0.1
 MAX_SPEED = 1.0
 
-MAX_EPISODE_LENGTH = 5000
-
 POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
 
 LEARN_RATE = 0.5
 USE_CROSSOVER = False
+
+SEGMENT_COUNT = 40
 
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
