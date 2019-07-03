@@ -10,6 +10,8 @@
         <arg name="joystick_type" value="$(arg joystick_type)"/>
     </include>
 
+    <include file="$(find emergency_stop)/launch/emergency_stop.launch"/>
+
     <include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
 
     <rosparam command="load" file="$(find vesc_sim)/config/car_config.yaml"/>
