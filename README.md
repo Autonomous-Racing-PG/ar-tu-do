@@ -1,14 +1,35 @@
-# Autonomous Racing - Project Group - TU Dortmund
+# Autonomous Racing Software Stack and Simulation Tools
 
 [![Build Status](https://travis-ci.com/Autonomous-Racing-PG/ros.package.svg?branch=master)](https://travis-ci.com/Autonomous-Racing-PG/ros.package)
 
 This repository contains the results of the TU Dortmund Autononous Racing project group in chair XII of the computer science faculty. The set-up is based on the [F1/10](http://f1tenth.org/) competition which puts autonomous car-like robots in a race around a racetrack against the time or each other.
 
-## Getting Started
+## Features
+
+![](doc/racing_example.gif "Racing with a wallfollowing algorithm")
+
+In this project we are trying many different approaches to racing algorithms to see which one gets the best results. So far we have implemented:
+
+- a simple wallfollowing algorithm based on chosen samples of the range finder to find walls,
+- an advanced wallfollowing algorithm which tries to fit circles into the range finder data to detect walls and curves,
+- a solution based on the ROS navigation stack which uses SLAM (simultanious localizasion and mapping) to localize the car on a precalculated map of the racetrack and a path planner to find the best way through the track,
+- a machine learning algorithm based on [Q-Learning](https://en.wikipedia.org/wiki/Q-learning).
+
+We have also set up a simulation environment in [Gazebo](http://gazebosim.org/) which tries to simulate our racecar as accurately as possible. This allows for easy prototyping without fear of material damage on a real car.
+
+Furthermore there are also the following features:
+- an emergency stop to help prevent crashes when driving towards a wall,
+- a dead mans switch to help prevent crashes in case a controller becomes unresponsive,
+- both keyboard and gamepad controls for manual driving,
+- several routines for debug and testing information like current car speed or lap times.
+
+At the moment, all of the approaches in this project primarily rely on the range finder because it outputs very solid data that is easy to process. In the future this may be supplemented by visual and inertial data, for example to classify obstacles on the racetrack or for better odometry.
+
+## Installation
 
 These instructions will get you a copy of the project up and running.
 
-### Install missing system dependencies
+### Installing missing system dependencies
 
 The project runs on the [Robot Operating System (ROS)](https://www.ros.org/), which needs to be installed first (unless already happened). The target version of ROS for this project is [ROS Kinetic](http://wiki.ros.org/kinetic/Installation), although it seems to also work on [ROS Melodic](http://wiki.ros.org/melodic/Installation) without any problems.
 
@@ -30,37 +51,45 @@ cd range_libc/pywrapper
 ./compile_with_cuda.sh  # on car - compiles GPU ray casting methods
 ```
 
-### Clone the Project
+### Cloning the Project
 
 ```bash
 git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package.git arpg
 ```
 
-### Install missing ROS dependencies
+### Installing missing ROS dependencies
 ```bash
 cd arpg/ros_ws
 rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}
 ```
 
-### Build ROS packages
+### Building ROS packages
 
 ```bash
 catkin_make
 ```
 
-### Run routines
+### Running setup routines
 
 ```bash
-source devel/setup.bash (or setup.zsh, depending on your shell)
+source devel/setup.bash # (or setup.zsh, depending on your shell)
 ```
 
-Now several routines can be started by executing the launch-files inside the `launch` directory. E.g.
+### Running tests
 
 ```bash
-roslaunch launch/car.launch (Real car, Wallfollowing)
-roslaunch launch/gazebo.launch (Simulation, Wallfollowing)
-roslaunch launch/navigation_stack.launch (Simulation, SLAM & ROS navigation)
-roslaunch launch/qlearning.launch (Simulation, Machine Learning/ Q-Learning)
+catkin_make run_tests
+```
+
+## Usage
+
+Several routines can be started by executing the launch-files inside the `launch` directory. E.g.
+
+```bash
+roslaunch launch/car.launch # (Real car, Wallfollowing)
+roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)
+roslaunch launch/navigation_stack.launch # (Simulation, SLAM & ROS navigation)
+roslaunch launch/qlearning.launch # (Simulation, Machine Learning/ Q-Learning)
 ```
 
 Several arguments can be passed to the launch files above. The syntax for passing an argument is `argname:=value`; for example using the `gazebo.launch` file without emergency stop and with car highlighting can be done using `roslaunch launch/gazebo.launch emergency_stop:=false car_highlighting:=true`.  Note that not every of these launch files supports every argument below; refer to the table below for an exhaustive list of supported arguments.
@@ -215,13 +244,22 @@ Several arguments can be passed to the launch files above. The syntax for passin
   </tr>
 </table>
 
-### Run tests
+## The racecar
 
-```bash
-catkin_make run_tests
-```
+Our racecar consists of a standard 1/10 scale RC car ([Traxxas Ford Fiesta](https://traxxas.com/products/models/electric/ford-fiesta-st-rally)) which is augmented by:
 
-## Building a map with Cartographer
+- a CPU/GPU board ([NVIDIA Jetson](https://www.nvidia.com/object/jetson-tk1-embedded-dev-kit.html), required)
+- a motor controller ([FOCBOX](https://www.enertionboards.com/FOCBOX-foc-motor-speed-controller.html), required)
+- a laser-based range finder ([Hokuyo UST-10LX](https://www.hokuyo-usa.com/products/scanning-laser-rangefinders/ust-10lx), required)
+- an inertial measurement unit ([Invensense MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/), required)
+- a brushless DC motor (optional, replaces the standard brushed motor)
+- a stereo camera ([ZED](https://www.stereolabs.com/zed/), optional)
+
+Most of these components should be able to be swapped for other, comparable equipment with minor changes to the code.
+
+## Miscellaneous
+
+### Building a map with Cartographer
 
 There are two bash scripts in the `scripts` folder which use [Cartographer](https://github.com/googlecartographer/cartographer_ros) to create a map of a racetrack. This map can then be used for different purposes, for example in the ROS navigation stack.
 
