@@ -4,6 +4,8 @@
 
 This repository contains software for 1/10th scale autonomous race cars to compete in the [F1/10 competition](http://f1tenth.org/). It is developed by the Autonomous Racing Project Group of [TU Dortmund](https://ls12-www.cs.tu-dortmund.de/daes/).
 
+![](doc/racing_example.gif "Racing with a wallfollowing algorithm")
+
 ## Features
 
 We provide several LIDAR based driving algorithms:
