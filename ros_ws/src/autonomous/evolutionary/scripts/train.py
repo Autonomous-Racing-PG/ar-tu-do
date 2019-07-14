@@ -7,7 +7,7 @@ import random
 from std_msgs.msg import Empty
 from gazebo_msgs.msg import ModelStates
 import torch
-from parameters import *
+from neural_car_driver import *
 import simulation_tools.reset_car as reset_car
 
 
@@ -26,17 +26,8 @@ class TrainingNode():
         self.generation = 0
         self.test = 0
     
-    def convert_laser_message_to_tensor(self, message):
-        if self.scan_indices is None:
-            self.scan_indices = [int(i * (len(message.ranges) - 1) / (STATE_SIZE - 1)) for i in range(STATE_SIZE)]
-
-        values = [message.ranges[i] for i in self.scan_indices]
-        values = [v if not math.isinf(v) else 100 for v in values]
-        return torch.tensor(values, dtype=torch.float)
-
     def on_receive_laser_scan(self, message):
-        state = self.convert_laser_message_to_tensor(message)
-        self.current_driver.drive(state)
+        self.current_driver.drive(message)
         self.episode_length += 1
 
         if self.is_terminal_step:

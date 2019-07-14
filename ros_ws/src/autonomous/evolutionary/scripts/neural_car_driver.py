@@ -1,13 +1,16 @@
+#!/usr/bin/env python
+
 import torch
 import torch.nn as nn
 import numpy as np
+import math
+import os
 
 import rospy
 
 from rospkg import RosPack
-import os
 from drive_msgs.msg import drive_param
-
+from sensor_msgs.msg import LaserScan
 
 # TOPICS
 TOPIC_DRIVE_PARAMETERS = "/input/drive_param/autonomous"
@@ -45,8 +48,16 @@ class NeuralCarDriver(nn.Module):
         )
 
         self.fitness = None
+        self.scan_indices = None
 
-    def drive(self, state):
+    def drive(self, laser_message):
+        if self.scan_indices is None:
+            self.scan_indices = [int(i * (len(laser_message.ranges) - 1) / (STATE_SIZE - 1)) for i in range(STATE_SIZE)]
+
+        values = [laser_message.ranges[i] for i in self.scan_indices]
+        values = [v if not math.isinf(v) else 100 for v in values]
+        state = torch.tensor(values, dtype=torch.float)
+
         with torch.no_grad():
             action = self.layers.forward(state)
         
@@ -88,3 +99,19 @@ class NeuralCarDriver(nn.Module):
 
     def save(self):
         torch.save(self.state_dict(), MODEL_FILENAME)
+
+
+if __name__ == '__main__':
+    rospy.init_node('evolutionary_driver', anonymous=True)
+    driver = NeuralCarDriver()
+
+    try:
+        driver.load()
+    except IOError:
+        message = "Model parameters for the neural net not found. You need to train it first."
+        rospy.logerr(message)
+        rospy.signal_shutdown(message)
+        exit(1)
+
+    rospy.Subscriber(TOPIC_SCAN, LaserScan, driver.drive)
+    rospy.spin()

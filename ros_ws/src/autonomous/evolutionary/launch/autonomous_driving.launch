@@ -4,7 +4,7 @@
     <node
       respawn="true"
       pkg="evolutionary"
-      type="drive.py"
+      type="neural_car_driver.py"
       name="evolutionary_driver"
       output="screen" >
     </node>
