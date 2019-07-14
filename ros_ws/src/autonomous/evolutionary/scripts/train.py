@@ -18,14 +18,15 @@ class TrainingNode():
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
 
         self.population = []
-        self.untested_population = [NeuralCarDriver() for _ in range(POPULATION_SIZE)]
+        self.untested_population = [NeuralCarDriver()
+                                    for _ in range(POPULATION_SIZE)]
         self.current_driver = self.untested_population[0]
 
         self.is_terminal_step = False
         self.episode_length = 0
         self.generation = 0
         self.test = 0
-    
+
     def on_receive_laser_scan(self, message):
         self.current_driver.drive(message)
         self.episode_length += 1
@@ -52,11 +53,14 @@ class TrainingNode():
         self.test += 1
 
         reset_car.reset()
-    
+
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
         self.population[0].save()
-        rospy.loginfo("Generation {}: Fitness of the population: ".format(self.generation + 1) + ", ".join(str(driver.fitness) for driver in self.population))
+        rospy.loginfo("Generation {:d}: Fitness of the population: {:s}".format(
+            self.generation + 1,
+            ", ".join(str(driver.fitness) for driver in self.population)
+        ))
         self.population = self.population[:SURVIVOR_COUNT]
 
         self.untested_population = list()
@@ -64,7 +68,7 @@ class TrainingNode():
             parent = random.choice(self.population)
             offspring = parent.mutate()
             self.untested_population.append(offspring)
-        
+
         self.current_driver = self.untested_population[0]
         self.generation += 1
 

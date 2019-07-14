@@ -31,11 +31,9 @@ class QLearningNode():
 
     def convert_laser_message_to_tensor(self, message):
         if self.scan_indices is None:
-            global scan_indices
-            if self.scan_indices is None:
-                self.scan_indices = [int(i * (len(message.ranges) - 1) / (LASER_SAMPLE_COUNT - 1)) for i in range(LASER_SAMPLE_COUNT)]
+            self.scan_indices = [int(i * (len(message.ranges) - 1) / (LASER_SAMPLE_COUNT - 1)) for i in range(LASER_SAMPLE_COUNT)]  # nopep8
 
-        values = [message.ranges[i] for i in scan_indices]
+        values = [message.ranges[i] for i in self.scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
         return torch.tensor(values, device=device, dtype=torch.float)
 

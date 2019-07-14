@@ -34,6 +34,7 @@ MODEL_FILENAME = os.path.join(RosPack().get_path("evolutionary"), "model.to")
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
 
+
 class NeuralCarDriver(nn.Module):
     def __init__(self):
         super(NeuralCarDriver, self).__init__()
@@ -52,7 +53,7 @@ class NeuralCarDriver(nn.Module):
 
     def drive(self, laser_message):
         if self.scan_indices is None:
-            self.scan_indices = [int(i * (len(laser_message.ranges) - 1) / (STATE_SIZE - 1)) for i in range(STATE_SIZE)]
+            self.scan_indices = [int(i * (len(laser_message.ranges) - 1) / (STATE_SIZE - 1)) for i in range(STATE_SIZE)]  # nopep8
 
         values = [laser_message.ranges[i] for i in self.scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
@@ -60,10 +61,11 @@ class NeuralCarDriver(nn.Module):
 
         with torch.no_grad():
             action = self.layers.forward(state)
-        
+
         message = drive_param()
         message.angle = action[0].item()
-        message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
+        message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + \
+            action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
         drive_parameters_publisher.publish(message)
 
     def to_vector(self):
@@ -76,12 +78,13 @@ class NeuralCarDriver(nn.Module):
 
     def load_vector(self, vector):
         state_dict = self.layers.state_dict()
-        
+
         position = 0
         for key in sorted(state_dict.keys()):
             old_value = state_dict[key]
             size = np.prod(old_value.shape)
-            new_value = vector[position:position + size].reshape(old_value.shape)
+            new_value = vector[position:position +
+                               size].reshape(old_value.shape)
             state_dict[key] = new_value
             position += size
         self.layers.load_state_dict(state_dict)
