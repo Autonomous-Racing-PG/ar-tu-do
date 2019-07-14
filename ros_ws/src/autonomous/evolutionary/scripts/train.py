@@ -28,9 +28,7 @@ class TrainingNode():
     
     def convert_laser_message_to_tensor(self, message):
         if self.scan_indices is None:
-            count = (message.angle_max - message.angle_min) / \
-                message.angle_increment
-            self.scan_indices = [int(i * count / STATE_SIZE) for i in range(STATE_SIZE)]
+            self.scan_indices = [int(i * (len(message.ranges) - 1) / (STATE_SIZE - 1)) for i in range(STATE_SIZE)]
 
         values = [message.ranges[i] for i in self.scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
