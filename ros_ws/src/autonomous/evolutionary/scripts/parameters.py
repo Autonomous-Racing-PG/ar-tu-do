@@ -5,6 +5,7 @@ import numpy as np
 import rospy
 
 from rospkg import RosPack
+import os
 from drive_msgs.msg import drive_param
 
 
@@ -24,6 +25,8 @@ SURVIVOR_COUNT = 4
 
 LEARN_RATE = 0.2
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
+
+MODEL_FILENAME = os.path.join(RosPack().get_path("evolutionary"), "model.to")
 
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
@@ -78,3 +81,10 @@ class NeuralCarDriver(nn.Module):
         offspring = NeuralCarDriver()
         offspring.load_vector(parameters)
         return offspring
+
+    def load(self):
+        self.load_state_dict(torch.load(MODEL_FILENAME))
+        rospy.loginfo("Model parameters loaded.")
+
+    def save(self):
+        torch.save(self.state_dict(), MODEL_FILENAME)

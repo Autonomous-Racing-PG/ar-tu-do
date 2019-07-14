@@ -11,8 +11,9 @@ class QLearningDrivingNode(QLearningNode):
     def __init__(self):
         QLearningNode.__init__(self)
 
-        self.policy.load()
-        if not os.path.isfile(MODEL_FILENAME):
+        try:
+            self.policy.load()
+        except IOError:
             message = "Model parameters for the neural net not found. You need to train it first."
             rospy.logerr(message)
             rospy.signal_shutdown(message)

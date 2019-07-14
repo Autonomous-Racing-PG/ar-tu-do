@@ -70,6 +70,7 @@ class TrainingNode():
     
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
+        self.population[0].save()
         rospy.loginfo("Generation {}: Fitness of the population: ".format(self.generation + 1) + ", ".join(str(driver.fitness) for driver in self.population))
         self.population = self.population[:SURVIVOR_COUNT]
 
