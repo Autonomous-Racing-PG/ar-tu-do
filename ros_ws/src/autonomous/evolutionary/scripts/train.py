@@ -3,7 +3,6 @@
 import math
 import rospy
 from sensor_msgs.msg import LaserScan
-from drive_msgs.msg import drive_param
 import random
 from std_msgs.msg import Empty
 from gazebo_msgs.msg import ModelStates
@@ -15,8 +14,6 @@ import simulation_tools.reset_car as reset_car
 class TrainingNode():
     def __init__(self):
         self.scan_indices = None
-        self.drive_parameters_publisher = rospy.Publisher(
-            TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
         rospy.Subscriber(TOPIC_SCAN, LaserScan, self.on_receive_laser_scan)
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
 
@@ -31,12 +28,11 @@ class TrainingNode():
     
     def convert_laser_message_to_tensor(self, message):
         if self.scan_indices is None:
-            global scan_indices
             count = (message.angle_max - message.angle_min) / \
                 message.angle_increment
-            scan_indices = [int(i * count / STATE_SIZE) for i in range(STATE_SIZE)]
+            self.scan_indices = [int(i * count / STATE_SIZE) for i in range(STATE_SIZE)]
 
-        values = [message.ranges[i] for i in scan_indices]
+        values = [message.ranges[i] for i in self.scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
         return torch.tensor(values, dtype=torch.float)
 
