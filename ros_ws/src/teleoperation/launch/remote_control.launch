@@ -7,6 +7,13 @@ Launches all necessary nodes that let the user control the car with the keyboard
   <!-- valid options are: ps3, xbox360, xboxone -->
   <arg name="joystick_type" default="xbox360"/>
 
+  <!-- if joystick_type is set to "custom" -->
+  <arg name="joystick_steering_axis" default="0"/>
+  <arg name="joystick_acceleration_axis" default="13"/>
+  <arg name="joystick_deceleration_axis" default="12"/>
+  <arg name="joystick_enable_manual_button" default="14"/>
+  <arg name="joystick_enable_autonomous_button" default="13"/>
+
     <!-- remote joy -->
     <node
       respawn="false"
@@ -15,6 +22,11 @@ Launches all necessary nodes that let the user control the car with the keyboard
       name="joystick_controller"
       output="screen" >
       <param name="joystick_type" type="string" value ="$(arg joystick_type)" />
+      <param name="joystick_steering_axis" value ="$(arg joystick_steering_axis)" />
+      <param name="joystick_acceleration_axis" value ="$(arg joystick_acceleration_axis)" />
+      <param name="joystick_deceleration_axis" value ="$(arg joystick_deceleration_axis)" />
+      <param name="joystick_enable_manual_button" value ="$(arg joystick_enable_manual_button)" />
+      <param name="joystick_enable_autonomous_button" value ="$(arg joystick_enable_autonomous_button)" />
     </node>
 
     <!-- joy node -->
