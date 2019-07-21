@@ -50,7 +50,7 @@ void ChaseCam::gazeboPosesCallback(ConstPosesStampedPtr& message) {
 void ChaseCam::publishCameraPose(ignition::math::Pose3d& pose) {
     gazebo::msgs::Pose message;
     gazebo::msgs::Set(&message, pose);
-    this->m_camera_pose_publisher->Publish(message, true);
+    this->m_camera_pose_publisher->Publish(message);
 }
 
 int main(int argc, char** argv)
