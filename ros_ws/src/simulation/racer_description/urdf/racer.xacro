@@ -52,6 +52,21 @@
     </visual>
   </link>
 
+  <joint name="base_body_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="body" />
+  </joint>
+
+  <link name='body'>
+    <visual>
+      <origin xyz="0 0 0.05" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://racer_description/meshes/body.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
   <xacro:if value="$(arg car_highlighting)">
     <gazebo reference="chassis">
       <material>Gazebo/GreenGlow</material>
