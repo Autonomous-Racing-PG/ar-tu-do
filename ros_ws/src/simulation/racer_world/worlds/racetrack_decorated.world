@@ -5,6 +5,7 @@
             <shadows>1</shadows>
             <grid>0</grid>
             <origin_visual>0</origin_visual>
+            <sky></sky>
         </scene>
         <physics type="ode" default="true">
             <!-- Default physics profile with no changes -->
