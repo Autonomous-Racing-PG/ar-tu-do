@@ -14,7 +14,6 @@
     <arg name="pf_max_particles" default="500"/>
     <arg name="pf_squash_factor" default="2.2"/>
     <arg name="map" default="$(find navigation_stack_config)/maps/recording.bag.yaml"/>
-    <arg name="car_highlighting" default="false"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -33,7 +32,6 @@
         <arg name="verbose" value="$(arg verbose)"/>
         <arg name="use_gpu" value="$(arg use_gpu)"/>
         <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
-        <arg name="car_highlighting" value="$(arg car_highlighting)"/>
     </include>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stack_config)/launch/navigation_stack.rviz"/>
