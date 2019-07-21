@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version="1.4">
     <world name="racetrack">
+        <scene>
+            <shadows>1</shadows>
+            <grid>0</grid>
+            <origin_visual>0</origin_visual>
+        </scene>
         <physics type="ode" default="true">
             <!-- Default physics profile with no changes -->
         </physics>
@@ -15,7 +20,7 @@
             <camera name="my_camera">
                 <pose>-3.2 7.8 31 0 1.5707963 1.5707963</pose>
             </camera>
-        </gui>    
+        </gui>
         
         <model name="track">
             <pose>0 0 0.01  0 0 0</pose>
