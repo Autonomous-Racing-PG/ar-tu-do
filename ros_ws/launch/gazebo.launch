@@ -33,7 +33,7 @@
         <arg name="car_highlighting" value="$(arg car_highlighting)"/>
     </include>
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/wallfollowing.rviz"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/rviz_config.rviz"/>
 
     <node name="lap_timer" pkg="simulation_tools" type="lap_timer.py" output="screen"/>
     <include file="$(find wallfollowing2)/launch/autonomous_driving.launch"/>
