@@ -167,7 +167,7 @@ Visualization Manager:
         Grid: true
         LaserScan: true
         RobotModel: true
-        Value: true
+        Value: false
         Wallfollowing: true
       Zoom Factor: 1
     - Class: rviz/Marker
