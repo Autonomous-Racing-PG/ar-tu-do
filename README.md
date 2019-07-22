@@ -13,6 +13,7 @@ We provide several LIDAR based driving algorithms:
 - Fast and efficient wallfollowing based on fitting circles into the LIDAR scan
 - [ROS navigation stack](http://wiki.ros.org/navigation) based implementation that uses SLAM, a precalculated map and path planning
 - Deep Reinforcement Learning ([Q-Learning](https://en.wikipedia.org/wiki/Q-learning))
+- Neural Networks with evolutionary training
 
 Our software works on physical hardware and in a simulated environment using [Gazebo](http://gazebosim.org/).
 Further features are:
