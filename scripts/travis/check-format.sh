@@ -12,7 +12,7 @@ do
 done
 
 # Check python code
-PYTHON_DIFF=$(autopep8 --diff --recursive --aggressive --aggressive --exclude="$workspace_path/src/external_packages,$workspace_path/build,$workspace_path/devel" $workspace_path)
+PYTHON_DIFF=$(autopep8 --diff --recursive --aggressive --aggressive --exclude="$workspace_path/src/external_packages,$workspace_path/build,$workspace_path/devel,*.cfg" $workspace_path)
 
 if echo $PYTHON_DIFF | grep -c +++ > /dev/null ; then
     echo "Found formatting problems in the python code."
