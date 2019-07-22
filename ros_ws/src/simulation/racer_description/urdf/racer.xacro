@@ -19,8 +19,6 @@
   <xacro:property name="bodySizeH" value="0.1"/>
   <xacro:property name="bodyMass" value="3.5"/>
 
-  <xacro:arg name="car_highlighting" default="false"/>
-
   <link name="base_link" />
 
   <joint name="base_link_joint" type="fixed">
@@ -52,11 +50,20 @@
     </visual>
   </link>
 
-  <xacro:if value="$(arg car_highlighting)">
-    <gazebo reference="chassis">
-      <material>Gazebo/GreenGlow</material>
-    </gazebo>
-  </xacro:if>
+  <joint name="base_body_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="body" />
+  </joint>
+
+  <link name='body'>
+    <visual>
+      <origin xyz="0 0 0.05" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://racer_description/meshes/body.dae"/>
+      </geometry>
+    </visual>
+  </link>
 
   <!--  Wheels  -->
   <wheel fb="front" lr="left" parent="left_steering" translateX="1" translateY="1" left="1" OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}" OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="0.02" />
@@ -96,7 +103,7 @@
 
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0.21 0 0.075" rpy="0 0 0"/>
+    <origin xyz="0.21 0 0.095" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="camera"/>
   </joint>
