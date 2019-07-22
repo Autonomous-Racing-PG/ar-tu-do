@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Autonomous Racing: Project Title</title>
+<title>Autonomous Racing: Autonomous Racing Software Stack and Simulation Enviroment</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,36 +102,97 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Project Title </div>  </div>
+<div class="title">Autonomous Racing Software Stack and Simulation Enviroment </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Autonomous Racing - Project Group - TU Dortmund</p>
-<p><a href="https://travis-ci.com/Autonomous-Racing-PG/ros.package"></a></p>
-<h2>Getting Started</h2>
-<p>These instructions will get you a copy of the project up and running</p>
-<p>### Install missing system dependencies </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt install libsdl2-dev python-pip clang-format</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;pip install torch autopep8</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;# RangeLibc</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;sudo pip uninstall pip &amp;&amp; sudo apt install python-pip</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;pip install cython</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;git clone http://github.com/kctess5/range_libc</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;cd range_libc/pywrapper</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;# Either:</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;./compile.sh            # on VM</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;# Or:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;./compile_with_cuda.sh  # on car - compiles GPU ray casting methods</div></div><!-- fragment --><h3>Clone the Project</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package.git arpg</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd arpg</div></div><!-- fragment --><h3>Move to ROS Workspace</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ros_ws</div></div><!-- fragment --><p>### Install missing ROS dependencies </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}</div></div><!-- fragment --><h3>Build ROS packages</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><h3>Run routines</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash (or setup.zsh)</div></div><!-- fragment --><p>Now several routines can be started by executing the launch-files inside the <b>launch/</b> directory. E.g.</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/gazebo_car-teleop.launch</div></div><!-- fragment --><h3>Run tests</h3>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make run_tests</div></div><!-- fragment --><h2>Building a map with Cartographer</h2>
-<p>There are two bash scripts in the <code>scripts</code> folder which use <a href="https://github.com/googlecartographer/cartographer_ros">Cartographer</a> to create a map of a racetrack. This map can then be used for different purposes, for example in the ROS navigation stack.</p>
+<div class="textblock"><p><a href="https://travis-ci.com/Autonomous-Racing-PG/ros.package"></a></p>
+<p>This repository contains software for 1/10th scale autonomous race cars to compete in the <a href="http://f1tenth.org/">F1/10 competition</a>. It is developed by the Autonomous Racing Project Group of <a href="https://ls12-www.cs.tu-dortmund.de/daes/">TU Dortmund</a>.</p>
+<div class="image">
+<img src="doc/racing_example.gif"  title="Racing with a wallfollowing algorithm"/>
+</div>
+<h2>Features</h2>
+<p>We provide several LIDAR based driving algorithms:</p>
 <ul>
-<li>To build a map while a roscore is running and providing sensor data, use the <code>cartographer_online</code> script.</li>
-<li>To build a map from a rosbag, use the <code>cartographer_offline</code> script. The rosbag must provide range data on the rostopic <code>/scan</code> and a transformation tree on <code>/tf</code>; depending on your configuration of cartographer in <code>car_cartographer/config</code> it may need to also have odometry data on <code>/odom</code> or IMU data on <code>/imu</code>.</li>
+<li>Fast and efficient wallfollowing based on fitting circles into the LIDAR scan</li>
+<li><a href="http://wiki.ros.org/navigation">ROS navigation stack</a> based implementation that uses SLAM, a precalculated map and path planning</li>
+<li>Deep Reinforcement Learning (<a href="https://en.wikipedia.org/wiki/Q-learning">Q-Learning</a>)</li>
 </ul>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;# Either:</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./scripts/cartographer_online.sh</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;# Or:</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;./scripts/cartographer_offline.sh /absolute/path/to/rosbag</div></div><!-- fragment --><h2>Documentation</h2>
+<p>Our software works on physical hardware and in a simulated environment using <a href="http://gazebosim.org/">Gazebo</a>. Further features are:</p>
 <ul>
-<li>For general information and documentation checkout the <a href="https://github.com/Autonomous-Racing-PG/ros.package/wiki">wiki page</a>.</li>
-<li>For source code documentation checkout the auto-generated <a href="https://autonomous-racing-pg.github.io/ros.package/html/index.html">Doxygen documentation</a>.</li>
+<li>Automatic emergency braking</li>
+<li>Dead Man's Switch</li>
+<li>Teleoperation via keyboard, Xbox and Playstation controller</li>
+<li>Speedometer and Lap Timer</li>
+</ul>
+<h2>Installation</h2>
+<p>You need to install the <a href="https://www.ros.org/">Robot Operating System (ROS)</a> to use our software. We target <a href="http://wiki.ros.org/kinetic/Installation">ROS Kinetic</a> on Ubuntu 16.04, but <a href="http://wiki.ros.org/melodic/Installation">ROS Melodic</a> seems to work as well.</p>
+<p>Note for VM users: Gazebo 7.0.0, which is installed with ROS Kinetic by default, <a href="https://bitbucket.org/osrf/gazebo/issues/1837/vmware-rendering-z-ordering-appears-random">does not work</a> on a virtual machine. To solve this, Gazebo has to be updated to at least 7.4.0 <a href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0#Alternativeinstallation:step-by-step">as explained here</a>.</p>
+<p>Install dependencies:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo pip uninstall pip &amp;&amp; sudo apt install python-pip</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;sudo apt install libsdl2-dev clang-format python-pyqtgraph</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;pip install torch autopep8 cython</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;# RangeLibc</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;git clone http://github.com/kctess5/range_libc</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;cd range_libc/pywrapper</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;# Either:</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;./compile.sh            # on VM</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;# Or:</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;./compile_with_cuda.sh  # on car - compiles GPU ray casting methods</div></div><!-- fragment --><p>Clone the repository:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package</div></div><!-- fragment --><p>Install missing ROS dependencies:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ros.package/ros_ws</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}</div></div><!-- fragment --><h2>Usage</h2>
+<p>Compile while inside the <code>ros_ws</code>directory:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><p>Set up enviroment variables for your shell:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash # (or setup.zsh, depending on your shell)</div></div><!-- fragment --><p>Use a launch file to start ROS and Gazebo:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/car.launch # (Physical car, Wallfollowing)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;roslaunch launch/navigation_stack.launch # (Simulation, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)</div></div><!-- fragment --><h3>Launch file arguments</h3>
+<p>These arguments can be passed to the launch files above. For example, to use the <code>gazebo.launch</code> file without emergency stop and with car highlighting, run: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/gazebo.launch emergency_stop:=false car_highlighting:=true</div></div><!-- fragment --><p> The arguments can be changed permanently by editing the launch files.</p>
+<table class="doxtable">
+<tr>
+<th rowspan="2">Argument </th><th colspan="4">Supported by <code>launch/&lt;file&gt;.launch</code> </th><th rowspan="2">Description  </th></tr>
+<tr>
+<td>car </td><td>gazebo </td><td>navigation_stack </td><td>qlearning  </td></tr>
+<tr>
+<td><code>car_highlighting</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>Boolean value whether the car should glow green in Gazebo for better visibility. Usually defaults to false.  </td></tr>
+<tr>
+<td><code>debug</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should run in debug mode. Defaults to false.  </td></tr>
+<tr>
+<td><code>emergency_stop</code> </td><td>✗ </td><td>✓ </td><td>✗ </td><td>✗ </td><td>Boolean value whether the emergency stop should be active. Defaults to true.  </td></tr>
+<tr>
+<td><code>gui</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>Boolean value whether Gazebo should show a user interface. Defaults to true.  </td></tr>
+<tr>
+<td><code>joystick_type</code> </td><td>✓ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>The type of joystick controller. Possible values: <code>ps3</code>, <code>xbox360</code> and <code>xboxone</code>  </td></tr>
+<tr>
+<td><code>map</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Name of the map to be used by the particle filter. Defaults to a prerecorded map of <code>racetrack_decorated_2</code>.  </td></tr>
+<tr>
+<td><code>paused</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should start paused. Defaults to false.  </td></tr>
+<tr>
+<td><code>pf_angle_step</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Angle step of the particle filter. Defaults to 18.  </td></tr>
+<tr>
+<td><code>pf_max_particles</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Maximum amount of particles to be used by the particle filter. Defaults to 500.  </td></tr>
+<tr>
+<td><code>pf_squash_factor</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Squash factor of the particle filter. Defaults to 2.2.  </td></tr>
+<tr>
+<td><code>plot_window</code> </td><td>✗ </td><td>✗ </td><td>✗ </td><td>✓ </td><td>Integer value indicating the amount of episodes that should be plotted. Defaults to 200.  </td></tr>
+<tr>
+<td><code>realtime_simulation</code> </td><td>✗ </td><td>✗ </td><td>✗ </td><td>✓ </td><td>Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true.  </td></tr>
+<tr>
+<td><code>use_gpu</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>Boolean value whether Gazebo should use the GPU when simulating the lidar. Defaults to true.  </td></tr>
+<tr>
+<td><code>use_sim_time</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true.  </td></tr>
+<tr>
+<td><code>verbose</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should give verbose standard output. Defaults to true.  </td></tr>
+<tr>
+<td><code>visualize_lidar</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false.  </td></tr>
+<tr>
+<td><code>world</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>The name of the racetrack. Possible values: <code>racetrack_decorated</code>, <code>racetrack_decorated_2</code> (default) and <code>racetrack_decorated_2_big</code>  </td></tr>
+</table>
+<h2>Hardware</h2>
+<p>Our car is based on a 1/10th scale RC car (<a href="https://traxxas.com/products/models/electric/ford-fiesta-st-rally">Traxxas Ford Fiesta</a>) with these additions:</p>
+<ul>
+<li>CPU/GPU board (<a href="https://www.nvidia.com/object/jetson-tk1-embedded-dev-kit.html">NVIDIA Jetson</a>)</li>
+<li>motor controller (<a href="https://www.enertionboards.com/FOCBOX-foc-motor-speed-controller.html">FOCBOX</a>)</li>
+<li>LIDAR scanner (<a href="https://www.hokuyo-usa.com/products/scanning-laser-rangefinders/ust-10lx">Hokuyo UST-10LX</a>)</li>
+<li>an inertial measurement unit (<a href="https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/">Invensense MPU-9250</a>)</li>
+<li>optional: brushless DC motor (replaces the standard brushed motor)</li>
+<li>optional: stereo camera (<a href="https://www.stereolabs.com/zed/">ZED</a>)</li>
+</ul>
+<h2>Documentation</h2>
+<ul>
+<li>For general information and documentation check out our <a href="https://github.com/Autonomous-Racing-PG/ros.package/wiki">wiki page</a>.</li>
+<li>For source code documentation check out the auto-generated <a href="https://autonomous-racing-pg.github.io/ros.package/html/index.html">Doxygen documentation</a>.</li>
 </ul>
 <h2>License</h2>
-<p>This project (exluded git submodules) is licensed under the MIT and GPLv3 dual licensed - see the <a href="MIT.LICENSE">MIT.LICENSE</a> and <a href="GPLv3.LICENSE">GPLv3.LICENSE</a> file for details</p>
-<h2>Acknowledgments</h2>
-<ul>
-<li>TU Dortmund </li>
-</ul>
+<p>This project (excluding git submodules) is under MIT and GPLv3 dual licensed - see the <a href="MIT.LICENSE">MIT.LICENSE</a> and <a href="GPLv3.LICENSE">GPLv3.LICENSE</a> file for details. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

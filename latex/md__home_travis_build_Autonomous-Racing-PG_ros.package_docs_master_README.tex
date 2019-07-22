@@ -1,52 +1,74 @@
-Autonomous Racing -\/ Project Group -\/ TU Dortmund
-
 \href{https://travis-ci.com/Autonomous-Racing-PG/ros.package}{\tt }
 
-\subsection*{Getting Started}
+This repository contains software for 1/10th scale autonomous race cars to compete in the \href{http://f1tenth.org/}{\tt F1/10 competition}. It is developed by the Autonomous Racing Project Group of \href{https://ls12-www.cs.tu-dortmund.de/daes/}{\tt TU Dortmund}.
 
-These instructions will get you a copy of the project up and running
 
-\#\#\# Install missing system dependencies 
+
+\subsection*{Features}
+
+We provide several L\+I\+D\+AR based driving algorithms\+:
+
+
+\begin{DoxyItemize}
+\item Fast and efficient wallfollowing based on fitting circles into the L\+I\+D\+AR scan
+\item \href{http://wiki.ros.org/navigation}{\tt R\+OS navigation stack} based implementation that uses S\+L\+AM, a precalculated map and path planning
+\item Deep Reinforcement Learning (\href{https://en.wikipedia.org/wiki/Q-learning}{\tt Q-\/\+Learning})
+\end{DoxyItemize}
+
+Our software works on physical hardware and in a simulated environment using \href{http://gazebosim.org/}{\tt Gazebo}. Further features are\+:
+
+
+\begin{DoxyItemize}
+\item Automatic emergency braking
+\item Dead Man\textquotesingle{}s Switch
+\item Teleoperation via keyboard, Xbox and Playstation controller
+\item Speedometer and Lap Timer
+\end{DoxyItemize}
+
+\subsection*{Installation}
+
+You need to install the \href{https://www.ros.org/}{\tt Robot Operating System (R\+OS)} to use our software. We target \href{http://wiki.ros.org/kinetic/Installation}{\tt R\+OS Kinetic} on Ubuntu 16.\+04, but \href{http://wiki.ros.org/melodic/Installation}{\tt R\+OS Melodic} seems to work as well.
+
+Note for VM users\+: Gazebo 7.\+0.\+0, which is installed with R\+OS Kinetic by default, \href{https://bitbucket.org/osrf/gazebo/issues/1837/vmware-rendering-z-ordering-appears-random}{\tt does not work} on a virtual machine. To solve this, Gazebo has to be updated to at least 7.\+4.\+0 \href{http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=7.0#Alternativeinstallation:step-by-step}{\tt as explained here}.
+
+Install dependencies\+:
+
+
 \begin{DoxyCode}
-1 sudo apt install libsdl2-dev python-pip clang-format
-2 pip install torch autopep8
-3 
-4 # RangeLibc
-5 sudo pip uninstall pip && sudo apt install python-pip
-6 pip install cython
-7 git clone http://github.com/kctess5/range\_libc
-8 cd range\_libc/pywrapper
-9 # Either:
-10 ./compile.sh            # on VM
-11 # Or:
-12 ./compile\_with\_cuda.sh  # on car - compiles GPU ray casting methods
+1 sudo pip uninstall pip && sudo apt install python-pip
+2 sudo apt install libsdl2-dev clang-format python-pyqtgraph
+3 pip install torch autopep8 cython
+4 
+5 # RangeLibc
+6 git clone http://github.com/kctess5/range\_libc
+7 cd range\_libc/pywrapper
+8 # Either:
+9 ./compile.sh            # on VM
+10 # Or:
+11 ./compile\_with\_cuda.sh  # on car - compiles GPU ray casting methods
 \end{DoxyCode}
 
 
-\subsubsection*{Clone the Project}
+Clone the repository\+:
 
 
 \begin{DoxyCode}
-1 git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package.git arpg
-2 cd arpg
+1 git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package
 \end{DoxyCode}
 
 
-\subsubsection*{Move to R\+OS Workspace}
+Install missing R\+OS dependencies\+:
 
 
 \begin{DoxyCode}
-1 cd ros\_ws
+1 cd ros.package/ros\_ws
+2 rosdep install -y --from-paths src --ignore-src --rosdistro $\{ROS\_DISTRO\}
 \end{DoxyCode}
 
 
-\#\#\# Install missing R\+OS dependencies 
-\begin{DoxyCode}
-1 rosdep install -y --from-paths src --ignore-src --rosdistro $\{ROS\_DISTRO\}
-\end{DoxyCode}
+\subsection*{Usage}
 
-
-\subsubsection*{Build R\+OS packages}
+Compile while inside the {\ttfamily ros\+\_\+ws}directory\+:
 
 
 \begin{DoxyCode}
@@ -54,64 +76,86 @@ These instructions will get you a copy of the project up and running
 \end{DoxyCode}
 
 
-\subsubsection*{Run routines}
+Set up enviroment variables for your shell\+:
 
 
 \begin{DoxyCode}
-1 source devel/setup.bash (or setup.zsh)
+1 source devel/setup.bash # (or setup.zsh, depending on your shell)
 \end{DoxyCode}
 
 
-Now several routines can be started by executing the launch-\/files inside the {\bfseries launch/} directory. E.\+g.
+Use a launch file to start R\+OS and Gazebo\+:
 
 
 \begin{DoxyCode}
-1 roslaunch launch/gazebo\_car-teleop.launch
+1 roslaunch launch/car.launch # (Physical car, Wallfollowing)
+2 roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)
+3 roslaunch launch/navigation\_stack.launch # (Simulation, SLAM & ROS navigation)
+4 roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)
 \end{DoxyCode}
 
 
-\subsubsection*{Run tests}
+\subsubsection*{Launch file arguments}
 
-
+These arguments can be passed to the launch files above. For example, to use the {\ttfamily gazebo.\+launch} file without emergency stop and with car highlighting, run\+: 
 \begin{DoxyCode}
-1 catkin\_make run\_tests
+1 roslaunch launch/gazebo.launch emergency\_stop:=false car\_highlighting:=true
 \end{DoxyCode}
+ The arguments can be changed permanently by editing the launch files.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*6{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\multirow{2}{\linewidth}{{\bf Argument }}&\multicolumn{4}{p{(\linewidth-\tabcolsep*6-\arrayrulewidth*3)*4/6}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch} }}&\multirow{2}{\linewidth}{{\bf Description  }}\\\cline{2-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}&\multirow{2}{\linewidth}{{\bf Argument }}&\multicolumn{4}{p{(\linewidth-\tabcolsep*6-\arrayrulewidth*3)*4/6}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch} }}&\multirow{2}{\linewidth}{{\bf Description  }}\\\cline{1-1}\cline{3-6}
+\endhead
+car &&gazebo &navigation\+\_\+stack &qlearning  \\\cline{1-6}
+{\ttfamily car\+\_\+highlighting} &✗ &✓ &✓ &✓ &Boolean value whether the car should glow green in Gazebo for better visibility. Usually defaults to false.  \\\cline{1-6}
+{\ttfamily debug} &✗ &✓ &✓ &✗ &Boolean value whether Gazebo should run in debug mode. Defaults to false.  \\\cline{1-6}
+{\ttfamily emergency\+\_\+stop} &✗ &✓ &✗ &✗ &Boolean value whether the emergency stop should be active. Defaults to true.  \\\cline{1-6}
+{\ttfamily gui} &✗ &✓ &✓ &✓ &Boolean value whether Gazebo should show a user interface. Defaults to true.  \\\cline{1-6}
+{\ttfamily joystick\+\_\+type} &✓ &✓ &✓ &✗ &The type of joystick controller. Possible values\+: {\ttfamily ps3}, {\ttfamily xbox360} and {\ttfamily xboxone}  \\\cline{1-6}
+{\ttfamily map} &✗ &✗ &✓ &✗ &Name of the map to be used by the particle filter. Defaults to a prerecorded map of {\ttfamily racetrack\+\_\+decorated\+\_\+2}.  \\\cline{1-6}
+{\ttfamily paused} &✗ &✓ &✓ &✗ &Boolean value whether Gazebo should start paused. Defaults to false.  \\\cline{1-6}
+{\ttfamily pf\+\_\+angle\+\_\+step} &✗ &✗ &✓ &✗ &Angle step of the particle filter. Defaults to 18.  \\\cline{1-6}
+{\ttfamily pf\+\_\+max\+\_\+particles} &✗ &✗ &✓ &✗ &Maximum amount of particles to be used by the particle filter. Defaults to 500.  \\\cline{1-6}
+{\ttfamily pf\+\_\+squash\+\_\+factor} &✗ &✗ &✓ &✗ &Squash factor of the particle filter. Defaults to 2.\+2.  \\\cline{1-6}
+{\ttfamily plot\+\_\+window} &✗ &✗ &✗ &✓ &Integer value indicating the amount of episodes that should be plotted. Defaults to 200.  \\\cline{1-6}
+{\ttfamily realtime\+\_\+simulation} &✗ &✗ &✗ &✓ &Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true.  \\\cline{1-6}
+{\ttfamily use\+\_\+gpu} &✗ &✓ &✓ &✓ &Boolean value whether Gazebo should use the G\+PU when simulating the lidar. Defaults to true.  \\\cline{1-6}
+{\ttfamily use\+\_\+sim\+\_\+time} &✗ &✓ &✓ &✗ &Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true.  \\\cline{1-6}
+{\ttfamily verbose} &✗ &✓ &✓ &✗ &Boolean value whether Gazebo should give verbose standard output. Defaults to true.  \\\cline{1-6}
+{\ttfamily visualize\+\_\+lidar} &✗ &✓ &✓ &✗ &Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false.  \\\cline{1-6}
+{\ttfamily world} &✗ &✓ &✓ &✓ &The name of the racetrack. Possible values\+: {\ttfamily racetrack\+\_\+decorated}, {\ttfamily racetrack\+\_\+decorated\+\_\+2} (default) and {\ttfamily racetrack\+\_\+decorated\+\_\+2\+\_\+big}  \\\cline{1-6}
+\end{longtabu}
 
 
-\subsection*{Building a map with Cartographer}
+\subsection*{Hardware}
 
-There are two bash scripts in the {\ttfamily scripts} folder which use \href{https://github.com/googlecartographer/cartographer_ros}{\tt Cartographer} to create a map of a racetrack. This map can then be used for different purposes, for example in the R\+OS navigation stack.
+Our car is based on a 1/10th scale RC car (\href{https://traxxas.com/products/models/electric/ford-fiesta-st-rally}{\tt Traxxas Ford Fiesta}) with these additions\+:
 
 
 \begin{DoxyItemize}
-\item To build a map while a roscore is running and providing sensor data, use the {\ttfamily cartographer\+\_\+online} script.
-\item To build a map from a rosbag, use the {\ttfamily cartographer\+\_\+offline} script. The rosbag must provide range data on the rostopic {\ttfamily /scan} and a transformation tree on {\ttfamily /tf}; depending on your configuration of cartographer in {\ttfamily car\+\_\+cartographer/config} it may need to also have odometry data on {\ttfamily /odom} or I\+MU data on {\ttfamily /imu}.
+\item C\+P\+U/\+G\+PU board (\href{https://www.nvidia.com/object/jetson-tk1-embedded-dev-kit.html}{\tt N\+V\+I\+D\+IA Jetson})
+\item motor controller (\href{https://www.enertionboards.com/FOCBOX-foc-motor-speed-controller.html}{\tt F\+O\+C\+B\+OX})
+\item L\+I\+D\+AR scanner (\href{https://www.hokuyo-usa.com/products/scanning-laser-rangefinders/ust-10lx}{\tt Hokuyo U\+S\+T-\/10\+LX})
+\item an inertial measurement unit (\href{https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/}{\tt Invensense M\+P\+U-\/9250})
+\item optional\+: brushless DC motor (replaces the standard brushed motor)
+\item optional\+: stereo camera (\href{https://www.stereolabs.com/zed/}{\tt Z\+ED})
 \end{DoxyItemize}
-
-
-\begin{DoxyCode}
-1 # Either:
-2 ./scripts/cartographer\_online.sh
-3 # Or:
-4 ./scripts/cartographer\_offline.sh /absolute/path/to/rosbag
-\end{DoxyCode}
-
 
 \subsection*{Documentation}
 
 
 \begin{DoxyItemize}
-\item For general information and documentation checkout the \href{https://github.com/Autonomous-Racing-PG/ros.package/wiki}{\tt wiki page}.
-\item For source code documentation checkout the auto-\/generated \href{https://autonomous-racing-pg.github.io/ros.package/html/index.html}{\tt Doxygen documentation}.
+\item For general information and documentation check out our \href{https://github.com/Autonomous-Racing-PG/ros.package/wiki}{\tt wiki page}.
+\item For source code documentation check out the auto-\/generated \href{https://autonomous-racing-pg.github.io/ros.package/html/index.html}{\tt Doxygen documentation}.
 \end{DoxyItemize}
 
 \subsection*{License}
 
-This project (exluded git submodules) is licensed under the M\+IT and G\+P\+Lv3 dual licensed -\/ see the \href{MIT.LICENSE}{\tt M\+I\+T.\+L\+I\+C\+E\+N\+SE} and \href{GPLv3.LICENSE}{\tt G\+P\+Lv3.\+L\+I\+C\+E\+N\+SE} file for details
-
-\subsection*{Acknowledgments}
-
-
-\begin{DoxyItemize}
-\item TU Dortmund 
-\end{DoxyItemize}
+This project (excluding git submodules) is under M\+IT and G\+P\+Lv3 dual licensed -\/ see the \href{MIT.LICENSE}{\tt M\+I\+T.\+L\+I\+C\+E\+N\+SE} and \href{GPLv3.LICENSE}{\tt G\+P\+Lv3.\+L\+I\+C\+E\+N\+SE} file for details. 

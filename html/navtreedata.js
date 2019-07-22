@@ -3,7 +3,7 @@ var NAVTREE =
   [ "Autonomous Racing", "index.html", [
     [ "Autonomous Racing Project Group", "index.html", null ],
     [ "CPP_STYLE_GUIDE", "md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_CPP_STYLE_GUIDE.html", null ],
-    [ "Project Title", "md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_README.html", null ],
+    [ "Autonomous Racing Software Stack and Simulation Enviroment", "md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_README.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
