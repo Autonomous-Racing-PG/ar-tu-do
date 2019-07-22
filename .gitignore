@@ -8,3 +8,4 @@ ros_ws/src/navigation_stack/car_cartographer/files/*
 .vscode/
 
 *.pyc
+*.to

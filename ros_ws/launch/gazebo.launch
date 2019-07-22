@@ -10,6 +10,7 @@
     <arg name="joystick_type" default="xbox360"/>
     <arg name="visualize_lidar" default="false"/>
     <arg name="emergency_stop" default="true"/>
+    <arg name="car_highlighting" default="false"/>
 
     <!-- Mode Override
         1 forces manual driving
@@ -17,6 +18,8 @@
         0 uses user input to enable the modes
     -->
     <arg name="mode_override" default="0"/>
+
+    <param name="world_name" value="$(arg world)"/>
 
     <include file="$(find racer_world)/launch/racer_gazebo.launch">
         <arg name="world" value="$(arg world)"/>
@@ -27,6 +30,7 @@
         <arg name="verbose" value="$(arg verbose)"/>
         <arg name="use_gpu" value="$(arg use_gpu)"/>
         <arg name="visualize_lidar" value="$(arg visualize_lidar)"/>
+        <arg name="car_highlighting" value="$(arg car_highlighting)"/>
     </include>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find racer_world)/launch/wallfollowing.rviz"/>

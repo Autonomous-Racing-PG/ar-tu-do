@@ -10,9 +10,12 @@ These instructions will get you a copy of the project up and running
 
 ### Install missing system dependencies
 ```bash
+sudo apt install libsdl2-dev python-pip clang-format
+pip install torch autopep8
+
 # RangeLibc
 sudo pip uninstall pip && sudo apt install python-pip
-sudo pip install cython
+pip install cython
 git clone http://github.com/kctess5/range_libc
 cd range_libc/pywrapper
 # Either:

@@ -8,7 +8,7 @@ Panels:
         - /RobotModel1/Links1/left_wheel_back1
         - /RobotModel1/Links1/left_wheel_front1
         - /Camera1/Visibility1
-      Splitter Ratio: 0.446488291
+      Splitter Ratio: 0.530555546
     Tree Height: 616
   - Class: rviz/Selection
     Name: Selection
@@ -30,6 +30,8 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: LaserScan
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -75,6 +77,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         laser:
           Alpha: 1
           Show Axes: false
@@ -157,20 +163,29 @@ Visualization Manager:
       Unreliable: false
       Value: true
       Visibility:
+        EmergencyStop: true
         Grid: true
         LaserScan: true
-        Marker: true
         RobotModel: true
         Value: true
+        Wallfollowing: true
       Zoom Factor: 1
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: wallfollowing_visualization
-      Name: Marker
+      Name: Wallfollowing
       Namespaces:
-        points_and_lines: true
+        wall_following: true
       Queue Size: 100
       Value: true
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /emergencystop_visualization
+      Name: EmergencyStop
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48

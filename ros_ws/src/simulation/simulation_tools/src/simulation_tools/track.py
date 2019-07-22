@@ -3,6 +3,8 @@
 import random
 import numpy as np
 import math
+import rospy
+import sys
 
 from tf.transformations import euler_from_quaternion
 
@@ -82,6 +84,15 @@ class Track():
             segment_distance, Point(x, y), self)  # nopep8
 
 
+world_name = rospy.get_param("world_name")
+
+if world_name not in [
+    "racetrack_decorated",
+    "racetrack_decorated_2",
+        "racetrack_decorated_2_big"]:
+    print "ERROR: Racetrack not supported by track.py"
+    sys.exit(1)
+
 POINTS = np.array((
     (2.64, -0.36),
     (6.08, -0.33),
@@ -133,5 +144,8 @@ POINTS = np.array((
     (-9.02, 0.66),
     (-6.00, -0.17),
     (2.64, -0.36)))
+
+if world_name == "racetrack_decorated_2_big":
+    POINTS *= 2.5
 
 track = Track(POINTS)

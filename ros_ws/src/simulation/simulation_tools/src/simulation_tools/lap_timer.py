@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
+import sys
 from gazebo_msgs.msg import ModelState, ModelStates
 from std_msgs.msg import Duration
 from math import floor
@@ -67,11 +68,29 @@ class Timer():
         self.lap_time_publisher.publish(duration)
 
 
+world_name = rospy.get_param('world_name')
+if world_name not in [
+    'racetrack_decorated',
+    'racetrack_decorated_2',
+        'racetrack_decorated_2_big']:
+    rospy.logfatal('Racetrack not supported by lap_timer.')
+    sys.exit(1)
+
 FINISH_LINE_1 = Area(Point(0, -0.5), Point(2.8, 1))
 FINISH_LINE_2 = Area(Point(4, -0.5), Point(1.2, 1))
 CHECKPOINT_1 = Area(Point(11, 7), Point(2, 2))
 CHECKPOINT_2 = Area(Point(0, 4), Point(2, 2))
 CHECKPOINT_3 = Area(Point(-14, 1), Point(2, 2))
+
+if world_name == 'racetrack_decorated_2_big':
+    for area in [
+            FINISH_LINE_1,
+            FINISH_LINE_2,
+            CHECKPOINT_1,
+            CHECKPOINT_2,
+            CHECKPOINT_3]:
+        area.center = Point(area.center.x * 2.5, area.center.y * 2.5)
+        area.extents = Point(area.extents.x * 2.5, area.extents.y * 2.5)
 
 forward_track = Timer("forward", (
     FINISH_LINE_1,
