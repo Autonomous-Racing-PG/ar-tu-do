@@ -16,11 +16,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.945098 0.94902 0.964706 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.945098 0.94902 0.964706 1</color>
@@ -42,11 +39,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.301961 0.560784 0.431373 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.301961 0.560784 0.431373 1</color>
@@ -68,11 +62,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.945098 0.94902 0.964706 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.945098 0.94902 0.964706 1</color>
@@ -94,11 +85,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.266667 0.266667 0.266667 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.266667 0.266667 0.266667 1</color>
@@ -120,11 +108,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.909804 0.333333 0.32549 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.909804 0.333333 0.32549 1</color>
@@ -146,11 +131,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.266667 0.266667 0.266667 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.266667 0.266667 0.266667 1</color>
@@ -172,11 +154,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.945098 0.94902 0.964706 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.945098 0.94902 0.964706 1</color>
@@ -198,11 +177,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">1 1 1 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">1 1 1 1</color>
@@ -224,11 +200,8 @@
       <profile_COMMON>
         <technique sid="common">
           <phong>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
             <ambient>
-              <color sid="ambient">0 0 0 1</color>
+              <color sid="ambient">0.960784 0.72549 0.258824 1</color>
             </ambient>
             <diffuse>
               <color sid="diffuse">0.960784 0.72549 0.258824 1</color>
