@@ -11,6 +11,13 @@
 #include <teleoperation/joystick_controllerConfig.h>
 
 constexpr const char* PARAMETER_JOYSTICK_TYPE = "joystick_type";
+
+constexpr const char* PARAMETER_JOYSTICK_STEERING_AXIS = "joystick_steering_axis";
+constexpr const char* PARAMETER_JOYSTICK_ACCELERATION_AXIS = "joystick_acceleration_axis";
+constexpr const char* PARAMETER_JOYSTICK_DECELERATION_AXIS = "joystick_deceleration_axis";
+constexpr const char* PARAMETER_JOYSTICK_ENABLE_MANUAL_BTN = "joystick_enable_manual_button";
+constexpr const char* PARAMETER_JOYSTICK_ENABLE_AUTONOMOUS_BTN = "joystick_enable_autonomous_button";
+
 constexpr const char* TOPIC_DRIVE_PARAMETERS = "input/drive_param/joystick";
 constexpr const char* TOPIC_HEARTBEAT_MANUAL = "/input/heartbeat_manual";
 constexpr const char* TOPIC_HEARTBEAT_AUTONOMOUS = "/input/heartbeat_autonomous";
@@ -40,16 +47,18 @@ class JoystickController
 
     struct JoystickMapping
     {
-        uint_fast16_t steeringAxis;
-        uint_fast16_t accelerationAxis;
-        uint_fast16_t decelerationAxis;
-        uint_fast16_t enableManualButton;
-        uint_fast16_t enableAutonomousButton;
+        int steeringAxis;
+        int accelerationAxis;
+        int decelerationAxis;
+        int enableManualButton;
+        int enableAutonomousButton;
+        std::string name;
     };
 
-    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14, 13 };
-    const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0, 1 };
-    const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0, 1 };
+    const struct JoystickMapping joystick_mapping_ps3 = { 0, 13, 12, 14, 13, "ps3" };
+    const struct JoystickMapping joystick_mapping_xbox360 = { 0, 4, 5, 0, 1, "xbox360" };
+    const struct JoystickMapping joystick_mapping_xboxone = { 0, 5, 2, 0, 1, "xbone" };
+    const struct JoystickMapping joystick_mapping_default = joystick_mapping_xbox360;
 
     public:
     JoystickController();

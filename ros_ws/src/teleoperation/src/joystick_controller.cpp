@@ -130,11 +130,25 @@ void JoystickController::selectJoystickMapping()
     {
         m_joystick_map = joystick_mapping_xboxone;
     }
+    else if (joystick_type == "custom")
+    {
+        m_joystick_map = joystick_mapping_xbox360;
+        {
+            m_joystick_map.name = "custom";
+            private_node_handle.getParam(PARAMETER_JOYSTICK_STEERING_AXIS, m_joystick_map.steeringAxis);
+            private_node_handle.getParam(PARAMETER_JOYSTICK_ACCELERATION_AXIS, m_joystick_map.accelerationAxis);
+            private_node_handle.getParam(PARAMETER_JOYSTICK_DECELERATION_AXIS, m_joystick_map.decelerationAxis);
+            private_node_handle.getParam(PARAMETER_JOYSTICK_ENABLE_MANUAL_BTN, m_joystick_map.enableManualButton);
+            private_node_handle.getParam(PARAMETER_JOYSTICK_ENABLE_AUTONOMOUS_BTN,
+                                         m_joystick_map.enableAutonomousButton);
+        }
+    }
     else
     {
-        ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to xbox360 keybindings");
+        ROS_WARN_STREAM("No valid joystick_type argument provided. Falling back to " << joystick_mapping_default.name
+                                                                                     << " keybindings");
         ROS_INFO_STREAM(PARAMETER_JOYSTICK_TYPE << " : " << joystick_type);
-        m_joystick_map = joystick_mapping_xbox360;
+        m_joystick_map = joystick_mapping_default;
     }
     this->updateDynamicConfig();
 }
