@@ -25,12 +25,14 @@ from gazebo_msgs.msg import ModelStates
 
 BATCH_INDICES = torch.arange(0, BATCH_SIZE, device=device, dtype=torch.long)
 
+
 class QLearningTrainingNode(QLearningNode):
     def __init__(self):
         QLearningNode.__init__(self)
-        
+
         self.policy1 = Policy()
-        self.optimizer1 = optim.Adam(self.policy1.parameters(), lr=LEARNING_RATE)
+        self.optimizer1 = optim.Adam(
+            self.policy1.parameters(), lr=LEARNING_RATE)
 
         self.episode_count = 0
         self.episode_length = 0
@@ -72,15 +74,17 @@ class QLearningTrainingNode(QLearningNode):
         # Discount future rewards back to the present using gamma
         for r in self.policy1.reward_episode[::-1]:
             R = r + self.policy1.gamma * R
-            rewards.insert(0,R)
+            rewards.insert(0, R)
 
         # Scale rewards
         rewards = torch.FloatTensor(rewards)
         if rewards.numel() > 1:
-            rewards = (rewards - rewards.mean()) / (rewards.std() + np.finfo(np.float32).eps)
+            rewards = (rewards - rewards.mean()) / \
+                (rewards.std() + np.finfo(np.float32).eps)
 
         # Calculate loss
-        loss = (torch.sum(torch.mul(self.policy1.policy_history, Variable(rewards)).mul(-1), -1))
+        loss = (torch.sum(torch.mul(self.policy1.policy_history,
+                                    Variable(rewards)).mul(-1), -1))
 
         # Update network weights
         if loss != 0:
@@ -88,13 +92,14 @@ class QLearningTrainingNode(QLearningNode):
             loss.backward()
             self.optimizer1.step()
 
-            #Save episode history counters
+            # Save episode history counters
             self.policy1.loss_history.append(loss.item())
-            self.policy1.reward_history.append(np.sum(self.policy1.reward_episode))
-        
+            self.policy1.reward_history.append(
+                np.sum(self.policy1.reward_episode))
+
         # Reset policy history and rewards
         self.policy1.policy_history = Variable(torch.Tensor())
-        self.policy1.reward_episode= []
+        self.policy1.reward_episode = []
 
     def on_crash(self, _):
         global done
@@ -103,7 +108,8 @@ class QLearningTrainingNode(QLearningNode):
             done = True
 
     def select_action(self, state):
-        #Select an action (0 or 1) by running policy model and choosing based on the probabilities in state
+        # Select an action (0 or 1) by running policy model and choosing based
+        # on the probabilities in state
         state = self.state.type(torch.FloatTensor)
         state = self.policy1(Variable(state))
         c = Categorical(state)
@@ -111,7 +117,8 @@ class QLearningTrainingNode(QLearningNode):
 
         # Add log probability of our chosen action to our history
         if self.policy1.policy_history.dim() != 0:
-            self.policy1.policy_history = torch.cat([self.policy1.policy_history, c.log_prob(action).view(1)])
+            self.policy1.policy_history = torch.cat(
+                [self.policy1.policy_history, c.log_prob(action).view(1)])
         else:
             self.policy1.policy_history = (c.log_prob(action))
         return action
@@ -129,14 +136,15 @@ class QLearningTrainingNode(QLearningNode):
         track_position = track.localize(self.car_position)
         distance = abs(track_position.distance_to_center)
 
-        # The closer the car is to the middle of the race track, the more reward it gets
+        # The closer the car is to the middle of the race track, the more
+        # reward it gets
         if distance < 0.2:
             return 1 * scaleForSpeed
         elif distance < 0.4:
             return 0.7 * scaleForSpeed
         else:
             return -0.4 * scaleForSpeed
-        
+
     def log_training_progress(self):
         average_episode_length = sum(
             self.episode_length_history) / len(self.episode_length_history)

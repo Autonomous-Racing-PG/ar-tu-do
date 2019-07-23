@@ -16,7 +16,8 @@ TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
 # General parameters
 
-ACTIONS = [(-0.8, 0.1), (0.8, 0.1),(0.5,0.2),(-0.5,0.2),(0,0.2),(0, 0.4)]
+ACTIONS = [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2),
+           (-0.5, 0.2), (0, 0.2), (0, 0.4)]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
@@ -47,28 +48,28 @@ class NeuralQEstimator(nn.Module):
     def save(self):
         torch.save(self.state_dict(), MODEL_FILENAME)
 
+
 class Policy(nn.Module):
     def __init__(self):
         super(Policy, self).__init__()
         self.state_space = LASER_SAMPLE_COUNT
         self.action_space = ACTION_COUNT
-        
+
         self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 32)
         self.fc2 = nn.Linear(32, 18)
         self.fc3 = nn.Linear(18, ACTION_COUNT)
 
         self.gamma = 0.99
 
-        # Episode policy and reward history 
-        self.policy_history = Variable(torch.Tensor()) 
+        # Episode policy and reward history
+        self.policy_history = Variable(torch.Tensor())
         self.reward_episode = []
 
         # Overall reward and loss history
         self.reward_history = []
         self.loss_history = []
-        
 
-    def forward(self, x):    
+    def forward(self, x):
         model = torch.nn.Sequential(
             self.fc1,
             nn.ReLU(),
@@ -86,8 +87,9 @@ class Policy(nn.Module):
 
     def save(self):
         torch.save(self.state_dict(), MODEL_FILENAME)
-        
+
 # Training parameters
+
 
 # Start by loading previously trained parameters.
 # If this is False, training will start from scratch
