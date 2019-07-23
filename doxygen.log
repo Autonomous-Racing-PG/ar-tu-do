@@ -1261,5 +1261,5 @@ Patching output file 166/169
 Patching output file 167/169
 Patching output file 168/169
 Patching output file 169/169
-lookup cache used 1077/65536 hits=4480 misses=1093
+lookup cache used 1084/65536 hits=4548 misses=1100
 finished...
