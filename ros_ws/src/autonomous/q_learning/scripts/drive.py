@@ -3,7 +3,7 @@
 from qlearning import QLearningNode
 import os
 import rospy
-from parametersPG import MODEL_FILENAME
+from parameters import MODEL_FILENAME
 import torch
 
 
