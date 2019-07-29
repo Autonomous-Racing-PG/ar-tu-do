@@ -7,7 +7,7 @@ var searchData=
   ['find_5fleft_5fright_5fborder',['find_left_right_border',['../namespacewallfollowing.html#a85455c82dd12c297c8cbc3227c1ba598',1,'wallfollowing']]],
   ['finish_5fline_5f1',['FINISH_LINE_1',['../namespacesimulation__tools_1_1lap__timer.html#ae7d1eef6c19d3320b71be19367ec7fbd',1,'simulation_tools::lap_timer']]],
   ['finish_5fline_5f2',['FINISH_LINE_2',['../namespacesimulation__tools_1_1lap__timer.html#ac066eea03916600e5942b91bba4204fa',1,'simulation_tools::lap_timer']]],
-  ['fit',['fit',['../namespacecircle.html#a391c3f0ba3506996d7eb3384bf6eeca6',1,'circle']]],
+  ['fit',['fit',['../classcircle_1_1_circle.html#a755e5bf15cddcd1a3e20804ece765aba',1,'circle::Circle']]],
   ['fitness',['fitness',['../classneural__car__driver_1_1_neural_car_driver.html#a4d709e4419449add88e2a1a5d825e918',1,'neural_car_driver::NeuralCarDriver']]],
   ['follow_5fwalls',['follow_walls',['../namespacewallfollowing.html#ae4edc6135d6c1a9b38674119a96b3375',1,'wallfollowing']]],
   ['format_5fduration',['format_duration',['../namespacesimulation__tools_1_1lap__timer.html#a8ff1f7d7789d5ea92df79c94205a7273',1,'simulation_tools::lap_timer']]],

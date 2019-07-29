@@ -21,7 +21,6 @@ var searchData=
   ['show_5fcircle_5fin_5frviz',['show_circle_in_rviz',['../namespacerviz__geometry.html#a07a18d3bf4954414457db93c65b71c2e',1,'rviz_geometry']]],
   ['show_5finfo',['show_info',['../namespacesimulation__tools_1_1speedometer.html#a605162cce10e81643f8f38ad72363b65',1,'simulation_tools::speedometer']]],
   ['show_5fline_5fin_5frviz',['show_line_in_rviz',['../namespacerviz__geometry.html#a93390c23bebf8db38c31f832225dddda',1,'rviz_geometry']]],
-  ['sigma',['sigma',['../namespacecircle.html#a35f5f3f41d4a120bf24f359fed22ab0d',1,'circle']]],
   ['simulation',['simulation',['../namespacesimulation.html',1,'']]],
   ['simulation_5ftools',['simulation_tools',['../namespacesimulation__tools.html',1,'']]],
   ['size',['size',['../classsimulation__tools_1_1track_1_1_track.html#a69be8807eecacfd98981e206ea3a003f',1,'simulation_tools::track::Track']]],
