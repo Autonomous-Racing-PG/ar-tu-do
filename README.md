@@ -35,7 +35,7 @@ Install dependencies:
 ```bash
 sudo pip uninstall pip && sudo apt install python-pip
 sudo apt install libsdl2-dev clang-format python-pyqtgraph
-pip install torch autopep8 cython
+pip install torch autopep8 cython circle-fit
 
 # RangeLibc
 git clone http://github.com/kctess5/range_libc
