@@ -7,8 +7,7 @@ from drive_msgs.msg import drive_param
 
 from rviz_geometry import show_circle_in_rviz, show_line_in_rviz
 
-import circle
-from circle import Point
+from circle import Circle, Point
 
 import math
 
@@ -192,8 +191,8 @@ def handle_scan(laser_scan, delta_time):
     right_wall = points[:split:4, :]
     left_wall = points[split::4, :]
 
-    left_circle = circle.fit(left_wall)
-    right_circle = circle.fit(right_wall)
+    left_circle = Circle.fit(left_wall)
+    right_circle = Circle.fit(right_wall)
 
     barrier_start = int(points.shape[0] * (0.5 - parameters.barrier_size_realtive))  # nopep8
     barrier_end = int(points.shape[0] * (0.5 + parameters.barrier_size_realtive))  # nopep8
