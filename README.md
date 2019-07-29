@@ -81,6 +81,7 @@ roslaunch launch/car.launch # (Physical car, Wallfollowing)
 roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)
 roslaunch launch/navigation_stack.launch # (Simulation, SLAM & ROS navigation)
 roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)
+roslaunch launch/evolutionary.launch # (Simulation, Train the evolutionary neural network)
 ```
 
 ### Launch file arguments
