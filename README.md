@@ -102,15 +102,7 @@ The arguments can be changed permanently by editing the launch files.
     <td>car</td>
     <td>gazebo</td>
     <td>navigation_stack</td>
-    <td>qlearning</td>
-  </tr>
-  <tr>
-    <td><code>car_highlighting</code></td>
-    <td>Boolean value whether the car should glow green in Gazebo for better visibility. Usually defaults to false.</td>
-    <td>✗</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✓</td>
+    <td>qlearning, evolutionary</td>
   </tr>
   <tr>
     <td><code>debug</code></td>
@@ -190,7 +182,7 @@ The arguments can be changed permanently by editing the launch files.
     <td>✗</td>
     <td>✗</td>
     <td>✗</td>
-    <td>✓</td>
+    <td>✓ / ✗</td>
   </tr>
   <tr>
     <td><code>realtime_simulation</code></td>
