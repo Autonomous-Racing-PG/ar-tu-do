@@ -95,8 +95,8 @@ The arguments can be changed permanently by editing the launch files.
 <table>
   <tr>
     <th rowspan="2">Argument</th>
-    <th colspan="4">Supported by <code>launch/&lt;file&gt;.launch</code></th>
     <th rowspan="2">Description</th>
+    <th colspan="4">Supported by <code>launch/&lt;file&gt;.launch</code></th>
   </tr>
   <tr>
     <td>car</td>
@@ -106,139 +106,139 @@ The arguments can be changed permanently by editing the launch files.
   </tr>
   <tr>
     <td><code>car_highlighting</code></td>
+    <td>Boolean value whether the car should glow green in Gazebo for better visibility. Usually defaults to false.</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
-    <td>Boolean value whether the car should glow green in Gazebo for better visibility. Usually defaults to false.</td>
   </tr>
   <tr>
     <td><code>debug</code></td>
-    <td>✗</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✗</td>
     <td>Boolean value whether Gazebo should run in debug mode. Defaults to false.</td>
+    <td>✗</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✗</td>
   </tr>
   <tr>
     <td><code>emergency_stop</code></td>
+    <td>Boolean value whether the emergency stop should be active. Defaults to true.</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
     <td>✗</td>
-    <td>Boolean value whether the emergency stop should be active. Defaults to true.</td>
   </tr>
   <tr>
     <td><code>gui</code></td>
+    <td>Boolean value whether Gazebo should show a user interface. Defaults to true.</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
-    <td>Boolean value whether Gazebo should show a user interface. Defaults to true.</td>
   </tr>
   <tr>
     <td><code>joystick_type</code></td>
+    <td>The type of joystick controller. Possible values: <code>ps3</code>, <code>xbox360</code> and <code>xboxone</code></td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
     <td>✗</td>
-    <td>The type of joystick controller. Possible values: <code>ps3</code>, <code>xbox360</code> and <code>xboxone</code></td>
   </tr>
   <tr>
     <td><code>map</code></td>
+    <td>Name of the map to be used by the particle filter. Defaults to a prerecorded map of <code>racetrack_decorated_2</code>.</td>
     <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
-    <td>Name of the map to be used by the particle filter. Defaults to a prerecorded map of <code>racetrack_decorated_2</code>.</td>
   </tr>
   <tr>
     <td><code>paused</code></td>
-    <td>✗</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✗</td>
     <td>Boolean value whether Gazebo should start paused. Defaults to false.</td>
+    <td>✗</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✗</td>
   </tr>
   <tr>
     <td><code>pf_angle_step</code></td>
+    <td>Angle step of the particle filter. Defaults to 18.</td>
     <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
-    <td>Angle step of the particle filter. Defaults to 18.</td>
   </tr>
   <tr>
     <td><code>pf_max_particles</code></td>
+    <td>Maximum amount of particles to be used by the particle filter. Defaults to 500.</td>
     <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
-    <td>Maximum amount of particles to be used by the particle filter. Defaults to 500.</td>
   </tr>
   <tr>
     <td><code>pf_squash_factor</code></td>
+    <td>Squash factor of the particle filter. Defaults to 2.2.</td>
     <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
-    <td>Squash factor of the particle filter. Defaults to 2.2.</td>
   </tr>
   <tr>
     <td><code>plot_window</code></td>
+    <td>Integer value indicating the amount of episodes that should be plotted. Defaults to 200.</td>
     <td>✗</td>
     <td>✗</td>
     <td>✗</td>
     <td>✓</td>
-    <td>Integer value indicating the amount of episodes that should be plotted. Defaults to 200.</td>
   </tr>
   <tr>
     <td><code>realtime_simulation</code></td>
+    <td>Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true.</td>
     <td>✗</td>
     <td>✗</td>
     <td>✗</td>
     <td>✓</td>
-    <td>Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true.</td>
   </tr>
   <tr>
     <td><code>use_gpu</code></td>
+    <td>Boolean value whether Gazebo should use the GPU when simulating the lidar. Defaults to true.</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
-    <td>Boolean value whether Gazebo should use the GPU when simulating the lidar. Defaults to true.</td>
   </tr>
   <tr>
     <td><code>use_sim_time</code></td>
-    <td>✗</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✗</td>
     <td>Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true.</td>
+    <td>✗</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✗</td>
   </tr>
   <tr>
     <td><code>verbose</code></td>
-    <td>✗</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✗</td>
     <td>Boolean value whether Gazebo should give verbose standard output. Defaults to true.</td>
+    <td>✗</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✗</td>
   </tr>
   <tr>
     <td><code>visualize_lidar</code></td>
-    <td>✗</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✗</td>
     <td>Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false.</td>
+    <td>✗</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✗</td>
   </tr>
   <tr>
     <td><code>world</code></td>
+    <td>The name of the racetrack. Possible values: <code>racetrack_decorated</code>, <code>racetrack_decorated_2</code> (default) and <code>racetrack_decorated_2_big</code></td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
-    <td>The name of the racetrack. Possible values: <code>racetrack_decorated</code>, <code>racetrack_decorated_2</code> (default) and <code>racetrack_decorated_2_big</code></td>
   </tr>
 </table>
 
