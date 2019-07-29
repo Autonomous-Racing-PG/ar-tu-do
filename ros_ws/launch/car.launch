@@ -29,6 +29,6 @@
     </node>
 
     <node pkg="urg_node" type="urg_node" name="urg_node">
-        <param name="_ip_address" value="192.168.1.10"/>
+        <param name="ip_address" value="192.168.1.10"/>
     </node>
 </launch>
