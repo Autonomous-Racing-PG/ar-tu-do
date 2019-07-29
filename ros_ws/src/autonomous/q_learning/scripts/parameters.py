@@ -40,9 +40,8 @@ class NeuralQEstimator(nn.Module):
         return self.fc3(x)
 
     def load(self):
-        if os.path.isfile(MODEL_FILENAME):
-            self.load_state_dict(torch.load(MODEL_FILENAME))
-            rospy.loginfo("Model parameters loaded.")
+        self.load_state_dict(torch.load(MODEL_FILENAME))
+        rospy.loginfo("Model parameters loaded.")
 
     def save(self):
         torch.save(self.state_dict(), MODEL_FILENAME)
