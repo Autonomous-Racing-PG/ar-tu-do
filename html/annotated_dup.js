@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "circle", "namespacecircle.html", "namespacecircle" ],
     [ "drive", "namespacedrive.html", "namespacedrive" ],
+    [ "neural_car_driver", "namespaceneural__car__driver.html", "namespaceneural__car__driver" ],
     [ "parameters", "namespaceparameters.html", "namespaceparameters" ],
     [ "qlearning", "namespaceqlearning.html", "namespaceqlearning" ],
     [ "simulation_tools", "namespacesimulation__tools.html", "namespacesimulation__tools" ],

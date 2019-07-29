@@ -7,7 +7,7 @@ var searchData=
   ['enable_5fautonomous',['ENABLE_AUTONOMOUS',['../keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ad083a074856ee376bcd97103499a769f',1,'keyboard_controller.h']]],
   ['enable_5fmanual',['ENABLE_MANUAL',['../keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249a5fdf28325c0d8aff8049eab1f5a3fb3f',1,'keyboard_controller.h']]],
   ['episode_5fcount',['episode_count',['../classtrain_1_1_q_learning_training_node.html#a5bef341c2aa0b019a190efb961701cdc',1,'train.QLearningTrainingNode.episode_count()'],['../namespaceplotter.html#aec1d6d729c0b25355f045e1f5bdc588f',1,'plotter.episode_count()']]],
-  ['episode_5flength',['episode_length',['../classtrain_1_1_q_learning_training_node.html#abaa1cd9793d6724977d7b9451e36bc3b',1,'train::QLearningTrainingNode']]],
+  ['episode_5flength',['episode_length',['../classtrain_1_1_training_node.html#a58926a0e5681d22983ca345ebb7771bd',1,'train.TrainingNode.episode_length()'],['../classtrain_1_1_q_learning_training_node.html#abaa1cd9793d6724977d7b9451e36bc3b',1,'train.QLearningTrainingNode.episode_length()']]],
   ['episode_5flength_5fhistory',['episode_length_history',['../classtrain_1_1_q_learning_training_node.html#af81cfd1d0306828d0ff901faf85df6b3',1,'train::QLearningTrainingNode']]],
   ['episode_5fresult_5fpublisher',['episode_result_publisher',['../classtrain_1_1_q_learning_training_node.html#a7fef779ba6b1592b9ed2837abe5ae6ae',1,'train::QLearningTrainingNode']]],
   ['episode_5fstart_5ftime_5freal',['episode_start_time_real',['../classtrain_1_1_q_learning_training_node.html#a8efbf39c7dcf595fb7c02121c66f9f53',1,'train::QLearningTrainingNode']]],

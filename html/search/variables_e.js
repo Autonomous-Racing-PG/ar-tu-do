@@ -1,17 +1,15 @@
 var searchData=
 [
-  ['scan_5findices',['scan_indices',['../classqlearning_1_1_q_learning_node.html#a40b085aff23685cc49b297f287743ed6',1,'qlearning::QLearningNode']]],
-  ['segment',['segment',['../classsimulation__tools_1_1track_1_1_track_position.html#ab5feb6f2789576c88fe7310f28e4c4db',1,'simulation_tools::track::TrackPosition']]],
-  ['segment_5fdistance',['segment_distance',['../classsimulation__tools_1_1track_1_1_track_position.html#a89c184a72d3b1636bf9531de144374e4',1,'simulation_tools::track::TrackPosition']]],
-  ['segment_5flength',['segment_length',['../classsimulation__tools_1_1track_1_1_track.html#aa74dadec286ae8ad2f3399c6fd9e9fd9',1,'simulation_tools::track::Track']]],
-  ['segment_5fprogress',['segment_progress',['../classsimulation__tools_1_1track_1_1_track_position.html#a1ce2f49333cc2e6d5ac1094a3e919eeb',1,'simulation_tools::track::TrackPosition']]],
-  ['set_5fmodel_5fstate',['set_model_state',['../namespacesimulation__tools_1_1reset__car.html#a0fcc6f9aa08bea780ef83201d5a71169',1,'simulation_tools::reset_car']]],
-  ['setup_5fargs',['setup_args',['../namespacesetup.html#a504ffa482edfe0eff08f64b2f5dff0e9',1,'setup']]],
-  ['size',['size',['../classsimulation__tools_1_1track_1_1_track.html#a69be8807eecacfd98981e206ea3a003f',1,'simulation_tools::track::Track']]],
-  ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],
-  ['start',['start',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#afc51d0e4a6aa0e19be5c8622352b9afe',1,'simulation_tools::lap_timer::Timer']]],
-  ['state',['state',['../classtrain_1_1_q_learning_training_node.html#a6e860eb510dc030f536d26c2a3fcc33c',1,'train::QLearningTrainingNode']]],
-  ['steering_5fto_5fservo_5fgain',['STEERING_TO_SERVO_GAIN',['../namespacecar__config.html#aa8ab85fe7b8ab728f34d15028f114d86',1,'car_config']]],
-  ['steering_5fto_5fservo_5foffset',['STEERING_TO_SERVO_OFFSET',['../namespacecar__config.html#abb6ef746663276219b321683dfbb8896',1,'car_config']]],
-  ['steps_5fwith_5fwrong_5forientation',['steps_with_wrong_orientation',['../classtrain_1_1_q_learning_training_node.html#a87a28e543665823ac18758f6a4460d7a',1,'train::QLearningTrainingNode']]]
+  ['radius',['radius',['../classcircle_1_1_circle.html#a33aec6cd768f0a1850fae92cf3fcbc95',1,'circle::Circle']]],
+  ['real_5ftime_5ffactor',['real_time_factor',['../classtrain_1_1_q_learning_training_node.html#a407532bec47855fec93201fa87fe80ab',1,'train::QLearningTrainingNode']]],
+  ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../namespacecar__config.html#a43e668702c6dc662ff95f80047ee5500',1,'car_config']]],
+  ['reverse_5ftrack',['reverse_track',['../namespacesimulation__tools_1_1lap__timer.html#a05166a035886cf7f2693a8f72dc05bbc',1,'simulation_tools::lap_timer']]],
+  ['reward_5flist',['reward_list',['../namespaceplotter.html#aa648ebbb57476267f9430be51eeb420c',1,'plotter']]],
+  ['reward_5fplot',['reward_plot',['../namespaceplotter.html#a40062593c153ab9d59f836890f82dfc7',1,'plotter']]],
+  ['right',['right',['../classsimulation__tools_1_1track_1_1_track.html#a668e3804fa2720790fb57f592c73c782',1,'simulation_tools::track::Track']]],
+  ['right_5fsteering_5fposition',['RIGHT_STEERING_POSITION',['../namespacesimulation.html#af34d70ba82e8343343521a32e5f6b12a',1,'simulation']]],
+  ['rpm_5fto_5fspeed',['RPM_TO_SPEED',['../namespacecar__config.html#aee034b6adfd7932f245bc94d869f2bb6',1,'car_config']]],
+  ['rviz_5fframe',['RVIZ_FRAME',['../namespacerviz__geometry.html#a3a3837887cc012683c1d87e5027b6863',1,'rviz_geometry']]],
+  ['rviz_5fnamespace',['RVIZ_NAMESPACE',['../namespacerviz__geometry.html#ad8626a9cfbc948e43f401fb1f3d62ecb',1,'rviz_geometry']]],
+  ['rviz_5ftopic',['RVIZ_TOPIC',['../namespacerviz__geometry.html#a2bfe028bdabf1321495ece3cfc6b4fa6',1,'rviz_geometry']]]
 ];

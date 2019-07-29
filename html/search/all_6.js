@@ -8,6 +8,7 @@ var searchData=
   ['finish_5fline_5f1',['FINISH_LINE_1',['../namespacesimulation__tools_1_1lap__timer.html#ae7d1eef6c19d3320b71be19367ec7fbd',1,'simulation_tools::lap_timer']]],
   ['finish_5fline_5f2',['FINISH_LINE_2',['../namespacesimulation__tools_1_1lap__timer.html#ac066eea03916600e5942b91bba4204fa',1,'simulation_tools::lap_timer']]],
   ['fit',['fit',['../namespacecircle.html#a391c3f0ba3506996d7eb3384bf6eeca6',1,'circle']]],
+  ['fitness',['fitness',['../classneural__car__driver_1_1_neural_car_driver.html#a4d709e4419449add88e2a1a5d825e918',1,'neural_car_driver::NeuralCarDriver']]],
   ['follow_5fwalls',['follow_walls',['../namespacewallfollowing.html#ae4edc6135d6c1a9b38674119a96b3375',1,'wallfollowing']]],
   ['format_5fduration',['format_duration',['../namespacesimulation__tools_1_1lap__timer.html#a8ff1f7d7789d5ea92df79c94205a7273',1,'simulation_tools::lap_timer']]],
   ['forward',['forward',['../classsimulation__tools_1_1track_1_1_track.html#ae944fe956579cafe73bf09d3a7c072bc',1,'simulation_tools.track.Track.forward()'],['../classparameters_1_1_neural_q_estimator.html#acadb108832a386bbe20ad80015a2ed06',1,'parameters.NeuralQEstimator.forward()']]],

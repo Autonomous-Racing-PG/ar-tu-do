@@ -1,15 +1,8 @@
 var searchData=
 [
-  ['lap_5ftime_5fpublisher',['lap_time_publisher',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#a2c9523f33bcf2a72cebb7ccc056a1f53',1,'simulation_tools::lap_timer::Timer']]],
-  ['laser_5fsample_5fcount',['LASER_SAMPLE_COUNT',['../namespaceparameters.html#a24735dce78cf9899cf1ec4bda2ea4eac',1,'parameters']]],
-  ['last_5fscan',['last_scan',['../namespacewallfollowing.html#ab6c7c8e53e8b1cd44872666515dd5764',1,'wallfollowing']]],
-  ['last_5fspeed',['last_speed',['../namespacewallfollowing.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe',1,'wallfollowing']]],
-  ['learning_5frate',['LEARNING_RATE',['../namespaceparameters.html#afb996d542e8c3d3e8bbdfe4a711694dd',1,'parameters']]],
-  ['left_5fsteering_5fposition',['LEFT_STEERING_POSITION',['../namespacesimulation.html#aeabd7d3863831a7fc50ce8728ca46885',1,'simulation']]],
-  ['length',['length',['../classsimulation__tools_1_1track_1_1_track.html#a24b60622edd3b0825f31fd6426d9380b',1,'simulation_tools::track::Track']]],
-  ['length_5flist',['length_list',['../namespaceplotter.html#ab7eba5fc23c3791ab6bca7c5c975d2b8',1,'plotter']]],
-  ['length_5fplot',['length_plot',['../namespaceplotter.html#ac0842708a1e94becc6bb776a68a9ac5f',1,'plotter']]],
-  ['lidar_5fframe',['LIDAR_FRAME',['../emergency__stop_8h.html#ac6631c1f8956559998695f2038277c65',1,'LIDAR_FRAME():&#160;emergency_stop.h'],['../wall__following_8h.html#ac6631c1f8956559998695f2038277c65',1,'LIDAR_FRAME():&#160;wall_following.h']]],
-  ['link_5fnames',['LINK_NAMES',['../namespacesimulation__tools_1_1speedometer.html#a814c56b4196e3629a065df33256daab8',1,'simulation_tools::speedometer']]],
-  ['link_5fstates_5fmessage',['link_states_message',['../namespacesimulation__tools_1_1speedometer.html#a57927328521dd9b5723725e98c92ab78',1,'simulation_tools::speedometer']]]
+  ['i',['i',['../classwallfollowing_1_1_p_i_d_controller.html#a9ce833d41fb41cb18da5f0a6e9801d6d',1,'wallfollowing::PIDController']]],
+  ['idle',['idle',['../namespacesimulation__tools_1_1speedometer.html#a7cadcb55f200a548ddc3de34bf4792e1',1,'simulation_tools::speedometer']]],
+  ['idle_5frange',['IDLE_RANGE',['../drive__parameters__source_8h.html#af134ff392bc50e71b086c1bc0e633e2e',1,'drive_parameters_source.h']]],
+  ['integral',['integral',['../classwallfollowing_1_1_p_i_d_controller.html#a74688f80d715258ecf5f8b4823a1760f',1,'wallfollowing::PIDController']]],
+  ['is_5fterminal_5fstep',['is_terminal_step',['../classtrain_1_1_training_node.html#aa17107636d9a2df25960aa1076d9b987',1,'train.TrainingNode.is_terminal_step()'],['../classtrain_1_1_q_learning_training_node.html#a0f8d5e71ae52a959d5248f57ac55829a',1,'train.QLearningTrainingNode.is_terminal_step()']]]
 ];

@@ -1,0 +1,162 @@
+\hypertarget{namespaceneural__car__driver}{}\section{neural\+\_\+car\+\_\+driver Namespace Reference}
+\label{namespaceneural__car__driver}\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classneural__car__driver_1_1_neural_car_driver}{Neural\+Car\+Driver}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespaceneural__car__driver_a161258e51d15f04d9063e42ef5c7be6a}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS} = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}
+\item 
+string \hyperlink{namespaceneural__car__driver_aa0a0413ce25fecb4d35f07c7fea06a8c}{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN} = \char`\"{}/scan\char`\"{}
+\item 
+string \hyperlink{namespaceneural__car__driver_a6f5373020b03b73072779ffc5d44482d}{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH} = \char`\"{}/crash\char`\"{}
+\item 
+string \hyperlink{namespaceneural__car__driver_a8e8319dbdbdbc3c32c3184c82f9c3f80}{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE} = \char`\"{}/gazebo/model\+\_\+states\char`\"{}
+\item 
+int \hyperlink{namespaceneural__car__driver_ac9d3bc133f799be5e8c5c55884d10a8d}{S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE} = 8
+\item 
+float \hyperlink{namespaceneural__car__driver_a5292cc13090a4c357e023f5732a8a18a}{M\+I\+N\+\_\+\+S\+P\+E\+ED} = 0.\+2
+\item 
+float \hyperlink{namespaceneural__car__driver_af2fef2c19127bf0b4e990d28542c7b6f}{M\+A\+X\+\_\+\+S\+P\+E\+ED} = 0.\+4
+\item 
+int \hyperlink{namespaceneural__car__driver_aaf8ade0766a9fd72a41c1029d04d6d5e}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE} = 10
+\item 
+int \hyperlink{namespaceneural__car__driver_ad40064153991947271d4a197983593fa}{S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT} = 4
+\item 
+float \hyperlink{namespaceneural__car__driver_a3873d214234a7685f0003bdedb09a3b5}{L\+E\+A\+R\+N\+\_\+\+R\+A\+TE} = 0.\+2
+\item 
+\hyperlink{namespaceneural__car__driver_a953d05d55cd2232a21159009976855f3}{normal\+\_\+distribution} = torch.\+distributions.\+normal.\+Normal(0, \hyperlink{namespaceneural__car__driver_a3873d214234a7685f0003bdedb09a3b5}{L\+E\+A\+R\+N\+\_\+\+R\+A\+TE})
+\item 
+\hyperlink{namespaceneural__car__driver_a067bf25e6557471566d69b477b79ade5}{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME} = os.\+path.\+join(Ros\+Pack().get\+\_\+path(\char`\"{}evolutionary\char`\"{}), \char`\"{}model.\+to\char`\"{})
+\item 
+\hyperlink{namespaceneural__car__driver_ac075b2fda9db2b43e338511958cfe9c2}{drive\+\_\+parameters\+\_\+publisher}
+\item 
+\hyperlink{namespaceneural__car__driver_ae254923f6ec524f563a598feeee010b9}{anonymous}
+\item 
+\hyperlink{namespaceneural__car__driver_a277afd40b4a20897467cac1f802344ee}{driver} = \hyperlink{classneural__car__driver_1_1_neural_car_driver}{Neural\+Car\+Driver}()
+\item 
+string \hyperlink{namespaceneural__car__driver_a65829420a3ca6888c41c04e36ad0c4fb}{message} = \char`\"{}Model parameters for the neural net not found. You need to train it first.\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!anonymous@{anonymous}}
+\index{anonymous@{anonymous}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{anonymous}{anonymous}}]{\setlength{\rightskip}{0pt plus 5cm}neural\+\_\+car\+\_\+driver.\+anonymous}\hypertarget{namespaceneural__car__driver_ae254923f6ec524f563a598feeee010b9}{}\label{namespaceneural__car__driver_ae254923f6ec524f563a598feeee010b9}
+
+
+Definition at line 108 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!drive\+\_\+parameters\+\_\+publisher@{drive\+\_\+parameters\+\_\+publisher}}
+\index{drive\+\_\+parameters\+\_\+publisher@{drive\+\_\+parameters\+\_\+publisher}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{drive\+\_\+parameters\+\_\+publisher}{drive_parameters_publisher}}]{\setlength{\rightskip}{0pt plus 5cm}neural\+\_\+car\+\_\+driver.\+drive\+\_\+parameters\+\_\+publisher}\hypertarget{namespaceneural__car__driver_ac075b2fda9db2b43e338511958cfe9c2}{}\label{namespaceneural__car__driver_ac075b2fda9db2b43e338511958cfe9c2}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = rospy.Publisher(
+2     TOPIC\_DRIVE\_PARAMETERS, drive\_param, queue\_size=1)
+\end{DoxyCode}
+
+
+Definition at line 34 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!driver@{driver}}
+\index{driver@{driver}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{driver}{driver}}]{\setlength{\rightskip}{0pt plus 5cm}neural\+\_\+car\+\_\+driver.\+driver = {\bf Neural\+Car\+Driver}()}\hypertarget{namespaceneural__car__driver_a277afd40b4a20897467cac1f802344ee}{}\label{namespaceneural__car__driver_a277afd40b4a20897467cac1f802344ee}
+
+
+Definition at line 109 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!L\+E\+A\+R\+N\+\_\+\+R\+A\+TE@{L\+E\+A\+R\+N\+\_\+\+R\+A\+TE}}
+\index{L\+E\+A\+R\+N\+\_\+\+R\+A\+TE@{L\+E\+A\+R\+N\+\_\+\+R\+A\+TE}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{L\+E\+A\+R\+N\+\_\+\+R\+A\+TE}{LEARN_RATE}}]{\setlength{\rightskip}{0pt plus 5cm}float neural\+\_\+car\+\_\+driver.\+L\+E\+A\+R\+N\+\_\+\+R\+A\+TE = 0.\+2}\hypertarget{namespaceneural__car__driver_a3873d214234a7685f0003bdedb09a3b5}{}\label{namespaceneural__car__driver_a3873d214234a7685f0003bdedb09a3b5}
+
+
+Definition at line 29 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!M\+A\+X\+\_\+\+S\+P\+E\+ED@{M\+A\+X\+\_\+\+S\+P\+E\+ED}}
+\index{M\+A\+X\+\_\+\+S\+P\+E\+ED@{M\+A\+X\+\_\+\+S\+P\+E\+ED}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+S\+P\+E\+ED}{MAX_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}float neural\+\_\+car\+\_\+driver.\+M\+A\+X\+\_\+\+S\+P\+E\+ED = 0.\+4}\hypertarget{namespaceneural__car__driver_af2fef2c19127bf0b4e990d28542c7b6f}{}\label{namespaceneural__car__driver_af2fef2c19127bf0b4e990d28542c7b6f}
+
+
+Definition at line 24 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!message@{message}}
+\index{message@{message}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{message}{message}}]{\setlength{\rightskip}{0pt plus 5cm}string neural\+\_\+car\+\_\+driver.\+message = \char`\"{}Model parameters for the neural net not found. You need to train it first.\char`\"{}}\hypertarget{namespaceneural__car__driver_a65829420a3ca6888c41c04e36ad0c4fb}{}\label{namespaceneural__car__driver_a65829420a3ca6888c41c04e36ad0c4fb}
+
+
+Definition at line 114 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!M\+I\+N\+\_\+\+S\+P\+E\+ED@{M\+I\+N\+\_\+\+S\+P\+E\+ED}}
+\index{M\+I\+N\+\_\+\+S\+P\+E\+ED@{M\+I\+N\+\_\+\+S\+P\+E\+ED}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{M\+I\+N\+\_\+\+S\+P\+E\+ED}{MIN_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}float neural\+\_\+car\+\_\+driver.\+M\+I\+N\+\_\+\+S\+P\+E\+ED = 0.\+2}\hypertarget{namespaceneural__car__driver_a5292cc13090a4c357e023f5732a8a18a}{}\label{namespaceneural__car__driver_a5292cc13090a4c357e023f5732a8a18a}
+
+
+Definition at line 23 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME}}
+\index{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME}{MODEL_FILENAME}}]{\setlength{\rightskip}{0pt plus 5cm}neural\+\_\+car\+\_\+driver.\+M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E\+N\+A\+ME = os.\+path.\+join(Ros\+Pack().get\+\_\+path(\char`\"{}evolutionary\char`\"{}), \char`\"{}model.\+to\char`\"{})}\hypertarget{namespaceneural__car__driver_a067bf25e6557471566d69b477b79ade5}{}\label{namespaceneural__car__driver_a067bf25e6557471566d69b477b79ade5}
+
+
+Definition at line 32 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!normal\+\_\+distribution@{normal\+\_\+distribution}}
+\index{normal\+\_\+distribution@{normal\+\_\+distribution}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{normal\+\_\+distribution}{normal_distribution}}]{\setlength{\rightskip}{0pt plus 5cm}neural\+\_\+car\+\_\+driver.\+normal\+\_\+distribution = torch.\+distributions.\+normal.\+Normal(0, {\bf L\+E\+A\+R\+N\+\_\+\+R\+A\+TE})}\hypertarget{namespaceneural__car__driver_a953d05d55cd2232a21159009976855f3}{}\label{namespaceneural__car__driver_a953d05d55cd2232a21159009976855f3}
+
+
+Definition at line 30 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE@{P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE}}
+\index{P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE@{P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE}{POPULATION_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}int neural\+\_\+car\+\_\+driver.\+P\+O\+P\+U\+L\+A\+T\+I\+O\+N\+\_\+\+S\+I\+ZE = 10}\hypertarget{namespaceneural__car__driver_aaf8ade0766a9fd72a41c1029d04d6d5e}{}\label{namespaceneural__car__driver_aaf8ade0766a9fd72a41c1029d04d6d5e}
+
+
+Definition at line 26 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE@{S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE}}
+\index{S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE@{S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE}{STATE_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}int neural\+\_\+car\+\_\+driver.\+S\+T\+A\+T\+E\+\_\+\+S\+I\+ZE = 8}\hypertarget{namespaceneural__car__driver_ac9d3bc133f799be5e8c5c55884d10a8d}{}\label{namespaceneural__car__driver_ac9d3bc133f799be5e8c5c55884d10a8d}
+
+
+Definition at line 21 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT@{S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT}}
+\index{S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT@{S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT}{SURVIVOR_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}int neural\+\_\+car\+\_\+driver.\+S\+U\+R\+V\+I\+V\+O\+R\+\_\+\+C\+O\+U\+NT = 4}\hypertarget{namespaceneural__car__driver_ad40064153991947271d4a197983593fa}{}\label{namespaceneural__car__driver_ad40064153991947271d4a197983593fa}
+
+
+Definition at line 27 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH@{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH@{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH}{TOPIC_CRASH}}]{\setlength{\rightskip}{0pt plus 5cm}string neural\+\_\+car\+\_\+driver.\+T\+O\+P\+I\+C\+\_\+\+C\+R\+A\+SH = \char`\"{}/crash\char`\"{}}\hypertarget{namespaceneural__car__driver_a6f5373020b03b73072779ffc5d44482d}{}\label{namespaceneural__car__driver_a6f5373020b03b73072779ffc5d44482d}
+
+
+Definition at line 18 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}
+\index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}{TOPIC_DRIVE_PARAMETERS}}]{\setlength{\rightskip}{0pt plus 5cm}string neural\+\_\+car\+\_\+driver.\+T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS = \char`\"{}/input/drive\+\_\+param/autonomous\char`\"{}}\hypertarget{namespaceneural__car__driver_a161258e51d15f04d9063e42ef5c7be6a}{}\label{namespaceneural__car__driver_a161258e51d15f04d9063e42ef5c7be6a}
+
+
+Definition at line 16 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE}}
+\index{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE}{TOPIC_GAZEBO_MODEL_STATE}}]{\setlength{\rightskip}{0pt plus 5cm}string neural\+\_\+car\+\_\+driver.\+T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+M\+O\+D\+E\+L\+\_\+\+S\+T\+A\+TE = \char`\"{}/gazebo/model\+\_\+states\char`\"{}}\hypertarget{namespaceneural__car__driver_a8e8319dbdbdbc3c32c3184c82f9c3f80}{}\label{namespaceneural__car__driver_a8e8319dbdbdbc3c32c3184c82f9c3f80}
+
+
+Definition at line 19 of file neural\+\_\+car\+\_\+driver.\+py.
+
+\index{neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}!T\+O\+P\+I\+C\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN}}
+\index{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN@{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN}!neural\+\_\+car\+\_\+driver@{neural\+\_\+car\+\_\+driver}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+S\+C\+AN}{TOPIC_SCAN}}]{\setlength{\rightskip}{0pt plus 5cm}string neural\+\_\+car\+\_\+driver.\+T\+O\+P\+I\+C\+\_\+\+S\+C\+AN = \char`\"{}/scan\char`\"{}}\hypertarget{namespaceneural__car__driver_aa0a0413ce25fecb4d35f07c7fea06a8c}{}\label{namespaceneural__car__driver_aa0a0413ce25fecb4d35f07c7fea06a8c}
+
+
+Definition at line 17 of file neural\+\_\+car\+\_\+driver.\+py.
+

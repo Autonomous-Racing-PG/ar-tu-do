@@ -1,9 +1,25 @@
 var searchData=
 [
-  ['name',['name',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#a9bf911e55976cb1d04b10440cea407c1',1,'simulation_tools::lap_timer::Timer']]],
-  ['names',['names',['../classwallfollowing_1_1_parameters.html#a009e7e6821f14f92f657fae2a7315313',1,'wallfollowing::Parameters']]],
-  ['net_5foutput_5fdebug_5fstring',['net_output_debug_string',['../classtrain_1_1_q_learning_training_node.html#a5837c478232e1d4cc646bfbadbdd2ff2',1,'train::QLearningTrainingNode']]],
-  ['next_5fcheckpoint',['next_checkpoint',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#a74b19b620b1f59ce1d558524c275f4c3',1,'simulation_tools::lap_timer::Timer']]],
-  ['no_5foverride',['NO_OVERRIDE',['../dms__controller_8h.html#a3a735101c1e4015e392138629110e821',1,'dms_controller.h']]],
-  ['node',['node',['../namespacedrive.html#a3118901ad129c1aa0fbf3907733dd38d',1,'drive.node()'],['../namespacetrain.html#a7c68a6981d3c74c76920e856fc7c2419',1,'train.node()']]]
+  ['m_5fangle1',['m_angle1',['../class_wall.html#aa55464f62abb57889a95936563a20671',1,'Wall']]],
+  ['m_5fangle2',['m_angle2',['../class_wall.html#a1acb9bc37500a68c08db14c3659c3cd0',1,'Wall']]],
+  ['m_5frange1',['m_range1',['../class_wall.html#a56b11c6748405e939de7cf4f9fabdc2d',1,'Wall']]],
+  ['m_5frange2',['m_range2',['../class_wall.html#aeb7c600e6e41792c60498ca310c833f1',1,'Wall']]],
+  ['main_5fplot',['main_plot',['../namespaceplotter.html#a40d656a97d2e7039f17ee5742490ecf9',1,'plotter']]],
+  ['marker_5fpublisher',['marker_publisher',['../namespacerviz__geometry.html#ac4b20d63343627f7ac14151eba108ba8',1,'rviz_geometry']]],
+  ['max_5fcar_5fvelocity',['max_car_velocity',['../namespacesimulation__tools_1_1speedometer.html#a4db24fad416ca0a52b89d1529e4c38e9',1,'simulation_tools::speedometer']]],
+  ['max_5fepisode_5flength',['MAX_EPISODE_LENGTH',['../namespaceparameters.html#aa473cc3b100416af3310c6c5a6d19570',1,'parameters']]],
+  ['max_5frpm_5felectrical',['MAX_RPM_ELECTRICAL',['../namespacecar__config.html#aaf4d6a90e2b9c983b0b0d29a584c399b',1,'car_config']]],
+  ['max_5frpm_5fmechanical',['MAX_RPM_MECHANICAL',['../namespacecar__config.html#ad35069a183782259c6280aa219b72ffa',1,'car_config']]],
+  ['max_5fservo_5fposition',['MAX_SERVO_POSITION',['../namespacecar__config.html#af1712762f3ad9f8805ba474d5f3e7274',1,'car_config']]],
+  ['max_5fspeed',['MAX_SPEED',['../namespaceneural__car__driver.html#af2fef2c19127bf0b4e990d28542c7b6f',1,'neural_car_driver']]],
+  ['max_5fsteering_5fangle',['MAX_STEERING_ANGLE',['../namespacecar__config.html#a967b325af26effe80fbbc64dc68a36a0',1,'car_config']]],
+  ['memory',['memory',['../classtrain_1_1_q_learning_training_node.html#a49440485cce2f2f3fe9575456a562098',1,'train::QLearningTrainingNode']]],
+  ['memory_5fsize',['MEMORY_SIZE',['../namespaceparameters.html#a49f1ad074b5710a98fc783c5627ddade',1,'parameters']]],
+  ['message',['message',['../namespaceneural__car__driver.html#a65829420a3ca6888c41c04e36ad0c4fb',1,'neural_car_driver']]],
+  ['min_5fspeed',['MIN_SPEED',['../namespaceneural__car__driver.html#a5292cc13090a4c357e023f5732a8a18a',1,'neural_car_driver']]],
+  ['min_5fsteering_5fangle',['MIN_STEERING_ANGLE',['../namespacecar__config.html#a38229ce5d2e17e0c30b86864fb20d9ce',1,'car_config']]],
+  ['model_5fbase_5flink',['MODEL_BASE_LINK',['../laserscan__transformer_8h.html#a4926bba825b08114a4703807e2639725',1,'laserscan_transformer.h']]],
+  ['model_5ffilename',['MODEL_FILENAME',['../namespaceneural__car__driver.html#a067bf25e6557471566d69b477b79ade5',1,'neural_car_driver.MODEL_FILENAME()'],['../namespaceparameters.html#aff8b0668384f3fa2d1212d3bd0ff42fa',1,'parameters.MODEL_FILENAME()']]],
+  ['model_5fstates_5fmessage',['model_states_message',['../namespacesimulation__tools_1_1speedometer.html#acd7f0f18f37f468db40dae82775a6313',1,'simulation_tools::speedometer']]],
+  ['motor_5fpoles',['MOTOR_POLES',['../namespacecar__config.html#a611a0f02cf52db1d438a2dd53b642cd5',1,'car_config']]]
 ];

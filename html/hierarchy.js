@@ -12,6 +12,7 @@ var hierarchy =
     [ "KeyboardController", "class_keyboard_controller.html", null ],
     [ "LaserscanTransformer", "class_laserscan_transformer.html", null ],
     [ "Module", null, [
+      [ "neural_car_driver.NeuralCarDriver", "classneural__car__driver_1_1_neural_car_driver.html", null ],
       [ "parameters.NeuralQEstimator", "classparameters_1_1_neural_q_estimator.html", null ]
     ] ],
     [ "NavigationStackControlConverter", "class_navigation_stack_control_converter.html", null ],
@@ -26,6 +27,7 @@ var hierarchy =
     [ "simulation_tools.lap_timer.Timer", "classsimulation__tools_1_1lap__timer_1_1_timer.html", null ],
     [ "simulation_tools.track.Track", "classsimulation__tools_1_1track_1_1_track.html", null ],
     [ "simulation_tools.track.TrackPosition", "classsimulation__tools_1_1track_1_1_track_position.html", null ],
+    [ "train.TrainingNode", "classtrain_1_1_training_node.html", null ],
     [ "VESCSimulationDriver", "class_v_e_s_c_simulation_driver.html", null ],
     [ "VESCSimulator", "class_v_e_s_c_simulator.html", null ],
     [ "Wall", "class_wall.html", null ],

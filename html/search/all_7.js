@@ -1,8 +1,10 @@
 var searchData=
 [
+  ['generation',['generation',['../classtrain_1_1_training_node.html#a3ba5470e3146e9bb1303ed906b868d28',1,'train::TrainingNode']]],
   ['get_5fangle',['get_angle',['../classcircle_1_1_circle.html#a1ec1a241492841bc729e660788684407',1,'circle::Circle']]],
   ['get_5fclosest_5fpoint',['get_closest_point',['../classcircle_1_1_circle.html#a191eb7323e7138ce625cc345822bff17',1,'circle::Circle']]],
   ['get_5fepsilon_5fgreedy_5fthreshold',['get_epsilon_greedy_threshold',['../classtrain_1_1_q_learning_training_node.html#ab4d0383d228012c56c9dd31886b80df6',1,'train::QLearningTrainingNode']]],
+  ['get_5ffitness',['get_fitness',['../classtrain_1_1_training_node.html#a3779924e099cc6fe56ba071a9c21ef88',1,'train::TrainingNode']]],
   ['get_5fposition',['get_position',['../classsimulation__tools_1_1track_1_1_track.html#a65ae88cad753af6ebf71ae09fd110ac8',1,'simulation_tools::track::Track']]],
   ['get_5frelative_5fangle',['get_relative_angle',['../classsimulation__tools_1_1track_1_1_track_position.html#ae4cf3681d7edde291e3c566cfb21397a',1,'simulation_tools::track::TrackPosition']]],
   ['get_5freward',['get_reward',['../classtrain_1_1_q_learning_training_node.html#a1fea335e8f7d2eb257e97364bab331a7',1,'train::QLearningTrainingNode']]],

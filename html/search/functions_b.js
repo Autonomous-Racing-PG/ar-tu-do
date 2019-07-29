@@ -4,5 +4,6 @@ var searchData=
   ['map',['map',['../wall__following_8cpp.html#acf28657c35e28d51d93c1a460800f8fc',1,'map():&#160;wall_following.cpp'],['../namespacewallfollowing.html#a908b60b64e20dec7078e707a829b610d',1,'wallfollowing.map()'],['../keyboard__controller_8cpp.html#a9c2a2e4c6a836edf99a7e4107e3874ca',1,'map():&#160;keyboard_controller.cpp']]],
   ['model_5fstate_5fcallback',['model_state_callback',['../namespacesimulation__tools_1_1lap__timer.html#adb38c2045a967ab6f7c0c6968599c2ff',1,'simulation_tools.lap_timer.model_state_callback()'],['../namespacesimulation__tools_1_1speedometer.html#ad8cbde404030a049eb657fd78f8bec45',1,'simulation_tools.speedometer.model_state_callback()']]],
   ['motorbrakecallback',['motorBrakeCallback',['../class_v_e_s_c_simulation_driver.html#a0eeb8ca3f5d59b55e275fd7fbc256115',1,'VESCSimulationDriver']]],
-  ['motorspeedcallback',['motorSpeedCallback',['../class_v_e_s_c_simulation_driver.html#a270768bae1850f87eec061ca5e828845',1,'VESCSimulationDriver']]]
+  ['motorspeedcallback',['motorSpeedCallback',['../class_v_e_s_c_simulation_driver.html#a270768bae1850f87eec061ca5e828845',1,'VESCSimulationDriver']]],
+  ['mutate',['mutate',['../classneural__car__driver_1_1_neural_car_driver.html#a1c57aa3cbee31e70a7eacb9c542d5848',1,'neural_car_driver::NeuralCarDriver']]]
 ];

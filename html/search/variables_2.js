@@ -14,5 +14,6 @@ var searchData=
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],
   ['cumulative_5fdistance',['cumulative_distance',['../classsimulation__tools_1_1track_1_1_track.html#a4513ffc3cdb1963bce98c678b093c40b',1,'simulation_tools::track::Track']]],
   ['cumulative_5freward',['cumulative_reward',['../classtrain_1_1_q_learning_training_node.html#a4c632e44085797e564501bba836b7359',1,'train::QLearningTrainingNode']]],
-  ['cumulative_5freward_5fhistory',['cumulative_reward_history',['../classtrain_1_1_q_learning_training_node.html#aa25b9712eebb6aed6befa421814472b4',1,'train::QLearningTrainingNode']]]
+  ['cumulative_5freward_5fhistory',['cumulative_reward_history',['../classtrain_1_1_q_learning_training_node.html#aa25b9712eebb6aed6befa421814472b4',1,'train::QLearningTrainingNode']]],
+  ['current_5fdriver',['current_driver',['../classtrain_1_1_training_node.html#a81d0481151f7b23e6489027fa1a87e47',1,'train::TrainingNode']]]
 ];

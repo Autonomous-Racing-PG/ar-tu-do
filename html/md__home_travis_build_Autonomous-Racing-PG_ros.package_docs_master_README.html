@@ -116,6 +116,7 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <li>Fast and efficient wallfollowing based on fitting circles into the LIDAR scan</li>
 <li><a href="http://wiki.ros.org/navigation">ROS navigation stack</a> based implementation that uses SLAM, a precalculated map and path planning</li>
 <li>Deep Reinforcement Learning (<a href="https://en.wikipedia.org/wiki/Q-learning">Q-Learning</a>)</li>
+<li>Neural Networks with evolutionary training</li>
 </ul>
 <p>Our software works on physical hardware and in a simulated environment using <a href="http://gazebosim.org/">Gazebo</a>. Further features are:</p>
 <ul>
@@ -134,47 +135,45 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <p>Compile while inside the <code>ros_ws</code>directory:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><p>Set up enviroment variables for your shell:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash # (or setup.zsh, depending on your shell)</div></div><!-- fragment --><p>Use a launch file to start ROS and Gazebo:</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/car.launch # (Physical car, Wallfollowing)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;roslaunch launch/navigation_stack.launch # (Simulation, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)</div></div><!-- fragment --><h3>Launch file arguments</h3>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/car.launch # (Physical car, Wallfollowing)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;roslaunch launch/navigation_stack.launch # (Simulation, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;roslaunch launch/evolutionary.launch # (Simulation, Train the evolutionary neural network)</div></div><!-- fragment --><h3>Launch file arguments</h3>
 <p>These arguments can be passed to the launch files above. For example, to use the <code>gazebo.launch</code> file without emergency stop and with car highlighting, run: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/gazebo.launch emergency_stop:=false car_highlighting:=true</div></div><!-- fragment --><p> The arguments can be changed permanently by editing the launch files.</p>
 <table class="doxtable">
 <tr>
-<th rowspan="2">Argument </th><th colspan="4">Supported by <code>launch/&lt;file&gt;.launch</code> </th><th rowspan="2">Description  </th></tr>
+<th rowspan="2">Argument </th><th rowspan="2">Description </th><th colspan="4">Supported by <code>launch/&lt;file&gt;.launch</code>  </th></tr>
 <tr>
-<td>car </td><td>gazebo </td><td>navigation_stack </td><td>qlearning  </td></tr>
+<td>car </td><td>gazebo </td><td>navigation_stack </td><td>qlearning, evolutionary  </td></tr>
 <tr>
-<td><code>car_highlighting</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>Boolean value whether the car should glow green in Gazebo for better visibility. Usually defaults to false.  </td></tr>
+<td><code>debug</code> </td><td>Boolean value whether Gazebo should run in debug mode. Defaults to false. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>debug</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should run in debug mode. Defaults to false.  </td></tr>
+<td><code>emergency_stop</code> </td><td>Boolean value whether the emergency stop should be active. Defaults to true. </td><td>✗ </td><td>✓ </td><td>✗ </td><td>✗  </td></tr>
 <tr>
-<td><code>emergency_stop</code> </td><td>✗ </td><td>✓ </td><td>✗ </td><td>✗ </td><td>Boolean value whether the emergency stop should be active. Defaults to true.  </td></tr>
+<td><code>gui</code> </td><td>Boolean value whether Gazebo should show a user interface. Defaults to true. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓  </td></tr>
 <tr>
-<td><code>gui</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>Boolean value whether Gazebo should show a user interface. Defaults to true.  </td></tr>
+<td><code>joystick_type</code> </td><td>The type of joystick controller. Possible values: <code>ps3</code>, <code>xbox360</code> and <code>xboxone</code> </td><td>✓ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>joystick_type</code> </td><td>✓ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>The type of joystick controller. Possible values: <code>ps3</code>, <code>xbox360</code> and <code>xboxone</code>  </td></tr>
+<td><code>map</code> </td><td>Name of the map to be used by the particle filter. Defaults to a prerecorded map of <code>racetrack_decorated_2</code>. </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>map</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Name of the map to be used by the particle filter. Defaults to a prerecorded map of <code>racetrack_decorated_2</code>.  </td></tr>
+<td><code>paused</code> </td><td>Boolean value whether Gazebo should start paused. Defaults to false. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>paused</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should start paused. Defaults to false.  </td></tr>
+<td><code>pf_angle_step</code> </td><td>Angle step of the particle filter. Defaults to 18. </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>pf_angle_step</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Angle step of the particle filter. Defaults to 18.  </td></tr>
+<td><code>pf_max_particles</code> </td><td>Maximum amount of particles to be used by the particle filter. Defaults to 500. </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>pf_max_particles</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Maximum amount of particles to be used by the particle filter. Defaults to 500.  </td></tr>
+<td><code>pf_squash_factor</code> </td><td>Squash factor of the particle filter. Defaults to 2.2. </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>pf_squash_factor</code> </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✗ </td><td>Squash factor of the particle filter. Defaults to 2.2.  </td></tr>
+<td><code>plot_window</code> </td><td>Integer value indicating the amount of episodes that should be plotted. Defaults to 200. </td><td>✗ </td><td>✗ </td><td>✗ </td><td>✓ / ✗  </td></tr>
 <tr>
-<td><code>plot_window</code> </td><td>✗ </td><td>✗ </td><td>✗ </td><td>✓ </td><td>Integer value indicating the amount of episodes that should be plotted. Defaults to 200.  </td></tr>
+<td><code>realtime_simulation</code> </td><td>Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true. </td><td>✗ </td><td>✗ </td><td>✗ </td><td>✓  </td></tr>
 <tr>
-<td><code>realtime_simulation</code> </td><td>✗ </td><td>✗ </td><td>✗ </td><td>✓ </td><td>Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true.  </td></tr>
+<td><code>use_gpu</code> </td><td>Boolean value whether Gazebo should use the GPU when simulating the lidar. Defaults to true. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓  </td></tr>
 <tr>
-<td><code>use_gpu</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>Boolean value whether Gazebo should use the GPU when simulating the lidar. Defaults to true.  </td></tr>
+<td><code>use_sim_time</code> </td><td>Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>use_sim_time</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true.  </td></tr>
+<td><code>verbose</code> </td><td>Boolean value whether Gazebo should give verbose standard output. Defaults to true. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>verbose</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should give verbose standard output. Defaults to true.  </td></tr>
+<td><code>visualize_lidar</code> </td><td>Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false. </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>
-<td><code>visualize_lidar</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗ </td><td>Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false.  </td></tr>
-<tr>
-<td><code>world</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓ </td><td>The name of the racetrack. Possible values: <code>racetrack_decorated</code>, <code>racetrack_decorated_2</code> (default) and <code>racetrack_decorated_2_big</code>  </td></tr>
+<td><code>world</code> </td><td>The name of the racetrack. Possible values: <code>racetrack_decorated</code>, <code>racetrack_decorated_2</code> (default) and <code>racetrack_decorated_2_big</code> </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✓  </td></tr>
 </table>
 <h2>Hardware</h2>
 <p>Our car is based on a 1/10th scale RC car (<a href="https://traxxas.com/products/models/electric/ford-fiesta-st-rally">Traxxas Ford Fiesta</a>) with these additions:</p>
