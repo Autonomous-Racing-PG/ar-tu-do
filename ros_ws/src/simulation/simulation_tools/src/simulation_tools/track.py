@@ -13,6 +13,11 @@ from collections import namedtuple
 Point = namedtuple("Point", ["x", "y"])
 
 
+def lerp_angles(a, b, t):
+    p = (b - a) % (2 * math.pi)
+    return a + (2 * p % (2 * math.pi) - p) * t
+
+
 class TrackPosition():
     def __init__(self, segment, x, y, point, track):
         self.point = point
@@ -22,8 +27,9 @@ class TrackPosition():
         self.segment_progress = y / track.segment_length[segment]
         self.total_distance = track.cumulative_distance[segment] + y
         self.total_progress = self.total_distance / track.length
-        self.angle = math.atan2(
-            track.forward[segment, 1], track.forward[segment, 0])
+        self.angle = track.angles[segment]
+        self.start_angle = lerp_angles(track.angles[(segment + track.size - 1) % track.size], self.angle, 0.5)
+        self.end_angle = lerp_angles(self.angle, track.angles[(segment + 1) % track.size], 0.5)
 
     def __str__(self):
         return "{0:.2f} m ({1:.0f}%), segment {2:d}, to center: {3:.2f} m, track: {4:.0f}°".format(
@@ -46,6 +52,9 @@ class TrackPosition():
     def faces_forward(self, orientation):
         return abs(self.get_relative_angle(orientation)) < math.pi / 2
 
+    def get_smooth_angle(self):
+        return lerp_angles(self.start_angle, self.end_angle, self.segment_progress)
+
 
 class Track():
     def __init__(self, points):
@@ -59,6 +68,7 @@ class Track():
             [self.forward[:, 1], -self.forward[:, 0]]).transpose()
         self.cumulative_distance = np.zeros(points.shape[0])
         self.cumulative_distance[1:] = np.cumsum(self.segment_length)
+        self.angles = np.arctan2(self.forward[:, 1], self.forward[:, 0])
 
     def localize(self, point):
         ''' Returns a TrackPosition object based on a position in world space. '''
