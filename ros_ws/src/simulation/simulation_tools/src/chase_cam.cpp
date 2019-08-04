@@ -27,23 +27,25 @@ ChaseCam::ChaseCam()
 }
 
 void ChaseCam::gazeboPosesCallback(ConstPosesStampedPtr& message) {
-    const gazebo::msgs::Pose* car_pose_message = nullptr;
     for (int i = 0; i < message->pose_size(); i++) {
-        const gazebo::msgs::Pose& pose = message->pose(i);
-        if (pose.name() == CAR_NAME) {
-            car_pose_message = &pose;
-            break;
+        auto pose_message = message->pose(i);
+        if (pose_message.name() == CAR_NAME) {
+            auto pose = convertPoseMessageToPose(pose_message);
+            this->updateCamera(pose);
+            return;
         }
     }
+}
 
-    if (car_pose_message == nullptr) {
-        return;
-    }
-    ignition::math::Pose3d car_pose = convertPoseMessageToPose(*car_pose_message);
+void ChaseCam::updateCamera(ignition::math::Pose3d& car_pose) {
+    auto car_rotation = ignition::math::Quaterniond(0, 0, car_pose.Rot().Yaw());
 
-    ignition::math::Vector3d camera_position = car_pose.Pos() + car_pose.Rot() * CAMERA_OFFSET;
-    ignition::math::Quaterniond camera_orientation = car_pose.Rot();
-    ignition::math::Pose3d camera_pose(camera_position, camera_orientation);    
+    this->m_last_position = car_pose.Pos() * 0.1 + this->m_last_position * 0.9;
+    this->m_last_rotation = ignition::math::Quaterniond::Slerp(0.08, this->m_last_rotation, car_rotation, true);
+
+    auto camera_position = this->m_last_position + this->m_last_rotation * CAMERA_OFFSET;
+
+    auto camera_pose = ignition::math::Pose3d(camera_position, this->m_last_rotation);    
     this->publishCameraPose(camera_pose);
 }
 
