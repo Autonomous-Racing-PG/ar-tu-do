@@ -43,7 +43,7 @@ OBSTACLE_SDF = '''
 '''
 
 class Obstacle():
-    def __init__(self, id=0, width=0.25, length=0.5, height=0.3):
+    def __init__(self, id=0, width=0.25, length=0.5, height=0.5):
         self.width = width
         self.length = length
         self.height = height
