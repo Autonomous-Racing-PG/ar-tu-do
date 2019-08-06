@@ -46,3 +46,7 @@ include_directories(
 add_executable(crash_detector src/crash_detector.cpp)
 target_link_libraries(crash_detector ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 add_dependencies(crash_detector ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(chase_cam src/chase_cam.cpp)
+target_link_libraries(chase_cam ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_dependencies(chase_cam ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
