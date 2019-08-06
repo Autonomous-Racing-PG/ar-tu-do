@@ -1,0 +1,87 @@
+\hypertarget{chase__cam_8h}{}\section{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/include/chase\+\_\+cam.h File Reference}
+\label{chase__cam_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/include/chase\+\_\+cam.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ros.\+package/docs/master/ros\+\_\+ws/src/simulation/simulation\+\_\+tools/include/chase\+\_\+cam.\+h}}
+{\ttfamily \#include $<$gazebo/gazebo\+\_\+client.\+hh$>$}\\*
+{\ttfamily \#include $<$gazebo/transport/transport.\+hh$>$}\\*
+Include dependency graph for chase\+\_\+cam.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{chase__cam_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{chase__cam_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_chase_cam}{Chase\+Cam}
+\begin{DoxyCompactList}\small\item\em Chase camera Gazebo node that listens to racer pose messages and updates the Gazebo client camera pose so that it follows the car, similar to a racing video game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const ignition\+::math\+::\+Vector3d \hyperlink{chase__cam_8h_a7430dae03d06e4ddea6c0cb3cea426b5}{C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+ET} (-\/1.\+7, 0, 0.\+5)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr const char $\ast$ \hyperlink{chase__cam_8h_aca3bb319be8b25bba901ea05dc9db038}{T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE} = \char`\"{}/gazebo/racetrack/user\+\_\+camera/joy\+\_\+pose\char`\"{}
+\item 
+constexpr const char $\ast$ \hyperlink{chase__cam_8h_ae2eeea568072de908dafeffa3c48ee6d}{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES} = \char`\"{}/gazebo/racetrack/pose/info\char`\"{}
+\item 
+const std\+::string \hyperlink{chase__cam_8h_a15c8d934b2cb91df0ccdb04e6e958aef}{C\+A\+R\+\_\+\+N\+A\+ME} = std\+::string(\char`\"{}racer\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}!C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+ET@{C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+ET}}
+\index{C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+ET@{C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+ET}!chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+E\+T(-\/1.\+7, 0, 0.\+5)}{CAMERA_OFFSET(-1.7, 0, 0.5)}}]{\setlength{\rightskip}{0pt plus 5cm}const ignition\+::math\+::\+Vector3d C\+A\+M\+E\+R\+A\+\_\+\+O\+F\+F\+S\+ET (
+\begin{DoxyParamCaption}
+\item[{-\/1.}]{7, }
+\item[{0}]{, }
+\item[{0.}]{5}
+\end{DoxyParamCaption}
+)}\hypertarget{chase__cam_8h_a7430dae03d06e4ddea6c0cb3cea426b5}{}\label{chase__cam_8h_a7430dae03d06e4ddea6c0cb3cea426b5}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{chase__cam_8h_a7430dae03d06e4ddea6c0cb3cea426b5_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\index{chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}!C\+A\+R\+\_\+\+N\+A\+ME@{C\+A\+R\+\_\+\+N\+A\+ME}}
+\index{C\+A\+R\+\_\+\+N\+A\+ME@{C\+A\+R\+\_\+\+N\+A\+ME}!chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+R\+\_\+\+N\+A\+ME}{CAR_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string C\+A\+R\+\_\+\+N\+A\+ME = std\+::string(\char`\"{}racer\char`\"{})}\hypertarget{chase__cam_8h_a15c8d934b2cb91df0ccdb04e6e958aef}{}\label{chase__cam_8h_a15c8d934b2cb91df0ccdb04e6e958aef}
+
+
+Definition at line 8 of file chase\+\_\+cam.\+h.
+
+\index{chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}!T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE@{T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE@{T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE}!chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE}{TOPIC_CAMERA_POSE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+C\+A\+M\+E\+R\+A\+\_\+\+P\+O\+SE = \char`\"{}/gazebo/racetrack/user\+\_\+camera/joy\+\_\+pose\char`\"{}}\hypertarget{chase__cam_8h_aca3bb319be8b25bba901ea05dc9db038}{}\label{chase__cam_8h_aca3bb319be8b25bba901ea05dc9db038}
+
+
+Definition at line 6 of file chase\+\_\+cam.\+h.
+
+\index{chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}!T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES}}
+\index{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES@{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES}!chase\+\_\+cam.\+h@{chase\+\_\+cam.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES}{TOPIC_GAZEBO_POSES}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+G\+A\+Z\+E\+B\+O\+\_\+\+P\+O\+S\+ES = \char`\"{}/gazebo/racetrack/pose/info\char`\"{}}\hypertarget{chase__cam_8h_ae2eeea568072de908dafeffa3c48ee6d}{}\label{chase__cam_8h_ae2eeea568072de908dafeffa3c48ee6d}
+
+
+Definition at line 7 of file chase\+\_\+cam.\+h.
+

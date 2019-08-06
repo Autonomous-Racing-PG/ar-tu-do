@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "simulation_tools.lap_timer.Area", "classsimulation__tools_1_1lap__timer_1_1_area.html", null ],
     [ "CarController", "class_car_controller.html", null ],
+    [ "ChaseCam", "class_chase_cam.html", null ],
     [ "circle.Circle", "classcircle_1_1_circle.html", null ],
     [ "CrashDetector", "class_crash_detector.html", null ],
     [ "DMSController", "class_d_m_s_controller.html", null ],
