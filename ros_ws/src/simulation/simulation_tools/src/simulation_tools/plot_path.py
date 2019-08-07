@@ -19,6 +19,7 @@ spawns = []
 paths = []
 current_path = []
 
+
 def model_state_callback(message):
     global current_path, current_position
     current_position = np.array([
@@ -32,15 +33,17 @@ def model_state_callback(message):
             path = np.stack(current_path)
             paths.append(path)
             current_path = []
-    
+
     if len(current_path) == 0:
         spawns.append(current_position)
-    
+
     current_path.append(current_position)
+
 
 def crash_callback(message):
     if current_position is not None:
         crashes.append(current_position)
+
 
 rospy.init_node('plot_path', anonymous=True)
 rospy.Subscriber("/gazebo/model_states", ModelStates, model_state_callback)
@@ -53,9 +56,9 @@ while not rospy.is_shutdown():
 
 x_limits = (np.min(OUTER_WALLS[:, 0]), np.max(OUTER_WALLS[:, 0]))
 y_limits = (np.min(OUTER_WALLS[:, 1]), np.max(OUTER_WALLS[:, 1]))
-size = (x_limits[1] - x_limits[0] + 2 * MARGIN, y_limits[1] - y_limits[0] + 2 * MARGIN)
+size = (x_limits[1] - x_limits[0] + 2 * MARGIN, y_limits[1] - y_limits[0] + 2 * MARGIN)  # nopep8
 
-fig = plt.figure(figsize = (size[0] * 0.22, size[1] * 0.22))
+fig = plt.figure(figsize=(size[0] * 0.22, size[1] * 0.22))
 plt.axis('off')
 plt.xlim(x_limits[0] - MARGIN, x_limits[1] + MARGIN)
 plt.ylim(y_limits[0] - MARGIN, y_limits[1] + MARGIN)
