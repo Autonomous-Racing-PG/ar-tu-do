@@ -54,6 +54,9 @@ print("Recording path... Press CTRL+C to stop recording and create a plot.")
 while not rospy.is_shutdown():
     time.sleep(0.1)
 
+if len(current_path) > 0:
+    paths.append(np.stack(current_path))
+
 x_limits = (np.min(OUTER_WALLS[:, 0]), np.max(OUTER_WALLS[:, 0]))
 y_limits = (np.min(OUTER_WALLS[:, 1]), np.max(OUTER_WALLS[:, 1]))
 size = (x_limits[1] - x_limits[0] + 2 * MARGIN, y_limits[1] - y_limits[0] + 2 * MARGIN)  # nopep8
