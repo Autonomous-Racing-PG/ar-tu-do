@@ -57,14 +57,16 @@ while not rospy.is_shutdown():
 if len(current_path) > 0:
     paths.append(np.stack(current_path))
 
-x_limits = (np.min(OUTER_WALLS[:, 0]), np.max(OUTER_WALLS[:, 0]))
-y_limits = (np.min(OUTER_WALLS[:, 1]), np.max(OUTER_WALLS[:, 1]))
-size = (x_limits[1] - x_limits[0] + 2 * MARGIN, y_limits[1] - y_limits[0] + 2 * MARGIN)  # nopep8
+x_limits = (np.min(OUTER_WALLS[:, 0]) - MARGIN,
+            np.max(OUTER_WALLS[:, 0]) + MARGIN)
+y_limits = (np.min(OUTER_WALLS[:, 1]) - MARGIN,
+            np.max(OUTER_WALLS[:, 1]) + MARGIN)
+size = (x_limits[1] - x_limits[0], y_limits[1] - y_limits[0])
 
 fig = plt.figure(figsize=(size[0] * 0.22, size[1] * 0.22))
 plt.axis('off')
-plt.xlim(x_limits[0] - MARGIN, x_limits[1] + MARGIN)
-plt.ylim(y_limits[0] - MARGIN, y_limits[1] + MARGIN)
+plt.xlim(*x_limits)
+plt.ylim(*y_limits)
 
 for path in paths:
     plt.plot(path[:, 0], path[:, 1], color='blue', linewidth=0.6)
