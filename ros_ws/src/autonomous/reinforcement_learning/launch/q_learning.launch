@@ -4,7 +4,7 @@
   <arg name="plot_window" default="200"/>
 
   <node
-    pkg="q_learning"
+    pkg="reinforcement_learning"
     type="train.py"
     name="q_learning_training"
     output="screen" >
@@ -18,7 +18,7 @@
   </node>
 
   <node
-    pkg="q_learning"
+    pkg="reinforcement_learning"
     type="plotter.py"
     name="q_learning_plotter"
     output="screen" >

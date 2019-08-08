@@ -3,9 +3,9 @@
 <!-- Launches all necessary nodes that let the car drive autonomously. -->
     <node
       respawn="true"
-      pkg="q_learning"
+      pkg="reinforcement_learning"
       type="drive.py"
-      name="q_learning_driver"
+      name="reinforcement_learning_driver"
       output="screen" >
     </node>
 </launch>

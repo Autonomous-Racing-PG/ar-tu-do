@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(q_learning)
+project(reinforcement_learning)
 
 
 find_package(catkin REQUIRED COMPONENTS
