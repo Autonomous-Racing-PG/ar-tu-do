@@ -4,6 +4,7 @@ var annotated_dup =
     [ "drive", "namespacedrive.html", "namespacedrive" ],
     [ "neural_car_driver", "namespaceneural__car__driver.html", "namespaceneural__car__driver" ],
     [ "parameters", "namespaceparameters.html", "namespaceparameters" ],
+    [ "policyGradient", "namespacepolicy_gradient.html", "namespacepolicy_gradient" ],
     [ "qlearning", "namespaceqlearning.html", "namespaceqlearning" ],
     [ "simulation_tools", "namespacesimulation__tools.html", "namespacesimulation__tools" ],
     [ "train", "namespacetrain.html", "namespacetrain" ],

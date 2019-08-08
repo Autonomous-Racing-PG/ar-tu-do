@@ -22,10 +22,10 @@ Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.pac
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/launch
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/launch
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/msg
-Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/launch
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/msg
+Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/cfg
 Searching for files in directory /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include
@@ -113,16 +113,18 @@ Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/s
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/neural_car_driver.py...
 Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/train.py...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/train.py...
-Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/drive.py...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/drive.py...
-Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/parameters.py...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/parameters.py...
-Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/plotter.py...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/plotter.py...
-Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/qlearning.py...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/qlearning.py...
-Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/train.py...
-Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/train.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/drive.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/drive.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/parameters.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/parameters.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/plotter.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/plotter.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/policyGradient.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/policyGradient.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/qlearning.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/qlearning.py...
+Reading /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/train.py...
+Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/train.py...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/pid_controller.h...
 Parsing file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/pid_controller.h...
 Preprocessing /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/rviz_geometry_publisher.h...
@@ -282,16 +284,15 @@ Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/src/rviz_geometry_publisher.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/neural_car_driver.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/train.py...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/train.py...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/drive.py...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/parameters.py...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/plotter.py...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/qlearning.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/train.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/drive.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/parameters.py...
+Generating code for file /home/travis/b/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
+uild/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/plotter.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/policyGradient.py...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/qlearning.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/pid_controller.h...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package//home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
-/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
-docs/master/ros_ws/src/autonomous/wallfollowing1/include/wall.h...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/wall.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/wall_following.h...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/src/pid_controller.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/src/wall.cpp...
@@ -314,16 +315,18 @@ Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_tf/src/main.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/src/main.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/main.cpp...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/include/navigation_stack_control_converter.h...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/src/navigation_stack_control_converter.cpp...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/include/chase_cam.h...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/include/crash_detector.h...
-Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools//home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/include/navigat/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
+/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
-setup.py...
+ion_stack_control_converter.h...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/src/navigation_stack_control_converter.cpp...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/include/chase_cam.h...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/include/crash_detector.h...
+Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/setup.py...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/src/chase_cam.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/src/crash_detector.cpp...
 Generating code for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/simulation_tools/src/simulation_tools/__init__.py...
@@ -357,11 +360,12 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating caller graph for function createColor
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/neural_car_driver.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/evolutionary/scripts/train.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/train.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/drive.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/parameters.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/plotter.py...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/q_learning/scripts/qlearning.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/train.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/drive.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/parameters.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/plotter.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/policyGradient.py...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/reinfocement_learning/scripts/qlearning.py...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/pid_controller.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/wall.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/autonomous/wallfollowing1/include/wall_following.h...
@@ -377,14 +381,7 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_mode.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_parameters_multiplexer.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/include/drive_parameters_source.h...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/car_controller.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/dms_controller.cpp...
-Generating call graph for function main
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/drive_parameters_multiplexer.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/drive_parameters_source.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/test/test_car_control.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_tf/include/laserscan_transformer.h...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.pa/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/mast/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:6: warning: Unsupported xml/html tag <cmath> found
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:31: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:42: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:48: warning: Found unknown command `\unit'
@@ -392,7 +389,14 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.pa/home/tra
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:89: warning: Found unknown command `\unit'
-ckage/docs/master/ros_ws/src/car_tf/src/laserscan_transformer.cpp...
+er/ros_ws/src/car_control/src/car_controller.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/dms_controller.cpp...
+Generating call graph for function main
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/drive_parameters_multiplexer.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/src/drive_parameters_source.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_control/test/test_car_control.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_tf/include/laserscan_transformer.h...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_tf/src/laserscan_transformer.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/car_tf/src/main.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/navigation_stack/navigation_stack_control_converter/src/main.cpp...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/main.cpp...
@@ -414,14 +418,7 @@ Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/doc
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/vesc_sim_driver.h...
 Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/params_to_yaml.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim_driver.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/keyboard_controller.h...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/joystick_controller.cpp...
-Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/keyboard_controller.cpp...
-Generating call graph for function createHearbeatMessage
-Generati/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:214: warning: explicit link request to 'define' could not be resolved
+Generating docs for file /home/travis/build/Autonomou/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:214: warning: explicit link request to 'define' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:286: warning: explicit link request to 'ifndef' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:295: warning: explicit link request to 'pragma' could not be resolved
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYLE_GUIDE.md:663: warning: explicit link request to 'pragma' could not be resolved
@@ -449,7 +446,14 @@ Generati/home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/CPP_STYL
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:60: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:54: warning: Found unknown command `\unit'
 /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/include/car_config.h:71: warning: Found unknown command `\unit'
-ng caller graph for function map
+s-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/simulation/vesc_sim/src/vesc_sim_driver.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/joystick_controller.h...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/include/keyboard_controller.h...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/joystick_controller.cpp...
+Generating docs for file /home/travis/build/Autonomous-Racing-PG/ros.package/docs/master/ros_ws/src/teleoperation/src/keyboard_controller.cpp...
+Generating call graph for function createHearbeatMessage
+Generating caller graph for function map
 Generating page documentation...
 Generating docs for page md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_CPP_STYLE_GUIDE...
 Generating docs for page md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_README...
@@ -511,7 +515,18 @@ Generating call graph for function neural_car_driver.NeuralCarDriver.mutate
 Generating caller graph for function neural_car_driver.NeuralCarDriver.to_vector
 Generating docs for namespace parameters
 Generating docs for compound parameters::NeuralQEstimator...
+Generating docs for compound parameters::Policy...
 Generating docs for namespace plotter
+Generating docs for namespace policyGradient
+Generating docs for compound policyGradient::QLearningTrainingNode...
+Generating caller graph for function policyGradient.QLearningTrainingNode.check_car_orientation
+Generating caller graph for function policyGradient.QLearningTrainingNode.get_reward
+Generating caller graph for function policyGradient.QLearningTrainingNode.log_training_progress
+Generating call graph for function policyGradient.QLearningTrainingNode.on_complete_episode
+Generating caller graph for function policyGradient.QLearningTrainingNode.on_complete_episode
+Generating call graph for function policyGradient.QLearningTrainingNode.on_receive_laser_scan
+Generating caller graph for function policyGradient.QLearningTrainingNode.select_action
+Generating caller graph for function policyGradient.QLearningTrainingNode.update_policy
 Generating docs for namespace qlearning
 Generating docs for compound qlearning::QLearningNode...
 Generating caller graph for function qlearning.QLearningNode.convert_laser_message_to_tensor
@@ -618,732 +633,772 @@ writing tag file...
 Combining RTF output...
 Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/550
-Running dot for graph 2/550
-Running dot for graph 3/550
-Running dot for graph 4/550
-Running dot for graph 5/550
-Running dot for graph 6/550
-Running dot for graph 7/550
-Running dot for graph 8/550
-Running dot for graph 9/550
-Running dot for graph 10/550
-Running dot for graph 11/550
-Running dot for graph 12/550
-Running dot for graph 13/550
-Running dot for graph 14/550
-Running dot for graph 15/550
-Running dot for graph 16/550
-Running dot for graph 17/550
-Running dot for graph 18/550
-Running dot for graph 19/550
-Running dot for graph 20/550
-Running dot for graph 21/550
-Running dot for graph 22/550
-Running dot for graph 23/550
-Running dot for graph 24/550
-Running dot for graph 25/550
-Running dot for graph 26/550
-Running dot for graph 27/550
-Running dot for graph 28/550
-Running dot for graph 29/550
-Running dot for graph 30/550
-Running dot for graph 31/550
-Running dot for graph 32/550
-Running dot for graph 33/550
-Running dot for graph 34/550
-Running dot for graph 35/550
-Running dot for graph 36/550
-Running dot for graph 37/550
-Running dot for graph 38/550
-Running dot for graph 39/550
-Running dot for graph 40/550
-Running dot for graph 41/550
-Running dot for graph 42/550
-Running dot for graph 43/550
-Running dot for graph 44/550
-Running dot for graph 45/550
-Running dot for graph 46/550
-Running dot for graph 47/550
-Running dot for graph 48/550
-Running dot for graph 49/550
-Running dot for graph 50/550
-Running dot for graph 51/550
-Running dot for graph 52/550
-Running dot for graph 53/550
-Running dot for graph 54/550
-Running dot for graph 55/550
-Running dot for graph 56/550
-Running dot for graph 57/550
-Running dot for graph 58/550
-Running dot for graph 59/550
-Running dot for graph 60/550
-Running dot for graph 61/550
-Running dot for graph 62/550
-Running dot for graph 63/550
-Running dot for graph 64/550
-Running dot for graph 65/550
-Running dot for graph 66/550
-Running dot for graph 67/550
-Running dot for graph 68/550
-Running dot for graph 69/550
-Running dot for graph 70/550
-Running dot for graph 71/550
-Running dot for graph 72/550
-Running dot for graph 73/550
-Running dot for graph 74/550
-Running dot for graph 75/550
-Running dot for graph 76/550
-Running dot for graph 77/550
-Running dot for graph 78/550
-Running dot for graph 79/550
-Running dot for graph 80/550
-Running dot for graph 81/550
-Running dot for graph 82/550
-Running dot for graph 83/550
-Running dot for graph 84/550
-Running dot for graph 85/550
-Running dot for graph 86/550
-Running dot for graph 87/550
-Running dot for graph 88/550
-Running dot for graph 89/550
-Running dot for graph 90/550
-Running dot for graph 91/550
-Running dot for graph 92/550
-Running dot for graph 93/550
-Running dot for graph 94/550
-Running dot for graph 95/550
-Running dot for graph 96/550
-Running dot for graph 97/550
-Running dot for graph 98/550
-Running dot for graph 99/550
-Running dot for graph 100/550
-Running dot for graph 101/550
-Running dot for graph 102/550
-Running dot for graph 103/550
-Running dot for graph 104/550
-Running dot for graph 105/550
-Running dot for graph 106/550
-Running dot for graph 107/550
-Running dot for graph 108/550
-Running dot for graph 109/550
-Running dot for graph 110/550
-Running dot for graph 111/550
-Running dot for graph 112/550
-Running dot for graph 113/550
-Running dot for graph 114/550
-Running dot for graph 115/550
-Running dot for graph 116/550
-Running dot for graph 117/550
-Running dot for graph 118/550
-Running dot for graph 119/550
-Running dot for graph 120/550
-Running dot for graph 121/550
-Running dot for graph 122/550
-Running dot for graph 123/550
-Running dot for graph 124/550
-Running dot for graph 125/550
-Running dot for graph 126/550
-Running dot for graph 127/550
-Running dot for graph 128/550
-Running dot for graph 129/550
-Running dot for graph 130/550
-Running dot for graph 131/550
-Running dot for graph 132/550
-Running dot for graph 133/550
-Running dot for graph 134/550
-Running dot for graph 135/550
-Running dot for graph 136/550
-Running dot for graph 137/550
-Running dot for graph 138/550
-Running dot for graph 139/550
-Running dot for graph 140/550
-Running dot for graph 141/550
-Running dot for graph 142/550
-Running dot for graph 143/550
-Running dot for graph 144/550
-Running dot for graph 145/550
-Running dot for graph 146/550
-Running dot for graph 147/550
-Running dot for graph 148/550
-Running dot for graph 149/550
-Running dot for graph 150/550
-Running dot for graph 151/550
-Running dot for graph 152/550
-Running dot for graph 153/550
-Running dot for graph 154/550
-Running dot for graph 155/550
-Running dot for graph 156/550
-Running dot for graph 157/550
-Running dot for graph 158/550
-Running dot for graph 159/550
-Running dot for graph 160/550
-Running dot for graph 161/550
-Running dot for graph 162/550
-Running dot for graph 163/550
-Running dot for graph 164/550
-Running dot for graph 165/550
-Running dot for graph 166/550
-Running dot for graph 167/550
-Running dot for graph 168/550
-Running dot for graph 169/550
-Running dot for graph 170/550
-Running dot for graph 171/550
-Running dot for graph 172/550
-Running dot for graph 173/550
-Running dot for graph 174/550
-Running dot for graph 175/550
-Running dot for graph 176/550
-Running dot for graph 177/550
-Running dot for graph 178/550
-Running dot for graph 179/550
-Running dot for graph 180/550
-Running dot for graph 181/550
-Running dot for graph 182/550
-Running dot for graph 183/550
-Running dot for graph 184/550
-Running dot for graph 185/550
-Running dot for graph 186/550
-Running dot for graph 187/550
-Running dot for graph 188/550
-Running dot for graph 189/550
-Running dot for graph 190/550
-Running dot for graph 191/550
-Running dot for graph 192/550
-Running dot for graph 193/550
-Running dot for graph 194/550
-Running dot for graph 195/550
-Running dot for graph 196/550
-Running dot for graph 197/550
-Running dot for graph 198/550
-Running dot for graph 199/550
-Running dot for graph 200/550
-Running dot for graph 201/550
-Running dot for graph 202/550
-Running dot for graph 203/550
-Running dot for graph 204/550
-Running dot for graph 205/550
-Running dot for graph 206/550
-Running dot for graph 207/550
-Running dot for graph 208/550
-Running dot for graph 209/550
-Running dot for graph 210/550
-Running dot for graph 211/550
-Running dot for graph 212/550
-Running dot for graph 213/550
-Running dot for graph 214/550
-Running dot for graph 215/550
-Running dot for graph 216/550
-Running dot for graph 217/550
-Running dot for graph 218/550
-Running dot for graph 219/550
-Running dot for graph 220/550
-Running dot for graph 221/550
-Running dot for graph 222/550
-Running dot for graph 223/550
-Running dot for graph 224/550
-Running dot for graph 225/550
-Running dot for graph 226/550
-Running dot for graph 227/550
-Running dot for graph 228/550
-Running dot for graph 229/550
-Running dot for graph 230/550
-Running dot for graph 231/550
-Running dot for graph 232/550
-Running dot for graph 233/550
-Running dot for graph 234/550
-Running dot for graph 235/550
-Running dot for graph 236/550
-Running dot for graph 237/550
-Running dot for graph 238/550
-Running dot for graph 239/550
-Running dot for graph 240/550
-Running dot for graph 241/550
-Running dot for graph 242/550
-Running dot for graph 243/550
-Running dot for graph 244/550
-Running dot for graph 245/550
-Running dot for graph 246/550
-Running dot for graph 247/550
-Running dot for graph 248/550
-Running dot for graph 249/550
-Running dot for graph 250/550
-Running dot for graph 251/550
-Running dot for graph 252/550
-Running dot for graph 253/550
-Running dot for graph 254/550
-Running dot for graph 255/550
-Running dot for graph 256/550
-Running dot for graph 257/550
-Running dot for graph 258/550
-Running dot for graph 259/550
-Running dot for graph 260/550
-Running dot for graph 261/550
-Running dot for graph 262/550
-Running dot for graph 263/550
-Running dot for graph 264/550
-Running dot for graph 265/550
-Running dot for graph 266/550
-Running dot for graph 267/550
-Running dot for graph 268/550
-Running dot for graph 269/550
-Running dot for graph 270/550
-Running dot for graph 271/550
-Running dot for graph 272/550
-Running dot for graph 273/550
-Running dot for graph 274/550
-Running dot for graph 275/550
-Running dot for graph 276/550
-Running dot for graph 277/550
-Running dot for graph 278/550
-Running dot for graph 279/550
-Running dot for graph 280/550
-Running dot for graph 281/550
-Running dot for graph 282/550
-Running dot for graph 283/550
-Running dot for graph 284/550
-Running dot for graph 285/550
-Running dot for graph 286/550
-Running dot for graph 287/550
-Running dot for graph 288/550
-Running dot for graph 289/550
-Running dot for graph 290/550
-Running dot for graph 291/550
-Running dot for graph 292/550
-Running dot for graph 293/550
-Running dot for graph 294/550
-Running dot for graph 295/550
-Running dot for graph 296/550
-Running dot for graph 297/550
-Running dot for graph 298/550
-Running dot for graph 299/550
-Running dot for graph 300/550
-Running dot for graph 301/550
-Running dot for graph 302/550
-Running dot for graph 303/550
-Running dot for graph 304/550
-Running dot for graph 305/550
-Running dot for graph 306/550
-Running dot for graph 307/550
-Running dot for graph 308/550
-Running dot for graph 309/550
-Running dot for graph 310/550
-Running dot for graph 311/550
-Running dot for graph 312/550
-Running dot for graph 313/550
-Running dot for graph 314/550
-Running dot for graph 315/550
-Running dot for graph 316/550
-Running dot for graph 317/550
-Running dot for graph 318/550
-Running dot for graph 319/550
-Running dot for graph 320/550
-Running dot for graph 321/550
-Running dot for graph 322/550
-Running dot for graph 323/550
-Running dot for graph 324/550
-Running dot for graph 325/550
-Running dot for graph 326/550
-Running dot for graph 327/550
-Running dot for graph 328/550
-Running dot for graph 329/550
-Running dot for graph 330/550
-Running dot for graph 331/550
-Running dot for graph 332/550
-Running dot for graph 333/550
-Running dot for graph 334/550
-Running dot for graph 335/550
-Running dot for graph 336/550
-Running dot for graph 337/550
-Running dot for graph 338/550
-Running dot for graph 339/550
-Running dot for graph 340/550
-Running dot for graph 341/550
-Running dot for graph 342/550
-Running dot for graph 343/550
-Running dot for graph 344/550
-Running dot for graph 345/550
-Running dot for graph 346/550
-Running dot for graph 347/550
-Running dot for graph 348/550
-Running dot for graph 349/550
-Running dot for graph 350/550
-Running dot for graph 351/550
-Running dot for graph 352/550
-Running dot for graph 353/550
-Running dot for graph 354/550
-Running dot for graph 355/550
-Running dot for graph 356/550
-Running dot for graph 357/550
-Running dot for graph 358/550
-Running dot for graph 359/550
-Running dot for graph 360/550
-Running dot for graph 361/550
-Running dot for graph 362/550
-Running dot for graph 363/550
-Running dot for graph 364/550
-Running dot for graph 365/550
-Running dot for graph 366/550
-Running dot for graph 367/550
-Running dot for graph 368/550
-Running dot for graph 369/550
-Running dot for graph 370/550
-Running dot for graph 371/550
-Running dot for graph 372/550
-Running dot for graph 373/550
-Running dot for graph 374/550
-Running dot for graph 375/550
-Running dot for graph 376/550
-Running dot for graph 377/550
-Running dot for graph 378/550
-Running dot for graph 379/550
-Running dot for graph 380/550
-Running dot for graph 381/550
-Running dot for graph 382/550
-Running dot for graph 383/550
-Running dot for graph 384/550
-Running dot for graph 385/550
-Running dot for graph 386/550
-Running dot for graph 387/550
-Running dot for graph 388/550
-Running dot for graph 389/550
-Running dot for graph 390/550
-Running dot for graph 391/550
-Running dot for graph 392/550
-Running dot for graph 393/550
-Running dot for graph 394/550
-Running dot for graph 395/550
-Running dot for graph 396/550
-Running dot for graph 397/550
-Running dot for graph 398/550
-Running dot for graph 399/550
-Running dot for graph 400/550
-Running dot for graph 401/550
-Running dot for graph 402/550
-Running dot for graph 403/550
-Running dot for graph 404/550
-Running dot for graph 405/550
-Running dot for graph 406/550
-Running dot for graph 407/550
-Running dot for graph 408/550
-Running dot for graph 409/550
-Running dot for graph 410/550
-Running dot for graph 411/550
-Running dot for graph 412/550
-Running dot for graph 413/550
-Running dot for graph 414/550
-Running dot for graph 415/550
-Running dot for graph 416/550
-Running dot for graph 417/550
-Running dot for graph 418/550
-Running dot for graph 419/550
-Running dot for graph 420/550
-Running dot for graph 421/550
-Running dot for graph 422/550
-Running dot for graph 423/550
-Running dot for graph 424/550
-Running dot for graph 425/550
-Running dot for graph 426/550
-Running dot for graph 427/550
-Running dot for graph 428/550
-Running dot for graph 429/550
-Running dot for graph 430/550
-Running dot for graph 431/550
-Running dot for graph 432/550
-Running dot for graph 433/550
-Running dot for graph 434/550
-Running dot for graph 435/550
-Running dot for graph 436/550
-Running dot for graph 437/550
-Running dot for graph 438/550
-Running dot for graph 439/550
-Running dot for graph 440/550
-Running dot for graph 441/550
-Running dot for graph 442/550
-Running dot for graph 443/550
-Running dot for graph 444/550
-Running dot for graph 445/550
-Running dot for graph 446/550
-Running dot for graph 447/550
-Running dot for graph 448/550
-Running dot for graph 449/550
-Running dot for graph 450/550
-Running dot for graph 451/550
-Running dot for graph 452/550
-Running dot for graph 453/550
-Running dot for graph 454/550
-Running dot for graph 455/550
-Running dot for graph 456/550
-Running dot for graph 457/550
-Running dot for graph 458/550
-Running dot for graph 459/550
-Running dot for graph 460/550
-Running dot for graph 461/550
-Running dot for graph 462/550
-Running dot for graph 463/550
-Running dot for graph 464/550
-Running dot for graph 465/550
-Running dot for graph 466/550
-Running dot for graph 467/550
-Running dot for graph 468/550
-Running dot for graph 469/550
-Running dot for graph 470/550
-Running dot for graph 471/550
-Running dot for graph 472/550
-Running dot for graph 473/550
-Running dot for graph 474/550
-Running dot for graph 475/550
-Running dot for graph 476/550
-Running dot for graph 477/550
-Running dot for graph 478/550
-Running dot for graph 479/550
-Running dot for graph 480/550
-Running dot for graph 481/550
-Running dot for graph 482/550
-Running dot for graph 483/550
-Running dot for graph 484/550
-Running dot for graph 485/550
-Running dot for graph 486/550
-Running dot for graph 487/550
-Running dot for graph 488/550
-Running dot for graph 489/550
-Running dot for graph 490/550
-Running dot for graph 491/550
-Running dot for graph 492/550
-Running dot for graph 493/550
-Running dot for graph 494/550
-Running dot for graph 495/550
-Running dot for graph 496/550
-Running dot for graph 497/550
-Running dot for graph 498/550
-Running dot for graph 499/550
-Running dot for graph 500/550
-Running dot for graph 501/550
-Running dot for graph 502/550
-Running dot for graph 503/550
-Running dot for graph 504/550
-Running dot for graph 505/550
-Running dot for graph 506/550
-Running dot for graph 507/550
-Running dot for graph 508/550
-Running dot for graph 509/550
-Running dot for graph 510/550
-Running dot for graph 511/550
-Running dot for graph 512/550
-Running dot for graph 513/550
-Running dot for graph 514/550
-Running dot for graph 515/550
-Running dot for graph 516/550
-Running dot for graph 517/550
-Running dot for graph 518/550
-Running dot for graph 519/550
-Running dot for graph 520/550
-Running dot for graph 521/550
-Running dot for graph 522/550
-Running dot for graph 523/550
-Running dot for graph 524/550
-Running dot for graph 525/550
-Running dot for graph 526/550
-Running dot for graph 527/550
-Running dot for graph 528/550
-Running dot for graph 529/550
-Running dot for graph 530/550
-Running dot for graph 531/550
-Running dot for graph 532/550
-Running dot for graph 533/550
-Running dot for graph 534/550
-Running dot for graph 535/550
-Running dot for graph 536/550
-Running dot for graph 537/550
-Running dot for graph 538/550
-Running dot for graph 539/550
-Running dot for graph 540/550
-Running dot for graph 541/550
-Running dot for graph 542/550
-Running dot for graph 543/550
-Running dot for graph 544/550
-Running dot for graph 545/550
-Running dot for graph 546/550
-Running dot for graph 547/550
-Running dot for graph 548/550
-Running dot for graph 549/550
-Running dot for graph 550/550
-Patching output file 1/177
-Patching output file 2/177
-Patching output file 3/177
-Patching output file 4/177
-Patching output file 5/177
-Patching output file 6/177
-Patching output file 7/177
-Patching output file 8/177
-Patching output file 9/177
-Patching output file 10/177
-Patching output file 11/177
-Patching output file 12/177
-Patching output file 13/177
-Patching output file 14/177
-Patching output file 15/177
-Patching output file 16/177
-Patching output file 17/177
-Patching output file 18/177
-Patching output file 19/177
-Patching output file 20/177
-Patching output file 21/177
-Patching output file 22/177
-Patching output file 23/177
-Patching output file 24/177
-Patching output file 25/177
-Patching output file 26/177
-Patching output file 27/177
-Patching output file 28/177
-Patching output file 29/177
-Patching output file 30/177
-Patching output file 31/177
-Patching output file 32/177
-Patching output file 33/177
-Patching output file 34/177
-Patching output file 35/177
-Patching output file 36/177
-Patching output file 37/177
-Patching output file 38/177
-Patching output file 39/177
-Patching output file 40/177
-Patching output file 41/177
-Patching output file 42/177
-Patching output file 43/177
-Patching output file 44/177
-Patching output file 45/177
-Patching output file 46/177
-Patching output file 47/177
-Patching output file 48/177
-Patching output file 49/177
-Patching output file 50/177
-Patching output file 51/177
-Patching output file 52/177
-Patching output file 53/177
-Patching output file 54/177
-Patching output file 55/177
-Patching output file 56/177
-Patching output file 57/177
-Patching output file 58/177
-Patching output file 59/177
-Patching output file 60/177
-Patching output file 61/177
-Patching output file 62/177
-Patching output file 63/177
-Patching output file 64/177
-Patching output file 65/177
-Patching output file 66/177
-Patching output file 67/177
-Patching output file 68/177
-Patching output file 69/177
-Patching output file 70/177
-Patching output file 71/177
-Patching output file 72/177
-Patching output file 73/177
-Patching output file 74/177
-Patching output file 75/177
-Patching output file 76/177
-Patching output file 77/177
-Patching output file 78/177
-Patching output file 79/177
-Patching output file 80/177
-Patching output file 81/177
-Patching output file 82/177
-Patching output file 83/177
-Patching output file 84/177
-Patching output file 85/177
-Patching output file 86/177
-Patching output file 87/177
-Patching output file 88/177
-Patching output file 89/177
-Patching output file 90/177
-Patching output file 91/177
-Patching output file 92/177
-Patching output file 93/177
-Patching output file 94/177
-Patching output file 95/177
-Patching output file 96/177
-Patching output file 97/177
-Patching output file 98/177
-Patching output file 99/177
-Patching output file 100/177
-Patching output file 101/177
-Patching output file 102/177
-Patching output file 103/177
-Patching output file 104/177
-Patching output file 105/177
-Patching output file 106/177
-Patching output file 107/177
-Patching output file 108/177
-Patching output file 109/177
-Patching output file 110/177
-Patching output file 111/177
-Patching output file 112/177
-Patching output file 113/177
-Patching output file 114/177
-Patching output file 115/177
-Patching output file 116/177
-Patching output file 117/177
-Patching output file 118/177
-Patching output file 119/177
-Patching output file 120/177
-Patching output file 121/177
-Patching output file 122/177
-Patching output file 123/177
-Patching output file 124/177
-Patching output file 125/177
-Patching output file 126/177
-Patching output file 127/177
-Patching output file 128/177
-Patching output file 129/177
-Patching output file 130/177
-Patching output file 131/177
-Patching output file 132/177
-Patching output file 133/177
-Patching output file 134/177
-Patching output file 135/177
-Patching output file 136/177
-Patching output file 137/177
-Patching output file 138/177
-Patching output file 139/177
-Patching output file 140/177
-Patching output file 141/177
-Patching output file 142/177
-Patching output file 143/177
-Patching output file 144/177
-Patching output file 145/177
-Patching output file 146/177
-Patching output file 147/177
-Patching output file 148/177
-Patching output file 149/177
-Patching output file 150/177
-Patching output file 151/177
-Patching output file 152/177
-Patching output file 153/177
-Patching output file 154/177
-Patching output file 155/177
-Patching output file 156/177
-Patching output file 157/177
-Patching output file 158/177
-Patching output file 159/177
-Patching output file 160/177
-Patching output file 161/177
-Patching output file 162/177
-Patching output file 163/177
-Patching output file 164/177
-Patching output file 165/177
-Patching output file 166/177
-Patching output file 167/177
-Patching output file 168/177
-Patching output file 169/177
-Patching output file 170/177
-Patching output file 171/177
-Patching output file 172/177
-Patching output file 173/177
-Patching output file 174/177
-Patching output file 175/177
-Patching output file 176/177
-Patching output file 177/177
-lookup cache used 1193/65536 hits=4818 misses=1209
+Running dot for graph 1/586
+Running dot for graph 2/586
+Running dot for graph 3/586
+Running dot for graph 4/586
+Running dot for graph 5/586
+Running dot for graph 6/586
+Running dot for graph 7/586
+Running dot for graph 8/586
+Running dot for graph 9/586
+Running dot for graph 10/586
+Running dot for graph 11/586
+Running dot for graph 12/586
+Running dot for graph 13/586
+Running dot for graph 14/586
+Running dot for graph 15/586
+Running dot for graph 16/586
+Running dot for graph 17/586
+Running dot for graph 18/586
+Running dot for graph 19/586
+Running dot for graph 20/586
+Running dot for graph 21/586
+Running dot for graph 22/586
+Running dot for graph 23/586
+Running dot for graph 24/586
+Running dot for graph 25/586
+Running dot for graph 26/586
+Running dot for graph 27/586
+Running dot for graph 28/586
+Running dot for graph 29/586
+Running dot for graph 30/586
+Running dot for graph 31/586
+Running dot for graph 32/586
+Running dot for graph 33/586
+Running dot for graph 34/586
+Running dot for graph 35/586
+Running dot for graph 36/586
+Running dot for graph 37/586
+Running dot for graph 38/586
+Running dot for graph 39/586
+Running dot for graph 40/586
+Running dot for graph 41/586
+Running dot for graph 42/586
+Running dot for graph 43/586
+Running dot for graph 44/586
+Running dot for graph 45/586
+Running dot for graph 46/586
+Running dot for graph 47/586
+Running dot for graph 48/586
+Running dot for graph 49/586
+Running dot for graph 50/586
+Running dot for graph 51/586
+Running dot for graph 52/586
+Running dot for graph 53/586
+Running dot for graph 54/586
+Running dot for graph 55/586
+Running dot for graph 56/586
+Running dot for graph 57/586
+Running dot for graph 58/586
+Running dot for graph 59/586
+Running dot for graph 60/586
+Running dot for graph 61/586
+Running dot for graph 62/586
+Running dot for graph 63/586
+Running dot for graph 64/586
+Running dot for graph 65/586
+Running dot for graph 66/586
+Running dot for graph 67/586
+Running dot for graph 68/586
+Running dot for graph 69/586
+Running dot for graph 70/586
+Running dot for graph 71/586
+Running dot for graph 72/586
+Running dot for graph 73/586
+Running dot for graph 74/586
+Running dot for graph 75/586
+Running dot for graph 76/586
+Running dot for graph 77/586
+Running dot for graph 78/586
+Running dot for graph 79/586
+Running dot for graph 80/586
+Running dot for graph 81/586
+Running dot for graph 82/586
+Running dot for graph 83/586
+Running dot for graph 84/586
+Running dot for graph 85/586
+Running dot for graph 86/586
+Running dot for graph 87/586
+Running dot for graph 88/586
+Running dot for graph 89/586
+Running dot for graph 90/586
+Running dot for graph 91/586
+Running dot for graph 92/586
+Running dot for graph 93/586
+Running dot for graph 94/586
+Running dot for graph 95/586
+Running dot for graph 96/586
+Running dot for graph 97/586
+Running dot for graph 98/586
+Running dot for graph 99/586
+Running dot for graph 100/586
+Running dot for graph 101/586
+Running dot for graph 102/586
+Running dot for graph 103/586
+Running dot for graph 104/586
+Running dot for graph 105/586
+Running dot for graph 106/586
+Running dot for graph 107/586
+Running dot for graph 108/586
+Running dot for graph 109/586
+Running dot for graph 110/586
+Running dot for graph 111/586
+Running dot for graph 112/586
+Running dot for graph 113/586
+Running dot for graph 114/586
+Running dot for graph 115/586
+Running dot for graph 116/586
+Running dot for graph 117/586
+Running dot for graph 118/586
+Running dot for graph 119/586
+Running dot for graph 120/586
+Running dot for graph 121/586
+Running dot for graph 122/586
+Running dot for graph 123/586
+Running dot for graph 124/586
+Running dot for graph 125/586
+Running dot for graph 126/586
+Running dot for graph 127/586
+Running dot for graph 128/586
+Running dot for graph 129/586
+Running dot for graph 130/586
+Running dot for graph 131/586
+Running dot for graph 132/586
+Running dot for graph 133/586
+Running dot for graph 134/586
+Running dot for graph 135/586
+Running dot for graph 136/586
+Running dot for graph 137/586
+Running dot for graph 138/586
+Running dot for graph 139/586
+Running dot for graph 140/586
+Running dot for graph 141/586
+Running dot for graph 142/586
+Running dot for graph 143/586
+Running dot for graph 144/586
+Running dot for graph 145/586
+Running dot for graph 146/586
+Running dot for graph 147/586
+Running dot for graph 148/586
+Running dot for graph 149/586
+Running dot for graph 150/586
+Running dot for graph 151/586
+Running dot for graph 152/586
+Running dot for graph 153/586
+Running dot for graph 154/586
+Running dot for graph 155/586
+Running dot for graph 156/586
+Running dot for graph 157/586
+Running dot for graph 158/586
+Running dot for graph 159/586
+Running dot for graph 160/586
+Running dot for graph 161/586
+Running dot for graph 162/586
+Running dot for graph 163/586
+Running dot for graph 164/586
+Running dot for graph 165/586
+Running dot for graph 166/586
+Running dot for graph 167/586
+Running dot for graph 168/586
+Running dot for graph 169/586
+Running dot for graph 170/586
+Running dot for graph 171/586
+Running dot for graph 172/586
+Running dot for graph 173/586
+Running dot for graph 174/586
+Running dot for graph 175/586
+Running dot for graph 176/586
+Running dot for graph 177/586
+Running dot for graph 178/586
+Running dot for graph 179/586
+Running dot for graph 180/586
+Running dot for graph 181/586
+Running dot for graph 182/586
+Running dot for graph 183/586
+Running dot for graph 184/586
+Running dot for graph 185/586
+Running dot for graph 186/586
+Running dot for graph 187/586
+Running dot for graph 188/586
+Running dot for graph 189/586
+Running dot for graph 190/586
+Running dot for graph 191/586
+Running dot for graph 192/586
+Running dot for graph 193/586
+Running dot for graph 194/586
+Running dot for graph 195/586
+Running dot for graph 196/586
+Running dot for graph 197/586
+Running dot for graph 198/586
+Running dot for graph 199/586
+Running dot for graph 200/586
+Running dot for graph 201/586
+Running dot for graph 202/586
+Running dot for graph 203/586
+Running dot for graph 204/586
+Running dot for graph 205/586
+Running dot for graph 206/586
+Running dot for graph 207/586
+Running dot for graph 208/586
+Running dot for graph 209/586
+Running dot for graph 210/586
+Running dot for graph 211/586
+Running dot for graph 212/586
+Running dot for graph 213/586
+Running dot for graph 214/586
+Running dot for graph 215/586
+Running dot for graph 216/586
+Running dot for graph 217/586
+Running dot for graph 218/586
+Running dot for graph 219/586
+Running dot for graph 220/586
+Running dot for graph 221/586
+Running dot for graph 222/586
+Running dot for graph 223/586
+Running dot for graph 224/586
+Running dot for graph 225/586
+Running dot for graph 226/586
+Running dot for graph 227/586
+Running dot for graph 228/586
+Running dot for graph 229/586
+Running dot for graph 230/586
+Running dot for graph 231/586
+Running dot for graph 232/586
+Running dot for graph 233/586
+Running dot for graph 234/586
+Running dot for graph 235/586
+Running dot for graph 236/586
+Running dot for graph 237/586
+Running dot for graph 238/586
+Running dot for graph 239/586
+Running dot for graph 240/586
+Running dot for graph 241/586
+Running dot for graph 242/586
+Running dot for graph 243/586
+Running dot for graph 244/586
+Running dot for graph 245/586
+Running dot for graph 246/586
+Running dot for graph 247/586
+Running dot for graph 248/586
+Running dot for graph 249/586
+Running dot for graph 250/586
+Running dot for graph 251/586
+Running dot for graph 252/586
+Running dot for graph 253/586
+Running dot for graph 254/586
+Running dot for graph 255/586
+Running dot for graph 256/586
+Running dot for graph 257/586
+Running dot for graph 258/586
+Running dot for graph 259/586
+Running dot for graph 260/586
+Running dot for graph 261/586
+Running dot for graph 262/586
+Running dot for graph 263/586
+Running dot for graph 264/586
+Running dot for graph 265/586
+Running dot for graph 266/586
+Running dot for graph 267/586
+Running dot for graph 268/586
+Running dot for graph 269/586
+Running dot for graph 270/586
+Running dot for graph 271/586
+Running dot for graph 272/586
+Running dot for graph 273/586
+Running dot for graph 274/586
+Running dot for graph 275/586
+Running dot for graph 276/586
+Running dot for graph 277/586
+Running dot for graph 278/586
+Running dot for graph 279/586
+Running dot for graph 280/586
+Running dot for graph 281/586
+Running dot for graph 282/586
+Running dot for graph 283/586
+Running dot for graph 284/586
+Running dot for graph 285/586
+Running dot for graph 286/586
+Running dot for graph 287/586
+Running dot for graph 288/586
+Running dot for graph 289/586
+Running dot for graph 290/586
+Running dot for graph 291/586
+Running dot for graph 292/586
+Running dot for graph 293/586
+Running dot for graph 294/586
+Running dot for graph 295/586
+Running dot for graph 296/586
+Running dot for graph 297/586
+Running dot for graph 298/586
+Running dot for graph 299/586
+Running dot for graph 300/586
+Running dot for graph 301/586
+Running dot for graph 302/586
+Running dot for graph 303/586
+Running dot for graph 304/586
+Running dot for graph 305/586
+Running dot for graph 306/586
+Running dot for graph 307/586
+Running dot for graph 308/586
+Running dot for graph 309/586
+Running dot for graph 310/586
+Running dot for graph 311/586
+Running dot for graph 312/586
+Running dot for graph 313/586
+Running dot for graph 314/586
+Running dot for graph 315/586
+Running dot for graph 316/586
+Running dot for graph 317/586
+Running dot for graph 318/586
+Running dot for graph 319/586
+Running dot for graph 320/586
+Running dot for graph 321/586
+Running dot for graph 322/586
+Running dot for graph 323/586
+Running dot for graph 324/586
+Running dot for graph 325/586
+Running dot for graph 326/586
+Running dot for graph 327/586
+Running dot for graph 328/586
+Running dot for graph 329/586
+Running dot for graph 330/586
+Running dot for graph 331/586
+Running dot for graph 332/586
+Running dot for graph 333/586
+Running dot for graph 334/586
+Running dot for graph 335/586
+Running dot for graph 336/586
+Running dot for graph 337/586
+Running dot for graph 338/586
+Running dot for graph 339/586
+Running dot for graph 340/586
+Running dot for graph 341/586
+Running dot for graph 342/586
+Running dot for graph 343/586
+Running dot for graph 344/586
+Running dot for graph 345/586
+Running dot for graph 346/586
+Running dot for graph 347/586
+Running dot for graph 348/586
+Running dot for graph 349/586
+Running dot for graph 350/586
+Running dot for graph 351/586
+Running dot for graph 352/586
+Running dot for graph 353/586
+Running dot for graph 354/586
+Running dot for graph 355/586
+Running dot for graph 356/586
+Running dot for graph 357/586
+Running dot for graph 358/586
+Running dot for graph 359/586
+Running dot for graph 360/586
+Running dot for graph 361/586
+Running dot for graph 362/586
+Running dot for graph 363/586
+Running dot for graph 364/586
+Running dot for graph 365/586
+Running dot for graph 366/586
+Running dot for graph 367/586
+Running dot for graph 368/586
+Running dot for graph 369/586
+Running dot for graph 370/586
+Running dot for graph 371/586
+Running dot for graph 372/586
+Running dot for graph 373/586
+Running dot for graph 374/586
+Running dot for graph 375/586
+Running dot for graph 376/586
+Running dot for graph 377/586
+Running dot for graph 378/586
+Running dot for graph 379/586
+Running dot for graph 380/586
+Running dot for graph 381/586
+Running dot for graph 382/586
+Running dot for graph 383/586
+Running dot for graph 384/586
+Running dot for graph 385/586
+Running dot for graph 386/586
+Running dot for graph 387/586
+Running dot for graph 388/586
+Running dot for graph 389/586
+Running dot for graph 390/586
+Running dot for graph 391/586
+Running dot for graph 392/586
+Running dot for graph 393/586
+Running dot for graph 394/586
+Running dot for graph 395/586
+Running dot for graph 396/586
+Running dot for graph 397/586
+Running dot for graph 398/586
+Running dot for graph 399/586
+Running dot for graph 400/586
+Running dot for graph 401/586
+Running dot for graph 402/586
+Running dot for graph 403/586
+Running dot for graph 404/586
+Running dot for graph 405/586
+Running dot for graph 406/586
+Running dot for graph 407/586
+Running dot for graph 408/586
+Running dot for graph 409/586
+Running dot for graph 410/586
+Running dot for graph 411/586
+Running dot for graph 412/586
+Running dot for graph 413/586
+Running dot for graph 414/586
+Running dot for graph 415/586
+Running dot for graph 416/586
+Running dot for graph 417/586
+Running dot for graph 418/586
+Running dot for graph 419/586
+Running dot for graph 420/586
+Running dot for graph 421/586
+Running dot for graph 422/586
+Running dot for graph 423/586
+Running dot for graph 424/586
+Running dot for graph 425/586
+Running dot for graph 426/586
+Running dot for graph 427/586
+Running dot for graph 428/586
+Running dot for graph 429/586
+Running dot for graph 430/586
+Running dot for graph 431/586
+Running dot for graph 432/586
+Running dot for graph 433/586
+Running dot for graph 434/586
+Running dot for graph 435/586
+Running dot for graph 436/586
+Running dot for graph 437/586
+Running dot for graph 438/586
+Running dot for graph 439/586
+Running dot for graph 440/586
+Running dot for graph 441/586
+Running dot for graph 442/586
+Running dot for graph 443/586
+Running dot for graph 444/586
+Running dot for graph 445/586
+Running dot for graph 446/586
+Running dot for graph 447/586
+Running dot for graph 448/586
+Running dot for graph 449/586
+Running dot for graph 450/586
+Running dot for graph 451/586
+Running dot for graph 452/586
+Running dot for graph 453/586
+Running dot for graph 454/586
+Running dot for graph 455/586
+Running dot for graph 456/586
+Running dot for graph 457/586
+Running dot for graph 458/586
+Running dot for graph 459/586
+Running dot for graph 460/586
+Running dot for graph 461/586
+Running dot for graph 462/586
+Running dot for graph 463/586
+Running dot for graph 464/586
+Running dot for graph 465/586
+Running dot for graph 466/586
+Running dot for graph 467/586
+Running dot for graph 468/586
+Running dot for graph 469/586
+Running dot for graph 470/586
+Running dot for graph 471/586
+Running dot for graph 472/586
+Running dot for graph 473/586
+Running dot for graph 474/586
+Running dot for graph 475/586
+Running dot for graph 476/586
+Running dot for graph 477/586
+Running dot for graph 478/586
+Running dot for graph 479/586
+Running dot for graph 480/586
+Running dot for graph 481/586
+Running dot for graph 482/586
+Running dot for graph 483/586
+Running dot for graph 484/586
+Running dot for graph 485/586
+Running dot for graph 486/586
+Running dot for graph 487/586
+Running dot for graph 488/586
+Running dot for graph 489/586
+Running dot for graph 490/586
+Running dot for graph 491/586
+Running dot for graph 492/586
+Running dot for graph 493/586
+Running dot for graph 494/586
+Running dot for graph 495/586
+Running dot for graph 496/586
+Running dot for graph 497/586
+Running dot for graph 498/586
+Running dot for graph 499/586
+Running dot for graph 500/586
+Running dot for graph 501/586
+Running dot for graph 502/586
+Running dot for graph 503/586
+Running dot for graph 504/586
+Running dot for graph 505/586
+Running dot for graph 506/586
+Running dot for graph 507/586
+Running dot for graph 508/586
+Running dot for graph 509/586
+Running dot for graph 510/586
+Running dot for graph 511/586
+Running dot for graph 512/586
+Running dot for graph 513/586
+Running dot for graph 514/586
+Running dot for graph 515/586
+Running dot for graph 516/586
+Running dot for graph 517/586
+Running dot for graph 518/586
+Running dot for graph 519/586
+Running dot for graph 520/586
+Running dot for graph 521/586
+Running dot for graph 522/586
+Running dot for graph 523/586
+Running dot for graph 524/586
+Running dot for graph 525/586
+Running dot for graph 526/586
+Running dot for graph 527/586
+Running dot for graph 528/586
+Running dot for graph 529/586
+Running dot for graph 530/586
+Running dot for graph 531/586
+Running dot for graph 532/586
+Running dot for graph 533/586
+Running dot for graph 534/586
+Running dot for graph 535/586
+Running dot for graph 536/586
+Running dot for graph 537/586
+Running dot for graph 538/586
+Running dot for graph 539/586
+Running dot for graph 540/586
+Running dot for graph 541/586
+Running dot for graph 542/586
+Running dot for graph 543/586
+Running dot for graph 544/586
+Running dot for graph 545/586
+Running dot for graph 546/586
+Running dot for graph 547/586
+Running dot for graph 548/586
+Running dot for graph 549/586
+Running dot for graph 550/586
+Running dot for graph 551/586
+Running dot for graph 552/586
+Running dot for graph 553/586
+Running dot for graph 554/586
+Running dot for graph 555/586
+Running dot for graph 556/586
+Running dot for graph 557/586
+Running dot for graph 558/586
+Running dot for graph 559/586
+Running dot for graph 560/586
+Running dot for graph 561/586
+Running dot for graph 562/586
+Running dot for graph 563/586
+Running dot for graph 564/586
+Running dot for graph 565/586
+Running dot for graph 566/586
+Running dot for graph 567/586
+Running dot for graph 568/586
+Running dot for graph 569/586
+Running dot for graph 570/586
+Running dot for graph 571/586
+Running dot for graph 572/586
+Running dot for graph 573/586
+Running dot for graph 574/586
+Running dot for graph 575/586
+Running dot for graph 576/586
+Running dot for graph 577/586
+Running dot for graph 578/586
+Running dot for graph 579/586
+Running dot for graph 580/586
+Running dot for graph 581/586
+Running dot for graph 582/586
+Running dot for graph 583/586
+Running dot for graph 584/586
+Running dot for graph 585/586
+Running dot for graph 586/586
+Patching output file 1/181
+Patching output file 2/181
+Patching output file 3/181
+Patching output file 4/181
+Patching output file 5/181
+Patching output file 6/181
+Patching output file 7/181
+Patching output file 8/181
+Patching output file 9/181
+Patching output file 10/181
+Patching output file 11/181
+Patching output file 12/181
+Patching output file 13/181
+Patching output file 14/181
+Patching output file 15/181
+Patching output file 16/181
+Patching output file 17/181
+Patching output file 18/181
+Patching output file 19/181
+Patching output file 20/181
+Patching output file 21/181
+Patching output file 22/181
+Patching output file 23/181
+Patching output file 24/181
+Patching output file 25/181
+Patching output file 26/181
+Patching output file 27/181
+Patching output file 28/181
+Patching output file 29/181
+Patching output file 30/181
+Patching output file 31/181
+Patching output file 32/181
+Patching output file 33/181
+Patching output file 34/181
+Patching output file 35/181
+Patching output file 36/181
+Patching output file 37/181
+Patching output file 38/181
+Patching output file 39/181
+Patching output file 40/181
+Patching output file 41/181
+Patching output file 42/181
+Patching output file 43/181
+Patching output file 44/181
+Patching output file 45/181
+Patching output file 46/181
+Patching output file 47/181
+Patching output file 48/181
+Patching output file 49/181
+Patching output file 50/181
+Patching output file 51/181
+Patching output file 52/181
+Patching output file 53/181
+Patching output file 54/181
+Patching output file 55/181
+Patching output file 56/181
+Patching output file 57/181
+Patching output file 58/181
+Patching output file 59/181
+Patching output file 60/181
+Patching output file 61/181
+Patching output file 62/181
+Patching output file 63/181
+Patching output file 64/181
+Patching output file 65/181
+Patching output file 66/181
+Patching output file 67/181
+Patching output file 68/181
+Patching output file 69/181
+Patching output file 70/181
+Patching output file 71/181
+Patching output file 72/181
+Patching output file 73/181
+Patching output file 74/181
+Patching output file 75/181
+Patching output file 76/181
+Patching output file 77/181
+Patching output file 78/181
+Patching output file 79/181
+Patching output file 80/181
+Patching output file 81/181
+Patching output file 82/181
+Patching output file 83/181
+Patching output file 84/181
+Patching output file 85/181
+Patching output file 86/181
+Patching output file 87/181
+Patching output file 88/181
+Patching output file 89/181
+Patching output file 90/181
+Patching output file 91/181
+Patching output file 92/181
+Patching output file 93/181
+Patching output file 94/181
+Patching output file 95/181
+Patching output file 96/181
+Patching output file 97/181
+Patching output file 98/181
+Patching output file 99/181
+Patching output file 100/181
+Patching output file 101/181
+Patching output file 102/181
+Patching output file 103/181
+Patching output file 104/181
+Patching output file 105/181
+Patching output file 106/181
+Patching output file 107/181
+Patching output file 108/181
+Patching output file 109/181
+Patching output file 110/181
+Patching output file 111/181
+Patching output file 112/181
+Patching output file 113/181
+Patching output file 114/181
+Patching output file 115/181
+Patching output file 116/181
+Patching output file 117/181
+Patching output file 118/181
+Patching output file 119/181
+Patching output file 120/181
+Patching output file 121/181
+Patching output file 122/181
+Patching output file 123/181
+Patching output file 124/181
+Patching output file 125/181
+Patching output file 126/181
+Patching output file 127/181
+Patching output file 128/181
+Patching output file 129/181
+Patching output file 130/181
+Patching output file 131/181
+Patching output file 132/181
+Patching output file 133/181
+Patching output file 134/181
+Patching output file 135/181
+Patching output file 136/181
+Patching output file 137/181
+Patching output file 138/181
+Patching output file 139/181
+Patching output file 140/181
+Patching output file 141/181
+Patching output file 142/181
+Patching output file 143/181
+Patching output file 144/181
+Patching output file 145/181
+Patching output file 146/181
+Patching output file 147/181
+Patching output file 148/181
+Patching output file 149/181
+Patching output file 150/181
+Patching output file 151/181
+Patching output file 152/181
+Patching output file 153/181
+Patching output file 154/181
+Patching output file 155/181
+Patching output file 156/181
+Patching output file 157/181
+Patching output file 158/181
+Patching output file 159/181
+Patching output file 160/181
+Patching output file 161/181
+Patching output file 162/181
+Patching output file 163/181
+Patching output file 164/181
+Patching output file 165/181
+Patching output file 166/181
+Patching output file 167/181
+Patching output file 168/181
+Patching output file 169/181
+Patching output file 170/181
+Patching output file 171/181
+Patching output file 172/181
+Patching output file 173/181
+Patching output file 174/181
+Patching output file 175/181
+Patching output file 176/181
+Patching output file 177/181
+Patching output file 178/181
+Patching output file 179/181
+Patching output file 180/181
+Patching output file 181/181
+lookup cache used 1280/65536 hits=4992 misses=1296
 finished...

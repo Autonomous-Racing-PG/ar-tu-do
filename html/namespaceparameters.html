@@ -119,6 +119,8 @@ $(document).ready(function(){initNavTree('namespaceparameters.html','');});
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparameters_1_1_neural_q_estimator.html">NeuralQEstimator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparameters_1_1_policy.html">Policy</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -132,11 +134,11 @@ Variables</h2></td></tr>
 <tr class="separator:a9d4157266ec0afde91ab7d58be4f688d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa69db8cd2d598f0d10212ea8df6a2139"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#aa69db8cd2d598f0d10212ea8df6a2139">TOPIC_EPISODE_RESULT</a> = &quot;/qlearning/episode_result&quot;</td></tr>
 <tr class="separator:aa69db8cd2d598f0d10212ea8df6a2139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a585a25d0a26bcab4242d2e3fb1c1f93e"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a585a25d0a26bcab4242d2e3fb1c1f93e">ACTIONS</a> = [(-0.6, 0.2), (0.6, 0.2), (0, 0.2)]</td></tr>
+<tr class="memitem:a585a25d0a26bcab4242d2e3fb1c1f93e"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a585a25d0a26bcab4242d2e3fb1c1f93e">ACTIONS</a></td></tr>
 <tr class="separator:a585a25d0a26bcab4242d2e3fb1c1f93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4be13f6dac91f471da3efb4618a54c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#ae4be13f6dac91f471da3efb4618a54c1">ACTION_COUNT</a> = len(<a class="el" href="namespaceparameters.html#a585a25d0a26bcab4242d2e3fb1c1f93e">ACTIONS</a>)</td></tr>
 <tr class="separator:ae4be13f6dac91f471da3efb4618a54c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24735dce78cf9899cf1ec4bda2ea4eac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a24735dce78cf9899cf1ec4bda2ea4eac">LASER_SAMPLE_COUNT</a> = 32</td></tr>
+<tr class="memitem:a24735dce78cf9899cf1ec4bda2ea4eac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a24735dce78cf9899cf1ec4bda2ea4eac">LASER_SAMPLE_COUNT</a> = 8</td></tr>
 <tr class="separator:a24735dce78cf9899cf1ec4bda2ea4eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8b0668384f3fa2d1212d3bd0ff42fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#aff8b0668384f3fa2d1212d3bd0ff42fa">MODEL_FILENAME</a> = os.path.join(RosPack().get_path(&quot;q_learning&quot;), &quot;model.to&quot;)</td></tr>
 <tr class="separator:aff8b0668384f3fa2d1212d3bd0ff42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,7 +146,7 @@ Variables</h2></td></tr>
 <tr class="separator:a0cffcb215ac12a1700baedb1a13ec8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70176024e0f585c846365800f1c7819c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a70176024e0f585c846365800f1c7819c">DISCOUNT_FACTOR</a> = 0.99</td></tr>
 <tr class="separator:a70176024e0f585c846365800f1c7819c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa473cc3b100416af3310c6c5a6d19570"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#aa473cc3b100416af3310c6c5a6d19570">MAX_EPISODE_LENGTH</a> = 500</td></tr>
+<tr class="memitem:aa473cc3b100416af3310c6c5a6d19570"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#aa473cc3b100416af3310c6c5a6d19570">MAX_EPISODE_LENGTH</a> = 5000</td></tr>
 <tr class="separator:aa473cc3b100416af3310c6c5a6d19570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49f1ad074b5710a98fc783c5627ddade"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a49f1ad074b5710a98fc783c5627ddade">MEMORY_SIZE</a> = 5000</td></tr>
 <tr class="separator:a49f1ad074b5710a98fc783c5627ddade"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +154,8 @@ Variables</h2></td></tr>
 <tr class="separator:a2d37d9950f7a887014021ab455282af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb996d542e8c3d3e8bbdfe4a711694dd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#afb996d542e8c3d3e8bbdfe4a711694dd">LEARNING_RATE</a> = 0.0001</td></tr>
 <tr class="separator:afb996d542e8c3d3e8bbdfe4a711694dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9255eaabb90fcbf5ba1451159d8279"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#aee9255eaabb90fcbf5ba1451159d8279">LEARNING_RATE_POLICY_GRADIENT</a> = 0.001</td></tr>
+<tr class="separator:aee9255eaabb90fcbf5ba1451159d8279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a371d0de003e9046dcc72450b7512ce14"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a371d0de003e9046dcc72450b7512ce14">EPS_START</a> = 1.0</td></tr>
 <tr class="separator:a371d0de003e9046dcc72450b7512ce14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3765f189d3af4815766ded3bffcba1e2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparameters.html#a3765f189d3af4815766ded3bffcba1e2">EPS_END</a> = 0.3</td></tr>
@@ -170,7 +174,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00020">20</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00022">22</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -179,12 +183,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list parameters.ACTIONS = [(-0.6, 0.2), (0.6, 0.2), (0, 0.2)]</td>
+          <td class="memname">list parameters.ACTIONS</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00019">19</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<b>Initial value:</b><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceparameters.html">    1</a></span>&#160;= [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2),</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;           (-0.5, 0.2), (0, 0.2), (0, 0.4)]</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00020">20</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -198,7 +202,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00063">63</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00101">101</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -212,7 +216,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00056">56</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00094">94</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -226,7 +230,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00070">70</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00109">109</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -240,7 +244,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00069">69</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00108">108</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -254,7 +258,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00068">68</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00107">107</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -263,12 +267,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int parameters.LASER_SAMPLE_COUNT = 32</td>
+          <td class="memname">int parameters.LASER_SAMPLE_COUNT = 8</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00024">24</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00026">26</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -282,7 +286,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00064">64</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00102">102</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee9255eaabb90fcbf5ba1451159d8279"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float parameters.LEARNING_RATE_POLICY_GRADIENT = 0.001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00103">103</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -291,12 +309,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int parameters.MAX_EPISODE_LENGTH = 500</td>
+          <td class="memname">int parameters.MAX_EPISODE_LENGTH = 5000</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00058">58</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00096">96</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -310,7 +328,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00061">61</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00099">99</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -324,7 +342,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00027">27</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00029">29</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -338,7 +356,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00013">13</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00014">14</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -352,7 +370,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00011">11</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00012">12</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -366,7 +384,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00015">15</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00016">16</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -380,7 +398,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00014">14</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00015">15</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -394,7 +412,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00012">12</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00013">13</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>
@@ -408,7 +426,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameters_8py_source.html#l00054">54</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
+<p>Definition at line <a class="el" href="parameters_8py_source.html#l00092">92</a> of file <a class="el" href="parameters_8py_source.html">parameters.py</a>.</p>
 
 </div>
 </div>

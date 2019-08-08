@@ -14,7 +14,8 @@ var hierarchy =
     [ "LaserscanTransformer", "class_laserscan_transformer.html", null ],
     [ "Module", null, [
       [ "neural_car_driver.NeuralCarDriver", "classneural__car__driver_1_1_neural_car_driver.html", null ],
-      [ "parameters.NeuralQEstimator", "classparameters_1_1_neural_q_estimator.html", null ]
+      [ "parameters.NeuralQEstimator", "classparameters_1_1_neural_q_estimator.html", null ],
+      [ "parameters.Policy", "classparameters_1_1_policy.html", null ]
     ] ],
     [ "NavigationStackControlConverter", "class_navigation_stack_control_converter.html", null ],
     [ "wallfollowing.Parameters", "classwallfollowing_1_1_parameters.html", null ],
@@ -22,6 +23,7 @@ var hierarchy =
     [ "wallfollowing.PIDController", "classwallfollowing_1_1_p_i_d_controller.html", null ],
     [ "qlearning.QLearningNode", "classqlearning_1_1_q_learning_node.html", [
       [ "drive.QLearningDrivingNode", "classdrive_1_1_q_learning_driving_node.html", null ],
+      [ "policyGradient.QLearningTrainingNode", "classpolicy_gradient_1_1_q_learning_training_node.html", null ],
       [ "train.QLearningTrainingNode", "classtrain_1_1_q_learning_training_node.html", null ]
     ] ],
     [ "RvizGeometryPublisher", "class_rviz_geometry_publisher.html", null ],

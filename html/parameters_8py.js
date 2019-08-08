@@ -1,5 +1,6 @@
 var parameters_8py =
 [
+    [ "Policy", "classparameters_1_1_policy.html", "classparameters_1_1_policy" ],
     [ "NeuralQEstimator", "classparameters_1_1_neural_q_estimator.html", "classparameters_1_1_neural_q_estimator" ],
     [ "ACTION_COUNT", "parameters_8py.html#ae4be13f6dac91f471da3efb4618a54c1", null ],
     [ "ACTIONS", "parameters_8py.html#a585a25d0a26bcab4242d2e3fb1c1f93e", null ],
@@ -10,6 +11,7 @@ var parameters_8py =
     [ "EPS_START", "parameters_8py.html#a371d0de003e9046dcc72450b7512ce14", null ],
     [ "LASER_SAMPLE_COUNT", "parameters_8py.html#a24735dce78cf9899cf1ec4bda2ea4eac", null ],
     [ "LEARNING_RATE", "parameters_8py.html#afb996d542e8c3d3e8bbdfe4a711694dd", null ],
+    [ "LEARNING_RATE_POLICY_GRADIENT", "parameters_8py.html#aee9255eaabb90fcbf5ba1451159d8279", null ],
     [ "MAX_EPISODE_LENGTH", "parameters_8py.html#aa473cc3b100416af3310c6c5a6d19570", null ],
     [ "MEMORY_SIZE", "parameters_8py.html#a49f1ad074b5710a98fc783c5627ddade", null ],
     [ "MODEL_FILENAME", "parameters_8py.html#aff8b0668384f3fa2d1212d3bd0ff42fa", null ],

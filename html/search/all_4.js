@@ -14,7 +14,7 @@ var searchData=
   ['drawline',['drawLine',['../class_rviz_geometry_publisher.html#a4448e349606332f087c4deda0a710032',1,'RvizGeometryPublisher::drawLine(int id, geometry_msgs::Point point1, geometry_msgs::Point point2, std_msgs::ColorRGBA color, float width)'],['../class_rviz_geometry_publisher.html#a4448e349606332f087c4deda0a710032',1,'RvizGeometryPublisher::drawLine(int id, geometry_msgs::Point point1, geometry_msgs::Point point2, std_msgs::ColorRGBA color, float width)']]],
   ['drive',['drive',['../namespacedrive.html',1,'drive'],['../classneural__car__driver_1_1_neural_car_driver.html#ab46c72e7432f683a99788c8efc3c9741',1,'neural_car_driver.NeuralCarDriver.drive()'],['../namespacewallfollowing.html#a66b98adda1f5c1ba1ed6c0029a5d27f6',1,'wallfollowing.drive()']]],
   ['drive_2epy',['drive.py',['../drive_8py.html',1,'']]],
-  ['drive_5fforward',['drive_forward',['../classtrain_1_1_q_learning_training_node.html#a400f047c3086a321f255b2405f2ebe1f',1,'train::QLearningTrainingNode']]],
+  ['drive_5fforward',['drive_forward',['../classpolicy_gradient_1_1_q_learning_training_node.html#a279bc7709a35a2c84e72f653cec49928',1,'policyGradient.QLearningTrainingNode.drive_forward()'],['../classtrain_1_1_q_learning_training_node.html#a400f047c3086a321f255b2405f2ebe1f',1,'train.QLearningTrainingNode.drive_forward()']]],
   ['drive_5fmode_2eh',['drive_mode.h',['../drive__mode_8h.html',1,'']]],
   ['drive_5fparameters_5fmultiplexer_2ecpp',['drive_parameters_multiplexer.cpp',['../drive__parameters__multiplexer_8cpp.html',1,'']]],
   ['drive_5fparameters_5fmultiplexer_2eh',['drive_parameters_multiplexer.h',['../drive__parameters__multiplexer_8h.html',1,'']]],

@@ -1,4 +1,5 @@
 <map id="train.QLearningTrainingNode.on_complete_episode" name="train.QLearningTrainingNode.on_complete_episode">
-<area shape="rect" id="node2" href="$classtrain_1_1_q_learning_training_node.html#a7263bf517e3d306b383f5d30bf02e8c8" title="train.QLearningTrainingNode.log\l_training_progress" alt="" coords="259,5,467,47"/>
-<area shape="rect" id="node3" href="$classtrain_1_1_q_learning_training_node.html#ab4d0383d228012c56c9dd31886b80df6" title="train.QLearningTrainingNode.get\l_epsilon_greedy_threshold" alt="" coords="515,5,724,47"/>
+<area shape="rect" id="node2" href="$classpolicy_gradient_1_1_q_learning_training_node.html#a55654150b7d3244e54e7f082fb222abd" title="policyGradient.QLearning\lTrainingNode.log_training\l_progress" alt="" coords="278,5,447,61"/>
+<area shape="rect" id="node3" href="$classtrain_1_1_q_learning_training_node.html#a7263bf517e3d306b383f5d30bf02e8c8" title="train.QLearningTrainingNode.log\l_training_progress" alt="" coords="259,85,467,126"/>
+<area shape="rect" id="node4" href="$classtrain_1_1_q_learning_training_node.html#ab4d0383d228012c56c9dd31886b80df6" title="train.QLearningTrainingNode.get\l_epsilon_greedy_threshold" alt="" coords="515,85,724,126"/>
 </map>

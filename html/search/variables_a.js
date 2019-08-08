@@ -13,7 +13,7 @@ var searchData=
   ['max_5fservo_5fposition',['MAX_SERVO_POSITION',['../namespacecar__config.html#af1712762f3ad9f8805ba474d5f3e7274',1,'car_config']]],
   ['max_5fspeed',['MAX_SPEED',['../namespaceneural__car__driver.html#af2fef2c19127bf0b4e990d28542c7b6f',1,'neural_car_driver']]],
   ['max_5fsteering_5fangle',['MAX_STEERING_ANGLE',['../namespacecar__config.html#a967b325af26effe80fbbc64dc68a36a0',1,'car_config']]],
-  ['memory',['memory',['../classtrain_1_1_q_learning_training_node.html#a49440485cce2f2f3fe9575456a562098',1,'train::QLearningTrainingNode']]],
+  ['memory',['memory',['../classpolicy_gradient_1_1_q_learning_training_node.html#a53bbbfbaf28450f564b880da5e1bb9f1',1,'policyGradient.QLearningTrainingNode.memory()'],['../classtrain_1_1_q_learning_training_node.html#a49440485cce2f2f3fe9575456a562098',1,'train.QLearningTrainingNode.memory()']]],
   ['memory_5fsize',['MEMORY_SIZE',['../namespaceparameters.html#a49f1ad074b5710a98fc783c5627ddade',1,'parameters']]],
   ['message',['message',['../namespaceneural__car__driver.html#a65829420a3ca6888c41c04e36ad0c4fb',1,'neural_car_driver']]],
   ['min_5fspeed',['MIN_SPEED',['../namespaceneural__car__driver.html#a5292cc13090a4c357e023f5732a8a18a',1,'neural_car_driver']]],

@@ -28,7 +28,7 @@ var searchData=
   ['topic_5fvisualization',['TOPIC_VISUALIZATION',['../emergency__stop_8h.html#a2f1f5a46e8424d4bd501c9d4126e7482',1,'TOPIC_VISUALIZATION():&#160;emergency_stop.h'],['../wall__following_8h.html#a2f1f5a46e8424d4bd501c9d4126e7482',1,'TOPIC_VISUALIZATION():&#160;wall_following.h']]],
   ['total_5fdistance',['total_distance',['../classsimulation__tools_1_1track_1_1_track_position.html#a488a7374a672827079686cf7fece12ee',1,'simulation_tools::track::TrackPosition']]],
   ['total_5fprogress',['total_progress',['../classsimulation__tools_1_1track_1_1_track_position.html#a0471b3519ccab2dfd048ed02853f8a8d',1,'simulation_tools::track::TrackPosition']]],
-  ['total_5fstep_5fcount',['total_step_count',['../classtrain_1_1_q_learning_training_node.html#aa583fe782e5ae47cc64dd44b92fd2e71',1,'train::QLearningTrainingNode']]],
+  ['total_5fstep_5fcount',['total_step_count',['../classpolicy_gradient_1_1_q_learning_training_node.html#a51b494957db227f163dab00919accd14',1,'policyGradient.QLearningTrainingNode.total_step_count()'],['../classtrain_1_1_q_learning_training_node.html#aa583fe782e5ae47cc64dd44b92fd2e71',1,'train.QLearningTrainingNode.total_step_count()']]],
   ['track',['track',['../namespacesimulation__tools_1_1track.html#ac731095c2502c445d46302406cb81651',1,'simulation_tools::track']]],
   ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
   ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]

@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classqlearning_1_1_q_learning_node.html" title="qlearning.QLearningNode" alt="" coords="5,31,173,57"/>
+<area shape="rect" id="node1" href="$classqlearning_1_1_q_learning_node.html" title="qlearning.QLearningNode" alt="" coords="5,64,173,91"/>
 <area shape="rect" id="node2" href="$classdrive_1_1_q_learning_driving_node.html" title="drive.QLearningDrivingNode" alt="" coords="222,5,407,32"/>
-<area shape="rect" id="node3" href="$classtrain_1_1_q_learning_training_node.html" title="train.QLearningTrainingNode" alt="" coords="221,56,408,83"/>
+<area shape="rect" id="node3" href="$classpolicy_gradient_1_1_q_learning_training_node.html" title="policyGradient.QLearning\lTrainingNode" alt="" coords="231,57,399,98"/>
+<area shape="rect" id="node4" href="$classtrain_1_1_q_learning_training_node.html" title="train.QLearningTrainingNode" alt="" coords="221,123,408,149"/>
 </map>

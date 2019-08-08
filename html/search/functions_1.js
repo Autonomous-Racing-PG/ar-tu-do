@@ -6,7 +6,7 @@ var searchData=
   ['camera_5foffset',['CAMERA_OFFSET',['../chase__cam_8h.html#a7430dae03d06e4ddea6c0cb3cea426b5',1,'chase_cam.h']]],
   ['carcontroller',['CarController',['../class_car_controller.html#a264969d4b9580b41b7e6d573a18b1de0',1,'CarController']]],
   ['chasecam',['ChaseCam',['../class_chase_cam.html#acaf9b819000bb346ebd85aa372782295',1,'ChaseCam']]],
-  ['check_5fcar_5forientation',['check_car_orientation',['../classtrain_1_1_q_learning_training_node.html#aeff9ce73821ded751c709f5f5acabd22',1,'train::QLearningTrainingNode']]],
+  ['check_5fcar_5forientation',['check_car_orientation',['../classpolicy_gradient_1_1_q_learning_training_node.html#a432e2998eccb75bfb30c850080353dc4',1,'policyGradient.QLearningTrainingNode.check_car_orientation()'],['../classtrain_1_1_q_learning_training_node.html#aeff9ce73821ded751c709f5f5acabd22',1,'train.QLearningTrainingNode.check_car_orientation()']]],
   ['complete_5flap',['complete_lap',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#a9fac2e869ccbcd86651e333301d8cc33',1,'simulation_tools::lap_timer::Timer']]],
   ['contains',['contains',['../classsimulation__tools_1_1lap__timer_1_1_area.html#a846e52eda13a26067757cabc759a4f1c',1,'simulation_tools::lap_timer::Area']]],
   ['convert_5flaser_5fmessage_5fto_5ftensor',['convert_laser_message_to_tensor',['../classqlearning_1_1_q_learning_node.html#a907441bbc5b795875ea80de4a6b45798',1,'qlearning::QLearningNode']]],

@@ -2,7 +2,7 @@ var searchData=
 [
   ['a',['A',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a7fc56270e7a70fa81a5935b72eacbe29',1,'keyboard_controller.h']]],
   ['accelerate',['ACCELERATE',['../keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ae8637671ccf72cd596fe0c2d1af5ad20',1,'keyboard_controller.h']]],
-  ['action',['action',['../classtrain_1_1_q_learning_training_node.html#ad42c35a16230d89d787b5a3a74808edf',1,'train::QLearningTrainingNode']]],
+  ['action',['action',['../classpolicy_gradient_1_1_q_learning_training_node.html#ac952872199643b62f3e383183276864e',1,'policyGradient.QLearningTrainingNode.action()'],['../classtrain_1_1_q_learning_training_node.html#ad42c35a16230d89d787b5a3a74808edf',1,'train.QLearningTrainingNode.action()']]],
   ['action_5fcount',['ACTION_COUNT',['../namespaceparameters.html#ae4be13f6dac91f471da3efb4618a54c1',1,'parameters']]],
   ['actions',['ACTIONS',['../namespaceparameters.html#a585a25d0a26bcab4242d2e3fb1c1f93e',1,'parameters']]],
   ['activated',['ACTIVATED',['../emergency__stop_8h.html#a7bf80d31757ddeb7e74124c5ed4037a7a20fcf810003924476c7e0cc1b2393d94',1,'emergency_stop.h']]],
