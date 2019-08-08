@@ -1,0 +1,212 @@
+\hypertarget{namespacesimulation__tools_1_1plot__path}{}\section{simulation\+\_\+tools.\+plot\+\_\+path Namespace Reference}
+\label{namespacesimulation__tools_1_1plot__path}\index{simulation\+\_\+tools.\+plot\+\_\+path@{simulation\+\_\+tools.\+plot\+\_\+path}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacesimulation__tools_1_1plot__path_ace2f5786eaeb63e8e0e629d6bb4e9435}{model\+\_\+state\+\_\+callback} (message)
+\item 
+def \hyperlink{namespacesimulation__tools_1_1plot__path_a6cc709c2b81ce500bf4b3ffbe5d91f4d}{crash\+\_\+callback} (message)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacesimulation__tools_1_1plot__path_afb91f4177ffee5b67bf7f0cc55e7cb03}{D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD} = 1
+\item 
+float \hyperlink{namespacesimulation__tools_1_1plot__path_af2865d4107cb8424c272f2214d7bc7e3}{M\+A\+R\+G\+IN} = 0.\+1
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a6630a10cacfc0f746555fc66794d66bb}{current\+\_\+position} = None
+\item 
+list \hyperlink{namespacesimulation__tools_1_1plot__path_aab95480216fce1ffe96669023bf16c42}{crashes} = \mbox{[}$\,$\mbox{]}
+\item 
+list \hyperlink{namespacesimulation__tools_1_1plot__path_ae4cd76527e66dbb4471b94b4a6a86b4f}{spawns} = \mbox{[}$\,$\mbox{]}
+\item 
+list \hyperlink{namespacesimulation__tools_1_1plot__path_abb450e0cef13d97a4f8368a6d00ff843}{paths} = \mbox{[}$\,$\mbox{]}
+\item 
+list \hyperlink{namespacesimulation__tools_1_1plot__path_a35535ef467ee1df5ae54979d2d740601}{current\+\_\+path} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespacesimulation__tools_1_1plot__path_a3f392b0b6695e4825d03441dce1f06a7}{x\+\_\+limits}
+\item 
+tuple \hyperlink{namespacesimulation__tools_1_1plot__path_a7c4e9f4c49238053d939ab44ccc11f36}{y\+\_\+limits}
+\item 
+tuple \hyperlink{namespacesimulation__tools_1_1plot__path_ad669b594ec1c564d7c50a086fa97ab52}{size} = (\hyperlink{namespacesimulation__tools_1_1plot__path_a3f392b0b6695e4825d03441dce1f06a7}{x\+\_\+limits}\mbox{[}1\mbox{]} -\/ \hyperlink{namespacesimulation__tools_1_1plot__path_a3f392b0b6695e4825d03441dce1f06a7}{x\+\_\+limits}\mbox{[}0\mbox{]}, \hyperlink{namespacesimulation__tools_1_1plot__path_a7c4e9f4c49238053d939ab44ccc11f36}{y\+\_\+limits}\mbox{[}1\mbox{]} -\/ \hyperlink{namespacesimulation__tools_1_1plot__path_a7c4e9f4c49238053d939ab44ccc11f36}{y\+\_\+limits}\mbox{[}0\mbox{]})
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a610eb9753d8fff77f2b12abc288a9e98}{fig} = plt.\+figure(figsize=(\hyperlink{namespacesimulation__tools_1_1plot__path_ad669b594ec1c564d7c50a086fa97ab52}{size}\mbox{[}0\mbox{]} $\ast$ 0.\+22, \hyperlink{namespacesimulation__tools_1_1plot__path_ad669b594ec1c564d7c50a086fa97ab52}{size}\mbox{[}1\mbox{]} $\ast$ 0.\+22))
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a5b599ac72248c177ff8bca75c55d6c38}{color}
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a4cd89bd0371b4c882338ac8076cb684f}{linewidth}
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_aba6bb0b70b3a96a476e7a1553491bd33}{markersize}
+\item 
+int \hyperlink{namespacesimulation__tools_1_1plot__path_a8c127251b0fd95a5549a7a377bf4599f}{file\+\_\+index} = 0
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a8f5cef920e050b53c59625248c95cb34}{filename} = None
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a82b549bf292f90a865a5dd4715b3b1d8}{extent} = plt.\+gca().get\+\_\+window\+\_\+extent().transformed(fig.\+dpi\+\_\+scale\+\_\+trans.\+inverted())
+\item 
+\hyperlink{namespacesimulation__tools_1_1plot__path_a9ef3fe98627b49453064342d0b45192c}{bbox\+\_\+inches}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!crash\+\_\+callback@{crash\+\_\+callback}}
+\index{crash\+\_\+callback@{crash\+\_\+callback}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{crash\+\_\+callback(message)}{crash_callback(message)}}]{\setlength{\rightskip}{0pt plus 5cm}def simulation\+\_\+tools.\+plot\+\_\+path.\+crash\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacesimulation__tools_1_1plot__path_a6cc709c2b81ce500bf4b3ffbe5d91f4d}{}\label{namespacesimulation__tools_1_1plot__path_a6cc709c2b81ce500bf4b3ffbe5d91f4d}
+
+
+Definition at line 43 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!model\+\_\+state\+\_\+callback@{model\+\_\+state\+\_\+callback}}
+\index{model\+\_\+state\+\_\+callback@{model\+\_\+state\+\_\+callback}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{model\+\_\+state\+\_\+callback(message)}{model_state_callback(message)}}]{\setlength{\rightskip}{0pt plus 5cm}def simulation\+\_\+tools.\+plot\+\_\+path.\+model\+\_\+state\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacesimulation__tools_1_1plot__path_ace2f5786eaeb63e8e0e629d6bb4e9435}{}\label{namespacesimulation__tools_1_1plot__path_ace2f5786eaeb63e8e0e629d6bb4e9435}
+
+
+Definition at line 23 of file plot\+\_\+path.\+py.
+
+
+
+\subsection{Variable Documentation}
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!bbox\+\_\+inches@{bbox\+\_\+inches}}
+\index{bbox\+\_\+inches@{bbox\+\_\+inches}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{bbox\+\_\+inches}{bbox_inches}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+bbox\+\_\+inches}\hypertarget{namespacesimulation__tools_1_1plot__path_a9ef3fe98627b49453064342d0b45192c}{}\label{namespacesimulation__tools_1_1plot__path_a9ef3fe98627b49453064342d0b45192c}
+
+
+Definition at line 92 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!color@{color}}
+\index{color@{color}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{color}{color}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+color}\hypertarget{namespacesimulation__tools_1_1plot__path_a5b599ac72248c177ff8bca75c55d6c38}{}\label{namespacesimulation__tools_1_1plot__path_a5b599ac72248c177ff8bca75c55d6c38}
+
+
+Definition at line 72 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!crashes@{crashes}}
+\index{crashes@{crashes}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{crashes}{crashes}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+crashes = \mbox{[}$\,$\mbox{]}}\hypertarget{namespacesimulation__tools_1_1plot__path_aab95480216fce1ffe96669023bf16c42}{}\label{namespacesimulation__tools_1_1plot__path_aab95480216fce1ffe96669023bf16c42}
+
+
+Definition at line 17 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!current\+\_\+path@{current\+\_\+path}}
+\index{current\+\_\+path@{current\+\_\+path}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{current\+\_\+path}{current_path}}]{\setlength{\rightskip}{0pt plus 5cm}list simulation\+\_\+tools.\+plot\+\_\+path.\+current\+\_\+path = \mbox{[}$\,$\mbox{]}}\hypertarget{namespacesimulation__tools_1_1plot__path_a35535ef467ee1df5ae54979d2d740601}{}\label{namespacesimulation__tools_1_1plot__path_a35535ef467ee1df5ae54979d2d740601}
+
+
+Definition at line 20 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!current\+\_\+position@{current\+\_\+position}}
+\index{current\+\_\+position@{current\+\_\+position}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{current\+\_\+position}{current_position}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+current\+\_\+position = None}\hypertarget{namespacesimulation__tools_1_1plot__path_a6630a10cacfc0f746555fc66794d66bb}{}\label{namespacesimulation__tools_1_1plot__path_a6630a10cacfc0f746555fc66794d66bb}
+
+
+Definition at line 16 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD@{D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}
+\index{D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD@{D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}{DISTANCE_THRESHOLD}}]{\setlength{\rightskip}{0pt plus 5cm}int simulation\+\_\+tools.\+plot\+\_\+path.\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD = 1}\hypertarget{namespacesimulation__tools_1_1plot__path_afb91f4177ffee5b67bf7f0cc55e7cb03}{}\label{namespacesimulation__tools_1_1plot__path_afb91f4177ffee5b67bf7f0cc55e7cb03}
+
+
+Definition at line 13 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!extent@{extent}}
+\index{extent@{extent}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{extent}{extent}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+extent = plt.\+gca().get\+\_\+window\+\_\+extent().transformed(fig.\+dpi\+\_\+scale\+\_\+trans.\+inverted())}\hypertarget{namespacesimulation__tools_1_1plot__path_a82b549bf292f90a865a5dd4715b3b1d8}{}\label{namespacesimulation__tools_1_1plot__path_a82b549bf292f90a865a5dd4715b3b1d8}
+
+
+Definition at line 91 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!fig@{fig}}
+\index{fig@{fig}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{fig}{fig}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+fig = plt.\+figure(figsize=({\bf size}\mbox{[}0\mbox{]} $\ast$ 0.\+22, {\bf size}\mbox{[}1\mbox{]} $\ast$ 0.\+22))}\hypertarget{namespacesimulation__tools_1_1plot__path_a610eb9753d8fff77f2b12abc288a9e98}{}\label{namespacesimulation__tools_1_1plot__path_a610eb9753d8fff77f2b12abc288a9e98}
+
+
+Definition at line 66 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!file\+\_\+index@{file\+\_\+index}}
+\index{file\+\_\+index@{file\+\_\+index}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{file\+\_\+index}{file_index}}]{\setlength{\rightskip}{0pt plus 5cm}int simulation\+\_\+tools.\+plot\+\_\+path.\+file\+\_\+index = 0}\hypertarget{namespacesimulation__tools_1_1plot__path_a8c127251b0fd95a5549a7a377bf4599f}{}\label{namespacesimulation__tools_1_1plot__path_a8c127251b0fd95a5549a7a377bf4599f}
+
+
+Definition at line 85 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!filename@{filename}}
+\index{filename@{filename}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}string simulation\+\_\+tools.\+plot\+\_\+path.\+filename = None}\hypertarget{namespacesimulation__tools_1_1plot__path_a8f5cef920e050b53c59625248c95cb34}{}\label{namespacesimulation__tools_1_1plot__path_a8f5cef920e050b53c59625248c95cb34}
+
+
+Definition at line 86 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!linewidth@{linewidth}}
+\index{linewidth@{linewidth}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{linewidth}{linewidth}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+linewidth}\hypertarget{namespacesimulation__tools_1_1plot__path_a4cd89bd0371b4c882338ac8076cb684f}{}\label{namespacesimulation__tools_1_1plot__path_a4cd89bd0371b4c882338ac8076cb684f}
+
+
+Definition at line 72 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!M\+A\+R\+G\+IN@{M\+A\+R\+G\+IN}}
+\index{M\+A\+R\+G\+IN@{M\+A\+R\+G\+IN}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{M\+A\+R\+G\+IN}{MARGIN}}]{\setlength{\rightskip}{0pt plus 5cm}float simulation\+\_\+tools.\+plot\+\_\+path.\+M\+A\+R\+G\+IN = 0.\+1}\hypertarget{namespacesimulation__tools_1_1plot__path_af2865d4107cb8424c272f2214d7bc7e3}{}\label{namespacesimulation__tools_1_1plot__path_af2865d4107cb8424c272f2214d7bc7e3}
+
+
+Definition at line 14 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!markersize@{markersize}}
+\index{markersize@{markersize}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{markersize}{markersize}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+markersize}\hypertarget{namespacesimulation__tools_1_1plot__path_aba6bb0b70b3a96a476e7a1553491bd33}{}\label{namespacesimulation__tools_1_1plot__path_aba6bb0b70b3a96a476e7a1553491bd33}
+
+
+Definition at line 76 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!paths@{paths}}
+\index{paths@{paths}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{paths}{paths}}]{\setlength{\rightskip}{0pt plus 5cm}list simulation\+\_\+tools.\+plot\+\_\+path.\+paths = \mbox{[}$\,$\mbox{]}}\hypertarget{namespacesimulation__tools_1_1plot__path_abb450e0cef13d97a4f8368a6d00ff843}{}\label{namespacesimulation__tools_1_1plot__path_abb450e0cef13d97a4f8368a6d00ff843}
+
+
+Definition at line 19 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!size@{size}}
+\index{size@{size}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{size}{size}}]{\setlength{\rightskip}{0pt plus 5cm}tuple simulation\+\_\+tools.\+plot\+\_\+path.\+size = ({\bf x\+\_\+limits}\mbox{[}1\mbox{]} -\/ {\bf x\+\_\+limits}\mbox{[}0\mbox{]}, {\bf y\+\_\+limits}\mbox{[}1\mbox{]} -\/ {\bf y\+\_\+limits}\mbox{[}0\mbox{]})}\hypertarget{namespacesimulation__tools_1_1plot__path_ad669b594ec1c564d7c50a086fa97ab52}{}\label{namespacesimulation__tools_1_1plot__path_ad669b594ec1c564d7c50a086fa97ab52}
+
+
+Definition at line 64 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!spawns@{spawns}}
+\index{spawns@{spawns}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{spawns}{spawns}}]{\setlength{\rightskip}{0pt plus 5cm}simulation\+\_\+tools.\+plot\+\_\+path.\+spawns = \mbox{[}$\,$\mbox{]}}\hypertarget{namespacesimulation__tools_1_1plot__path_ae4cd76527e66dbb4471b94b4a6a86b4f}{}\label{namespacesimulation__tools_1_1plot__path_ae4cd76527e66dbb4471b94b4a6a86b4f}
+
+
+Definition at line 18 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!x\+\_\+limits@{x\+\_\+limits}}
+\index{x\+\_\+limits@{x\+\_\+limits}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{x\+\_\+limits}{x_limits}}]{\setlength{\rightskip}{0pt plus 5cm}tuple simulation\+\_\+tools.\+plot\+\_\+path.\+x\+\_\+limits}\hypertarget{namespacesimulation__tools_1_1plot__path_a3f392b0b6695e4825d03441dce1f06a7}{}\label{namespacesimulation__tools_1_1plot__path_a3f392b0b6695e4825d03441dce1f06a7}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = (np.min(OUTER\_WALLS[:, 0]) - MARGIN,
+2             np.max(OUTER\_WALLS[:, 0]) + MARGIN)
+\end{DoxyCode}
+
+
+Definition at line 60 of file plot\+\_\+path.\+py.
+
+\index{simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}!y\+\_\+limits@{y\+\_\+limits}}
+\index{y\+\_\+limits@{y\+\_\+limits}!simulation\+\_\+tools\+::plot\+\_\+path@{simulation\+\_\+tools\+::plot\+\_\+path}}
+\subsubsection[{\texorpdfstring{y\+\_\+limits}{y_limits}}]{\setlength{\rightskip}{0pt plus 5cm}tuple simulation\+\_\+tools.\+plot\+\_\+path.\+y\+\_\+limits}\hypertarget{namespacesimulation__tools_1_1plot__path_a7c4e9f4c49238053d939ab44ccc11f36}{}\label{namespacesimulation__tools_1_1plot__path_a7c4e9f4c49238053d939ab44ccc11f36}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = (np.min(OUTER\_WALLS[:, 1]) - MARGIN,
+2             np.max(OUTER\_WALLS[:, 1]) + MARGIN)
+\end{DoxyCode}
+
+
+Definition at line 62 of file plot\+\_\+path.\+py.
+

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['lap_5ftimer',['lap_timer',['../namespacesimulation__tools_1_1lap__timer.html',1,'simulation_tools']]],
+  ['plot_5fpath',['plot_path',['../namespacesimulation__tools_1_1plot__path.html',1,'simulation_tools']]],
   ['reset_5fcar',['reset_car',['../namespacesimulation__tools_1_1reset__car.html',1,'simulation_tools']]],
   ['s',['S',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a5dbc98dcc983a70728bd082d1a47546e',1,'keyboard_controller.h']]],
   ['save',['save',['../classneural__car__driver_1_1_neural_car_driver.html#a9c9664d22b7e0f75f9908de73f7cf301',1,'neural_car_driver.NeuralCarDriver.save()'],['../classparameters_1_1_policy.html#a3aaf515f28cdf3c651c0aead45519e40',1,'parameters.Policy.save()'],['../classparameters_1_1_neural_q_estimator.html#a4efb1e7f7a7f77770cbd2a379ff2db8a',1,'parameters.NeuralQEstimator.save()']]],
@@ -23,8 +24,9 @@ var searchData=
   ['show_5fline_5fin_5frviz',['show_line_in_rviz',['../namespacerviz__geometry.html#a93390c23bebf8db38c31f832225dddda',1,'rviz_geometry']]],
   ['simulation',['simulation',['../namespacesimulation.html',1,'']]],
   ['simulation_5ftools',['simulation_tools',['../namespacesimulation__tools.html',1,'']]],
-  ['size',['size',['../classsimulation__tools_1_1track_1_1_track.html#a69be8807eecacfd98981e206ea3a003f',1,'simulation_tools::track::Track']]],
+  ['size',['size',['../classsimulation__tools_1_1track_1_1_track.html#a69be8807eecacfd98981e206ea3a003f',1,'simulation_tools.track.Track.size()'],['../namespacesimulation__tools_1_1plot__path.html#ad669b594ec1c564d7c50a086fa97ab52',1,'simulation_tools.plot_path.size()']]],
   ['space',['SPACE',['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07a6506ae39fdca9845e3a6de3865183e57',1,'keyboard_controller.h']]],
+  ['spawns',['spawns',['../namespacesimulation__tools_1_1plot__path.html#ae4cd76527e66dbb4471b94b4a6a86b4f',1,'simulation_tools::plot_path']]],
   ['speed_5fto_5ferpm',['SPEED_TO_ERPM',['../namespacecar__config.html#a0f37aa7e52366aebb006c6e1d3317900',1,'car_config']]],
   ['speedometer',['speedometer',['../namespacesimulation__tools_1_1speedometer.html',1,'simulation_tools']]],
   ['speedometer_2epy',['speedometer.py',['../speedometer_8py.html',1,'']]],
@@ -39,5 +41,6 @@ var searchData=
   ['steps_5fwith_5fwrong_5forientation',['steps_with_wrong_orientation',['../classpolicy_gradient_1_1_q_learning_training_node.html#a6cb5dc15ea6127cba744ff99e92748e1',1,'policyGradient.QLearningTrainingNode.steps_with_wrong_orientation()'],['../classtrain_1_1_q_learning_training_node.html#a87a28e543665823ac18758f6a4460d7a',1,'train.QLearningTrainingNode.steps_with_wrong_orientation()']]],
   ['stop',['stop',['../class_v_e_s_c_simulator.html#acedf3f278185433895371203f0f31127',1,'VESCSimulator']]],
   ['survivor_5fcount',['SURVIVOR_COUNT',['../namespaceneural__car__driver.html#ad40064153991947271d4a197983593fa',1,'neural_car_driver']]],
-  ['track',['track',['../namespacesimulation__tools_1_1track.html',1,'simulation_tools']]]
+  ['track',['track',['../namespacesimulation__tools_1_1track.html',1,'simulation_tools']]],
+  ['track_5fgeometry',['track_geometry',['../namespacesimulation__tools_1_1track__geometry.html',1,'simulation_tools']]]
 ];

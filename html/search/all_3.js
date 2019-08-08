@@ -27,6 +27,7 @@ var searchData=
   ['circle_2epy',['circle.py',['../circle_8py.html',1,'']]],
   ['cleared',['CLEARED',['../emergency__stop_8h.html#a7bf80d31757ddeb7e74124c5ed4037a7a62574ee27e6c5f985a6bc1dc344e7438',1,'emergency_stop.h']]],
   ['cmd_5fvel',['CMD_VEL',['../vesc__sim__driver_8h.html#a561eb346694ef40c617c49bb160363d8',1,'vesc_sim_driver.h']]],
+  ['color',['color',['../namespacesimulation__tools_1_1plot__path.html#a5b599ac72248c177ff8bca75c55d6c38',1,'simulation_tools::plot_path']]],
   ['command_5fbrake',['COMMAND_BRAKE',['../vesc__sim__driver_8h.html#affe1486b6714ce41c5ddc70d4ff7790d',1,'vesc_sim_driver.h']]],
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],
@@ -35,9 +36,11 @@ var searchData=
   ['convert_5flaser_5fmessage_5fto_5ftensor',['convert_laser_message_to_tensor',['../classqlearning_1_1_q_learning_node.html#a907441bbc5b795875ea80de4a6b45798',1,'qlearning::QLearningNode']]],
   ['convertposemessagetopose',['convertPoseMessageToPose',['../chase__cam_8cpp.html#af462d8c437c62d78511df39fc21fd7e7',1,'chase_cam.cpp']]],
   ['cpp_5fstyle_5fguide_2emd',['CPP_STYLE_GUIDE.md',['../_c_p_p___s_t_y_l_e___g_u_i_d_e_8md.html',1,'']]],
+  ['crash_5fcallback',['crash_callback',['../namespacesimulation__tools_1_1plot__path.html#a6cc709c2b81ce500bf4b3ffbe5d91f4d',1,'simulation_tools::plot_path']]],
   ['crash_5fdetector_2ecpp',['crash_detector.cpp',['../crash__detector_8cpp.html',1,'']]],
   ['crash_5fdetector_2eh',['crash_detector.h',['../crash__detector_8h.html',1,'']]],
   ['crashdetector',['CrashDetector',['../class_crash_detector.html',1,'CrashDetector'],['../class_crash_detector.html#a4ee1c57168019f26a8f3b3263350a306',1,'CrashDetector::CrashDetector()']]],
+  ['crashes',['crashes',['../namespacesimulation__tools_1_1plot__path.html#aab95480216fce1ffe96669023bf16c42',1,'simulation_tools::plot_path']]],
   ['create_5farray',['create_array',['../classcircle_1_1_circle.html#a95ddced3abdbd659ea243a1d420a8c6c',1,'circle::Circle']]],
   ['createcolor',['createColor',['../emergency__stop_2include_2rviz__geometry__publisher_8h.html#aee2de06a4a8ac1f51af401825568d83a',1,'createColor(double r, double g, double b, double a):&#160;rviz_geometry_publisher.cpp'],['../emergency__stop_2src_2rviz__geometry__publisher_8cpp.html#aee2de06a4a8ac1f51af401825568d83a',1,'createColor(double r, double g, double b, double a):&#160;rviz_geometry_publisher.cpp'],['../wallfollowing1_2include_2rviz__geometry__publisher_8h.html#aee2de06a4a8ac1f51af401825568d83a',1,'createColor(double r, double g, double b, double a):&#160;rviz_geometry_publisher.cpp'],['../wallfollowing1_2src_2rviz__geometry__publisher_8cpp.html#aee2de06a4a8ac1f51af401825568d83a',1,'createColor(double r, double g, double b, double a):&#160;rviz_geometry_publisher.cpp']]],
   ['createhearbeatmessage',['createHearbeatMessage',['../joystick__controller_8cpp.html#a0011c6ec2c87e14894a332192f8c6100',1,'createHearbeatMessage():&#160;joystick_controller.cpp'],['../keyboard__controller_8cpp.html#a0011c6ec2c87e14894a332192f8c6100',1,'createHearbeatMessage():&#160;keyboard_controller.cpp']]],
@@ -46,5 +49,7 @@ var searchData=
   ['cumulative_5freward',['cumulative_reward',['../classpolicy_gradient_1_1_q_learning_training_node.html#a73f0820c0b97bd68bfea0c189f646c05',1,'policyGradient.QLearningTrainingNode.cumulative_reward()'],['../classtrain_1_1_q_learning_training_node.html#a4c632e44085797e564501bba836b7359',1,'train.QLearningTrainingNode.cumulative_reward()']]],
   ['cumulative_5freward_5fhistory',['cumulative_reward_history',['../classpolicy_gradient_1_1_q_learning_training_node.html#a46a61c05fb130f011f35fbad64a25c8b',1,'policyGradient.QLearningTrainingNode.cumulative_reward_history()'],['../classtrain_1_1_q_learning_training_node.html#aa25b9712eebb6aed6befa421814472b4',1,'train.QLearningTrainingNode.cumulative_reward_history()']]],
   ['current_5fdriver',['current_driver',['../classtrain_1_1_training_node.html#a81d0481151f7b23e6489027fa1a87e47',1,'train::TrainingNode']]],
+  ['current_5fpath',['current_path',['../namespacesimulation__tools_1_1plot__path.html#a35535ef467ee1df5ae54979d2d740601',1,'simulation_tools::plot_path']]],
+  ['current_5fposition',['current_position',['../namespacesimulation__tools_1_1plot__path.html#a6630a10cacfc0f746555fc66794d66bb',1,'simulation_tools::plot_path']]],
   ['cpp_5fstyle_5fguide',['CPP_STYLE_GUIDE',['../md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_CPP_STYLE_GUIDE.html',1,'']]]
 ];

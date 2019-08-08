@@ -10,11 +10,15 @@ var searchData=
   ['checkpoint_5f3',['CHECKPOINT_3',['../namespacesimulation__tools_1_1lap__timer.html#a197a8c1ba2497108f555aa4d1670ccd7',1,'simulation_tools::lap_timer']]],
   ['checkpoints',['checkpoints',['../classsimulation__tools_1_1lap__timer_1_1_timer.html#ae042ce601347d175584be16d8166a74e',1,'simulation_tools::lap_timer::Timer']]],
   ['cmd_5fvel',['CMD_VEL',['../vesc__sim__driver_8h.html#a561eb346694ef40c617c49bb160363d8',1,'vesc_sim_driver.h']]],
+  ['color',['color',['../namespacesimulation__tools_1_1plot__path.html#a5b599ac72248c177ff8bca75c55d6c38',1,'simulation_tools::plot_path']]],
   ['command_5fbrake',['COMMAND_BRAKE',['../vesc__sim__driver_8h.html#affe1486b6714ce41c5ddc70d4ff7790d',1,'vesc_sim_driver.h']]],
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],
+  ['crashes',['crashes',['../namespacesimulation__tools_1_1plot__path.html#aab95480216fce1ffe96669023bf16c42',1,'simulation_tools::plot_path']]],
   ['cumulative_5fdistance',['cumulative_distance',['../classsimulation__tools_1_1track_1_1_track.html#a4513ffc3cdb1963bce98c678b093c40b',1,'simulation_tools::track::Track']]],
   ['cumulative_5freward',['cumulative_reward',['../classpolicy_gradient_1_1_q_learning_training_node.html#a73f0820c0b97bd68bfea0c189f646c05',1,'policyGradient.QLearningTrainingNode.cumulative_reward()'],['../classtrain_1_1_q_learning_training_node.html#a4c632e44085797e564501bba836b7359',1,'train.QLearningTrainingNode.cumulative_reward()']]],
   ['cumulative_5freward_5fhistory',['cumulative_reward_history',['../classpolicy_gradient_1_1_q_learning_training_node.html#a46a61c05fb130f011f35fbad64a25c8b',1,'policyGradient.QLearningTrainingNode.cumulative_reward_history()'],['../classtrain_1_1_q_learning_training_node.html#aa25b9712eebb6aed6befa421814472b4',1,'train.QLearningTrainingNode.cumulative_reward_history()']]],
-  ['current_5fdriver',['current_driver',['../classtrain_1_1_training_node.html#a81d0481151f7b23e6489027fa1a87e47',1,'train::TrainingNode']]]
+  ['current_5fdriver',['current_driver',['../classtrain_1_1_training_node.html#a81d0481151f7b23e6489027fa1a87e47',1,'train::TrainingNode']]],
+  ['current_5fpath',['current_path',['../namespacesimulation__tools_1_1plot__path.html#a35535ef467ee1df5ae54979d2d740601',1,'simulation_tools::plot_path']]],
+  ['current_5fposition',['current_position',['../namespacesimulation__tools_1_1plot__path.html#a6630a10cacfc0f746555fc66794d66bb',1,'simulation_tools::plot_path']]]
 ];
