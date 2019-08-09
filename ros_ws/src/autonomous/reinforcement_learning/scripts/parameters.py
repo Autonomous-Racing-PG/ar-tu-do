@@ -26,7 +26,8 @@ ACTION_COUNT = len(ACTIONS)
 LASER_SAMPLE_COUNT = 8
 
 
-MODEL_FILENAME = os.path.join(RosPack().get_path("q_learning"), "model.to")
+MODEL_FILENAME = os.path.join(RosPack().get_path(
+    "reinforcement_learning"), "model.to")
 
 
 class Policy(nn.Module):

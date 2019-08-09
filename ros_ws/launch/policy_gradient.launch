@@ -26,7 +26,7 @@
       <arg name="mode_override" value="2"/>
   </include>
 
-  <include file="$(find q_learning)/launch/policy_gradient.launch">
+  <include file="$(find reinforcement_learning)/launch/policy_gradient.launch">
     <arg name="plot_window" value="$(arg plot_window)"/>
   </include>
 </launch>
