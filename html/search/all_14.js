@@ -39,7 +39,7 @@ var searchData=
   ['trackposition',['TrackPosition',['../classsimulation__tools_1_1track_1_1_track_position.html',1,'simulation_tools::track']]],
   ['train',['train',['../namespacetrain.html',1,'']]],
   ['train_2epy',['train.py',['../evolutionary_2scripts_2train_8py.html',1,'']]],
-  ['train_2epy',['train.py',['../reinfocement__learning_2scripts_2train_8py.html',1,'']]],
+  ['train_2epy',['train.py',['../reinforcement__learning_2scripts_2train_8py.html',1,'']]],
   ['trainingnode',['TrainingNode',['../classtrain_1_1_training_node.html',1,'train']]],
   ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
   ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]
