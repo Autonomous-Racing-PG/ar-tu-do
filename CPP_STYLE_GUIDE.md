@@ -61,7 +61,7 @@ The words **SHOULD**, **SHOULD NOT**, **MUST**, **MUST NOT** and **MAY** are use
 # Autoformatting 
 
 It is heavily recommended to use the `clang-format` tool with the provided `.clang-format`.
-See the [wiki](https://github.com/Autonomous-Racing-PG/ros.package/wiki/Formatting-Cpp-and-Python-code) for more information.
+See the [wiki](https://github.com/Autonomous-Racing-PG/ar-tu-do/wiki/Formatting-Cpp-and-Python-code) for more information.
 
 <a id="naming"></a>
 # Naming

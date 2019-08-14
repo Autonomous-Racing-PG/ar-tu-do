@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 #   Cartographer Offline Script
-#   Must be run in the ros.package directory
 #
 filterstring="s/([[:cntrl:]]\[[0-9]{1,3}m)|(..;?)|//g"
 

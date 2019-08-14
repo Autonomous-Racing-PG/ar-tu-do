@@ -1,6 +1,6 @@
 # Autonomous Racing Software Stack and Simulation Enviroment
 
-[![Build Status](https://travis-ci.com/Autonomous-Racing-PG/ros.package.svg?branch=master)](https://travis-ci.com/Autonomous-Racing-PG/ros.package)
+[![Build Status](https://travis-ci.com/Autonomous-Racing-PG/ar-tu-do.svg?branch=master)](https://travis-ci.com/Autonomous-Racing-PG/ar-tu-do)
 
 This repository contains software for 1/10th scale autonomous race cars to compete in the [F1/10 competition](http://f1tenth.org/). It is developed by the Autonomous Racing Project Group of [TU Dortmund](https://ls12-www.cs.tu-dortmund.de/daes/).
 
@@ -55,7 +55,7 @@ git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ar-tu-do.
 Install missing ROS dependencies:
 
 ```bash
-cd ros.package/ros_ws
+cd ar-tu-do/ros_ws
 rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}
 ```
 
@@ -249,8 +249,8 @@ Our car is based on a 1/10th scale RC car ([Traxxas Ford Fiesta](https://traxxas
 
 ## Documentation
 
-* For general information and documentation check out our [wiki page](https://github.com/Autonomous-Racing-PG/ros.package/wiki).
-* For source code documentation check out the auto-generated [Doxygen documentation](https://autonomous-racing-pg.github.io/ros.package/html/index.html).
+* For general information and documentation check out our [wiki page](https://github.com/Autonomous-Racing-PG/ar-tu-do/wiki).
+* For source code documentation check out the auto-generated [Doxygen documentation](https://autonomous-racing-pg.github.io/ar-tu-do/html/index.html).
 
 ## License
 
