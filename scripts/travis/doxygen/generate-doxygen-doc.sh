@@ -6,7 +6,7 @@ cd $TRAVIS_BUILD_DIR
 # Create a clean working directory for this script.
 mkdir docs
 cd docs
-git clone https://github.com/Autonomous-Racing-PG/ros.package.git master
+git clone https://github.com/Autonomous-Racing-PG/ar-tu-do.git master
 mkdir doxy
 cd doxy
 
