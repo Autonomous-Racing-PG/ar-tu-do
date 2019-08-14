@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <div class="title">Autonomous Racing Software Stack and Simulation Enviroment </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a href="https://travis-ci.com/Autonomous-Racing-PG/ros.package"></a></p>
+<div class="textblock"><p><a href="https://travis-ci.com/Autonomous-Racing-PG/ar-tu-do"></a></p>
 <p>This repository contains software for 1/10th scale autonomous race cars to compete in the <a href="http://f1tenth.org/">F1/10 competition</a>. It is developed by the Autonomous Racing Project Group of <a href="https://ls12-www.cs.tu-dortmund.de/daes/">TU Dortmund</a>.</p>
 <div class="image">
 <img src="doc/racing_example.gif"  title="Racing with a wallfollowing algorithm"/>
@@ -130,8 +130,8 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <p>Note for VM users: Gazebo 7.0.0, which is installed with ROS Kinetic by default, <a href="https://bitbucket.org/osrf/gazebo/issues/1837/vmware-rendering-z-ordering-appears-random">does not work</a> on a virtual machine. To solve this, Gazebo has to be updated to at least 7.4.0 <a href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0#Alternativeinstallation:step-by-step">as explained here</a>.</p>
 <p>Install dependencies:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo pip uninstall pip &amp;&amp; sudo apt install python-pip</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;sudo apt install libsdl2-dev clang-format python-pyqtgraph</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;pip install torch autopep8 cython circle-fit</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;# RangeLibc</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;git clone http://github.com/kctess5/range_libc</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;cd range_libc/pywrapper</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;# Either:</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;./compile.sh            # on VM</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;# Or:</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;./compile_with_cuda.sh  # on car - compiles GPU ray casting methods</div></div><!-- fragment --><p>Clone the repository:</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ros.package</div></div><!-- fragment --><p>Install missing ROS dependencies:</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ros.package/ros_ws</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}</div></div><!-- fragment --><h2>Usage</h2>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ar-tu-do.git</div></div><!-- fragment --><p>Install missing ROS dependencies:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ar-tu-do/ros_ws</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}</div></div><!-- fragment --><h2>Usage</h2>
 <p>Compile while inside the <code>ros_ws</code>directory:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><p>Set up enviroment variables for your shell:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash # (or setup.zsh, depending on your shell)</div></div><!-- fragment --><p>Use a launch file to start ROS and Gazebo:</p>
@@ -187,8 +187,8 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 </ul>
 <h2>Documentation</h2>
 <ul>
-<li>For general information and documentation check out our <a href="https://github.com/Autonomous-Racing-PG/ros.package/wiki">wiki page</a>.</li>
-<li>For source code documentation check out the auto-generated <a href="https://autonomous-racing-pg.github.io/ros.package/html/index.html">Doxygen documentation</a>.</li>
+<li>For general information and documentation check out our <a href="https://github.com/Autonomous-Racing-PG/ar-tu-do/wiki">wiki page</a>.</li>
+<li>For source code documentation check out the auto-generated <a href="https://autonomous-racing-pg.github.io/ar-tu-do/html/index.html">Doxygen documentation</a>.</li>
 </ul>
 <h2>License</h2>
 <p>This project (excluding git submodules) is under MIT and GPLv3 dual licensed - see the <a href="MIT.LICENSE">MIT.LICENSE</a> and <a href="GPLv3.LICENSE">GPLv3.LICENSE</a> file for details. </p>
