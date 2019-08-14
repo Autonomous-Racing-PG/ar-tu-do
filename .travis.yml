@@ -6,9 +6,9 @@ env:
   global:
     - SRC_PATH=$(pwd)
     - ROS_DISTRO: kinetic
-    - GH_REPO_NAME: ros.package
+    - GH_REPO_NAME: ar-tu-do
     - DOXYFILE: $TRAVIS_BUILD_DIR/docs/master/Doxyfile
-    - GH_REPO_REF: github.com/Autonomous-Racing-PG/ros.package.git
+    - GH_REPO_REF: github.com/Autonomous-Racing-PG/ar-tu-do.git
 
 jobs:
   include:
