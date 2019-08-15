@@ -47,6 +47,7 @@ enum class DriveMode : int
 };
 
 constexpr double PARAMETER_UPDATE_FREQUENCY = 90;
+constexpr int SCREEN_EDGE_MARGIN = 20;
 
 class KeyboardController
 {

@@ -68,6 +68,15 @@ void KeyboardController::createWindow()
     this->m_window = SDL_CreateWindow("Keyboard teleoperation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 580,
                                       128, SDL_WINDOW_RESIZABLE);
 
+    auto window_surface = SDL_GetWindowSurface(this->m_window);
+    SDL_DisplayMode display_mode;
+    SDL_GetCurrentDisplayMode(0, &display_mode);
+    // clang-format off
+    SDL_SetWindowPosition(this->m_window,
+        display_mode.w - window_surface->w - SCREEN_EDGE_MARGIN,
+        display_mode.h - window_surface->h - SCREEN_EDGE_MARGIN);
+    // clang-format on
+
     SDL_Surface* icon = SDL_LoadBMP(icon_filename.c_str());
     if (icon != NULL)
     {
