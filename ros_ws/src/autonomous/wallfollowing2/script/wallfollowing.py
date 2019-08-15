@@ -21,48 +21,12 @@ TOPIC_LASER_SCAN = "/scan"
 
 last_speed = 0
 
-DEFAULT_PARAMETERS = {
-    'min_throttle': 0.2,
-    'max_throttle': 1.0,
-
-    'radius_lower': 2,
-    'radius_upper': 30,
-
-    'steering_slow_down': 4,
-    'steering_slow_down_dead_zone': 0.2,
-
-    'high_speed_steering_limit': 0.5,
-    'high_speed_steering_limit_dead_zone': 0.2,
-
-    'max_acceleration': 0.4,
-
-    'corner_cutting': 1.4,
-    'straight_smoothing': 1.0,
-
-    'barrier_size_realtive': 0.1,
-    'barrier_lower_limit': 1,
-    'barrier_upper_limit': 15,
-    'barrier_exponent': 1.4,
-
-    'controller_p': 4,
-    'controller_i': 0.2,
-    'controller_d': 0.02,
-
-    'usable_laser_range': 220.0
-}
-
 
 class Parameters():
     def __init__(self, default_values):
         self.names = default_values.keys()
         for name in self.names:
             setattr(self, name, default_values[name])
-
-    def load(self):
-        for name in self.names:
-            default = getattr(self, name)
-            value = rospy.get_param("wallfollowing/" + name, default)
-            setattr(self, name, value)
 
     def __str__(self):
         return '\n'.join(name + ": " + str(getattr(self, name))
@@ -197,6 +161,9 @@ def handle_scan(laser_scan, delta_time):
         rospy.logwarn("Skipping current laser scan message since it contains no finite values.")  # nopep8
         return
 
+    if parameters is None:
+        return
+
     split = find_left_right_border(points)
 
     right_wall = points[:split:4, :]
@@ -231,8 +198,7 @@ def laser_callback(scan_message):
 
 def dynamic_configuration_callback(config, level):
     global parameters
-    new_parameters = {key: getattr(config, key) for key in DEFAULT_PARAMETERS}
-    parameters = Parameters(new_parameters)
+    parameters = Parameters(config)
     pid.p = parameters.controller_p
     pid.i = parameters.controller_i
     pid.d = parameters.controller_d
@@ -240,12 +206,8 @@ def dynamic_configuration_callback(config, level):
 
 
 rospy.init_node('wallfollowing', anonymous=True)
-parameters = Parameters(DEFAULT_PARAMETERS)
-parameters.load()
-pid = PIDController(
-    parameters.controller_p,
-    parameters.controller_i,
-    parameters.controller_d)
+parameters = None
+pid = PIDController(1, 1, 1)
 
 rospy.Subscriber(TOPIC_LASER_SCAN, LaserScan, laser_callback)
 drive_parameters_publisher = rospy.Publisher(
