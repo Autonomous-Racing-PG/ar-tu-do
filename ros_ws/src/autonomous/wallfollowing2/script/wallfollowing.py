@@ -230,6 +230,7 @@ def laser_callback(scan_message):
 
 
 def dynamic_configuration_callback(config, level):
+    global parameters
     new_parameters = {key: getattr(config, key) for key in DEFAULT_PARAMETERS}
     parameters = Parameters(new_parameters)
     pid.p = parameters.controller_p
