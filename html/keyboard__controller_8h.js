@@ -26,6 +26,7 @@ var keyboard__controller_8h =
       [ "ENABLE_AUTONOMOUS", "keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249ad083a074856ee376bcd97103499a769f", null ]
     ] ],
     [ "PARAMETER_UPDATE_FREQUENCY", "keyboard__controller_8h.html#a87d3197843880cb61cbecb5379db066c", null ],
+    [ "SCREEN_EDGE_MARGIN", "keyboard__controller_8h.html#a67cbea434e77123bc9622065eea891ff", null ],
     [ "TOPIC_DRIVE_MODE", "keyboard__controller_8h.html#a2fb4491f9a2dfe8baac21fd8a728ac30", null ],
     [ "TOPIC_DRIVE_PARAMETERS", "keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839", null ],
     [ "TOPIC_HEARTBEAT_AUTONOMOUS", "keyboard__controller_8h.html#a1d805453ad0a894550dab891e5dbe44e", null ],

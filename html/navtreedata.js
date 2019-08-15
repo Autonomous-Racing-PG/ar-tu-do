@@ -2,8 +2,8 @@ var NAVTREE =
 [
   [ "Autonomous Racing", "index.html", [
     [ "Autonomous Racing Project Group", "index.html", null ],
-    [ "CPP_STYLE_GUIDE", "md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_CPP_STYLE_GUIDE.html", null ],
-    [ "Autonomous Racing Software Stack and Simulation Enviroment", "md__home_travis_build_Autonomous-Racing-PG_ros.package_docs_master_README.html", null ],
+    [ "CPP_STYLE_GUIDE", "md__home_travis_build_Autonomous-Racing-PG_ar-tu-do_docs_master_CPP_STYLE_GUIDE.html", null ],
+    [ "Autonomous Racing Software Stack and Simulation Enviroment", "md__home_travis_build_Autonomous-Racing-PG_ar-tu-do_docs_master_README.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -39,8 +39,8 @@ var NAVTREEINDEX =
 [
 "____init_____8py.html",
 "classtrain_1_1_q_learning_training_node.html#a7fef779ba6b1592b9ed2837abe5ae6ae",
-"lap__timer_8py.html#aab75b520d524490f7b0bdcf6b28761a6",
-"wallfollowing_8py.html#a53e20aefe2b925b41b17f60b6673840b"
+"lap__timer_8py.html#a8ff1f7d7789d5ea92df79c94205a7273",
+"wallfollowing_8py.html#a48cc636bf9056c7b7b2db2dede94474a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
