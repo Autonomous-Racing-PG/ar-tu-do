@@ -46,7 +46,9 @@ DEFAULT_PARAMETERS = {
 
     'controller_p': 4,
     'controller_i': 0.2,
-    'controller_d': 0.02
+    'controller_d': 0.02,
+
+    'usable_laser_range': 220.0
 }
 
 
@@ -105,14 +107,23 @@ def drive(angle, velocity):
 def get_scan_as_cartesian(laser_scan):
     ranges = np.array(laser_scan.ranges)
 
-    inf_mask = np.isinf(ranges)
-    if inf_mask.any():
-        ranges = ranges[~inf_mask]
-
     angles = np.linspace(
         laser_scan.angle_min,
         laser_scan.angle_max,
         ranges.shape[0])
+
+    laser_range = laser_scan.angle_max - laser_scan.angle_min
+    usable_range = math.radians(parameters.usable_laser_range)
+    if usable_range < laser_range:
+        skip_left = int((-laser_scan.angle_min - usable_range / 2) / laser_range * ranges.shape[0])  # nopep8
+        skip_right = int((laser_scan.angle_max - usable_range / 2) / laser_range * ranges.shape[0])  # nopep8
+        angles = angles[skip_left:-1 - skip_right]
+        ranges = ranges[skip_left:-1 - skip_right]
+
+    inf_mask = np.isinf(ranges)
+    if inf_mask.any():
+        ranges = ranges[~inf_mask]
+        angles = angles[~inf_mask]
 
     points = np.zeros((ranges.shape[0], 2))
     points[:, 0] = -np.sin(angles) * ranges
