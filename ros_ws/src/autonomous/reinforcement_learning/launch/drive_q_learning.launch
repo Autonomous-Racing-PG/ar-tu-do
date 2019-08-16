@@ -4,8 +4,8 @@
     <node
       respawn="true"
       pkg="reinforcement_learning"
-      type="drive.py"
-      name="reinforcement_learning_driver"
+      type="drive_q_learning.py"
+      name="q_learning_driver"
       output="screen" >
     </node>
 </launch>
