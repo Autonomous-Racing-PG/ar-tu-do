@@ -5,7 +5,7 @@ from training_node import TrainingNode, device
 import random
 import math
 from collections import deque
-from parameters import *
+from parameters_q_learning import *
 
 import torch
 
@@ -18,10 +18,13 @@ ROS node to train the Q-Learning model
 '''
 class QLearningTrainingNode(TrainingNode):
     def __init__(self):
-        TrainingNode.__init__(self, NeuralQEstimator().to(device))
+        TrainingNode.__init__(self, NeuralQEstimator().to(device), ACTIONS, LASER_SAMPLE_COUNT, MAX_EPISODE_LENGTH, LEARNING_RATE)
 
         self.memory = deque(maxlen=MEMORY_SIZE)
         self.optimization_step_count = 0
+
+        if CONTINUE:
+            self.policy.load()
 
     def replay(self):
         if len(self.memory) < 500 or len(self.memory) < BATCH_SIZE:

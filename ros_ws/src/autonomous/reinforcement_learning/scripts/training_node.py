@@ -1,11 +1,12 @@
 from reinforcement_learning_node import ReinforcementLearningNode, device
 
-from parameters import *
+from topics import TOPIC_CRASH, TOPIC_GAZEBO_MODEL_STATE, TOPIC_EPISODE_RESULT
 
 import time
 import random
 import math
 from collections import deque
+import rospy
 from std_msgs.msg import Empty
 from reinforcement_learning.msg import EpisodeResult
 from gazebo_msgs.msg import ModelStates
@@ -21,10 +22,11 @@ Abstract class for all methods that are common between
 Q-Learning training and Policy Gradient training
 '''
 class TrainingNode(ReinforcementLearningNode):
-    def __init__(self, policy):
-        ReinforcementLearningNode.__init__(self)
+    def __init__(self, policy, actions, laser_sample_count, max_episode_length, learn_rate):
+        ReinforcementLearningNode.__init__(self, actions, laser_sample_count)
 
         self.policy = policy
+        self.max_episode_length = max_episode_length
 
         self.episode_count = 0
         self.episode_length = 0
@@ -48,17 +50,13 @@ class TrainingNode(ReinforcementLearningNode):
         self.episode_start_time_real = time.time()
         self.episode_start_time_sim = rospy.Time.now().to_sec()
 
-        if USE_EXISTING_PARAMETERS:
-            self.policy.load()
-
         self.optimizer = torch.optim.Adam(
-            self.policy.parameters(), lr=LEARNING_RATE_POLICY_GRADIENT)        
+            self.policy.parameters(), lr=learn_rate)        
 
         reset_car.register_service()
 
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
         rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
-
         self.episode_result_publisher = rospy.Publisher(TOPIC_EPISODE_RESULT, EpisodeResult, queue_size=1)
 
     def on_crash(self, _):
@@ -107,7 +105,7 @@ class TrainingNode(ReinforcementLearningNode):
             self.cumulative_reward += reward
             self.on_complete_step(self.state, self.action, reward, state)
 
-        if self.is_terminal_step or self.episode_length >= MAX_EPISODE_LENGTH:
+        if self.is_terminal_step or self.episode_length >= self.max_episode_length:
             self.drive_forward = random.random() > 0.5
             reset_car.reset_random(
                 max_angle=math.pi / 180 * 20,

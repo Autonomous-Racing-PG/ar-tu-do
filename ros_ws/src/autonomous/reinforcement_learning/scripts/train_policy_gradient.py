@@ -4,7 +4,7 @@
 from training_node import TrainingNode, device
 import random
 import math
-from parameters import *
+from parameters_policy_gradient import *
 import numpy as np
 
 from torch.autograd import Variable
@@ -20,7 +20,10 @@ ROS node to train the Policy Gradient model
 '''
 class PolicyGradientTrainingNode(TrainingNode):
     def __init__(self):
-        TrainingNode.__init__(self, Policy())
+        TrainingNode.__init__(self, Policy(), ACTIONS, LASER_SAMPLE_COUNT, MAX_EPISODE_LENGTH, LEARNING_RATE)
+
+        if CONTINUE:
+            self.policy.load()
 
     def update_policy(self):
         R = 0
