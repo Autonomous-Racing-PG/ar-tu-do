@@ -20,7 +20,7 @@ def update_plot(msg):
     length_plot.setData(range(episode_count)[-plot_window:], length_list)
 
 
-rospy.init_node('q_learning_plotter', anonymous=True)
+rospy.init_node('reinforcement_learning_plotter', anonymous=True)
 
 plot_window = rospy.get_param("~plot_window")
 
@@ -29,17 +29,13 @@ length_list = deque(maxlen=plot_window)
 episode_count = 0
 
 app = QtGui.QApplication(sys.argv)
-app_window = pg.GraphicsWindow(title='Q-Learning Plotter')
+app_window = pg.GraphicsWindow(title='Learning Progress')
 main_plot = app_window.addPlot(title='Episodes')
 
 main_plot.addLegend()
 
-length_plot = main_plot.plot(
-    pen='g',
-    name='length')
-reward_plot = main_plot.plot(
-    pen='r',
-    name='reward')
+length_plot = main_plot.plot(pen='g', name='length')
+reward_plot = main_plot.plot(pen='r', name='reward')
 
 rospy.Subscriber(TOPIC_EPISODE_RESULT, EpisodeResult, update_plot)
 
