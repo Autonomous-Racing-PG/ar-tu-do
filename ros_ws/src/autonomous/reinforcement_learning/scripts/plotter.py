@@ -6,7 +6,7 @@ import pyqtgraph as pg
 import rospy
 import sys
 from collections import deque
-from q_learning.msg import EpisodeResult
+from reinforcement_learning.msg import EpisodeResult
 
 
 def update_plot(msg):

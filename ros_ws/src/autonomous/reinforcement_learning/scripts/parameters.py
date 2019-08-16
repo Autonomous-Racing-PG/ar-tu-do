@@ -17,8 +17,7 @@ TOPIC_EPISODE_RESULT = "/qlearning/episode_result"
 
 # General parameters
 
-ACTIONS = [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2),
-           (-0.5, 0.2), (0, 0.2), (0, 0.4)]
+ACTIONS = [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2), (-0.5, 0.2), (0, 0.2), (0, 0.4)]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
