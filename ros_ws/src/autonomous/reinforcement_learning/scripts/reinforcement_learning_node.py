@@ -9,11 +9,12 @@ import torch
 
 from parameters import *
 
-
-class QLearningNode():
+'''
+Abstract class for methods that are used both
+during training and during driving.
+'''
+class ReinforcementLearningNode():
     def __init__(self):
-        self.policy = NeuralQEstimator().to(device)
-
         self.scan_indices = None
         self.drive_parameters_publisher = rospy.Publisher(
             TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
