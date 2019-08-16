@@ -28,7 +28,7 @@ class PolicyGradientTrainingNode(TrainingNode):
             self.policy.load()
 
         # Episode policy and reward history
-        self.policy_history = torch.Tensor()
+        self.policy_history = torch.zeros(MAX_EPISODE_LENGTH)
         self.current_episode_rewards = []
 
     def update_policy(self):
@@ -41,12 +41,12 @@ class PolicyGradientTrainingNode(TrainingNode):
             rewards.insert(0, R)
 
         # Scale rewards
-        rewards = torch.tensor(rewards, dtype=torch.float32)
+        rewards = torch.tensor(rewards)
         if rewards.numel() > 1:
             rewards = (rewards - rewards.mean()) / (rewards.std() + FLOAT_EPS)
 
         # Calculate loss
-        loss = torch.sum(self.policy_history * rewards * -1)
+        loss = torch.sum(self.policy_history[:self.episode_length] * rewards) * -1
 
         # Update network weights
         if loss != 0:
@@ -55,7 +55,7 @@ class PolicyGradientTrainingNode(TrainingNode):
             self.optimizer.step()
 
         # Reset policy history and rewards
-        self.policy_history = torch.Tensor()
+        self.policy_history = torch.zeros(MAX_EPISODE_LENGTH)
         self.current_episode_rewards = []
 
     def select_action(self, state):
@@ -66,11 +66,8 @@ class PolicyGradientTrainingNode(TrainingNode):
         action = action_distribution.sample()
 
         # Add log probability of our chosen action to our history
-        if self.policy_history.dim() != 0:
-            self.policy_history = torch.cat(
-                [self.policy_history, action_distribution.log_prob(action).view(1)])
-        else:
-            self.policy_history = action_distribution.log_prob(action)
+        self.policy_history[self.episode_length] = action_distribution.log_prob(action)
+        
         return action
 
     def get_reward(self):
