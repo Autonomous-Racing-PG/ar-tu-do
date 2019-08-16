@@ -3,7 +3,7 @@
 from reinforcement_learning_node import ReinforcementLearningNode, device
 import os
 import rospy
-from parameters import MODEL_FILENAME, NeuralQEstimator
+from parameters_q_learning import NeuralQEstimator, ACTIONS, LASER_SAMPLE_COUNT, MODEL_FILENAME
 import torch
 
 '''
@@ -23,7 +23,7 @@ class QLearningDrivingNode(ReinforcementLearningNode):
             rospy.signal_shutdown(message)
             exit(1)
         
-        ReinforcementLearningNode.__init__(self)
+        ReinforcementLearningNode.__init__(self, ACTIONS, LASER_SAMPLE_COUNT)
 
     def on_receive_laser_scan(self, message):
         if self.policy is None:

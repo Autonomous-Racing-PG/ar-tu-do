@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from PyQt4 import QtGui
-from parameters import *
+from topics import TOPIC_EPISODE_RESULT
 import pyqtgraph as pg
 import rospy
 import sys
