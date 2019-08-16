@@ -1,0 +1,21 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  barrier_exponent: 1.4
+  barrier_lower_limit: 1.0
+  barrier_size_realtive: 0.1
+  barrier_upper_limit: 15.0
+  controller_d: 0.02
+  controller_i: 0.2
+  controller_p: 4.0
+  corner_cutting: 0.8
+  high_speed_steering_limit: 0.5
+  high_speed_steering_limit_dead_zone: 0.2
+  max_acceleration: 0.4
+  max_throttle: 1.0
+  min_throttle: 0.2
+  radius_lower: 2.0
+  radius_upper: 30.0
+  steering_slow_down: 4.0
+  steering_slow_down_dead_zone: 0.2
+  straight_smoothing: 0.8
+  usable_laser_range: 220.0
