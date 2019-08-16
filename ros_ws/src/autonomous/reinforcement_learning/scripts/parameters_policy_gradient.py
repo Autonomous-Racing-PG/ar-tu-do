@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
 
 import os
 import rospy
@@ -29,14 +28,6 @@ class Policy(nn.Module):
             nn.Linear(18, ACTION_COUNT),
             nn.Softmax(dim=-1)
         )
-
-        # Episode policy and reward history
-        self.policy_history = Variable(torch.Tensor())
-        self.reward_episode = []
-
-        # Overall reward and loss history
-        self.reward_history = []
-        self.loss_history = []
 
     def forward(self, x):
         return self.layers.forward(x)
