@@ -21,9 +21,14 @@ class Policy(nn.Module):
     def __init__(self):
         super(Policy, self).__init__()
 
-        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 32)
-        self.fc2 = nn.Linear(32, 18)
-        self.fc3 = nn.Linear(18, ACTION_COUNT)
+        self.layers = nn.Sequential(
+            nn.Linear(LASER_SAMPLE_COUNT, 32),
+            nn.ReLU(),
+            nn.Linear(32, 18),
+            nn.ReLU(),
+            nn.Linear(18, ACTION_COUNT),
+            nn.Softmax(dim=-1)
+        )
 
         # Episode policy and reward history
         self.policy_history = Variable(torch.Tensor())
@@ -34,15 +39,7 @@ class Policy(nn.Module):
         self.loss_history = []
 
     def forward(self, x):
-        model = torch.nn.Sequential(
-            self.fc1,
-            nn.ReLU(),
-            self.fc2,
-            nn.ReLU(),
-            self.fc3,
-            nn.Softmax(dim=-1)
-        )
-        return model(x)
+        return self.layers.forward(x)
 
     def load(self):
         if os.path.isfile(MODEL_FILENAME):
