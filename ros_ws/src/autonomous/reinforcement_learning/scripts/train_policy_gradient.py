@@ -20,9 +20,17 @@ FLOAT_EPS = np.finfo(np.float32).eps
 '''
 ROS node to train the Policy Gradient model
 '''
+
+
 class PolicyGradientTrainingNode(TrainingNode):
     def __init__(self):
-        TrainingNode.__init__(self, Policy(), ACTIONS, LASER_SAMPLE_COUNT, MAX_EPISODE_LENGTH, LEARNING_RATE)
+        TrainingNode.__init__(
+            self,
+            Policy(),
+            ACTIONS,
+            LASER_SAMPLE_COUNT,
+            MAX_EPISODE_LENGTH,
+            LEARNING_RATE)
 
         if CONTINUE:
             self.policy.load()
@@ -46,7 +54,7 @@ class PolicyGradientTrainingNode(TrainingNode):
             rewards = (rewards - rewards.mean()) / (rewards.std() + FLOAT_EPS)
 
         # Calculate loss
-        loss = torch.sum(self.policy_history[:self.episode_length] * rewards) * -1
+        loss = torch.sum(self.policy_history[:self.episode_length] * rewards) * -1  # nopep8
 
         # Update network weights
         if loss != 0:
@@ -66,8 +74,8 @@ class PolicyGradientTrainingNode(TrainingNode):
         action = action_distribution.sample()
 
         # Add log probability of our chosen action to our history
-        self.policy_history[self.episode_length] = action_distribution.log_prob(action)
-        
+        self.policy_history[self.episode_length] = action_distribution.log_prob(action)  # nopep8
+
         return action
 
     def get_reward(self):

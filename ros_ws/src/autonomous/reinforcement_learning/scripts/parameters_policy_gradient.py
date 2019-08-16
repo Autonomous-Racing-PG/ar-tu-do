@@ -6,7 +6,8 @@ import rospy
 
 from rospkg import RosPack
 
-ACTIONS = [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2), (-0.5, 0.2), (0, 0.2), (0, 0.4)]
+ACTIONS = [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2),
+           (-0.5, 0.2), (0, 0.2), (0, 0.4)]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
@@ -15,6 +16,7 @@ LASER_SAMPLE_COUNT = 8
 
 MODEL_FILENAME = os.path.join(RosPack().get_path(
     "reinforcement_learning"), "policy_gradient.to")
+
 
 class Policy(nn.Module):
     def __init__(self):

@@ -10,6 +10,8 @@ import torch
 ROS node to drive the car using previously learned
 Q-Learning weights
 '''
+
+
 class QLearningDrivingNode(ReinforcementLearningNode):
     def __init__(self):
         self.policy = NeuralQEstimator().to(device)
@@ -22,7 +24,7 @@ class QLearningDrivingNode(ReinforcementLearningNode):
             rospy.logerr(message)
             rospy.signal_shutdown(message)
             exit(1)
-        
+
         ReinforcementLearningNode.__init__(self, ACTIONS, LASER_SAMPLE_COUNT)
 
     def on_receive_laser_scan(self, message):
