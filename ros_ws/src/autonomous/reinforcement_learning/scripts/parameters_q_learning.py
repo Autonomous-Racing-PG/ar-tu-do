@@ -13,7 +13,7 @@ ACTIONS = [(-0.6, 0.2), (0.6, 0.2), (0, 0.2)]
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
-# When changing this value, also update laser_sample_count in qlearning.launch
+# When changing this value, also update laser_sample_count in q_learning.launch
 LASER_SAMPLE_COUNT = 8
 
 
