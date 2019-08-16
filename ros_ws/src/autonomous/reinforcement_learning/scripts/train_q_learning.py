@@ -13,12 +13,11 @@ import simulation_tools.reset_car as reset_car
 from simulation_tools.track import track
 BATCH_INDICES = torch.arange(0, BATCH_SIZE, device=device, dtype=torch.long)
 
-'''
-ROS node to train the Q-Learning model
-'''
-
 
 class QLearningTrainingNode(TrainingNode):
+    ''' ROS node to train the Q-Learning model
+    '''
+
     def __init__(self):
         TrainingNode.__init__(
             self,

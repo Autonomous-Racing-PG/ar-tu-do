@@ -9,13 +9,12 @@ import torch
 
 from topics import TOPIC_DRIVE_PARAMETERS, TOPIC_SCAN
 
-'''
-Abstract class for methods that are used both
-during training and during driving.
-'''
-
 
 class ReinforcementLearningNode():
+    ''' Abstract class for methods that are used both
+    during training and during driving.
+    '''
+
     def __init__(self, actions, laser_sample_count):
         self.scan_indices = None
         self.laser_sample_count = laser_sample_count

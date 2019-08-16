@@ -17,13 +17,12 @@ from simulation_tools.track import track
 
 import torch.optim
 
-'''
-Abstract class for all methods that are common between
-Q-Learning training and Policy Gradient training
-'''
-
 
 class TrainingNode(ReinforcementLearningNode):
+    ''' Abstract class for all methods that are common between
+    Q-Learning training and Policy Gradient training
+    '''
+
     def __init__(
             self,
             policy,

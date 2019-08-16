@@ -17,12 +17,10 @@ from simulation_tools.track import track
 FLOAT_EPS = np.finfo(np.float32).eps
 
 
-'''
-ROS node to train the Policy Gradient model
-'''
-
-
 class PolicyGradientTrainingNode(TrainingNode):
+    ''' ROS node to train the Policy Gradient model
+    '''
+
     def __init__(self):
         TrainingNode.__init__(
             self,

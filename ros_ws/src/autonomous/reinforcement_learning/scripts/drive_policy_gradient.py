@@ -7,13 +7,12 @@ from parameters_policy_gradient import Policy, ACTIONS, LASER_SAMPLE_COUNT
 import torch
 from torch.distributions import Categorical
 
-'''
-ROS node to drive the car using previously learned
-Policy Gradient weights
-'''
-
 
 class QLearningDrivingNode(ReinforcementLearningNode):
+    ''' ROS node to drive the car using previously learned
+    Policy Gradient weights
+    '''
+
     def __init__(self):
         self.policy = Policy()
 
