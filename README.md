@@ -12,7 +12,7 @@ We provide several LIDAR based driving algorithms:
 
 - Fast and efficient wallfollowing based on fitting circles into the LIDAR scan
 - [ROS navigation stack](http://wiki.ros.org/navigation) based implementation that uses SLAM, a precalculated map and path planning
-- Deep Reinforcement Learning ([Q-Learning](https://en.wikipedia.org/wiki/Q-learning))
+- Deep Reinforcement Learning ([Q-Learning](https://en.wikipedia.org/wiki/Q-learning) and [Policy Gradient](https://en.wikipedia.org/wiki/Reinforcement_learning#Direct_policy_search))
 - Neural Networks with evolutionary training
 
 Our software works on physical hardware and in a simulated environment using [Gazebo](http://gazebosim.org/).
@@ -81,7 +81,8 @@ roslaunch launch/car.launch                   # (Physical car, Wallfollowing)
 roslaunch launch/car_navigation_stack.launch  # (Physical car, SLAM & ROS navigation)
 roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)
 roslaunch launch/navigation_stack.launch      # (Simulation, SLAM & ROS navigation)
-roslaunch launch/qlearning.launch             # (Simulation, Train the Q-Learning model)
+roslaunch launch/q_learning.launch            # (Simulation, Train the Q-Learning model)
+roslaunch launch/policy_gradient.launch       # (Simulation, Train the Policy Gradient model)
 roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)
 ```
 
@@ -104,7 +105,7 @@ The arguments can be changed permanently by editing the launch files.
     <td>car_navstack</td>
     <td>gazebo</td>
     <td>navigation_stack</td>
-    <td>qlearning, evolutionary</td>
+    <td>q_learning, policy_gradient, evolutionary</td>
   </tr>
   <tr>
     <td><code>debug</code></td>

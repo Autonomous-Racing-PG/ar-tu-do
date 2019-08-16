@@ -41,6 +41,6 @@ class QLearningDrivingNode(ReinforcementLearningNode):
         self.perform_action(action)
 
 
-rospy.init_node('q_learning_driving', anonymous=True)
+rospy.init_node('policy_gradient_driving', anonymous=True)
 node = QLearningDrivingNode()
 rospy.spin()

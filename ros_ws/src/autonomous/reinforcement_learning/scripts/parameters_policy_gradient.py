@@ -11,7 +11,7 @@ ACTIONS = [(-0.8, 0.1), (0.8, 0.1), (0.5, 0.2),
 ACTION_COUNT = len(ACTIONS)
 
 # Only use some of the LIDAR measurements
-# When changing this value, also update laser_sample_count in qlearning.launch
+# When changing this value, also update laser_sample_count in policy_gradient.launch
 LASER_SAMPLE_COUNT = 8
 
 MODEL_FILENAME = os.path.join(RosPack().get_path(
