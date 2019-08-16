@@ -10,7 +10,6 @@ var wallfollowing_8py =
     [ "handle_scan", "wallfollowing_8py.html#a48cc636bf9056c7b7b2db2dede94474a", null ],
     [ "laser_callback", "wallfollowing_8py.html#a53e20aefe2b925b41b17f60b6673840b", null ],
     [ "map", "wallfollowing_8py.html#a908b60b64e20dec7078e707a829b610d", null ],
-    [ "DEFAULT_PARAMETERS", "wallfollowing_8py.html#ac161be1e11f04000d35ca725afa3ccdf", null ],
     [ "drive_parameters_publisher", "wallfollowing_8py.html#aa69138defbbc5f21e99db50a6b3c903f", null ],
     [ "last_scan", "wallfollowing_8py.html#ab6c7c8e53e8b1cd44872666515dd5764", null ],
     [ "last_speed", "wallfollowing_8py.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe", null ],

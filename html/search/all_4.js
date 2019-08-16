@@ -2,7 +2,6 @@ var searchData=
 [
   ['d',['d',['../classwallfollowing_1_1_p_i_d_controller.html#af054e460466332038060384f50d71fd0',1,'wallfollowing.PIDController.d()'],['../keyboard__controller_8h.html#a28fdc629dbeaa30236718d9093e19c07af623e75af30e62bbd73d6df5b50bb7b5',1,'D():&#160;keyboard_controller.h']]],
   ['decelerate',['DECELERATE',['../keyboard__controller_8h.html#af63a41b851c52a0c5cf6b4ebaeb44249aceeff3cb59294b233b481ddb6dee95bf',1,'keyboard_controller.h']]],
-  ['default_5fparameters',['DEFAULT_PARAMETERS',['../namespacewallfollowing.html#ac161be1e11f04000d35ca725afa3ccdf',1,'wallfollowing']]],
   ['deg_5fto_5frad',['DEG_TO_RAD',['../emergency__stop_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa',1,'DEG_TO_RAD():&#160;emergency_stop.h'],['../wall__following_8h.html#ab3a44464ce67ffd6379bf1fc72ba54aa',1,'DEG_TO_RAD():&#160;wall_following.h'],['../namespacecar__config.html#a72deaa1a555d694e52fb768ffba1d8cb',1,'car_config::DEG_TO_RAD()']]],
   ['device',['device',['../namespaceqlearning.html#a6034910e71ae6db3114fb7b830d3e45d',1,'qlearning']]],
   ['discount_5ffactor',['DISCOUNT_FACTOR',['../namespaceparameters.html#a70176024e0f585c846365800f1c7819c',1,'parameters']]],

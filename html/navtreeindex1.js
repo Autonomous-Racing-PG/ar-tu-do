@@ -41,9 +41,8 @@ var NAVTREEINDEX1 =
 "classwallfollowing_1_1_p_i_d_controller.html#adf238faaf65562d4441c773ca3354419":[4,0,8,1,6],
 "classwallfollowing_1_1_p_i_d_controller.html#af054e460466332038060384f50d71fd0":[4,0,8,1,3],
 "classwallfollowing_1_1_parameters.html":[4,0,8,0],
-"classwallfollowing_1_1_parameters.html#a009e7e6821f14f92f657fae2a7315313":[4,0,8,0,3],
+"classwallfollowing_1_1_parameters.html#a009e7e6821f14f92f657fae2a7315313":[4,0,8,0,2],
 "classwallfollowing_1_1_parameters.html#a471c55e861c60ca58f13a272ad4078d4":[4,0,8,0,0],
-"classwallfollowing_1_1_parameters.html#a7dfbcaac7a2060ce8c3623c8dfb2ed40":[4,0,8,0,2],
 "classwallfollowing_1_1_parameters.html#a8391da200b442b6ee64c8befdc78ff48":[4,0,8,0,1],
 "crash__detector_8cpp.html":[5,0,0,0,0,4,0,1,2],
 "crash__detector_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,4,0,1,2,0],
@@ -227,8 +226,8 @@ var NAVTREEINDEX1 =
 "keyboard__controller_8h.html#a3750c1de56b20886f8932d6005c2b231":[5,0,0,0,0,5,0,1,9],
 "keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839":[5,0,0,0,0,5,0,1,7],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83":[5,0,0,0,0,5,0,1,1],
-"keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,4],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,1],
+"keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,4],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,3],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,0],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83ade7d660fc991e08c2d3526fec8a46c4a":[5,0,0,0,0,5,0,1,1,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "lap__timer_8py.html#a197a8c1ba2497108f555aa4d1670ccd7":[5,0,0,0,0,4,0,1,0,1,7],
 "lap__timer_8py.html#a20574c968e10b9baa7bb953a9a7eb693":[5,0,0,0,0,4,0,1,0,1,5],
 "lap__timer_8py.html#a55d342023a9bdc266a2ee262040e8d19":[5,0,0,0,0,4,0,1,0,1,12],
-"lap__timer_8py.html#a7773acfe8635b4d8a0e96d13912243b0":[5,0,0,0,0,4,0,1,0,1,6]
+"lap__timer_8py.html#a7773acfe8635b4d8a0e96d13912243b0":[5,0,0,0,0,4,0,1,0,1,6],
+"lap__timer_8py.html#a8ff1f7d7789d5ea92df79c94205a7273":[5,0,0,0,0,4,0,1,0,1,2]
 };
