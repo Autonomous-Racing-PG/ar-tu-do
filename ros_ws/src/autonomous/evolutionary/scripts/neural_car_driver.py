@@ -29,7 +29,9 @@ SURVIVOR_COUNT = 4
 LEARN_RATE = 0.2
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
-MODEL_FILENAME = os.path.join(RosPack().get_path("evolutionary"), "model.to")
+MODEL_FILENAME = os.path.join(
+    RosPack().get_path("evolutionary"),
+    "evolutionary.to")
 
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
