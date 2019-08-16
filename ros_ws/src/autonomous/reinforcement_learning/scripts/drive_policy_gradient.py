@@ -1,18 +1,19 @@
 #!/usr/bin/env python
 
-from reinforcement_learning_node import ReinforcementLearningNode, device
+from reinforcement_learning_node import ReinforcementLearningNode
 import os
 import rospy
-from parameters_q_learning import NeuralQEstimator, ACTIONS, LASER_SAMPLE_COUNT
+from parameters_policy_gradient import Policy, ACTIONS, LASER_SAMPLE_COUNT
 import torch
+from torch.distributions import Categorical
 
 '''
 ROS node to drive the car using previously learned
-Q-Learning weights
+Policy Gradient weights
 '''
 class QLearningDrivingNode(ReinforcementLearningNode):
     def __init__(self):
-        self.policy = NeuralQEstimator().to(device)
+        self.policy = Policy()
 
         try:
             self.policy.load()
@@ -29,10 +30,12 @@ class QLearningDrivingNode(ReinforcementLearningNode):
         if self.policy is None:
             return
 
-        state = self.convert_laser_message_to_tensor(message)
+        state = self.convert_laser_message_to_tensor(message, use_device=False)
 
         with torch.no_grad():
-            action = self.policy(state).max(0)[1].item()
+            action_probabilities = self.policy(state)        
+        action_distribution = Categorical(action_probabilities)
+        action = action_distribution.sample()
         self.perform_action(action)
 
 
