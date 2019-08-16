@@ -16,9 +16,17 @@ BATCH_INDICES = torch.arange(0, BATCH_SIZE, device=device, dtype=torch.long)
 '''
 ROS node to train the Q-Learning model
 '''
+
+
 class QLearningTrainingNode(TrainingNode):
     def __init__(self):
-        TrainingNode.__init__(self, NeuralQEstimator().to(device), ACTIONS, LASER_SAMPLE_COUNT, MAX_EPISODE_LENGTH, LEARNING_RATE)
+        TrainingNode.__init__(
+            self,
+            NeuralQEstimator().to(device),
+            ACTIONS,
+            LASER_SAMPLE_COUNT,
+            MAX_EPISODE_LENGTH,
+            LEARNING_RATE)
 
         self.memory = deque(maxlen=MEMORY_SIZE)
         self.optimization_step_count = 0
@@ -91,7 +99,7 @@ class QLearningTrainingNode(TrainingNode):
             + "q: [" + self.net_output_debug_string + "], "
 
     def on_complete_step(self, state, action, reward, next_state):
-        self.memory.append((state, action, reward, next_state, self.is_terminal_step))
+        self.memory.append((state, action, reward, next_state, self.is_terminal_step))  # nopep8
         self.replay()
 
 

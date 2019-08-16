@@ -21,8 +21,16 @@ import torch.optim
 Abstract class for all methods that are common between
 Q-Learning training and Policy Gradient training
 '''
+
+
 class TrainingNode(ReinforcementLearningNode):
-    def __init__(self, policy, actions, laser_sample_count, max_episode_length, learn_rate):
+    def __init__(
+            self,
+            policy,
+            actions,
+            laser_sample_count,
+            max_episode_length,
+            learn_rate):
         ReinforcementLearningNode.__init__(self, actions, laser_sample_count)
 
         self.policy = policy
@@ -51,24 +59,25 @@ class TrainingNode(ReinforcementLearningNode):
         self.episode_start_time_sim = rospy.Time.now().to_sec()
 
         self.optimizer = torch.optim.Adam(
-            self.policy.parameters(), lr=learn_rate)        
+            self.policy.parameters(), lr=learn_rate)
 
         reset_car.register_service()
 
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
         rospy.Subscriber(TOPIC_GAZEBO_MODEL_STATE, ModelStates, self.on_model_state_callback)  # nopep8
-        self.episode_result_publisher = rospy.Publisher(TOPIC_EPISODE_RESULT, EpisodeResult, queue_size=1)
+        self.episode_result_publisher = rospy.Publisher(
+            TOPIC_EPISODE_RESULT, EpisodeResult, queue_size=1)
 
     def on_crash(self, _):
         if self.episode_length > 5:
             self.is_terminal_step = True
-    
+
     def get_episode_summary(self):
         average_episode_length = sum(
             self.episode_length_history) / len(self.episode_length_history)
         average_cumulative_reward = sum(
             self.cumulative_reward_history) / len(self.cumulative_reward_history)
-        
+
         return "Episode " + str(self.episode_count) + ": " \
             + str(self.episode_length).rjust(3) + " steps (" + str(int(average_episode_length)).rjust(3) + " avg), " \
             + "return: " + "{0:.1f}".format(self.cumulative_reward).rjust(5) \
@@ -79,7 +88,9 @@ class TrainingNode(ReinforcementLearningNode):
     def on_complete_episode(self):
         self.episode_length_history.append(self.episode_length)
         self.cumulative_reward_history.append(self.cumulative_reward)
-        self.episode_result_publisher.publish(reward=self.cumulative_reward, length=int(self.episode_length))
+        self.episode_result_publisher.publish(
+            reward=self.cumulative_reward, length=int(
+                self.episode_length))
 
         real_time = time.time()
         sim_time = rospy.Time.now().to_sec()
@@ -94,7 +105,7 @@ class TrainingNode(ReinforcementLearningNode):
 
         if self.episode_count % 50 == 0:
             self.policy.save()
-            rospy.loginfo("Model parameters saved.")    
+            rospy.loginfo("Model parameters saved.")
 
     def on_receive_laser_scan(self, message):
         state = self.convert_laser_message_to_tensor(message)
@@ -124,7 +135,7 @@ class TrainingNode(ReinforcementLearningNode):
 
     def on_complete_step(self, state, action, reward, next_state):
         pass
-    
+
     def check_car_orientation(self):
         if self.car_position is None:
             return

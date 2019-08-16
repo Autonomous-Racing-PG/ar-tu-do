@@ -11,6 +11,8 @@ from torch.distributions import Categorical
 ROS node to drive the car using previously learned
 Policy Gradient weights
 '''
+
+
 class QLearningDrivingNode(ReinforcementLearningNode):
     def __init__(self):
         self.policy = Policy()
@@ -23,7 +25,7 @@ class QLearningDrivingNode(ReinforcementLearningNode):
             rospy.logerr(message)
             rospy.signal_shutdown(message)
             exit(1)
-        
+
         ReinforcementLearningNode.__init__(self, ACTIONS, LASER_SAMPLE_COUNT)
 
     def on_receive_laser_scan(self, message):
@@ -33,7 +35,7 @@ class QLearningDrivingNode(ReinforcementLearningNode):
         state = self.convert_laser_message_to_tensor(message, use_device=False)
 
         with torch.no_grad():
-            action_probabilities = self.policy(state)        
+            action_probabilities = self.policy(state)
         action_distribution = Categorical(action_probabilities)
         action = action_distribution.sample()
         self.perform_action(action)

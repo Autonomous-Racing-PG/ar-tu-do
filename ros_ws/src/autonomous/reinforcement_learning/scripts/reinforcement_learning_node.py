@@ -13,6 +13,8 @@ from topics import TOPIC_DRIVE_PARAMETERS, TOPIC_SCAN
 Abstract class for methods that are used both
 during training and during driving.
 '''
+
+
 class ReinforcementLearningNode():
     def __init__(self, actions, laser_sample_count):
         self.scan_indices = None
@@ -39,7 +41,10 @@ class ReinforcementLearningNode():
         values = [message.ranges[i] for i in self.scan_indices]
         values = [v if not math.isinf(v) else 100 for v in values]
 
-        return torch.tensor(values, device=device if use_device else None, dtype=torch.float)
+        return torch.tensor(
+            values,
+            device=device if use_device else None,
+            dtype=torch.float)
 
     def on_receive_laser_scan(self, message):
         raise Exception("on_receive_laser_scan is not implemented.")
