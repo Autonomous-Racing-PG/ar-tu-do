@@ -89,11 +89,12 @@ Use a launch file to start R\+OS and Gazebo\+:
 
 
 \begin{DoxyCode}
-1 roslaunch launch/car.launch # (Physical car, Wallfollowing)
-2 roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)
-3 roslaunch launch/navigation\_stack.launch # (Simulation, SLAM & ROS navigation)
-4 roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)
-5 roslaunch launch/evolutionary.launch # (Simulation, Train the evolutionary neural network)
+1 roslaunch launch/car.launch                   # (Physical car, Wallfollowing)
+2 roslaunch launch/car\_navigation\_stack.launch  # (Physical car, SLAM & ROS navigation)
+3 roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)
+4 roslaunch launch/navigation\_stack.launch      # (Simulation, SLAM & ROS navigation)
+5 roslaunch launch/qlearning.launch             # (Simulation, Train the Q-Learning model)
+6 roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)
 \end{DoxyCode}
 
 
@@ -106,32 +107,32 @@ These arguments can be passed to the launch files above. For example, to use the
  The arguments can be changed permanently by editing the launch files.
 
 \tabulinesep=1mm
-\begin{longtabu} spread 0pt [c]{*6{|X[-1]}|}
+\begin{longtabu} spread 0pt [c]{*7{|X[-1]}|}
 \hline
-\rowcolor{\tableheadbgcolor}\multirow{2}{\linewidth}{{\bf Argument }}&\multirow{2}{\linewidth}{{\bf Description }}&\multicolumn{4}{p{(\linewidth-\tabcolsep*6-\arrayrulewidth*3)*4/6}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch}  }}\\\cline{3-6}
+\rowcolor{\tableheadbgcolor}\multirow{2}{\linewidth}{{\bf Argument }}&\multirow{2}{\linewidth}{{\bf Description }}&\multicolumn{5}{p{(\linewidth-\tabcolsep*7-\arrayrulewidth*3)*5/7}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch}  }}\\\cline{3-7}
 \endfirsthead
 \hline
 \endfoot
 \hline
-\rowcolor{\tableheadbgcolor}&&\multirow{2}{\linewidth}{{\bf Argument }}&\multirow{2}{\linewidth}{{\bf Description }}&\multicolumn{4}{p{(\linewidth-\tabcolsep*6-\arrayrulewidth*3)*4/6}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch}  }}\\\cline{1-2}\cline{5-6}
+\rowcolor{\tableheadbgcolor}&&\multirow{2}{\linewidth}{{\bf Argument }}&\multirow{2}{\linewidth}{{\bf Description }}&\multicolumn{5}{p{(\linewidth-\tabcolsep*7-\arrayrulewidth*3)*5/7}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch}  }}\\\cline{1-2}\cline{5-7}
 \endhead
-car &gazebo &&&navigation\+\_\+stack &qlearning, evolutionary  \\\cline{1-6}
-{\ttfamily debug} &Boolean value whether Gazebo should run in debug mode. Defaults to false. &✗ &✓ &✓ &✗  \\\cline{1-6}
-{\ttfamily emergency\+\_\+stop} &Boolean value whether the emergency stop should be active. Defaults to true. &✗ &✓ &✗ &✗  \\\cline{1-6}
-{\ttfamily gui} &Boolean value whether Gazebo should show a user interface. Defaults to true. &✗ &✓ &✓ &✓  \\\cline{1-6}
-{\ttfamily joystick\+\_\+type} &The type of joystick controller. Possible values\+: {\ttfamily ps3}, {\ttfamily xbox360} and {\ttfamily xboxone} &✓ &✓ &✓ &✗  \\\cline{1-6}
-{\ttfamily map} &Name of the map to be used by the particle filter. Defaults to a prerecorded map of {\ttfamily racetrack\+\_\+decorated\+\_\+2}. &✗ &✗ &✓ &✗  \\\cline{1-6}
-{\ttfamily paused} &Boolean value whether Gazebo should start paused. Defaults to false. &✗ &✓ &✓ &✗  \\\cline{1-6}
-{\ttfamily pf\+\_\+angle\+\_\+step} &Angle step of the particle filter. Defaults to 18. &✗ &✗ &✓ &✗  \\\cline{1-6}
-{\ttfamily pf\+\_\+max\+\_\+particles} &Maximum amount of particles to be used by the particle filter. Defaults to 500. &✗ &✗ &✓ &✗  \\\cline{1-6}
-{\ttfamily pf\+\_\+squash\+\_\+factor} &Squash factor of the particle filter. Defaults to 2.\+2. &✗ &✗ &✓ &✗  \\\cline{1-6}
-{\ttfamily plot\+\_\+window} &Integer value indicating the amount of episodes that should be plotted. Defaults to 200. &✗ &✗ &✗ &✓ / ✗  \\\cline{1-6}
-{\ttfamily realtime\+\_\+simulation} &Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true. &✗ &✗ &✗ &✓  \\\cline{1-6}
-{\ttfamily use\+\_\+gpu} &Boolean value whether Gazebo should use the G\+PU when simulating the lidar. Defaults to true. &✗ &✓ &✓ &✓  \\\cline{1-6}
-{\ttfamily use\+\_\+sim\+\_\+time} &Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true. &✗ &✓ &✓ &✗  \\\cline{1-6}
-{\ttfamily verbose} &Boolean value whether Gazebo should give verbose standard output. Defaults to true. &✗ &✓ &✓ &✗  \\\cline{1-6}
-{\ttfamily visualize\+\_\+lidar} &Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false. &✗ &✓ &✓ &✗  \\\cline{1-6}
-{\ttfamily world} &The name of the racetrack. Possible values\+: {\ttfamily racetrack\+\_\+decorated}, {\ttfamily racetrack\+\_\+decorated\+\_\+2} (default) and {\ttfamily racetrack\+\_\+decorated\+\_\+2\+\_\+big} &✗ &✓ &✓ &✓  \\\cline{1-6}
+car &car\+\_\+navstack &&&gazebo &navigation\+\_\+stack &qlearning, evolutionary  \\\cline{1-7}
+{\ttfamily debug} &Boolean value whether Gazebo should run in debug mode. Defaults to false. &✗ &✗ &✓ &✓ &✗  \\\cline{1-7}
+{\ttfamily emergency\+\_\+stop} &Boolean value whether the emergency stop should be active. Defaults to true. &✗ &✗ &✓ &✗ &✗  \\\cline{1-7}
+{\ttfamily gui} &Boolean value whether Gazebo should show a user interface. Defaults to true. &✗ &✗ &✓ &✓ &✓  \\\cline{1-7}
+{\ttfamily joystick\+\_\+type} &The type of joystick controller. Possible values\+: {\ttfamily ps3}, {\ttfamily xbox360} and {\ttfamily xboxone} &✓ &✓ &✓ &✓ &✗  \\\cline{1-7}
+{\ttfamily map} &Name of the map to be used by the particle filter. Defaults to a prerecorded map of {\ttfamily racetrack\+\_\+decorated\+\_\+2}. &✗ &✓$<$br$>$(no default) &✗ &✓ &✗  \\\cline{1-7}
+{\ttfamily paused} &Boolean value whether Gazebo should start paused. Defaults to false. &✗ &✗ &✓ &✓ &✗  \\\cline{1-7}
+{\ttfamily pf\+\_\+angle\+\_\+step} &Angle step of the particle filter. Defaults to 18. &✗ &✓ &✗ &✓ &✗  \\\cline{1-7}
+{\ttfamily pf\+\_\+max\+\_\+particles} &Maximum amount of particles to be used by the particle filter. Defaults to 500. &✗ &✓ &✗ &✓ &✗  \\\cline{1-7}
+{\ttfamily pf\+\_\+squash\+\_\+factor} &Squash factor of the particle filter. Defaults to 2.\+2. &✗ &✓ &✗ &✓ &✗  \\\cline{1-7}
+{\ttfamily plot\+\_\+window} &Integer value indicating the amount of episodes that should be plotted. Defaults to 200. &✗ &✗ &✗ &✗ &✓ / ✗  \\\cline{1-7}
+{\ttfamily realtime\+\_\+simulation} &Boolean value whether Gazebo should try to simulate with a real time factor of 1. If false, Gazebo tries to simulate as fast as possible. Defaults to true. &✗ &✗ &✗ &✗ &✓  \\\cline{1-7}
+{\ttfamily use\+\_\+gpu} &Boolean value whether Gazebo should use the G\+PU when simulating the lidar. Defaults to true. &✗ &✗ &✓ &✓ &✓  \\\cline{1-7}
+{\ttfamily use\+\_\+sim\+\_\+time} &Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true. &✗ &✗ &✓ &✓ &✗  \\\cline{1-7}
+{\ttfamily verbose} &Boolean value whether Gazebo should give verbose standard output. Defaults to true. &✗ &✗ &✓ &✓ &✗  \\\cline{1-7}
+{\ttfamily visualize\+\_\+lidar} &Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false. &✗ &✗ &✓ &✓ &✗  \\\cline{1-7}
+{\ttfamily world} &The name of the racetrack. Possible values\+: {\ttfamily racetrack\+\_\+decorated}, {\ttfamily racetrack\+\_\+decorated\+\_\+2} (default) and {\ttfamily racetrack\+\_\+decorated\+\_\+2\+\_\+big} &✗ &✗ &✓ &✓ &✓  \\\cline{1-7}
 \end{longtabu}
 
 
