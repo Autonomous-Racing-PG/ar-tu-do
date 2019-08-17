@@ -77,11 +77,12 @@ source devel/setup.bash # (or setup.zsh, depending on your shell)
 Use a launch file to start ROS and Gazebo:
 
 ```bash
-roslaunch launch/car.launch # (Physical car, Wallfollowing)
-roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)
-roslaunch launch/navigation_stack.launch # (Simulation, SLAM & ROS navigation)
-roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)
-roslaunch launch/evolutionary.launch # (Simulation, Train the evolutionary neural network)
+roslaunch launch/car.launch                   # (Physical car, Wallfollowing)
+roslaunch launch/car_navigation_stack.launch  # (Physical car, SLAM & ROS navigation)
+roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)
+roslaunch launch/navigation_stack.launch      # (Simulation, SLAM & ROS navigation)
+roslaunch launch/qlearning.launch             # (Simulation, Train the Q-Learning model)
+roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)
 ```
 
 ### Launch file arguments
