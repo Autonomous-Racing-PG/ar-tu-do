@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <arg name="joystick_type" default="ps3"/>
+    <arg name="pf_angle_step" default="18"/>
+    <arg name="pf_max_particles" default="500"/>
+    <arg name="pf_squash_factor" default="2.2"/>
+    <arg name="map"/>
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racer_description)/urdf/racer.xacro'"/>
     <param name="publish_tf" value="true"/>
