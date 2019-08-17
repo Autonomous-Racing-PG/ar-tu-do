@@ -77,11 +77,12 @@ source devel/setup.bash # (or setup.zsh, depending on your shell)
 Use a launch file to start ROS and Gazebo:
 
 ```bash
-roslaunch launch/car.launch # (Physical car, Wallfollowing)
-roslaunch launch/gazebo.launch # (Simulation, Wallfollowing)
-roslaunch launch/navigation_stack.launch # (Simulation, SLAM & ROS navigation)
-roslaunch launch/qlearning.launch # (Simulation, Train the Q-Learning model)
-roslaunch launch/evolutionary.launch # (Simulation, Train the evolutionary neural network)
+roslaunch launch/car.launch                   # (Physical car, Wallfollowing)
+roslaunch launch/car_navigation_stack.launch  # (Physical car, SLAM & ROS navigation)
+roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)
+roslaunch launch/navigation_stack.launch      # (Simulation, SLAM & ROS navigation)
+roslaunch launch/qlearning.launch             # (Simulation, Train the Q-Learning model)
+roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)
 ```
 
 ### Launch file arguments
@@ -96,10 +97,11 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <th rowspan="2">Argument</th>
     <th rowspan="2">Description</th>
-    <th colspan="4">Supported by <code>launch/&lt;file&gt;.launch</code></th>
+    <th colspan="5">Supported by <code>launch/&lt;file&gt;.launch</code></th>
   </tr>
   <tr>
     <td>car</td>
+    <td>car_navstack</td>
     <td>gazebo</td>
     <td>navigation_stack</td>
     <td>qlearning, evolutionary</td>
@@ -107,6 +109,7 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <td><code>debug</code></td>
     <td>Boolean value whether Gazebo should run in debug mode. Defaults to false.</td>
+    <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
@@ -116,6 +119,7 @@ The arguments can be changed permanently by editing the launch files.
     <td><code>emergency_stop</code></td>
     <td>Boolean value whether the emergency stop should be active. Defaults to true.</td>
     <td>✗</td>
+    <td>✗</td>
     <td>✓</td>
     <td>✗</td>
     <td>✗</td>
@@ -123,6 +127,7 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <td><code>gui</code></td>
     <td>Boolean value whether Gazebo should show a user interface. Defaults to true.</td>
+    <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
@@ -134,12 +139,14 @@ The arguments can be changed permanently by editing the launch files.
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
+    <td>✓</td>
     <td>✗</td>
   </tr>
   <tr>
     <td><code>map</code></td>
     <td>Name of the map to be used by the particle filter. Defaults to a prerecorded map of <code>racetrack_decorated_2</code>.</td>
     <td>✗</td>
+    <td>✓<br>(no default)</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
@@ -147,6 +154,7 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <td><code>paused</code></td>
     <td>Boolean value whether Gazebo should start paused. Defaults to false.</td>
+    <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
@@ -156,6 +164,7 @@ The arguments can be changed permanently by editing the launch files.
     <td><code>pf_angle_step</code></td>
     <td>Angle step of the particle filter. Defaults to 18.</td>
     <td>✗</td>
+    <td>✓</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
@@ -164,6 +173,7 @@ The arguments can be changed permanently by editing the launch files.
     <td><code>pf_max_particles</code></td>
     <td>Maximum amount of particles to be used by the particle filter. Defaults to 500.</td>
     <td>✗</td>
+    <td>✓</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
@@ -172,6 +182,7 @@ The arguments can be changed permanently by editing the launch files.
     <td><code>pf_squash_factor</code></td>
     <td>Squash factor of the particle filter. Defaults to 2.2.</td>
     <td>✗</td>
+    <td>✓</td>
     <td>✗</td>
     <td>✓</td>
     <td>✗</td>
@@ -179,6 +190,7 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <td><code>plot_window</code></td>
     <td>Integer value indicating the amount of episodes that should be plotted. Defaults to 200.</td>
+    <td>✗</td>
     <td>✗</td>
     <td>✗</td>
     <td>✗</td>
@@ -190,11 +202,13 @@ The arguments can be changed permanently by editing the launch files.
     <td>✗</td>
     <td>✗</td>
     <td>✗</td>
+    <td>✗</td>
     <td>✓</td>
   </tr>
   <tr>
     <td><code>use_gpu</code></td>
     <td>Boolean value whether Gazebo should use the GPU when simulating the lidar. Defaults to true.</td>
+    <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
@@ -204,6 +218,7 @@ The arguments can be changed permanently by editing the launch files.
     <td><code>use_sim_time</code></td>
     <td>Boolean value whether all ros nodes should use simulated Gazebo time instead of wall clock time. Defaults to true.</td>
     <td>✗</td>
+    <td>✗</td>
     <td>✓</td>
     <td>✓</td>
     <td>✗</td>
@@ -211,6 +226,7 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <td><code>verbose</code></td>
     <td>Boolean value whether Gazebo should give verbose standard output. Defaults to true.</td>
+    <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
@@ -220,6 +236,7 @@ The arguments can be changed permanently by editing the launch files.
     <td><code>visualize_lidar</code></td>
     <td>Boolean value whether Gazebo should show the simulated lidar rays. Defaults to false.</td>
     <td>✗</td>
+    <td>✗</td>
     <td>✓</td>
     <td>✓</td>
     <td>✗</td>
@@ -227,6 +244,7 @@ The arguments can be changed permanently by editing the launch files.
   <tr>
     <td><code>world</code></td>
     <td>The name of the racetrack. Possible values: <code>racetrack_decorated</code>, <code>racetrack_decorated_2</code> (default) and <code>racetrack_decorated_2_big</code></td>
+    <td>✗</td>
     <td>✗</td>
     <td>✓</td>
     <td>✓</td>
