@@ -53,7 +53,6 @@ class TrainingNode(ReinforcementLearningNode):
         self.drive_forward = None
         self.steps_with_wrong_orientation = 0
 
-        self.real_time_factor = 0
         self.episode_start_time_real = time.time()
         self.episode_start_time_sim = rospy.Time.now().to_sec()
 
@@ -77,12 +76,18 @@ class TrainingNode(ReinforcementLearningNode):
         average_cumulative_reward = sum(
             self.cumulative_reward_history) / len(self.cumulative_reward_history)
 
-        return "Episode " + str(self.episode_count) + ": " \
+        result = "Episode " + str(self.episode_count) + ": " \
             + str(self.episode_length).rjust(3) + " steps (" + str(int(average_episode_length)).rjust(3) + " avg), " \
             + "return: " + "{0:.1f}".format(self.cumulative_reward).rjust(5) \
-            + " (" + "{0:.1f}".format(average_cumulative_reward).rjust(5) + " avg), " \
-            + "time: {0:.1f}x, ".format(self.real_time_factor) \
-            + "laser: {0:.1f} Hz".format(float(self.episode_length) / (rospy.Time.now().to_sec() - self.episode_start_time_sim))
+            + " (" + "{0:.1f}".format(average_cumulative_reward).rjust(5) + " avg)"
+
+        episode_duration_real = time.time() - self.episode_start_time_real
+        episode_duration_sim = rospy.Time.now().to_sec() - self.episode_start_time_sim
+        if episode_duration_real != 0:
+            result += ", time: {0:.1f}x".format(episode_duration_sim / episode_duration_real)  # nopep8
+        if episode_duration_sim != 0:
+            result += ", laser: {0:.1f} Hz".format(float(self.episode_length) / episode_duration_sim)  # nopep8
+        return result
 
     def on_complete_episode(self):
         self.episode_length_history.append(self.episode_length)
@@ -91,12 +96,9 @@ class TrainingNode(ReinforcementLearningNode):
             reward=self.cumulative_reward, length=int(
                 self.episode_length))
 
-        real_time = time.time()
-        sim_time = rospy.Time.now().to_sec()
-        self.real_time_factor = (sim_time - self.episode_start_time_sim) / (real_time - self.episode_start_time_real)  # nopep8
         rospy.loginfo(self.get_episode_summary())
-        self.episode_start_time_real = real_time
-        self.episode_start_time_sim = sim_time
+        self.episode_start_time_real = time.time()
+        self.episode_start_time_sim = rospy.Time.now().to_sec()
 
         self.episode_count += 1
         self.episode_length = 0
