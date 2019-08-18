@@ -52,7 +52,7 @@ class PolicyGradientTrainingNode(TrainingNode):
             rewards = (rewards - rewards.mean()) / (rewards.std() + FLOAT_EPS)
 
         # Calculate loss
-        loss = torch.sum(self.policy_history[:self.episode_length] * rewards) * -1  # nopep8
+        loss = torch.sum(self.policy_history[:len(rewards)] * rewards) * -1
 
         # Update network weights
         if loss != 0:
