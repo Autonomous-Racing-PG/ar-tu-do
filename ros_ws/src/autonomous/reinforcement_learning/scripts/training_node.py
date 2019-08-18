@@ -107,13 +107,13 @@ class TrainingNode(ReinforcementLearningNode):
             rospy.loginfo("Model parameters saved.")
 
     def on_receive_laser_scan(self, message):
-        state = self.convert_laser_message_to_tensor(message)
+        new_state = self.convert_laser_message_to_tensor(message)
 
         if self.state is not None:
             self.check_car_orientation()
             reward = self.get_reward()
             self.cumulative_reward += reward
-            self.on_complete_step(self.state, self.action, reward, state)
+            self.on_complete_step(self.state, self.action, reward, new_state)
 
         if self.is_terminal_step or self.episode_length >= self.max_episode_length:
             self.drive_forward = random.random() > 0.5
@@ -126,8 +126,8 @@ class TrainingNode(ReinforcementLearningNode):
             if self.episode_length != 0:
                 self.on_complete_episode()
         else:
-            self.state = state
-            self.action = self.select_action(state)
+            self.state = new_state
+            self.action = self.select_action(new_state)
             self.perform_action(self.action)
             self.episode_length += 1
             self.total_step_count += 1
