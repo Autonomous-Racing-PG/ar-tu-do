@@ -155,13 +155,13 @@ def follow_walls(left_circle, right_circle, barrier, delta_time):
 
 
 def handle_scan(laser_scan, delta_time):
+    if parameters is None:
+        return
+
     points = get_scan_as_cartesian(laser_scan)
 
     if points.shape[0] == 0:
         rospy.logwarn("Skipping current laser scan message since it contains no finite values.")  # nopep8
-        return
-
-    if parameters is None:
         return
 
     split = find_left_right_border(points)
