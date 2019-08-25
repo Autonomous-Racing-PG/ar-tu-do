@@ -4,25 +4,27 @@
 #include <boost/algorithm/clamp.hpp>
 
 CarController::CarController()
-    : m_motor_unlocked{ false }
+    : m_drive_param_lock{ true }
+    , m_emergency_stop_lock{ true }
 {
     this->m_drive_parameters_subscriber =
         this->m_node_handle.subscribe<drive_msgs::drive_param>(TOPIC_DRIVE_PARAM, 1,
                                                                &CarController::driveParametersCallback, this);
     this->m_drive_mode_subscriber =
         this->m_node_handle.subscribe<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1, &CarController::driveModeCallback, this);
+    this->m_emergency_stop_subscriber =
+        this->m_node_handle.subscribe<std_msgs::Bool>(TOPIC_EMERGENCY_STOP, 1, &CarController::emergencyStopCallback,
+                                                      this);
 
-    this->m_speed_pulisher = this->m_node_handle.advertise<std_msgs::Float64>(TOPIC_FOCBOX_SPEED, 1);
+    this->m_speed_publisher = this->m_node_handle.advertise<std_msgs::Float64>(TOPIC_FOCBOX_SPEED, 1);
     this->m_angle_publisher = this->m_node_handle.advertise<std_msgs::Float64>(TOPIC_FOCBOX_ANGLE, 1);
     this->m_brake_publisher = this->m_node_handle.advertise<std_msgs::Float64>(TOPIC_FOCBOX_BRAKE, 1);
 }
 
 void CarController::driveParametersCallback(const drive_msgs::drive_param::ConstPtr& parameters)
 {
-    if (this->m_motor_unlocked)
-    {
-        this->publishDriveParameters(parameters->velocity, parameters->angle);
-    }
+    this->publishDriveParameters((m_drive_param_lock || m_emergency_stop_lock) ? 0 : parameters->velocity,
+                                 m_drive_param_lock ? 0 : parameters->angle);
 }
 
 void CarController::publishDriveParameters(double relative_speed, double relative_angle)
@@ -30,33 +32,46 @@ void CarController::publishDriveParameters(double relative_speed, double relativ
     double speed = relative_speed * car_config::MAX_RPM_ELECTRICAL;
     double angle = (relative_angle * car_config::MAX_SERVO_POSITION + car_config::MAX_SERVO_POSITION) / 2;
 
-    std_msgs::Float64 speed_message;
-    speed_message.data = speed;
-    this->m_speed_pulisher.publish(speed_message);
-
-    std_msgs::Float64 angle_message;
-    angle_message.data = angle;
-    this->m_angle_publisher.publish(angle_message);
+    this->publishSpeed(speed);
+    this->publishAngle(angle);
 
     ROS_DEBUG_STREAM("running: "
                      << " | speed: " << speed << " | angle: " << angle);
 }
 
+void CarController::publishSpeed(double speed)
+{
+    std_msgs::Float64 speed_message;
+    speed_message.data = speed;
+    this->m_speed_publisher.publish(speed_message);
+}
+
+void CarController::publishAngle(double angle)
+{
+    std_msgs::Float64 angle_message;
+    angle_message.data = angle;
+    this->m_angle_publisher.publish(angle_message);
+}
+
 void CarController::driveModeCallback(const std_msgs::Int32::ConstPtr& drive_mode_message)
 {
-    DriveMode mode = (DriveMode)drive_mode_message->data;
-    ROS_ASSERT_MSG(mode == DriveMode::LOCKED || mode == DriveMode::MANUAL || mode == DriveMode::AUTONOMOUS,
-                   "Unknown drive mode.");
-    if (this->m_motor_unlocked && mode == DriveMode::LOCKED)
-    {
+    this->m_current_drive_mode = (DriveMode)drive_mode_message->data;
+    this->m_drive_param_lock = this->m_current_drive_mode == DriveMode::LOCKED;
+    if (this->m_drive_param_lock)
         this->stop();
-    }
-    this->m_motor_unlocked = mode != DriveMode::LOCKED;
+}
+
+void CarController::emergencyStopCallback(const std_msgs::Bool::ConstPtr& emergency_stop_message)
+{
+    bool enable_emergency_stop = emergency_stop_message->data && this->m_current_drive_mode != DriveMode::MANUAL;
+    this->m_emergency_stop_lock = enable_emergency_stop;
+    if (this->m_emergency_stop_lock)
+        this->stop();
 }
 
 void CarController::stop()
 {
-    this->publishDriveParameters(0, 0);
+    this->publishSpeed(0);
 
     std_msgs::Float64 brake_message;
     brake_message.data = 0;

@@ -3,6 +3,7 @@
 #include "drive_mode.h"
 #include <ros/ros.h>
 
+#include <std_msgs/Bool.h>
 #include <std_msgs/Int32.h>
 #include <std_msgs/Time.h>
 
@@ -15,6 +16,7 @@ constexpr const char* TOPIC_HEARTBEAT_MANUAL = "/input/heartbeat_manual";
 constexpr const char* TOPIC_HEARTBEAT_AUTONOMOUS = "/input/heartbeat_autonomous";
 constexpr const char* TOPIC_EMERGENCYSTOP = "/input/emergencystop";
 constexpr const char* TOPIC_DRIVE_MODE = "/commands/drive_mode";
+constexpr const char* TOPIC_COMMAND_EMERGENCYSTOP = "/commands/emergency_stop";
 
 constexpr DriveMode NO_OVERRIDE = DriveMode::LOCKED;
 
@@ -51,12 +53,15 @@ class DMSController
     ros::Subscriber m_heartbeat_autonomous_subscriber;
     ros::Subscriber m_emergencystop_subscriber;
     ros::Publisher m_drive_mode_publisher;
+    ros::Publisher m_command_emergencystop_publisher;
 
     void configureParameters();
     void publishDriveMode();
+    void publishCommandEmergencyStop();
 
     void heartbeatManualCallback(const std_msgs::Time::ConstPtr& message);
     void heartbeatAutonomousCallback(const std_msgs::Time::ConstPtr& message);
     void emergencystopCallback(const std_msgs::Time::ConstPtr& message);
     DriveMode getDriveMode();
+    bool getEmergencyStop();
 };
