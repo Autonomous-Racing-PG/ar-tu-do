@@ -33,8 +33,8 @@ class CarController
     ros::Publisher m_angle_publisher;
     ros::Publisher m_brake_publisher;
 
-    bool m_emergency_stop_lock;
     bool m_drive_param_lock;
+    bool m_emergency_stop_lock;
     DriveMode m_current_drive_mode;
 
     /**
