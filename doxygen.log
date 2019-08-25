@@ -1410,5 +1410,5 @@ Patching output file 178/181
 Patching output file 179/181
 Patching output file 180/181
 Patching output file 181/181
-lookup cache used 1311/65536 hits=5053 misses=1327
+lookup cache used 1325/65536 hits=5159 misses=1341
 finished...

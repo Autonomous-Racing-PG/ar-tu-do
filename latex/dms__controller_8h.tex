@@ -2,6 +2,7 @@
 \label{dms__controller_8h}\index{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ar-\/tu-\/do/docs/master/ros\+\_\+ws/src/car\+\_\+control/include/dms\+\_\+controller.\+h@{/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ar-\/tu-\/do/docs/master/ros\+\_\+ws/src/car\+\_\+control/include/dms\+\_\+controller.\+h}}
 {\ttfamily \#include \char`\"{}drive\+\_\+mode.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$std\+\_\+msgs/\+Bool.\+h$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+Int32.\+h$>$}\\*
 {\ttfamily \#include $<$std\+\_\+msgs/\+Time.\+h$>$}\\*
 Include dependency graph for dms\+\_\+controller.\+h\+:
@@ -44,6 +45,8 @@ constexpr const char $\ast$ \hyperlink{dms__controller_8h_ae1984ee7f2a753879b8df
 \item 
 constexpr const char $\ast$ \hyperlink{dms__controller_8h_a2fb4491f9a2dfe8baac21fd8a728ac30}{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE} = \char`\"{}/commands/drive\+\_\+mode\char`\"{}
 \item 
+constexpr const char $\ast$ \hyperlink{dms__controller_8h_ae374415bd1fab4c171ac84c713472781}{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP} = \char`\"{}/commands/emergency\+\_\+stop\char`\"{}
+\item 
 constexpr \hyperlink{drive__mode_8h_a4430ce18ab45f139e6843ac0811fda83}{Drive\+Mode} \hyperlink{dms__controller_8h_a3a735101c1e4015e392138629110e821}{N\+O\+\_\+\+O\+V\+E\+R\+R\+I\+DE} = \hyperlink{drive__mode_8h_a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203}{Drive\+Mode\+::\+L\+O\+C\+K\+ED}
 \end{DoxyCompactItemize}
 
@@ -54,61 +57,68 @@ constexpr \hyperlink{drive__mode_8h_a4430ce18ab45f139e6843ac0811fda83}{Drive\+Mo
 \subsubsection[{\texorpdfstring{N\+O\+\_\+\+O\+V\+E\+R\+R\+I\+DE}{NO_OVERRIDE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr {\bf Drive\+Mode} N\+O\+\_\+\+O\+V\+E\+R\+R\+I\+DE = {\bf Drive\+Mode\+::\+L\+O\+C\+K\+ED}}\hypertarget{dms__controller_8h_a3a735101c1e4015e392138629110e821}{}\label{dms__controller_8h_a3a735101c1e4015e392138629110e821}
 
 
-Definition at line 19 of file dms\+\_\+controller.\+h.
+Definition at line 21 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE}}
 \index{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE}{PARAMETER_DMS_CHECK_RATE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+A\+TE = \char`\"{}dms\+\_\+check\+\_\+rate\char`\"{}}\hypertarget{dms__controller_8h_a3b6ebf94ee59ba27ab11c7425a2e8bf0}{}\label{dms__controller_8h_a3b6ebf94ee59ba27ab11c7425a2e8bf0}
 
 
-Definition at line 9 of file dms\+\_\+controller.\+h.
+Definition at line 10 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}}
 \index{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}{PARAMETER_DMS_EXPIRATION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+D\+M\+S\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON = \char`\"{}dms\+\_\+expiration\char`\"{}}\hypertarget{dms__controller_8h_a06afb2972e04d22f02daa1e8587b3874}{}\label{dms__controller_8h_a06afb2972e04d22f02daa1e8587b3874}
 
 
-Definition at line 10 of file dms\+\_\+controller.\+h.
+Definition at line 11 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+O\+P\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+O\+P\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}}
 \index{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+O\+P\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+O\+P\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+O\+P\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON}{PARAMETER_EMERGENCYSTOP_EXPIRATION}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+O\+P\+\_\+\+E\+X\+P\+I\+R\+A\+T\+I\+ON = \char`\"{}emergencystop\+\_\+expiration\char`\"{}}\hypertarget{dms__controller_8h_a185152363dc6bd1ce74946a3d0bbefe0}{}\label{dms__controller_8h_a185152363dc6bd1ce74946a3d0bbefe0}
 
 
-Definition at line 11 of file dms\+\_\+controller.\+h.
+Definition at line 12 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+O\+V\+E\+R\+R\+I\+DE@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+O\+V\+E\+R\+R\+I\+DE}}
 \index{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+O\+V\+E\+R\+R\+I\+DE@{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+O\+V\+E\+R\+R\+I\+DE}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+O\+V\+E\+R\+R\+I\+DE}{PARAMETER_MODE_OVERRIDE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+O\+V\+E\+R\+R\+I\+DE = \char`\"{}mode\+\_\+override\char`\"{}}\hypertarget{dms__controller_8h_a8bb9a8af0fb69fd2634716c05ea43ce9}{}\label{dms__controller_8h_a8bb9a8af0fb69fd2634716c05ea43ce9}
 
 
-Definition at line 12 of file dms\+\_\+controller.\+h.
+Definition at line 13 of file dms\+\_\+controller.\+h.
+
+\index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP@{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP}}
+\index{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP@{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
+\subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP}{TOPIC_COMMAND_EMERGENCYSTOP}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP = \char`\"{}/commands/emergency\+\_\+stop\char`\"{}}\hypertarget{dms__controller_8h_ae374415bd1fab4c171ac84c713472781}{}\label{dms__controller_8h_ae374415bd1fab4c171ac84c713472781}
+
+
+Definition at line 19 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE}}
 \index{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE@{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE}{TOPIC_DRIVE_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+D\+R\+I\+V\+E\+\_\+\+M\+O\+DE = \char`\"{}/commands/drive\+\_\+mode\char`\"{}}\hypertarget{dms__controller_8h_a2fb4491f9a2dfe8baac21fd8a728ac30}{}\label{dms__controller_8h_a2fb4491f9a2dfe8baac21fd8a728ac30}
 
 
-Definition at line 17 of file dms\+\_\+controller.\+h.
+Definition at line 18 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP@{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP}}
 \index{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP@{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP}{TOPIC_EMERGENCYSTOP}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+S\+T\+OP = \char`\"{}/input/emergencystop\char`\"{}}\hypertarget{dms__controller_8h_ae1984ee7f2a753879b8df06edc8d777b}{}\label{dms__controller_8h_ae1984ee7f2a753879b8df06edc8d777b}
 
 
-Definition at line 16 of file dms\+\_\+controller.\+h.
+Definition at line 17 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US}}
 \index{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US}{TOPIC_HEARTBEAT_AUTONOMOUS}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+A\+U\+T\+O\+N\+O\+M\+O\+US = \char`\"{}/input/heartbeat\+\_\+autonomous\char`\"{}}\hypertarget{dms__controller_8h_a1d805453ad0a894550dab891e5dbe44e}{}\label{dms__controller_8h_a1d805453ad0a894550dab891e5dbe44e}
 
 
-Definition at line 15 of file dms\+\_\+controller.\+h.
+Definition at line 16 of file dms\+\_\+controller.\+h.
 
 \index{dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}!T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL}}
 \index{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL@{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL}!dms\+\_\+controller.\+h@{dms\+\_\+controller.\+h}}
 \subsubsection[{\texorpdfstring{T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL}{TOPIC_HEARTBEAT_MANUAL}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ T\+O\+P\+I\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+M\+A\+N\+U\+AL = \char`\"{}/input/heartbeat\+\_\+manual\char`\"{}}\hypertarget{dms__controller_8h_a3750c1de56b20886f8932d6005c2b231}{}\label{dms__controller_8h_a3750c1de56b20886f8932d6005c2b231}
 
 
-Definition at line 14 of file dms\+\_\+controller.\+h.
+Definition at line 15 of file dms\+\_\+controller.\+h.
 

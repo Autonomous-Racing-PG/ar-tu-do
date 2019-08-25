@@ -31,10 +31,11 @@ var NAVTREEINDEX0 =
 "car__controller_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[5,0,0,0,0,1,1,0,0],
 "car__controller_8cpp_source.html":[5,0,0,0,0,1,1,0],
 "car__controller_8h.html":[5,0,0,0,0,1,0,0],
+"car__controller_8h.html#a1f6b8d64fcb3748f9c9284f063015c77":[5,0,0,0,0,1,0,0,3],
 "car__controller_8h.html#a2fb4491f9a2dfe8baac21fd8a728ac30":[5,0,0,0,0,1,0,0,1],
-"car__controller_8h.html#a43c2621ae66c8cc9428026d680ed4fcb":[5,0,0,0,0,1,0,0,4],
-"car__controller_8h.html#a913c683c9209599c259aaebae91b557e":[5,0,0,0,0,1,0,0,5],
-"car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7":[5,0,0,0,0,1,0,0,3],
+"car__controller_8h.html#a43c2621ae66c8cc9428026d680ed4fcb":[5,0,0,0,0,1,0,0,5],
+"car__controller_8h.html#a913c683c9209599c259aaebae91b557e":[5,0,0,0,0,1,0,0,6],
+"car__controller_8h.html#a9fac7fea1c94a1d065ccd5b845ab45f7":[5,0,0,0,0,1,0,0,4],
 "car__controller_8h.html#ae2bdb9527cf2548c238295d766dcff5a":[5,0,0,0,0,1,0,0,2],
 "car__controller_8h_source.html":[5,0,0,0,0,1,0,0],
 "car__tf_2src_2main_8cpp.html":[5,0,0,0,0,2,1,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classtrain_1_1_q_learning_training_node.html#a5837c478232e1d4cc646bfbadbdd2ff2":[4,0,7,0,25],
 "classtrain_1_1_q_learning_training_node.html#a5bef341c2aa0b019a190efb961701cdc":[4,0,7,0,17],
 "classtrain_1_1_q_learning_training_node.html#a659667f05d48676284265ee0e445e96e":[4,0,7,0,5],
-"classtrain_1_1_q_learning_training_node.html#a6e860eb510dc030f536d26c2a3fcc33c":[4,0,7,0,29],
-"classtrain_1_1_q_learning_training_node.html#a7263bf517e3d306b383f5d30bf02e8c8":[4,0,7,0,4]
+"classtrain_1_1_q_learning_training_node.html#a6e860eb510dc030f536d26c2a3fcc33c":[4,0,7,0,29]
 };
