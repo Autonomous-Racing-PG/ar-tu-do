@@ -64,7 +64,8 @@ bool DMSController::getEmergencyStop()
 {
     auto current_time = ros::Time::now();
     return (!this->m_last_emergencystop.is_zero() &&
-            this->m_last_emergencystop + this->m_emergencystop_expiration_time > current_time);
+            this->m_last_emergencystop + this->m_emergencystop_expiration_time > current_time &&
+            this->m_last_emergencystop < current_time);
 }
 
 void DMSController::publishCommandEmergencyStop()
