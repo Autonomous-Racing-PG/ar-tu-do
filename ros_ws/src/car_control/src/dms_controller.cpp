@@ -12,6 +12,8 @@ DMSController::DMSController()
         this->m_node_handle.subscribe<std_msgs::Time>(TOPIC_EMERGENCYSTOP, 1, &DMSController::emergencystopCallback,
                                                       this);
     this->m_drive_mode_publisher = this->m_node_handle.advertise<std_msgs::Int32>(TOPIC_DRIVE_MODE, 1);
+    this->m_command_emergencystop_publisher =
+        this->m_node_handle.advertise<std_msgs::Bool>(TOPIC_COMMAND_EMERGENCYSTOP, 1);
     this->configureParameters();
     this->m_last_heartbeat_manual = ros::Time();
     this->m_last_heartbeat_autonomous = ros::Time();
@@ -24,6 +26,7 @@ void DMSController::spin()
     while (ros::ok())
     {
         this->publishDriveMode();
+        this->publishCommandEmergencyStop();
         ros::spinOnce();
         loop.sleep();
     }
@@ -42,12 +45,6 @@ DriveMode DMSController::getDriveMode()
     {
         return DriveMode::MANUAL;
     }
-    if (!this->m_last_emergencystop.is_zero() &&
-        this->m_last_emergencystop + this->m_emergencystop_expiration_time > current_time &&
-        this->m_last_emergencystop < current_time)
-    {
-        return DriveMode::LOCKED;
-    }
     if (this->m_last_heartbeat_autonomous + this->m_expiration_time > current_time &&
         this->m_last_heartbeat_autonomous < current_time)
     {
@@ -61,6 +58,21 @@ void DMSController::publishDriveMode()
     std_msgs::Int32 drive_mode_message;
     drive_mode_message.data = (int)this->getDriveMode();
     this->m_drive_mode_publisher.publish(drive_mode_message);
+}
+
+bool DMSController::getEmergencyStop()
+{
+    auto current_time = ros::Time::now();
+    return (!this->m_last_emergencystop.is_zero() &&
+            this->m_last_emergencystop + this->m_emergencystop_expiration_time > current_time &&
+            this->m_last_emergencystop < current_time);
+}
+
+void DMSController::publishCommandEmergencyStop()
+{
+    std_msgs::Bool emergency_stop_message;
+    emergency_stop_message.data = this->getEmergencyStop();
+    this->m_command_emergencystop_publisher.publish(emergency_stop_message);
 }
 
 void DMSController::heartbeatManualCallback(const std_msgs::Time::ConstPtr& message)
