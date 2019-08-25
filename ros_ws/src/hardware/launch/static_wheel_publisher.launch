@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="static_left_steering" args="0 0 0 0 0 0 1 base_link left_steering 100" />
+    <node pkg="tf" type="static_transform_publisher" name="static_right_steering" args="0 0 0 0 0 0 1 base_link right_steering 100" />
+    <node pkg="tf" type="static_transform_publisher" name="static_left_wheel_back" args="-0.165 0.09 0.05 0 0 0 1 base_link left_wheel_back 100" />
+    <node pkg="tf" type="static_transform_publisher" name="static_left_wheel_front" args="0.165 0.09 0.05 0 0 0 1 base_link left_wheel_front 100" />
+    <node pkg="tf" type="static_transform_publisher" name="static_right_wheel_back" args="-0.165 -0.09 0.05 0 0 0 1 base_link right_wheel_back 100" />
+    <node pkg="tf" type="static_transform_publisher" name="static_right_wheel_front" args="0.165 -0.09 0.05 0 0 0 1 base_link right_wheel_front 100" />
+</launch>

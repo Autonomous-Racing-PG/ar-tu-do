@@ -35,6 +35,8 @@
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
+    <include file="$(find hardware)/launch/static_wheel_publisher.launch"/>
+
     <node name="rviz_car" pkg="rviz" type="rviz" args="-d $(find car_control)/launch/car.rviz"/>
     <node name="rviz_nav" pkg="rviz" type="rviz" args="-d $(find navigation_stack_config)/launch/navigation_stack.rviz"/>
 
