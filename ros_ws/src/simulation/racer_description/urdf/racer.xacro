@@ -3,7 +3,11 @@
 <robot name="myrobot" 
   xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find racer_description)/urdf/racer_plugins.gazebo" />
+  <xacro:arg name="simulation" default="false"/>
+
+  <xacro:if value="$(arg simulation)">
+    <xacro:include filename="$(find racer_description)/urdf/racer_plugins.gazebo" />
+  </xacro:if>
   <xacro:include filename="$(find racer_description)/urdf/racer_macros.xacro" />
 
   <xacro:property name="cameraSizeL" value="0.03"/>
@@ -65,7 +69,7 @@
     </visual>
   </link>
 
-  <!--  Wheels  -->
+    <!--  Wheels  -->
   <wheel fb="front" lr="left" parent="left_steering" translateX="1" translateY="1" left="1" OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}" OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="0.02" />
 
   <wheel fb="front" lr="right" parent="right_steering" translateX="1" translateY="-1" left="0" OffsetJointX= "${base_x_sphere_origin_to_wheel_origin}" OffsetJointY= "${base_y_sphere_origin_to_wheel_origin}" OffsetJointZ= "${base_z_sphere_origin_to_wheel_origin}" OffsetY="-0.02" />
