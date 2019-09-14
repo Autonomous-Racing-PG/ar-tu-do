@@ -20,27 +20,6 @@ LASER_SAMPLE_COUNT = 8
 MODEL_FILENAME = os.path.join(RosPack().get_path(
     "reinforcement_learning"), "q_learning.to")
 
-
-class NeuralQEstimator(nn.Module):
-    def __init__(self):
-        super(NeuralQEstimator, self).__init__()
-        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 64)
-        self.fc2 = nn.Linear(64, 32)
-        self.fc3 = nn.Linear(32, ACTION_COUNT)
-
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        return self.fc3(x)
-
-    def load(self):
-        self.load_state_dict(torch.load(MODEL_FILENAME))
-        rospy.loginfo("Model parameters loaded.")
-
-    def save(self):
-        torch.save(self.state_dict(), MODEL_FILENAME)
-
-
 # Training parameters
 
 # Start by loading previously trained parameters.
@@ -62,3 +41,23 @@ LEARNING_RATE = 0.0001
 EPS_START = 1.0
 EPS_END = 0.3
 EPS_DECAY = 10000
+
+
+class NeuralQEstimator(nn.Module):
+    def __init__(self):
+        super(NeuralQEstimator, self).__init__()
+        self.fc1 = nn.Linear(LASER_SAMPLE_COUNT, 64)
+        self.fc2 = nn.Linear(64, 32)
+        self.fc3 = nn.Linear(32, ACTION_COUNT)
+
+    def forward(self, x):
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        return self.fc3(x)
+
+    def load(self):
+        self.load_state_dict(torch.load(MODEL_FILENAME))
+        rospy.loginfo("Model parameters loaded.")
+
+    def save(self):
+        torch.save(self.state_dict(), MODEL_FILENAME)

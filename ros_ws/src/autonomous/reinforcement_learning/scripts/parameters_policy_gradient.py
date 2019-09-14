@@ -18,6 +18,16 @@ LASER_SAMPLE_COUNT = 8
 MODEL_FILENAME = os.path.join(RosPack().get_path(
     "reinforcement_learning"), "policy_gradient.to")
 
+# Start by loading previously trained parameters.
+# If this is False, training will start from scratch
+CONTINUE = False
+
+DISCOUNT_FACTOR = 0.99  # aka gamma
+
+MAX_EPISODE_LENGTH = 5000
+
+LEARNING_RATE = 0.001
+
 
 class Policy(nn.Module):
     def __init__(self):
@@ -42,14 +52,3 @@ class Policy(nn.Module):
 
     def save(self):
         torch.save(self.state_dict(), MODEL_FILENAME)
-
-
-# Start by loading previously trained parameters.
-# If this is False, training will start from scratch
-CONTINUE = False
-
-DISCOUNT_FACTOR = 0.99  # aka gamma
-
-MAX_EPISODE_LENGTH = 5000
-
-LEARNING_RATE = 0.001

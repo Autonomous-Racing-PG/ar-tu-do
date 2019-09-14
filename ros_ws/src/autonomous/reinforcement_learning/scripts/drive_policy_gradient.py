@@ -8,7 +8,7 @@ import torch
 from torch.distributions import Categorical
 
 
-class QLearningDrivingNode(ReinforcementLearningNode):
+class PolicyGradientDrivingNode(ReinforcementLearningNode):
     ''' ROS node to drive the car using previously learned
     Policy Gradient weights
     '''
@@ -41,5 +41,5 @@ class QLearningDrivingNode(ReinforcementLearningNode):
 
 
 rospy.init_node('policy_gradient_driving', anonymous=True)
-node = QLearningDrivingNode()
+node = PolicyGradientDrivingNode()
 rospy.spin()

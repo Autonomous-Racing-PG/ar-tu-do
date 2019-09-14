@@ -3,7 +3,7 @@
   <arg name="world" default="racetrack_decorated"/>
   <arg name="use_gpu" default="true"/>
   <arg name="gui" default="true"/>
-  <arg name="realtime_simulation" default="false"/>
+  <arg name="realtime_simulation" default="true"/>
   <arg name="plot_window" default="200"/>
 
   <param name="world_name" value="$(arg world)"/>
