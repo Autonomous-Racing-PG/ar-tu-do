@@ -13,8 +13,10 @@
       <arg name="debug" value="false"/>
       <arg name="verbose" value="false"/>
       <arg name="use_gpu" value="$(arg use_gpu)"/>
-      <arg name="extra_gazebo_args" value="--profile qlearning" unless="$(arg realtime_simulation)"/>
-      <arg name="laser_sample_count" value="8"/>
+      <arg name="extra_gazebo_args" value="--profile fast_simulation" unless="$(arg realtime_simulation)"/>
+      <!-- Warning: Gazebo calculates inaccurate scans if the resolution is too small. The smaller the resolution, the 
+      greater the error becomes. Don't make the resolution too small, even if you only need a few samples. -->
+      <arg name="laser_sample_count" value="128"/>
   </include>
 
   <include file="$(find vesc_sim)/launch/vesc_sim.launch"/>

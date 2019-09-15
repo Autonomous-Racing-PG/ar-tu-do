@@ -10,7 +10,7 @@
         <physics type="ode" default="true">
             <!-- Default physics profile with no changes -->
         </physics>
-        <physics name="qlearning" type="ode" default="false">
+        <physics name="fast_simulation" type="ode" default="false">
             <real_time_update_rate>3000</real_time_update_rate>
         </physics>
 

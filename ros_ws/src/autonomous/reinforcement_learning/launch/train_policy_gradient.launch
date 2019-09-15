@@ -5,8 +5,8 @@
 
   <node
     pkg="reinforcement_learning"
-    type="policyGradient.py"
-    name="policyGradient_training"
+    type="train_policy_gradient.py"
+    name="policy_gradient_training"
     output="screen" >
   </node>
 
@@ -20,7 +20,7 @@
   <node
     pkg="reinforcement_learning"
     type="plotter.py"
-    name="reinforcement_learning_plotter"
+    name="policy_gradient_plotter"
     output="screen" >
     <param name="plot_window" value="$(arg plot_window)"/>
   </node>

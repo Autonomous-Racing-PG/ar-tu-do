@@ -4,8 +4,8 @@
     <node
       respawn="true"
       pkg="reinforcement_learning"
-      type="drive.py"
-      name="reinforcement_learning_driver"
+      type="drive_policy_gradient.py"
+      name="policy_gradient_driver"
       output="screen" >
     </node>
 </launch>
