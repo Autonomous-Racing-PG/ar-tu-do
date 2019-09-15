@@ -3,7 +3,8 @@
 <area shape="rect" id="node3" href="$namespacewallfollowing.html#aacb7060aae10ef40bdacceb57283943c" title="wallfollowing.get_scan\l_as_cartesian" alt="" coords="403,5,556,47"/>
 <area shape="rect" id="node4" href="$namespacewallfollowing.html#a85455c82dd12c297c8cbc3227c1ba598" title="wallfollowing.find\l_left_right_border" alt="" coords="418,71,541,112"/>
 <area shape="rect" id="node5" href="$namespacewallfollowing.html#ae4edc6135d6c1a9b38674119a96b3375" title="wallfollowing.follow\l_walls" alt="" coords="412,136,547,177"/>
-<area shape="rect" id="node8" href="$namespacerviz__geometry.html#a07a18d3bf4954414457db93c65b71c2e" title="rviz_geometry.show\l_circle_in_rviz" alt="" coords="410,201,549,243"/>
-<area shape="rect" id="node6" href="$namespacewallfollowing.html#a908b60b64e20dec7078e707a829b610d" title="wallfollowing.map" alt="" coords="611,143,736,170"/>
-<area shape="rect" id="node7" href="$namespacerviz__geometry.html#a93390c23bebf8db38c31f832225dddda" title="rviz_geometry.show\l_line_in_rviz" alt="" coords="604,197,743,239"/>
+<area shape="rect" id="node9" href="$namespacerviz__geometry.html#a07a18d3bf4954414457db93c65b71c2e" title="rviz_geometry.show\l_circle_in_rviz" alt="" coords="410,201,549,243"/>
+<area shape="rect" id="node6" href="$namespacewallfollowing.html#a908b60b64e20dec7078e707a829b610d" title="wallfollowing.map" alt="" coords="611,95,736,122"/>
+<area shape="rect" id="node7" href="$namespacewallfollowing.html#a66b98adda1f5c1ba1ed6c0029a5d27f6" title="wallfollowing.drive" alt="" coords="609,146,737,173"/>
+<area shape="rect" id="node8" href="$namespacerviz__geometry.html#a93390c23bebf8db38c31f832225dddda" title="rviz_geometry.show\l_line_in_rviz" alt="" coords="604,199,743,240"/>
 </map>

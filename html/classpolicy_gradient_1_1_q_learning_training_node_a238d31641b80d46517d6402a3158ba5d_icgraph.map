@@ -1,4 +1,0 @@
-<map id="policyGradient.QLearningTrainingNode.get_reward" name="policyGradient.QLearningTrainingNode.get_reward">
-<area shape="rect" id="node2" href="$classtrain_1_1_q_learning_training_node.html#a4cb5d38537fbb9171e46c85b60efc700" title="train.QLearningTrainingNode.on\l_receive_laser_scan" alt="" coords="221,5,427,47"/>
-<area shape="rect" id="node3" href="$classpolicy_gradient_1_1_q_learning_training_node.html#aa343056c30d72873a85c3b9d8d3ae6fd" title="policyGradient.QLearning\lTrainingNode.on_receive\l_laser_scan" alt="" coords="240,70,408,126"/>
-</map>

@@ -1,0 +1,160 @@
+\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node}{}\section{reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node Class Reference}
+\label{classreinforcement__learning__node_1_1_reinforcement_learning_node}\index{reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node}}
+
+
+Inheritance diagram for reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreinforcement__learning__node_1_1_reinforcement_learning_node__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_a7050f1b0b48c18cd34c19b72d2168882}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_acb5060eaf49b1cf5fae79ba36889eb02}{actions}, \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_ad80aca8685a3a3301d4638b4899f7f0b}{laser\+\_\+sample\+\_\+count})
+\item 
+def \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_aaf22bb92878d9348d7e48804c9ea3146}{perform\+\_\+action} (self, action\+\_\+index)
+\item 
+def \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_a4600d1c7d1fee3f67f81d8e406bbfadb}{convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor} (self, message, use\+\_\+device=True)
+\item 
+def \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_a407e78ab3f9542bf42ae8ad6b5169f66}{on\+\_\+receive\+\_\+laser\+\_\+scan} (self, message)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_ab8d594d92bd16625c93127ad0b9fcb72}{scan\+\_\+indices}
+\item 
+\hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_ad80aca8685a3a3301d4638b4899f7f0b}{laser\+\_\+sample\+\_\+count}
+\item 
+\hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_acb5060eaf49b1cf5fae79ba36889eb02}{actions}
+\item 
+\hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_ae39f8b46185427cbb5ef6f981e966f61}{drive\+\_\+parameters\+\_\+publisher}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Abstract class for methods that are used both
+during training and during driving.
+\end{DoxyVerb}
+ 
+
+Definition at line 13 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, actions, laser\+\_\+sample\+\_\+count)}{__init__(self, actions, laser_sample_count)}}]{\setlength{\rightskip}{0pt plus 5cm}def reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{actions, }
+\item[{}]{laser\+\_\+sample\+\_\+count}
+\end{DoxyParamCaption}
+)}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_a7050f1b0b48c18cd34c19b72d2168882}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_a7050f1b0b48c18cd34c19b72d2168882}
+
+
+Definition at line 18 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor@{convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor}}
+\index{convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor@{convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor(self, message, use\+\_\+device=\+True)}{convert_laser_message_to_tensor(self, message, use_device=True)}}]{\setlength{\rightskip}{0pt plus 5cm}def reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+convert\+\_\+laser\+\_\+message\+\_\+to\+\_\+tensor (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message, }
+\item[{}]{use\+\_\+device = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_a4600d1c7d1fee3f67f81d8e406bbfadb}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_a4600d1c7d1fee3f67f81d8e406bbfadb}
+
+
+Definition at line 36 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreinforcement__learning__node_1_1_reinforcement_learning_node_a4600d1c7d1fee3f67f81d8e406bbfadb_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!on\+\_\+receive\+\_\+laser\+\_\+scan@{on\+\_\+receive\+\_\+laser\+\_\+scan}}
+\index{on\+\_\+receive\+\_\+laser\+\_\+scan@{on\+\_\+receive\+\_\+laser\+\_\+scan}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+receive\+\_\+laser\+\_\+scan(self, message)}{on_receive_laser_scan(self, message)}}]{\setlength{\rightskip}{0pt plus 5cm}def reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+on\+\_\+receive\+\_\+laser\+\_\+scan (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_a407e78ab3f9542bf42ae8ad6b5169f66}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_a407e78ab3f9542bf42ae8ad6b5169f66}
+
+
+Definition at line 48 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!perform\+\_\+action@{perform\+\_\+action}}
+\index{perform\+\_\+action@{perform\+\_\+action}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{perform\+\_\+action(self, action\+\_\+index)}{perform_action(self, action_index)}}]{\setlength{\rightskip}{0pt plus 5cm}def reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+perform\+\_\+action (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{action\+\_\+index}
+\end{DoxyParamCaption}
+)}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_aaf22bb92878d9348d7e48804c9ea3146}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_aaf22bb92878d9348d7e48804c9ea3146}
+
+
+Definition at line 26 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreinforcement__learning__node_1_1_reinforcement_learning_node_aaf22bb92878d9348d7e48804c9ea3146_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!actions@{actions}}
+\index{actions@{actions}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{actions}{actions}}]{\setlength{\rightskip}{0pt plus 5cm}reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+actions}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_acb5060eaf49b1cf5fae79ba36889eb02}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_acb5060eaf49b1cf5fae79ba36889eb02}
+
+
+Definition at line 21 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!drive\+\_\+parameters\+\_\+publisher@{drive\+\_\+parameters\+\_\+publisher}}
+\index{drive\+\_\+parameters\+\_\+publisher@{drive\+\_\+parameters\+\_\+publisher}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{drive\+\_\+parameters\+\_\+publisher}{drive_parameters_publisher}}]{\setlength{\rightskip}{0pt plus 5cm}reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+drive\+\_\+parameters\+\_\+publisher}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_ae39f8b46185427cbb5ef6f981e966f61}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_ae39f8b46185427cbb5ef6f981e966f61}
+
+
+Definition at line 22 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!laser\+\_\+sample\+\_\+count@{laser\+\_\+sample\+\_\+count}}
+\index{laser\+\_\+sample\+\_\+count@{laser\+\_\+sample\+\_\+count}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{laser\+\_\+sample\+\_\+count}{laser_sample_count}}]{\setlength{\rightskip}{0pt plus 5cm}reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+laser\+\_\+sample\+\_\+count}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_ad80aca8685a3a3301d4638b4899f7f0b}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_ad80aca8685a3a3301d4638b4899f7f0b}
+
+
+Definition at line 20 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+\index{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}!scan\+\_\+indices@{scan\+\_\+indices}}
+\index{scan\+\_\+indices@{scan\+\_\+indices}!reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node@{reinforcement\+\_\+learning\+\_\+node\+::\+Reinforcement\+Learning\+Node}}
+\subsubsection[{\texorpdfstring{scan\+\_\+indices}{scan_indices}}]{\setlength{\rightskip}{0pt plus 5cm}reinforcement\+\_\+learning\+\_\+node.\+Reinforcement\+Learning\+Node.\+scan\+\_\+indices}\hypertarget{classreinforcement__learning__node_1_1_reinforcement_learning_node_ab8d594d92bd16625c93127ad0b9fcb72}{}\label{classreinforcement__learning__node_1_1_reinforcement_learning_node_ab8d594d92bd16625c93127ad0b9fcb72}
+
+
+Definition at line 19 of file reinforcement\+\_\+learning\+\_\+node.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ar-\/tu-\/do/docs/master/ros\+\_\+ws/src/autonomous/reinforcement\+\_\+learning/scripts/\hyperlink{reinforcement__learning__node_8py}{reinforcement\+\_\+learning\+\_\+node.\+py}\end{DoxyCompactItemize}

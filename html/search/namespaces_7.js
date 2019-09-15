@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['train',['train',['../namespacetrain.html',1,'']]]
+  ['wallfollowing',['wallfollowing',['../namespacewallfollowing.html',1,'']]]
 ];

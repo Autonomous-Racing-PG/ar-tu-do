@@ -1,6 +1,0 @@
-<map id="policyGradient.QLearningTrainingNode.log_training_progress" name="policyGradient.QLearningTrainingNode.log_training_progress">
-<area shape="rect" id="node2" href="$classtrain_1_1_q_learning_training_node.html#a659667f05d48676284265ee0e445e96e" title="train.QLearningTrainingNode.on\l_complete_episode" alt="" coords="223,5,428,47"/>
-<area shape="rect" id="node4" href="$classpolicy_gradient_1_1_q_learning_training_node.html#a724a4c55e483f87fcdcd0bdb311bb1f1" title="policyGradient.QLearning\lTrainingNode.on_complete\l_episode" alt="" coords="237,70,414,126"/>
-<area shape="rect" id="node3" href="$classtrain_1_1_q_learning_training_node.html#a4cb5d38537fbb9171e46c85b60efc700" title="train.QLearningTrainingNode.on\l_receive_laser_scan" alt="" coords="476,5,681,47"/>
-<area shape="rect" id="node5" href="$classpolicy_gradient_1_1_q_learning_training_node.html#aa343056c30d72873a85c3b9d8d3ae6fd" title="policyGradient.QLearning\lTrainingNode.on_receive\l_laser_scan" alt="" coords="495,70,663,126"/>
-</map>

@@ -12,7 +12,7 @@ We provide several L\+I\+D\+AR based driving algorithms\+:
 \begin{DoxyItemize}
 \item Fast and efficient wallfollowing based on fitting circles into the L\+I\+D\+AR scan
 \item \href{http://wiki.ros.org/navigation}{\tt R\+OS navigation stack} based implementation that uses S\+L\+AM, a precalculated map and path planning
-\item Deep Reinforcement Learning (\href{https://en.wikipedia.org/wiki/Q-learning}{\tt Q-\/\+Learning})
+\item Deep Reinforcement Learning (\href{https://en.wikipedia.org/wiki/Q-learning}{\tt Q-\/\+Learning} and \href{https://en.wikipedia.org/wiki/Reinforcement_learning#Direct_policy_search}{\tt Policy Gradient})
 \item Neural Networks with evolutionary training
 \end{DoxyItemize}
 
@@ -93,8 +93,9 @@ Use a launch file to start R\+OS and Gazebo\+:
 2 roslaunch launch/car\_navigation\_stack.launch  # (Physical car, SLAM & ROS navigation)
 3 roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)
 4 roslaunch launch/navigation\_stack.launch      # (Simulation, SLAM & ROS navigation)
-5 roslaunch launch/qlearning.launch             # (Simulation, Train the Q-Learning model)
-6 roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)
+5 roslaunch launch/q\_learning.launch            # (Simulation, Train the Q-Learning model)
+6 roslaunch launch/policy\_gradient.launch       # (Simulation, Train the Policy Gradient model)
+7 roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)
 \end{DoxyCode}
 
 
@@ -116,7 +117,7 @@ These arguments can be passed to the launch files above. For example, to use the
 \hline
 \rowcolor{\tableheadbgcolor}&&\multirow{2}{\linewidth}{{\bf Argument }}&\multirow{2}{\linewidth}{{\bf Description }}&\multicolumn{5}{p{(\linewidth-\tabcolsep*7-\arrayrulewidth*3)*5/7}|}{\cellcolor{\tableheadbgcolor}{\bf Supported by {\ttfamily launch/$<$file$>$.launch}  }}\\\cline{1-2}\cline{5-7}
 \endhead
-car &car\+\_\+navstack &&&gazebo &navigation\+\_\+stack &qlearning, evolutionary  \\\cline{1-7}
+car &car\+\_\+navstack &&&gazebo &navigation\+\_\+stack &q\+\_\+learning, policy\+\_\+gradient, evolutionary  \\\cline{1-7}
 {\ttfamily debug} &Boolean value whether Gazebo should run in debug mode. Defaults to false. &✗ &✗ &✓ &✓ &✗  \\\cline{1-7}
 {\ttfamily emergency\+\_\+stop} &Boolean value whether the emergency stop should be active. Defaults to true. &✗ &✗ &✓ &✗ &✗  \\\cline{1-7}
 {\ttfamily gui} &Boolean value whether Gazebo should show a user interface. Defaults to true. &✗ &✗ &✓ &✓ &✓  \\\cline{1-7}

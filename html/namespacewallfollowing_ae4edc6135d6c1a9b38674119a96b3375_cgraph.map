@@ -1,4 +1,5 @@
 <map id="wallfollowing.follow_walls" name="wallfollowing.follow_walls">
 <area shape="rect" id="node2" href="$namespacewallfollowing.html#a908b60b64e20dec7078e707a829b610d" title="wallfollowing.map" alt="" coords="195,5,320,32"/>
-<area shape="rect" id="node3" href="$namespacerviz__geometry.html#a93390c23bebf8db38c31f832225dddda" title="rviz_geometry.show\l_line_in_rviz" alt="" coords="188,57,327,98"/>
+<area shape="rect" id="node3" href="$namespacewallfollowing.html#a66b98adda1f5c1ba1ed6c0029a5d27f6" title="wallfollowing.drive" alt="" coords="193,56,321,83"/>
+<area shape="rect" id="node4" href="$namespacerviz__geometry.html#a93390c23bebf8db38c31f832225dddda" title="rviz_geometry.show\l_line_in_rviz" alt="" coords="188,107,327,149"/>
 </map>

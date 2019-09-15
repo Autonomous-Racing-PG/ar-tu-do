@@ -20,9 +20,8 @@ var searchData=
   ['plot_5fwindow',['plot_window',['../namespaceplotter.html#abbb49ab9c0174321374123fd800937f1',1,'plotter']]],
   ['point',['point',['../classsimulation__tools_1_1track_1_1_track_position.html#a5c5ad2aecf6e00e6611e8ad70b38de7b',1,'simulation_tools.track.TrackPosition.point()'],['../namespacecircle.html#ae073d8de4a1ba7a4a4920f35128f1c48',1,'circle.Point()'],['../namespacesimulation__tools_1_1lap__timer.html#a55d342023a9bdc266a2ee262040e8d19',1,'simulation_tools.lap_timer.Point()'],['../namespacesimulation__tools_1_1track.html#a927c1793846ca41f328e4b427075cafd',1,'simulation_tools.track.Point()']]],
   ['points',['points',['../classsimulation__tools_1_1track_1_1_track.html#ac6de34747fd382897e7f790cd9faf67c',1,'simulation_tools::track::Track']]],
-  ['policy',['policy',['../classqlearning_1_1_q_learning_node.html#a2c1150dd506209b085dad03036775375',1,'qlearning::QLearningNode']]],
-  ['policy1',['policy1',['../classpolicy_gradient_1_1_q_learning_training_node.html#a37c369f5ac5458dbbc0e4e6946fb3171',1,'policyGradient::QLearningTrainingNode']]],
-  ['policy_5fhistory',['policy_history',['../classparameters_1_1_policy.html#acd82a6d1c04d80cf93be0995da717b92',1,'parameters::Policy']]],
+  ['policy',['policy',['../classdrive__policy__gradient_1_1_policy_gradient_driving_node.html#aeae8c97ac1c16ca68d20a8499f9b4734',1,'drive_policy_gradient.PolicyGradientDrivingNode.policy()'],['../classdrive__q__learning_1_1_q_learning_driving_node.html#adac072d48916c8128e83c330578af70e',1,'drive_q_learning.QLearningDrivingNode.policy()'],['../classtraining__node_1_1_training_node.html#afcfa3e299101c9795ea29b425e12ffab',1,'training_node.TrainingNode.policy()']]],
+  ['policy_5fhistory',['policy_history',['../classtrain__policy__gradient_1_1_policy_gradient_training_node.html#a1368f6cbc79becb73b56808f656f2764',1,'train_policy_gradient::PolicyGradientTrainingNode']]],
   ['population',['population',['../classtrain_1_1_training_node.html#a73a06dfa3230d4f26cc9767488b30385',1,'train::TrainingNode']]],
   ['population_5fsize',['POPULATION_SIZE',['../namespaceneural__car__driver.html#aaf8ade0766a9fd72a41c1029d04d6d5e',1,'neural_car_driver']]],
   ['previous_5ferror',['previous_error',['../classwallfollowing_1_1_p_i_d_controller.html#a8f880f52e6d6f020769ab01d6459c908',1,'wallfollowing::PIDController']]]

@@ -1,0 +1,420 @@
+\hypertarget{classtraining__node_1_1_training_node}{}\section{training\+\_\+node.\+Training\+Node Class Reference}
+\label{classtraining__node_1_1_training_node}\index{training\+\_\+node.\+Training\+Node@{training\+\_\+node.\+Training\+Node}}
+
+
+Inheritance diagram for training\+\_\+node.\+Training\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for training\+\_\+node.\+Training\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classtraining__node_1_1_training_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_ab81ed967681cf05efba615326fd06154}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classtraining__node_1_1_training_node_afcfa3e299101c9795ea29b425e12ffab}{policy}, \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_acb5060eaf49b1cf5fae79ba36889eb02}{actions}, \hyperlink{classreinforcement__learning__node_1_1_reinforcement_learning_node_ad80aca8685a3a3301d4638b4899f7f0b}{laser\+\_\+sample\+\_\+count}, \hyperlink{classtraining__node_1_1_training_node_a5d1780473359a3b1fd3ca9ec5a1fa5e1}{max\+\_\+episode\+\_\+length}, learn\+\_\+rate)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_a0869616121befc86a3602e780bb4a652}{on\+\_\+crash} (self, \+\_\+)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_a90f18768afcf645bba834d487b383bf7}{get\+\_\+episode\+\_\+summary} (self)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_abd474af230098f0cf0e0505a52bfac00}{on\+\_\+complete\+\_\+episode} (self)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_a789582a261ef1b901c0eb2f21015b07e}{on\+\_\+receive\+\_\+laser\+\_\+scan} (self, message)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_ac81440d9ad7304e51f391fcc90b1622e}{on\+\_\+complete\+\_\+step} (self, \hyperlink{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{state}, \hyperlink{classtraining__node_1_1_training_node_a9aca91d2739de83e292f046f6047c193}{action}, reward, next\+\_\+state)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_ad6f5da543708220bc02497320f34e31d}{check\+\_\+car\+\_\+orientation} (self)
+\item 
+def \hyperlink{classtraining__node_1_1_training_node_a1683b92a5672925e4d544306135cdbd8}{on\+\_\+model\+\_\+state\+\_\+callback} (self, message)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_afcfa3e299101c9795ea29b425e12ffab}{policy}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a5d1780473359a3b1fd3ca9ec5a1fa5e1}{max\+\_\+episode\+\_\+length}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a1f1839691d11a27b01271e1e4eda934f}{episode\+\_\+count}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a79246dff36d3d3b28fe80923938dd8a1}{episode\+\_\+length}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a3a5dfc28c6625a91f18ca7f8ddfbb8e6}{total\+\_\+step\+\_\+count}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a1c132944727873d2f9449228f3845889}{cumulative\+\_\+reward}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_aa30ad32e868062b9e6eeccc27ad41bdd}{is\+\_\+terminal\+\_\+step}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a9aa59ff1a63634d0305faf83b43092c9}{net\+\_\+output\+\_\+debug\+\_\+string}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_aa2a3575522157d4d29ff2d22c8909037}{episode\+\_\+length\+\_\+history}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a458671c2da220b55b62284b0bb0a2916}{cumulative\+\_\+reward\+\_\+history}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{state}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a9aca91d2739de83e292f046f6047c193}{action}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_ac89f63234a29b8591b0dc11f31c08b46}{car\+\_\+position}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_aea2d9421fd831521afbfa48a1debb27c}{car\+\_\+orientation}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_af53c5a749db204b5101fc583ef09c85e}{drive\+\_\+forward}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a5071298f930b17235e45e1b1cedb02f5}{steps\+\_\+with\+\_\+wrong\+\_\+orientation}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a5c2ed624728ef2cd34671bd10cbf8f3b}{episode\+\_\+start\+\_\+time\+\_\+real}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a98fc9d6b00aa02587d5c53e56f20ce07}{episode\+\_\+start\+\_\+time\+\_\+sim}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_a80acbde1d80b540dc9604b0d91cfbddb}{optimizer}
+\item 
+\hyperlink{classtraining__node_1_1_training_node_ada9e747d02401d1492e4d1ef67f19244}{episode\+\_\+result\+\_\+publisher}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Abstract class for all methods that are common between
+Q-Learning training and Policy Gradient training
+\end{DoxyVerb}
+ 
+
+Definition at line 21 of file training\+\_\+node.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, policy, actions, laser\+\_\+sample\+\_\+count, max\+\_\+episode\+\_\+length, learn\+\_\+rate)}{__init__(self, policy, actions, laser_sample_count, max_episode_length, learn_rate)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{policy, }
+\item[{}]{actions, }
+\item[{}]{laser\+\_\+sample\+\_\+count, }
+\item[{}]{max\+\_\+episode\+\_\+length, }
+\item[{}]{learn\+\_\+rate}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_ab81ed967681cf05efba615326fd06154}{}\label{classtraining__node_1_1_training_node_ab81ed967681cf05efba615326fd06154}
+
+
+Definition at line 32 of file training\+\_\+node.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!check\+\_\+car\+\_\+orientation@{check\+\_\+car\+\_\+orientation}}
+\index{check\+\_\+car\+\_\+orientation@{check\+\_\+car\+\_\+orientation}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{check\+\_\+car\+\_\+orientation(self)}{check_car_orientation(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+check\+\_\+car\+\_\+orientation (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_ad6f5da543708220bc02497320f34e31d}{}\label{classtraining__node_1_1_training_node_ad6f5da543708220bc02497320f34e31d}
+
+
+Definition at line 140 of file training\+\_\+node.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node_ad6f5da543708220bc02497320f34e31d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!get\+\_\+episode\+\_\+summary@{get\+\_\+episode\+\_\+summary}}
+\index{get\+\_\+episode\+\_\+summary@{get\+\_\+episode\+\_\+summary}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{get\+\_\+episode\+\_\+summary(self)}{get_episode_summary(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+get\+\_\+episode\+\_\+summary (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_a90f18768afcf645bba834d487b383bf7}{}\label{classtraining__node_1_1_training_node_a90f18768afcf645bba834d487b383bf7}
+
+
+Definition at line 73 of file training\+\_\+node.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node_a90f18768afcf645bba834d487b383bf7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!on\+\_\+complete\+\_\+episode@{on\+\_\+complete\+\_\+episode}}
+\index{on\+\_\+complete\+\_\+episode@{on\+\_\+complete\+\_\+episode}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+complete\+\_\+episode(self)}{on_complete_episode(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+on\+\_\+complete\+\_\+episode (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_abd474af230098f0cf0e0505a52bfac00}{}\label{classtraining__node_1_1_training_node_abd474af230098f0cf0e0505a52bfac00}
+
+
+Definition at line 92 of file training\+\_\+node.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node_abd474af230098f0cf0e0505a52bfac00_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node_abd474af230098f0cf0e0505a52bfac00_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!on\+\_\+complete\+\_\+step@{on\+\_\+complete\+\_\+step}}
+\index{on\+\_\+complete\+\_\+step@{on\+\_\+complete\+\_\+step}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+complete\+\_\+step(self, state, action, reward, next\+\_\+state)}{on_complete_step(self, state, action, reward, next_state)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+on\+\_\+complete\+\_\+step (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{state, }
+\item[{}]{action, }
+\item[{}]{reward, }
+\item[{}]{next\+\_\+state}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_ac81440d9ad7304e51f391fcc90b1622e}{}\label{classtraining__node_1_1_training_node_ac81440d9ad7304e51f391fcc90b1622e}
+
+
+Definition at line 137 of file training\+\_\+node.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node_ac81440d9ad7304e51f391fcc90b1622e_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!on\+\_\+crash@{on\+\_\+crash}}
+\index{on\+\_\+crash@{on\+\_\+crash}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+crash(self, \+\_\+)}{on_crash(self, _)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+on\+\_\+crash (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{\+\_\+}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_a0869616121befc86a3602e780bb4a652}{}\label{classtraining__node_1_1_training_node_a0869616121befc86a3602e780bb4a652}
+
+
+Definition at line 69 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!on\+\_\+model\+\_\+state\+\_\+callback@{on\+\_\+model\+\_\+state\+\_\+callback}}
+\index{on\+\_\+model\+\_\+state\+\_\+callback@{on\+\_\+model\+\_\+state\+\_\+callback}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+model\+\_\+state\+\_\+callback(self, message)}{on_model_state_callback(self, message)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+on\+\_\+model\+\_\+state\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_a1683b92a5672925e4d544306135cdbd8}{}\label{classtraining__node_1_1_training_node_a1683b92a5672925e4d544306135cdbd8}
+
+
+Definition at line 154 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!on\+\_\+receive\+\_\+laser\+\_\+scan@{on\+\_\+receive\+\_\+laser\+\_\+scan}}
+\index{on\+\_\+receive\+\_\+laser\+\_\+scan@{on\+\_\+receive\+\_\+laser\+\_\+scan}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+receive\+\_\+laser\+\_\+scan(self, message)}{on_receive_laser_scan(self, message)}}]{\setlength{\rightskip}{0pt plus 5cm}def training\+\_\+node.\+Training\+Node.\+on\+\_\+receive\+\_\+laser\+\_\+scan (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{classtraining__node_1_1_training_node_a789582a261ef1b901c0eb2f21015b07e}{}\label{classtraining__node_1_1_training_node_a789582a261ef1b901c0eb2f21015b07e}
+
+
+Definition at line 111 of file training\+\_\+node.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtraining__node_1_1_training_node_a789582a261ef1b901c0eb2f21015b07e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!action@{action}}
+\index{action@{action}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{action}{action}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+action}\hypertarget{classtraining__node_1_1_training_node_a9aca91d2739de83e292f046f6047c193}{}\label{classtraining__node_1_1_training_node_a9aca91d2739de83e292f046f6047c193}
+
+
+Definition at line 49 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!car\+\_\+orientation@{car\+\_\+orientation}}
+\index{car\+\_\+orientation@{car\+\_\+orientation}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{car\+\_\+orientation}{car_orientation}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+car\+\_\+orientation}\hypertarget{classtraining__node_1_1_training_node_aea2d9421fd831521afbfa48a1debb27c}{}\label{classtraining__node_1_1_training_node_aea2d9421fd831521afbfa48a1debb27c}
+
+
+Definition at line 51 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!car\+\_\+position@{car\+\_\+position}}
+\index{car\+\_\+position@{car\+\_\+position}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{car\+\_\+position}{car_position}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+car\+\_\+position}\hypertarget{classtraining__node_1_1_training_node_ac89f63234a29b8591b0dc11f31c08b46}{}\label{classtraining__node_1_1_training_node_ac89f63234a29b8591b0dc11f31c08b46}
+
+
+Definition at line 50 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!cumulative\+\_\+reward@{cumulative\+\_\+reward}}
+\index{cumulative\+\_\+reward@{cumulative\+\_\+reward}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{cumulative\+\_\+reward}{cumulative_reward}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+cumulative\+\_\+reward}\hypertarget{classtraining__node_1_1_training_node_a1c132944727873d2f9449228f3845889}{}\label{classtraining__node_1_1_training_node_a1c132944727873d2f9449228f3845889}
+
+
+Definition at line 41 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!cumulative\+\_\+reward\+\_\+history@{cumulative\+\_\+reward\+\_\+history}}
+\index{cumulative\+\_\+reward\+\_\+history@{cumulative\+\_\+reward\+\_\+history}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{cumulative\+\_\+reward\+\_\+history}{cumulative_reward_history}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+cumulative\+\_\+reward\+\_\+history}\hypertarget{classtraining__node_1_1_training_node_a458671c2da220b55b62284b0bb0a2916}{}\label{classtraining__node_1_1_training_node_a458671c2da220b55b62284b0bb0a2916}
+
+
+Definition at line 46 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!drive\+\_\+forward@{drive\+\_\+forward}}
+\index{drive\+\_\+forward@{drive\+\_\+forward}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{drive\+\_\+forward}{drive_forward}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+drive\+\_\+forward}\hypertarget{classtraining__node_1_1_training_node_af53c5a749db204b5101fc583ef09c85e}{}\label{classtraining__node_1_1_training_node_af53c5a749db204b5101fc583ef09c85e}
+
+
+Definition at line 53 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!episode\+\_\+count@{episode\+\_\+count}}
+\index{episode\+\_\+count@{episode\+\_\+count}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{episode\+\_\+count}{episode_count}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+episode\+\_\+count}\hypertarget{classtraining__node_1_1_training_node_a1f1839691d11a27b01271e1e4eda934f}{}\label{classtraining__node_1_1_training_node_a1f1839691d11a27b01271e1e4eda934f}
+
+
+Definition at line 38 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!episode\+\_\+length@{episode\+\_\+length}}
+\index{episode\+\_\+length@{episode\+\_\+length}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{episode\+\_\+length}{episode_length}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+episode\+\_\+length}\hypertarget{classtraining__node_1_1_training_node_a79246dff36d3d3b28fe80923938dd8a1}{}\label{classtraining__node_1_1_training_node_a79246dff36d3d3b28fe80923938dd8a1}
+
+
+Definition at line 39 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!episode\+\_\+length\+\_\+history@{episode\+\_\+length\+\_\+history}}
+\index{episode\+\_\+length\+\_\+history@{episode\+\_\+length\+\_\+history}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{episode\+\_\+length\+\_\+history}{episode_length_history}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+episode\+\_\+length\+\_\+history}\hypertarget{classtraining__node_1_1_training_node_aa2a3575522157d4d29ff2d22c8909037}{}\label{classtraining__node_1_1_training_node_aa2a3575522157d4d29ff2d22c8909037}
+
+
+Definition at line 45 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!episode\+\_\+result\+\_\+publisher@{episode\+\_\+result\+\_\+publisher}}
+\index{episode\+\_\+result\+\_\+publisher@{episode\+\_\+result\+\_\+publisher}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{episode\+\_\+result\+\_\+publisher}{episode_result_publisher}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+episode\+\_\+result\+\_\+publisher}\hypertarget{classtraining__node_1_1_training_node_ada9e747d02401d1492e4d1ef67f19244}{}\label{classtraining__node_1_1_training_node_ada9e747d02401d1492e4d1ef67f19244}
+
+
+Definition at line 66 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!episode\+\_\+start\+\_\+time\+\_\+real@{episode\+\_\+start\+\_\+time\+\_\+real}}
+\index{episode\+\_\+start\+\_\+time\+\_\+real@{episode\+\_\+start\+\_\+time\+\_\+real}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{episode\+\_\+start\+\_\+time\+\_\+real}{episode_start_time_real}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+episode\+\_\+start\+\_\+time\+\_\+real}\hypertarget{classtraining__node_1_1_training_node_a5c2ed624728ef2cd34671bd10cbf8f3b}{}\label{classtraining__node_1_1_training_node_a5c2ed624728ef2cd34671bd10cbf8f3b}
+
+
+Definition at line 56 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!episode\+\_\+start\+\_\+time\+\_\+sim@{episode\+\_\+start\+\_\+time\+\_\+sim}}
+\index{episode\+\_\+start\+\_\+time\+\_\+sim@{episode\+\_\+start\+\_\+time\+\_\+sim}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{episode\+\_\+start\+\_\+time\+\_\+sim}{episode_start_time_sim}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+episode\+\_\+start\+\_\+time\+\_\+sim}\hypertarget{classtraining__node_1_1_training_node_a98fc9d6b00aa02587d5c53e56f20ce07}{}\label{classtraining__node_1_1_training_node_a98fc9d6b00aa02587d5c53e56f20ce07}
+
+
+Definition at line 57 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!is\+\_\+terminal\+\_\+step@{is\+\_\+terminal\+\_\+step}}
+\index{is\+\_\+terminal\+\_\+step@{is\+\_\+terminal\+\_\+step}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{is\+\_\+terminal\+\_\+step}{is_terminal_step}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+is\+\_\+terminal\+\_\+step}\hypertarget{classtraining__node_1_1_training_node_aa30ad32e868062b9e6eeccc27ad41bdd}{}\label{classtraining__node_1_1_training_node_aa30ad32e868062b9e6eeccc27ad41bdd}
+
+
+Definition at line 42 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!max\+\_\+episode\+\_\+length@{max\+\_\+episode\+\_\+length}}
+\index{max\+\_\+episode\+\_\+length@{max\+\_\+episode\+\_\+length}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{max\+\_\+episode\+\_\+length}{max_episode_length}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+max\+\_\+episode\+\_\+length}\hypertarget{classtraining__node_1_1_training_node_a5d1780473359a3b1fd3ca9ec5a1fa5e1}{}\label{classtraining__node_1_1_training_node_a5d1780473359a3b1fd3ca9ec5a1fa5e1}
+
+
+Definition at line 36 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!net\+\_\+output\+\_\+debug\+\_\+string@{net\+\_\+output\+\_\+debug\+\_\+string}}
+\index{net\+\_\+output\+\_\+debug\+\_\+string@{net\+\_\+output\+\_\+debug\+\_\+string}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{net\+\_\+output\+\_\+debug\+\_\+string}{net_output_debug_string}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+net\+\_\+output\+\_\+debug\+\_\+string}\hypertarget{classtraining__node_1_1_training_node_a9aa59ff1a63634d0305faf83b43092c9}{}\label{classtraining__node_1_1_training_node_a9aa59ff1a63634d0305faf83b43092c9}
+
+
+Definition at line 44 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!optimizer@{optimizer}}
+\index{optimizer@{optimizer}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{optimizer}{optimizer}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+optimizer}\hypertarget{classtraining__node_1_1_training_node_a80acbde1d80b540dc9604b0d91cfbddb}{}\label{classtraining__node_1_1_training_node_a80acbde1d80b540dc9604b0d91cfbddb}
+
+
+Definition at line 59 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!policy@{policy}}
+\index{policy@{policy}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{policy}{policy}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+policy}\hypertarget{classtraining__node_1_1_training_node_afcfa3e299101c9795ea29b425e12ffab}{}\label{classtraining__node_1_1_training_node_afcfa3e299101c9795ea29b425e12ffab}
+
+
+Definition at line 35 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!state@{state}}
+\index{state@{state}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{state}{state}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+state}\hypertarget{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{}\label{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}
+
+
+Definition at line 48 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!steps\+\_\+with\+\_\+wrong\+\_\+orientation@{steps\+\_\+with\+\_\+wrong\+\_\+orientation}}
+\index{steps\+\_\+with\+\_\+wrong\+\_\+orientation@{steps\+\_\+with\+\_\+wrong\+\_\+orientation}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{steps\+\_\+with\+\_\+wrong\+\_\+orientation}{steps_with_wrong_orientation}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+steps\+\_\+with\+\_\+wrong\+\_\+orientation}\hypertarget{classtraining__node_1_1_training_node_a5071298f930b17235e45e1b1cedb02f5}{}\label{classtraining__node_1_1_training_node_a5071298f930b17235e45e1b1cedb02f5}
+
+
+Definition at line 54 of file training\+\_\+node.\+py.
+
+\index{training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}!total\+\_\+step\+\_\+count@{total\+\_\+step\+\_\+count}}
+\index{total\+\_\+step\+\_\+count@{total\+\_\+step\+\_\+count}!training\+\_\+node\+::\+Training\+Node@{training\+\_\+node\+::\+Training\+Node}}
+\subsubsection[{\texorpdfstring{total\+\_\+step\+\_\+count}{total_step_count}}]{\setlength{\rightskip}{0pt plus 5cm}training\+\_\+node.\+Training\+Node.\+total\+\_\+step\+\_\+count}\hypertarget{classtraining__node_1_1_training_node_a3a5dfc28c6625a91f18ca7f8ddfbb8e6}{}\label{classtraining__node_1_1_training_node_a3a5dfc28c6625a91f18ca7f8ddfbb8e6}
+
+
+Definition at line 40 of file training\+\_\+node.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ar-\/tu-\/do/docs/master/ros\+\_\+ws/src/autonomous/reinforcement\+\_\+learning/scripts/\hyperlink{training__node_8py}{training\+\_\+node.\+py}\end{DoxyCompactItemize}

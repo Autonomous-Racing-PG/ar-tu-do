@@ -1,0 +1,282 @@
+\hypertarget{classtrain__q__learning_1_1_q_learning_training_node}{}\section{train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node Class Reference}
+\label{classtrain__q__learning_1_1_q_learning_training_node}\index{train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node}}
+
+
+Inheritance diagram for train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classtrain__q__learning_1_1_q_learning_training_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classtrain__q__learning_1_1_q_learning_training_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a98b56b8814dfdae3ee1488cb8e671bfc}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a4669e7b12be6befbb4381c256c84c2c2}{replay} (self)
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a99ea57ada4e8b3ef76eac452db94b15b}{get\+\_\+epsilon\+\_\+greedy\+\_\+threshold} (self)
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a5dc01997b295135bb2aebb1e7736bf4d}{select\+\_\+action} (self, \hyperlink{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{state})
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_ad3420be2be57f13172edad27a8761101}{get\+\_\+reward} (self)
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a442305886b0215ef42134eec79b97293}{get\+\_\+episode\+\_\+summary} (self)
+\item 
+def \hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a6652454b981fd6584a015e7f2fd5631f}{on\+\_\+complete\+\_\+step} (self, \hyperlink{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{state}, \hyperlink{classtraining__node_1_1_training_node_a9aca91d2739de83e292f046f6047c193}{action}, reward, next\+\_\+state)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtrain__q__learning_1_1_q_learning_training_node_a87fe164a17db112700c39e84a767dcd4}{memory}
+\item 
+\hyperlink{classtrain__q__learning_1_1_q_learning_training_node_ac921e45077a91450fd9d01b109bf0a60}{optimization\+\_\+step\+\_\+count}
+\item 
+\hyperlink{classtrain__q__learning_1_1_q_learning_training_node_ad1f8bb7b1ca27f25e4e59abd71df4efe}{net\+\_\+output\+\_\+debug\+\_\+string}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}ROS node to train the Q-Learning model
+\end{DoxyVerb}
+ 
+
+Definition at line 17 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self)}{__init__(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a98b56b8814dfdae3ee1488cb8e671bfc}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a98b56b8814dfdae3ee1488cb8e671bfc}
+
+
+Definition at line 21 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!get\+\_\+episode\+\_\+summary@{get\+\_\+episode\+\_\+summary}}
+\index{get\+\_\+episode\+\_\+summary@{get\+\_\+episode\+\_\+summary}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{get\+\_\+episode\+\_\+summary(self)}{get_episode_summary(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+get\+\_\+episode\+\_\+summary (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a442305886b0215ef42134eec79b97293}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a442305886b0215ef42134eec79b97293}
+
+
+Definition at line 93 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a442305886b0215ef42134eec79b97293_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a442305886b0215ef42134eec79b97293_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!get\+\_\+epsilon\+\_\+greedy\+\_\+threshold@{get\+\_\+epsilon\+\_\+greedy\+\_\+threshold}}
+\index{get\+\_\+epsilon\+\_\+greedy\+\_\+threshold@{get\+\_\+epsilon\+\_\+greedy\+\_\+threshold}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{get\+\_\+epsilon\+\_\+greedy\+\_\+threshold(self)}{get_epsilon_greedy_threshold(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+get\+\_\+epsilon\+\_\+greedy\+\_\+threshold (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a99ea57ada4e8b3ef76eac452db94b15b}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a99ea57ada4e8b3ef76eac452db94b15b}
+
+
+Definition at line 66 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a99ea57ada4e8b3ef76eac452db94b15b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!get\+\_\+reward@{get\+\_\+reward}}
+\index{get\+\_\+reward@{get\+\_\+reward}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{get\+\_\+reward(self)}{get_reward(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+get\+\_\+reward (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_ad3420be2be57f13172edad27a8761101}{}\label{classtrain__q__learning_1_1_q_learning_training_node_ad3420be2be57f13172edad27a8761101}
+
+
+Definition at line 82 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_ad3420be2be57f13172edad27a8761101_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!on\+\_\+complete\+\_\+step@{on\+\_\+complete\+\_\+step}}
+\index{on\+\_\+complete\+\_\+step@{on\+\_\+complete\+\_\+step}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+complete\+\_\+step(self, state, action, reward, next\+\_\+state)}{on_complete_step(self, state, action, reward, next_state)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+on\+\_\+complete\+\_\+step (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{state, }
+\item[{}]{action, }
+\item[{}]{reward, }
+\item[{}]{next\+\_\+state}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a6652454b981fd6584a015e7f2fd5631f}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a6652454b981fd6584a015e7f2fd5631f}
+
+
+Definition at line 100 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a6652454b981fd6584a015e7f2fd5631f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a6652454b981fd6584a015e7f2fd5631f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!replay@{replay}}
+\index{replay@{replay}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{replay(self)}{replay(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+replay (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a4669e7b12be6befbb4381c256c84c2c2}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a4669e7b12be6befbb4381c256c84c2c2}
+
+
+Definition at line 36 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a4669e7b12be6befbb4381c256c84c2c2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!select\+\_\+action@{select\+\_\+action}}
+\index{select\+\_\+action@{select\+\_\+action}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{select\+\_\+action(self, state)}{select_action(self, state)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+select\+\_\+action (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a5dc01997b295135bb2aebb1e7736bf4d}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a5dc01997b295135bb2aebb1e7736bf4d}
+
+
+Definition at line 70 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a5dc01997b295135bb2aebb1e7736bf4d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__q__learning_1_1_q_learning_training_node_a5dc01997b295135bb2aebb1e7736bf4d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!memory@{memory}}
+\index{memory@{memory}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{memory}{memory}}]{\setlength{\rightskip}{0pt plus 5cm}train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+memory}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_a87fe164a17db112700c39e84a767dcd4}{}\label{classtrain__q__learning_1_1_q_learning_training_node_a87fe164a17db112700c39e84a767dcd4}
+
+
+Definition at line 30 of file train\+\_\+q\+\_\+learning.\+py.
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!net\+\_\+output\+\_\+debug\+\_\+string@{net\+\_\+output\+\_\+debug\+\_\+string}}
+\index{net\+\_\+output\+\_\+debug\+\_\+string@{net\+\_\+output\+\_\+debug\+\_\+string}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{net\+\_\+output\+\_\+debug\+\_\+string}{net_output_debug_string}}]{\setlength{\rightskip}{0pt plus 5cm}train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+net\+\_\+output\+\_\+debug\+\_\+string}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_ad1f8bb7b1ca27f25e4e59abd71df4efe}{}\label{classtrain__q__learning_1_1_q_learning_training_node_ad1f8bb7b1ca27f25e4e59abd71df4efe}
+
+
+Definition at line 78 of file train\+\_\+q\+\_\+learning.\+py.
+
+\index{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}!optimization\+\_\+step\+\_\+count@{optimization\+\_\+step\+\_\+count}}
+\index{optimization\+\_\+step\+\_\+count@{optimization\+\_\+step\+\_\+count}!train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node@{train\+\_\+q\+\_\+learning\+::\+Q\+Learning\+Training\+Node}}
+\subsubsection[{\texorpdfstring{optimization\+\_\+step\+\_\+count}{optimization_step_count}}]{\setlength{\rightskip}{0pt plus 5cm}train\+\_\+q\+\_\+learning.\+Q\+Learning\+Training\+Node.\+optimization\+\_\+step\+\_\+count}\hypertarget{classtrain__q__learning_1_1_q_learning_training_node_ac921e45077a91450fd9d01b109bf0a60}{}\label{classtrain__q__learning_1_1_q_learning_training_node_ac921e45077a91450fd9d01b109bf0a60}
+
+
+Definition at line 31 of file train\+\_\+q\+\_\+learning.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ar-\/tu-\/do/docs/master/ros\+\_\+ws/src/autonomous/reinforcement\+\_\+learning/scripts/\hyperlink{train__q__learning_8py}{train\+\_\+q\+\_\+learning.\+py}\end{DoxyCompactItemize}

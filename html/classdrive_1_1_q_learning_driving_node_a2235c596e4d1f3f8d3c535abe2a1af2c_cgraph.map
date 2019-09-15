@@ -1,4 +1,0 @@
-<map id="drive.QLearningDrivingNode.on_receive_laser_scan" name="drive.QLearningDrivingNode.on_receive_laser_scan">
-<area shape="rect" id="node2" href="$classqlearning_1_1_q_learning_node.html#a907441bbc5b795875ea80de4a6b45798" title="qlearning.QLearningNode.convert\l_laser_message_to_tensor" alt="" coords="257,5,471,47"/>
-<area shape="rect" id="node3" href="$classqlearning_1_1_q_learning_node.html#a70f975497db6b5eee94485397b7c18e6" title="qlearning.QLearningNode.perform\l_action" alt="" coords="256,71,472,112"/>
-</map>

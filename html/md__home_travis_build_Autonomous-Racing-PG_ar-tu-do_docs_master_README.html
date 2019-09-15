@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <ul>
 <li>Fast and efficient wallfollowing based on fitting circles into the LIDAR scan</li>
 <li><a href="http://wiki.ros.org/navigation">ROS navigation stack</a> based implementation that uses SLAM, a precalculated map and path planning</li>
-<li>Deep Reinforcement Learning (<a href="https://en.wikipedia.org/wiki/Q-learning">Q-Learning</a>)</li>
+<li>Deep Reinforcement Learning (<a href="https://en.wikipedia.org/wiki/Q-learning">Q-Learning</a> and <a href="https://en.wikipedia.org/wiki/Reinforcement_learning#Direct_policy_search">Policy Gradient</a>)</li>
 <li>Neural Networks with evolutionary training</li>
 </ul>
 <p>Our software works on physical hardware and in a simulated environment using <a href="http://gazebosim.org/">Gazebo</a>. Further features are:</p>
@@ -135,13 +135,13 @@ $(document).ready(function(){initNavTree('md__home_travis_build_Autonomous-Racin
 <p>Compile while inside the <code>ros_ws</code>directory:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;catkin_make</div></div><!-- fragment --><p>Set up enviroment variables for your shell:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source devel/setup.bash # (or setup.zsh, depending on your shell)</div></div><!-- fragment --><p>Use a launch file to start ROS and Gazebo:</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/car.launch                   # (Physical car, Wallfollowing)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;roslaunch launch/car_navigation_stack.launch  # (Physical car, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;roslaunch launch/navigation_stack.launch      # (Simulation, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;roslaunch launch/qlearning.launch             # (Simulation, Train the Q-Learning model)</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)</div></div><!-- fragment --><h3>Launch file arguments</h3>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/car.launch                   # (Physical car, Wallfollowing)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;roslaunch launch/car_navigation_stack.launch  # (Physical car, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;roslaunch launch/gazebo.launch                # (Simulation, Wallfollowing)</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;roslaunch launch/navigation_stack.launch      # (Simulation, SLAM &amp; ROS navigation)</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;roslaunch launch/q_learning.launch            # (Simulation, Train the Q-Learning model)</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;roslaunch launch/policy_gradient.launch       # (Simulation, Train the Policy Gradient model)</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;roslaunch launch/evolutionary.launch          # (Simulation, Train the evolutionary neural network)</div></div><!-- fragment --><h3>Launch file arguments</h3>
 <p>These arguments can be passed to the launch files above. For example, to use the <code>gazebo.launch</code> file without emergency stop and with car highlighting, run: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch launch/gazebo.launch emergency_stop:=false car_highlighting:=true</div></div><!-- fragment --><p> The arguments can be changed permanently by editing the launch files.</p>
 <table class="doxtable">
 <tr>
 <th rowspan="2">Argument </th><th rowspan="2">Description </th><th colspan="5">Supported by <code>launch/&lt;file&gt;.launch</code>  </th></tr>
 <tr>
-<td>car </td><td>car_navstack </td><td>gazebo </td><td>navigation_stack </td><td>qlearning, evolutionary  </td></tr>
+<td>car </td><td>car_navstack </td><td>gazebo </td><td>navigation_stack </td><td>q_learning, policy_gradient, evolutionary  </td></tr>
 <tr>
 <td><code>debug</code> </td><td>Boolean value whether Gazebo should run in debug mode. Defaults to false. </td><td>✗ </td><td>✗ </td><td>✓ </td><td>✓ </td><td>✗  </td></tr>
 <tr>

@@ -1,0 +1,224 @@
+\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node}{}\section{train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node Class Reference}
+\label{classtrain__policy__gradient_1_1_policy_gradient_training_node}\index{train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node}}
+
+
+Inheritance diagram for train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_a556638d9dd7d0510dd7c89a41e8b5b8d}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_aa382b7c81d81d2c5a96b25dc32af26e4}{update\+\_\+policy} (self)
+\item 
+def \hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_af40b771234657aad44c5330949c2cfc5}{select\+\_\+action} (self, \hyperlink{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{state})
+\item 
+def \hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_a4a52a270df93e79a5ee2d2b7c38d11b1}{get\+\_\+reward} (self)
+\item 
+def \hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_affd9de3766ea3a1f6da6acf9b05380c9}{on\+\_\+complete\+\_\+episode} (self)
+\item 
+def \hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_a5dff182b0e7f2edd41618ab84743d16b}{on\+\_\+complete\+\_\+step} (self, \hyperlink{classtraining__node_1_1_training_node_ab3ec26c96f6e4d86cd0be251d4fd1af4}{state}, \hyperlink{classtraining__node_1_1_training_node_a9aca91d2739de83e292f046f6047c193}{action}, reward, next\+\_\+state)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_a1368f6cbc79becb73b56808f656f2764}{policy\+\_\+history}
+\item 
+\hyperlink{classtrain__policy__gradient_1_1_policy_gradient_training_node_af6280f4d541ec29b5f3d046fe3201b30}{current\+\_\+episode\+\_\+rewards}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}ROS node to train the Policy Gradient model
+\end{DoxyVerb}
+ 
+
+Definition at line 20 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self)}{__init__(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_a556638d9dd7d0510dd7c89a41e8b5b8d}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_a556638d9dd7d0510dd7c89a41e8b5b8d}
+
+
+Definition at line 24 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+\subsection{Member Function Documentation}
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!get\+\_\+reward@{get\+\_\+reward}}
+\index{get\+\_\+reward@{get\+\_\+reward}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{get\+\_\+reward(self)}{get_reward(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+get\+\_\+reward (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_a4a52a270df93e79a5ee2d2b7c38d11b1}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_a4a52a270df93e79a5ee2d2b7c38d11b1}
+
+
+Definition at line 79 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node_a4a52a270df93e79a5ee2d2b7c38d11b1_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!on\+\_\+complete\+\_\+episode@{on\+\_\+complete\+\_\+episode}}
+\index{on\+\_\+complete\+\_\+episode@{on\+\_\+complete\+\_\+episode}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+complete\+\_\+episode(self)}{on_complete_episode(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+on\+\_\+complete\+\_\+episode (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_affd9de3766ea3a1f6da6acf9b05380c9}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_affd9de3766ea3a1f6da6acf9b05380c9}
+
+
+Definition at line 101 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node_affd9de3766ea3a1f6da6acf9b05380c9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node_affd9de3766ea3a1f6da6acf9b05380c9_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!on\+\_\+complete\+\_\+step@{on\+\_\+complete\+\_\+step}}
+\index{on\+\_\+complete\+\_\+step@{on\+\_\+complete\+\_\+step}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{on\+\_\+complete\+\_\+step(self, state, action, reward, next\+\_\+state)}{on_complete_step(self, state, action, reward, next_state)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+on\+\_\+complete\+\_\+step (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{state, }
+\item[{}]{action, }
+\item[{}]{reward, }
+\item[{}]{next\+\_\+state}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_a5dff182b0e7f2edd41618ab84743d16b}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_a5dff182b0e7f2edd41618ab84743d16b}
+
+
+Definition at line 105 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node_a5dff182b0e7f2edd41618ab84743d16b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!select\+\_\+action@{select\+\_\+action}}
+\index{select\+\_\+action@{select\+\_\+action}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{select\+\_\+action(self, state)}{select_action(self, state)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+select\+\_\+action (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_af40b771234657aad44c5330949c2cfc5}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_af40b771234657aad44c5330949c2cfc5}
+
+
+Definition at line 67 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node_af40b771234657aad44c5330949c2cfc5_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!update\+\_\+policy@{update\+\_\+policy}}
+\index{update\+\_\+policy@{update\+\_\+policy}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{update\+\_\+policy(self)}{update_policy(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+update\+\_\+policy (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_aa382b7c81d81d2c5a96b25dc32af26e4}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_aa382b7c81d81d2c5a96b25dc32af26e4}
+
+
+Definition at line 40 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtrain__policy__gradient_1_1_policy_gradient_training_node_aa382b7c81d81d2c5a96b25dc32af26e4_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!current\+\_\+episode\+\_\+rewards@{current\+\_\+episode\+\_\+rewards}}
+\index{current\+\_\+episode\+\_\+rewards@{current\+\_\+episode\+\_\+rewards}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{current\+\_\+episode\+\_\+rewards}{current_episode_rewards}}]{\setlength{\rightskip}{0pt plus 5cm}train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+current\+\_\+episode\+\_\+rewards}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_af6280f4d541ec29b5f3d046fe3201b30}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_af6280f4d541ec29b5f3d046fe3201b30}
+
+
+Definition at line 38 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+\index{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}!policy\+\_\+history@{policy\+\_\+history}}
+\index{policy\+\_\+history@{policy\+\_\+history}!train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node@{train\+\_\+policy\+\_\+gradient\+::\+Policy\+Gradient\+Training\+Node}}
+\subsubsection[{\texorpdfstring{policy\+\_\+history}{policy_history}}]{\setlength{\rightskip}{0pt plus 5cm}train\+\_\+policy\+\_\+gradient.\+Policy\+Gradient\+Training\+Node.\+policy\+\_\+history}\hypertarget{classtrain__policy__gradient_1_1_policy_gradient_training_node_a1368f6cbc79becb73b56808f656f2764}{}\label{classtrain__policy__gradient_1_1_policy_gradient_training_node_a1368f6cbc79becb73b56808f656f2764}
+
+
+Definition at line 37 of file train\+\_\+policy\+\_\+gradient.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/\+Autonomous-\/\+Racing-\/\+P\+G/ar-\/tu-\/do/docs/master/ros\+\_\+ws/src/autonomous/reinforcement\+\_\+learning/scripts/\hyperlink{train__policy__gradient_8py}{train\+\_\+policy\+\_\+gradient.\+py}\end{DoxyCompactItemize}

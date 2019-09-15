@@ -18,13 +18,13 @@ int \hyperlink{namespaceplotter_aec1d6d729c0b25355f045e1f5bdc588f}{episode\+\_\+
 \item 
 \hyperlink{namespaceplotter_ab20bf5077ebe79698f5f02f62dcb33d2}{app} = Qt\+Gui.\+Q\+Application(sys.\+argv)
 \item 
-\hyperlink{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{app\+\_\+window} = pg.\+Graphics\+Window(title=\textquotesingle{}Q-\/Learning Plotter\textquotesingle{})
+\hyperlink{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{app\+\_\+window} = pg.\+Graphics\+Window(title=\textquotesingle{}Learning Progress\textquotesingle{})
 \item 
 \hyperlink{namespaceplotter_a40d656a97d2e7039f17ee5742490ecf9}{main\+\_\+plot} = app\+\_\+window.\+add\+Plot(title=\textquotesingle{}Episodes\textquotesingle{})
 \item 
-\hyperlink{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{length\+\_\+plot}
+\hyperlink{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{length\+\_\+plot} = main\+\_\+plot.\+plot(pen=\textquotesingle{}g\textquotesingle{}, name=\textquotesingle{}length\textquotesingle{})
 \item 
-\hyperlink{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{reward\+\_\+plot}
+\hyperlink{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{reward\+\_\+plot} = main\+\_\+plot.\+plot(pen=\textquotesingle{}r\textquotesingle{}, name=\textquotesingle{}reward\textquotesingle{})
 \end{DoxyCompactItemize}
 
 
@@ -52,7 +52,7 @@ Definition at line 31 of file plotter.\+py.
 
 \index{plotter@{plotter}!app\+\_\+window@{app\+\_\+window}}
 \index{app\+\_\+window@{app\+\_\+window}!plotter@{plotter}}
-\subsubsection[{\texorpdfstring{app\+\_\+window}{app_window}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+app\+\_\+window = pg.\+Graphics\+Window(title=\textquotesingle{}Q-\/Learning Plotter\textquotesingle{})}\hypertarget{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{}\label{namespaceplotter_aac09effafbbcb0f637092be85f99c351}
+\subsubsection[{\texorpdfstring{app\+\_\+window}{app_window}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+app\+\_\+window = pg.\+Graphics\+Window(title=\textquotesingle{}Learning Progress\textquotesingle{})}\hypertarget{namespaceplotter_aac09effafbbcb0f637092be85f99c351}{}\label{namespaceplotter_aac09effafbbcb0f637092be85f99c351}
 
 
 Definition at line 32 of file plotter.\+py.
@@ -73,13 +73,7 @@ Definition at line 28 of file plotter.\+py.
 
 \index{plotter@{plotter}!length\+\_\+plot@{length\+\_\+plot}}
 \index{length\+\_\+plot@{length\+\_\+plot}!plotter@{plotter}}
-\subsubsection[{\texorpdfstring{length\+\_\+plot}{length_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+length\+\_\+plot}\hypertarget{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{}\label{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}
-{\bfseries Initial value\+:}
-\begin{DoxyCode}
-1 = main\_plot.plot(
-2     pen=\textcolor{stringliteral}{'g'},
-3     name=\textcolor{stringliteral}{'length'})
-\end{DoxyCode}
+\subsubsection[{\texorpdfstring{length\+\_\+plot}{length_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+length\+\_\+plot = main\+\_\+plot.\+plot(pen=\textquotesingle{}g\textquotesingle{}, name=\textquotesingle{}length\textquotesingle{})}\hypertarget{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}{}\label{namespaceplotter_ac0842708a1e94becc6bb776a68a9ac5f}
 
 
 Definition at line 37 of file plotter.\+py.
@@ -107,14 +101,8 @@ Definition at line 27 of file plotter.\+py.
 
 \index{plotter@{plotter}!reward\+\_\+plot@{reward\+\_\+plot}}
 \index{reward\+\_\+plot@{reward\+\_\+plot}!plotter@{plotter}}
-\subsubsection[{\texorpdfstring{reward\+\_\+plot}{reward_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+reward\+\_\+plot}\hypertarget{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{}\label{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}
-{\bfseries Initial value\+:}
-\begin{DoxyCode}
-1 = main\_plot.plot(
-2     pen=\textcolor{stringliteral}{'r',}
-3 \textcolor{stringliteral}{    name='reward'})
-\end{DoxyCode}
+\subsubsection[{\texorpdfstring{reward\+\_\+plot}{reward_plot}}]{\setlength{\rightskip}{0pt plus 5cm}plotter.\+reward\+\_\+plot = main\+\_\+plot.\+plot(pen=\textquotesingle{}r\textquotesingle{}, name=\textquotesingle{}reward\textquotesingle{})}\hypertarget{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}{}\label{namespaceplotter_a40062593c153ab9d59f836890f82dfc7}
 
 
-Definition at line 40 of file plotter.\+py.
+Definition at line 38 of file plotter.\+py.
 
