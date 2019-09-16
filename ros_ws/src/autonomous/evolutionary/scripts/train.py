@@ -49,7 +49,9 @@ class TrainingNode():
             self.on_complete_test()
 
     def get_fitness(self):
-        return int(self.episode_length * (self.current_driver.getTotalVelocity() / self.episode_length))
+        return int(self.episode_length *
+                   (self.current_driver.getTotalVelocity() /
+                    self.episode_length))
 
     def on_complete_test(self):
         self.current_driver.fitness = self.get_fitness()
