@@ -29,6 +29,7 @@ class TrainingNode():
         self.test = 0
 
         self.untested_population = []
+        self.spawn_forward = True
         if CONTINUE_TRAINING:
             for i in range(POPULATION_SIZE):
                 individuum = NeuralCarDriver()
@@ -65,7 +66,8 @@ class TrainingNode():
             self.current_driver = self.untested_population[0]
         self.test += 1
 
-        reset_car.reset()
+        self.spawn_forward = not self.spawn_forward
+        reset_car.reset_random(0, 0, self.spawn_forward)
 
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
