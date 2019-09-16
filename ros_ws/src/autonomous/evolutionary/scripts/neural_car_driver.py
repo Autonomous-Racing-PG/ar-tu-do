@@ -5,6 +5,7 @@ import torch.nn as nn
 import numpy as np
 import math
 import os
+import random
 
 import rospy
 
@@ -20,18 +21,20 @@ TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
 STATE_SIZE = 8
 
-MIN_SPEED = 0.2
+MIN_SPEED = 0.1
 MAX_SPEED = 0.4
 
 POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
 
-LEARN_RATE = 0.2
+RANDOM_ACTIONS = 0.05
+
+LEARN_RATE = 0.1
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
 MODEL_FILENAME = os.path.join(
     RosPack().get_path("evolutionary"),
-    "evolutionary.to")
+    "evolutionary_{:d}.to")
 
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
@@ -52,6 +55,7 @@ class NeuralCarDriver(nn.Module):
 
         self.fitness = None
         self.scan_indices = None
+        self.total_velocity = 0
 
     def drive(self, laser_message):
         if self.scan_indices is None:
@@ -65,9 +69,16 @@ class NeuralCarDriver(nn.Module):
             action = self.layers.forward(state)
 
         message = drive_param()
-        message.angle = action[0].item()
-        message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + \
-            action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
+        if random.random() < RANDOM_ACTIONS:
+            message.angle = random.uniform(-1, 1)
+            message.velocity = random.uniform(0, 1)
+        else:
+            message.angle = action[0].item()
+            message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + \
+                action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
+
+        self.total_velocity += message.velocity
+
         drive_parameters_publisher.publish(message)
 
     def to_vector(self):
@@ -98,12 +109,12 @@ class NeuralCarDriver(nn.Module):
         offspring.load_vector(parameters)
         return offspring
 
-    def load(self):
-        self.load_state_dict(torch.load(MODEL_FILENAME))
+    def load(self, index):
+        self.load_state_dict(torch.load(MODEL_FILENAME.format(index)))
         rospy.loginfo("Model parameters loaded.")
 
-    def save(self):
-        torch.save(self.state_dict(), MODEL_FILENAME)
+    def save(self, index):
+        torch.save(self.state_dict(), MODEL_FILENAME.format(index))
 
 
 if __name__ == '__main__':
@@ -111,7 +122,7 @@ if __name__ == '__main__':
     driver = NeuralCarDriver()
 
     try:
-        driver.load()
+        driver.load(0)
     except IOError:
         message = "Model parameters for the neural net not found. You need to train it first."
         rospy.logerr(message)
