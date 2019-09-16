@@ -26,12 +26,13 @@ MAX_SPEED = 0.4
 POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
 
-LEARN_RATE = 0.2
+LEARN_RATE = 0.1
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
 MODEL_FILENAME = os.path.join(
     RosPack().get_path("evolutionary"),
-    "evolutionary.to")
+    "evolutionary")
+MODEL_FILENAME_ENDING = ".to"
 
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
@@ -98,12 +99,14 @@ class NeuralCarDriver(nn.Module):
         offspring.load_vector(parameters)
         return offspring
 
-    def load(self):
-        self.load_state_dict(torch.load(MODEL_FILENAME))
+    def load(self, index):
+        self.load_state_dict(torch.load(
+            MODEL_FILENAME + "_" + str(index) + MODEL_FILENAME_ENDING))
         rospy.loginfo("Model parameters loaded.")
 
-    def save(self):
-        torch.save(self.state_dict(), MODEL_FILENAME)
+    def save(self, index):
+        torch.save(self.state_dict(), MODEL_FILENAME +
+                   "_" + str(index) + MODEL_FILENAME_ENDING)
 
 
 if __name__ == '__main__':
@@ -111,7 +114,7 @@ if __name__ == '__main__':
     driver = NeuralCarDriver()
 
     try:
-        driver.load()
+        driver.load(0)
     except IOError:
         message = "Model parameters for the neural net not found. You need to train it first."
         rospy.logerr(message)

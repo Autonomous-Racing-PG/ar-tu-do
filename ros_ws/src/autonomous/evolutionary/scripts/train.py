@@ -10,6 +10,10 @@ import torch
 from neural_car_driver import *
 import simulation_tools.reset_car as reset_car
 
+MAX_EPISODE_LENGTH = 5000
+INITIAL_RANDOM_GENERATIONS = 20
+CONTINUE_TRAINING = True
+
 
 class TrainingNode():
     def __init__(self):
@@ -18,14 +22,23 @@ class TrainingNode():
         rospy.Subscriber(TOPIC_CRASH, Empty, self.on_crash)
 
         self.population = []
-        self.untested_population = [NeuralCarDriver()
-                                    for _ in range(POPULATION_SIZE)]
-        self.current_driver = self.untested_population[0]
 
         self.is_terminal_step = False
         self.episode_length = 0
         self.generation = 0
         self.test = 0
+
+        self.untested_population = []
+        if CONTINUE_TRAINING:
+            for i in range(POPULATION_SIZE):
+                individuum = NeuralCarDriver()
+                individuum.load(i)
+                self.untested_population.append(individuum)
+        else:
+            self.untested_population = [NeuralCarDriver()
+                                        for _ in range(POPULATION_SIZE)]
+
+        self.current_driver = self.untested_population[0]
 
     def on_receive_laser_scan(self, message):
         self.current_driver.drive(message)
@@ -56,8 +69,12 @@ class TrainingNode():
 
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
-        self.population[0].save()
-        rospy.loginfo("Generation {:d}: Fitness of the population: {:s}".format(
+
+        for i in range(POPULATION_SIZE):
+            self.population[i].save(i)
+
+        rospy.loginfo("{:s}Generation {:d}: Fitness of the population: {:s}".format(
+            "(Random) " if self.generation < INITIAL_RANDOM_GENERATIONS else "",
             self.generation + 1,
             ", ".join(str(driver.fitness) for driver in self.population)
         ))
@@ -65,8 +82,12 @@ class TrainingNode():
 
         self.untested_population = list()
         for _ in range(POPULATION_SIZE - SURVIVOR_COUNT):
-            parent = random.choice(self.population)
-            offspring = parent.mutate()
+            offspring = None
+            if self.generation < INITIAL_RANDOM_GENERATIONS:
+                offspring = NeuralCarDriver()
+            else:
+                parent = random.choice(self.population)
+                offspring = parent.mutate()
             self.untested_population.append(offspring)
 
         self.current_driver = self.untested_population[0]
