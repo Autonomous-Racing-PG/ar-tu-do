@@ -34,8 +34,7 @@ normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
 
 MODEL_FILENAME = os.path.join(
     RosPack().get_path("evolutionary"),
-    "evolutionary")
-MODEL_FILENAME_ENDING = ".to"
+    "evolutionary_{:d}.to")
 
 drive_parameters_publisher = rospy.Publisher(
     TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)
@@ -111,16 +110,11 @@ class NeuralCarDriver(nn.Module):
         return offspring
 
     def load(self, index):
-        self.load_state_dict(torch.load(
-            MODEL_FILENAME + "_" + str(index) + MODEL_FILENAME_ENDING))
+        self.load_state_dict(torch.load(MODEL_FILENAME.format(index)))
         rospy.loginfo("Model parameters loaded.")
 
     def save(self, index):
-        torch.save(self.state_dict(), MODEL_FILENAME +
-                   "_" + str(index) + MODEL_FILENAME_ENDING)
-
-    def getTotalVelocity(self):
-        return self.total_velocity
+        torch.save(self.state_dict(), MODEL_FILENAME.format(index))
 
 
 if __name__ == '__main__':
