@@ -195,7 +195,7 @@ The arguments can be changed permanently by editing the launch files.
     <td>✗</td>
     <td>✗</td>
     <td>✗</td>
-    <td>✓ / ✗</td>
+    <td>✓ / ✓ / ✗</td>
   </tr>
   <tr>
     <td><code>realtime_simulation</code></td>
