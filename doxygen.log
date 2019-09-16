@@ -1466,5 +1466,5 @@ Patching output file 182/185
 Patching output file 183/185
 Patching output file 184/185
 Patching output file 185/185
-lookup cache used 1344/65536 hits=5218 misses=1361
+lookup cache used 1353/65536 hits=5231 misses=1370
 finished...

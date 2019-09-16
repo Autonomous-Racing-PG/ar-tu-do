@@ -15,6 +15,7 @@ var searchData=
   ['command_5fposition',['COMMAND_POSITION',['../vesc__sim__driver_8h.html#ac958af99c14fc65de601ef4df2d83091',1,'vesc_sim_driver.h']]],
   ['command_5fthrottle',['COMMAND_THROTTLE',['../vesc__sim__driver_8h.html#a3f53fac243eac86bcd34fdc3a1c10c40',1,'vesc_sim_driver.h']]],
   ['continue',['CONTINUE',['../namespaceparameters__policy__gradient.html#a1dfc560f0fb66eabf7e4a49aec538e18',1,'parameters_policy_gradient.CONTINUE()'],['../namespaceparameters__q__learning.html#ac741bfed56fe758fadff980029dfcceb',1,'parameters_q_learning.CONTINUE()']]],
+  ['continue_5ftraining',['CONTINUE_TRAINING',['../namespacetrain.html#ace8c65d5c0d8f68ac961d3a2bf198e5d',1,'train']]],
   ['crashes',['crashes',['../namespacesimulation__tools_1_1plot__path.html#aab95480216fce1ffe96669023bf16c42',1,'simulation_tools::plot_path']]],
   ['cumulative_5fdistance',['cumulative_distance',['../classsimulation__tools_1_1track_1_1_track.html#a4513ffc3cdb1963bce98c678b093c40b',1,'simulation_tools::track::Track']]],
   ['cumulative_5freward',['cumulative_reward',['../classtraining__node_1_1_training_node.html#a1c132944727873d2f9449228f3845889',1,'training_node::TrainingNode']]],

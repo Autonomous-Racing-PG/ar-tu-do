@@ -132,7 +132,7 @@ Variables</h2></td></tr>
 <tr class="separator:a8e8319dbdbdbc3c32c3184c82f9c3f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9d3bc133f799be5e8c5c55884d10a8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#ac9d3bc133f799be5e8c5c55884d10a8d">STATE_SIZE</a> = 8</td></tr>
 <tr class="separator:ac9d3bc133f799be5e8c5c55884d10a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5292cc13090a4c357e023f5732a8a18a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#a5292cc13090a4c357e023f5732a8a18a">MIN_SPEED</a> = 0.2</td></tr>
+<tr class="memitem:a5292cc13090a4c357e023f5732a8a18a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#a5292cc13090a4c357e023f5732a8a18a">MIN_SPEED</a> = 0.1</td></tr>
 <tr class="separator:a5292cc13090a4c357e023f5732a8a18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2fef2c19127bf0b4e990d28542c7b6f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#af2fef2c19127bf0b4e990d28542c7b6f">MAX_SPEED</a> = 0.4</td></tr>
 <tr class="separator:af2fef2c19127bf0b4e990d28542c7b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,7 +140,9 @@ Variables</h2></td></tr>
 <tr class="separator:aaf8ade0766a9fd72a41c1029d04d6d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40064153991947271d4a197983593fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#ad40064153991947271d4a197983593fa">SURVIVOR_COUNT</a> = 4</td></tr>
 <tr class="separator:ad40064153991947271d4a197983593fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3873d214234a7685f0003bdedb09a3b5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#a3873d214234a7685f0003bdedb09a3b5">LEARN_RATE</a> = 0.2</td></tr>
+<tr class="memitem:afb68376c882e8c25519918f9d079e6c0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#afb68376c882e8c25519918f9d079e6c0">RANDOM_ACTIONS</a> = 0.05</td></tr>
+<tr class="separator:afb68376c882e8c25519918f9d079e6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3873d214234a7685f0003bdedb09a3b5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#a3873d214234a7685f0003bdedb09a3b5">LEARN_RATE</a> = 0.1</td></tr>
 <tr class="separator:a3873d214234a7685f0003bdedb09a3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a953d05d55cd2232a21159009976855f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceneural__car__driver.html#a953d05d55cd2232a21159009976855f3">normal_distribution</a> = torch.distributions.normal.Normal(0, <a class="el" href="namespaceneural__car__driver.html#a3873d214234a7685f0003bdedb09a3b5">LEARN_RATE</a>)</td></tr>
 <tr class="separator:a953d05d55cd2232a21159009976855f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,7 +168,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00110">110</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00121">121</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -180,7 +182,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceneural__car__driver.html">    1</a></span>&#160;= rospy.Publisher(</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    TOPIC_DRIVE_PARAMETERS, drive_param, queue_size=1)</div></div><!-- fragment -->
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00036">36</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00039">39</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -194,7 +196,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00111">111</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00122">122</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -203,12 +205,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float neural_car_driver.LEARN_RATE = 0.2</td>
+          <td class="memname">float neural_car_driver.LEARN_RATE = 0.1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00029">29</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00032">32</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -222,7 +224,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00024">24</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00025">25</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -236,7 +238,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00116">116</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00127">127</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -245,12 +247,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float neural_car_driver.MIN_SPEED = 0.2</td>
+          <td class="memname">float neural_car_driver.MIN_SPEED = 0.1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00023">23</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00024">24</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -263,8 +265,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceneural__car__driver.html">    1</a></span>&#160;= os.path.join(</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    RosPack().get_path(<span class="stringliteral">&quot;evolutionary&quot;</span>),</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="stringliteral">&quot;evolutionary.to&quot;</span>)</div></div><!-- fragment -->
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00032">32</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<b>Initial value:</b><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceneural__car__driver.html">    1</a></span>&#160;= os.path.join(</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    RosPack().get_path(<span class="stringliteral">&quot;evolutionary&quot;</span>),</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="stringliteral">&quot;evolutionary_{:d}.to&quot;</span>)</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00035">35</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -278,7 +280,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00030">30</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00033">33</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -292,7 +294,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00026">26</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00027">27</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb68376c882e8c25519918f9d079e6c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float neural_car_driver.RANDOM_ACTIONS = 0.05</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00030">30</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -306,7 +322,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00021">21</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00022">22</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -320,7 +336,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00027">27</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00028">28</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -334,7 +350,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00018">18</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00019">19</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -348,7 +364,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00016">16</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00017">17</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -362,7 +378,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00019">19</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00020">20</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>
@@ -376,7 +392,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00017">17</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
+<p>Definition at line <a class="el" href="neural__car__driver_8py_source.html#l00018">18</a> of file <a class="el" href="neural__car__driver_8py_source.html">neural_car_driver.py</a>.</p>
 
 </div>
 </div>

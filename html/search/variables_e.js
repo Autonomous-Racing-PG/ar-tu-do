@@ -1,6 +1,7 @@
 var searchData=
 [
   ['radius',['radius',['../classcircle_1_1_circle.html#a33aec6cd768f0a1850fae92cf3fcbc95',1,'circle::Circle']]],
+  ['random_5factions',['RANDOM_ACTIONS',['../namespaceneural__car__driver.html#afb68376c882e8c25519918f9d079e6c0',1,'neural_car_driver']]],
   ['rear_5fwheel_5fdistance',['REAR_WHEEL_DISTANCE',['../namespacecar__config.html#a43e668702c6dc662ff95f80047ee5500',1,'car_config']]],
   ['reverse_5ftrack',['reverse_track',['../namespacesimulation__tools_1_1lap__timer.html#a05166a035886cf7f2693a8f72dc05bbc',1,'simulation_tools::lap_timer']]],
   ['reward_5flist',['reward_list',['../namespaceplotter.html#aa648ebbb57476267f9430be51eeb420c',1,'plotter']]],

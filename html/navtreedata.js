@@ -38,9 +38,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "____init_____8py.html",
-"classtraining__node_1_1_training_node.html#a90f18768afcf645bba834d487b383bf7",
-"namespacesetup.html",
-"wallfollowing_8py.html#adc9f95e0b626be8ddae98a596a38e7e8"
+"classtraining__node_1_1_training_node.html#a80acbde1d80b540dc9604b0d91cfbddb",
+"namespaces.html",
+"wallfollowing_8py.html#a9ee8d77a4629b5d8ecb2899da6e3a7fe"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

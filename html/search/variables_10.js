@@ -30,6 +30,7 @@ var searchData=
   ['total_5fdistance',['total_distance',['../classsimulation__tools_1_1track_1_1_track_position.html#a488a7374a672827079686cf7fece12ee',1,'simulation_tools::track::TrackPosition']]],
   ['total_5fprogress',['total_progress',['../classsimulation__tools_1_1track_1_1_track_position.html#a0471b3519ccab2dfd048ed02853f8a8d',1,'simulation_tools::track::TrackPosition']]],
   ['total_5fstep_5fcount',['total_step_count',['../classtraining__node_1_1_training_node.html#a3a5dfc28c6625a91f18ca7f8ddfbb8e6',1,'training_node::TrainingNode']]],
+  ['total_5fvelocity',['total_velocity',['../classneural__car__driver_1_1_neural_car_driver.html#a0d1f352fc537723d9ba1048317b56942',1,'neural_car_driver::NeuralCarDriver']]],
   ['track',['track',['../namespacesimulation__tools_1_1track.html#ac731095c2502c445d46302406cb81651',1,'simulation_tools::track']]],
   ['transmission',['TRANSMISSION',['../namespacecar__config.html#a7af97a6c9168673aba8917029cfe44d3',1,'car_config']]],
   ['turning_5fradius',['TURNING_RADIUS',['../namespacecar__config.html#afe308ba7ae07f7bd5af7e79a095101a9',1,'car_config']]]

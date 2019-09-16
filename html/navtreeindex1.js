@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classtraining__node_1_1_training_node.html#a80acbde1d80b540dc9604b0d91cfbddb":[4,0,11,0,23],
 "classtraining__node_1_1_training_node.html#a90f18768afcf645bba834d487b383bf7":[4,0,11,0,2],
 "classtraining__node_1_1_training_node.html#a98fc9d6b00aa02587d5c53e56f20ce07":[4,0,11,0,19],
 "classtraining__node_1_1_training_node.html#a9aa59ff1a63634d0305faf83b43092c9":[4,0,11,0,22],
@@ -189,8 +190,8 @@ var NAVTREEINDEX1 =
 "keyboard__controller_8h.html#a3750c1de56b20886f8932d6005c2b231":[5,0,0,0,0,5,0,1,9],
 "keyboard__controller_8h.html#a3881a7dd470107a7c50efedc0a708839":[5,0,0,0,0,5,0,1,7],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83":[5,0,0,0,0,5,0,1,1],
-"keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,1],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,4],
+"keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aa60a6a471c0681e5a49c4f5d00f6bc5a":[5,0,0,0,0,5,0,1,1,1],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,0],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83aaeff3f3f2731681b2ed6a27786a56203":[5,0,0,0,0,5,0,1,1,3],
 "keyboard__controller_8h.html#a4430ce18ab45f139e6843ac0811fda83ade7d660fc991e08c2d3526fec8a46c4a":[5,0,0,0,0,5,0,1,1,2],
@@ -232,15 +233,15 @@ var NAVTREEINDEX1 =
 "namespacecar__config.html":[3,0,0],
 "namespacecircle.html":[3,0,1],
 "namespacecircle.html":[4,0,0],
-"namespacedrive__policy__gradient.html":[3,0,2],
 "namespacedrive__policy__gradient.html":[4,0,1],
+"namespacedrive__policy__gradient.html":[3,0,2],
 "namespacedrive__q__learning.html":[3,0,3],
 "namespacedrive__q__learning.html":[4,0,2],
 "namespacemembers.html":[3,1,0],
 "namespacemembers_func.html":[3,1,1],
 "namespacemembers_vars.html":[3,1,2],
-"namespaceneural__car__driver.html":[4,0,3],
 "namespaceneural__car__driver.html":[3,0,4],
+"namespaceneural__car__driver.html":[4,0,3],
 "namespaceparameters__policy__gradient.html":[4,0,4],
 "namespaceparameters__policy__gradient.html":[3,0,5],
 "namespaceparameters__q__learning.html":[4,0,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "namespaceplotter.html":[3,0,7],
 "namespacereinforcement__learning__node.html":[4,0,6],
 "namespacereinforcement__learning__node.html":[3,0,8],
-"namespacerviz__geometry.html":[3,0,9],
-"namespaces.html":[3,0]
+"namespacerviz__geometry.html":[3,0,9]
 };
