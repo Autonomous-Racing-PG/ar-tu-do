@@ -5,6 +5,7 @@ import torch.nn as nn
 import numpy as np
 import math
 import os
+import random
 
 import rospy
 
@@ -20,11 +21,13 @@ TOPIC_GAZEBO_MODEL_STATE = "/gazebo/model_states"
 
 STATE_SIZE = 8
 
-MIN_SPEED = 0.2
+MIN_SPEED = 0.1
 MAX_SPEED = 0.4
 
 POPULATION_SIZE = 10
 SURVIVOR_COUNT = 4
+
+RANDOM_ACTIONS = 0.05
 
 LEARN_RATE = 0.1
 normal_distribution = torch.distributions.normal.Normal(0, LEARN_RATE)
@@ -53,6 +56,7 @@ class NeuralCarDriver(nn.Module):
 
         self.fitness = None
         self.scan_indices = None
+        self.total_velocity = 0
 
     def drive(self, laser_message):
         if self.scan_indices is None:
@@ -66,9 +70,16 @@ class NeuralCarDriver(nn.Module):
             action = self.layers.forward(state)
 
         message = drive_param()
-        message.angle = action[0].item()
-        message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + \
-            action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
+        if random.random() < RANDOM_ACTIONS:
+            message.angle = random.uniform(-1, 1)
+            message.velocity = random.uniform(0, 1)
+        else:
+            message.angle = action[0].item()
+            message.velocity = (MIN_SPEED + MAX_SPEED) / 2 + \
+                action[1].item() * (MAX_SPEED - MIN_SPEED) / 2
+
+        self.total_velocity += message.velocity
+
         drive_parameters_publisher.publish(message)
 
     def to_vector(self):
@@ -107,6 +118,9 @@ class NeuralCarDriver(nn.Module):
     def save(self, index):
         torch.save(self.state_dict(), MODEL_FILENAME +
                    "_" + str(index) + MODEL_FILENAME_ENDING)
+
+    def getTotalVelocity(self):
+        return self.total_velocity
 
 
 if __name__ == '__main__':

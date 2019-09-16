@@ -45,11 +45,11 @@ class TrainingNode():
         self.current_driver.drive(message)
         self.episode_length += 1
 
-        if self.is_terminal_step:
+        if self.is_terminal_step or self.episode_length > MAX_EPISODE_LENGTH:
             self.on_complete_test()
 
     def get_fitness(self):
-        return self.episode_length
+        return int(self.episode_length * (self.current_driver.getTotalVelocity() / self.episode_length))
 
     def on_complete_test(self):
         self.current_driver.fitness = self.get_fitness()
