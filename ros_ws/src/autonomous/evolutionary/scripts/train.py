@@ -82,7 +82,6 @@ class TrainingNode():
 
         self.untested_population = list()
         for _ in range(POPULATION_SIZE - SURVIVOR_COUNT):
-            offspring = None
             parent = random.choice(self.population)
             offspring = parent.mutate()
             self.untested_population.append(offspring)
