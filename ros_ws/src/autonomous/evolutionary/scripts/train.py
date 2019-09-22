@@ -12,7 +12,7 @@ import simulation_tools.reset_car as reset_car
 
 MAX_EPISODE_LENGTH = 5000
 INITIAL_RANDOM_POPULATION_SIZE = 250
-CONTINUE_TRAINING = True
+CONTINUE_TRAINING = False
 
 
 class TrainingNode():
