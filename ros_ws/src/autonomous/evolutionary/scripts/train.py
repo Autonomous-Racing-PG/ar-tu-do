@@ -10,11 +10,34 @@ import torch
 from neural_car_driver import *
 import simulation_tools.reset_car as reset_car
 import numpy as np
+from collections import deque
 
 MAX_EPISODE_LENGTH = 5000
-INITIAL_RANDOM_POPULATION_SIZE = 250
+INITIAL_RANDOM_POPULATION_SIZE = 100
 CONTINUE_TRAINING = False
 
+global_fitness_history = deque(maxlen=500)
+
+class SpawnPoint():
+    def __init__(self):
+        self.position = random.random()
+        self.angle = 0
+        self.offset = 0
+        self.forward = random.random() > 0.5
+
+        self.steps_completed = 0
+        self.fitness_history = deque(maxlen=100)
+
+    def reset_car(self):
+        reset_car.reset(self.position, self.angle, self.offset, self.forward)
+
+    def get_difficulty(self, fitness):
+        global_fitness_history.append(fitness)
+        self.fitness_history.append(fitness)
+        if len(self.fitness_history) < 10:
+            return 1
+        else:
+            return np.mean(global_fitness_history) / np.mean(self.fitness_history)
 
 class TrainingNode():
     def __init__(self):
@@ -39,7 +62,10 @@ class TrainingNode():
             self.untested_population = [
                 NeuralCarDriver() for _ in range(INITIAL_RANDOM_POPULATION_SIZE)]
 
-        self.current_driver = self.untested_population[0]
+        self.spawn_points = [SpawnPoint() for _ in range(20)]
+        self.current_spawn_point = None
+
+        self.start_episode()
 
     def on_receive_laser_scan(self, message):
         self.current_driver.drive(message)
@@ -49,30 +75,37 @@ class TrainingNode():
             self.on_complete_test()
 
     def get_fitness(self):
-        return self.episode_length * \
+        raw_fitness = self.episode_length * \
             (self.current_driver.total_velocity / self.episode_length)
+        return raw_fitness * self.current_spawn_point.get_difficulty(raw_fitness)
 
     def on_complete_test(self):
         self.current_driver.fitness_history.append(self.get_fitness())
         self.current_driver.fitness = np.mean(self.current_driver.fitness_history)
         self.population.append(self.current_driver)
         self.untested_population.remove(self.current_driver)
-        self.episode_length = 0
-        self.current_driver.total_velocity = 0
-        self.is_terminal_step = False
+        self.current_spawn_point.steps_completed += self.episode_length ** 2
+        self.current_driver = None
 
         if len(self.untested_population) == 0:
-            self.current_driver = None
             self.on_complete_generation()
         else:
-            self.current_driver = self.untested_population[0]
+            self.start_episode()
 
         if len(self.untested_population) > POPULATION_SIZE and len(self.untested_population) % 10 == 0:
             print("Testing random drivers for the starting population, {:d} remaining...".format(len(self.untested_population)))
         self.test += 1
 
-        reset_car.reset_random(0, 0, self.generation % 2 == 0)
-
+    def start_episode(self):
+        self.current_driver = self.untested_population[0]
+        self.episode_length = 0
+        self.current_driver.total_velocity = 0
+        self.is_terminal_step = False
+        
+        self.current_spawn_point = min(self.spawn_points, key=lambda spawn_point: spawn_point.steps_completed)
+        self.current_spawn_point.reset_car()
+        
+        
     def on_complete_generation(self):
         self.population.sort(key=lambda driver: driver.fitness, reverse=True)
 
@@ -92,8 +125,8 @@ class TrainingNode():
             offspring = parent.mutate()
             self.untested_population.append(offspring)
 
-        self.current_driver = self.untested_population[0]
         self.generation += 1
+        self.start_episode()
 
     def on_crash(self, _):
         if self.episode_length > 5:
