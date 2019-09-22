@@ -9,6 +9,7 @@ from gazebo_msgs.msg import ModelStates
 import torch
 from neural_car_driver import *
 import simulation_tools.reset_car as reset_car
+import numpy as np
 
 MAX_EPISODE_LENGTH = 5000
 INITIAL_RANDOM_POPULATION_SIZE = 250
@@ -52,11 +53,12 @@ class TrainingNode():
             (self.current_driver.total_velocity / self.episode_length)
 
     def on_complete_test(self):
-        self.current_driver.fitness = self.get_fitness()
-
+        self.current_driver.fitness_history.append(self.get_fitness())
+        self.current_driver.fitness = np.mean(self.current_driver.fitness_history)
         self.population.append(self.current_driver)
         self.untested_population.remove(self.current_driver)
         self.episode_length = 0
+        self.current_driver.total_velocity = 0
         self.is_terminal_step = False
 
         if len(self.untested_population) == 0:
@@ -64,6 +66,9 @@ class TrainingNode():
             self.on_complete_generation()
         else:
             self.current_driver = self.untested_population[0]
+
+        if len(self.untested_population) > POPULATION_SIZE and len(self.untested_population) % 10 == 0:
+            print("Testing random drivers for the starting population, {:d} remaining...".format(len(self.untested_population)))
         self.test += 1
 
         reset_car.reset_random(0, 0, self.generation % 2 == 0)
@@ -76,13 +81,14 @@ class TrainingNode():
 
         rospy.loginfo("Generation {:d}: Fitness of the population: {:s}".format(
             self.generation + 1,
-            ", ".join(str(int(driver.fitness)) for driver in self.population)
+            ", ".join("{:0.0f} ({:d})".format(driver.fitness, len(driver.fitness_history)) for driver in self.population)
         ))
-        self.population = self.population[:SURVIVOR_COUNT]
 
-        self.untested_population = list()
+        survivors = self.population[:SURVIVOR_COUNT]
+        self.untested_population = list(survivors)
+        self.population = []
         for _ in range(POPULATION_SIZE - SURVIVOR_COUNT):
-            parent = random.choice(self.population)
+            parent = random.choice(survivors)
             offspring = parent.mutate()
             self.untested_population.append(offspring)
 

@@ -25,7 +25,7 @@ MIN_SPEED = 0.1
 MAX_SPEED = 0.4
 
 POPULATION_SIZE = 10
-SURVIVOR_COUNT = 4
+SURVIVOR_COUNT = 5
 
 RANDOM_ACTIONS = 0.05
 
@@ -54,6 +54,7 @@ class NeuralCarDriver(nn.Module):
         )
 
         self.fitness = None
+        self.fitness_history = []
         self.scan_indices = None
         self.total_velocity = 0
 
