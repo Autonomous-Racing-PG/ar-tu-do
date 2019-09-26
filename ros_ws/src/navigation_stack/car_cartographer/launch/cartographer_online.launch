@@ -23,7 +23,7 @@
 
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
           -configuration_directory $(find car_cartographer)/config
-          -configuration_basename cartographer_config_$(arg ros_version).lua" output="screen">
+          -configuration_basename cartographer_config.lua" output="screen">
   </node>
 
   <group if="$(eval ros_version=='melodic')">
