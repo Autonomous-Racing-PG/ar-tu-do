@@ -25,7 +25,7 @@
   <group if="$(eval ros_version=='kinetic')">
     <node name="cartographer_offline_node" pkg="cartographer_ros" type="cartographer_offline_node" args="
           -configuration_directory $(find car_cartographer)/config
-          -configuration_basename cartographer_config_kinetic.lua
+          -configuration_basename cartographer_config.lua
           -urdf_filename $(find car_cartographer)/files/racer.urdf
           -bag_filenames $(arg bag_filenames)" output="screen" required="true">
     </node>
@@ -34,7 +34,7 @@
   <group if="$(eval ros_version=='melodic')">
     <node name="cartographer_offline_node" pkg="cartographer_ros" type="cartographer_offline_node" args="
           -configuration_directory $(find car_cartographer)/config
-          -configuration_basenames cartographer_config_melodic.lua
+          -configuration_basenames cartographer_config.lua
           -urdf_filenames $(find car_cartographer)/files/racer.urdf
           -bag_filenames $(arg bag_filenames)" output="screen" required="true">
     </node>
