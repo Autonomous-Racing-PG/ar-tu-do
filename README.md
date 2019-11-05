@@ -53,7 +53,7 @@ cd range_libc/pywrapper
 Clone the repository:
 
 ```bash
-git clone --recurse-submodules https://github.com/Autonomous-Racing-PG/ar-tu-do.git
+git clone --recurse-submodules https://github.com/arpg-sophisticated/ar-tu-do
 ```
 
 Install missing ROS dependencies:
